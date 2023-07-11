@@ -302,7 +302,7 @@ window.Rivers = (function () {
       prevDepressions = depressions;
     }
 
-    depressions && WARN && console.warn(`Unresolved depressions: ${depressions}. Edit heightmap to fix`);
+    depressions && WARN && console.warn(`未解决的深陷: ${depressions}. 编辑高度图来修复`);
   };
 
   // add points at 1/3 and 2/3 of a line between adjacents river cells

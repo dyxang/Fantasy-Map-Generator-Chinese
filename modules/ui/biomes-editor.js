@@ -16,7 +16,7 @@ function editBiomes() {
   modules.editBiomes = true;
 
   $("#biomesEditor").dialog({
-    title: "Biomes Editor",
+    title: "生物群编辑器",
     resizable: false,
     width: fitContent(),
     close: closeBiomesEditor,
@@ -88,7 +88,7 @@ function editBiomes() {
       const rural = b.rural[i] * populationRate;
       const urban = b.urban[i] * populationRate * urbanization;
       const population = rn(rural + urban);
-      const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(urban)}`;
+      const populationTip = `总人口: ${si(population)}; 农村人口: ${si(rural)}; 城市人口: ${si(urban)}`;
       totalArea += area;
       totalPopulation += population;
 
@@ -104,24 +104,24 @@ function editBiomes() {
           data-color=${b.color[i]}
         >
           <fill-box fill="${b.color[i]}"></fill-box>
-          <input data-tip="Biome name. Click and type to change" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
-          <span data-tip="Biome habitability percent" class="hide">%</span>
+          <input data-tip="生物群落名称。单击并键入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
+          <span data-tip="生物群落可居住百分比" class="hide">%</span>
           <input
-            data-tip="Biome habitability percent. Click and set new value to change"
+            data-tip="生物群落可居住百分比。单击并设置新值以更改"
             type="number"
             min="0"
             max="9999"
             class="biomeHabitability hide"
             value=${b.habitability[i]}
           />
-          <span data-tip="Cells count" class="icon-check-empty hide"></span>
-          <div data-tip="Cells count" class="biomeCells hide">${b.cells[i]}</div>
-          <span data-tip="Biome area" style="padding-right: 4px" class="icon-map-o hide"></span>
-          <div data-tip="Biome area" class="biomeArea hide">${si(area) + unit}</div>
+          <span data-tip="单元格计数" class="icon-check-empty hide"></span>
+          <div data-tip="单元格计数" class="biomeCells hide">${b.cells[i]}</div>
+          <span data-tip="生物区" style="padding-right: 4px" class="icon-map-o hide"></span>
+          <div data-tip="生物区" class="biomeArea hide">${si(area) + unit}</div>
           <span data-tip="${populationTip}" class="icon-male hide"></span>
           <div data-tip="${populationTip}" class="biomePopulation hide">${si(population)}</div>
-          <span data-tip="Open Wikipedia article about the biome" class="icon-info-circled pointer hide"></span>
-          ${i > 12 && !b.cells[i] ? '<span data-tip="Remove the custom biome" class="icon-trash-empty hide"></span>' : ""}
+          <span data-tip="打开维基百科关于生物群落的文章" class="icon-info-circled pointer hide"></span>
+          ${i > 12 && !b.cells[i] ? '<span data-tip="移除定制的生物群落" class="icon-trash-empty hide"></span>' : ""}
         </div>
       `;
     }
@@ -196,7 +196,7 @@ function editBiomes() {
     const failed = isNaN(+el.value) || +el.value < 0 || +el.value > 9999;
     if (failed) {
       el.value = biomesData.habitability[biome];
-      tip("Please provide a valid number in range 0-9999", false, "error");
+      tip("请提供0-9999范围内的有效数字", false, "error");
       return;
     }
     biomesData.habitability[biome] = +el.value;
@@ -207,22 +207,22 @@ function editBiomes() {
 
   function openWiki(el) {
     const biomeName = el.parentNode.dataset.name;
-    if (biomeName === "Custom" || !biomeName) return tip("Please fill in the biome name", false, "error");
+    if (biomeName === "Custom" || !biomeName) return tip("请填写生物群落名称", false, "error");
 
     const wikiBase = "https://en.wikipedia.org/wiki/";
     const pages = {
-      "Hot desert": "Desert_climate#Hot_desert_climates",
-      "Cold desert": "Desert_climate#Cold_desert_climates",
-      Savanna: "Tropical_and_subtropical_grasslands,_savannas,_and_shrublands",
-      Grassland: "Temperate_grasslands,_savannas,_and_shrublands",
-      "Tropical seasonal forest": "Seasonal_tropical_forest",
-      "Temperate deciduous forest": "Temperate_deciduous_forest",
-      "Tropical rainforest": "Tropical_rainforest",
-      "Temperate rainforest": "Temperate_rainforest",
-      Taiga: "Taiga",
-      Tundra: "Tundra",
-      Glacier: "Glacier",
-      Wetland: "Wetland"
+      "热沙漠": "Desert_climate#Hot_desert_climates",
+      "冷沙漠": "Desert_climate#Cold_desert_climates",
+      "热带草原气候" : "Tropical_and_subtropical_grasslands,_savannas,_and_shrublands",
+      "草原气候" : "Temperate_grasslands,_savannas,_and_shrublands",
+      "热带季雨林": "Seasonal_tropical_forest",
+      "温带落叶林": "Temperate_deciduous_forest",
+      "热带雨林": "Tropical_rainforest",
+      "温带雨林": "Temperate_rainforest",
+      "北方针叶林" : "Taiga",
+      "苔原" : "Tundra",
+      "冰川" : "Glacier",
+      "湿地" : "Wetland"
     };
     const customBiomeLink = `https://en.wikipedia.org/w/index.php?search=${biomeName}`;
     const link = pages[biomeName] ? wikiBase + pages[biomeName] : customBiomeLink;
@@ -264,7 +264,7 @@ function editBiomes() {
     const b = biomesData,
       i = biomesData.i.length;
     if (i > 254) {
-      tip("Maximum number of biomes reached (255), data cleansing is required", false, "error");
+      tip("最大数量的生物群落达到(255) ，数据清理是必要的", false, "error");
       return;
     }
 
@@ -284,16 +284,16 @@ function editBiomes() {
     const unit = getAreaUnit();
     const line = `<div class="states biomes" data-id="${i}" data-name="${b.name[i]}" data-habitability=${b.habitability[i]} data-cells=0 data-area=0 data-population=0 data-color=${b.color[i]}>
       <fill-box fill="${b.color[i]}"></fill-box>
-      <input data-tip="Biome name. Click and type to change" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false">
-      <span data-tip="Biome habitability percent" class="hide">%</span>
-      <input data-tip="Biome habitability percent. Click and set new value to change" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${b.habitability[i]}>
-      <span data-tip="Cells count" class="icon-check-empty hide"></span>
-      <div data-tip="Cells count" class="biomeCells hide">${b.cells[i]}</div>
-      <span data-tip="Biome area" style="padding-right: 4px" class="icon-map-o hide"></span>
-      <div data-tip="Biome area" class="biomeArea hide">0 ${unit}</div>
-      <span data-tip="Total population: 0" class="icon-male hide"></span>
-      <div data-tip="Total population: 0" class="biomePopulation hide">0</div>
-      <span data-tip="Remove the custom biome" class="icon-trash-empty hide"></span>
+      <input data-tip="生物群落名称。点击并键入更改” class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false">
+      <span data-tip="生物群落可居住百分比" class="hide">%</span>
+      <input data-tip="生物群落可居住百分比。单击并设置新值以更改" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${b.habitability[i]}>
+      <span data-tip="单元格计数" class="icon-check-empty hide"></span>
+      <div data-tip="单元格计数" class="biomeCells hide">${b.cells[i]}</div>
+      <span data-tip="生物区" style="padding-right: 4px" class="icon-map-o hide"></span>
+      <div data-tip="生物区" class="biomeArea hide">0 ${unit}</div>
+      <span data-tip="总人口: 0" class="icon-male hide"></span>
+      <div data-tip="总人口: 0" class="biomePopulation hide">0</div>
+      <span data-tip="移除定制的生物群落" class="icon-trash-empty hide"></span>
     </div>`;
 
     body.insertAdjacentHTML("beforeend", line);
@@ -345,7 +345,7 @@ function editBiomes() {
     biomesFooter.style.display = "none";
     $("#biomesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg"}});
 
-    tip("Click on biome to select, drag the circle to change biome", true);
+    tip("点击生物群落选择，拖动圆圈改变生物群落", true);
     viewbox
       .style("cursor", "crosshair")
       .on("click", selectBiomeOnMapClick)
@@ -363,7 +363,7 @@ function editBiomes() {
     const point = d3.mouse(this);
     const i = findCell(point[0], point[1]);
     if (pack.cells.h[i] < 20) {
-      tip("You cannot reassign water via biomes. Please edit the Heightmap to change water", false, "error");
+      tip("您不能通过生物群落重新分配水。请编辑高度图来改变水", false, "error");
       return;
     }
 

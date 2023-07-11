@@ -171,8 +171,8 @@ window.Markers = (function () {
     const {cells} = pack;
 
     const proper = Names.getCulture(cells.culture[cell]);
-    const name = P(0.3) ? "Mount " + proper : P(0.7) ? proper + " Volcano" : proper;
-    const status = P(0.6) ? "Dormant" : P(0.4) ? "Active" : "Erupting";
+    const name = P(0.3) ? "山峰 " + proper : P(0.7) ? proper + " 火山" : proper;
+    const status = P(0.6) ? "休眠" : P(0.4) ? "活跃" : "爆发";
     notes.push({id, name, legend: `${status} volcano. Height: ${getFriendlyHeight(cells.p[cell])}.`});
   }
 
@@ -186,7 +186,7 @@ window.Markers = (function () {
     const proper = Names.getCulture(cells.culture[cell]);
     const temp = convertTemperature(gauss(35, 15, 20, 100));
     const name = P(0.3) ? "Hot Springs of " + proper : P(0.7) ? proper + " Hot Springs" : proper;
-    const legend = `A geothermal springs with naturally heated water that provide relaxation and medicinal benefits. Average temperature is ${temp}.`;
+    const legend = `有天然热水的地热温泉，提供放松和药用的好处。平均气温为 ${temp}.`;
 
     notes.push({id, name, legend});
   }
@@ -213,7 +213,7 @@ window.Markers = (function () {
     const proper = Names.getCulture(cells.culture[cell]);
     const name = `${proper} ${type}`;
     const legend =
-      "This legendary water source is whispered about in ancient tales and believed to possess mystical properties. The spring emanates crystal-clear water, shimmering with an otherworldly iridescence that sparkles even in the dimmest light.";
+      "这个传说中的水源在古代传说中流传，人们认为它具有神秘的属性。泉水散发出水晶般清澈的水，闪烁着超凡脱俗的彩虹色，即使在最昏暗的光线下也会闪烁。";
 
     notes.push({id, name, legend});
   }
@@ -228,9 +228,9 @@ window.Markers = (function () {
     const resources = {salt: 5, gold: 2, silver: 4, copper: 2, iron: 3, lead: 1, tin: 1};
     const resource = rw(resources);
     const burg = pack.burgs[cells.burg[cell]];
-    const name = `${burg.name} — ${resource} mining town`;
+    const name = `${burg.name} — ${resource} 矿业城镇`;
     const population = rn(burg.population * populationRate * urbanization);
-    const legend = `${burg.name} is a mining town of ${population} people just nearby the ${resource} mine.`;
+    const legend = `${burg.name}是一个有${population}人的矿业小镇，就在${resource}矿附近。`;
     notes.push({id, name, legend});
   }
 
@@ -253,7 +253,7 @@ window.Markers = (function () {
     const burg = pack.burgs[cells.burg[cell]];
     const river = pack.rivers.find(r => r.i === pack.cells.r[cell]);
     const riverName = river ? `${river.name} ${river.type}` : "river";
-    const name = river && P(0.2) ? `${river.name} Bridge` : `${burg.name} Bridge`;
+    const name = river && P(0.2) ? `${river.name} 桥` : `${burg.name} 桥`;
     const weightedAdjectives = {
       stone: 10,
       wooden: 1,
@@ -264,15 +264,15 @@ window.Markers = (function () {
       weathered: 1
     };
     const barriers = [
-      "its collapse during the flood",
-      "being rumoured to attract trolls",
-      "the drying up of local trade",
-      "banditry infested the area",
-      "the old waypoints crumbled"
+      "在洪水中坍塌",
+      "据说是为了吸引巨魔",
+      "当地贸易的枯竭",
+      "该地区土匪横行",
+      "旧的路标崩溃了"
     ];
     const legend = P(0.7)
-      ? `A ${rw(weightedAdjectives)} bridge spans over the ${riverName} near ${burg.name}.`
-      : `An old crossing of the ${riverName}, rarely used since ${ra(barriers)}.`;
+      ? `一个 ${rw(weightedAdjectives)} 桥跨越 ${riverName} 接近 ${burg.name} `
+      : `一条古老的 ${riverName} 渡口，自从 ${ra(barriers)} 很少使用`;
 
     notes.push({id, name, legend});
   }
@@ -535,7 +535,7 @@ window.Markers = (function () {
     const meal = isAnimalThemed && P(0.3) ? animal : ra(courses);
     const course = `${ra(methods)} ${meal}`.toLowerCase();
     const drink = `${P(0.5) ? ra(types) : ra(colors)} ${ra(drinks)}`.toLowerCase();
-    const legend = `A big and famous roadside ${typeName}. Delicious ${course} with ${drink} is served here.`;
+    const legend = `大名鼎鼎的路边 ${typeName}. 这里供应美味 ${course} 和 ${drink} `;
     notes.push({id, name: "The " + name, legend});
   }
 
@@ -551,8 +551,8 @@ window.Markers = (function () {
     const proper = cells.burg[cell] ? pack.burgs[cells.burg[cell]].name : Names.getCulture(cells.culture[cell]);
     notes.push({
       id,
-      name: getAdjective(proper) + " Lighthouse" + name,
-      legend: `A lighthouse to serve as a beacon for ships in the open sea.`
+      name: getAdjective(proper) + " 灯塔" + name,
+      legend: `在公海上作为船只灯塔的灯塔`
     });
   }
 
@@ -566,16 +566,16 @@ window.Markers = (function () {
     const {cells} = pack;
 
     const descriptions = [
-      "A gorgeous waterfall flows here.",
-      "The rapids of an exceptionally beautiful waterfall.",
-      "An impressive waterfall has cut through the land.",
-      "The cascades of a stunning waterfall.",
-      "A river drops down from a great height forming a wonderous waterfall.",
-      "A breathtaking waterfall cuts through the landscape."
+      "一个华丽的瀑布在这里流淌",
+      "一个异常美丽的瀑布的急流",
+      "一个壮观的瀑布穿过大地",
+      "壮丽的瀑布倾泻而下",
+      "一条河从很高的地方流下，形成了一个奇妙的瀑布",
+      "一个壮观的瀑布穿过风景"
     ];
 
     const proper = cells.burg[cell] ? pack.burgs[cells.burg[cell]].name : Names.getCulture(cells.culture[cell]);
-    notes.push({id, name: getAdjective(proper) + " Waterfall" + name, legend: `${ra(descriptions)}`});
+    notes.push({id, name: getAdjective(proper) + " 瀑布" + name, legend: `${ra(descriptions)}`});
   }
 
   function listBattlefields({cells}) {
@@ -591,8 +591,8 @@ window.Markers = (function () {
     if (!state.campaigns) state.campaigns = BurgsAndStates.generateCampaign(state);
     const campaign = ra(state.campaigns);
     const date = generateDate(campaign.start, campaign.end);
-    const name = Names.getCulture(cells.culture[cell]) + " Battlefield";
-    const legend = `A historical battle of the ${campaign.name}. \r\nDate: ${date} ${options.era}.`;
+    const name = Names.getCulture(cells.culture[cell]) + " 战场";
+    const legend = `一场历史性的 ${campaign.name} 战役. \r\n日期: ${date} ${options.era}`;
     notes.push({id, name, legend});
   }
 
@@ -602,8 +602,8 @@ window.Markers = (function () {
 
   function addDungeon(id, cell) {
     const dungeonSeed = `${seed}${cell}`;
-    const name = "Dungeon";
-    const legend = `<div>Undiscovered dungeon. See <a href="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" target="_blank">One page dungeon</a></div><iframe src="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" sandbox="allow-scripts allow-same-origin"></iframe>`;
+    const name = "地牢";
+    const legend = `<div>未被发现的地牢.查看: <a href="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" target="_blank">One page dungeon</a></div><iframe src="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" sandbox="allow-scripts allow-same-origin"></iframe>`;
     notes.push({id, name, legend});
   }
 
@@ -620,7 +620,7 @@ window.Markers = (function () {
     // square
     if (lake.type !== "lake") return;
 
-    const name = `${lake.name} Monster`;
+    const name = `${lake.name} 怪物`;
     const length = gauss(10, 5, 5, 100);
     const subjects = [
       "Locals",
@@ -633,9 +633,7 @@ window.Markers = (function () {
       "Journeying folk",
       "Tales"
     ];
-    const legend = `${ra(subjects)} say a relic monster of ${length} ${heightUnit.value} long inhabits ${
-      lake.name
-    } Lake. Truth or lie, folks are afraid to fish in the lake.`;
+    const legend = `${ra(subjects)}说${lake.name}湖上住着一个${length} ${heightUnit.value}长的怪物。不管是真是假，人们都不敢在湖里钓鱼。`;
     notes.push({id, name, legend});
   }
 
@@ -646,9 +644,9 @@ window.Markers = (function () {
   }
 
   function addSeaMonster(id, cell) {
-    const name = `${Names.getCultureShort(0)} Monster`;
+    const name = `${Names.getCultureShort(0)} 怪物`;
     const length = gauss(25, 10, 10, 100);
-    const legend = `Old sailors tell stories of a gigantic sea monster inhabiting these dangerous waters. Rumors say it can be ${length} ${heightUnit.value} long.`;
+    const legend = `老水手们讲述了一个巨大的海怪栖息在这片危险水域的故事。 传言说它可有 ${length} ${heightUnit.value} 长`;
     notes.push({id, name, legend});
   }
 
@@ -706,23 +704,23 @@ window.Markers = (function () {
       "Warg"
     ];
     const modusOperandi = [
-      "steals cattle at night",
-      "prefers eating children",
-      "doesn't mind human flesh",
-      "keeps the region at bay",
-      "eats kids whole",
-      "abducts young women",
-      "terrorizes the region",
-      "harasses travelers in the area",
-      "snatches people from homes",
-      "attacks anyone who dares to approach its lair",
-      "attacks unsuspecting victims"
+      "晚上偷牛",
+      "喜欢吃小孩",
+      "不在乎人肉",
+      "让这个地区远离海湾",
+      "把孩子整个吃掉",
+      "绑架年轻女性",
+      "袭击这个地区",
+      "骚扰该地区的旅行者",
+      "把人从家里带走",
+      "攻击任何胆敢靠近它巢穴的人",
+      "袭击毫无防备的受害者"
     ];
 
     const monster = ra(species);
     const toponym = Names.getCulture(cells.culture[cell]);
     const name = `${toponym} ${monster}`;
-    const legend = `${ra(subjects)} speak of a ${ra(adjectives)} ${monster} who inhabits ${toponym} hills and ${ra(
+    const legend = `${ra(subjects)} 说到居住在 ${toponym} 山和 ${ra(modusOperandi)} 的 ${ra(
       modusOperandi
     )}.`;
     notes.push({id, name, legend});
@@ -744,9 +742,9 @@ window.Markers = (function () {
 
     const culture = cells.c[cell].map(c => cells.culture[c]).find(c => c);
     const religion = cells.religion[cell];
-    const name = `${Names.getCulture(culture)} Mountain`;
+    const name = `${Names.getCulture(culture)} 山`;
     const height = getFriendlyHeight(cells.p[cell]);
-    const legend = `A sacred mountain of ${religions[religion].name}. Height: ${height}.`;
+    const legend = `${religions[religion].name}的圣山，高: ${height}.`;
     notes.push({id, name, legend});
   }
 
@@ -762,8 +760,8 @@ window.Markers = (function () {
 
     const culture = cells.culture[cell];
     const religion = cells.religion[cell];
-    const name = `${Names.getCulture(culture)} Forest`;
-    const legend = `A forest sacred to local ${religions[religion].name}.`;
+    const name = `${Names.getCulture(culture)} 树林`;
+    const legend = `对${religions[religion].name}当地人来说是神圣的树林`;
     notes.push({id, name, legend});
   }
 
@@ -777,8 +775,8 @@ window.Markers = (function () {
 
     const culture = cells.culture[cell];
     const religion = cells.religion[cell];
-    const name = `${Names.getCulture(culture)} Pinery`;
-    const legend = `A pinery sacred to local ${religions[religion].name}.`;
+    const name = `${Names.getCulture(culture)} 松树林`;
+    const legend = `对 ${religions[religion].name}当地人来说是神圣的松树林`;
     notes.push({id, name, legend});
   }
 
@@ -800,8 +798,8 @@ window.Markers = (function () {
 
     const culture = cells.culture[cell];
     const religion = cells.religion[cell];
-    const name = `${Names.getCulture(culture)} Palm Grove`;
-    const legend = `A palm grove sacred to local ${religions[religion].name}.`;
+    const name = `${Names.getCulture(culture)} 棕树林`;
+    const legend = `对 ${religions[religion].name}当地人来说是神圣的棕榈树林`;
     notes.push({id, name, legend});
   }
 
@@ -862,7 +860,7 @@ window.Markers = (function () {
         ? "swamp"
         : "angry";
     const name = `${Names.getCulture(culture)} ${ra(animals)}`;
-    const legend = `A gang of ${locality} ${rw(types)}.`;
+    const legend = `一帮 ${locality} ${rw(types)}.`;
     notes.push({id, name, legend});
   }
 
@@ -872,8 +870,8 @@ window.Markers = (function () {
   }
 
   function addPirates(id, cell) {
-    const name = "Pirates";
-    const legend = "Pirate ships have been spotted in these waters.";
+    const name = `海盗`;
+    const legend = `在这片水域发现了海盗船`;
     notes.push({id, name, legend});
   }
 
@@ -915,7 +913,7 @@ window.Markers = (function () {
       .fill(null)
       .map(() => ra(script))
       .join("");
-    const legend = `An ancient ${variant.toLowerCase()}. It has an inscription, but no one can translate it:
+    const legend = `一个古老 ${variant.toLowerCase()}. 上面有铭文，但没人能翻译:
         <div style="font-size: 1.8em; line-break: anywhere;">${inscription}</div>`;
     notes.push({id, name, legend});
   }
@@ -942,8 +940,8 @@ window.Markers = (function () {
     ];
 
     const ruinType = ra(types);
-    const name = `Ruined ${ruinType}`;
-    const legend = `Ruins of an ancient ${ruinType.toLowerCase()}. Untold riches may lie within.`;
+    const name = `荒废的 ${ruinType}`;
+    const legend = `一座 ${ruinType.toLowerCase()} 的遗迹. 无尽的财富可能蕴藏其中`;
     notes.push({id, name, legend});
   }
 
@@ -956,7 +954,7 @@ window.Markers = (function () {
 
     const type = rw({Library: 3, Archive: 1, Collection: 1});
     const name = `${Names.getCulture(cells.culture[cell])} ${type}`;
-    const legend = "A vast collection of knowledge, including many rare and ancient tomes.";
+    const legend = "大量的知识，包括许多罕见的和古老的书籍。";
 
     notes.push({id, name, legend});
   }
@@ -978,8 +976,8 @@ window.Markers = (function () {
     ];
 
     const adjective = ra(adjectives);
-    const name = `Travelling ${adjective} Circus`;
-    const legend = `Roll up, roll up, this ${adjective.toLowerCase()} circus is here for a limited time only.`;
+    const name = `正旅行的 ${adjective} 马戏团`;
+    const legend = `注意了，注意了, 这个 ${adjective.toLowerCase()} 的马戏团只在这里停留一段的时间`;
     notes.push({id, name, legend});
   }
 
@@ -998,7 +996,7 @@ window.Markers = (function () {
     const virtue = ra(virtues);
 
     const name = `${burgName} ${type}`;
-    const legend = `Warriors from around the land gather for a ${type.toLowerCase()} of ${virtue} in ${burgName}, with fame, fortune and favour on offer to the victor.`;
+    const legend = `来自全国各地的战士们聚集在 ${burgName} 中，为了 ${virtue} 的 ${type.toLowerCase()} , 名利双收`;
     notes.push({id, name, legend});
   }
 
@@ -1016,7 +1014,7 @@ window.Markers = (function () {
     const type = "Fair";
 
     const name = `${burgName} ${type}`;
-    const legend = `A fair is being held in ${burgName}, with all manner of local and foreign goods and services on offer.`;
+    const legend = `一个交易会正在${burgName}举行，提供各种各样的本地和外国商品和服务。`;
     notes.push({id, name, legend});
   }
 
@@ -1027,9 +1025,9 @@ window.Markers = (function () {
   function addCanoe(id, cell) {
     const river = pack.rivers.find(r => r.i === pack.cells.r[cell]);
 
-    const name = `Minor Jetty`;
+    const name = `小码头`;
     const riverName = river ? `${river.name} ${river.type}` : "river";
-    const legend = `A small location along the ${riverName} to launch boats from sits here, along with a weary looking owner, willing to sell passage along the river.`;
+    const legend = `${riverName} 沿岸有一个可以放船的小地方坐落在这里，还有一个疲惫的船主，愿意出售沿河的通道`;
     notes.push({id, name, legend});
   }
 
@@ -1093,8 +1091,8 @@ window.Markers = (function () {
     ];
     const animalChoice = ra(animals);
 
-    const name = `${animalChoice} migration`;
-    const legend = `A huge group of ${animalChoice.toLowerCase()} are migrating, whether part of their annual routine, or something more extraordinary.`;
+    const name = `${animalChoice} 迁徙`;
+    const legend = `一大群 ${animalChoice.toLowerCase()} 正在迁徙, 无论是他们日常生活的一部分，还是更特别的东西`;
     notes.push({id, name, legend});
   }
 
@@ -1131,9 +1129,9 @@ window.Markers = (function () {
     const socialType = ra(socialTypes);
 
     const name = `${burgName} ${socialType}`;
-    const legend = `A ${socialType} has been organised at ${burgName} as a chance to gather the ${ra(
+    const legend = `${burgName} 已经组织了一场 ${socialType}，借此机会把当地的 ${ra(
       people
-    )} of the area together to be merry, make alliances and scheme around the crisis.`;
+    )} 们聚集在一起行乐，结盟，围绕危机制定计划`;
     notes.push({id, name, legend});
   }
 
@@ -1145,8 +1143,8 @@ window.Markers = (function () {
     const adjectives = ["Entrancing", "Diaphanous", "Illusory", "Distant", "Perculiar"];
 
     const mirageAdjective = ra(adjectives);
-    const name = `${mirageAdjective} mirage`;
-    const legend = `This ${mirageAdjective.toLowerCase()} mirage has been luring travellers out of their way for eons.`;
+    const name = `${mirageAdjective} 海市蜃楼`;
+    const legend = `此处的 ${mirageAdjective.toLowerCase()} 海市蜃楼已经吸引旅行者远离他们的道路亿万年`;
     notes.push({id, name, legend});
   }
 
@@ -1183,7 +1181,7 @@ window.Markers = (function () {
       formation = "Glacial " + formation;
     }
     const name = `${toponym} ${formation}`;
-    const legend = `The ${name}. Locals claim that it is ${rw(status)}.`;
+    const legend = `The ${name}. 当地人称它是 ${rw(status)}.`;
     notes.push({id, name, legend});
   }
 
@@ -1200,8 +1198,8 @@ window.Markers = (function () {
     if (!cells.burg[cell]) return;
     const burgName = burgs[cells.burg[cell]].name;
 
-    const name = `${burgName} Portal`;
-    const legend = `An element of the magic portal system connecting major cities. The portals were installed centuries ago, but still work fine.`;
+    const name = `${burgName} 之门`;
+    const legend = `连接主要城市的魔法门户系统的一个组成部分.门几个世纪前就造好了，但还能正常工作`;
     notes.push({id, name, legend});
   }
 
@@ -1213,16 +1211,16 @@ window.Markers = (function () {
     const types = ["Demonic", "Interdimensional", "Abyssal", "Cosmic", "Cataclysmic", "Subterranean", "Ancient"];
 
     const descriptions = [
-      "all known nearby beings to flee in terror",
-      "cracks in reality itself to form",
-      "swarms of foes to spill forth",
-      "nearby plants to wither and decay",
-      "an emmissary to step through with an all-powerful relic"
+      "所有已知的附近生物都惊恐地逃离",
+      "在现实中形成裂缝",
+      "敌人蜂拥而出",
+      "附近植物的生命会枯萎和腐烂",
+      "一个带着无所不能的遗物的使者"
     ];
 
     const riftType = ra(types);
-    const name = `${riftType} Rift`;
-    const legend = `A rumoured ${riftType.toLowerCase()} rift in this area is causing ${ra(descriptions)}.`;
+    const name = `${riftType} 裂缝`;
+    const legend = `一个谣言 ${riftType.toLowerCase()} 裂缝造成了这个地区的 ${ra(descriptions)}.`;
     notes.push({id, name, legend});
   }
 
@@ -1230,8 +1228,8 @@ window.Markers = (function () {
     return cells.i.filter(i => !occupied[i] && cells.h[i] >= 20 && cells.pop[i] > 2);
   }
   function addDisturbedBurial(id, cell) {
-    const name = "Disturbed Burial";
-    const legend = "A burial site has been disturbed in this area, causing the dead to rise and attack the living.";
+    const name = "被打扰的墓地";
+    const legend = "这地区的一处墓地受到了打扰，导致沉睡的死者苏醒并袭击活人。";
     notes.push({id, name, legend});
   }
 
@@ -1255,16 +1253,16 @@ window.Markers = (function () {
 
     const name = `${toponym} ${type}`;
     const legend = ra([
-      "A foreboding necropolis shrouded in perpetual darkness, where eerie whispers echo through the winding corridors and spectral guardians stand watch over the tombs of long-forgotten souls",
-      "A towering necropolis adorned with macabre sculptures and guarded by formidable undead sentinels. Its ancient halls house the remains of fallen heroes, entombed alongside their cherished relics",
-      "This ethereal necropolis seems suspended between the realms of the living and the dead. Wisps of mist dance around the tombstones, while haunting melodies linger in the air, commemorating the departed",
-      "Rising from the desolate landscape, this sinister necropolis is a testament to necromantic power. Its skeletal spires cast ominous shadows, concealing forbidden knowledge and arcane secrets",
-      "An eerie necropolis where nature intertwines with death. Overgrown tombstones are entwined by thorny vines, and mournful spirits wander among the fading petals of once-vibrant flowers",
-      "A labyrinthine necropolis where each step echoes with haunting murmurs. The walls are adorned with ancient runes, and restless spirits guide or hinder those who dare to delve into its depths",
-      "This cursed necropolis is veiled in perpetual twilight, perpetuating a sense of impending doom. Dark enchantments shroud the tombs, and the moans of anguished souls resound through its crumbling halls",
-      "A sprawling necropolis built within a labyrinthine network of catacombs. Its halls are lined with countless alcoves, each housing the remains of the departed, while the distant sound of rattling bones fills the air",
-      "A desolate necropolis where an eerie stillness reigns. Time seems frozen amidst the decaying mausoleums, and the silence is broken only by the whispers of the wind and the rustle of tattered banners",
-      "A foreboding necropolis perched atop a jagged cliff, overlooking a desolate wasteland. Its towering walls harbor restless spirits, and the imposing gates bear the marks of countless battles and ancient curses"
+      "一个笼罩在永恒黑暗中的不祥墓地，诡异的低语回荡在蜿蜒的走廊里，幽灵般的守护者站在那里守护着那些被遗忘已久的灵魂的坟墓”",
+      "一座高耸的墓地，装饰着可怕的雕塑，由强大的不死哨兵守卫。它古老的大厅里埋葬着死去的英雄的遗体，与他们珍贵的遗物一起被埋葬",
+      "这个空灵的墓地似乎悬浮在生者和死者之间。一缕缕薄雾在墓碑周围飞舞，空中回荡着纪念逝者的悠扬旋律",
+      "从荒凉的景观中升起，这个邪恶的墓地是亡灵力量的证明。它的骷髅尖顶投下不祥的阴影，隐藏着禁忌的知识和神秘的秘密",
+      "一个怪异的墓地，自然与死亡交织在一起。杂草丛生的墓碑被多刺的藤蔓缠绕，悲伤的灵魂徘徊在曾经生机勃勃的花朵凋零的花瓣中",
+      "一个迷宫般的墓地，每走一步都回荡着令人难以忘怀的低语。墙壁上装饰着古老的符文，不安分的灵魂引导或阻碍着那些敢于深入其中的人",
+      "这个被诅咒的墓地笼罩在永恒的暮色中，延续着一种末日即将来临的感觉。黑暗的魔法笼罩着坟墓，痛苦的灵魂的呻吟回荡在摇摇欲坠的大厅里",
+      "在迷宫般的地下墓穴网络中建造的一个庞大的墓地。它的大厅里排列着无数的壁龛，每个壁龛里都安放着死者的遗体，而远处的骨头嘎嘎作响的声音充满了空气",
+      "一个荒凉的墓地，笼罩着诡异的寂静。时间似乎凝固在腐朽的陵墓中，只有风的低语和破旗的沙沙声打破了寂静",
+      "一个不祥的墓地坐落在参差不齐的悬崖上，俯瞰着一片荒凉的荒地。高耸的城墙庇护着不安的灵魂，雄伟的大门上有无数战斗和古老诅咒的痕迹"
     ]);
 
     notes.push({id, name, legend});

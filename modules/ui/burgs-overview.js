@@ -92,29 +92,25 @@ function overviewBurgs() {
         data-population=${population}
         data-type="${type}"
       >
-        <span data-tip="Click to zoom into view" class="icon-dot-circled pointer"></span>
-        <input data-tip="Burg name. Click and type to change" class="burgName" value="${
-          b.name
-        }" autocorrect="off" spellcheck="false" />
-        <input data-tip="Burg province" class="burgState" value="${province}" disabled />
-        <input data-tip="Burg state" class="burgState" value="${state}" disabled />
-        <select data-tip="Dominant culture. Click to change burg culture (to change cell culture use Cultures Editor)" class="stateCulture">
+        <span data-tip="单击可放大到视图" class="icon-dot-circled pointer"></span>
+        <input data-tip="城市名称。单击并键入以更改" class="burgName" value="${b.name}" autocorrect="off" spellcheck="false" />
+        <input data-tip="城市 省" class="burgState" value="${province}" disabled />
+        <input data-tip="城市 国家" class="burgState" value="${state}" disabled />
+        <select data-tip="主导文化。单击可更改城市文化(使用文化编辑器更改单元格文化)" class="stateCulture">
           ${getCultureOptions(b.culture)}
         </select>
-        <span data-tip="Burg population" class="icon-male"></span>
-        <input data-tip="Burg population. Type to change" class="burgPopulation" value=${si(population)} />
+        <span data-tip="城市人口" class="icon-male"></span>
+        <input data-tip="城市人口，可以更改类型" class="burgPopulation" value=${si(population)} />
         <div class="burgType">
           <span
-            data-tip="${b.capital ? " This burg is a state capital" : "Click to assign a capital status"}"
+            data-tip="${b.capital ? " 这个城市是国家首都" : "点击指定首都状态"}"
             class="icon-star-empty${b.capital ? "" : " inactive pointer"}"
           ></span>
-          <span data-tip="Click to toggle port status" class="icon-anchor pointer${
-            b.port ? "" : " inactive"
-          }" style="font-size:.9em"></span>
+          <span data-tip="单击以切换港口状态" class="icon-anchor pointer${b.port ? "" : " inactive"}" style="font-size:.9em"></span>
         </div>
-        <span data-tip="Edit burg" class="icon-pencil"></span>
+        <span data-tip="编辑城市" class="icon-pencil"></span>
         <span class="locks pointer ${
-          b.lock ? "icon-lock" : "icon-lock-open inactive"
+        <span data-tip="移除城市" class="icon-trash-empty"></span>
         }" onmouseover="showElementLockTip(event)"></span>
         <span data-tip="Remove burg" class="icon-trash-empty"></span>
       </div>`;
@@ -164,7 +160,7 @@ function overviewBurgs() {
   }
 
   function changeBurgName() {
-    if (this.value == "") tip("Please provide a name", false, "error");
+    if (this.value == "") tip("请提供名字", false, "error");
     const burg = +this.parentNode.dataset.id;
     pack.burgs[burg].name = this.value;
     this.parentNode.dataset.name = this.value;
@@ -190,7 +186,7 @@ function overviewBurgs() {
   function changeBurgPopulation() {
     const burg = +this.parentNode.dataset.id;
     if (this.value == "" || isNaN(+this.value)) {
-      tip("Please provide an integer number (like 10000, not 10K)", false, "error");
+      tip("请提供一个整数(如10000，而不是10K)", false, "error");
       this.value = si(pack.burgs[burg].population * populationRate * urbanization);
       return;
     }
@@ -240,13 +236,13 @@ function overviewBurgs() {
 
   function triggerBurgRemove() {
     const burg = +this.parentNode.dataset.id;
-    if (pack.burgs[burg].capital)
+    if (pack.burgs[burg].capital) return tip("您不能删除大写字母。请先更改大写字母", false, "error");
       return tip("You cannot remove the capital. Please change the capital first", false, "error");
 
     confirmationDialog({
-      title: "Remove burg",
-      message: "Are you sure you want to remove the burg? This actiove cannot be reverted",
-      confirm: "Remove",
+      title: "移除城市",
+      message: "您确定要删除这个城市吗? 这个行为无法恢复",
+      confirm: "移除",
       onConfirm: () => {
         removeBurg(burg);
         burgsOverviewAddLines();
@@ -272,15 +268,15 @@ function overviewBurgs() {
     if (this.classList.contains("pressed")) return exitAddBurgMode();
     customization = 3;
     this.classList.add("pressed");
-    tip("Click on the map to create a new burg. Hold Shift to add multiple", true, "warn");
+    tip("点击地图创建一个新的城市。按住 Shift 添加多个", true, "warn");
     viewbox.style("cursor", "crosshair").on("click", addBurgOnClick);
   }
 
   function addBurgOnClick() {
     const point = d3.mouse(this);
     const cell = findCell(point[0], point[1]);
-    if (pack.cells.h[cell] < 20)
-      return tip("You cannot place state into the water. Please click on a land cell", false, "error");
+    if (pack.cells.h[cell] < 20) return tip("您不能将国家放入水中。请单击陆地单元格", false, "error");
+    if (pack.cells.burg[cell]) return tip("这个单元格中已经有一个城市。请选择一个空闲单元格", false, "error");
     if (pack.cells.burg[cell])
       return tip("There is already a burg in this cell. Please select a free cell", false, "error");
 
@@ -331,7 +327,7 @@ function overviewBurgs() {
         };
       });
     const data = states.concat(burgs);
-    if (data.length < 2) return tip("No burgs to show", false, "error");
+    if (data.length < 2) return tip("没有城市", false, "error");
 
     const root = d3
       .stratify()
@@ -348,10 +344,10 @@ function overviewBurgs() {
 
     // prepare svg
     alertMessage.innerHTML = /* html */ `<select id="burgsTreeType" style="display:block; margin-left:13px; font-size:11px">
-      <option value="states" selected>Group by state</option>
-      <option value="cultures">Group by culture</option>
-      <option value="parent">Group by province and state</option>
-      <option value="provinces">Group by province</option>
+      <option value="states" selected>按国家</option>
+      <option value="cultures">按文化分组</option>
+      <option value="parent">按省和国家分组</option>
+      <option value="provinces">按省份分组</option>
     </select>`;
     alertMessage.innerHTML += `<div id='burgsInfo' class='chartInfo'>&#8205;</div>`;
     const svg = d3
@@ -387,7 +383,7 @@ function overviewBurgs() {
 
       burgsInfo.innerHTML = /* html */ `${name}. ${parent}. Population: ${population}`;
       burgHighlightOn(ev);
-      tip("Click to zoom into view");
+      tip("单击可放大到视图");
     }
 
     function hideInfo(ev) {
@@ -470,7 +466,7 @@ function overviewBurgs() {
     }
 
     $("#alert").dialog({
-      title: "Burgs bubble chart",
+      title: "城市气泡图",
       width: fitContent(),
       position: {my: "left bottom", at: "left+10 bottom-10", of: "svg"},
       buttons: {},
@@ -521,11 +517,11 @@ function overviewBurgs() {
   }
 
   function renameBurgsInBulk() {
-    alertMessage.innerHTML = /* html */ `Download burgs list as a text file, make changes and re-upload the file. Make sure the file is a plain text document with each
+    alertMessage.innerHTML = /* html */ `以文本文件形式下载城市列表，进行更改并重新上载该文件。确保该文件是一个纯文本文档，每个名称都有自己的行(分隔符是 CRLF)。如果您不想更改名称，就让它保持原样`;
     name on its own line (the dilimiter is CRLF). If you do not want to change the name, just leave it as is`;
 
     $("#alert").dialog({
-      title: "Burgs bulk renaming",
+      title: "城市批量重命名",
       width: "22em",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
@@ -546,13 +542,13 @@ function overviewBurgs() {
   }
 
   function importBurgNames(dataLoaded) {
-    if (!dataLoaded) return tip("Cannot load the file, please check the format", false, "error");
+    if (!dataLoaded) return tip("无法加载文件，请检查格式", false, "error");
     const data = dataLoaded.split("\r\n");
-    if (!data.length) return tip("Cannot parse the list, please check the file format", false, "error");
+    if (!data.length) return tip("无法解析列表，请检查文件格式", false, "error");
 
     let change = [];
-    let message = `Burgs to be renamed as below:`;
-    message += `<table class="overflow-table"><tr><th>Id</th><th>Current name</th><th>New Name</th></tr>`;
+    let message = `将重新命名的城市如下所示:`;
+    message += `<table class="overflow-table"><tr><th>Id</th><th>现在的名字</th><th>新名字</th></tr>`;
 
     const burgs = pack.burgs.filter(b => b.i && !b.removed);
     for (let i = 0; i < data.length && i <= burgs.length; i++) {
@@ -563,7 +559,7 @@ function overviewBurgs() {
     }
     message += `</tr></table>`;
 
-    if (!change.length) message = "No changes found in the file. Please change some names to get a result";
+    if (!change.length) message = "文件中未找到更改。请更改一些名称以获得结果";
     alertMessage.innerHTML = message;
 
     const onConfirm = () => {
@@ -576,9 +572,9 @@ function overviewBurgs() {
     };
 
     confirmationDialog({
-      title: "Burgs bulk renaming",
+      title: "城市批量重命名",
       message,
-      confirm: "Rename",
+      confirm: "重命名",
       onConfirm
     });
   }
@@ -586,11 +582,11 @@ function overviewBurgs() {
   function triggerAllBurgsRemove() {
     const number = pack.burgs.filter(b => b.i && !b.removed && !b.capital && !b.lock).length;
     confirmationDialog({
-      title: `Remove ${number} burgs`,
+      title: `移除 ${number} 城市`,
       message: `
-        Are you sure you want to remove all <i>unlocked</i> burgs except for capitals?
-        <br><i>To remove a capital you have to remove a state first</i>`,
-      confirm: "Remove",
+      确实要删除除大写之外的所有未锁定的城市吗?
+        <br><i>要移除一个首都，你必须先移除一个国家</i>`,
+      confirm: "移除",
       onConfirm: removeAllBurgs
     });
   }

@@ -11,7 +11,7 @@ function editBurg(id) {
   updateBurgValues();
 
   $("#burgEditor").dialog({
-    title: "Edit Burg",
+    title: "编辑城市",
     resizable: false,
     close: closeBurgEditor,
     position: {my: "left top", at: "left+10 top+10", of: "svg", collision: "fit"}
@@ -180,7 +180,7 @@ function editBurg(id) {
       const x = d3.event.x,
         y = d3.event.y;
       this.setAttribute("transform", `translate(${dx + x},${dy + y})`);
-      tip('Use dragging for fine-tuning only, to actually move burg use "Relocate" button', false, "warning");
+      tip('只使用拖动进行微调，实际移动时使用“重新定位”按钮', false, "warning");
     });
   }
 
@@ -215,7 +215,7 @@ function editBurg(id) {
 
   function createNewGroup() {
     if (!this.value) {
-      tip("Please provide a valid group name", false, "error");
+      tip("请提供一个有效的组名", false, "error");
       return;
     }
     const group = this.value
@@ -224,12 +224,12 @@ function editBurg(id) {
       .replace(/[^\w\s]/gi, "");
 
     if (document.getElementById(group)) {
-      tip("Element with this id already exists. Please provide a unique name", false, "error");
+      tip("具有此 ID 的元素已经存在。请提供唯一的名称", false, "error");
       return;
     }
 
     if (Number.isFinite(+group.charAt(0))) {
-      tip("Group name should start with a letter", false, "error");
+      tip("组名应以字母开头", false, "error");
       return;
     }
 
@@ -281,13 +281,13 @@ function editBurg(id) {
     const burgsToRemove = burgsInGroup.filter(b => !(pack.burgs[b].capital || pack.burgs[b].lock));
     const capital = burgsToRemove.length < burgsInGroup.length;
 
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove ${
-      basic || capital ? "all unlocked elements in the burg group" : "the entire burg group"
+    alertMessage.innerHTML = /* html */ `您确定要删除 ${
+      basic || capital ? "所有未解锁的城市组元素" : "整个城市组"
     }?
-      <br />Please note that capital or locked burgs will not be deleted. <br /><br />Burgs to be removed: ${burgsToRemove.length}`;
+      <br />请注意，不会删除大写或锁定的城市. <br /><br />需要移除的城市: ${burgsToRemove.length}`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove burg group",
+      title: "移除城市组",
       buttons: {
         Remove: function () {
           $(this).dialog("close");
@@ -433,7 +433,7 @@ function editBurg(id) {
   function addCustomMfcgLink() {
     const id = +elSelected.attr("data-id");
     const burg = pack.burgs[id];
-    const message = "Enter custom link to the burg map. It can be a link to Medieval Fantasy City Generator or other tool. Keep empty to use MFCG seed";
+    const message = "输入指向城市地图的自定义链接。它可以是一个链接到中世纪幻想城市生成器或其他工具。保持空白以使用 MFCG 种子";
     prompt(message, {default: burg.link || "", required: false}, link => {
       if (link) burg.link = link;
       else delete burg.link;
@@ -458,7 +458,7 @@ function editBurg(id) {
     document.getElementById("burgRelocate").classList.toggle("pressed");
     if (document.getElementById("burgRelocate").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", relocateBurgOnClick);
-      tip("Click on map to relocate burg. Hold Shift for continuous move", true);
+      tip("点击地图重新定位城市。按住 Shift 连续移动", true);
       if (!layerIsOn("toggleCells")) {
         toggleCells();
         toggler.dataset.forced = true;
@@ -481,12 +481,12 @@ function editBurg(id) {
     const burg = pack.burgs[id];
 
     if (cells.h[cell] < 20) {
-      tip("Cannot place burg into the water! Select a land cell", false, "error");
+      tip("无法将城市放入水中! 请选择一个陆地单元格", false, "error");
       return;
     }
 
     if (cells.burg[cell] && cells.burg[cell] !== id) {
-      tip("There is already a burg in this cell. Please select a free cell", false, "error");
+      tip("这个单元格中已经有一个城市。请选择一个空闲单元格", false, "error");
       return;
     }
 
@@ -494,7 +494,7 @@ function editBurg(id) {
     const oldState = burg.state;
 
     if (newState !== oldState && burg.capital) {
-      tip("Capital cannot be relocated into another state!", false, "error");
+      tip("首都不能迁移到另一个国家！", false, "error");
       return;
     }
 
@@ -545,11 +545,11 @@ function editBurg(id) {
   function removeSelectedBurg() {
     const id = +elSelected.attr("data-id");
     if (pack.burgs[id].capital) {
-      alertMessage.innerHTML = /* html */ `You cannot remove the burg as it is a state capital.<br /><br />
-        You can change the capital using Burgs Editor (shift + T)`;
+      alertMessage.innerHTML = /* html */ `你不能移除城市，因为它是一个国家的首府.<br /><br />
+      您可以使用城市编辑器更改首府 (shift + T)`;
       $("#alert").dialog({
         resizable: false,
-        title: "Remove burg",
+        title: "移除城市",
         buttons: {
           Ok: function () {
             $(this).dialog("close");
@@ -557,10 +557,10 @@ function editBurg(id) {
         }
       });
     } else {
-      alertMessage.innerHTML = "Are you sure you want to remove the burg?";
+      alertMessage.innerHTML = "你确定要移除这个城市吗?";
       $("#alert").dialog({
         resizable: false,
-        title: "Remove burg",
+        title: "移除城市",
         buttons: {
           Remove: function () {
             $(this).dialog("close");

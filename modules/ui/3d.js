@@ -168,7 +168,7 @@ window.ThreeD = (function () {
     link.download = getFileName() + ".jpeg";
     link.href = URL;
     link.click();
-    tip(`Screenshot is saved. Open "Downloads" screen (CTRL + J) to check`, true, "success", 7000);
+    tip(`屏幕截图已保存。打开“下载”窗口(CTRL + J)进行检查`, true, "success", 7000);
     window.setTimeout(() => window.URL.revokeObjectURL(URL), 5000);
   };
 
@@ -180,7 +180,7 @@ window.ThreeD = (function () {
   async function newMesh(canvas) {
     const loaded = await loadTHREE();
     if (!loaded) {
-      tip("Cannot load 3d library", false, "error", 4000);
+      tip("无法加载3D 库", false, "error", 4000);
       return false;
     }
 
@@ -458,7 +458,7 @@ window.ThreeD = (function () {
   async function newGlobe(canvas) {
     const loaded = await loadTHREE();
     if (!loaded) {
-      tip("Cannot load 3d library", false, "error", 4000);
+      tip("无法加载3D 库", false, "error", 4000);
       return false;
     }
 

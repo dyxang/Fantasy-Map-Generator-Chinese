@@ -57,15 +57,15 @@ window.Names = (function () {
   // generate name using Markov's chain
   const getBase = function (base, min, max, dupl) {
     if (base === undefined) {
-      ERROR && console.error("Please define a base");
+      ERROR && console.error("请定义一个库");
       return;
     }
     if (!chains[base]) updateChain(base);
 
     const data = chains[base];
     if (!data || data[""] === undefined) {
-      tip("Namesbase " + base + " is incorrect. Please check in namesbase editor", false, "error");
-      ERROR && console.error("Namebase " + base + " is incorrect!");
+      tip("名称库 " + base + " 是不正确的。请检入名称库编辑器", false, "error");
+      ERROR && console.error("名称库 " + base + " 是不正确的!");
       return "ERROR";
     }
 
@@ -119,7 +119,7 @@ window.Names = (function () {
         .join("");
 
     if (name.length < 2) {
-      ERROR && console.error("Name is too short! Random name will be selected");
+      ERROR && console.error("名称太短! 将选择随机名称");
       name = ra(nameBases[base].b.split(","));
     }
 
@@ -128,14 +128,14 @@ window.Names = (function () {
 
   // generate name for culture
   const getCulture = function (culture, min, max, dupl) {
-    if (culture === undefined) return ERROR && console.error("Please define a culture");
+    if (culture === undefined) return ERROR && console.error("请定义一种文化");
     const base = pack.cultures[culture].base;
     return getBase(base, min, max, dupl);
   };
 
   // generate short name for culture
   const getCultureShort = function (culture) {
-    if (culture === undefined) return ERROR && console.error("Please define a culture");
+    if (culture === undefined) return ERROR && console.error("请定义一种文化");
     return getBaseShort(pack.cultures[culture].base);
   };
 
@@ -143,7 +143,7 @@ window.Names = (function () {
   const getBaseShort = function (base) {
     if (nameBases[base] === undefined) {
       tip(
-        `Namebase ${base} does not exist. Please upload custom namebases of change the base in Cultures Editor`,
+        `名称库 ${base} 不存在。请在“文化编辑器”中上载更改基础的自定义名称库`,
         false,
         "error"
       );
@@ -156,8 +156,8 @@ window.Names = (function () {
 
   // generate state name based on capital or random name and culture-specific suffix
   const getState = function (name, culture, base) {
-    if (name === undefined) return ERROR && console.error("Please define a base name");
-    if (culture === undefined && base === undefined) return ERROR && console.error("Please define a culture");
+    if (name === undefined) return ERROR && console.error("请定义一个名称库");
+    if (culture === undefined && base === undefined) return ERROR && console.error("请定义一个文化");
     if (base === undefined) base = pack.cultures[culture].base;
 
     // exclude endings inappropriate for states name
@@ -241,7 +241,7 @@ window.Names = (function () {
     if (force && locked("mapName")) unlock("mapName");
     const base = P(0.7) ? 2 : P(0.5) ? rand(0, 6) : rand(0, 31);
     if (!nameBases[base]) {
-      tip("Namebase is not found", false, "error");
+      tip("名称库未找到", false, "error");
       return "";
     }
     const min = nameBases[base].min - 1;

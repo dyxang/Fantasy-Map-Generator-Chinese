@@ -130,7 +130,7 @@ class Battle {
       headers += `<th data-tip="${label}">${u.icon}</th>`;
     }
 
-    headers += "<th data-tip='Total military''>Total</th></tr></thead>";
+    headers += "<th data-tip='军队总数'>总数</th></tr></thead>";
     battleAttackers.innerHTML = battleDefenders.innerHTML = headers;
   }
 
@@ -148,17 +148,17 @@ class Battle {
 
     let initial = `<tr class="battleInitial"><td>${icon}</td><td class="regiment" data-tip="${regiment.name}">${regiment.name.slice(0, 24)}</td>`;
     let casualties = `<tr class="battleCasualties"><td></td><td data-tip="${state.fullName}">${state.fullName.slice(0, 26)}</td>`;
-    let survivors = `<tr class="battleSurvivors"><td></td><td data-tip="Supply line length, affects morale">Distance to base: ${distance} ${distanceUnitInput.value}</td>`;
+    let survivors = `<tr class="battleSurvivors"><td></td><td data-tip="补给线的长度，影响士气">距离基地: ${distance} ${distanceUnitInput.value}</td>`;
 
     for (const u of options.military) {
-      initial += `<td data-tip="Initial forces" style="width: 2.5em; text-align: center">${regiment.u[u.name] || 0}</td>`;
-      casualties += `<td data-tip="Casualties" style="width: 2.5em; text-align: center; color: red">0</td>`;
-      survivors += `<td data-tip="Survivors" style="width: 2.5em; text-align: center; color: green">${regiment.u[u.name] || 0}</td>`;
+      initial += `<td data-tip="初始力量" style="width: 2.5em; text-align: center">${regiment.u[u.name] || 0}</td>`;
+      casualties += `<td data-tip="人员伤亡" style="width: 2.5em; text-align: center; color: red">0</td>`;
+      survivors += `<td data-tip="幸存者" style="width: 2.5em; text-align: center; color: green">${regiment.u[u.name] || 0}</td>`;
     }
 
-    initial += `<td data-tip="Initial forces" style="width: 2.5em; text-align: center">${regiment.a || 0}</td></tr>`;
-    casualties += `<td data-tip="Casualties"  style="width: 2.5em; text-align: center; color: red">0</td></tr>`;
-    survivors += `<td data-tip="Survivors" style="width: 2.5em; text-align: center; color: green">${regiment.a || 0}</td></tr>`;
+    initial += `<td data-tip="初始力量" style="width: 2.5em; text-align: center">${regiment.a || 0}</td></tr>`;
+    casualties += `<td data-tip="人员伤亡"  style="width: 2.5em; text-align: center; color: red">0</td></tr>`;
+    survivors += `<td data-tip="幸存者" style="width: 2.5em; text-align: center; color: green">${regiment.a || 0}</td></tr>`;
 
     const div = side === "attackers" ? battleAttackers : battleDefenders;
     div.innerHTML += body + initial + casualties + survivors + "</tbody>";
@@ -182,7 +182,7 @@ class Battle {
           added = isAdded(r),
           dist = added ? "0 " + distanceUnitInput.value : distance(r);
         return `<div ${added ? "class='inactive'" : ""} data-s=${s.i} data-i=${r.i} data-state=${s.name} data-regiment=${r.name} 
-        data-total=${r.a} data-distance=${dist} data-tip="Click to select regiment">
+        data-total=${r.a} data-distance=${dist} data-tip="点击选择团">
         <svg width=".9em" height=".9em" style="margin-bottom:-1px; stroke: #333"><rect x="0" y="0" width="100%" height="100%" fill="${s.color}" ></svg>
         <div style="width:6em">${s.name.slice(0, 11)}</div>
         <div style="width:1.2em">${r.icon}</div>
@@ -196,12 +196,12 @@ class Battle {
     $("#regimentSelectorScreen").dialog({
       resizable: false,
       width: fitContent(),
-      title: "Add regiment to the battle",
+      title: "在战斗中加入军团",
       position: {my: "left center", at: "right+10 center", of: "#battleScreen"},
       close: addSideClosed,
       buttons: {
-        "Add to attackers": () => addSideClicked("attackers"),
-        "Add to defenders": () => addSideClicked("defenders"),
+        "增加进攻方": () => addSideClicked("attackers"),
+        "增加防守方": () => addSideClicked("defenders"),
         Cancel: () => $("#regimentSelectorScreen").dialog("close")
       }
     });
@@ -211,7 +211,7 @@ class Battle {
 
     function selectLine(ev) {
       if (ev.target.className === "inactive") {
-        tip("Regiment is already in the battle", false, "error");
+        tip("团已经开始战斗了", false, "error");
         return;
       }
       ev.target.classList.toggle("selected");
@@ -220,7 +220,7 @@ class Battle {
     function addSideClicked(side) {
       const selected = body.querySelectorAll(".selected");
       if (!selected.length) {
-        tip("Please select a regiment first", false, "error");
+        tip("请先挑选一个团", false, "error");
         return;
       }
 
@@ -654,16 +654,16 @@ class Battle {
     const relativeCasualties = this.defenders.casualties / (this.attackers.casualties + this.attackers.casualties);
     const battleStatus = getBattleStatus(relativeCasualties, maxCasualties);
     function getBattleStatus(relative, max) {
-      if (isNaN(relative)) return ["standoff", "standoff"]; // if no casualties at all
-      if (max < 0.05) return ["minor skirmishes", "minor skirmishes"];
-      if (relative > 95) return ["attackers flawless victory", "disorderly retreat of defenders"];
-      if (relative > 0.7) return ["attackers decisive victory", "defenders disastrous defeat"];
-      if (relative > 0.6) return ["attackers victory", "defenders defeat"];
-      if (relative > 0.4) return ["stalemate", "stalemate"];
-      if (relative > 0.3) return ["attackers defeat", "defenders victory"];
-      if (relative > 0.5) return ["attackers disastrous defeat", "decisive victory of defenders"];
-      if (relative >= 0) return ["attackers disorderly retreat", "flawless victory of defenders"];
-      return ["stalemate", "stalemate"]; // exception
+      if (isNaN(relative)) return ["僵持", "僵持"]; // if no casualties at all
+      if (max < 0.05) return ["小冲突", "小冲突"];
+      if (relative > 95) return ["进攻方无懈可击的胜利", "防御方无序撤退"];
+      if (relative > 0.7) return ["进攻方决定性的胜利", "防守方惨败"];
+      if (relative > 0.6) return ["进攻方获胜", "防守方失败"];
+      if (relative > 0.4) return ["僵局", "僵局"];
+      if (relative > 0.3) return ["进攻方被击败", "防守方胜利"];
+      if (relative > 0.5) return ["进攻方惨败", "防守方的决定性胜利"];
+      if (relative >= 0) return ["进攻方无序撤退", "防守方的完美胜利"];
+      return ["僵局", "僵局"]; // exception
     }
 
     this.attackers.regiments.forEach(r => applyResultForSide(r, "attackers"));
@@ -679,25 +679,25 @@ class Battle {
         const losses = r.a ? Math.abs(d3.sum(Object.values(r.casualties))) / r.a : 1;
         const regStatus =
           losses === 1
-            ? "is destroyed"
+            ? "被摧毁了"
             : losses > 0.8
-            ? "is almost completely destroyed"
+            ? "几乎被完全摧毁了"
             : losses > 0.5
-            ? "suffered terrible losses"
+            ? "遭受了可怕损失"
             : losses > 0.3
-            ? "suffered severe losses"
+            ? "遭受了严重损失"
             : losses > 0.2
-            ? "suffered heavy losses"
+            ? "遭受极大损失"
             : losses > 0.05
-            ? "suffered significant losses"
+            ? "遭受重大损失"
             : losses > 0
-            ? "suffered unsignificant losses"
-            : "left the battle without loss";
+            ? "遭受了微不足道的损失"
+            : "毫无损失地离开了战场";
         const casualties = Object.keys(r.casualties)
           .map(t => (r.casualties[t] ? `${Math.abs(r.casualties[t])} ${t}` : null))
           .filter(c => c);
-        const casualtiesText = casualties.length ? " Casualties: " + list(casualties) + "." : "";
-        const legend = `\r\n\r\n${battleName} (${options.year} ${options.eraShort}): ${status}. The regiment ${regStatus}.${casualtiesText}`;
+        const casualtiesText = casualties.length ? " 人员伤亡: " + list(casualties) + "." : "";
+        const legend = `\r\n\r\n${battleName} (${options.year} ${options.eraShort}): ${status}. 军团 ${regStatus}.${casualtiesText}`;
         note.legend += legend;
       }
 
@@ -722,12 +722,12 @@ class Battle {
     const getLosses = casualties => Math.min(rn(casualties * 100), 100);
 
     const status = battleStatus[+P(0.7)];
-    const result = `The ${this.getTypeName(this.type)} ended in ${status}`;
-    const legend = `${this.name} took place in ${options.year} ${options.eraShort}. It was fought between ${getSide(this.attackers.regiments, 1)} and ${getSide(
+    const result = ` ${this.getTypeName(this.type)} 结束在 ${status}`;
+    const legend = `${this.name} 发生在 ${options.year} ${options.eraShort}. 这场战争发生于 ${getSide(this.attackers.regiments, 1)} 和 ${getSide(
       this.defenders.regiments,
       0
     )}. ${result}.
-      \r\nAttackers losses: ${getLosses(this.attackers.casualties)}%, defenders losses: ${getLosses(this.defenders.casualties)}%`;
+      \r\n进攻方损失: ${getLosses(this.attackers.casualties)}%, 防守方损失: ${getLosses(this.defenders.casualties)}%`;
     notes.push({id: `marker${i}`, name: this.name, legend});
 
     tip(`${this.name} is over. ${result}`, true, "success", 4000);

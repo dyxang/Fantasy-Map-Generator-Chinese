@@ -241,11 +241,11 @@ window.Military = (function () {
 
   const getDefaultOptions = function () {
     return [
-      {icon: "⚔️", name: "infantry", rural: 0.25, urban: 0.2, crew: 1, power: 1, type: "melee", separate: 0},
-      {icon: "🏹", name: "archers", rural: 0.12, urban: 0.2, crew: 1, power: 1, type: "ranged", separate: 0},
-      {icon: "🐴", name: "cavalry", rural: 0.12, urban: 0.03, crew: 2, power: 2, type: "mounted", separate: 0},
-      {icon: "💣", name: "artillery", rural: 0, urban: 0.03, crew: 8, power: 12, type: "machinery", separate: 0},
-      {icon: "🌊", name: "fleet", rural: 0, urban: 0.015, crew: 100, power: 50, type: "naval", separate: 1}
+      {icon: "⚔️", name: "步兵", rural: 0.25, urban: 0.2, crew: 1, power: 1, type: "melee", separate: 0},
+      {icon: "🏹", name: "弓兵", rural: 0.12, urban: 0.2, crew: 1, power: 1, type: "ranged", separate: 0},
+      {icon: "🐴", name: "骑兵", rural: 0.12, urban: 0.03, crew: 2, power: 2, type: "mounted", separate: 0},
+      {icon: "💣", name: "炮兵", rural: 0, urban: 0.03, crew: 8, power: 12, type: "machinery", separate: 0},
+      {icon: "🌊", name: "舰队", rural: 0, urban: 0.015, crew: 100, power: 50, type: "naval", separate: 1}
     ];
   };
 
@@ -400,12 +400,12 @@ window.Military = (function () {
           .map(t => `— ${t}: ${r.u[t]}`)
           .join("\r\n")
       : null;
-    const troops = composition ? `\r\n\r\nRegiment composition in ${options.year} ${options.eraShort}:\r\n${composition}.` : "";
+    const troops = composition ? `\r\n\r\n团员组成在 ${options.year} ${options.eraShort}:\r\n${composition}.` : "";
 
     const campaign = s.campaigns ? ra(s.campaigns) : null;
     const year = campaign ? rand(campaign.start, campaign.end) : gauss(options.year - 100, 150, 1, options.year - 6);
-    const conflict = campaign ? ` during the ${campaign.name}` : "";
-    const legend = `Regiment was formed in ${year} ${options.era}${conflict}. ${station}${troops}`;
+    const conflict = campaign ? ` 期间 ${campaign.name}` : "";
+    const legend = `团成立于 ${year} ${options.era}${conflict}. ${station}${troops}`;
     notes.push({id: `regiment${s.i}-${r.i}`, name: `${r.icon} ${r.name}`, legend});
   };
 
