@@ -18,7 +18,7 @@ function overviewMarkers() {
   addLines();
 
   $("#markersOverview").dialog({
-    title: "Markers Overview",
+    title: "标记概述",
     resizable: false,
     width: fitContent(),
     close: close,
@@ -51,16 +51,16 @@ function overviewMarkers() {
     const lines = pack.markers
       .map(({i, type, icon, pinned, lock}) => {
         return `<div class="states" data-i=${i} data-type="${type}">
-        <div data-tip="Marker icon and type" style="width:12em">${icon} ${type}</div>
-        <span style="padding-right:.1em" data-tip="Edit marker" class="icon-pencil"></span>
-        <span style="padding-right:.1em" data-tip="Focus on marker position" class="icon-dot-circled pointer"></span>
-        <span style="padding-right:.1em" data-tip="Pin marker (display only pinned markers)" class="icon-pin ${
+        <div data-tip="标记图标和类型" style="width:12em">${icon} ${type}</div>
+        <span style="padding-right:.1em" data-tip="编辑标记" class="icon-pencil"></span>
+        <span style="padding-right:.1em" data-tip="注意标记位置" class="icon-dot-circled pointer"></span>
+        <span style="padding-right:.1em" data-tip="Pin 标记(只显示被固定标记)" class="icon-pin ${
           pinned ? "" : "inactive"
         }" pointer"></span>
         <span style="padding-right:.1em" class="locks pointer ${
           lock ? "icon-lock" : "icon-lock-open inactive"
         }" onmouseover="showElementLockTip(event)"></span>
-        <span data-tip="Remove marker" class="icon-trash-empty"></span>
+        <span data-tip="删除标记" class="icon-trash-empty"></span>
       </div>`;
       })
       .join("");
@@ -132,9 +132,9 @@ function overviewMarkers() {
 
   function triggerRemove(i) {
     confirmationDialog({
-      title: "Remove marker",
-      message: "Are you sure you want to remove this marker? The action cannot be reverted",
-      confirm: "Remove",
+      title: "删除标记",
+      message: "确实要删除此标记吗? 操作无法恢复",
+      confirm: "删除",
       onConfirm: () => removeMarker(i)
     });
   }
@@ -153,9 +153,9 @@ function overviewMarkers() {
 
   function triggerRemoveAll() {
     confirmationDialog({
-      title: "Remove all markers",
-      message: "Are you sure you want to remove all non-locked markers? The action cannot be reverted",
-      confirm: "Remove all",
+      title: "移除所有标记",
+      message: "确实要删除所有未锁定的标记吗? 无法恢复操作",
+      confirm: "删除所有",
       onConfirm: removeAllMarkers
     });
   }

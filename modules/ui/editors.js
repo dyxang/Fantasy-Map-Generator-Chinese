@@ -182,7 +182,7 @@ function moveBurgToGroup(id, g) {
   const icon = document.querySelector("#burgIcons [data-id='" + id + "']");
   const anchor = document.querySelector("#anchors [data-id='" + id + "']");
   if (!label || !icon) {
-    ERROR && console.error(`Cannot find label or icon elements for id ${id}`);
+    ERROR && console.error(`找不到id: ${id} 的标签或图标元素`);
     return;
   }
 
@@ -246,11 +246,11 @@ function removeBurg(id) {
 function toggleCapital(burg) {
   const state = pack.burgs[burg].state;
   if (!state) {
-    tip("Neutral lands cannot have a capital", false, "error");
+    tip("中立国不能有首都", false, "error");
     return;
   }
   if (pack.burgs[burg].capital) {
-    tip("To change capital please assign a capital status to another burg of this state", false, "error");
+    tip("若要更改首都，请将首都状况指定给本国家的另一个城市", false, "error");
     return;
   }
   const old = pack.states[state].capital;
@@ -275,7 +275,7 @@ function togglePort(burg) {
 
   const haven = pack.cells.haven[b.cell];
   const port = haven ? pack.cells.f[haven] : -1;
-  if (!haven) tip("Port haven is not found, system won't be able to make a searoute", false, "warn");
+  if (!haven) tip("找不到港口，系统无法进行搜索", false, "warn");
   b.port = port;
 
   const g = b.capital ? "cities" : "towns";
@@ -470,8 +470,8 @@ function clearLegend() {
 
 // draw color (fill) picker
 function createPicker() {
-  const pos = () => tip("Drag to change the picker position");
-  const cl = () => tip("Click to close the picker");
+  const pos = () => tip("拖动此形状可更改选择器位置");
+  const cl = () => tip("单击以关闭选择器");
   const closePicker = () => container.style("display", "none");
 
   const container = d3
@@ -528,7 +528,7 @@ function createPicker() {
     .attr("y", 20)
     .attr("width", 303)
     .attr("height", 20)
-    .on("mousemove", () => tip("Color value in different color spaces. Edit to change"));
+    .on("mousemove", () => tip("不同颜色空间中的颜色值。可编辑以更改"));
   const html = /* html */ ` <label style="margin-right: 6px"
       >HSL: <input type="number" id="pickerHSL_H" data-space="hsl" min="0" max="360" value="231" />,
       <input type="number" id="pickerHSL_S" data-space="hsl" min="0" max="100" value="70" />,
@@ -575,12 +575,12 @@ function createPicker() {
   colors
     .selectAll("rect")
     .on("click", pickerFillClicked)
-    .on("mouseover", () => tip("Click to fill with the color"));
+    .on("mouseover", () => tip("单击以填充颜色"));
   hatches
     .selectAll("rect")
     .on("click", pickerFillClicked)
     .on("mouseover", function () {
-      tip("Click to fill with the hatching " + this.id);
+      tip("点击填充剖面线 " + this.id);
     });
 
   // append box
@@ -759,7 +759,7 @@ function dragPickerControl() {
 function changePickerSpace() {
   const valid = this.checkValidity();
   if (!valid) {
-    tip("You must provide a correct value", false, "error");
+    tip("您必须提供正确的值", false, "error");
     return;
   }
 
@@ -774,7 +774,7 @@ function changePickerSpace() {
 
   const hsl = d3.hsl(fill);
   if (isNaN(hsl.l)) {
-    tip("You must provide a correct value", false, "error");
+    tip("您必须提供正确的值", false, "error");
     return;
   }
   if (!isNaN(hsl.h)) setPickerControl(pickerH, hsl.h, 360);
@@ -1101,12 +1101,12 @@ function selectIcon(initial, callback) {
     }
   };
   table.onmouseover = e => {
-    if (e.target.tagName === "TD") tip(`Click to select ${e.target.innerHTML} icon`);
+    if (e.target.tagName === "TD") tip(`点击选择 ${e.target.innerHTML} 图标`);
   };
 
   $("#iconSelector").dialog({
     width: fitContent(),
-    title: "Select Icon",
+    title: "选择图标",
     buttons: {
       Apply: function () {
         callback(input.value || "⠀");
@@ -1131,10 +1131,10 @@ function getArea(rawArea) {
 
 function confirmationDialog(options) {
   const {
-    title = "Confirm action",
-    message = "Are you sure you want to continue? <br>The action cannot be reverted",
-    cancel = "Cancel",
-    confirm = "Continue",
+    title = "确认行为",
+    message = "确实要继续吗? <br>无法恢复操作",
+    cancel = "取消",
+    confirm = "继续",
     onCancel,
     onConfirm
   } = options;

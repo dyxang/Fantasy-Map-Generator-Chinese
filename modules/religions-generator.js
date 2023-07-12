@@ -859,7 +859,7 @@ window.Religions = (function () {
   // get supreme deity name
   const getDeityName = function (culture) {
     if (culture === undefined) {
-      ERROR && console.error("Please define a culture");
+      ERROR && console.error("请定义文化");
       return;
     }
     const meaning = generateMeaning();
@@ -886,7 +886,7 @@ window.Religions = (function () {
     if (a === "Adjective + Animal + of + Genitive")
       return `${ra(base.adjective)} ${ra(base.animal)} of ${ra(base.genitive)}`;
 
-    ERROR && console.error("Unkown generation approach");
+    ERROR && console.error("未知生成要求");
   }
 
   function generateReligionName(variety, form, deity, center) {

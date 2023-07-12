@@ -1,3 +1,3 @@
-start chrome.exe http://localhost:8000/
+start edge.exe http://localhost:2015/
 @echo off
-python -m http.server 8000
+caddy file-server --listen :2015

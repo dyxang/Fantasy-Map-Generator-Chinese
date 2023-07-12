@@ -26,7 +26,7 @@ window.UISubmap = (function () {
 
   function openSubmapMenu() {
     $("#submapOptionsDialog").dialog({
-      title: "Create a submap",
+      title: "创建 Submap",
       resizable: false,
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
@@ -98,7 +98,7 @@ window.UISubmap = (function () {
     };
 
     $("#resampleDialog").dialog({
-      title: "Transform map",
+      title: "变换地图",
       resizable: false,
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
@@ -166,9 +166,9 @@ window.UISubmap = (function () {
 
   // Resample the whole map to different cell resolution or shape
   const resampleCurrentMap = debounce(function () {
-    WARN && console.warn("Resampling current map");
+    WARN && console.warn("重新取样当前地图");
     const cellNumId = +byId("submapPointsInput").value;
-    if (!cellsDensityMap[cellNumId]) return console.error("Unknown cell number!");
+    if (!cellsDensityMap[cellNumId]) return console.error("单元格编号未知!");
 
     const {angle, shiftX, shiftY, ratio, mirrorH, mirrorV} = getTransformInput();
 
@@ -210,7 +210,7 @@ window.UISubmap = (function () {
 
   // Create submap from the current map. Submap limits defined by the current window size (canvas viewport)
   const generateSubmap = debounce(function () {
-    WARN && console.warn("Resampling current map");
+    WARN && console.warn("重新取样当前地图");
     closeDialogs("#worldConfigurator, #options3d");
     const checked = id => Boolean(byId(id).checked);
 
@@ -312,11 +312,11 @@ window.UISubmap = (function () {
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `Map resampling failed: <br />You may retry after clearing stored data or contact us at discord.
+    alertMessage.innerHTML = /* html */ `地图重采样失败: <br />您可以在清除存储的数据后重试，也可以在不一致的情况下与我们联系.
       <p id="errorBox">${parseError(error)}</p>`;
     $("#alert").dialog({
       resizable: false,
-      title: "Resampling error",
+      title: "重新取样错误",
       width: "32em",
       buttons: {
         Ok: function () {

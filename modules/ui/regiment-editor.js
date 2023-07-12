@@ -13,7 +13,7 @@ function editRegiment(selector) {
   drawBase();
 
   $("#regimentEditor").dialog({
-    title: "Edit Regiment",
+    title: "编辑部队",
     resizable: false,
     close: closeEditor,
     position: {my: "left top", at: "left+10 top+10", of: "#map"}
@@ -49,7 +49,7 @@ function editRegiment(selector) {
 
     composition.innerHTML = options.military
       .map(u => {
-        return `<div data-tip="${capitalize(u.name)} number. Input to change">
+        return `<div data-tip="${capitalize(u.name)} 编号. 输入以改变">
         <div class="label">${capitalize(u.name)}:</div>
         <input data-u="${u.name}" type="number" min=0 step=1 value="${regiment.u[u.name] || 0}">
         <i>${u.type}</i></div>`;
@@ -70,7 +70,7 @@ function editRegiment(selector) {
       .attr("cursor", "move");
     base
       .on("mouseenter", () => {
-        tip("Regiment base. Drag to re-base the regiment", true);
+        tip("团基地。拖动到重新基地的团", true);
       })
       .on("mouseleave", () => {
         tip("", true);
@@ -153,7 +153,7 @@ function editRegiment(selector) {
     Object.keys(u2).forEach(u => (u2[u] = Math.floor(u2[u] / 2))); // halved new reg
     const a = d3.sum(Object.values(u2)); // new reg total
     if (!a) {
-      tip("Not enough forces to split", false, "error");
+      tip("没有足够的兵力分开", false, "error");
       return;
     } // nothing to add
 
@@ -196,7 +196,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAdd").classList.toggle("pressed");
     if (document.getElementById("regimentAdd").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", addRegimentOnClick);
-      tip("Click on map to create new regiment or fleet", true);
+      tip("点击地图创建新的团或舰队", true);
     } else {
       clearMainTip();
       viewbox.on("click", clicked).style("cursor", "default");
@@ -225,7 +225,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAttack").classList.toggle("pressed");
     if (document.getElementById("regimentAttack").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", attackRegimentOnClick);
-      tip("Click on another regiment to initiate battle", true);
+      tip("点击另一个团开始战斗", true);
       armies.selectAll(":scope > g").classed("draggable", false);
     } else {
       clearMainTip();
@@ -242,22 +242,22 @@ function editRegiment(selector) {
       newState = +regSelected.dataset.state;
 
     if (army.parentElement.id !== "armies") {
-      tip("Please click on a regiment to attack", false, "error");
+      tip("请点击一个团进攻", false, "error");
       return;
     }
     if (regSelected === elSelected) {
-      tip("Regiment cannot attack itself", false, "error");
+      tip("团不能自己攻击自己", false, "error");
       return;
     }
     if (oldState === newState) {
-      tip("Cannot attack fraternal regiment", false, "error");
+      tip("不能攻击兄弟团", false, "error");
       return;
     }
 
     const attacker = regiment();
     const defender = pack.states[regSelected.dataset.state].military.find(r => r.i == regSelected.dataset.id);
     if (!attacker.a || !defender.a) {
-      tip("Regiment has no troops to battle", false, "error");
+      tip("团里没有可以作战的部队", false, "error");
       return;
     }
 
@@ -297,7 +297,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAttach").classList.toggle("pressed");
     if (document.getElementById("regimentAttach").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", attachRegimentOnClick);
-      tip("Click on another regiment to unite both regiments. The current regiment will be removed", true);
+      tip("点击另一个团将两个团联合起来。当前的团将被删除", true);
       armies.selectAll(":scope > g").classed("draggable", false);
     } else {
       clearMainTip();
@@ -314,11 +314,11 @@ function editRegiment(selector) {
       newState = +regSelected.dataset.state;
 
     if (army.parentElement.id !== "armies") {
-      tip("Please click on a regiment", false, "error");
+      tip("请点击一个团", false, "error");
       return;
     }
     if (regSelected === elSelected) {
-      tip("Cannot attach regiment to itself. Please click on another regiment", false, "error");
+      tip("无法自行组建一个团，请点击另一个团", false, "error");
       return;
     }
 
@@ -357,7 +357,7 @@ function editRegiment(selector) {
   }
 
   function removeRegiment() {
-    alertMessage.innerHTML = "Are you sure you want to remove the regiment?";
+    alertMessage.innerHTML = "你确定要撤军吗？";
     $("#alert").dialog({
       resizable: false,
       title: "Remove regiment",

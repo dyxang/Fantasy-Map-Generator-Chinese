@@ -1,6 +1,6 @@
 export function exportToJson(type) {
   if (customization)
-    return tip("Data cannot be exported when edit mode is active, please exit the mode and retry", false, "error");
+    return tip("当编辑模式处于活动状态时，无法导出数据，请退出模式并重试", false, "error");
   closeDialogs("#alert");
 
   const typeMap = {
@@ -17,7 +17,7 @@ export function exportToJson(type) {
   link.download = getFileName(type) + ".json";
   link.href = URL;
   link.click();
-  tip(`${link.download} is saved. Open "Downloads" screen (CTRL + J) to check`, true, "success", 7000);
+  tip(`${link.download} 打开“下载”屏幕(CTRL + J)以检查`, true, "success", 7000);
   window.URL.revokeObjectURL(URL);
 }
 

@@ -57,7 +57,7 @@ function editIce() {
     document.getElementById("iceNew").classList.toggle("pressed");
     if (document.getElementById("iceNew").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", addIcebergOnClick);
-      tip("Click on map to create an iceberg. Hold Shift to add multiple", true);
+      tip("点击地图创建一个冰山。按住 Shift 添加多个", true);
     } else {
       clearMainTip();
       viewbox.on("click", clicked).style("cursor", "default");
@@ -78,10 +78,10 @@ function editIce() {
 
   function removeIce() {
     const type = elSelected.attr("type") ? "Glacier" : "Iceberg";
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove the ${type}?`;
+    alertMessage.innerHTML = /* html */ `确定要删除 ${type}?`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove " + type,
+      title: "移除 " + type,
       buttons: {
         Remove: function () {
           $(this).dialog("close");

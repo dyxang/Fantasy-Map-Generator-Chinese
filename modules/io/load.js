@@ -5,7 +5,7 @@ async function quickLoad() {
   const blob = await ldb.get("lastMap");
   if (blob) loadMapPrompt(blob);
   else {
-    tip("No map stored. Save map to browser storage first", true, "error", 2000);
+    tip("没有存储地图。请先将地图保存到浏览器的存储系统", true, "error", 2000);
     ERROR && console.error("No map stored");
   }
 }
@@ -47,8 +47,8 @@ function loadMapPrompt(blob) {
     return;
   }
 
-  alertMessage.innerHTML = /* html */ `Are you sure you want to load saved map?<br />
-    All unsaved changes made to the current map will be lost`;
+  alertMessage.innerHTML = /* html */ `确实要加载已保存的地图吗?<br />
+  对当前地图所做的所有未保存的更改都将丢失`;
   $("#alert").dialog({
     resizable: false,
     title: "Load saved map",
@@ -64,12 +64,12 @@ function loadMapPrompt(blob) {
   });
 
   function loadLastSavedMap() {
-    WARN && console.warn("Load last saved map");
+    WARN && console.warn("载入最后保存的地图");
     try {
       uploadMap(blob);
     } catch (error) {
       ERROR && console.error(error);
-      tip("Cannot load last saved map", true, "error", 2000);
+      tip("无法加载上次保存的地图", true, "error", 2000);
     }
   }
 }
@@ -80,7 +80,7 @@ function loadMapFromURL(maplink, random) {
   fetch(URL, {method: "GET", mode: "cors"})
     .then(response => {
       if (response.ok) return response.blob();
-      throw new Error("Cannot load map from URL");
+      throw new Error("无法从 URL 加载地图");
     })
     .then(blob => uploadMap(blob))
     .catch(error => {
@@ -91,12 +91,11 @@ function loadMapFromURL(maplink, random) {
 
 function showUploadErrorMessage(error, URL, random) {
   ERROR && console.error(error);
-  alertMessage.innerHTML = /* html */ `Cannot load map from the ${link(URL, "link provided")}. ${
-    random ? `A new random map is generated. ` : ""
-  } Please ensure the
-  linked file is reachable and CORS is allowed on server side`;
+  alertMessage.innerHTML = /* html */ `无法从 ${link(URL, "已提供连结")} 提供地图. ${
+    random ? `生成一个新的随机地图. ` : ""
+  } 请确保链接文件可以访问，并且服务器端允许 CORS`;
   $("#alert").dialog({
-    title: "Loading error",
+    title: "载入错误",
     width: "32em",
     buttons: {
       OK: function () {
@@ -153,20 +152,20 @@ function showUploadMessage(type, mapData, mapVersion) {
   let message, title, canBeLoaded;
 
   if (type === "invalid") {
-    message = `The file does not look like a valid <i>.map</i> file.<br>Please check the data format`;
+    message = `该文件看起来不像有效的 <i>.map</i> 文件.<br>请检查数据格式`;
     title = "Invalid file";
     canBeLoaded = false;
   } else if (type === "ancient") {
-    message = `The map version you are trying to load (${mapVersion}) is too old and cannot be updated to the current version.<br>Please keep using an ${archive}`;
-    title = "Ancient file";
+    message = `你正在尝试加载的地图版本 (${mapVersion}) 太旧，无法更新到当前版本.<br>请继续使用 ${archive}`;
+    title = "古老的档案";
     canBeLoaded = false;
   } else if (type === "newer") {
-    message = `The map version you are trying to load (${mapVersion}) is newer than the current version.<br>Please load the file in the appropriate version`;
-    title = "Newer file";
+    message = `要加载的地图版本 (${mapVersion}) 比现在的版本较新.<br>请加载相应版本的文件`;
+    title = "较新文件";
     canBeLoaded = false;
   } else if (type === "outdated") {
-    message = `The map version (${mapVersion}) does not match the Generator version (${version}).<br>Click OK to get map <b>auto-updated</b>.<br>In case of issues please keep using an ${archive} of the Generator`;
-    title = "Outdated file";
+    message = `地图版本 (${mapVersion}) 与 Generator 版本(${ version })不匹配。 < br > 单击 OK 获取 map < b > auto-update </b > 。 < br > 如果出现问题，请继续使用 ${archive} 生成器`;
+    title = "过期文件";
     canBeLoaded = true;
   }
 
@@ -420,9 +419,9 @@ async function parseLoadedData(data) {
     })();
 
     void (function restoreEvents() {
-      scaleBar.on("mousemove", () => tip("Click to open Units Editor")).on("click", () => editUnits());
+      scaleBar.on("mousemove", () => tip("单击此处可打开“单位编辑器”")).on("click", () => editUnits());
       legend
-        .on("mousemove", () => tip("Drag to change the position. Click to hide the legend"))
+        .on("mousemove", () => tip("拖动此形状可更改位置。单击可隐藏图例"))
         .on("click", () => clearLegend());
     })();
 
@@ -437,7 +436,7 @@ async function parseLoadedData(data) {
       const cells = pack.cells;
 
       if (pack.cells.i.length !== pack.cells.state.length) {
-        const message = "Data Integrity Check. Striping issue detected. To fix edit the heightmap in erase mode";
+        const message = "数据完整性检查。条带问题。修复在擦除模式下编辑高度图";
         ERROR && console.error(message);
       }
 
@@ -445,7 +444,7 @@ async function parseLoadedData(data) {
       invalidStates.forEach(s => {
         const invalidCells = cells.i.filter(i => cells.state[i] === s);
         invalidCells.forEach(i => (cells.state[i] = 0));
-        ERROR && console.error("Data Integrity Check. Invalid state", s, "is assigned to cells", invalidCells);
+        ERROR && console.error("数据完整性检查。无效状态", s, "被分配到各个单元格", invalidCells);
       });
 
       const invalidProvinces = [...new Set(cells.province)].filter(
@@ -454,14 +453,14 @@ async function parseLoadedData(data) {
       invalidProvinces.forEach(p => {
         const invalidCells = cells.i.filter(i => cells.province[i] === p);
         invalidCells.forEach(i => (cells.province[i] = 0));
-        ERROR && console.error("Data Integrity Check. Invalid province", p, "is assigned to cells", invalidCells);
+        ERROR && console.error("数据完整性检查。无效省份", p, "被分配到各个单元格", invalidCells);
       });
 
       const invalidCultures = [...new Set(cells.culture)].filter(c => !pack.cultures[c] || pack.cultures[c].removed);
       invalidCultures.forEach(c => {
         const invalidCells = cells.i.filter(i => cells.culture[i] === c);
         invalidCells.forEach(i => (cells.province[i] = 0));
-        ERROR && console.error("Data Integrity Check. Invalid culture", c, "is assigned to cells", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效文化", c, "被分配到各个单元格", invalidCells);
       });
 
       const invalidReligions = [...new Set(cells.religion)].filter(
@@ -470,14 +469,14 @@ async function parseLoadedData(data) {
       invalidReligions.forEach(r => {
         const invalidCells = cells.i.filter(i => cells.religion[i] === r);
         invalidCells.forEach(i => (cells.religion[i] = 0));
-        ERROR && console.error("Data Integrity Check. Invalid religion", r, "is assigned to cells", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效的宗教", r, "被分配到各个单元格", invalidCells);
       });
 
       const invalidFeatures = [...new Set(cells.f)].filter(f => f && !pack.features[f]);
       invalidFeatures.forEach(f => {
         const invalidCells = cells.i.filter(i => cells.f[i] === f);
         // No fix as for now
-        ERROR && console.error("Data Integrity Check. Invalid feature", f, "is assigned to cells", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效文化", f, "被分配到各个单元格", invalidCells);
       });
 
       const invalidBurgs = [...new Set(cells.burg)].filter(
@@ -486,7 +485,7 @@ async function parseLoadedData(data) {
       invalidBurgs.forEach(burgId => {
         const invalidCells = cells.i.filter(i => cells.burg[i] === burgId);
         invalidCells.forEach(i => (cells.burg[i] = 0));
-        ERROR && console.error("Data Integrity Check. Invalid burg", burgId, "is assigned to cells", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效城市", b, "被分配到各个单元格", invalidCells);
       });
 
       const invalidRivers = [...new Set(cells.r)].filter(r => r && !pack.rivers.find(river => river.i === r));
@@ -494,7 +493,7 @@ async function parseLoadedData(data) {
         const invalidCells = cells.i.filter(i => cells.r[i] === r);
         invalidCells.forEach(i => (cells.r[i] = 0));
         rivers.select("river" + r).remove();
-        ERROR && console.error("Data Integrity Check. Invalid river", r, "is assigned to cells", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效河流", r, "被分配到各个单元格", invalidCells);
       });
 
       pack.burgs.forEach(burg => {
@@ -511,35 +510,35 @@ async function parseLoadedData(data) {
         if (burg.cell === undefined || burg.x === undefined || burg.y === undefined) {
           ERROR &&
             console.error(
-              `Data Integrity Check. Burg ${burg.i} is missing cell info or coordinates. Removing the burg`
+              `数据完整性检查. 城市 ${burg.i} 没有单元格信息或坐标，移除了城市`
             );
           burg.removed = true;
         }
 
         if (burg.port < 0) {
-          ERROR && console.error("Data Integrity Check. Burg", burg.i, "has invalid port value", burg.port);
+          ERROR && console.error("数据完整性检查. 城市", burg.i, "港口值无效", burg.port);
           burg.port = 0;
         }
 
         if (burg.cell >= cells.i.length) {
-          ERROR && console.error("Data Integrity Check. Burg", burg.i, "is linked to invalid cell", burg.cell);
+          ERROR && console.error("数据完整性检查. 城市", burg.i, "链接到无效单元格", burg.cell);
           burg.cell = findCell(burg.x, burg.y);
           cells.i.filter(i => cells.burg[i] === burg.i).forEach(i => (cells.burg[i] = 0));
           cells.burg[burg.cell] = burg.i;
         }
 
         if (burg.state && !pack.states[burg.state]) {
-          ERROR && console.error("Data Integrity Check. Burg", burg.i, "is linked to invalid state", burg.state);
+          ERROR && console.error("数据完整性检查. 城市", burg.i, "链接到无效国家", burg.state);
           burg.state = 0;
         }
 
         if (burg.state && pack.states[burg.state].removed) {
-          ERROR && console.error("Data Integrity Check. Burg", burg.i, "is linked to removed state", burg.state);
+          ERROR && console.error("数据完整性检查. 城市", burg.i, "链接到已删除国家", burg.state);
           burg.state = 0;
         }
 
         if (burg.state === undefined) {
-          ERROR && console.error("Data Integrity Check. Burg", burg.i, "has no state data");
+          ERROR && console.error("数据完整性检查. 城市", burg.i, "无国家数据");
           burg.state = 0;
         }
       });
@@ -547,7 +546,7 @@ async function parseLoadedData(data) {
       pack.provinces.forEach(p => {
         if (!p.i || p.removed) return;
         if (pack.states[p.state] && !pack.states[p.state].removed) return;
-        ERROR && console.error("Data Integrity Check. Province", p.i, "is linked to removed state", p.state);
+        ERROR && console.error("数据完整性检查. 省", p.i, "链接到已删除国家", p.state);
         p.removed = true; // remove incorrect province
       });
 
@@ -557,7 +556,7 @@ async function parseLoadedData(data) {
 
         pack.markers.forEach(marker => {
           if (markerIds[marker.i]) {
-            ERROR && console.error("Data Integrity Check. Marker", marker.i, "has non-unique id. Changing to", nextId);
+            ERROR && console.error("数据完整性检查. 标记", marker.i, "具有非唯一 id。更改为", nextId);
 
             const domElements = document.querySelectorAll("#marker" + marker.i);
             if (domElements[1]) domElements[1].id = "marker" + nextId; // rename 2nd dom element
@@ -598,12 +597,12 @@ async function parseLoadedData(data) {
     WARN && console.warn(`TOTAL: ${rn((performance.now() - uploadMap.timeStart) / 1000, 2)}s`);
     showStatistics();
     INFO && console.groupEnd("Loaded Map " + seed);
-    tip("Map is successfully loaded", true, "success", 7000);
+    tip("地图已成功加载", true, "success", 7000);
   } catch (error) {
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `An error is occured on map loading. Select a different file to load, <br />generate a new random map or cancel the loading
+    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件, <br />生成一个新的随机地图或取消加载
       <p id="errorBox">${parseError(error)}</p>`;
 
     $("#alert").dialog({

@@ -12,7 +12,7 @@ function editReliefIcon() {
   updateReliefSizeInput();
 
   $("#reliefEditor").dialog({
-    title: "Edit Relief Icons",
+    title: "编辑浮雕图标",
     resizable: false,
     width: "27em",
     position: {my: "left top", at: "left+10 top+10", of: "#map"},
@@ -104,7 +104,7 @@ function editReliefIcon() {
     }
 
     viewbox.style("cursor", "crosshair").call(d3.drag().on("start", dragToAdd)).on("touchmove mousemove", moveBrush);
-    tip("Drag to place relief icons within radius", true);
+    tip("拖动此形状，可将浮雕图标放置在半径范围内", true);
   }
 
   function moveBrush() {
@@ -116,7 +116,7 @@ function editReliefIcon() {
 
   function dragToAdd() {
     const pressed = reliefIconsDiv.querySelector("svg.pressed");
-    if (!pressed) return tip("Please select an icon", false, error);
+    if (!pressed) return tip("请选择一个图标", false, error);
 
     const type = pressed.dataset.type;
     const r = +reliefRadiusNumber.value;
@@ -181,12 +181,12 @@ function editReliefIcon() {
     reliefIconsSeletionAny.style.display = "inline-block";
 
     viewbox.style("cursor", "crosshair").call(d3.drag().on("start", dragToRemove)).on("touchmove mousemove", moveBrush);
-    tip("Drag to remove relief icons in radius", true);
+    tip("拖动此形状可移除半径内的浮雕图标", true);
   }
 
   function dragToRemove() {
     const pressed = reliefIconsDiv.querySelector("svg.pressed");
-    if (!pressed) return tip("Please select an icon", false, error);
+    if (!pressed) return tip("请选择一个图标", false, error);
 
     const r = +reliefRadiusNumber.value;
     const type = pressed.dataset.type;
@@ -254,18 +254,18 @@ function editReliefIcon() {
     let selection = null;
     const pressed = reliefTools.querySelector("button.pressed");
     if (pressed.id === "reliefIndividual") {
-      alertMessage.innerHTML = "Are you sure you want to remove the icon?";
+      alertMessage.innerHTML = "确实要删除图标吗?";
       selection = elSelected;
     } else {
       const type = reliefIconsDiv.querySelector("svg.pressed")?.dataset.type;
       selection = type ? terrain.selectAll("use[href='" + type + "']") : terrain.selectAll("use");
       const size = selection.size();
-      alertMessage.innerHTML = type ? `Are you sure you want to remove all ${type} icons (${size})?` : `Are you sure you want to remove all icons (${size})?`;
+      alertMessage.innerHTML = type ? `您确定要删除所有 ${type} 图标 (${size})?` : `确实要删除所有图标吗 (${size})?`;
     }
 
     $("#alert").dialog({
       resizable: false,
-      title: "Remove relief icons",
+      title: "删除浮雕图标",
       buttons: {
         Remove: function () {
           if (selection) selection.remove();

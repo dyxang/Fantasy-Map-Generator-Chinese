@@ -106,13 +106,15 @@ function overviewBurgs() {
             data-tip="${b.capital ? " 这个城市是国家首都" : "点击指定首都状态"}"
             class="icon-star-empty${b.capital ? "" : " inactive pointer"}"
           ></span>
-          <span data-tip="单击以切换港口状态" class="icon-anchor pointer${b.port ? "" : " inactive"}" style="font-size:.9em"></span>
+          <span data-tip="单击以切换港口状态" class="icon-anchor pointer${
+            b.port ? "" : " inactive"
+          }" style="font-size:.9em"></span>
         </div>
         <span data-tip="编辑城市" class="icon-pencil"></span>
         <span class="locks pointer ${
-        <span data-tip="移除城市" class="icon-trash-empty"></span>
+          b.lock ? "icon-lock" : "icon-lock-open inactive"
         }" onmouseover="showElementLockTip(event)"></span>
-        <span data-tip="Remove burg" class="icon-trash-empty"></span>
+        <span data-tip="移除城市" class="icon-trash-empty"></span>
       </div>`;
     }
     body.insertAdjacentHTML("beforeend", lines);
@@ -160,7 +162,7 @@ function overviewBurgs() {
   }
 
   function changeBurgName() {
-    if (this.value == "") tip("请提供名字", false, "error");
+    if (this.value == "") tip("请提供姓名", false, "error");
     const burg = +this.parentNode.dataset.id;
     pack.burgs[burg].name = this.value;
     this.parentNode.dataset.name = this.value;
@@ -236,8 +238,8 @@ function overviewBurgs() {
 
   function triggerBurgRemove() {
     const burg = +this.parentNode.dataset.id;
-    if (pack.burgs[burg].capital) return tip("您不能删除大写字母。请先更改大写字母", false, "error");
-      return tip("You cannot remove the capital. Please change the capital first", false, "error");
+    if (pack.burgs[burg].capital)
+      return tip("您不能删除大写字母。请先更改大写字母", false, "error");
 
     confirmationDialog({
       title: "移除城市",
@@ -275,10 +277,10 @@ function overviewBurgs() {
   function addBurgOnClick() {
     const point = d3.mouse(this);
     const cell = findCell(point[0], point[1]);
-    if (pack.cells.h[cell] < 20) return tip("您不能将国家放入水中。请单击陆地单元格", false, "error");
-    if (pack.cells.burg[cell]) return tip("这个单元格中已经有一个城市。请选择一个空闲单元格", false, "error");
+    if (pack.cells.h[cell] < 20)
+      return tip("您不能将国家放入水中。请单击陆地单元格", false, "error");
     if (pack.cells.burg[cell])
-      return tip("There is already a burg in this cell. Please select a free cell", false, "error");
+      return tip("这个单元格中已经有一个城市。请选择一个空闲单元格", false, "error");
 
     addBurg(point); // add new burg
 
@@ -518,7 +520,6 @@ function overviewBurgs() {
 
   function renameBurgsInBulk() {
     alertMessage.innerHTML = /* html */ `以文本文件形式下载城市列表，进行更改并重新上载该文件。确保该文件是一个纯文本文档，每个名称都有自己的行(分隔符是 CRLF)。如果您不想更改名称，就让它保持原样`;
-    name on its own line (the dilimiter is CRLF). If you do not want to change the name, just leave it as is`;
 
     $("#alert").dialog({
       title: "城市批量重命名",
@@ -584,7 +585,7 @@ function overviewBurgs() {
     confirmationDialog({
       title: `移除 ${number} 城市`,
       message: `
-      确实要删除除大写之外的所有未锁定的城市吗?
+        确实要删除除大写之外的所有<i>未锁定</i>的城市吗?
         <br><i>要移除一个首都，你必须先移除一个国家</i>`,
       confirm: "移除",
       onConfirm: removeAllBurgs

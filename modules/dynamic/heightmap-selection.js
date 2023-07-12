@@ -13,7 +13,7 @@ export function open() {
   graph = getGraph(graph);
 
   $("#heightmapSelection").dialog({
-    title: "Select Heightmap",
+    title: "选择高度图",
     resizable: false,
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
@@ -152,28 +152,28 @@ function appendStyleSheet() {
 function insertHtml() {
   const heightmapSelectionHtml = /* html */ `<div id="heightmapSelection" class="dialog stable">
     <div class="heightmap-selection">
-      <section data-tip="Select heightmap template – template provides unique, but similar-looking maps on generation">
-        <header><h1>Heightmap templates</h1></header>
+      <section data-tip="选择高度图模板 - 模板可以在生成时提供独特但外观相似的地图">
+        <header><h1>高度图模板</h1></header>
         <div class="heightmap-selection_container"></div>
       </section>
-      <section data-tip="Select precreated heightmap – it will be the same for each map">
-        <header><h1>Precreated heightmaps</h1></header>
+      <section data-tip="选择预先创建的高度图-它将为每个地图相同">
+        <header><h1>预制的高度图</h1></header>
         <div class="heightmap-selection_container"></div>
       </section>
       <section>
-        <header><h1>Options</h1></header>
+        <header><h1>选择</h1></header>
         <div class="heightmap-selection_options">
           <div>
-            <label data-tip="Rerender all preview images" class="checkbox-label" id="heightmapSelectionRedrawPreview">
+            <label data-tip="重新显示所有预览图像" class="checkbox-label" id="heightmapSelectionRedrawPreview">
               <i class="icon-cw"></i>
               Redraw preview
             </label>
             <div>
               <input id="heightmapSelectionRenderOcean" class="checkbox" type="checkbox" />
-              <label data-tip="Draw heights of water cells" for="heightmapSelectionRenderOcean" class="checkbox-label">Render ocean heights</label>
+              <label data-tip="绘制水单元格高度" for="heightmapSelectionRenderOcean" class="checkbox-label">Render ocean heights</label>
             </div>
-            <div data-tip="Color scheme used for heightmap preview">
-              Color scheme
+            <div data-tip="用于高度图预览的配色方案">
+            配色方案
               <select id="heightmapSelectionColorScheme">
                 <option value="bright" selected>Bright</option>
                 <option value="light">Light</option>
@@ -183,8 +183,8 @@ function insertHtml() {
             </div>
           </div>
           <div>
-            <button data-tip="Open Template Editor" data-tool="templateEditor" id="heightmapSelectionEditTemplates">Edit Templates</button>
-            <button data-tip="Open Image Converter" data-tool="imageConverter" id="heightmapSelectionImportHeightmap">Import Heightmap</button>
+            <button data-tip="打开模板编辑器" data-tool="templateEditor" id="heightmapSelectionEditTemplates">Edit Templates</button>
+            <button data-tip="打开图像转换器" data-tool="imageConverter" id="heightmapSelectionImportHeightmap">Import Heightmap</button>
           </div>
         </div>
       </section>
@@ -206,7 +206,7 @@ function insertHtml() {
         <img src="${dataUrl}" alt="${name}" />
         <div>
           ${name}
-          <span data-tip="Regenerate preview" class="icon-cw regeneratePreview"></span>
+          <span data-tip="重新生成预览" class="icon-cw regeneratePreview"></span>
         </div>
       </article>`;
     })
@@ -334,8 +334,8 @@ function confirmHeightmapEdit() {
 
   confirmationDialog({
     title: this.dataset.tip,
-    message: "Opening the tool will erase the current map. Are you sure you want to proceed?",
-    confirm: "Continue",
+    message: "打开工具将擦除当前地图。确实要继续吗？",
+    confirm: "继续",
     onConfirm: () => editHeightmap({mode: "erase", tool})
   });
 }

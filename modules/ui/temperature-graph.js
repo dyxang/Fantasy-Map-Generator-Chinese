@@ -91,7 +91,7 @@ function showBurgTemperatureGraph(id) {
   });
 
   drawGraph();
-  $("#alert").dialog({title: "Annual temperature in " + b.name, width: "auto", position: {my: "center", at: "center", of: "svg"}});
+  $("#alert").dialog({title: "年平均气温在" + b.name, width: "auto", position: {my: "center", at: "center", of: "svg"}});
 
   function drawGraph() {
     alertMessage.innerHTML = "";
@@ -155,7 +155,7 @@ function showBurgTemperatureGraph(id) {
       const type = this.getAttribute("data-type");
       const temp = convertTemperature(yscale.invert(y - yOffset));
       const month = months[rn(((x - xOffset) / chartWidth) * 12)] || months[0];
-      tip(`Average ${type} temperature in ${month}: ${temp}`);
+      tip(`平均 ${type} 气温在 ${month}: ${temp}`);
     }
   }
 }

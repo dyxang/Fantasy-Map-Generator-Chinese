@@ -12,7 +12,7 @@ function overviewRivers() {
   modules.overviewRivers = true;
 
   $("#riversOverview").dialog({
-    title: "Rivers Overview",
+    title: "河流概况",
     resizable: false,
     width: fitContent(),
     position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}
@@ -48,15 +48,15 @@ function overviewRivers() {
         data-width="${r.width}"
         data-basin="${basin}"
       >
-        <span data-tip="Click to focus on river" class="icon-dot-circled pointer"></span>
-        <div data-tip="River name" class="riverName">${r.name}</div>
-        <div data-tip="River type name" class="riverType">${r.type}</div>
-        <div data-tip="River discharge (flux power)" class="biomeArea">${discharge}</div>
-        <div data-tip="River length from source to mouth" class="biomeArea">${length}</div>
-        <div data-tip="River mouth width" class="biomeArea">${width}</div>
-        <input data-tip="River basin (name of the main stem)" class="stateName" value="${basin}" disabled />
-        <span data-tip="Edit river" class="icon-pencil"></span>
-        <span data-tip="Remove river" class="icon-trash-empty"></span>
+        <span data-tip="点击关注河流" class="icon-dot-circled pointer"></span>
+        <div data-tip="河名" class="riverName">${r.name}</div>
+        <div data-tip="河流类型名称" class="riverType">${r.type}</div>
+        <div data-tip="河流流量(通量功率)" class="biomeArea">${discharge}</div>
+        <div data-tip="从源头到出口的河流长度" class="biomeArea">${length}</div>
+        <div data-tip="河口宽度" class="biomeArea">${width}</div>
+        <input data-tip="流域(主干名称)" class="stateName" value="${basin}" disabled />
+        <span data-tip="编辑河" class="icon-pencil"></span>
+        <span data-tip="移除河" class="icon-trash-empty"></span>
       </div>`;
     }
     body.insertAdjacentHTML("beforeend", lines);
@@ -145,12 +145,12 @@ function overviewRivers() {
 
   function triggerRiverRemove() {
     const river = +this.parentNode.dataset.id;
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove the river? All tributaries will be auto-removed`;
+    alertMessage.innerHTML = /* html */ `您确定要移除这条河吗? 所有的支流都将被自动移除`;
 
     $("#alert").dialog({
       resizable: false,
       width: "22em",
-      title: "Remove river",
+      title: "移除河",
       buttons: {
         Remove: function () {
           Rivers.remove(river);
@@ -165,10 +165,10 @@ function overviewRivers() {
   }
 
   function triggerAllRiversRemove() {
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove all rivers?`;
+    alertMessage.innerHTML = /* html */ `你确定要移除所有的河流吗？`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove all rivers",
+      title: "移除所有河流",
       buttons: {
         Remove: function () {
           $(this).dialog("close");

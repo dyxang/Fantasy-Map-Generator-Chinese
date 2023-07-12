@@ -12,7 +12,7 @@ function editZones() {
   modules.editZones = true;
 
   $("#zonesEditor").dialog({
-    title: "Zones Editor",
+    title: "区域编辑",
     resizable: false,
     width: fitContent(),
     close: () => exitZonesManualAssignment("close"),
@@ -82,25 +82,25 @@ function editZones() {
       const rural = d3.sum(c.map(i => pack.cells.pop[i])) * populationRate;
       const urban = d3.sum(c.map(i => pack.cells.burg[i]).map(b => pack.burgs[b].population)) * populationRate * urbanization;
       const population = rural + urban;
-      const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(urban)}. Click to change`;
+      const populationTip = `总人口: ${si(population)}; 农村人口: ${si(rural)}; 城市人口: ${si(urban)}. 点击更换`;
       const inactive = zoneEl.style.display === "none";
       const focused = defs.select("#fog #focus" + zoneEl.id).size();
 
       return `<div class="states" data-id="${zoneEl.id}" data-fill="${fill}" data-description="${description}"
         data-type="${type}" data-cells=${c.length} data-area=${area} data-population=${population}>
         <fill-box fill="${fill}"></fill-box>
-        <input data-tip="Zone description. Click and type to change" style="width: 11em" class="zoneName" value="${description}" autocorrect="off" spellcheck="false">
-        <input data-tip="Zone type. Click and type to change" class="zoneType" value="${type}">
-        <span data-tip="Cells count" class="icon-check-empty hide"></span>
-        <div data-tip="Cells count" class="stateCells hide">${c.length}</div>
-        <span data-tip="Zone area" style="padding-right:4px" class="icon-map-o hide"></span>
-        <div data-tip="Zone area" class="biomeArea hide">${si(area) + unit}</div>
+        <input data-tip="区域描述。单击并键入以更改" style="width: 11em" class="zoneName" value="${description}" autocorrect="off" spellcheck="false">
+        <input data-tip="区域类型。单击并键入以更改" class="zoneType" value="${type}">
+        <span data-tip="单元格计数" class="icon-check-empty hide"></span>
+        <div data-tip="单元格计数" class="stateCells hide">${c.length}</div>
+        <span data-tip="区域面积" style="padding-right:4px" class="icon-map-o hide"></span>
+        <div data-tip="区域面积" class="biomeArea hide">${si(area) + unit}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="culturePopulation hide">${si(population)}</div>
-        <span data-tip="Drag to raise or lower the zone" class="icon-resize-vertical hide"></span>
-        <span data-tip="Toggle zone focus" class="icon-pin ${focused ? "" : " inactive"} hide ${c.length ? "" : " placeholder"}"></span>
-        <span data-tip="Toggle zone visibility" class="icon-eye ${inactive ? " inactive" : ""} hide ${c.length ? "" : " placeholder"}"></span>
-        <span data-tip="Remove zone" class="icon-trash-empty hide"></span>
+        <span data-tip="通过拖动可升高或降低区域" class="icon-resize-vertical hide"></span>
+        <span data-tip="切换区域焦点" class="icon-pin ${focused ? "" : " inactive"} hide ${c.length ? "" : " placeholder"}"></span>
+        <span data-tip="切换区域可见性" class="icon-eye ${inactive ? " inactive" : ""} hide ${c.length ? "" : " placeholder"}"></span>
+        <span data-tip="移除区域" class="icon-trash-empty hide"></span>
       </div>`;
     });
 
@@ -173,7 +173,7 @@ function editZones() {
     body.querySelectorAll("div > input, select, svg").forEach(e => (e.style.pointerEvents = "none"));
     $("#zonesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}});
 
-    tip("Click to select a zone, drag to paint a zone", true);
+    tip("单击以选择区域，拖动以绘制区域", true);
     viewbox.style("cursor", "crosshair").on("click", selectZoneOnMapClick).call(d3.drag().on("start", dragZoneBrush)).on("touchmove mousemove", moveZoneBrush);
 
     body.querySelector("div").classList.add("selected");
@@ -405,7 +405,7 @@ function editZones() {
           .filter(i => pack.cells.h[i] >= 20)
       : [];
     if (!cells.length) {
-      tip("Zone does not have any land cells, cannot change population", false, "error");
+      tip("区内没有任何土壤单元格，不能改变人口", false, "error");
       return;
     }
     const burgs = pack.burgs.filter(b => !b.removed && cells.includes(b.cell));
@@ -415,9 +415,9 @@ function editZones() {
     const total = rural + urban;
     const l = n => Number(n).toLocaleString();
 
-    alertMessage.innerHTML = /* html */ `Rural: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> Urban:
+    alertMessage.innerHTML = /* html */ `农村: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> 城市:
       <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" ${burgs.length ? "" : "disabled"} />
-      <p>Total population: ${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
+      <p>总人口: ${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
 
     const update = function () {
       const totalNew = ruralPop.valueAsNumber + urbanPop.valueAsNumber;
@@ -431,7 +431,7 @@ function editZones() {
 
     $("#alert").dialog({
       resizable: false,
-      title: "Change zone population",
+      title: "变化区人口",
       width: "24em",
       buttons: {
         Apply: function () {

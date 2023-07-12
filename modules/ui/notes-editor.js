@@ -37,11 +37,11 @@ function editNotes(id, name) {
   } else {
     // if notes array is empty
     notesName.value = "";
-    notesLegend.innerHTML = "No notes added. Click on an element (e.g. label or marker) and add a free text note";
+    notesLegend.innerHTML = "未添加注释。单击一个元素(例如标签或标记)并添加一个自由文本注释";
   }
 
   $("#notesEditor").dialog({
-    title: "Notes Editor",
+    title: "笔记编辑器",
     width: window.innerWidth * 0.8,
     height: window.innerHeight * 0.75,
     position: {my: "center", at: "center", of: "svg"},
@@ -100,7 +100,7 @@ function editNotes(id, name) {
 
   function updateLegend() {
     const note = notes.find(note => note.id === notesSelect.value);
-    if (!note) return tip("Note element is not found", true, "error", 4000);
+    if (!note) return tip("找不到笔记元素", true, "error", 4000);
 
     const isTinyEditorActive = window.tinymce?.activeEditor;
     note.legend = isTinyEditorActive ? tinymce.activeEditor.getContent() : notesLegend.innerHTML;
@@ -114,7 +114,7 @@ function editNotes(id, name) {
 
   function changeElement() {
     const note = notes.find(note => note.id === this.value);
-    if (!note) return tip("Note element is not found", true, "error", 4000);
+    if (!note) return tip("找不到笔记元素", true, "error", 4000);
 
     notesName.value = note.name;
     notesLegend.innerHTML = note.legend;
@@ -125,7 +125,7 @@ function editNotes(id, name) {
 
   function changeName() {
     const note = notes.find(note => note.id === notesSelect.value);
-    if (!note) return tip("Note element is not found", true, "error", 4000);
+    if (!note) return tip("找不到笔记元素", true, "error", 4000);
 
     note.name = this.value;
   }
@@ -135,10 +135,10 @@ function editNotes(id, name) {
     if (element) return highlightElement(element, 3);
 
     confirmationDialog({
-      title: "Element not found",
-      message: "Note element is not found. Would you like to remove the note?",
-      confirm: "Remove",
-      cancel: "Keep",
+      title: "找不到元素",
+      message: "找不到笔记元素，你要移除笔记吗?",
+      confirm: "移除",
+      cancel: "保持",
       onConfirm: removeLegend
     });
   }
@@ -150,7 +150,7 @@ function editNotes(id, name) {
   }
 
   function uploadLegends(dataLoaded) {
-    if (!dataLoaded) return tip("Cannot load the file. Please check the data format", false, "error");
+    if (!dataLoaded) return tip("无法加载文件。请检查数据格式", false, "error");
     notes = JSON.parse(dataLoaded);
     notesSelect.options.length = 0;
     editNotes(notes[0].id, notes[0].name);
@@ -158,9 +158,9 @@ function editNotes(id, name) {
 
   function triggerNotesRemove() {
     confirmationDialog({
-      title: "Remove note",
-      message: "Are you sure you want to remove the selected note? There is no way to undo this action",
-      confirm: "Remove",
+      title: "删除笔记",
+      message: "确实要删除选中的笔记吗? 无法撤消此操作",
+      confirm: "删除",
       onConfirm: removeLegend
     });
   }

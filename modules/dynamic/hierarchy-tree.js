@@ -164,10 +164,10 @@ function insertHtml() {
       <div id='hierarchyTree_infoLine' style="display: block">&#8205;</div>
       <div id='hierarchyTree_selected' style="display: none">
         <span><span id='hierarchyTree_selectedName'></span>. </span>
-        <span data-name="Type short name (abbreviation)">Abbreviation: <input id='hierarchyTree_selectedCode' type='text' maxlength='3' size='3' /></span>
-        <span>Origins: <span id='hierarchyTree_selectedOrigins'></span></span>
-        <button data-tip='Edit this node's origins' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedSelectButton'>Edit</button>
-        <button data-tip='Unselect this node' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedCloseButton'>Unselect</button>
+        <span data-name="Type short name (abbreviation)">缩写: <input id='hierarchyTree_selectedCode' type='text' maxlength='3' size='3' /></span>
+        <span>起源: <span id='hierarchyTree_selectedOrigins'></span></span>
+        <button data-tip='编辑这个节点的起源' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedSelectButton'>编辑</button>
+        <button data-tip='取消选择此节点' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedCloseButton'>取消选择</button>
       </div>
     </div>
     <div id="hierarchyTree_originSelector"></div>
@@ -374,8 +374,8 @@ function selectElement(d) {
   byId("hierarchyTree_selectedCode").value = dataElement.code;
 
   byId("hierarchyTree_selectedCode").onchange = function () {
-    if (this.value.length > 3) return tip("Abbreviation must be 3 characters or less", false, "error", 3000);
-    if (!this.value.length) return tip("Abbreviation cannot be empty", false, "error", 3000);
+    if (this.value.length > 3) return tip("缩写必须是3个字符或更少", false, "error", 3000);
+    if (!this.value.length) return tip("缩写不能为空", false, "error", 3000);
 
     node.select("text").text(this.value);
     dataElement.code = this.value;
@@ -387,7 +387,7 @@ function selectElement(d) {
       .map((origin, index) => {
         const {name, code} = validElements.find(r => r.i === origin) || {};
         const type = index ? "Secondary" : "Primary";
-        const tip = `${type} origin: ${name}. Click to remove link to that origin`;
+        const tip = `${type} 起源: ${name}. 单击此处可删除指向该原点的链接`;
         return `<button data-id="${origin}" class="hierarchyTree_selectedButton hierarchyTree_selectedOrigin" data-tip="${tip}">${code}</button>`;
       })
       .join("");
@@ -418,17 +418,17 @@ function selectElement(d) {
       if (i === 0) {
         return /*html*/ `
         <div ${isChecked}>
-          <input data-tip="Set as primary origin" type="radio" name="primary" value="${i}" ${isPrimary} />
-          Top level
+          <input data-tip="设置为主要原点" type="radio" name="primary" value="${i}" ${isPrimary} />
+          顶层
         </div>
       `;
       }
 
       return /*html*/ `
         <div ${isChecked}>
-          <input data-tip="Set as primary origin" type="radio" name="primary" value="${i}" ${isPrimary} />
+          <input data-tip="设置为主要原点" type="radio" name="primary" value="${i}" ${isPrimary} />
           <input data-id="${i}" id="selectElementOrigin${i}" class="checkbox" type="checkbox" ${isChecked} />
-          <label data-tip="Check to set as a secondary origin" for="selectElementOrigin${i}" class="checkbox-label">
+          <label data-tip="检查设置为次级原点" for="selectElementOrigin${i}" class="checkbox-label">
             <fill-box fill="${color}" size=".8em" disabled></fill-box>
             ${code}: ${name}
           </label>
@@ -443,7 +443,7 @@ function selectElement(d) {
     `;
 
     $("#hierarchyTree_originSelector").dialog({
-      title: "Select origins",
+      title: "选择起源",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
         Select: () => {
@@ -483,7 +483,7 @@ function handleNoteEnter(d) {
   onNodeEnter(d);
 
   byId("hierarchyTree_infoLine").innerText = getDescription(d.data);
-  tip("Drag to other node to add parent, click to edit");
+  tip("拖到其他节点可添加父节点，单击可编辑");
 }
 
 function handleNodeExit(d) {

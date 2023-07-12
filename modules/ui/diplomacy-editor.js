@@ -2,7 +2,7 @@
 function editDiplomacy() {
   if (customization) return;
   if (pack.states.filter(s => s.i && !s.removed).length < 2)
-    return tip("There should be at least 2 states to edit the diplomacy", false, "error");
+    return tip("应该至少有2个国家编辑的外交", false, "error");
 
   const body = document.getElementById("diplomacyBodySection");
 
@@ -16,41 +16,41 @@ function editDiplomacy() {
 
   const relations = {
     Ally: {
-      inText: "is an ally of",
+      inText: "盟友",
       color: "#00b300",
-      tip: "Allies formed a defensive pact and protect each other in case of third party aggression"
+      tip: "同盟国达成防御协议，在第三方侵略的情况下相互保护"
     },
     Friendly: {
-      inText: "is friendly to",
+      inText: "友好",
       color: "#d4f8aa",
-      tip: "State is friendly to anouther state when they share some common interests"
+      tip: "当一个国家与另一个国家有共同利益时，这个国家对另一个国家是友好的"
     },
     Neutral: {
-      inText: "is neutral to",
+      inText: "中立",
       color: "#edeee8",
-      tip: "Neutral means states relations are neither positive nor negative"
+      tip: "中立意味着状态关系既不是正的也不是负的"
     },
     Suspicion: {
-      inText: "is suspicious of",
+      inText: "怀疑",
       color: "#eeafaa",
-      tip: "Suspicion means state has a cautious distrust of another state"
+      tip: "怀疑意味着国家对另一个国家持谨慎的不信任态度"
     },
-    Enemy: {inText: "is at war with", color: "#e64b40", tip: "Enemies are states at war with each other"},
+    Enemy: {inText: "交战", color: "#e64b40", tip: "敌人是相互交战的国家"},
     Unknown: {
-      inText: "does not know about",
+      inText: "未知",
       color: "#a9a9a9",
-      tip: "Relations are unknown if states do not have enough information about each other"
+      tip: "如果国家之间没有足够的相互信息，那么关系就是未知的"
     },
     Rival: {
-      inText: "is a rival of",
+      inText: "对抗",
       color: "#ad5a1f",
-      tip: "Rivalry is a state of competing for dominance in the region"
+      tip: "竞争是一种在该地区争夺主导地位的状态"
     },
-    Vassal: {inText: "is a vassal of", color: "#87CEFA", tip: "Vassal is a state having obligation to its suzerain"},
+    Vassal: {inText: "附庸", color: "#87CEFA", tip: "附属国是对其领主负有义务的国家"},
     Suzerain: {
-      inText: "is suzerain to",
+      inText: "宗主",
       color: "#00008B",
-      tip: "Suzerain is a state having some control over its vassals"
+      tip: "宗主国是一个对其附属国有一定控制权的国家"
     }
   };
 
@@ -61,7 +61,7 @@ function editDiplomacy() {
   modules.editDiplomacy = true;
 
   $("#diplomacyEditor").dialog({
-    title: "Diplomacy Editor",
+    title: "外交编辑器",
     resizable: false,
     width: fitContent(),
     close: closeDiplomacyEditor,
@@ -110,7 +110,7 @@ function editDiplomacy() {
     const selectedName = states[selectedId].name;
 
     COArenderer.trigger("stateCOA" + selectedId, states[selectedId].coa);
-    let lines = /* html */ `<div class="states Self" data-id=${selectedId} data-tip="List below shows relations to ${selectedName}">
+    let lines = /* html */ `<div class="states Self" data-id=${selectedId} data-tip="下面的列表显示与 ${selectedName} 的关系">
       <div style="width: max-content">${states[selectedId].fullName}</div>
       <svg class="coaIcon" viewBox="0 0 200 200"><use href="#stateCOA${selectedId}"></use></svg>
     </div>`;
@@ -120,9 +120,9 @@ function editDiplomacy() {
       const relation = state.diplomacy[selectedId];
       const {color, inText} = relations[relation];
 
-      const tip = `${state.name} ${inText} ${selectedName}`;
-      const tipSelect = `${tip}. Click to see relations to ${state.name}`;
-      const tipChange = `Click to change relations. ${tip}`;
+      const tip = `${state.name} 与 ${selectedName} 关系是: ${inText}`;
+      const tipSelect = `${tip}. 点击查看关系 ${state.name}`;
+      const tipChange = `点击更改关系. ${tip}`;
 
       const name = state.fullName.length < 23 ? state.fullName : state.name;
       COArenderer.trigger("stateCOA" + state.i, state.coa);
@@ -267,7 +267,7 @@ function editDiplomacy() {
 
     $("#alert").dialog({
       width: fitContent(),
-      title: `Change relations`,
+      title: `改变关系`,
       buttons: {
         Apply: function () {
           const formData = new FormData(byId("relationsForm"));
@@ -300,20 +300,20 @@ function editDiplomacy() {
 
     // update relation history
     const change = () => [
-      `Relations change`,
-      `${subjectName}-${getAdjective(objectName)} relations changed to ${newRelation.toLowerCase()}`
+      `关系变了`,
+      `${subjectName}-${getAdjective(objectName)} 关系变成 ${newRelation.toLowerCase()}`
     ];
-    const ally = () => [`Defence pact`, `${subjectName} entered into defensive pact with ${objectName}`];
-    const vassal = () => [`Vassalization`, `${subjectName} became a vassal of ${objectName}`];
-    const suzerain = () => [`Vassalization`, `${subjectName} vassalized ${objectName}`];
-    const rival = () => [`Rivalization`, `${subjectName} and ${objectName} became rivals`];
+    const ally = () => [`Defence pact`, `${subjectName} 与 ${objectName} 签订防御条约`];
+    const vassal = () => [`Vassalization`, `${subjectName} 成为 ${objectName} 的附庸`];
+    const suzerain = () => [`Vassalization`, `${subjectName} 让 ${objectName} 成为附庸`];
+    const rival = () => [`Rivalization`, `${subjectName} 与 ${objectName} 成了死敌`];
     const unknown = () => [
-      `Relations severance`,
-      `${subjectName} recalled their ambassadors and wiped all the records about ${objectName}`
+      `关系解除`,
+      `${subjectName} 召回了他们的大使，抹去了 ${objectName} 所有的记录`
     ];
-    const war = () => [`War declaration`, `${subjectName} declared a war on its enemy ${objectName}`];
+    const war = () => [`宣战`, `${subjectName} 向敌人 ${objectName} 宣战`];
     const peace = () => {
-      const treaty = `${subjectName} and ${objectName} agreed to cease fire and signed a peace treaty`;
+      const treaty = `${subjectName} 与 ${objectName} 同意停火并签署了和平条约`;
       const changed =
         newRelation === "Ally"
           ? ally()
@@ -324,7 +324,7 @@ function editDiplomacy() {
           : newRelation === "Unknown"
           ? unknown()
           : change();
-      return [`War termination`, treaty, changed[1]];
+      return [`战争终结`, treaty, changed[1]];
     };
 
     if (oldRelation === "Enemy") chronicle.push(peace());
@@ -378,18 +378,18 @@ function editDiplomacy() {
 
     if (!chronicle.length) {
       pack.states[0].diplomacy = [[]];
-      message += /* html */ `<div><div contenteditable="true" data-id="0-0">No historical records</div>&#8205;</div>`;
+      message += /* html */ `<div><div contenteditable="true" data-id="0-0">没有历史记录</div>&#8205;</div>`;
     }
 
     alertMessage.innerHTML =
       message +
-      `</div><div class="info-line">Type to edit. Press Enter to add a new line, empty the element to remove it</div>`;
+      `</div><div class="info-line">键入以编辑。按 Enter 添加新行，清空元素以删除它</div>`;
     alertMessage
       .querySelectorAll("div[contenteditable='true']")
       .forEach(el => el.addEventListener("input", changeReliationsHistory));
 
     $("#alert").dialog({
-      title: "Relations history",
+      title: "关系史",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
         Save: function () {
@@ -423,12 +423,12 @@ function editDiplomacy() {
     const diplomacyMatrixBody = document.getElementById("diplomacyMatrixBody");
 
     let table = `<table><thead><tr><th data-tip='&#8205;'></th>`;
-    table += states.map(state => `<th data-tip='Relations to ${state.fullName}'>${state.name}</th>`).join("") + `</tr>`;
+    table += states.map(state => `<th data-tip='与 ${state.fullName} 的关系'>${state.name}</th>`).join("") + `</tr>`;
     table += `<tbody>`;
 
     states.forEach(state => {
       table +=
-        `<tr data-id=${state.i}><th data-tip='Relations of ${state.fullName}'>${state.name}</th>` +
+        `<tr data-id=${state.i}><th data-tip='${state.fullName} 的关系'>${state.name}</th>` +
         state.diplomacy
           .filter((v, i) => valid.includes(i))
           .map((relation, index) => {
@@ -461,7 +461,7 @@ function editDiplomacy() {
     });
 
     $("#diplomacyMatrix").dialog({
-      title: "Relations matrix",
+      title: "关系矩阵",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {}
     });

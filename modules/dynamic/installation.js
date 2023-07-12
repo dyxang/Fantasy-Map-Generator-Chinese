@@ -10,7 +10,7 @@ export function init(event) {
   deferredPrompt = event;
 
   window.addEventListener("appinstalled", () => {
-    tip("Application is installed", false, "success", 8000);
+    tip("应用程序已安装", false, "success", 8000);
     cleanup();
   });
 }
@@ -33,8 +33,8 @@ function createButton() {
 }
 
 function openDialog() {
-  alertMessage.innerHTML = /* html */ `You can install the tool so that it will look and feel like desktop application:
-    have its own icon on your home screen and work offline with some limitations
+  alertMessage.innerHTML = /* html */ `您可以安装该工具，使其看起来和感觉上都像桌面应用程序:
+  在你的主屏幕上有自己的图标，离线工作时有一些限制
   `;
   $("#alert").dialog({
     resizable: false,

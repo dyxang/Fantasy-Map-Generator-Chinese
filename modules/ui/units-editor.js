@@ -7,7 +7,7 @@ function editUnits() {
   modules.editUnits = true;
 
   $("#unitsEditor").dialog({
-    title: "Units Editor",
+    title: "单位编辑器",
     position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}
   });
 
@@ -45,7 +45,7 @@ function editUnits() {
 
   function changeDistanceUnit() {
     if (this.value === "custom_name") {
-      prompt("Provide a custom name for a distance unit", {default: ""}, custom => {
+      prompt("提供距离单位的自定义名称", {default: ""}, custom => {
         this.options.add(new Option(custom, custom, false, true));
         lock("distanceUnit");
         drawScaleBar(scale);
@@ -66,7 +66,7 @@ function editUnits() {
   function changeHeightUnit() {
     if (this.value !== "custom_name") return;
 
-    prompt("Provide a custom name for a height unit", {default: ""}, custom => {
+    prompt("为高度单位提供自定义名称", {default: ""}, custom => {
       this.options.add(new Option(custom, custom, false, true));
       lock("heightUnit");
     });
@@ -169,7 +169,7 @@ function editUnits() {
       this.classList.remove("pressed");
     } else {
       if (!layerIsOn("toggleRulers")) toggleRulers();
-      tip("Draw a curve to measure length. Hold Shift to disallow path optimization", true);
+      tip("绘制曲线测量长度。按住 Shift 不允许路径优化", true);
       unitsBottom.querySelectorAll(".pressed").forEach(button => button.classList.remove("pressed"));
       this.classList.add("pressed");
       viewbox.style("cursor", "crosshair").call(
@@ -201,7 +201,7 @@ function editUnits() {
       this.classList.remove("pressed");
     } else {
       if (!layerIsOn("toggleRulers")) toggleRulers();
-      tip("Draw a curve along routes to measure length. Hold Shift to measure away from roads.", true);
+      tip("沿着路线画一条曲线来测量长度。按住 Shift 来测量远离道路的距离.", true);
       unitsBottom.querySelectorAll(".pressed").forEach(button => button.classList.remove("pressed"));
       this.classList.add("pressed");
       viewbox.style("cursor", "crosshair").call(
@@ -236,7 +236,7 @@ function editUnits() {
             restoreDefaultEvents();
             clearMainTip();
             addRouteOpisometer.classList.remove("pressed");
-            tip("Must start in a cell with a route in it", false, "error");
+            tip("必须从有路线的单元格开始", false, "error");
           }
         })
       );
@@ -250,7 +250,7 @@ function editUnits() {
       this.classList.remove("pressed");
     } else {
       if (!layerIsOn("toggleRulers")) toggleRulers();
-      tip("Draw a curve to measure its area. Hold Shift to disallow path optimization", true);
+      tip("画一条曲线来测量它的面积。按住 Shift 不允许路径优化", true);
       unitsBottom.querySelectorAll(".pressed").forEach(button => button.classList.remove("pressed"));
       this.classList.add("pressed");
       viewbox.style("cursor", "crosshair").call(
@@ -277,11 +277,11 @@ function editUnits() {
 
   function removeAllRulers() {
     if (!rulers.data.length) return;
-    alertMessage.innerHTML = /* html */ ` Are you sure you want to remove all placed rulers?
-      <br />If you just want to hide rulers, toggle the Rulers layer off in Menu`;
+    alertMessage.innerHTML = /* html */ ` 确实要删除所有已放置的标尺吗?
+      <br />如果你只是想隐藏尺子，在菜单中切换尺子图层`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove all rulers",
+      title: "移除所有尺子",
       buttons: {
         Remove: function () {
           $(this).dialog("close");

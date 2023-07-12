@@ -5,7 +5,7 @@ function editCoastline(node = d3.event.target) {
   if (layerIsOn("toggleCells")) toggleCells();
 
   $("#coastlineEditor").dialog({
-    title: "Edit Coastline",
+    title: "编辑海岸线",
     resizable: false,
     position: {my: "center top+20", at: "top", of: d3.event, collision: "fit"},
     close: closeCoastlineEditor
@@ -55,7 +55,7 @@ function editCoastline(node = d3.event.target) {
       .attr("r", 0.4)
       .attr("data-v", d => d)
       .call(d3.drag().on("drag", dragVertex))
-      .on("mousemove", () => tip("Drag to move the vertex, please use for fine-tuning only. Edit heightmap to change actual cell heights"));
+      .on("mousemove", () => tip("拖动可移动顶点，请仅用于微调。编辑高度图可更改实际单元格高度"));
 
     const area = pack.features[f].area;
     coastlineArea.innerHTML = si(getArea(area)) + " " + getAreaUnit();
@@ -132,7 +132,7 @@ function editCoastline(node = d3.event.target) {
 
   function createNewGroup() {
     if (!this.value) {
-      tip("Please provide a valid group name");
+      tip("请提供一个有效的组名");
       return;
     }
     const group = this.value
@@ -141,12 +141,12 @@ function editCoastline(node = d3.event.target) {
       .replace(/[^\w\s]/gi, "");
 
     if (document.getElementById(group)) {
-      tip("Element with this id already exists. Please provide a unique name", false, "error");
+      tip("具有此 ID 的元素已经存在。请提供唯一的名称", false, "error");
       return;
     }
 
     if (Number.isFinite(+group.charAt(0))) {
-      tip("Group name should start with a letter", false, "error");
+      tip("组名应以字母开头", false, "error");
       return;
     }
 
@@ -176,16 +176,16 @@ function editCoastline(node = d3.event.target) {
   function removeCoastlineGroup() {
     const group = elSelected.node().parentNode.id;
     if (["sea_island", "lake_island"].includes(group)) {
-      tip("This is one of the default groups, it cannot be removed", false, "error");
+      tip("这是默认组之一，无法删除", false, "error");
       return;
     }
 
     const count = elSelected.node().parentNode.childElementCount;
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove the group? All coastline elements of the group (${count}) will be moved under
-      <i>sea_island</i> group`;
+    alertMessage.innerHTML = /* html */ `确实要删除该组吗? 该组的所有海岸线元素 (${count}) 将被移到
+      <i>sea_island</i> 组`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove coastline group",
+      title: "清除海岸线组",
       width: "26em",
       buttons: {
         Remove: function () {

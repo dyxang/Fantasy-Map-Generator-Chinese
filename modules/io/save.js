@@ -120,7 +120,7 @@ function getMapData() {
 // Download .map file
 function dowloadMap() {
   if (customization)
-    return tip("Map cannot be saved when edit mode is active, please exit the mode and retry", false, "error");
+    return tip("当编辑模式处于活动状态时无法保存地图，请退出模式并重试", false, "error");
   closeDialogs("#alert");
 
   const mapData = getMapData();
@@ -130,13 +130,13 @@ function dowloadMap() {
   link.download = getFileName() + ".map";
   link.href = URL;
   link.click();
-  tip(`${link.download} is saved. Open "Downloads" screen (CTRL + J) to check`, true, "success", 7000);
+  tip(`${link.download} 已保存，打开“下载”屏幕(CTRL + J)以检查`, true, "success", 7000);
   window.URL.revokeObjectURL(URL);
 }
 
 async function saveToDropbox() {
   if (customization)
-    return tip("Map cannot be saved when edit mode is active, please exit the mode and retry", false, "error");
+    return tip("当编辑模式处于活动状态时无法保存地图，请退出模式并重试", false, "error");
   closeDialogs("#alert");
   const mapData = getMapData();
   const filename = getFileName() + ".map";
@@ -159,9 +159,9 @@ async function initiateAutosave() {
 
     const diffInMinutes = (Date.now() - lastSavedAt) / MINUTE;
     if (diffInMinutes < timeoutMinutes) return;
-    if (customization) return tip("Autosave: map cannot be saved in edit mode", false, "warning", 2000);
+    if (customization) return tip("自动保存: 编辑模式下无法自动保存", false, "warning", 2000);
 
-    tip("Autosave: saving map...", false, "warning", 3000);
+    tip("自动保存: 保存地图中...", false, "warning", 3000);
     const mapData = getMapData();
     const blob = new Blob([mapData], {type: "text/plain"});
     await ldb.set("lastMap", blob);
@@ -174,25 +174,25 @@ async function initiateAutosave() {
 
 async function quickSave() {
   if (customization)
-    return tip("Map cannot be saved when edit mode is active, please exit the mode first", false, "error");
+    return tip("当编辑模式处于活动状态时无法保存地图，请退出模式并重试", false, "error");
 
   const mapData = getMapData();
   const blob = new Blob([mapData], {type: "text/plain"});
-  await ldb.set("lastMap", blob); // auto-save map
-  tip("Map is saved to browser memory. Please also save as .map file to secure progress", true, "success", 2000);
+  if (blob) ldb.set("lastMap", blob); // auto-save map
+  tip("地图已保存到浏览器内存中。请另存为 .map 文件以保护进度", true, "success", 2000);
 }
 
 const saveReminder = function () {
   if (localStorage.getItem("noReminder")) return;
   const message = [
-    "Please don't forget to save your work as a .map file",
-    "Please remember to save work as a .map file",
-    "Saving in .map format will ensure your data won't be lost in case of issues",
-    "Safety is number one priority. Please save the map",
-    "Don't forget to save your map on a regular basis!",
-    "Just a gentle reminder for you to save the map",
-    "Please don't forget to save your progress (saving as .map is the best option)",
-    "Don't want to be reminded about need to save? Press CTRL+Q"
+    "请不要忘记将您的工作保存为.map 文件",
+    "请记住将工作保存为.map 文件",
+    "以.map 格式保存将确保在出现问题时数据不会丢失",
+    "安全第一，请保存地图",
+    "不要忘记定期保存你的地图！",
+    "只是温柔地提醒你保存地图",
+    "请不要忘记保存您的进度(保存为.map 是最好的选择)",
+    "不想被提醒需要保存? 按 Ctrl + Q"
   ];
   const interval = 15 * 60 * 1000; // remind every 15 minutes
 
@@ -206,12 +206,12 @@ saveReminder();
 
 function toggleSaveReminder() {
   if (saveReminder.status) {
-    tip("Save reminder is turned off. Press CTRL+Q again to re-initiate", true, "warn", 2000);
+    tip("保存提醒关闭。再次按 Ctrl + Q 重新启动", true, "warn", 2000);
     clearInterval(saveReminder.reminder);
     localStorage.setItem("noReminder", true);
     saveReminder.status = 0;
   } else {
-    tip("Save reminder is turned on. Press CTRL+Q to turn off", true, "warn", 2000);
+    tip("保存提醒已打开。按 Ctrl + Q 关闭", true, "warn", 2000);
     localStorage.removeItem("noReminder");
     saveReminder();
   }

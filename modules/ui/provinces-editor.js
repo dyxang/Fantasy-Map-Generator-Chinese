@@ -15,7 +15,7 @@ function editProvinces() {
   modules.editProvinces = true;
 
   $("#provincesEditor").dialog({
-    title: "Provinces Editor",
+    title: "省编辑器",
     resizable: false,
     width: fitContent(),
     close: closeProvincesEditor,
@@ -124,7 +124,7 @@ function editProvinces() {
       const rural = p.rural * populationRate;
       const urban = p.urban * populationRate * urbanization;
       const population = rn(rural + urban);
-      const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(urban)}`;
+      const populationTip = `总人口: ${si(population)}; 农村人口: ${si(rural)}; 城市人口: ${si(urban)}`;
       totalPopulation += population;
 
       const stateName = pack.states[p.state].name;
@@ -144,28 +144,28 @@ function editProvinces() {
         data-population=${population}
       >
         <fill-box fill="${p.color}"></fill-box>
-        <input data-tip="Province name. Click to change" class="name pointer" value="${p.name}" readonly />
-        <svg data-tip="Click to show and edit province emblem" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
-        <input data-tip="Province form name. Click to change" class="name pointer hide" value="${p.formName}" readonly />
-        <span data-tip="Province capital. Click to zoom into view" class="icon-star-empty pointer hide ${p.burg ? "" : "placeholder"}"></span>
+        <input data-tip="省名。点击更改" class="name pointer" value="${p.name}" readonly />
+        <svg data-tip="点击显示和编辑省徽" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
+        <input data-tip="省级表单名称。单击可更改" class="name pointer hide" value="${p.formName}" readonly />
+        <span data-tip="省会。点击放大查看" class="icon-star-empty pointer hide ${p.burg ? "" : "placeholder"}"></span>
         <select
-          data-tip="Province capital. Click to select from burgs within the state. No capital means the province is governed from the state capital"
+          data-tip="省会。单击此处可从国家内的市镇中进行选择。没有首都就意味着该省由国家首都管辖"
           class="cultureBase hide ${p.burgs.length ? "" : "placeholder"}"
         >
           ${p.burgs.length ? getCapitalOptions(p.burgs, p.burg) : ""}
         </select>
-        <input data-tip="Province owner" class="provinceOwner" value="${stateName}" disabled">
-        <span data-tip="Province area" style="padding-right: 4px" class="icon-map-o hide"></span>
-        <div data-tip="Province area" class="biomeArea hide">${si(area) + unit}</div>
+        <input data-tip="省拥有者" class="provinceOwner" value="${stateName}" disabled">
+        <span data-tip="省区" style="padding-right: 4px" class="icon-map-o hide"></span>
+        <div data-tip="省区" class="biomeArea hide">${si(area) + unit}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="culturePopulation hide">${si(population)}</div>
         <span
-          data-tip="Declare province independence (turn non-capital province with burgs into a new state)"
+          data-tip="宣布省份独立(将非首都的省份和市镇合并为一个新的国家)"
           class="icon-flag-empty ${separable ? "" : "placeholder"} hide"
         ></span>
-        <span data-tip="Toggle province focus" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
-        <span data-tip="Lock the province" class="icon-lock${p.lock ? '' : '-open'} hide"></span>
-        <span data-tip="Remove the province" class="icon-trash-empty hide"></span>
+        <span data-tip="切换省份焦点" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
+        <span data-tip="锁定省份" class="icon-lock${p.lock ? '' : '-open'} hide"></span>
+        <span data-tip="移除省份" class="icon-trash-empty hide"></span>
       </div>`;
     }
     body.innerHTML = lines;
@@ -251,9 +251,9 @@ function editProvinces() {
 
   function triggerIndependencePromps(p) {
     confirmationDialog({
-      title: "Declare independence",
-      message: "Are you sure you want to declare province independence? <br>It will turn province into a new state",
-      confirm: "Declare",
+      title: "宣布独立",
+      message: "你确定要宣布省独立吗? <br>它将把省变成一个新的国家",
+      confirm: "宣布",
       onConfirm: () => {
         const [oldStateId, newStateId] = declareProvinceIndependence(p);
         updateStatesPostRelease([oldStateId], [newStateId]);
@@ -267,8 +267,8 @@ function editProvinces() {
     const {name, burg: burgId, burgs: provinceBurgs} = province;
 
     if (provinceBurgs.some(b => burgs[b].capital))
-      return tip("Cannot declare independence of a province having capital burg. Please change capital first", false, "error");
-    if (!burgId) return tip("Cannot declare independence of a province without burg", false, "error");
+      return tip("无法宣布有省会城市的独立。请先更改省会城市", false, "error");
+    if (!burgId) return tip("没有城市就不能宣布独立", false, "error");
 
     const oldStateId = province.state;
     const newStateId = states.length;
@@ -313,7 +313,7 @@ function editProvinces() {
       return relations;
     });
     diplomacy.push("x");
-    states[0].diplomacy.push([`Independance declaration`, `${name} declared its independance from ${states[oldStateId].name}`]);
+    states[0].diplomacy.push([`独立宣言`, `${name} 宣布从 ${states[oldStateId].name} 独立`]);
 
     // create new state
     states.push({
@@ -366,7 +366,7 @@ function editProvinces() {
     const p = pack.provinces[province];
     const cells = pack.cells.i.filter(i => pack.cells.province[i] === province);
     if (!cells.length) {
-      tip("Province does not have any cells, cannot change population", false, "error");
+      tip("省内没有任何单元格，不能改变人口", false, "error");
       return;
     }
     const rural = rn(p.rural * populationRate);
@@ -374,9 +374,9 @@ function editProvinces() {
     const total = rural + urban;
     const l = n => Number(n).toLocaleString();
 
-    alertMessage.innerHTML = /* html */ ` Rural: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> Urban:
+    alertMessage.innerHTML = /* html */ ` 农村: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> 城市:
       <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" ${p.burgs.length ? "" : "disabled"} />
-      <p>Total population: ${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
+      <p>总人口: ${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
 
     const update = function () {
       const totalNew = ruralPop.valueAsNumber + urbanPop.valueAsNumber;
@@ -390,7 +390,7 @@ function editProvinces() {
 
     $("#alert").dialog({
       resizable: false,
-      title: "Change province population",
+      title: "改变省份人口",
       width: "24em",
       buttons: {
         Apply: function () {
@@ -437,10 +437,10 @@ function editProvinces() {
   }
 
   function removeProvince(p) {
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove the province? <br />This action cannot be reverted`;
+    alertMessage.innerHTML = /* html */ `您确定要删除该省吗？ <br />无法恢复此操作`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove province",
+      title: "移除省份",
       buttons: {
         Remove: function () {
           pack.cells.province.forEach((province, i) => {
@@ -482,7 +482,7 @@ function editProvinces() {
 
     $("#provinceNameEditor").dialog({
       resizable: false,
-      title: "Change province name",
+      title: "更改省名",
       buttons: {
         Apply: function () {
           applyNameChange(p);
@@ -602,10 +602,10 @@ function editProvinces() {
 
     // prepare svg
     alertMessage.innerHTML = /* html */ `<select id="provincesTreeType" style="display:block; margin-left:13px; font-size:11px">
-      <option value="area" selected>Area</option>
-      <option value="population">Total population</option>
-      <option value="rural">Rural population</option>
-      <option value="urban">Urban population</option>
+      <option value="area" selected>面积</option>
+      <option value="population">总人口</option>
+      <option value="rural">农村人口</option>
+      <option value="urban">城市人口</option>
     </select>`;
     alertMessage.innerHTML += `<div id='provinceInfo' class='chartInfo'>&#8205;</div>`;
     const svg = d3
@@ -640,12 +640,12 @@ function editProvinces() {
 
       const value =
         provincesTreeType.value === "area"
-          ? "Area: " + area
+          ? "面积: " + area
           : provincesTreeType.value === "rural"
-          ? "Rural population: " + si(rural)
+          ? "农村人口: " + si(rural)
           : provincesTreeType.value === "urban"
-          ? "Urban population: " + si(urban)
-          : "Population: " + si(rural + urban);
+          ? "城市人口: " + si(urban)
+          : "人口: " + si(rural + urban);
 
       provinceInfo.innerHTML = /* html */ `${name}. ${state}. ${value}`;
       provinceHighlightOn(ev);
@@ -719,7 +719,7 @@ function editProvinces() {
     }
 
     $("#alert").dialog({
-      title: "Provinces chart",
+      title: "省份图表",
       width: fitContent(),
       position: {my: "left bottom", at: "left+10 bottom-10", of: "svg"},
       buttons: {},
@@ -740,11 +740,11 @@ function editProvinces() {
 
   function triggerProvincesRelease() {
     confirmationDialog({
-      title: "Release provinces",
-      message: `Are you sure you want to release all provinces?
-          </br>It will turn all separable provinces into independent states.
-          </br>Capital province and provinces without any burgs will state as they are`,
-      confirm: "Release",
+      title: "释放各省",
+      message: `你确定要释放所有的省份吗?
+          </br>它将把所有分离的省份变成独立的国家.
+          </br>首都省份和没有任何市民的省份将会照常`,
+      confirm: "释放",
       onConfirm: () => {
         const oldStateIds = [];
         const newStateIds = [];
@@ -812,7 +812,7 @@ function editProvinces() {
 
     const editorLine = body.querySelector("div[data-id='" + province + "']");
     if (!editorLine) {
-      tip("You cannot select a province if it is not in the Editor list", false, "error");
+      tip("如果省份不在编辑器列表中，则无法选择该省份", false, "error");
       return;
     }
 
@@ -859,7 +859,7 @@ function editProvinces() {
       if (i === pack.provinces[provinceOld].center) {
         const center = centers.select("polygon[data-center='" + i + "']");
         if (!center.size()) centers.append("polygon").attr("data-center", i).attr("points", getPackPolygon(i));
-        tip("Province center cannot be assigned to a different region. Please remove the province first", false, "error");
+        tip("省中心不能分配到其他地区。请先删除省", false, "error");
         return;
       }
 
@@ -934,7 +934,7 @@ function editProvinces() {
 
     customization = 12;
     this.classList.add("pressed");
-    tip("Click on the map to place a new province center", true);
+    tip("点击地图放置一个新的省中心", true);
     viewbox.style("cursor", "crosshair").on("click", addProvince);
     body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "none"));
   }
@@ -943,14 +943,14 @@ function editProvinces() {
     const {cells, provinces} = pack;
     const point = d3.mouse(this);
     const center = findCell(point[0], point[1]);
-    if (cells.h[center] < 20) return tip("You cannot place province into the water. Please click on a land cell", false, "error");
+    if (cells.h[center] < 20) return tip("你不能把省放入水中。请点击陆地单元格", false, "error");
 
     const oldProvince = cells.province[center];
     if (oldProvince && provinces[oldProvince].center === center)
-      return tip("The cell is already a center of a different province. Select other cell", false, "error");
+      return tip("该单元格已经是不同省份的中心。请选择其他单元格", false, "error");
 
     const state = cells.state[center];
-    if (!state) return tip("You cannot create a province in neutral lands. Please assign this land to a state first", false, "error");
+    if (!state) return tip("你不能在中立的土地上建立一个省。请先将这块土地分配给一个国家", false, "error");
 
     if (d3.event.shiftKey === false) exitAddProvinceMode();
 
@@ -1039,10 +1039,10 @@ function editProvinces() {
   }
 
   function removeAllProvinces() {
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove all provinces? <br />This action cannot be reverted`;
+    alertMessage.innerHTML = /* html */ `您确定要删除所有省份吗？ <br />无法恢复此操作`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove all provinces",
+      title: "删除所有省份",
       buttons: {
         Remove: function () {
           $(this).dialog("close");

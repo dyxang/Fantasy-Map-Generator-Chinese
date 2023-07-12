@@ -196,7 +196,7 @@ class Battle {
     $("#regimentSelectorScreen").dialog({
       resizable: false,
       width: fitContent(),
-      title: "在战斗中加入军团",
+      title: "在战斗中加入军队",
       position: {my: "left center", at: "right+10 center", of: "#battleScreen"},
       close: addSideClosed,
       buttons: {
@@ -697,7 +697,7 @@ class Battle {
           .map(t => (r.casualties[t] ? `${Math.abs(r.casualties[t])} ${t}` : null))
           .filter(c => c);
         const casualtiesText = casualties.length ? " 人员伤亡: " + list(casualties) + "." : "";
-        const legend = `\r\n\r\n${battleName} (${options.year} ${options.eraShort}): ${status}. 军团 ${regStatus}.${casualtiesText}`;
+        const legend = `\r\n\r\n${battleName} (${options.year} ${options.eraShort}): ${status}. 军队 ${regStatus}.${casualtiesText}`;
         note.legend += legend;
       }
 

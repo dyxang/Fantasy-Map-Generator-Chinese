@@ -23,20 +23,16 @@ function editHeightmap(options) {
   byId("templateRedo").on("click", () => restoreHistory(edits.n + 1));
 
   function showModeDialog() {
-    alertMessage.innerHTML = /* html */ `Heightmap is a core element on which all other data (rivers, burgs, states etc) is based. So the best edit approach is to
-    <i>erase</i> the secondary data and let the system automatically regenerate it on edit completion.
-    <p><i>Erase</i> mode also allows you Convert an Image into a heightmap or use Template Editor.</p>
-    <p>You can <i>keep</i> the data, but you won't be able to change the coastline.</p>
-    <p>Try <i>risk</i> mode to change the coastline and keep the data. The data will be restored as much as possible, but it can cause unpredictable errors.</p>
-    <p>Please <span class="pseudoLink" onclick="dowloadMap();">save the map</span> before editing the heightmap!</p>
-    <p style="margin-bottom: 0">Check out ${link(
-      "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization",
-      "wiki"
-    )} for guidance.</p>`;
+    alertMessage.innerHTML = /* html */ `Heightmap 是所有其他数据(河流、城市、州等)所基于的核心元素。因此，最好的编辑方法是删除辅助数据，并让系统在编辑完成时自动重新生成它。
+    <p><i>擦除</i>模式还允许您将图像转换为高度图或使用模板编辑器。</p>
+    <p>你可以<i>保留</i>数据, 但你无法改变海岸线.</p>
+    <p>尝试 <i>风险</i> 模式，以改变海岸线和保存数据. 将尽可能多地还原数据，但它可能导致不可预测的错误.</p>
+    <p>请在编辑高度图之前<span class="pseudoLink" onclick="dowloadMap();">保存地图</span>!</p>
+    <p style="margin-bottom: 0">看看这个 ${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization", "wiki")} 寻求指引.</p>`;
 
     $("#alert").dialog({
       resizable: false,
-      title: "Edit Heightmap",
+      title: "编辑高度图",
       width: "28em",
       buttons: {
         Erase: () => enterHeightmapEditMode("erase"),
@@ -55,7 +51,7 @@ function editHeightmap(options) {
 
     customization = 1;
     closeDialogs();
-    tip('Heightmap edit mode is active. Click on "Exit Customization" to finalize the heightmap', true);
+    tip('高度图编辑模式处于活动状态。单击“退出自定义”以完成高度图', true);
 
     byId("options")
       .querySelectorAll(".tabcontent")
@@ -158,11 +154,11 @@ function editHeightmap(options) {
   function finalizeHeightmap() {
     if (viewbox.select("#heights").selectAll("*").size() < 200)
       return tip(
-        "Insufficient land area! There should be at least 200 land cells to finalize the heightmap",
+        "土地面积不足! 应该至少有200个土地单元来最终确定高度图",
         null,
         "error"
       );
-    if (byId("imageConverter").offsetParent) return tip("Please exit the Image Conversion mode first", null, "error");
+    if (byId("imageConverter").offsetParent) return tip("请先退出图像转换模式", null, "error");
 
     delete window.edits; // remove global variable
     redo.disabled = templateRedo.disabled = true;
@@ -473,7 +469,7 @@ function editHeightmap(options) {
   function updateHeightmap() {
     const prev = last(edits);
     const changed = grid.cells.h.reduce((s, h, i) => (h !== prev[i] ? s + 1 : s), 0);
-    tip("Cells changed: " + changed);
+    tip("单元格改变: " + changed);
     if (!changed) return;
 
     // check ocean cells are not checged if olny land edit is allowed
@@ -568,7 +564,7 @@ function editHeightmap(options) {
     if ($("#brushesPanel").is(":visible")) return;
     $("#brushesPanel")
       .dialog({
-        title: "Paint Brushes",
+        title: "笔刷",
         resizable: false,
         position: {my: "right top", at: "right-10 top+10", of: "svg"}
       })
@@ -744,7 +740,7 @@ function editHeightmap(options) {
     function changeOnlyLandClick(e) {
       if (heightmapEditMode.innerHTML !== "keep") return;
       e.preventDefault();
-      tip("You cannot change the coastline in 'Keep' edit mode", false, "error");
+      tip("您不能在“保持”编辑模式下更改海岸线", false, "error");
     }
 
     function rescale(v) {
@@ -758,7 +754,7 @@ function editHeightmap(options) {
       const range = rescaleLower.value + "-" + rescaleHigher.value;
       const operator = conditionSign.value;
       const operand = rescaleModifier.valueAsNumber;
-      if (Number.isNaN(operand)) return tip("Operand should be a number", false, "error");
+      if (Number.isNaN(operand)) return tip("操作数应该是一个数字", false, "error");
       if ((operator === "add" || operator === "subtract") && !Number.isInteger(operand))
         return tip("Operand should be an integer", false, "error");
 
@@ -787,10 +783,10 @@ function editHeightmap(options) {
     }
 
     function startFromScratch() {
-      if (changeOnlyLand.checked) return tip("Not allowed when 'Change only land cells' mode is set", false, "error");
+      if (changeOnlyLand.checked) return tip("当“仅更改土地单元格”模式设置时不允许", false, "error");
       const someHeights = grid.cells.h.some(h => h);
       if (!someHeights)
-        return tip("Heightmap is already cleared, please do not click twice if not required", false, "error");
+        return tip("高度图已清除，如非必要，请勿双击", false, "error");
 
       grid.cells.h = new Uint8Array(grid.cells.i.length);
       viewbox.select("#heights").selectAll("*").remove();
@@ -803,7 +799,7 @@ function editHeightmap(options) {
     const $body = byId("templateBody");
 
     $("#templateEditor").dialog({
-      title: "Template Editor",
+      title: "模板编辑器",
       minHeight: "auto",
       width: "fit-content",
       resizable: false,
@@ -886,31 +882,31 @@ function editHeightmap(options) {
     }
 
     function getStepHTML(type, count, arg3, arg4, arg5) {
-      const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="Click to remove the step"></i>`;
-      const Hide = /* html */ `<div class="icon-check" data-tip="Click to skip the step"></div>`;
-      const Reorder = /* html */ `<i class="icon-resize-vertical" data-tip="Drag to reorder"></i>`;
+      const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="单击以删除该步骤"></i>`;
+      const Hide = /* html */ `<div class="icon-check" data-tip="单击此处可跳过该步骤"></div>`;
+      const Reorder = /* html */ `<i class="icon-resize-vertical" data-tip="拖动到重新排序"></i>`;
       const common = /* html */ `<div data-type="${type}">${Hide}<div style="width:4em">${type}</div>${Trash}${Reorder}`;
 
       const TempY = /* html */ `<span>y:
-          <input class="templateY" data-tip="Placement range percentage along Y axis (minY-maxY)" value=${
+          <input class="templateY" data-tip="沿 Y 轴的放置范围百分比(minY-maxY)" value=${
             arg5 || "20-80"
           } />
         </span>`;
 
       const TempX = /* html */ `<span>x:
-          <input class="templateX" data-tip="Placement range percentage along X axis (minX-maxX)" value=${
+          <input class="templateX" data-tip="沿 X 轴的放置范围百分比(minX-maxX)" value=${
             arg4 || "15-85"
           } />
         </span>`;
 
       const Height = /* html */ `<span>h:
-          <input class="templateHeight" data-tip="Blob maximum height, use hyphen to get a random number in range" value=${
+          <input class="templateHeight" data-tip="团块最大高度，使用连字符获取范围内的随机数" value=${
             arg3 || "40-50"
           } />
         </span>`;
 
       const Count = /* html */ `<span>n:
-          <input class="templateCount" data-tip="Blobs to add, use hyphen to get a random number in range" value=${
+          <input class="templateCount" data-tip="要添加的团块，请使用连字符获取范围内的随机数" value=${
             count || "1-2"
           } />
         </span>`;
@@ -921,13 +917,13 @@ function editHeightmap(options) {
       if (type === "Strait")
         return /* html */ `${common}
           <span>d:
-            <select class="templateDist" data-tip="Strait direction">
-              <option value="vertical" selected>vertical</option>
-              <option value="horizontal">horizontal</option>
+            <select class="templateDist" data-tip="海峡方向">
+              <option value="vertical" selected>垂直</option>
+              <option value="horizontal">水平</option>
             </select>
           </span>
           <span>w:
-            <input class="templateCount" data-tip="Strait width, use hyphen to get a random number in range" value=${
+            <input class="templateCount" data-tip="海峡宽度，使用连字符得到一个范围内的随机数" value=${
               count || "2-7"
             } />
           </span>
@@ -936,14 +932,14 @@ function editHeightmap(options) {
       if (type === "Invert")
         return /* html */ `${common}
           <span>by:
-            <select class="templateDist" data-tip="Mirror heightmap along axis" style="width: 7.8em">
+            <select class="templateDist" data-tip="沿轴线的镜像高度图" style="width: 7.8em">
               <option value="x" selected>x</option>
               <option value="y">y</option>
               <option value="xy">both</option>
             </select>
           </span>
           <span>n:
-            <input class="templateCount" data-tip="Probability of inversion, range 0-1" value=${count || "0.5"} />
+            <input class="templateCount" data-tip="倒置概率 范围0-1" value=${count || "0.5"} />
           </span>
         </div>`;
 
@@ -951,7 +947,7 @@ function editHeightmap(options) {
         return /* html */ `${common}
           <span>f:
             <input class="templateCount"
-              data-tip="Set masking fraction. 1 - full insulation (prevent land on map edges), 2 - half-insulation, etc. Negative number to inverse the effect"
+              data-tip="设置掩蔽分数。1 - 全绝缘(防止地图边缘的土地) ，2 - 半绝缘，等等。负数来反转效果"
               type="number" min=-10 max=10 value=${count || 1} />
           </span>
         </div>`;
@@ -959,14 +955,14 @@ function editHeightmap(options) {
       if (type === "Add")
         return /* html */ `${common}
           <span>to:
-            <select class="templateDist" data-tip="Change only land or all cells">
-              <option value="all" selected>all cells</option>
-              <option value="land">land only</option>
-              <option value="interval">interval</option>
+            <select class="templateDist" data-tip="只更改土地或所有单元格">
+              <option value="all" selected>所有单元格</option>
+              <option value="land">仅限陆地</option>
+              <option value="interval">间隔</option>
             </select>
           </span>
           <span>v:
-            <input class="templateCount" data-tip="Add value to height of all cells (negative values are allowed)"
+            <input class="templateCount" data-tip="将值添加到所有单元格的高度(允许负值)"
             type="number" value=${count || -10} min=-100 max=100 step=1 />
           </span>
         </div>`;
@@ -974,14 +970,14 @@ function editHeightmap(options) {
       if (type === "Multiply")
         return /* html */ `${common}
           <span>to:
-            <select class="templateDist" data-tip="Change only land or all cells">
-              <option value="all" selected>all cells</option>
-              <option value="land">land only</option>
-              <option value="interval">interval</option>
+            <select class="templateDist" data-tip="只更改土地或所有单元格">
+              <option value="all" selected>所有单元格</option>
+              <option value="land">仅限陆地</option>
+              <option value="interval">间隔</option>
             </select>
           </span>
           <span>v:
-            <input class="templateCount" data-tip="Multiply all cells Height by the value" type="number" 
+            <input class="templateCount" data-tip="将所有单元格的高度乘以值" type="number" 
               value=${count || 1.1} min=0 max=10 step=.1 />
           </span>
         </div>`;
@@ -989,7 +985,7 @@ function editHeightmap(options) {
       if (type === "Smooth")
         return /* html */ `${common}
           <span>f:
-            <input class="templateCount" data-tip="Set smooth fraction. 1 - full smooth, 2 - half-smooth, etc." 
+            <input class="templateCount" data-tip="设置光滑分数。1-全光滑，2-半光滑等。" 
               type="number" min=1 max=10 step=1 value=${count || 2} />
           </span>
         </div>`;
@@ -998,7 +994,7 @@ function editHeightmap(options) {
     function setRange(event) {
       if (event.target.value !== "interval") return;
 
-      prompt("Set a height interval. Avoid space, use hyphen as a separator", {default: "17-20"}, v => {
+      prompt("设置高度间隔。避免使用空格，使用连字符作为分隔符", {default: "17-20"}, v => {
         const opt = document.createElement("option");
         opt.value = opt.innerHTML = v;
         event.target.add(opt);
@@ -1013,10 +1009,10 @@ function editHeightmap(options) {
       const template = e.target.value;
       if (!steps || !changed) return changeTemplate(template);
 
-      alertMessage.innerHTML = "Are you sure you want to select a different template? All changes will be lost.";
+      alertMessage.innerHTML = "确实要选择其他模板吗? 所有更改都将丢失。";
       $("#alert").dialog({
         resizable: false,
-        title: "Change Template",
+        title: "更改模板",
         buttons: {
           Change: function () {
             changeTemplate(template);
@@ -1038,7 +1034,7 @@ function editHeightmap(options) {
       if (!templateString) return;
 
       const steps = templateString.split("\n");
-      if (!steps.length) return tip(`Heightmap template: no steps defined`, false, "error");
+      if (!steps.length) return tip(`高度图模板: 没有定义步骤`, false, "error");
 
       for (const step of steps) {
         const elements = step.trim().split(" ");
@@ -1115,13 +1111,13 @@ function editHeightmap(options) {
 
     function uploadTemplate(dataLoaded) {
       const steps = dataLoaded.split("\r\n");
-      if (!steps.length) return tip("Cannot parse the template, please check the file", false, "error");
+      if (!steps.length) return tip("无法解析模板，请检查文件", false, "error");
       templateBody.innerHTML = "";
 
       for (const s of steps) {
         const step = s.split(" ");
         if (step.length !== 5) {
-          ERROR && console.error("Cannot parse step, wrong arguments count", s);
+          ERROR && console.error("无法解析步骤，错误参数计数", s);
           continue;
         }
         addStep(step[0], step[1], step[2], step[3], step[4]);
@@ -1152,7 +1148,7 @@ function editHeightmap(options) {
 
     setOverlayOpacity(0);
     clearMainTip();
-    tip("Image Converter is opened. Upload image and assign height value for each color", false, "warn"); // main tip
+    tip("打开图像转换器。上传图像并为每种颜色分配高度值", false, "warn"); // main tip
 
     // remove all heights
     grid.cells.h = new Uint8Array(grid.cells.i.length);
@@ -1331,7 +1327,7 @@ function editHeightmap(options) {
         heightsFromImage(+convertColors.value);
         unassigned = colorsUnassignedContainer.querySelectorAll("div");
         if (!unassigned.length)
-          return tip("No unassigned colors. Please load an image and click the button again", false, "error");
+          return tip("没有未分配的颜色。请加载图像并再次单击按钮", false, "error");
       }
 
       const getHeightByHue = function (color) {
@@ -1391,7 +1387,7 @@ function editHeightmap(options) {
 
     function setConvertColorsNumber() {
       prompt(
-        `Please set maximum number of colors. <br>An actual number is usually lower and depends on color scheme`,
+        `请设置颜色的最大数量。<a>实际数量通常较低，取决于配色方案`,
         {default: +convertColors.value, step: 1, min: 3, max: 255},
         number => {
           convertColors.value = number;
@@ -1407,7 +1403,7 @@ function editHeightmap(options) {
 
     function applyConversion() {
       if (colorsAssignedContainer.childElementCount < 3)
-        return tip("Please assign colors to heights first", false, "error");
+        return tip("请先分配", false, "error");
 
       viewbox
         .select("#heights")
@@ -1441,7 +1437,7 @@ function editHeightmap(options) {
       colorsUnassigned.style.display = "none";
       colorsSelectValue.innerHTML = colorsSelectFriendly.innerHTML = 0;
       viewbox.style("cursor", "default").on(".drag", null);
-      tip('Heightmap edit mode is active. Click on "Exit Customization" to finalize the heightmap', true);
+      tip('高度图编辑模式处于活动状态。单击“退出自定义”以完成高度图', true);
       $("#imageConverter").dialog("destroy");
       openBrushesPanel();
     }
@@ -1449,12 +1445,11 @@ function editHeightmap(options) {
     function closeImageConverter(event) {
       event.preventDefault();
       event.stopPropagation();
-      alertMessage.innerHTML = /* html */ ` Are you sure you want to close the Image Converter? Click "Cancel" to geck back to convertion. Click "Complete" to apply
-      the conversion. Click "Close" to exit conversion mode and restore previous heightmap`;
+      alertMessage.innerHTML = /* html */ ` 确实要关闭图像转换器吗？单击“取消”返回到转换。单击“完成”应用转换。单击“关闭”退出转换模式并恢复以前的高度图`;
 
       $("#alert").dialog({
         resizable: false,
-        title: "Close Image Converter",
+        title: "关闭图像转换器",
         buttons: {
           Cancel: function () {
             $(this).dialog("close");
@@ -1484,7 +1479,7 @@ function editHeightmap(options) {
     preview.width = grid.cellsX;
     preview.height = grid.cellsY;
     document.body.insertBefore(preview, optionsContainer);
-    preview.on("mouseover", () => tip("Heightmap preview. Click to download a screen-sized image"));
+    preview.on("mouseover", () => tip("高度图预览。单击可下载屏幕大小的图像"));
     preview.on("click", downloadPreview);
     drawHeightmapPreview();
   }

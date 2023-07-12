@@ -9,7 +9,7 @@ function editRoute(onClick) {
   if (!layerIsOn("toggleRoutes")) toggleRoutes();
 
   $("#routeEditor").dialog({
-    title: "Edit Route",
+    title: "编辑路线",
     resizable: false,
     position: {my: "center top+60", at: "top", of: d3.event, collision: "fit"},
     close: closeRoutesEditor
@@ -45,8 +45,8 @@ function editRoute(onClick) {
   function showEditorTips() {
     showMainTip();
     if (routeNew.classList.contains("pressed")) return;
-    if (d3.event.target.id === elSelected.attr("id")) tip("Click to add a control point");
-    else if (d3.event.target.parentNode.id === "controlPoints") tip("Drag to move, click to delete the control point");
+    if (d3.event.target.id === elSelected.attr("id")) tip("单击此处可添加控制点");
+    else if (d3.event.target.parentNode.id === "controlPoints") tip("拖动以移动，单击以删除控制点");
   }
 
   function drawControlPoints(node) {
@@ -148,7 +148,7 @@ function editRoute(onClick) {
 
   function createNewGroup() {
     if (!this.value) {
-      tip("Please provide a valid group name");
+      tip("请提供一个有效的组名");
       return;
     }
     const group = this.value
@@ -157,12 +157,12 @@ function editRoute(onClick) {
       .replace(/[^\w\s]/gi, "");
 
     if (document.getElementById(group)) {
-      tip("Element with this id already exists. Please provide a unique name", false, "error");
+      tip("具有此 ID 的元素已经存在。请提供唯一的名称", false, "error");
       return;
     }
 
     if (Number.isFinite(+group.charAt(0))) {
-      tip("Group name should start with a letter", false, "error");
+      tip("组名应以字母开头", false, "error");
       return;
     }
     // just rename if only 1 element left
@@ -191,13 +191,12 @@ function editRoute(onClick) {
     const group = elSelected.node().parentNode.id;
     const basic = ["roads", "trails", "searoutes"].includes(group);
     const count = elSelected.node().parentNode.childElementCount;
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove ${
-      basic ? "all elements in the group" : "the entire route group"
-    }? <br /><br />Routes to be
-      removed: ${count}`;
+    alertMessage.innerHTML = /* html */ `您确定要删除 ${
+      basic ? "组中的所有元素" : "整个路线组"
+    }? <br /><br />需要移除的路线: ${count}`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove route group",
+      title: "删除路线组",
       buttons: {
         Remove: function () {
           $(this).dialog("close");
@@ -266,7 +265,7 @@ function editRoute(onClick) {
     document.getElementById("routeSplit").classList.remove("pressed");
     document.getElementById("routeNew").classList.toggle("pressed");
     if (document.getElementById("routeNew").classList.contains("pressed")) {
-      tip("Click on map to add control points", true);
+      tip("点击地图添加控制点", true);
       viewbox.on("click", addPointOnClick).style("cursor", "crosshair");
       elSelected.on("click", null);
     } else {
@@ -295,10 +294,10 @@ function editRoute(onClick) {
   }
 
   function removeRoute() {
-    alertMessage.innerHTML = "Are you sure you want to remove the route?";
+    alertMessage.innerHTML = "确实要删除路线吗?";
     $("#alert").dialog({
       resizable: false,
-      title: "Remove route",
+      title: "移除路线",
       buttons: {
         Remove: function () {
           $(this).dialog("close");

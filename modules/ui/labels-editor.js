@@ -11,7 +11,7 @@ function editLabel() {
   viewbox.on("touchmove mousemove", showEditorTips);
 
   $("#labelEditor").dialog({
-    title: "Edit Label",
+    title: "编辑标签",
     resizable: false,
     width: fitContent(),
     position: {my: "center top+10", at: "bottom", of: text, collision: "fit"},
@@ -51,10 +51,10 @@ function editLabel() {
 
   function showEditorTips() {
     showMainTip();
-    if (d3.event.target.parentNode.parentNode.id === elSelected.attr("id")) tip("Drag to shift the label");
+    if (d3.event.target.parentNode.parentNode.id === elSelected.attr("id")) tip("拖动此形状可以移动标签");
     else if (d3.event.target.parentNode.id === "controlPoints") {
-      if (d3.event.target.tagName === "circle") tip("Drag to move, click to delete the control point");
-      if (d3.event.target.tagName === "path") tip("Click to add a control point");
+      if (d3.event.target.tagName === "circle") tip("拖动以移动，单击以删除控制点");
+      if (d3.event.target.tagName === "path") tip("单击此处可添加控制点");
     }
   }
 
@@ -214,7 +214,7 @@ function editLabel() {
 
   function createNewGroup() {
     if (!this.value) {
-      tip("Please provide a valid group name");
+      tip("请提供一个有效的组名");
       return;
     }
     const group = this.value
@@ -223,12 +223,12 @@ function editLabel() {
       .replace(/[^\w\s]/gi, "");
 
     if (document.getElementById(group)) {
-      tip("Element with this id already exists. Please provide a unique name", false, "error");
+      tip("具有此 ID 的元素已经存在。请提供唯一的名称", false, "error");
       return;
     }
 
     if (Number.isFinite(+group.charAt(0))) {
-      tip("Group name should start with a letter", false, "error");
+      tip("组名应以字母开头", false, "error");
       return;
     }
 
@@ -257,13 +257,13 @@ function editLabel() {
     const group = elSelected.node().parentNode.id;
     const basic = group === "states" || group === "addedLabels";
     const count = elSelected.node().parentNode.childElementCount;
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove ${
-      basic ? "all elements in the group" : "the entire label group"
-    }? <br /><br />Labels to be
-      removed: ${count}`;
+    alertMessage.innerHTML = /* html */ `您确定要删除 ${
+      basic ? "组中的所有元素" : "整个标签组"
+    }? <br /><br />标签将移除
+      : ${count}`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove route group",
+      title: "移除组",
       buttons: {
         Remove: function () {
           $(this).dialog("close");
@@ -313,7 +313,7 @@ function editLabel() {
     el.innerHTML = inner;
     example.remove();
 
-    if (elSelected.attr("id").slice(0, 10) === "stateLabel") tip("Use States Editor to change an actual state name, not just a label", false, "warning");
+    if (elSelected.attr("id").slice(0, 10) === "stateLabel") tip("使用状态编辑器可以更改实际的国家名称，而不仅仅是标签", false, "warning");
   }
 
   function generateRandomName() {
@@ -373,10 +373,10 @@ function editLabel() {
   }
 
   function removeLabel() {
-    alertMessage.innerHTML = "Are you sure you want to remove the label?";
+    alertMessage.innerHTML = "您确定要删除标签吗？";
     $("#alert").dialog({
       resizable: false,
-      title: "Remove label",
+      title: "移除标签",
       buttons: {
         Remove: function () {
           $(this).dialog("close");

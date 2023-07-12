@@ -233,9 +233,9 @@ function editMarker(markerI) {
 
   function confirmMarkerDeletion() {
     confirmationDialog({
-      title: "Remove marker",
-      message: "Are you sure you want to remove this marker? The action cannot be reverted",
-      confirm: "Remove",
+      title: "删除标记",
+      message: "确实要删除此标记吗? 操作无法恢复",
+      confirm: "删除",
       onConfirm: deleteMarker
     });
   }

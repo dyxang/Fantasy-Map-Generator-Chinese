@@ -13,7 +13,7 @@ export function open() {
   drawReligionCenters();
 
   $("#religionsEditor").dialog({
-    title: "Religions Editor",
+    title: "宗教编辑器",
     resizable: false,
     close: closeReligionsEditor,
     position: {my: "right top", at: "right-10 top+10", of: "svg"}
@@ -24,52 +24,52 @@ export function open() {
 function insertEditorHtml() {
   const editorHtml = /* html */ `<div id="religionsEditor" class="dialog stable">
     <div id="religionsHeader" class="header" style="grid-template-columns: 13em 6em 7em 18em 6em 7em 6em 7em">
-      <div data-tip="Click to sort by religion name" class="sortable alphabetically" data-sortby="name">Religion&nbsp;</div>
-      <div data-tip="Click to sort by religion type" class="sortable alphabetically icon-sort-name-down" data-sortby="type">Type&nbsp;</div>
-      <div data-tip="Click to sort by religion form" class="sortable alphabetically hide" data-sortby="form">Form&nbsp;</div>
-      <div data-tip="Click to sort by supreme deity" class="sortable alphabetically hide" data-sortby="deity">Supreme Deity&nbsp;</div>
-      <div data-tip="Click to sort by religion area" class="sortable hide" data-sortby="area">Area&nbsp;</div>
-      <div data-tip="Click to sort by number of believers (religion area population)" class="sortable hide" data-sortby="population">Believers&nbsp;</div>
-      <div data-tip="Click to sort by potential extent type" class="sortable alphabetically hide" data-sortby="expansion">Potential&nbsp;</div>
-      <div data-tip="Click to sort by expansionism" class="sortable hide" data-sortby="expansionism">Expansion&nbsp;</div>
+      <div data-tip="按宗教名称排序" class="sortable alphabetically" data-sortby="name">宗教&nbsp;</div>
+      <div data-tip="按宗教类型进行排序" class="sortable alphabetically icon-sort-name-down" data-sortby="type">类型&nbsp;</div>
+      <div data-tip="按宗教构成排序" class="sortable alphabetically hide" data-sortby="form">构成&nbsp;</div>
+      <div data-tip="按至高神排序" class="sortable alphabetically hide" data-sortby="deity">至高神&nbsp;</div>
+      <div data-tip="按宗教地区分类" class="sortable hide" data-sortby="area">地区&nbsp;</div>
+      <div data-tip="按信徒人数(宗教地区人口)排序" class="sortable hide" data-sortby="population">信徒&nbsp;</div>
+      <div data-tip="单击可按潜在区段类型排序" class="sortable alphabetically hide" data-sortby="expansion">潜在&nbsp;</div>
+      <div data-tip="点击按扩张主义排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
     </div>
     <div id="religionsBody" class="table" data-type="absolute"></div>
 
     <div id="religionsFooter" class="totalLine">
-      <div data-tip="Total number of organized religions" style="margin-left: 12px">
-        Organized:&nbsp;<span id="religionsOrganized">0</span>
+      <div data-tip="有组织的宗教总数" style="margin-left: 12px">
+        有组织:&nbsp;<span id="religionsOrganized">0</span>
       </div>
-      <div data-tip="Total number of heresies" style="margin-left: 12px">
-        Heresies:&nbsp;<span id="religionsHeresies">0</span>
+      <div data-tip="异端邪说的总数" style="margin-left: 12px">
+        异教:&nbsp;<span id="religionsHeresies">0</span>
       </div>
-      <div data-tip="Total number of cults" style="margin-left: 12px">
-        Cults:&nbsp;<span id="religionsCults">0</span>
+      <div data-tip="密教总数" style="margin-left: 12px">
+        密教:&nbsp;<span id="religionsCults">0</span>
       </div>
-      <div data-tip="Total number of folk religions" style="margin-left: 12px">
-        Folk:&nbsp;<span id="religionsFolk">0</span>
+      <div data-tip="民间宗教总数" style="margin-left: 12px">
+      民间:&nbsp;<span id="religionsFolk">0</span>
       </div>
-      <div data-tip="Total land area" style="margin-left: 12px">
-        Land Area:&nbsp;<span id="religionsFooterArea">0</span>
+      <div data-tip="土地总面积" style="margin-left: 12px">
+      土地面积:&nbsp;<span id="religionsFooterArea">0</span>
       </div>
-      <div data-tip="Total number of believers (population)" style="margin-left: 12px">
-        Believers:&nbsp;<span id="religionsFooterPopulation">0</span>
+      <div data-tip="信徒总数(人口)" style="margin-left: 12px">
+      信徒:&nbsp;<span id="religionsFooterPopulation">0</span>
       </div>
     </div>
 
     <div id="religionsBottom">
-      <button id="religionsEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-      <button id="religionsEditStyle" data-tip="Edit religions style in Style Editor" class="icon-adjust"></button>
-      <button id="religionsLegend" data-tip="Toggle Legend box" class="icon-list-bullet"></button>
-      <button id="religionsPercentage" data-tip="Toggle percentage / absolute values display mode" class="icon-percent"></button>
-      <button id="religionsHeirarchy" data-tip="Show religions hierarchy tree" class="icon-sitemap"></button>
-      <button id="religionsExtinct" data-tip="Show/hide extinct religions (religions without cells)" class="icon-eye-off"></button>
+      <button id="religionsEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+      <button id="religionsEditStyle" data-tip="在风格编辑器中编辑宗教风格" class="icon-adjust"></button>
+      <button id="religionsLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
+      <button id="religionsPercentage" data-tip="切换百分比/绝对值显示模式" class="icon-percent"></button>
+      <button id="religionsHeirarchy" data-tip="显示宗教等级树" class="icon-sitemap"></button>
+      <button id="religionsExtinct" data-tip="显示/隐藏已灭绝的宗教(没有单元格的宗教)" class="icon-eye-off"></button>
 
-      <button id="religionsManually" data-tip="Manually re-assign religions" class="icon-brush"></button>
+      <button id="religionsManually" data-tip="手动重新分配宗教信仰" class="icon-brush"></button>
       <div id="religionsManuallyButtons" style="display: none">
-        <label data-tip="Change brush size" data-shortcut="+ (increase), – (decrease)" class="italic">Brush size:
+        <label data-tip="改变笔刷大小" data-shortcut="+ (increase), – (decrease)" class="italic">笔刷大小:
           <input
             id="religionsManuallyBrush"
-            oninput="tip('Brush size: '+this.value); religionsManuallyBrushNumber.value = this.value"
+            oninput="tip('笔刷大小: '+this.value); religionsManuallyBrushNumber.value = this.value"
             type="range"
             min="5"
             max="99"
@@ -78,22 +78,22 @@ function insertEditorHtml() {
           />
           <input
             id="religionsManuallyBrushNumber"
-            oninput="tip('Brush size: '+this.value); religionsManuallyBrush.value = this.value"
+            oninput="tip('笔刷大小: '+this.value); religionsManuallyBrush.value = this.value"
             type="number"
             min="5"
             max="99"
             value="15"
           /> </label
         ><br />
-        <button id="religionsManuallyApply" data-tip="Apply assignment" class="icon-check"></button>
-        <button id="religionsManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
+        <button id="religionsManuallyApply" data-tip="应用分配" class="icon-check"></button>
+        <button id="religionsManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
       </div>
-      <button id="religionsAdd" data-tip="Add a new religion. Hold Shift to add multiple" class="icon-plus"></button>
-      <button id="religionsExport" data-tip="Download religions-related data" class="icon-download"></button>
-      <button id="religionsRecalculate" data-tip="Recalculate religions based on current values of growth-related attributes" class="icon-retweet"></button>
-      <span data-tip="Allow religion center, extent, and expansionism changes to take an immediate effect">
+      <button id="religionsAdd" data-tip="添加一个新的宗教。按住 Shift 添加多个" class="icon-plus"></button>
+      <button id="religionsExport" data-tip="下载与宗教有关的数据" class="icon-download"></button>
+      <button id="religionsRecalculate" data-tip="根据增长相关属性的当前值重新计算宗教" class="icon-retweet"></button>
+      <span data-tip="让宗教的中心、范围和扩张性变化立竿见影">
         <input id="religionsAutoChange" class="checkbox" type="checkbox" />
-        <label for="religionsAutoChange" class="checkbox-label"><i>auto-apply changes</i></label>
+        <label for="religionsAutoChange" class="checkbox-label"><i>自动应用更改</i></label>
       </span>
     </div>
   </div>`;
@@ -156,9 +156,9 @@ function religionsEditorAddLines() {
     const rural = r.rural * populationRate;
     const urban = r.urban * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `Believers: ${si(population)}; Rural areas: ${si(rural)}; Urban areas: ${si(
+    const populationTip = `信徒: ${si(population)}; 农村地区: ${si(rural)}; 市区: ${si(
       urban
-    )}. Click to change`;
+    )}. 点击更换`;
     totalArea += area;
     totalPopulation += population;
 
@@ -178,16 +178,16 @@ function religionsEditorAddLines() {
         data-expansionism=""
       >
         <svg width="9" height="9" class="placeholder"></svg>
-        <input data-tip="Religion name. Click and type to change" class="religionName italic" style="width: 11em"
+        <input data-tip="宗教名称。单击并键入以更改" class="religionName italic" style="width: 11em"
           value="${r.name}" autocorrect="off" spellcheck="false" />
-        <select data-tip="Religion type" class="religionType placeholder" style="width: 5em">
+        <select data-tip="宗教类型" class="religionType placeholder" style="width: 5em">
           ${getTypeOptions(r.type)}
         </select>
-        <input data-tip="Religion form" class="religionForm placeholder hide" style="width: 6em" value="" autocorrect="off" spellcheck="false" />
-        <span data-tip="Click to re-generate supreme deity" class="icon-arrows-cw placeholder hide"></span>
-        <input data-tip="Religion supreme deity" class="religionDeity placeholder hide" style="width: 17em" value="" autocorrect="off" spellcheck="false" />
-        <span data-tip="Religion area" style="padding-right: 4px" class="icon-map-o hide"></span>
-        <div data-tip="Religion area" class="religionArea hide" style="width: 6em">${si(area) + unit}</div>
+        <input data-tip="宗教形式" class="religionForm placeholder hide" style="width: 6em" value="" autocorrect="off" spellcheck="false" />
+        <span data-tip="点击重生成至高神" class="icon-arrows-cw placeholder hide"></span>
+        <input data-tip="宗教至高神" class="religionDeity placeholder hide" style="width: 17em" value="" autocorrect="off" spellcheck="false" />
+        <span data-tip="宗教地区" style="padding-right: 4px" class="icon-map-o hide"></span>
+        <div data-tip="宗教地区" class="religionArea hide" style="width: 6em">${si(area) + unit}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="religionPopulation hide pointer" style="width: 5em">${si(
         population
@@ -210,25 +210,25 @@ function religionsEditorAddLines() {
       data-expansionism="${r.expansionism}"
     >
       <fill-box fill="${r.color}"></fill-box>
-      <input data-tip="Religion name. Click and type to change" class="religionName" style="width: 11em"
+      <input data-tip="宗教名称。单击并键入以更改" class="religionName" style="width: 11em"
         value="${r.name}" autocorrect="off" spellcheck="false" />
-      <select data-tip="Religion type" class="religionType" style="width: 5em">
+      <select data-tip="宗教类型" class="religionType" style="width: 5em">
         ${getTypeOptions(r.type)}
       </select>
-      <input data-tip="Religion form" class="religionForm hide" style="width: 6em"
+      <input data-tip="宗教形式" class="religionForm hide" style="width: 6em"
         value="${r.form}" autocorrect="off" spellcheck="false" />
-      <span data-tip="Click to re-generate supreme deity" class="icon-arrows-cw hide"></span>
-      <input data-tip="Religion supreme deity" class="religionDeity hide" style="width: 17em"
+      <span data-tip="点击重生至高神" class="icon-arrows-cw hide"></span>
+      <input data-tip="宗教至高神" class="religionDeity hide" style="width: 17em"
         value="${r.deity || ""}" autocorrect="off" spellcheck="false" />
-      <span data-tip="Religion area" style="padding-right: 4px" class="icon-map-o hide"></span>
-      <div data-tip="Religion area" class="religionArea hide" style="width: 6em">${si(area) + unit}</div>
+      <span data-tip="宗教地区" style="padding-right: 4px" class="icon-map-o hide"></span>
+      <div data-tip="宗教地区" class="religionArea hide" style="width: 6em">${si(area) + unit}</div>
       <span data-tip="${populationTip}" class="icon-male hide"></span>
       <div data-tip="${populationTip}" class="religionPopulation hide pointer" style="width: 5em">${si(
       population
     )}</div>
       ${getExpansionColumns(r)}
-      <span data-tip="Lock this religion" class="icon-lock${r.lock ? "" : "-open"} hide"></span>
-      <span data-tip="Remove religion" class="icon-trash-empty hide"></span>
+      <span data-tip="锁定宗教" class="icon-lock${r.lock ? "" : "-open"} hide"></span>
+      <span data-tip="删除宗教" class="icon-trash-empty hide"></span>
     </div>`;
   }
   $body.innerHTML = lines;
@@ -282,7 +282,7 @@ function getTypeOptions(type) {
 function getExpansionColumns(r) {
   if (r.type === "Folk") {
     const tip =
-      "Folk religions are not competitive and do not expand. Initially they cover all cells of their parent culture, but get ousted by organized religions when they expand";
+      "传统宗教没有竞争力，也没有扩张。最初，它们覆盖了母体文化的所有，但当它们扩张时，就会被有组织的宗教所取代";
     return /* html */ `
       <span data-tip="${tip}" class="icon-resize-full-alt hide" style="padding-right: 2px"></span>
       <span data-tip="${tip}" class="religionExtent hide" style="width: 5em">culture</span>
@@ -291,13 +291,13 @@ function getExpansionColumns(r) {
   }
 
   return /* html */ `
-    <span data-tip="Potential religion extent" class="icon-resize-full-alt hide" style="padding-right: 2px"></span>
-    <select data-tip="Potential religion extent" class="religionExtent hide" style="width: 5em">
+    <span data-tip="潜在宗教范围" class="icon-resize-full-alt hide" style="padding-right: 2px"></span>
+    <select data-tip="潜在宗教范围" class="religionExtent hide" style="width: 5em">
       ${getExtentOptions(r.expansion)}
     </select>
-    <span data-tip="Religion expansionism. Defines competitive size" class="icon-resize-full hide"></span>
+    <span data-tip="宗教扩张。定义竞争规模" class="icon-resize-full hide"></span>
     <input
-      data-tip="Religion expansionism. Defines competitive size. Click to change, then click Recalculate to apply change"
+      data-tip="宗教扩张。定义竞争规模。单击以更改，然后单击“重新计算”以应用更改"
       class="religionExpantion hide"
       type="number"
       min="0"
@@ -409,7 +409,7 @@ function regenerateDeity() {
 function changePopulation() {
   const religionId = +this.parentNode.dataset.id;
   const religion = pack.religions[religionId];
-  if (!religion.cells) return tip("Religion does not have any cells, cannot change population", false, "error");
+  if (!religion.cells) return tip("宗教没有任何单元格，不能改变人口", false, "error");
 
   const rural = rn(religion.rural * populationRate);
   const urban = rn(religion.urban * populationRate * urbanization);
@@ -418,13 +418,13 @@ function changePopulation() {
   const burgs = pack.burgs.filter(b => !b.removed && pack.cells.religion[b.cell] === religionId);
 
   alertMessage.innerHTML = /* html */ `<div>
-    <i>All population of religion territory is considered believers of this religion. It means believers number change will directly affect population</i>
+    <i>所有宗教领域的人口都被认为是该宗教的信徒，这意味着信徒数量的变化将直接影响人口</i>
     <div style="margin: 0.5em 0">
-      Rural: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" />
-      Urban: <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em"
+      农村: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" />
+      城市: <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em"
         ${burgs.length ? "" : "disabled"} />
     </div>
-    <div>Total population: ${format(total)} ⇒ <span id="totalPop">${format(total)}</span>
+    <div>总人口: ${format(total)} ⇒ <span id="totalPop">${format(total)}</span>
       (<span id="totalPopPerc">100</span>%)
     </div>
   </div>`;
@@ -441,7 +441,7 @@ function changePopulation() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Change believers number",
+    title: "改变信徒人数",
     width: "24em",
     buttons: {
       Apply: function () {
@@ -501,9 +501,9 @@ function religionRemovePrompt() {
 
   const religionId = +this.parentNode.dataset.id;
   confirmationDialog({
-    title: "Remove religion",
-    message: "Are you sure you want to remove the religion? <br>This action cannot be reverted",
-    confirm: "Remove",
+    title: "删除宗教信仰",
+    message: "你确定你想要移除宗教信仰吗? <br> 这个行为不能被恢复",
+    confirm: "删除",
     onConfirm: () => removeReligion(religionId)
   });
 }
@@ -553,7 +553,7 @@ function drawReligionCenters() {
     .attr("cx", d => pack.cells.p[d.center][0])
     .attr("cy", d => pack.cells.p[d.center][1])
     .on("mouseenter", d => {
-      tip(d.name + ". Drag to move the religion center", true);
+      tip(d.name + ". 拖动以移动宗教中心", true);
       religionHighlightOn(event);
     })
     .on("mouseleave", d => {
@@ -626,7 +626,7 @@ async function showHierarchy() {
 
     const formText = form === type ? "" : ". " + form;
     const population = rural * populationRate + urban * populationRate * urbanization;
-    const populationText = population > 0 ? si(rn(population)) + " people" : "Extinct";
+    const populationText = population > 0 ? si(rn(population)) + " 人" : "灭绝";
 
     return `${name}${getTypeText()}${formText}. ${populationText}`;
   };
@@ -667,7 +667,7 @@ function enterReligionsManualAssignent() {
   $body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "none"));
   $("#religionsEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg"}});
 
-  tip("Click on religion to select, drag the circle to change religion", true);
+  tip("点击宗教选择，拖动圆圈改变宗教", true);
   viewbox
     .style("cursor", "crosshair")
     .on("click", selectReligionOnMapClick)
@@ -782,7 +782,7 @@ function enterAddReligionMode() {
 
   customization = 8;
   this.classList.add("pressed");
-  tip("Click on the map to add a new religion", true);
+  tip("点击地图添加一个新的宗教", true);
   viewbox.style("cursor", "crosshair").on("click", addReligion);
   $body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "none"));
 }
@@ -799,10 +799,10 @@ function addReligion() {
   const [x, y] = d3.mouse(this);
   const center = findCell(x, y);
   if (pack.cells.h[center] < 20)
-    return tip("You cannot place religion center into the water. Please click on a land cell", false, "error");
+    return tip("你不能把宗教中心放在水里，请点击陆地单元格", false, "error");
 
   const occupied = pack.religions.some(r => !r.removed && r.center === center);
-  if (occupied) return tip("This cell is already a religion center. Please select a different cell", false, "error");
+  if (occupied) return tip("这个单元格已经是一个宗教中心了。请选择一个不同的单元格", false, "error");
 
   if (d3.event.shiftKey === false) exitAddReligionMode();
   Religions.add(center);

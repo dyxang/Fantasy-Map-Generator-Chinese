@@ -4,7 +4,7 @@
 // add available filters to lists
 {
   const filters = Array.from(document.getElementById("filters").querySelectorAll("filter"));
-  const emptyOption = '<option value="" selected>None</option>';
+  const emptyOption = '<option value="" selected>否</option>';
   const options = filters.map(filter => {
     const id = filter.getAttribute("id");
     const name = filter.getAttribute("name");
@@ -540,7 +540,7 @@ styleFontAdd.addEventListener("click", function () {
   addFontURLInput.value = "";
 
   $("#addFontDialog").dialog({
-    title: "Add custom font",
+    title: "添加自定义字体",
     width: "26em",
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
@@ -549,10 +549,10 @@ styleFontAdd.addEventListener("click", function () {
         const src = addFontURLInput.value;
         const method = addFontMethod.value;
 
-        if (!family) return tip("Please provide a font name", false, "error");
+        if (!family) return tip("请提供字体名称", false, "error");
 
         const existingFont = method === "fontURL" ? fonts.find(font => font.family === family && font.src === src) : fonts.find(font => font.family === family);
-        if (existingFont) return tip("The font is already added", false, "error");
+        if (existingFont) return tip("字体已经添加", false, "error");
 
         if (method === "fontURL") addWebFont(family, src);
         else if (method === "googleFont") addGoogleFont(family);
@@ -653,7 +653,7 @@ styleIconSizeMinus.addEventListener("click", function () {
 function changeIconSize(size, group) {
   const el = group ? anchors.select("#" + group) : getEl();
   if (!el.size()) {
-    console.warn(`Group ${group} not found. Can not set icon size!`);
+    console.warn(`组 ${group} 找不到。无法设置图标大小!`);
     return;
   }
   const oldSize = +el.attr("size");
@@ -716,18 +716,18 @@ emblemsBurgSizeInput.addEventListener("change", drawEmblems);
 
 // request a URL to image to be used as a texture
 function textureProvideURL() {
-  alertMessage.innerHTML = /* html */ `Provide an image URL to be used as a texture:
+  alertMessage.innerHTML = /* html */ `提供要用作纹理的图像 URL:
     <input id="textureURL" type="url" style="width: 100%" placeholder="http://www.example.com/image.jpg" oninput="fetchTextureURL(this.value)" />
     <canvas id="texturePreview" width="256px" height="144px"></canvas>`;
   $("#alert").dialog({
     resizable: false,
-    title: "Load custom texture",
+    title: "加载自定义纹理",
     width: "26em",
     buttons: {
       Apply: function () {
         const name = textureURL.value.split("/").pop();
         if (!name || name === "") {
-          tip("Please provide a valid URL", false, "error");
+          tip("请提供一个有效的 URL", false, "error");
           return;
         }
         const opt = document.createElement("option");
@@ -747,7 +747,7 @@ function textureProvideURL() {
 }
 
 function fetchTextureURL(url) {
-  INFO && console.log("Provided URL is", url);
+  INFO && console.log("提供的网址是", url);
   const img = new Image();
   img.onload = function () {
     const canvas = document.getElementById("texturePreview");

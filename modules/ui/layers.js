@@ -111,7 +111,7 @@ function changePreset(preset) {
 }
 
 function savePreset() {
-  prompt("Please provide a preset name", {default: ""}, preset => {
+  prompt("请提供预设名称", {default: ""}, preset => {
     presets[preset] = Array.from(document.getElementById("mapLayers").querySelectorAll("li:not(.buttonoff)"))
       .map(node => node.id)
       .sort();
@@ -182,7 +182,7 @@ function restoreLayers() {
 
 function toggleHeight(event) {
   if (customization === 1) {
-    tip("You cannot turn off the layer when heightmap is in edit mode", false, "error");
+    tip("当高度图处于编辑模式时，您不能关闭该层", false, "error");
     return;
   }
 
@@ -281,7 +281,7 @@ function drawHeightmap() {
       else if (v[1] !== prev && c1 !== c2) current = v[1];
       else if (v[2] !== prev && c0 !== c2) current = v[2];
       if (current === chain[chain.length - 1]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -430,7 +430,7 @@ function drawTemp() {
       else if (v[1] !== prev && c1 !== c2) current = v[1];
       else if (v[2] !== prev && c0 !== c2) current = v[2];
       if (current === chain[chain.length - 1]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -505,7 +505,7 @@ function drawBiomes() {
       else if (v[1] !== prev && c1 !== c2) current = v[1];
       else if (v[2] !== prev && c0 !== c2) current = v[2];
       if (current === chain[chain.length - 1]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -733,7 +733,7 @@ function drawIce() {
       else if (v[1] !== prev && c1 !== c2) current = v[1];
       else if (v[2] !== prev && c0 !== c2) current = v[2];
       if (current === chain[chain.length - 1]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -807,7 +807,7 @@ function drawCultures() {
       else if (v[1] !== prev && c1 !== c2) current = v[1];
       else if (v[2] !== prev && c0 !== c2) current = v[2];
       if (current === chain[chain.length - 1]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -919,7 +919,7 @@ function drawReligions() {
         check(c2 ? c[2] : c[0]);
       }
       if (current === chain[chain.length - 1][0]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -1079,7 +1079,7 @@ function drawStates() {
       else if (v[2] !== prev && c0 !== c2) current = v[2];
 
       if (current === prev) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -1172,7 +1172,7 @@ function drawBorders() {
 
     // find starting vertex
     for (let i = 0; i < 1000; i++) {
-      if (i === 999) ERROR && console.error("Find starting vertex: limit is reached", current, f, t);
+      if (i === 999) ERROR && console.error("查找起始顶点: 达到极限", current, f, t);
       const p = chain[chain.length - 2] || -1; // previous vertex
       const v = vertices.v[current],
         c = vertices.c[current];
@@ -1191,7 +1191,7 @@ function drawBorders() {
     chain = [current]; // vertices chain to form a path
     // find path
     for (let i = 0; i < 1000; i++) {
-      if (i === 999) ERROR && console.error("Find path: limit is reached", current, f, t);
+      if (i === 999) ERROR && console.error("查找路径: 已达到极限", current, f, t);
       const p = chain[chain.length - 2] || -1; // previous vertex
       const v = vertices.v[current],
         c = vertices.c[current];
@@ -1345,7 +1345,7 @@ function getProvincesVertices() {
         check(c2 ? c[2] : c[0]);
       }
       if (current === chain[chain.length - 1][0]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("找不到下一个顶点");
         break;
       }
     }
@@ -1565,7 +1565,7 @@ function drawRivers() {
 
     if (points && points.length !== cells.length) {
       console.error(
-        `River ${i} has ${cells.length} cells, but only ${points.length} points defined. Resetting points data`
+        `河流 ${i} 已有 ${cells.length} 单元, 但只定义了 ${points.length} 个点. 重置点数据`
       );
       points = undefined;
     }

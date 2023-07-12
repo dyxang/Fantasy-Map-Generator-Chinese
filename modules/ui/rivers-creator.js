@@ -7,7 +7,7 @@ function createRiver() {
   document.getElementById("toggleCells").dataset.forced = +!layerIsOn("toggleCells");
   if (!layerIsOn("toggleCells")) toggleCells();
 
-  tip("Click to add river point, click again to remove", true);
+  tip("点击添加河点，再次点击删除", true);
   debug.append("g").attr("id", "controlCells");
   viewbox.style("cursor", "crosshair").on("click", onCellClick);
 
@@ -15,7 +15,7 @@ function createRiver() {
   const body = document.getElementById("riverCreatorBody");
 
   $("#riverCreator").dialog({
-    title: "Create River",
+    title: "创造河流",
     resizable: false,
     position: {my: "left top", at: "left+10 top+10", of: "#map"},
     close: closeRiverCreator
@@ -49,9 +49,9 @@ function createRiver() {
     const flux = pack.cells.fl[cell];
     const line = `<div class="editorLine" data-cell="${cell}">
       <span>Cell ${cell}</span>
-      <span data-tip="Set flux affects river width" style="margin-left: 0.4em">Flux</span>
+      <span data-tip="设置流量影响河流宽度" style="margin-left: 0.4em">Flux</span>
       <input type="number" min=0 value="${flux}" class="editFlux" style="width: 5em"/>
-      <span data-tip="Remove the cell" class="icon-trash-empty pointer"></span>
+      <span data-tip="移除单元格" class="icon-trash-empty pointer"></span>
     </div>`;
     body.innerHTML += line;
   }
@@ -78,7 +78,7 @@ function createRiver() {
       Rivers;
 
     const riverCells = createRiver.cells;
-    if (riverCells.length < 2) return tip("Add at least 2 cells", false, "error");
+    if (riverCells.length < 2) return tip("添加至少2个单元格", false, "error");
 
     const riverId = getNextId(rivers);
     const parent = cells.r[last(riverCells)] || riverId;

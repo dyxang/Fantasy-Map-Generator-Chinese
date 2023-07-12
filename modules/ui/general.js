@@ -10,7 +10,7 @@ window.addEventListener("resize", function (e) {
 });
 
 if (location.hostname && location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
-  window.onbeforeunload = () => "Are you sure you want to navigate away?";
+  window.onbeforeunload = () => "你确定要离开吗？";
 }
 
 // Tooltips
@@ -59,7 +59,7 @@ function showDataTip(event) {
   if (!dataTip) return;
 
   const shortcut = event.target.dataset.shortcut;
-  if (shortcut && !MOBILE) dataTip += `. Shortcut: ${shortcut}`;
+  if (shortcut && !MOBILE) dataTip += `. 快捷键： ${shortcut}`;
 
   //const tooltip = lang === "en" ? dataTip : translate(e.target.dataset.t || e.target.parentNode.dataset.t, dataTip);
   tip(dataTip);
@@ -68,9 +68,9 @@ function showDataTip(event) {
 function showElementLockTip(event) {
   const locked = event?.target?.classList?.contains("icon-lock");
   if (locked) {
-    tip("Click to unlock the element and allow it to be changed by regeneration tools");
+    tip("单击以解锁该元素并允许通过再生工具更改该元素");
   } else {
-    tip("Click to lock the element and prevent changes to it by regeneration tools");
+    tip("单击以锁定元素并防止再生工具对其进行更改");
   }
 }
 
@@ -116,7 +116,7 @@ function showMapTooltip(point, e, i, g) {
   const land = pack.cells.h[i] >= 20;
 
   // specific elements
-  if (group === "armies") return tip(e.target.parentNode.dataset.name + ". Click to edit");
+  if (group === "armies") return tip(e.target.parentNode.dataset.name + ". 点击编辑");
 
   if (group === "emblems" && e.target.tagName === "use") {
     const parent = e.target.parentNode;
@@ -133,7 +133,7 @@ function showMapTooltip(point, e, i, g) {
     d3.select(parent).raise();
 
     const name = g[i].fullName || g[i].name;
-    tip(`${name} ${type} emblem. Click to edit. Hold Shift to show associated area or place`);
+    tip(`${name} ${type} 徽标。单击可编辑。按住 Shift 可显示相关区域或位置`);
     return;
   }
 
@@ -141,52 +141,52 @@ function showMapTooltip(point, e, i, g) {
     const river = +e.target.id.slice(5);
     const r = pack.rivers.find(r => r.i === river);
     const name = r ? r.name + " " + r.type : "";
-    tip(name + ". Click to edit");
+    tip(name + ". 点击编辑");
     if (riversOverview?.offsetParent) highlightEditorLine(riversOverview, river, 5000);
     return;
   }
 
-  if (group === "routes") return tip("Click to edit the Route");
+  if (group === "routes") return tip("点击编辑路线");
 
-  if (group === "terrain") return tip("Click to edit the Relief Icon");
+  if (group === "terrain") return tip("单击以编辑浮雕图标");
 
   if (subgroup === "burgLabels" || subgroup === "burgIcons") {
     const burg = +path[path.length - 10].dataset.id;
     const b = pack.burgs[burg];
     const population = si(b.population * populationRate * urbanization);
-    tip(`${b.name}. Population: ${population}. Click to edit`);
+    tip(`${b.name}. 人口: ${population}. 点击编辑`);
     if (burgsOverview?.offsetParent) highlightEditorLine(burgsOverview, burg, 5000);
     return;
   }
-  if (group === "labels") return tip("Click to edit the Label");
+  if (group === "labels") return tip("单击以编辑标签");
 
-  if (group === "markers") return tip("Click to edit the Marker and pin the marker note");
+  if (group === "markers") return tip("单击以编辑标记并固定标记注释");
 
   if (group === "ruler") {
     const tag = e.target.tagName;
     const className = e.target.getAttribute("class");
     if (tag === "circle" && className === "edge")
-      return tip("Drag to adjust. Hold Ctrl and drag to add a point. Click to remove the point");
+      return tip("拖动以调整。按住 Ctrl 并拖动以添加一个点。单击以删除该点");
     if (tag === "circle" && className === "control")
-      return tip("Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point");
-    if (tag === "circle") return tip("Drag to adjust the measurer");
-    if (tag === "polyline") return tip("Click on drag to add a control point");
-    if (tag === "path") return tip("Drag to move the measurer");
-    if (tag === "text") return tip("Drag to move, click to remove the measurer");
+      return tip("拖动以调整。按住 Shift 并拖动以保持轴向。单击以移除该点");
+    if (tag === "circle") return tip("拖动此形状可调整测量器");
+    if (tag === "polyline") return tip("单击拖动添加控制点");
+    if (tag === "path") return tip("拖动此形状可移动测量器");
+    if (tag === "text") return tip("拖动以移动，单击以移除测量器");
   }
 
-  if (subgroup === "burgIcons") return tip("Click to edit the Burg");
+  if (subgroup === "burgIcons") return tip("单击以编辑城市");
 
-  if (subgroup === "burgLabels") return tip("Click to edit the Burg");
+  if (subgroup === "burgLabels") return tip("单击以编辑城市");
 
   if (group === "lakes" && !land) {
     const lakeId = +e.target.dataset.f;
     const name = pack.features[lakeId]?.name;
     const fullName = subgroup === "freshwater" ? name : name + " " + subgroup;
-    tip(`${fullName} lake. Click to edit`);
+    tip(`${fullName} 湖. 点击编辑`);
     return;
   }
-  if (group === "coastline") return tip("Click to edit the coastline");
+  if (group === "coastline") return tip("点击编辑海岸线");
 
   if (group === "zones") {
     const zone = path[path.length - 8];
@@ -195,15 +195,15 @@ function showMapTooltip(point, e, i, g) {
     return;
   }
 
-  if (group === "ice") return tip("Click to edit the Ice");
+  if (group === "ice") return tip("点击编辑冰层");
 
   // covering elements
-  if (layerIsOn("togglePrec") && land) tip("Annual Precipitation: " + getFriendlyPrecipitation(i));
+  if (layerIsOn("togglePrec") && land) tip("年降水量: " + getFriendlyPrecipitation(i));
   else if (layerIsOn("togglePopulation")) tip(getPopulationTip(i));
-  else if (layerIsOn("toggleTemp")) tip("Temperature: " + convertTemperature(grid.cells.temp[g]));
+  else if (layerIsOn("toggleTemp")) tip("温度: " + convertTemperature(grid.cells.temp[g]));
   else if (layerIsOn("toggleBiomes") && pack.cells.biome[i]) {
     const biome = pack.cells.biome[i];
-    tip("Biome: " + biomesData.name[biome]);
+    tip("生物圈: " + biomesData.name[biome]);
     if (biomesEditor?.offsetParent) highlightEditorLine(biomesEditor, biome);
   } else if (layerIsOn("toggleReligions") && pack.cells.religion[i]) {
     const religion = pack.cells.religion[i];
@@ -223,9 +223,9 @@ function showMapTooltip(point, e, i, g) {
     if (document.getElementById("provincesEditor")?.offsetParent) highlightEditorLine(provincesEditor, province);
   } else if (layerIsOn("toggleCultures") && pack.cells.culture[i]) {
     const culture = pack.cells.culture[i];
-    tip("Culture: " + pack.cultures[culture].name);
+    tip("文化: " + pack.cultures[culture].name);
     if (document.getElementById("culturesEditor")?.offsetParent) highlightEditorLine(culturesEditor, culture);
-  } else if (layerIsOn("toggleHeight")) tip("Height: " + getFriendlyHeight(point));
+  } else if (layerIsOn("toggleHeight")) tip("高度: " + getFriendlyHeight(point));
 }
 
 function highlightEditorLine(editor, id, timeout = 10000) {
@@ -355,7 +355,7 @@ function getFriendlyPopulation(i) {
 
 function getPopulationTip(i) {
   const [rural, urban] = getCellPopulation(i);
-  return `Cell population: ${si(rural + urban)}; Rural: ${si(rural)}; Urban: ${si(urban)}`;
+  return `单元格人口: ${si(rural + urban)}; 农村: ${si(rural)}; 城市: ${si(urban)}`;
 }
 
 function highlightEmblemElement(type, el) {
@@ -418,8 +418,8 @@ function highlightEmblemElement(type, el) {
 document.querySelectorAll("[data-locked]").forEach(function (e) {
   e.addEventListener("mouseover", function (event) {
     if (this.className === "icon-lock")
-      tip("Click to unlock the option and allow it to be randomized on new map generation");
-    else tip("Click to lock the option and always use the current value on new map generation");
+      tip("单击以解锁该选项，并允许它在新地图生成时被随机化");
+    else tip("单击以锁定该选项，并始终在新地图生成时使用当前值");
     event.stopPropagation();
   });
 
@@ -497,25 +497,23 @@ function showInfo() {
 
   const QuickStart = link(
     "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Quick-Start-Tutorial",
-    "Quick start tutorial"
+    "快速入门教程"
   );
   const QAA = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A", "Q&A page");
   const VideoTutorial = link("https://youtube.com/playlist?list=PLtgiuDC8iVR2gIG8zMTRn7T_L0arl9h1C", "Video tutorial");
 
-  alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b> (FMG) is a free open-source application. It means that you own all created maps and can use them as
-    you wish.
+  alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b> (FMG)是一个免费的开源应用程序。这意味着您拥有所有创建的地图，并且可以随意使用它们。
 
     <p>
-      The development is community-backed, you can donate on ${Patreon}. You can also help creating overviews, tutorials and spreding the word about the
-      Generator.
+      发展是社区支持的，你可以捐赠 ${Patreon}. 您还可以帮助创建概述、教程和传播关于生成器的信息.
     </p>
 
     <p>
-      The best way to get help is to contact the community on ${Discord} and ${Reddit}. Before asking questions, please check out the ${QuickStart}, the ${QAA},
-      and ${VideoTutorial}.
+    获得帮助的最好方式是联系社区 ${Discord} 和 ${Reddit}. 在提问之前，请查看 ${QuickStart},  ${QAA},
+      和 ${VideoTutorial}.
     </p>
 
-    <p>Check out our another project: ${Armoria} — heraldry generator and editor.</p>
+    <p>看看我们的另一个项目: ${Armoria} — 纹章生成器和编辑器.</p>
 
     <ul style="columns:2">
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator", "GitHub repository")}</li>

@@ -5,7 +5,7 @@ function editLake() {
   if (layerIsOn("toggleCells")) toggleCells();
 
   $("#lakeEditor").dialog({
-    title: "Edit Lake",
+    title: "编辑湖泊",
     resizable: false,
     position: {my: "center top+20", at: "top", of: d3.event, collision: "fit"},
     close: closeLakesEditor
@@ -93,7 +93,7 @@ function editLake() {
       .attr("data-v", d => d)
       .call(d3.drag().on("drag", dragVertex))
       .on("mousemove", () =>
-        tip("Drag to move the vertex, please use for fine-tuning only. Edit heightmap to change actual cell heights")
+        tip("拖动可移动顶点，请仅用于微调。编辑高度图可更改实际单元格高度")
       );
   }
 
@@ -165,7 +165,7 @@ function editLake() {
 
   function createNewGroup() {
     if (!this.value) {
-      tip("Please provide a valid group name");
+      tip("请提供一个有效的组名");
       return;
     }
     const group = this.value
@@ -174,12 +174,12 @@ function editLake() {
       .replace(/[^\w\s]/gi, "");
 
     if (document.getElementById(group)) {
-      tip("Element with this id already exists. Please provide a unique name", false, "error");
+      tip("具有此 ID 的元素已经存在。请提供唯一的名称", false, "error");
       return;
     }
 
     if (Number.isFinite(+group.charAt(0))) {
-      tip("Group name should start with a letter", false, "error");
+      tip("组名应以字母开头", false, "error");
       return;
     }
 
@@ -209,15 +209,15 @@ function editLake() {
   function removeLakeGroup() {
     const group = elSelected.node().parentNode.id;
     if (["freshwater", "salt", "sinkhole", "frozen", "lava", "dry"].includes(group)) {
-      tip("This is one of the default groups, it cannot be removed", false, "error");
+      tip("这是默认组之一，无法删除", false, "error");
       return;
     }
 
     const count = elSelected.node().parentNode.childElementCount;
-    alertMessage.innerHTML = /* html */ `Are you sure you want to remove the group? All lakes of the group (${count}) will be turned into Freshwater`;
+    alertMessage.innerHTML = /* html */ `确实要删除该组吗? (${count}) 组的所有湖泊都将变成淡水湖`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove lake group",
+      title: "移除湖泊群",
       width: "26em",
       buttons: {
         Remove: function () {

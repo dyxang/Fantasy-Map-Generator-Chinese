@@ -60,14 +60,14 @@ window.Cloud = (function () {
 
     async save(fileName, contents) {
       const resp = await this.call("filesUpload", {path: "/" + fileName, contents});
-      DEBUG && console.log("Dropbox response:", resp);
+      DEBUG && console.log("Dropbox 响应:", resp);
       return true;
     },
 
     async load(path) {
       const resp = await this.call("filesDownload", {path});
       const blob = resp.result.fileBlob;
-      if (!blob) throw new Error("Invalid response from dropbox.");
+      if (!blob) throw new Error("Dropbox 无效响应");
       return blob;
     },
 
@@ -92,7 +92,7 @@ window.Cloud = (function () {
       return new Promise((resolve, reject) => {
         const watchDog = setTimeout(() => {
           this.authWindow.close();
-          reject(new Error("Timeout. No auth for Dropbox"));
+          reject(new Error("超时，Dropbox未认证"));
         }, 120 * 1000);
 
         window.addEventListener("dropboxauth", e => {
@@ -131,7 +131,7 @@ window.Cloud = (function () {
         allow_download: true
       };
       const resp = await this.call("sharingCreateSharedLinkWithSettings", {path, settings});
-      DEBUG && console.log("Dropbox link object:", resp.result);
+      DEBUG && console.log("Dropbox 链接对象:", resp.result);
       return resp.result.url;
     }
   };

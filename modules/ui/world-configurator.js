@@ -1,7 +1,7 @@
 function editWorld() {
   if (customization) return;
   $("#worldConfigurator").dialog({
-    title: "Configure World",
+    title: "配置世界",
     resizable: false,
     width: "minmax(40em, 85vw)",
     buttons: {
@@ -13,11 +13,11 @@ function editWorld() {
     },
     open: function () {
       const buttons = $(this).dialog("widget").find(".ui-dialog-buttonset > button");
-      buttons[0].addEventListener("mousemove", () => tip("Click to set map size to cover the whole World"));
-      buttons[1].addEventListener("mousemove", () => tip("Click to set map size to cover the Northern latitudes"));
-      buttons[2].addEventListener("mousemove", () => tip("Click to set map size to cover the Tropical latitudes"));
-      buttons[3].addEventListener("mousemove", () => tip("Click to set map size to cover the Southern latitudes"));
-      buttons[4].addEventListener("mousemove", () => tip("Click to restore default wind directions"));
+      buttons[0].addEventListener("mousemove", () => tip("点击设置地图大小以覆盖整个世界"));
+      buttons[1].addEventListener("mousemove", () => tip("单击此处可设置覆盖北纬地区的地图大小"));
+      buttons[2].addEventListener("mousemove", () => tip("单击此处可设置覆盖热带纬度的地图大小"));
+      buttons[3].addEventListener("mousemove", () => tip("单击此处可设置覆盖南半球纬度的地图大小"));
+      buttons[4].addEventListener("mousemove", () => tip("单击以恢复默认风向"));
     },
     close: function () {
       $(this).dialog("destroy");

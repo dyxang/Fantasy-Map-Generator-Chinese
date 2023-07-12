@@ -14,7 +14,7 @@ export function open() {
   refreshCulturesEditor();
 
   $("#culturesEditor").dialog({
-    title: "Cultures Editor",
+    title: "文化编辑器",
     resizable: false,
     close: closeCulturesEditor,
     position: {my: "right top", at: "right-10 top+10", of: "svg"}
@@ -24,37 +24,37 @@ export function open() {
 
 function insertEditorHtml() {
   const editorHtml = /* html */ `<div id="culturesEditor" class="dialog stable">
-    <div id="culturesHeader" class="header" style="grid-template-columns: 10em 7em 9em 4em 8em 5em 7em 8em">
-      <div data-tip="Click to sort by culture name" class="sortable alphabetically" data-sortby="name">Culture&nbsp;</div>
-      <div data-tip="Click to sort by type" class="sortable alphabetically" data-sortby="type">Type&nbsp;</div>
-      <div data-tip="Click to sort by culture namesbase" class="sortable" data-sortby="base">Namesbase&nbsp;</div>
-      <div data-tip="Click to sort by culture cells count" class="sortable hide" data-sortby="cells">Cells&nbsp;</div>
-      <div data-tip="Click to sort by expansionism" class="sortable hide" data-sortby="expansionism">Expansion&nbsp;</div>
-      <div data-tip="Click to sort by culture area" class="sortable hide" data-sortby="area">Area&nbsp;</div>
-      <div data-tip="Click to sort by culture population" class="sortable hide icon-sort-number-down" data-sortby="population">Population&nbsp;</div>
-      <div data-tip="Click to sort by culture emblems shape" class="sortable alphabetically hide" data-sortby="emblems">Emblems&nbsp;</div>
+    <div id="culturesHeader" class="header" style="grid-template-columns: 10em 7em 8em 4em 8em 5em 8em 8em">
+      <div data-tip="单击此处可按文化名称排序" class="sortable alphabetically" data-sortby="name">文化&nbsp;</div>
+      <div data-tip="单击此处可按类型排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
+      <div data-tip="单击此处可按文化命名库进行排序" class="sortable" data-sortby="base">名称库&nbsp;</div>
+      <div data-tip="单击此处可按文化单元格计数进行排序" class="sortable hide" data-sortby="cells">单元格&nbsp;</div>
+      <div data-tip="按扩张主义排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
+      <div data-tip="单击此处可按文化面积进行排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
+      <div data-tip="单击此处可按文化人口进行排序" class="sortable hide icon-sort-number-down" data-sortby="population">人口&nbsp;</div>
+      <div data-tip="单击可按文化徽标形状排序" class="sortable alphabetically hide" data-sortby="emblems">徽章&nbsp;</div>
     </div>
     <div id="culturesBody" class="table" data-type="absolute"></div>
 
     <div id="culturesFooter" class="totalLine">
-      <div data-tip="Cultures number" style="margin-left: 12px">Cultures:&nbsp;<span id="culturesFooterCultures">0</span></div>
-      <div data-tip="Total land cells number" style="margin-left: 12px">Cells:&nbsp;<span id="culturesFooterCells">0</span></div>
-      <div data-tip="Total land area" style="margin-left: 12px">Land Area:&nbsp;<span id="culturesFooterArea">0</span></div>
-      <div data-tip="Total population" style="margin-left: 12px">Population:&nbsp;<span id="culturesFooterPopulation">0</span></div>
+      <div data-tip="文化数量" style="margin-left: 12px">文化:&nbsp;<span id="culturesFooterCultures">0</span></div>
+      <div data-tip="土地单元格总数" style="margin-left: 12px">单元格:&nbsp;<span id="culturesFooterCells">0</span></div>
+      <div data-tip="土地总面积" style="margin-left: 12px">土地面积:&nbsp;<span id="culturesFooterArea">0</span></div>
+      <div data-tip="总人口" style="margin-left: 12px">人口:&nbsp;<span id="culturesFooterPopulation">0</span></div>
     </div>
 
     <div id="culturesBottom">
-      <button id="culturesEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-      <button id="culturesEditStyle" data-tip="Edit cultures style in Style Editor" class="icon-adjust"></button>
-      <button id="culturesLegend" data-tip="Toggle Legend box" class="icon-list-bullet"></button>
-      <button id="culturesPercentage" data-tip="Toggle percentage / absolute values display mode" class="icon-percent"></button>
-      <button id="culturesHeirarchy" data-tip="Show cultures hierarchy tree" class="icon-sitemap"></button>
-      <button id="culturesManually" data-tip="Manually re-assign cultures" class="icon-brush"></button>
+      <button id="culturesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+      <button id="culturesEditStyle" data-tip="在样式编辑器中编辑文化样式" class="icon-adjust"></button>
+      <button id="culturesLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
+      <button id="culturesPercentage" data-tip="切换百分比/绝对值显示模式" class="icon-percent"></button>
+      <button id="culturesHeirarchy" data-tip="显示文化层次结构树" class="icon-sitemap"></button>
+      <button id="culturesManually" data-tip="手动重新分配文化" class="icon-brush"></button>
       <div id="culturesManuallyButtons" style="display: none">
-        <label data-tip="Change brush size" data-shortcut="+ (increase), – (decrease)" class="italic">Brush size:
+        <label data-tip="Change brush size" data-shortcut="+ (increase), – (decrease)" class="italic">笔刷大小:
           <input
             id="culturesManuallyBrush"
-            oninput="tip('Brush size: '+this.value); culturesManuallyBrushNumber.value = this.value"
+            oninput="tip('笔刷大小: '+this.value); culturesManuallyBrushNumber.value = this.value"
             type="range"
             min="5"
             max="99"
@@ -63,21 +63,21 @@ function insertEditorHtml() {
           />
           <input
             id="culturesManuallyBrushNumber"
-            oninput="tip('Brush size: '+this.value); culturesManuallyBrush.value = this.value"
+            oninput="tip('笔刷大小: '+this.value); culturesManuallyBrush.value = this.value"
             type="number"
             min="5"
             max="99"
             value="15"
           /> </label><br />
-        <button id="culturesManuallyApply" data-tip="Apply assignment" class="icon-check"></button>
-        <button id="culturesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
+        <button id="culturesManuallyApply" data-tip="应用分配" class="icon-check"></button>
+        <button id="culturesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
       </div>
-      <button id="culturesEditNamesBase" data-tip="Edit a database used for names generation" class="icon-font"></button>
-      <button id="culturesAdd" data-tip="Add a new culture. Hold Shift to add multiple" class="icon-plus"></button>
-      <button id="culturesExport" data-tip="Download cultures-related data" class="icon-download"></button>
-      <button id="culturesImport" data-tip="Upload cultures-related data" class="icon-upload"></button>
-      <button id="culturesRecalculate" data-tip="Recalculate cultures based on current values of growth-related attributes" class="icon-retweet"></button>
-      <span data-tip="Allow culture centers, expansion and type changes to take an immediate effect">
+      <button id="culturesEditNamesBase" data-tip="编辑用于生成名称的数据库" class="icon-font"></button>
+      <button id="culturesAdd" data-tip="添加新的文化。按住 Shift 键添加多个" class="icon-plus"></button>
+      <button id="culturesExport" data-tip="下载与文化相关的数据" class="icon-download"></button>
+      <button id="culturesImport" data-tip="上传文化相关数据" class="icon-upload"></button>
+      <button id="culturesRecalculate" data-tip="根据增长相关属性的当前值重新计算文化" class="icon-retweet"></button>
+      <span data-tip="允许文化中心、扩展和类型更改立即生效">
         <input id="culturesAutoChange" class="checkbox" type="checkbox" />
         <label for="culturesAutoChange" class="checkbox-label"><i>auto-apply changes</i></label>
       </span>
@@ -145,9 +145,9 @@ function culturesEditorAddLines() {
     const rural = c.rural * populationRate;
     const urban = c.urban * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `Total population: ${si(population)}. Rural population: ${si(rural)}. Urban population: ${si(
+    const populationTip = `总人口: ${si(population)}. 农村人口: ${si(rural)}. 城市人口: ${si(
       urban
-    )}. Click to edit`;
+    )}. 点击编辑`;
     totalArea += area;
     totalPopulation += population;
 
@@ -167,19 +167,19 @@ function culturesEditorAddLines() {
           data-emblems="${c.shield}"
         >
           <svg width="11" height="11" class="placeholder"></svg>
-          <input data-tip="Neutral culture name. Click and type to change" class="cultureName italic" style="width: 7em"
+          <input data-tip="非特定文化名称。单击并键入以更改" class="cultureName italic" style="width: 7em"
             value="${c.name}" autocorrect="off" spellcheck="false" />
           <span class="icon-cw placeholder"></span>
           <select class="cultureType placeholder">${getTypeOptions(c.type)}</select>
-          <span data-tip="Click to re-generate names for burgs with this culture assigned" class="icon-arrows-cw hide"></span>
-          <select data-tip="Culture namesbase. Click to change. Click on arrows to re-generate names"
+          <span data-tip="单击此处可重新生成已分配此区域性的城市名称" class="icon-arrows-cw hide"></span>
+          <select data-tip="文化名称库。单击更改。单击箭头重新生成名称"
             class="cultureBase">${getBaseOptions(c.base)}</select>
-          <span data-tip="Cells count" class="icon-check-empty hide"></span>
-          <div data-tip="Cells count" class="cultureCells hide" style="width: 4em">${c.cells}</div>
+          <span data-tip="单元格计数" class="icon-check-empty hide"></span>
+          <div data-tip="单元格计数" class="cultureCells hide" style="width: 4em">${c.cells}</div>
           <span class="icon-resize-full placeholder hide"></span>
           <input class="cultureExpan placeholder hide" type="number" />
-          <span data-tip="Culture area" style="padding-right: 4px" class="icon-map-o hide"></span>
-          <div data-tip="Culture area" class="cultureArea hide" style="width: 6em">${si(area)} ${unit}</div>
+          <span data-tip="文化区" style="padding-right: 4px" class="icon-map-o hide"></span>
+          <div data-tip="文化区" class="cultureArea hide" style="width: 6em">${si(area)} ${unit}</div>
           <span data-tip="${populationTip}" class="icon-male hide"></span>
           <div data-tip="${populationTip}" class="culturePopulation hide pointer"
             style="width: 4em">${si(population)}</div>
@@ -202,19 +202,19 @@ function culturesEditorAddLines() {
         data-emblems="${c.shield}"
       >
         <fill-box fill="${c.color}"></fill-box>
-        <input data-tip="Culture name. Click and type to change" class="cultureName" style="width: 7em"
+        <input data-tip="文化名称。单击并键入以更改" class="cultureName" style="width: 7em"
           value="${c.name}" autocorrect="off" spellcheck="false" />
-        <span data-tip="Regenerate culture name" class="icon-cw hiddenIcon" style="visibility: hidden"></span>
-        <select data-tip="Culture type. Defines growth model. Click to change"
+        <span data-tip="重新生成文化名称" class="icon-cw hiddenIcon" style="visibility: hidden"></span>
+        <select data-tip="文化类型。定义增长模型。单击可更改"
           class="cultureType">${getTypeOptions(c.type)}</select>
-        <span data-tip="Click to re-generate names for burgs with this culture assigned" class="icon-arrows-cw hide"></span>
-        <select data-tip="Culture namesbase. Click to change. Click on arrows to re-generate names"
+        <span data-tip="单击此处可重新生成已分配此文化的城市的名称" class="icon-arrows-cw hide"></span>
+        <select data-tip="文化名称库。单击更改。单击箭头重新生成名称"
           class="cultureBase">${getBaseOptions(c.base)}</select>
-        <span data-tip="Cells count" class="icon-check-empty hide"></span>
-        <div data-tip="Cells count" class="cultureCells hide" style="width: 4em">${c.cells}</div>
-        <span data-tip="Culture expansionism. Defines competitive size" class="icon-resize-full hide"></span>
+        <span data-tip="单元格计数" class="icon-check-empty hide"></span>
+        <div data-tip="单元格计数" class="cultureCells hide" style="width: 4em">${c.cells}</div>
+        <span data-tip="文化扩张。定义竞争规模" class="icon-resize-full hide"></span>
         <input
-          data-tip="Culture expansionism. Defines competitive size. Click to change, then click Recalculate to apply change"
+          data-tip="文化扩张。定义竞争规模。单击更改，然后单击“重新计算”应用更改"
           class="cultureExpan hide"
           type="number"
           min="0"
@@ -222,13 +222,13 @@ function culturesEditorAddLines() {
           step=".1"
           value=${c.expansionism}
         />
-        <span data-tip="Culture area" style="padding-right: 4px" class="icon-map-o hide"></span>
-        <div data-tip="Culture area" class="cultureArea hide" style="width: 6em">${si(area)} ${unit}</div>
+        <span data-tip="文化区" style="padding-right: 4px" class="icon-map-o hide"></span>
+        <div data-tip="文化区" class="cultureArea hide" style="width: 6em">${si(area)} ${unit}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="culturePopulation hide pointer"
           style="width: 4em">${si(population)}</div>
         ${getShapeOptions(selectShape, c.shield)}
-        <span data-tip="Lock culture" class="icon-lock${c.lock ? "" : "-open"} hide"></span>
+        <span data-tip="移除文化" class="icon-lock${c.lock ? "" : "-open"} hide"></span>
         <span data-tip="Remove culture" class="icon-trash-empty hide"></span>
       </div>`;
   }
@@ -293,7 +293,7 @@ function getShapeOptions(selectShape, selected) {
   const options = shapes.map(
     shape => `<option ${shape === selected ? "selected" : ""} value="${shape}">${capitalize(shape)}</option>`
   );
-  return `<select data-tip="Emblem shape associated with culture. Click to change" class="cultureEmblems hide">${options}</select>`;
+  return `<select data-tip="与文化关联的徽标形状。单击可更改" class="cultureEmblems hide">${options}</select>`;
 }
 
 const cultureHighlightOn = debounce(event => {
@@ -432,7 +432,7 @@ function cultureChangeEmblemsShape() {
 function changePopulation() {
   const cultureId = +this.parentNode.dataset.id;
   const culture = pack.cultures[cultureId];
-  if (!culture.cells) return tip("Culture does not have any cells, cannot change population", false, "error");
+  if (!culture.cells) return tip("文化没有任何单元格，不能改变种群", false, "error");
 
   const rural = rn(culture.rural * populationRate);
   const urban = rn(culture.urban * populationRate * urbanization);
@@ -441,13 +441,13 @@ function changePopulation() {
   const burgs = pack.burgs.filter(b => !b.removed && b.culture === cultureId);
 
   alertMessage.innerHTML = /* html */ `<div>
-    <i>Change population of all cells assigned to the culture</i>
+    <i>更改分配给文化的所有单元格的群体</i>
     <div style="margin: 0.5em 0">
       Rural: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" />
       Urban: <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em"
         ${burgs.length ? "" : "disabled"} />
     </div>
-    <div>Total population: ${format(total)} ⇒ <span id="totalPop">${format(total)}</span>
+    <div>总人口: ${format(total)} ⇒ <span id="totalPop">${format(total)}</span>
       (<span id="totalPopPerc">100</span>%)
     </div>
   </div>`;
@@ -464,7 +464,7 @@ function changePopulation() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Change culture population",
+    title: "改变文化人口",
     width: "24em",
     buttons: {
       Apply: function () {
@@ -515,7 +515,7 @@ function cultureRegenerateBurgs() {
     b.name = Names.getCulture(cultureId);
     labels.select("[data-id='" + b.i + "']").text(b.name);
   });
-  tip(`Names for ${cBurgs.length} burgs are regenerated`, false, "success");
+  tip(`${cBurgs.length} 城市的名字重生了`, false, "success");
 }
 
 function removeCulture(cultureId) {
@@ -547,15 +547,15 @@ function cultureRemovePrompt() {
 
   const cultureId = +this.parentNode.dataset.id;
   confirmationDialog({
-    title: "Remove culture",
-    message: "Are you sure you want to remove the culture? <br>This action cannot be reverted",
-    confirm: "Remove",
+    title: "移除文化",
+    message: "确实要删除文化吗? <br> 无法恢复此操作",
+    confirm: "删除",
     onConfirm: () => removeCulture(cultureId)
   });
 }
 
 function drawCultureCenters() {
-  const tooltip = "Drag to move the culture center (ancestral home)";
+  const tooltip = "拖动此形状可移动文化中心 (祖籍)";
   debug.select("#cultureCenters").remove();
   const cultureCenters = debug
     .append("g")
@@ -646,7 +646,7 @@ async function showHierarchy() {
     const {name, type, rural, urban} = culture;
 
     const population = rural * populationRate + urban * populationRate * urbanization;
-    const populationText = population > 0 ? si(rn(population)) + " people" : "Extinct";
+    const populationText = population > 0 ? si(rn(population)) + " 人" : "灭绝";
     return `${name} culture. ${type}. ${populationText}`;
   };
 
@@ -692,7 +692,7 @@ function enterCultureManualAssignent() {
   $body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "none"));
   $("#culturesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg"}});
 
-  tip("Click on culture to select, drag the circle to change culture", true);
+  tip("单击文化选择，拖动圆圈可更改文化", true);
   viewbox
     .style("cursor", "crosshair")
     .on("click", selectCultureOnMapClick)
@@ -824,9 +824,9 @@ function addCulture() {
   const center = findCell(point[0], point[1]);
 
   if (pack.cells.h[center] < 20)
-    return tip("You cannot place culture center into the water. Please click on a land cell", false, "error");
+    return tip("不能将文化中心放入水中。请单击陆地单元格", false, "error");
   const occupied = pack.cultures.some(c => !c.removed && c.center === center);
-  if (occupied) return tip("This cell is already a culture center. Please select a different cell", false, "error");
+  if (occupied) return tip("此单元格已经是文化中心。请选择其他单元格", false, "error");
 
   if (d3.event.shiftKey === false) exitAddCultureMode();
   Cultures.add(center);

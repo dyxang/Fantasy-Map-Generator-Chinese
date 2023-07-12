@@ -173,7 +173,7 @@ function mapSizeInputChange() {
   const tooHigh = +$mapHeightInput.value > window.innerHeight;
 
   if (tooWide || tooHigh) {
-    const message = `Canvas size is larger than actual window size (${window.innerWidth} x ${window.innerHeight}). It can affect the performance if you are going to create a new map`;
+    const message = `画布大小大于实际窗口大小 (${window.innerWidth} x ${window.innerHeight}). 如果要创建新地图，它可能会影响性能`;
     tip(message, false, "warn", 4000);
   }
 }
@@ -273,7 +273,7 @@ function testSpeaker() {
 }
 
 function generateMapWithSeed() {
-  if (optionsSeed.value === seed) return tip("The current map already has this seed", false, "error");
+  if (optionsSeed.value === seed) return tip("当前的地图已经使用该种子", false, "error");
   regeneratePrompt({seed: optionsSeed.value});
 }
 
@@ -321,10 +321,10 @@ function copyMapURL() {
   navigator.clipboard
     .writeText(location.host + location.pathname + search)
     .then(() => {
-      tip("Map URL is copied to clipboard", false, "success", 3000);
+      tip("将地图 URL 复制到剪贴板", false, "success", 3000);
       //window.history.pushState({}, null, search);
     })
-    .catch(err => tip("Could not copy URL: " + err, false, "error", 5000));
+    .catch(err => tip("无法复制 URL: " + err, false, "error", 5000));
 }
 
 const cellsDensityMap = {
@@ -693,7 +693,7 @@ function regenerateEra() {
 function changeYear() {
   if (!yearInput.value) return;
   if (isNaN(+yearInput.value)) {
-    tip("Current year should be a number", false, "error");
+    tip("当前年应该是一个数字", false, "error");
     return;
   }
   options.year = +yearInput.value;
@@ -728,15 +728,15 @@ document.getElementById("sticked").addEventListener("click", function (event) {
 
 function regeneratePrompt(options) {
   if (customization)
-    return tip("New map cannot be generated when edit mode is active, please exit the mode and retry", false, "error");
+    return tip("当编辑模式处于活动状态时无法生成新地图，请退出该模式并重试", false, "error");
   const workingTime = (Date.now() - last(mapHistory).created) / 60000; // minutes
   if (workingTime < 5) return regenerateMap(options);
 
-  alertMessage.innerHTML = /* html */ `Are you sure you want to generate a new map?<br />
-    All unsaved changes made to the current map will be lost`;
+  alertMessage.innerHTML = /* html */ `确实要生成新的地图吗？<br />
+  对当前地图所做的所有未保存的更改都将丢失`;
   $("#alert").dialog({
     resizable: false,
-    title: "Generate new map",
+    title: "生成新地图",
     buttons: {
       Cancel: function () {
         $(this).dialog("close");
@@ -754,7 +754,7 @@ function showSavePane() {
   sharableLinkContainer.style.display = "none";
 
   $("#saveMapData").dialog({
-    title: "Save map",
+    title: "保存地图",
     resizable: false,
     width: "25em",
     position: {my: "center", at: "center", of: "svg"},
@@ -769,14 +769,14 @@ function showSavePane() {
 function copyLinkToClickboard() {
   const shrableLink = document.getElementById("sharableLink");
   const link = shrableLink.getAttribute("href");
-  navigator.clipboard.writeText(link).then(() => tip("Link is copied to the clipboard", true, "success", 8000));
+  navigator.clipboard.writeText(link).then(() => tip("链接复制到剪贴板", true, "success", 8000));
 }
 
 function showExportPane() {
   document.getElementById("showLabels").checked = !hideLabels.checked;
 
   $("#exportMapData").dialog({
-    title: "Export map data",
+    title: "导出地图数据",
     resizable: false,
     width: "26em",
     position: {my: "center", at: "center", of: "svg"},
@@ -795,7 +795,7 @@ async function exportToJson(type) {
 
 async function showLoadPane() {
   $("#loadMapData").dialog({
-    title: "Load map",
+    title: "加载地图",
     resizable: false,
     width: "24em",
     position: {my: "center", at: "center", of: "svg"},
@@ -812,13 +812,13 @@ async function showLoadPane() {
     document.getElementById("loadFromDropboxSelect").style.display = "block";
     const loadFromDropboxButtons = document.getElementById("loadFromDropboxButtons");
     const fileSelect = document.getElementById("loadFromDropboxSelect");
-    fileSelect.innerHTML = /* html */ `<option value="" disabled selected>Loading...</option>`;
+    fileSelect.innerHTML = /* html */ `<option value="" disabled selected>加载中...</option>`;
 
     const files = await Cloud.providers.dropbox.list();
 
     if (!files) {
       loadFromDropboxButtons.style.display = "none";
-      fileSelect.innerHTML = /* html */ `<option value="" disabled selected>Save files to Dropbox first</option>`;
+      fileSelect.innerHTML = /* html */ `<option value="" disabled selected>首先将文件保存到 Dropbox</option>`;
       return;
     }
 
@@ -848,19 +848,19 @@ async function connectToDropbox() {
 
 function loadURL() {
   const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-  const inner = `Provide URL to a .map file:
+  const inner = `提供 .map 文件的 URL:
     <input id="mapURL" type="url" style="width: 24em" placeholder="https://e-cloud.com/test.map">
-    <br><i>Please note server should allow CORS for file to be loaded. If CORS is not allowed, save file to Dropbox and provide a direct link</i>`;
+    <br><i>请注意，服务器应该允许 CORS 文件加载。如果 CORS 不允许，将文件保存到 Dropbox 并提供直接链接</i>`;
   alertMessage.innerHTML = inner;
   $("#alert").dialog({
     resizable: false,
-    title: "Load map from URL",
+    title: "从 URL 加载地图",
     width: "27em",
     buttons: {
       Load: function () {
         const value = mapURL.value;
         if (!pattern.test(value)) {
-          tip("Please provide a valid URL", false, "error");
+          tip("请提供一个有效的 URL", false, "error");
           return;
         }
         loadMapFromURL(value);
@@ -893,16 +893,16 @@ function openSaveTiles() {
 
   $("#saveTilesScreen").dialog({
     resizable: false,
-    title: "Download tiles",
+    title: "下载瓦片(tiles)",
     width: "23em",
     buttons: {
       Download: function () {
-        status.innerHTML = "Preparing for download...";
-        setTimeout(() => (status.innerHTML = "Downloading. It may take some time."), 1000);
+        status.innerHTML = "准备下载...";
+        setTimeout(() => (status.innerHTML = "正在下载，可能需要点时间."), 1000);
         loading = setInterval(() => (status.innerHTML += "."), 1000);
         saveTiles().then(() => {
           clearInterval(loading);
-          status.innerHTML = /* html */ `Done. Check file in "Downloads" (crtl + J)`;
+          status.innerHTML = /* html */ `完成，检查下载文件" (crtl + J)`;
           setTimeout(() => (status.innerHTML = ""), 8000);
         });
       },
@@ -1006,7 +1006,7 @@ async function enter3dView(type) {
   canvas.style.display = "block";
   canvas.onmouseenter = () => {
     const help =
-      "Left mouse to change angle, middle mouse / mousewheel to zoom, right mouse to pan. <b>O</b> to toggle options";
+      "左键改变角度，中鼠标键/鼠标滚轮缩放，右鼠标平移. 按字母<b>O</b>来切换选项";
     +canvas.dataset.hovered > 2 ? tip("") : tip(help);
     canvas.dataset.hovered = (+canvas.dataset.hovered | 0) + 1;
   };
@@ -1014,7 +1014,7 @@ async function enter3dView(type) {
   if (type === "heightmap3DView") {
     document.getElementById("preview3d").appendChild(canvas);
     $("#preview3d").dialog({
-      title: "3D Preview",
+      title: "3D 预览",
       resizable: true,
       position: {my: "left bottom", at: "left+10 bottom-20", of: "svg"},
       resizeStop: resize3d,
@@ -1038,7 +1038,7 @@ function toggle3dOptions() {
     return;
   }
   $("#options3d").dialog({
-    title: "3D mode settings",
+    title: "3D 模式设置",
     resizable: false,
     width: fitContent(),
     position: {my: "right top", at: "right-30 top+10", of: "svg", collision: "fit"}
