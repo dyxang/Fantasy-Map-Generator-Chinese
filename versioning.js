@@ -24,8 +24,8 @@ const version = "1.89.32"; // generator version, update each time
     const patreon = "https://www.patreon.com/azgaar";
 
     alertMessage.innerHTML = /* html */ `幻想地图生成器更新到版本<strong>${version}</strong>此版本兼容<a href target="_blank">以前的版本</a>,加载的<i>.map</i>文件将自动更新
-      ${storedVersion ? "<span>重新加载页面以获取新的代码。</span>" : ""}
-<p><strong>请汉化版使用者仔细阅读以下内容！⚠</strong>
+      ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
+<p><strong>⚠请汉化版使用者仔细阅读以下内容！</strong>
 <p>我一直在修补这个个人汉化版本，但是也不知道有多少人在用，而且该网站域名九月初就要到期了，所以我发起了一个投票（在【关于】页面里），看看使用汉化的人多不多，多的话我就续费域名。
       <ul>
         <strong>从上次汉化1.83版更新到该版本有了:</strong>
