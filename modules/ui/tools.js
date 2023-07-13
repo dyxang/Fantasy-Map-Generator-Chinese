@@ -37,17 +37,17 @@ toolsContent.addEventListener("click", function (event) {
       resizable: false,
       title: "重生成元素",
       buttons: {
-        Proceed: function () {
+        继续: function () {
           processFeatureRegeneration(event, button);
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       },
       open: function () {
         const checkbox =
-          '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>do not ask again</i></label><span>';
+          '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>不要再问</i></label><span>';
         const pane = this.parentElement.querySelector(".ui-dialog-buttonpane");
         pane.insertAdjacentHTML("afterbegin", checkbox);
       },
@@ -902,12 +902,12 @@ function configMarkersGeneration() {
     title: "标记生成设置",
     position: {my: "left top", at: "left+10 top+10", of: "svg", collision: "fit"},
     buttons: {
-      Regenerate: () => {
+      重生成: () => {
         applyChanges();
         regenerateMarkers();
         drawConfigTable();
       },
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     },

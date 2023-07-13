@@ -23,19 +23,25 @@ const version = "1.89.32"; // generator version, update each time
     const discord = "https://discordapp.com/invite/X7E84HU";
     const patreon = "https://www.patreon.com/azgaar";
 
-    alertMessage.innerHTML = /* html */ `The Fantasy Map Generator is updated up to version <strong>${version}</strong>. This version is compatible with <a href="${changelog}" target="_blank">previous versions</a>, loaded <i>.map</i> files will be auto-updated.
-      ${storedVersion ? "<span>Reload the page to fetch fresh code.</span>" : ""}
-
+    alertMessage.innerHTML = /* html */ `幻想地图生成器更新到版本<strong>${version}</strong>此版本兼容<a href target="_blank">以前的版本</a>,加载的<i>.map</i>文件将自动更新
+      ${storedVersion ? "<span>重新加载页面以获取新的代码。</span>" : ""}
+<p><strong>请汉化版使用者仔细阅读以下内容！⚠</strong>
+<p>我一直在修补这个个人汉化版本，但是也不知道有多少人在用，而且该网站域名九月初就要到期了，所以我发起了一个投票（在【关于】页面里），看看使用汉化的人多不多，多的话我就续费域名。
       <ul>
-        <strong>Latest changes:</strong>
-        <li>Autosave feature (in Options)</li>
-        <li>Google translation support (in Options)</li>
-        <li>Religions can be edited and redrawn like cultures</li>
-        <li>Lock states, provinces, cultures, and religions from regeneration</li>
-        <li>Heightmap brushes: linear edit option</li>
-        <li>Data Charts screen</li>
-        <li>Сultures and religions can have multiple parents in hierarchy tree</li>
-        <li>Heightmap selection screen</li>
+        <strong>从上次汉化1.83版更新到该版本有了:</strong>
+        <li>自动保存功能(选项中)</li>
+        <li>谷歌翻译(选项中)</li>
+        <li>宗教可以像文化一样被编辑和重绘</li>
+        <li>锁定国家、省、文化和宗教防止“重新生成”的影响</li>
+        <li>高度图笔刷:线性编辑选项</li>
+        <li>数据图表屏幕</li>
+        <li>文化和宗教在层次结构树中可以有多个父节点</li>
+        <li>高度图选择屏幕</li>
+        <li>简化 optimizeSpeed 渲染的样式</li>
+        <li>形容词生成规则改进</li>
+        <li>汉化改进及为了理解还原英文的部分</li>
+        <li>汉化破坏代码结构的问题</li>
+        <li>以及更多细微改变</li>
       </ul>
 
       <p>Join our <a href="${discord}" target="_blank">Discord server</a> and <a href="${reddit}" target="_blank">Reddit community</a> to ask questions, share maps, discuss the Generator and Worlbuilding, report bugs and propose new features.</p>
@@ -59,7 +65,7 @@ const version = "1.89.32"; // generator version, update each time
 
     $("#alert").dialog({
       resizable: false,
-      title: "Fantasy Map Generator update",
+      title: "更新说明",
       width: "28em",
       position: {my: "center center-4em", at: "center", of: "svg"},
       buttons

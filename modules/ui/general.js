@@ -502,10 +502,10 @@ function showInfo() {
   const QAA = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A", "Q&A page");
   const VideoTutorial = link("https://youtube.com/playlist?list=PLtgiuDC8iVR2gIG8zMTRn7T_L0arl9h1C", "Video tutorial");
 
-  alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b> (FMG)是一个免费的开源应用程序。这意味着您拥有所有创建的地图，并且可以随意使用它们。
+  alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b> (FMG)是一个免费的开源应用程序。这意味着你拥有所有创建的地图，并且可以随意使用它们。
 
     <p>
-      发展是社区支持的，你可以捐赠 ${Patreon}. 您还可以帮助创建概述、教程和传播关于生成器的信息.
+      发展是社区支持的，你可以捐赠 ${Patreon}. 你还可以帮助创建概述、教程和传播关于生成器的信息.
     </p>
 
     <p>

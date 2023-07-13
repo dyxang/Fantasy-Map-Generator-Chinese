@@ -312,7 +312,7 @@ window.UISubmap = (function () {
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `地图重采样失败: <br />您可以在清除存储的数据后重试，也可以在不一致的情况下与我们联系.
+    alertMessage.innerHTML = /* html */ `地图重采样失败: <br />你可以在清除存储的数据后重试，也可以在不一致的情况下与我们联系.
       <p id="errorBox">${parseError(error)}</p>`;
     $("#alert").dialog({
       resizable: false,

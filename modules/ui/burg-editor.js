@@ -281,7 +281,7 @@ function editBurg(id) {
     const burgsToRemove = burgsInGroup.filter(b => !(pack.burgs[b].capital || pack.burgs[b].lock));
     const capital = burgsToRemove.length < burgsInGroup.length;
 
-    alertMessage.innerHTML = /* html */ `您确定要删除 ${
+    alertMessage.innerHTML = /* html */ `你确定要删除 ${
       basic || capital ? "所有未解锁的城市组元素" : "整个城市组"
     }?
       <br />请注意，不会删除大写或锁定的城市. <br /><br />需要移除的城市: ${burgsToRemove.length}`;
@@ -546,7 +546,7 @@ function editBurg(id) {
     const id = +elSelected.attr("data-id");
     if (pack.burgs[id].capital) {
       alertMessage.innerHTML = /* html */ `你不能移除城市，因为它是一个国家的首府.<br /><br />
-      您可以使用城市编辑器更改首府 (shift + T)`;
+      你可以使用城市编辑器更改首府 (shift + T)`;
       $("#alert").dialog({
         resizable: false,
         title: "移除城市",

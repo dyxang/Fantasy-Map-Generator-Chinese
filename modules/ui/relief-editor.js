@@ -260,7 +260,7 @@ function editReliefIcon() {
       const type = reliefIconsDiv.querySelector("svg.pressed")?.dataset.type;
       selection = type ? terrain.selectAll("use[href='" + type + "']") : terrain.selectAll("use");
       const size = selection.size();
-      alertMessage.innerHTML = type ? `您确定要删除所有 ${type} 图标 (${size})?` : `确实要删除所有图标吗 (${size})?`;
+      alertMessage.innerHTML = type ? `你确定要删除所有 ${type} 图标 (${size})?` : `确实要删除所有图标吗 (${size})?`;
     }
 
     $("#alert").dialog({

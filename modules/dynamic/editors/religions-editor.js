@@ -91,7 +91,7 @@ function insertEditorHtml() {
       <button id="religionsAdd" data-tip="添加一个新的宗教。按住 Shift 添加多个" class="icon-plus"></button>
       <button id="religionsExport" data-tip="下载与宗教有关的数据" class="icon-download"></button>
       <button id="religionsRecalculate" data-tip="根据增长相关属性的当前值重新计算宗教" class="icon-retweet"></button>
-      <span data-tip="让宗教的中心、范围和扩张性变化立竿见影">
+      <span data-tip="让宗教的中心、范围和扩张性变化立即生效">
         <input id="religionsAutoChange" class="checkbox" type="checkbox" />
         <label for="religionsAutoChange" class="checkbox-label"><i>自动应用更改</i></label>
       </span>

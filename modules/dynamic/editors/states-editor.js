@@ -196,7 +196,7 @@ function statesEditorAddLines() {
     const rural = s.rural * populationRate;
     const urban = s.urban * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(
+    const populationTip = `总人口: ${si(population)}; 农村人口: ${si(rural)}; 城市人口: ${si(
       urban
     )}. 点击更改`;
     totalArea += area;
@@ -1212,7 +1212,7 @@ function addState() {
   const point = d3.mouse(this);
   const center = findCell(point[0], point[1]);
   if (cells.h[center] < 20)
-    return tip("您不能将国家放入水中。请单击陆地单元格", false, "error");
+    return tip("你不能将国家放入水中。请单击陆地单元格", false, "error");
 
   let burg = cells.burg[center];
   if (burg && burgs[burg].capital)

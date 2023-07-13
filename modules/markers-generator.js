@@ -704,23 +704,23 @@ window.Markers = (function () {
       "Warg"
     ];
     const modusOperandi = [
-      "晚上偷牛",
-      "喜欢吃小孩",
-      "不在乎人肉",
-      "让这个地区远离海湾",
-      "把孩子整个吃掉",
-      "绑架年轻女性",
-      "袭击这个地区",
-      "骚扰该地区的旅行者",
-      "把人从家里带走",
-      "攻击任何胆敢靠近它巢穴的人",
-      "袭击毫无防备的受害者"
+      "steals cattle at night",
+      "prefers eating children",
+      "doesn't mind human flesh",
+      "keeps the region at bay",
+      "eats kids whole",
+      "abducts young women",
+      "terrorizes the region",
+      "harasses travelers in the area",
+      "snatches people from homes",
+      "attacks anyone who dares to approach its lair",
+      "attacks unsuspecting victims"
     ];
 
     const monster = ra(species);
     const toponym = Names.getCulture(cells.culture[cell]);
     const name = `${toponym} ${monster}`;
-    const legend = `${ra(subjects)} 说到居住在 ${toponym} 山和 ${ra(modusOperandi)} 的 ${ra(
+    const legend = `${ra(subjects)} speak of a ${ra(adjectives)} ${monster} who inhabits ${toponym} hills and ${ra(
       modusOperandi
     )}.`;
     notes.push({id, name, legend});

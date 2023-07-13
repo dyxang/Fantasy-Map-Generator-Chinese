@@ -66,8 +66,8 @@ function overviewRegiments(state) {
         lines += /* html */ `<div class="states" data-id="${r.i}" data-s="${s.i}" data-state="${s.name}" data-name="${r.name}" ${sortData} data-total="${r.a}">
           <fill-box data-tip="${s.fullName}" fill="${s.color}" disabled></fill-box>
           <input data-tip="${s.fullName}" style="width:6em" value="${s.name}" readonly />
-          <span data-tip="团徽" style="width:1em">${r.icon}</span>
-          <input data-tip="团名" style="width:13em" value="${r.name}" readonly />
+          <span data-tip="军队徽" style="width:1em">${r.icon}</span>
+          <input data-tip="军队名" style="width:13em" value="${r.name}" readonly />
           ${lineData}
           <div data-type="total" data-tip="军事人员总数(不包括组员（Crew）)" style="font-weight: bold">${r.a}</div>
           <span data-tip="编辑军队" onclick="editRegiment('#regiment${s.i}-${r.i}')" class="icon-pencil pointer"></span>
@@ -77,7 +77,7 @@ function overviewRegiments(state) {
       }
     }
 
-    lines += /* html */ `<div id="regimentsTotalLine" class="totalLine" data-tip="所有展示的团的总数">
+    lines += /* html */ `<div id="regimentsTotalLine" class="totalLine" data-tip="所有展示的军队的总数">
       <div style="width: 21em; margin-left: 1em">军队: ${regiments.length}</div>
       ${options.military.map(u => `<div style="width:5em">${si(d3.sum(regiments.map(r => r.u[u.name] || 0)))}</div>`).join(" ")}
       <div style="width:5em">${si(d3.sum(regiments.map(r => r.a)))}</div>
@@ -148,7 +148,7 @@ function overviewRegiments(state) {
     document.getElementById("regimentsAddNew").classList.toggle("pressed");
     if (document.getElementById("regimentsAddNew").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", addRegimentOnClick);
-      tip("点击地图创建新的团或舰队", true);
+      tip("点击地图创建新的军队或舰队", true);
       if (regimentAdd.offsetParent) regimentAdd.classList.add("pressed");
     } else {
       clearMainTip();

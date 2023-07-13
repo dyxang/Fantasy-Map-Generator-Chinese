@@ -70,7 +70,7 @@ function editRegiment(selector) {
       .attr("cursor", "move");
     base
       .on("mouseenter", () => {
-        tip("团基地。拖动到重新基地的团", true);
+        tip("军队基地。拖动到重新基地的军队", true);
       })
       .on("mouseleave", () => {
         tip("", true);
@@ -196,7 +196,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAdd").classList.toggle("pressed");
     if (document.getElementById("regimentAdd").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", addRegimentOnClick);
-      tip("点击地图创建新的团或舰队", true);
+      tip("点击地图创建新的军队或舰队", true);
     } else {
       clearMainTip();
       viewbox.on("click", clicked).style("cursor", "default");
@@ -225,7 +225,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAttack").classList.toggle("pressed");
     if (document.getElementById("regimentAttack").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", attackRegimentOnClick);
-      tip("点击另一个团开始战斗", true);
+      tip("点击另一个军队开始战斗", true);
       armies.selectAll(":scope > g").classed("draggable", false);
     } else {
       clearMainTip();
@@ -242,22 +242,22 @@ function editRegiment(selector) {
       newState = +regSelected.dataset.state;
 
     if (army.parentElement.id !== "armies") {
-      tip("请点击一个团进攻", false, "error");
+      tip("请点击一个军队进攻", false, "error");
       return;
     }
     if (regSelected === elSelected) {
-      tip("团不能自己攻击自己", false, "error");
+      tip("军队不能自己攻击自己", false, "error");
       return;
     }
     if (oldState === newState) {
-      tip("不能攻击兄弟团", false, "error");
+      tip("不能攻击兄弟军队", false, "error");
       return;
     }
 
     const attacker = regiment();
     const defender = pack.states[regSelected.dataset.state].military.find(r => r.i == regSelected.dataset.id);
     if (!attacker.a || !defender.a) {
-      tip("团里没有可以作战的部队", false, "error");
+      tip("军队里没有可以作战的部队", false, "error");
       return;
     }
 
@@ -297,7 +297,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAttach").classList.toggle("pressed");
     if (document.getElementById("regimentAttach").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", attachRegimentOnClick);
-      tip("点击另一个团将两个团联合起来。当前的团将被删除", true);
+      tip("点击另一个军队将两个军队联合起来。当前的军队将被删除", true);
       armies.selectAll(":scope > g").classed("draggable", false);
     } else {
       clearMainTip();
@@ -314,11 +314,11 @@ function editRegiment(selector) {
       newState = +regSelected.dataset.state;
 
     if (army.parentElement.id !== "armies") {
-      tip("请点击一个团", false, "error");
+      tip("请点击一个军队", false, "error");
       return;
     }
     if (regSelected === elSelected) {
-      tip("无法自行组建一个团，请点击另一个团", false, "error");
+      tip("无法自行组建一个军队，请点击另一个军队", false, "error");
       return;
     }
 

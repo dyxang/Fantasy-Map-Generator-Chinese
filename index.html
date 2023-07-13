@@ -1310,7 +1310,7 @@
                   <output id="styleArmiesFillOpacityOutput">1</output>
                 </td>
               </tr>
-              <tr data-tip="设置团的大小。所有团将在变更时重新抽签(位置默认)">
+              <tr data-tip="设置军队的大小。所有军队将在变更时重Roll(位置默认)">
                 <td>盒子大小</td>
                 <td>
                   <input id="styleArmiesSize" type="range" min="1" max="10" step=".1" value="3" />
@@ -1365,7 +1365,7 @@
                 </td>
               </tr>
 
-              <tr data-tip="允许系统隐藏会徽组，如果他们的大小在太小或太大的规模">
+              <tr data-tip="允许系统隐藏徽标组，如果他们的大小在太小或太大的规模">
                 <td colspan="2">
                   <input id="hideEmblems" class="checkbox" type="checkbox" onchange="invokeActiveZooming()" checked />
                   <label for="hideEmblems" class="checkbox-label">Toggle visibility automatically</label>
@@ -1776,7 +1776,7 @@
                   <optgroup label="Diversiform">
                     <option value="culture" selected>文化特异性</option>
                     <option value="random">文化随机性</option>
-                    <option value="state">国家特定</option>
+                    <option value="state">特定国家</option>
                   </optgroup>
                   <optgroup label="Basic">
                     <option value="heater">Heater</option>
@@ -2181,11 +2181,17 @@
         </div>
 
         <div id="aboutContent" class="tabcontent">
-          <p>
+          <p><b>特别关于个人汉化板的说明：</b>
+            <p><ol>1.项目本身使用<a href="./LICENSE" target="_blank">MIT许可证</a></ol>
+              <ol>2.本人为爱发电，B站ID人类制作</ol>
+            <ol>3.汉化问题/汉化造成的问题可以找我反应，项目的自己使用问题就不要找我了</ol>
+          <ol>4.关于这个网站域名还续不续费的<a href="" target="_blank">投票</a></ol></p>
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator" target="_blank">幻想地图生成器“人类制作汉化版”</a> 是免费的程序生成幻想地图的
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/blob/master/LICENSE" target="_blank"
               >开源工具</a
-            >。您可以使用自动生成的地图，编辑它们或
+            >
+
+          <p>你可以使用自动生成的地图，编辑它们或
             甚至从头开始创建一个新的地图。查看以下内容
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Quick-Start-Tutorial" target="_blank"
               >快速开始</a
@@ -2197,70 +2203,17 @@
           </p>
 
           <p>
-            Join our <a href="https://discordapp.com/invite/X7E84HU" target="_blank">Discord server</a> and
-            <a href="https://www.reddit.com/r/FantasyMapGenerator/" target="_blank">Reddit community</a> to ask
-            questions, get help and share maps.
+更多关于页面信息请访问官方版
           </p>
 
           <p>
-            The project is under active development. Creator and main maintainer: Azgaar. To track the development
-            progress see the
-            <a href="https://trello.com/b/7x832DG4/fantasy-map-generator" target="_blank">devboard</a>. For older
-            versions see the
+            这个项目正在积极开发中。创造者和主要维护者:Azgaar。要跟踪开发进度，请参见
+            <a href="https://trello.com/b/7x832DG4/fantasy-map-generator" target="_blank">开发进度板</a>． 有关旧版本，请参阅
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog" target="_blank">changelog</a>.
-            Please report bugs
-            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">here</a>. You can also
-            contact me directly via <a href="mailto:azgaar.fmg@yandex.by" target="_blank">email</a>.
+            请在这
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">报告Bugs</a>. 你也可以通过 <a href="mailto:azgaar.fmg@yandex.by" target="_blank">发邮件</a>联系我.
           </p>
 
-          <div
-            style="
-              background-color: #e85b46;
-              padding: 0.4em;
-              width: max-content;
-              margin: 0.6em auto 0 auto;
-              border: 1px solid #943838;
-            "
-          >
-            <a
-              href="https://www.patreon.com/azgaar"
-              target="_blank"
-              style="color: white; text-decoration: none; font-family: sans-serif"
-            >
-              <div>
-                <div style="width: 0.8em; display: inline-block; padding: 0 0.2em; fill: white">
-                  <svg viewBox="0 0 569 546">
-                    <circle cx="362.589996" cy="204.589996" data-fill="1" id="Oval" r="204.589996" />
-                    <rect data-fill="2" height="545.799988" id="Rectangle" width="100" x="0" y="0" />
-                  </svg>
-                </div>
-                SUPPORT ON PATREON
-              </div>
-            </a>
-          </div>
-
-          <p>
-            Special thanks to
-            <a data-tip="点击查看支持者名单" onclick="showSupporters()">all supporters</a> on Patreon!
-          </p>
-
-          <div style="display: flex; justify-content: center; padding: 0.8em 0.4em 0.4em; font-family: cursive">
-            <a
-              href="https://war.ukraine.ua/support-ukraine"
-              style="width: 80%"
-              data-tip="Support Ukraine"
-              target="_blank"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350">
-                <rect width="100%" height="100%" fill="#005bbb"></rect>
-                <rect y="50%" width="100%" height="50%" fill="#ffd500"></rect>
-                <text x="50%" text-anchor="middle" font-size="8em" y="32%" fill="#f5f5f5">Support Ukraine</text>
-                <text x="50%" text-anchor="middle" font-size="4em" y="78%" fill="#005bdd">
-                  war.ukraine.ua/support-ukraine
-                </text>
-              </svg>
-            </a>
-          </div>
 
           <ul class="share-buttons">
             <li>
@@ -2316,7 +2269,7 @@
     <div id="exitCustomization">
       <div data-tip="拖动以移动窗格">
         <button data-tip="完成高度图并退出编辑模式" id="finalizeHeightmap">
-          Exit Customization
+          退出自定义
         </button>
       </div>
     </div>
@@ -2484,7 +2437,7 @@
             data-tip='键入以更改标签。输入“ |”以移动到新行'
             style="width: 12em"
           />
-          <span data-tip="称谓名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="称谓名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span id="labelTextRandom" data-tip="生成随机名称" class="icon-shuffle pointer"></span>
         </div>
 
@@ -2534,7 +2487,7 @@
             ></span>
             <span id="riverNameRandom" data-tip="为河流生成随机名称" class="icon-globe pointer"></span>
             <input id="riverName" data-tip="输入以重命名河流" autocorrect="off" spellcheck="false" />
-            <span data-tip="说出名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+            <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           </div>
 
           <div data-tip="改变河流类型的类型（例如，支流、小溪、河流、小溪和溪流）">
@@ -2619,7 +2572,7 @@
             ></span>
             <span id="lakeNameRandom" data-tip="为湖生成随机名称" class="icon-globe pointer"></span>
             <input id="lakeName" data-tip="输入以重命名该湖" autocorrect="off" spellcheck="false" />
-            <span data-tip="说出名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+            <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           </div>
 
           <div data-tip="更改湖泊类型的类型（组）">
@@ -3114,7 +3067,7 @@
                   spellcheck="false"
                   style="width: 8em"
                 />
-                <span data-tip="说出名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+                <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
                 <span
                   id="burgNameReRandom"
                   data-tip="为城市生成随机名称"
@@ -3122,7 +3075,7 @@
                 ></span>
               </div>
 
-              <div data-tip="选择城市类型。对会徽生成有轻微影响">
+              <div data-tip="选择城市类型。对徽标生成有轻微影响">
                 <div class="label">Type:</div>
                 <select id="burgType" style="width: 8em">
                   <option value="Generic">通用</option>
@@ -3378,15 +3331,15 @@
       <div id="regimentEditor" class="dialog" style="display: none">
         <div id="regimentBody" style="padding-bottom: 0.3em">
           <div style="padding-bottom: 0.2em">
-            <button id="regimentType" data-tip="团类型(陆军或海军)。点击更改"></button>
+            <button id="regimentType" data-tip="军队类型(陆军或海军)。点击更改"></button>
             <input
               id="regimentName"
-              data-tip="输入重命名团"
+              data-tip="输入重命名军队"
               autocorrect="off"
               spellcheck="false"
               style="width: 13em"
             />
-            <span data-tip="说出名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+            <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
             <i
               id="regimentNameRestore"
               data-tip="单击以恢复军队的默认名称"
@@ -3404,27 +3357,27 @@
         </div>
 
         <div id="regimentBottom">
-          <button id="regimentAttack" data-tip="攻击外国团" class="icon-target"></button>
-          <button id="regimentAdd" data-tip="创建新的团" class="icon-user-plus"></button>
-          <button id="regimentSplit" data-tip="将团分成两个单独的团" class="icon-half"></button>
+          <button id="regimentAttack" data-tip="攻击外国军队" class="icon-target"></button>
+          <button id="regimentAdd" data-tip="创建新的军队" class="icon-user-plus"></button>
+          <button id="regimentSplit" data-tip="将军队分成两个单独的军队" class="icon-half"></button>
           <button
             id="regimentAttach"
-            data-tip="把一个团与另一个团连在一起（包括这个团与其他团）"
+            data-tip="把一个军队与另一个军队连在一起（包括这个军队与其他军队）"
             class="icon-attach"
           ></button>
           <button
             id="regimentRegenerateLegend"
-            data-tip="为这个团重新创造图例"
+            data-tip="为这个军队重新创造图例"
             class="icon-retweet"
           ></button>
           <button
             id="regimentLegend"
-            data-tip="编辑该团的自由文本注释（图例）"
+            data-tip="编辑该军队的自由文本注释（图例）"
             class="icon-edit"
           ></button>
           <button
             id="regimentRemove"
-            data-tip="移除团"
+            data-tip="移除军队"
             data-shortcut="Delete"
             class="icon-trash fastDelete"
           ></button>
@@ -3763,7 +3716,7 @@
           <div data-tip="单击此处可按国家名进行排序" class="sortable alphabetically" data-sortby="state">
             国家&nbsp;
           </div>
-          <div data-tip="按团名点击排序" class="sortable alphabetically" data-sortby="regiment">
+          <div data-tip="按军队名点击排序" class="sortable alphabetically" data-sortby="regiment">
             军队&nbsp;
           </div>
           <div data-tip="单击此处可按总兵力进行排序" class="sortable" data-sortby="total">Total&nbsp;</div>
@@ -4060,7 +4013,7 @@
             onclick="wiki('Heightmap-template-editor')"
           ></button>
           <label
-            data-tip="如果您希望模板每次都生成相同的高度图，则锁定种子(单击锁定图标)"
+            data-tip="如果你希望模板每次都生成相同的高度图，则锁定种子(单击锁定图标)"
           >
             Seed: <input id="templateSeed" value="" type="number" min="1" max="999999999" step="1" style="width: 8em" />
             <i data-locked="0" id="lock_templateSeed" class="icon-lock-open"></i>
@@ -4232,7 +4185,7 @@
             spellcheck="false"
             style="width: 11em"
           />
-          <span data-tip="说出名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="stateNameEditorShortCulture"
             data-tip="生成特定于文化的名称"
@@ -4342,7 +4295,7 @@
             spellcheck="false"
             style="width: 11em"
           />
-          <span data-tip="说出名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="stateNameEditorFullRegenerate"
             data-tip="单击此处可重新生成全名"
@@ -4494,10 +4447,10 @@
             class="icon-eraser"
           ></button>
           <button id="diplomacyHistory" data-tip="展示关系史" class="icon-hourglass-1"></button>
-          <button id="diplomacyShowMatrix" data-tip="显示关系矩阵" class="icon-list-bullet"></button>
+          <button id="diplomacyShowMatrix" data-tip="显示关系表" class="icon-list-bullet"></button>
           <button
             id="diplomacyExport"
-            data-tip="将状态关系矩阵保存为文本文件(. csv)"
+            data-tip="将状态关系表保存为文本文件(. csv)"
             class="icon-download"
           ></button>
         </div>
@@ -4517,7 +4470,7 @@
             spellcheck="false"
             style="width: 11em"
           />
-          <span data-tip="说出名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="provinceNameEditorShortCulture"
             data-tip="生成特定于文化的名称"
@@ -4570,29 +4523,29 @@
           <input
             id="provinceNameEditorCustomForm"
             placeholder="type form name"
-            data-tip="Create custom province form name"
+            data-tip="从名字创建自定义省份"
             style="display: none; width: 11em"
           />
           <span
             id="provinceNameEditorAddForm"
-            data-tip="Click to add custom province form name to the list"
+            data-tip="单击此处可将自定义省份表单名称添加到列表中"
             class="icon-plus pointer"
           ></span>
         </div>
 
         <div>
-          <div data-tip="Province full name" class="label">Full name:</div>
+          <div data-tip="省全称" class="label">全称:</div>
           <input
             id="provinceNameEditorFull"
-            data-tip="Type to change the full name"
+            data-tip="键入以更改全名"
             autocorrect="off"
             spellcheck="false"
             style="width: 11em"
           />
-          <span data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+          <span data-tip="名称朗读。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="provinceNameEditorFullRegenerate"
-            data-tip="Click to re-generate full name"
+            data-tip="单击以重新生成全名"
             class="icon-arrows-cw pointer"
           ></span>
         </div>
@@ -4600,9 +4553,9 @@
 
       <div id="namesbaseEditor" class="dialog stable textual" style="display: none">
         <div id="namesbaseBasesTop">
-          <span>Select base: </span>
-          <select id="namesbaseSelect" data-tip="Select base to edit" style="width: 12em" value="0"></select>
-          <span style="margin-left: 2px">Names data: </span>
+          <span>选择库: </span>
+          <select id="namesbaseSelect" data-tip="选择库编辑" style="width: 12em" value="0"></select>
+          <span style="margin-left: 2px">名称数据: </span>
         </div>
 
         <div id="namesbaseBody" style="margin-block: 2px">
@@ -4610,29 +4563,29 @@
             id="namesbaseTextarea"
             data-base="0"
             rows="13"
-            data-tip="Names data: a comma separated list of source names used for names generation"
-            placeholder="Provide a names data: a comma separated list of source names"
+            data-tip="名称数据:一个逗号分隔的源名称列表，用于生成名称"
+            placeholder="提供一个名称数据:一个逗号分隔的源名称列表"
             autocorrect="off"
             spellcheck="false"
           ></textarea>
 
           <div>
-            <span>Name: </span>
+            <span>名称: </span>
             <input
               id="namesbaseName"
-              data-tip="Type to change a base name"
+              data-tip="输入更改库名"
               placeholder="Base name"
               autocorrect="off"
               spellcheck="false"
               style="width: 12em"
             />
-            <span>Length: </span>
-            <input id="namesbaseMin" data-tip="Recommended minimum name length" type="number" min="2" max="100" />
-            <input id="namesbaseMax" data-tip="Recommended maximum name length" type="number" min="2" value="10" />
-            <span>Doubled: </span>
+            <span>长度: </span>
+            <input id="namesbaseMin" data-tip="建议的最小名称长度" type="number" min="2" max="100" />
+            <input id="namesbaseMax" data-tip="建议的最大名称长度" type="number" min="2" value="10" />
+            <span>双倍: </span>
             <input
               id="namesbaseDouble"
-              data-tip="Populate with letters that can used twice in a row (geminates)"
+              data-tip="使用可以在一行中使用两次的字母填充(双份)"
               autocorrect="off"
               spellcheck="false"
               style="width: 10em"
@@ -4640,43 +4593,43 @@
           </div>
 
           <fieldset>
-            <legend>Generated examples:</legend>
-            <div id="namesbaseExamples" data-tip="Examples. Click to re-generate"></div>
+            <legend>生成例子:</legend>
+            <div id="namesbaseExamples" data-tip="例子，单击以重新生成"></div>
           </fieldset>
         </div>
 
         <div id="namesbaseBottom">
           <button
             id="namesbaseUpdateExamples"
-            data-tip="Re-generate examples based on provided data"
+            data-tip="根据提供的数据重新生成示例"
             class="icon-arrows-cw"
           ></button>
-          <button id="namesbaseAdd" data-tip="Add new namesbase" class="icon-plus"></button>
-          <button id="namesbaseDefault" data-tip="Restore default namesbase" class="icon-cancel"></button>
-          <button id="namesbaseDownload" data-tip="Download namesbase to PC" class="icon-download"></button>
+          <button id="namesbaseAdd" data-tip="添加新的名称库" class="icon-plus"></button>
+          <button id="namesbaseDefault" data-tip="还原默认名称库" class="icon-cancel"></button>
+          <button id="namesbaseDownload" data-tip="下载命名库到电脑" class="icon-download"></button>
           <button
             id="namesbaseUpload"
-            data-tip="Upload a namesbase from PC, replacing the current set"
+            data-tip="从电脑上传名称库，替换当前集"
             class="icon-upload"
           ></button>
           <button
             id="namesbaseUploadExtend"
-            data-tip="Upload a namesbase from PC, extending the current set"
+            data-tip="从电脑上传名称库，扩展当前集"
             class="icon-up-circled2"
           ></button>
           <button
             id="namesbaseCA"
-            data-tip="Find or share custom namesbase on Cartography Assets portal"
+            data-tip="在“制图资产”门户上查找或共享自定义名称库"
             class="icon-drafting-compass"
           ></button>
           <button
             id="namesbaseAnalyze"
-            data-tip="Analyze namesbase to get a validity and quality overview"
+            data-tip="分析名称库以获得有效性和质量概览"
             class="icon-flask"
           ></button>
           <button
             id="namesbaseSpeak"
-            data-tip="Speak the examples. You can change voice and language in options"
+            data-tip="朗读示例。您可以在选项中更改语音和语言"
             class="icon-voice"
           ></button>
         </div>
@@ -4684,41 +4637,41 @@
 
       <div id="zonesEditor" class="dialog stable" style="display: none">
         <div id="customHeader" class="header" style="grid-template-columns: 13em 7em 6em 5em 9em">
-          <div data-tip="Zone description">Description&nbsp;</div>
-          <div data-tip="Zone type">Type&nbsp;</div>
-          <div data-tip="Zone cells count" class="hide">Cells&nbsp;</div>
-          <div data-tip="Zone area" class="hide">Area&nbsp;</div>
-          <div data-tip="Zone population" class="hide">Population&nbsp;</div>
+          <div data-tip="地区介绍">介绍&nbsp;</div>
+          <div data-tip="区域类型">类型&nbsp;</div>
+          <div data-tip="区域单元格计数" class="hide">单元格&nbsp;</div>
+          <div data-tip="区域范围" class="hide">范围&nbsp;</div>
+          <div data-tip="区域人口" class="hide">人口&nbsp;</div>
         </div>
 
         <div id="zonesBodySection" class="table" data-type="absolute"></div>
 
         <div id="zonesFooter" class="totalLine">
-          <div data-tip="Number of zones" style="margin-left: 5px">
-            Zones:&nbsp;<span id="zonesFooterNumber">0</span>
+          <div data-tip="区数" style="margin-left: 5px">
+            地区&nbsp;<span id="zonesFooterNumber">0</span>
           </div>
-          <div data-tip="Total cells number" style="margin-left: 12px">
-            Cells:&nbsp;<span id="zonesFooterCells">0</span>
+          <div data-tip="总区数" style="margin-left: 12px">
+            单元格&nbsp;<span id="zonesFooterCells">0</span>
           </div>
-          <div data-tip="Total map area" style="margin-left: 12px">Area:&nbsp;<span id="zonesFooterArea">0</span></div>
-          <div data-tip="Total map population" style="margin-left: 12px">
-            Population:&nbsp;<span id="zonesFooterPopulation">0</span>
+          <div data-tip="地图总面积" style="margin-left: 12px">Area:&nbsp;<span id="zonesFooterArea">0</span></div>
+          <div data-tip="地图总人口" style="margin-left: 12px">
+            人口:&nbsp;<span id="zonesFooterPopulation">0</span>
           </div>
         </div>
 
         <div id="zonesBottom">
-          <button id="zonesEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-          <button id="zonesEditStyle" data-tip="Edit zones style in Style Editor" class="icon-adjust"></button>
-          <button id="zonesLegend" data-tip="Toggle Legend box" class="icon-list-bullet"></button>
+          <button id="zonesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+          <button id="zonesEditStyle" data-tip="在样式编辑器中编辑区域样式" class="icon-adjust"></button>
+          <button id="zonesLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
           <button
             id="zonesPercentage"
-            data-tip="Toggle percentage / absolute values views"
+            data-tip="切换百分比/绝对值视图"
             class="icon-percent"
           ></button>
 
-          <button id="zonesManually" data-tip="Re-assign zones" class="icon-brush"></button>
+          <button id="zonesManually" data-tip="重新分配区域" class="icon-brush"></button>
           <div id="zonesManuallyButtons" style="display: none">
-            <label data-tip="Change brush size" data-shortcut="+ (increase), – (decrease)" class="italic"
+            <label data-tip="改变刷子大小" data-shortcut="+ (increase), – (decrease)" class="italic"
               >Brush:
               <input
                 id="zonesBrush"
@@ -4738,20 +4691,20 @@
                 value="7"
               /> </label
             ><br />
-            <button id="zonesManuallyApply" data-tip="Apply assignment" class="icon-check"></button>
-            <button id="zonesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
+            <button id="zonesManuallyApply" data-tip="应用任务" class="icon-check"></button>
+            <button id="zonesManuallyCancel" data-tip="取消任务" class="icon-cancel"></button>
             <button
               id="zonesRemove"
-              data-tip="Click to toggle the removal mode on brush dragging"
+              data-tip="单击以切换刷子拖动的删除模式"
               data-shortcut="Ctrl"
               class="icon-eraser"
             ></button>
           </div>
 
-          <button id="zonesAdd" data-tip="Add new zone layer" class="icon-plus"></button>
-          <button id="zonesExport" data-tip="Download zones-related data" class="icon-download"></button>
+          <button id="zonesAdd" data-tip="添加新的区域层" class="icon-plus"></button>
+          <button id="zonesExport" data-tip="下载与区域相关的数据" class="icon-download"></button>
 
-          <div id="zonesFilters" data-tip="Show only zones of selected type" style="display: inline-block">
+          <div id="zonesFilters" data-tip="只显示选定类型的区域" style="display: inline-block">
             Type:
             <select id="zonesFilterType"></select>
           </div>
@@ -4760,23 +4713,23 @@
 
       <div id="notesEditor" class="dialog stable" style="display: none">
         <div style="margin-bottom: 0.3em">
-          <strong>Element: </strong>
-          <select id="notesSelect" data-tip="Select element id" style="width: 12em"></select>
-          <strong>Element name: </strong>
-          <input id="notesName" data-tip="Set element name" autocorrect="off" spellcheck="false" style="width: 16em" />
-          <span data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+          <strong>元素: </strong>
+          <select id="notesSelect" data-tip="选择元素ID" style="width: 12em"></select>
+          <strong>元素名: </strong>
+          <input id="notesName" data-tip="设置元素名称" autocorrect="off" spellcheck="false" style="width: 16em" />
+          <span data-tip="朗读示例。您可以在选项中更改语音和语言" class="speaker">🔊</span>
         </div>
         <div id="notesLegend" contenteditable="true"></div>
         <div style="margin-top: 0.3em">
-          <button id="notesFocus" data-tip="Focus on selected object" class="icon-target"></button>
+          <button id="notesFocus" data-tip="专注在选定的物体上" class="icon-target"></button>
           <button
             id="notesPin"
-            data-tip="Toggle notes box dispay: hide or do not hide the box on mouse move"
+            data-tip="切换笔记框显示: 鼠标移动时隐藏或不隐藏笔记框"
             class="icon-pin"
           ></button>
-          <button id="notesDownload" data-tip="Download notes to PC" class="icon-download"></button>
-          <button id="notesUpload" data-tip="Upload notes from PC" class="icon-upload"></button>
-          <button id="notesRemove" data-tip="Remove this note" class="icon-trash fastDelete"></button>
+          <button id="notesDownload" data-tip="下载备注" class="icon-download"></button>
+          <button id="notesUpload" data-tip="上传备注" class="icon-upload"></button>
+          <button id="notesRemove" data-tip="移除备注" class="icon-trash fastDelete"></button>
         </div>
       </div>
 
@@ -4788,20 +4741,20 @@
           </div>
           <hr />
           <div data-tip="Select state">
-            <div class="label">State:</div>
+            <div class="label">国家:</div>
             <select id="emblemStates"></select>
           </div>
           <div data-tip="Select province in state">
-            <div class="label">Province:</div>
+            <div class="label">省份:</div>
             <select id="emblemProvinces"></select>
           </div>
           <div data-tip="Select burg in province or state">
-            <div class="label">Burg:</div>
+            <div class="label">城市:</div>
             <select id="emblemBurgs"></select>
           </div>
           <hr />
           <div data-tip="Select shape of the emblem">
-            <div class="label">Shape:</div>
+            <div class="label">形状:</div>
             <select id="emblemShapeSelector">
               <optgroup label="Basic">
                 <option value="heater">Heater</option>
@@ -4865,9 +4818,9 @@
           </div>
 
           <div
-            data-tip="Set size of particular Emblem. To hide set to 0. To change the entire category go to Menu ⭢ Style ⭢ Emblems"
+            data-tip="设置特定标志的大小。隐藏设置为0。要更改整个类别，请转到菜单>样式>徽标"
           >
-            <div class="label" style="width: 2.8em">Size:</div>
+            <div class="label" style="width: 2.8em">大小:</div>
             <input id="emblemSizeSlider" type="range" min="0" max="5" step=".1" style="width: 7em" />
             <input id="emblemSizeNumber" type="number" min="0" max="5" step=".1" />
           </div>
@@ -4876,38 +4829,38 @@
           <button id="emblemsRegenerate" data-tip="Regenerate emblem" class="icon-shuffle"></button>
           <button
             id="emblemsArmoria"
-            data-tip="Edit the emblem in Armoria - dedicated heraldry editor. Download emblem and upload it back map the generator"
+            data-tip="在 Armoria 编辑徽章-专用纹章编辑器。下载徽章并上传回生成器地图"
             class="icon-brush"
           ></button>
           <button
             id="emblemsDownload"
-            data-tip="Set size, select file format and download emblem image"
+            data-tip="设置大小，选择文件格式和下载徽标图像"
             class="icon-download"
           ></button>
           <button
             id="emblemsUpload"
-            data-tip="Upload png, jpg or svg image from Armoria or other sources as emblem"
+            data-tip="从 Armoria 或其他来源上传 png、 jpg 或 svg 图片作为徽标"
             class="icon-upload"
           ></button>
           <button
             id="emblemsGallery"
-            data-tip="Download emblems gallery as html document (open in browser; downloading takes some time)"
+            data-tip="以 html 文档形式下载徽标库(在浏览器中打开; 下载需要一些时间)"
             class="icon-layer-group"
           ></button>
-          <button id="emblemsFocus" data-tip="Show emblem associated area or place" class="icon-target"></button>
+          <button id="emblemsFocus" data-tip="显示与徽标相关的区域或地点" class="icon-target"></button>
         </div>
         <div id="emblemUploadControl" class="hidden">
           <button
             id="emblemsUploadImage"
-            data-tip="Upload SVG or PNG image from any source. Make sure background is transparent"
+            data-tip="从任何源上传 SVG 或 PNG 图像。确保背景是透明的"
           >
-            Any image
+            任何图像
           </button>
           <button
             id="emblemsUploadSVG"
-            data-tip="Upload prepared SVG image (SVG from Armoria or SVG processed with 'Optimize vector' tool)"
+            data-tip="上传准备好的 SVG 图像(从 Armoria 或 SVG 处理’优化矢量’工具)"
           >
-            Prepared SVG
+            已准备SVG
           </button>
           <a
             href="https://www.iloveimg.com/compress-image"
@@ -5368,7 +5321,7 @@
         <div id="militaryBottom">
           <button id="militaryOverviewRefresh" data-tip="刷新概览屏幕" class="icon-cw"></button>
           <button id="militaryOptionsButton" data-tip="编辑军事单位" class="icon-cog"></button>
-          <button id="militaryRegimentsList" data-tip="显示团名单" class="icon-list-bullet"></button>
+          <button id="militaryRegimentsList" data-tip="显示军队名单" class="icon-list-bullet"></button>
           <button
             id="militaryPercentage"
             data-tip="切换百分比/绝对值视图"
@@ -5394,7 +5347,7 @@
             国家&nbsp;
           </div>
           <div
-            data-tip="团徽和团名。按名称排序"
+            data-tip="军队徽和军队名。按名称排序"
             class="sortable alphabetically"
             data-sortby="name"
           >
@@ -5419,7 +5372,7 @@
             data-tip="切换百分比/绝对值视图"
             class="icon-percent"
           ></button>
-          <button id="regimentsAddNew" data-tip="加入新团" class="icon-user-plus"></button>
+          <button id="regimentsAddNew" data-tip="加入新军队" class="icon-user-plus"></button>
           <div data-tip="选择国家" style="display: inline-block">
             <span>国家: </span
             ><select id="regimentsFilter"></select>
@@ -5543,40 +5496,35 @@
       </div>
 
       <div id="addFontDialog" style="display: none" class="dialog">
-        <span>There are 3 ways to add a custom font:</span>
+        <span>添加自定义字体的方法有三种:</span>
         <p>
-          <strong>Google font</strong>. Open <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, find
-          a font you like and enter its name to the field below.
+          <strong>谷歌字体</strong>. 打开 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, 找到你喜欢的字体并在下面的字段中输入它的名称。
         </p>
         <p>
-          <strong>Local font</strong>. If you have a font
+          <strong>本地字体</strong>. 如果你有字体的话
           <a
             href="https://faqs.skillcrush.com/article/275-downloading-installing-a-font-on-your-computer"
             target="_blank"
-            >installed on your computer</a
-          >, just provide the font name. Make sure the browser is reloaded after the installation. The font won't work
-          on machines not having it installed. Good source of fonts are
-          <a href="https://fontesk.com" target="_blank">Fontdesk</a> and
+            >安装在你的电脑上</a
+          >, 只要提供字体名称。请确保在安装后重新加载浏览器。这种字体在没有安装它的设备上无法工作。 好的字体来源有
+          <a href="https://fontesk.com" target="_blank">Fontdesk</a> 和
           <a href="https://www.dafont.com" target="_blank">DaFont</a>.
         </p>
         <p>
-          <strong>Font URL</strong>. Provide font name and link to the font file hosted online. The best free font
-          hostings are <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> and
-          <a target="_blank" href="https://www.cdnfonts.com">CDN Fonts</a>. To get font file open the link to css
-          provided by these services and manually copy the link to <code>woff2</code> of desired variant. To add another
-          variant (e.g. Cyrillic), add the font one more time under the same name, but with another URL
+          <strong>网络字体</strong>. 提供联机托管的字体文件的字体名称和链接。最好的免费字体托管是 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> and
+          <a target="_blank" href="https://www.cdnfonts.com">CDN Fonts</a>. 要获取字体文件，请打开这些服务提供的 css 链接，并手动将该链接复制到所需变体的<code>woff2</code>。要添加另一个变体(例如西里尔字体) ，请在同一名称下再次添加该字体，但使用另一个 URL
         </p>
         <div style="margin-top: 0.3em" data-tip="选择字体添加方法">
           <select id="addFontMethod">
-            <option value="googleFont" selected>Google font</option>
-            <option value="localFont">Local font</option>
-            <option value="fontURL">Font URL</option>
+            <option value="googleFont" selected>谷歌字体</option>
+            <option value="localFont">本地字体</option>
+            <option value="fontURL">网络字体</option>
           </select>
           <input id="addFontNameInput" placeholder="font family" style="width: 15em" />
           <div>
             <input
               id="addFontURLInput"
-              placeholder="font file URL"
+              placeholder="字体文件网络链接"
               style="width: 22.6em; margin-top: 0.1em; display: none"
             />
           </div>
@@ -5753,7 +5701,7 @@
           <input id="pngResolutionOutput" data-stored="pngResolution" type="number" min="1" max="8" value="1" />
         </div>
 
-        <p>生成器使用弹出窗口下载文件。请确保您的浏览器不会阻止弹出窗口。</p>
+        <p>生成器使用弹出窗口下载文件。请确保你的浏览器不会阻止弹出窗口。</p>
 
         <div style="margin: 1em 0 0.3em; font-weight: bold">导出到 GeoJSON</div>
         <div>
@@ -5805,7 +5753,7 @@
           </button>
         </div>
         <p>
-          地图以 .map 格式保存，可以通过 载入 菜单加载回来。如果文件丢失，则无法恢复进度。请将旧的 .map 文件作为备份保存在您的计算机或云存储中。
+          地图以 .map 格式保存，可以通过 载入 菜单加载回来。如果文件丢失，则无法恢复进度。请将旧的 .map 文件作为备份保存在你的计算机或云存储中。
         </p>
       </div>
 
@@ -5822,7 +5770,7 @@
             <button
               id="dropboxConnectButton"
               onclick="connectToDropbox()"
-              data-tip="连接您的 Dropbox 帐户，以便能够从它加载地图"
+              data-tip="连接你的 Dropbox 帐户，以便能够从它加载地图"
             >
             连接
             </button>
@@ -5833,7 +5781,7 @@
             <button onclick="loadFromDropbox()" data-tip="从 Dropbox 加载.map 文件">导入</button>
             <button
               onclick="createSharableDropboxLink()"
-              data-tip="选择文件并创建一个链接与您的朋友共享"
+              data-tip="选择文件并创建一个链接与你的朋友共享"
             >
             分享
             </button>
@@ -5980,7 +5928,7 @@
           <input id="submapDepressRivers" class="checkbox" type="checkbox" />
           <label for="submapDepressRivers" class="checkbox-label">侵蚀河床</label>
         </div>
-        <div data-tip="重新缩放样式(堡标签，会徽大小) ，以匹配新的规模">
+        <div data-tip="重新缩放样式(堡标签，徽标大小) ，以匹配新的规模">
           <input id="submapRescaleStyles" class="checkbox" type="checkbox" checked />
           <label for="submapRescaleStyles" class="checkbox-label">缩放样式</label>
         </div>

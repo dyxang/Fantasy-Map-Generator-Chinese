@@ -100,9 +100,9 @@ function requestStylePresetChange(preset) {
   }
 
   confirmationDialog({
-    title: "Change style preset",
+    title: "更改样式预设",
     message: "确实要更改样式预设吗? 所有未保存的样式更改都将丢失",
-    confirm: "Change",
+    confirm: "更改",
     onConfirm: () => {
       sessionStorage.setItem("styleChangeConfirmed", true);
       changeStyle(preset);
@@ -333,7 +333,7 @@ function addStylePreset() {
     if (!styleJSON) return tip("请提供样式 JSON", false, "error");
     if (!JSON.isValid(styleJSON)) return tip("JSON 字符串无效，请检查格式", false, "error");
     if (!desiredName) return tip("请提供预设名称", false, "error");
-    if (styleSaverTip.innerHTML === "default") return tip("您不能覆盖默认预设，请更改名称", false, "error");
+    if (styleSaverTip.innerHTML === "default") return tip("你不能覆盖默认预设，请更改名称", false, "error");
 
     const presetName = customPresetPrefix + desiredName;
     applyOption(stylePreset, presetName, desiredName + " [custom]");

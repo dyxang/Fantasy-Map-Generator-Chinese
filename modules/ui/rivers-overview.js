@@ -145,7 +145,7 @@ function overviewRivers() {
 
   function triggerRiverRemove() {
     const river = +this.parentNode.dataset.id;
-    alertMessage.innerHTML = /* html */ `您确定要移除这条河吗? 所有的支流都将被自动移除`;
+    alertMessage.innerHTML = /* html */ `你确定要移除这条河吗? 所有的支流都将被自动移除`;
 
     $("#alert").dialog({
       resizable: false,

@@ -185,13 +185,13 @@ async function quickSave() {
 const saveReminder = function () {
   if (localStorage.getItem("noReminder")) return;
   const message = [
-    "请不要忘记将您的工作保存为.map 文件",
+    "请不要忘记将你的工作保存为.map 文件",
     "请记住将工作保存为.map 文件",
     "以.map 格式保存将确保在出现问题时数据不会丢失",
     "安全第一，请保存地图",
     "不要忘记定期保存你的地图！",
     "只是温柔地提醒你保存地图",
-    "请不要忘记保存您的进度(保存为.map 是最好的选择)",
+    "请不要忘记保存你的进度(保存为.map 是最好的选择)",
     "不想被提醒需要保存? 按 Ctrl + Q"
   ];
   const interval = 15 * 60 * 1000; // remind every 15 minutes

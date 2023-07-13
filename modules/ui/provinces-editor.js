@@ -437,7 +437,7 @@ function editProvinces() {
   }
 
   function removeProvince(p) {
-    alertMessage.innerHTML = /* html */ `您确定要删除该省吗？ <br />无法恢复此操作`;
+    alertMessage.innerHTML = /* html */ `你确定要删除该省吗？ <br />无法恢复此操作`;
     $("#alert").dialog({
       resizable: false,
       title: "移除省份",
@@ -1039,7 +1039,7 @@ function editProvinces() {
   }
 
   function removeAllProvinces() {
-    alertMessage.innerHTML = /* html */ `您确定要删除所有省份吗？ <br />无法恢复此操作`;
+    alertMessage.innerHTML = /* html */ `你确定要删除所有省份吗？ <br />无法恢复此操作`;
     $("#alert").dialog({
       resizable: false,
       title: "删除所有省份",

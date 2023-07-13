@@ -257,7 +257,7 @@ function editLabel() {
     const group = elSelected.node().parentNode.id;
     const basic = group === "states" || group === "addedLabels";
     const count = elSelected.node().parentNode.childElementCount;
-    alertMessage.innerHTML = /* html */ `您确定要删除 ${
+    alertMessage.innerHTML = /* html */ `你确定要删除 ${
       basic ? "组中的所有元素" : "整个标签组"
     }? <br /><br />标签将移除
       : ${count}`;
@@ -373,7 +373,7 @@ function editLabel() {
   }
 
   function removeLabel() {
-    alertMessage.innerHTML = "您确定要删除标签吗？";
+    alertMessage.innerHTML = "你确定要删除标签吗？";
     $("#alert").dialog({
       resizable: false,
       title: "移除标签",

@@ -239,11 +239,11 @@ function overviewBurgs() {
   function triggerBurgRemove() {
     const burg = +this.parentNode.dataset.id;
     if (pack.burgs[burg].capital)
-      return tip("您不能删除大写字母。请先更改大写字母", false, "error");
+      return tip("你不能删除大写字母。请先更改大写字母", false, "error");
 
     confirmationDialog({
       title: "移除城市",
-      message: "您确定要删除这个城市吗? 这个行为无法恢复",
+      message: "你确定要删除这个城市吗? 这个行为无法恢复",
       confirm: "移除",
       onConfirm: () => {
         removeBurg(burg);
@@ -278,7 +278,7 @@ function overviewBurgs() {
     const point = d3.mouse(this);
     const cell = findCell(point[0], point[1]);
     if (pack.cells.h[cell] < 20)
-      return tip("您不能将国家放入水中。请单击陆地单元格", false, "error");
+      return tip("你不能将国家放入水中。请单击陆地单元格", false, "error");
     if (pack.cells.burg[cell])
       return tip("这个单元格中已经有一个城市。请选择一个空闲单元格", false, "error");
 
@@ -519,7 +519,7 @@ function overviewBurgs() {
   }
 
   function renameBurgsInBulk() {
-    alertMessage.innerHTML = /* html */ `以文本文件形式下载城市列表，进行更改并重新上载该文件。确保该文件是一个纯文本文档，每个名称都有自己的行(分隔符是 CRLF)。如果您不想更改名称，就让它保持原样`;
+    alertMessage.innerHTML = /* html */ `以文本文件形式下载城市列表，进行更改并重新上载该文件。确保该文件是一个纯文本文档，每个名称都有自己的行(分隔符是 CRLF)。如果你不想更改名称，就让它保持原样`;
 
     $("#alert").dialog({
       title: "城市批量重命名",

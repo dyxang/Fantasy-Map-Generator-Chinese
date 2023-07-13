@@ -24,7 +24,7 @@ function editHeightmap(options) {
 
   function showModeDialog() {
     alertMessage.innerHTML = /* html */ `Heightmap 是所有其他数据(河流、城市、州等)所基于的核心元素。因此，最好的编辑方法是删除辅助数据，并让系统在编辑完成时自动重新生成它。
-    <p><i>擦除</i>模式还允许您将图像转换为高度图或使用模板编辑器。</p>
+    <p><i>擦除</i>模式还允许你将图像转换为高度图或使用模板编辑器。</p>
     <p>你可以<i>保留</i>数据, 但你无法改变海岸线.</p>
     <p>尝试 <i>风险</i> 模式，以改变海岸线和保存数据. 将尽可能多地还原数据，但它可能导致不可预测的错误.</p>
     <p>请在编辑高度图之前<span class="pseudoLink" onclick="dowloadMap();">保存地图</span>!</p>
@@ -740,7 +740,7 @@ function editHeightmap(options) {
     function changeOnlyLandClick(e) {
       if (heightmapEditMode.innerHTML !== "keep") return;
       e.preventDefault();
-      tip("您不能在“保持”编辑模式下更改海岸线", false, "error");
+      tip("你不能在“保持”编辑模式下更改海岸线", false, "error");
     }
 
     function rescale(v) {

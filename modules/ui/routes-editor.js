@@ -191,7 +191,7 @@ function editRoute(onClick) {
     const group = elSelected.node().parentNode.id;
     const basic = ["roads", "trails", "searoutes"].includes(group);
     const count = elSelected.node().parentNode.childElementCount;
-    alertMessage.innerHTML = /* html */ `您确定要删除 ${
+    alertMessage.innerHTML = /* html */ `你确定要删除 ${
       basic ? "组中的所有元素" : "整个路线组"
     }? <br /><br />需要移除的路线: ${count}`;
     $("#alert").dialog({

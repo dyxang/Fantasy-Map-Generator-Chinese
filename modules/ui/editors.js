@@ -759,7 +759,7 @@ function dragPickerControl() {
 function changePickerSpace() {
   const valid = this.checkValidity();
   if (!valid) {
-    tip("您必须提供正确的值", false, "error");
+    tip("你必须提供正确的值", false, "error");
     return;
   }
 
@@ -774,7 +774,7 @@ function changePickerSpace() {
 
   const hsl = d3.hsl(fill);
   if (isNaN(hsl.l)) {
-    tip("您必须提供正确的值", false, "error");
+    tip("你必须提供正确的值", false, "error");
     return;
   }
   if (!isNaN(hsl.h)) setPickerControl(pickerH, hsl.h, 360);

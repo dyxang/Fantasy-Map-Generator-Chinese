@@ -419,7 +419,7 @@ function overviewMilitary() {
   }
 
   function militaryRecalculate() {
-    alertMessage.innerHTML = "您确定要重新计算所有国家的军事力量吗? <br>所有国家的军队将重新生成";
+    alertMessage.innerHTML = "你确定要重新计算所有国家的军事力量吗? <br>所有国家的军队将重新生成";
     $("#alert").dialog({
       resizable: false,
       title: "移除部队",

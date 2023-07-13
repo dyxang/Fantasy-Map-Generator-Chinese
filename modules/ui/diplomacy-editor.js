@@ -461,7 +461,7 @@ function editDiplomacy() {
     });
 
     $("#diplomacyMatrix").dialog({
-      title: "关系矩阵",
+      title: "关系表",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {}
     });
