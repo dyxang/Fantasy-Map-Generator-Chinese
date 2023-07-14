@@ -37,7 +37,7 @@ function overviewRegiments(state) {
     const insert = html => document.getElementById("regimentsTotal").insertAdjacentHTML("beforebegin", html);
     for (const u of options.military) {
       const label = capitalize(u.name.replace(/_/g, " "));
-      insert(`<div data-tip="军队 ${u.name} 单位数量. 单击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`);
+      insert(`<div data-tip="军队 ${u.name} 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`);
     }
     header.querySelectorAll(".removable").forEach(function (e) {
       e.addEventListener("click", function () {

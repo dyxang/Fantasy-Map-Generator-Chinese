@@ -53,8 +53,8 @@ function editLabel() {
     showMainTip();
     if (d3.event.target.parentNode.parentNode.id === elSelected.attr("id")) tip("拖动此形状可以移动标签");
     else if (d3.event.target.parentNode.id === "controlPoints") {
-      if (d3.event.target.tagName === "circle") tip("拖动以移动，单击以删除控制点");
-      if (d3.event.target.tagName === "path") tip("单击此处可添加控制点");
+      if (d3.event.target.tagName === "circle") tip("拖动以移动，点击以删除控制点");
+      if (d3.event.target.tagName === "path") tip("点击此处可添加控制点");
     }
   }
 
@@ -259,13 +259,13 @@ function editLabel() {
     const count = elSelected.node().parentNode.childElementCount;
     alertMessage.innerHTML = /* html */ `你确定要删除 ${
       basic ? "组中的所有元素" : "整个标签组"
-    }? <br /><br />标签将移除
+    }? <br /><br />标签将删除
       : ${count}`;
     $("#alert").dialog({
       resizable: false,
-      title: "移除组",
+      title: "删除组",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           $("#labelEditor").dialog("close");
           hideGroupSection();
@@ -278,7 +278,7 @@ function editLabel() {
             });
           if (!basic) labels.select("#" + group).remove();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -376,15 +376,15 @@ function editLabel() {
     alertMessage.innerHTML = "你确定要删除标签吗？";
     $("#alert").dialog({
       resizable: false,
-      title: "移除标签",
+      title: "删除标签",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           defs.select("#textPath_" + elSelected.attr("id")).remove();
           elSelected.remove();
           $("#labelEditor").dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

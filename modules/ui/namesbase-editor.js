@@ -188,7 +188,7 @@ function editNamesbase() {
       title: "数据分析",
       position: {my: "left top-30", at: "right+10 top", of: "#namesbaseEditor"},
       buttons: {
-        OK: function () {
+        好的: function () {
           $(this).dialog("close");
         }
       }
@@ -223,7 +223,7 @@ function editNamesbase() {
           createBasesList();
           updateInputs();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

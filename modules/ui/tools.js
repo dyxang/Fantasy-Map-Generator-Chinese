@@ -539,7 +539,7 @@ function toggleAddLabel() {
   addLabel.classList.add("pressed");
   closeDialogs(".stable");
   viewbox.style("cursor", "crosshair").on("click", addLabelOnClick);
-  tip("单击地图放置标签。按住 Shift 添加多个", true);
+  tip("点击地图放置标签。按住 Shift 添加多个", true);
   if (!layerIsOn("toggleLabels")) toggleLabels();
 }
 
@@ -783,7 +783,7 @@ function toggleAddRoute() {
   addRoute.classList.add("pressed");
   closeDialogs(".stable");
   viewbox.style("cursor", "crosshair").on("click", addRouteOnClick);
-  tip("单击 地图 添加第一个控制点", true);
+  tip("点击 地图 添加第一个控制点", true);
   if (!layerIsOn("toggleRoutes")) toggleRoutes();
 }
 
@@ -812,7 +812,7 @@ function toggleAddMarker() {
   markersAddFromOverview.classList.add("pressed");
 
   viewbox.style("cursor", "crosshair").on("click", addMarkerOnClick);
-  tip("单击地图添加标记。按住 Shift 添加多个", true);
+  tip("点击地图添加标记。按住 Shift 添加多个", true);
   if (!layerIsOn("toggleMarkers")) toggleMarkers();
 }
 

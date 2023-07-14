@@ -38,7 +38,7 @@ function editHeightmap(options) {
         Erase: () => enterHeightmapEditMode("erase"),
         Keep: () => enterHeightmapEditMode("keep"),
         Risk: () => enterHeightmapEditMode("risk"),
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -51,7 +51,7 @@ function editHeightmap(options) {
 
     customization = 1;
     closeDialogs();
-    tip('高度图编辑模式处于活动状态。单击“退出自定义”以完成高度图', true);
+    tip('高度图编辑模式处于活动状态。点击“退出自定义”以完成高度图', true);
 
     byId("options")
       .querySelectorAll(".tabcontent")
@@ -882,8 +882,8 @@ function editHeightmap(options) {
     }
 
     function getStepHTML(type, count, arg3, arg4, arg5) {
-      const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="单击以删除该步骤"></i>`;
-      const Hide = /* html */ `<div class="icon-check" data-tip="单击此处可跳过该步骤"></div>`;
+      const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="点击以删除该步骤"></i>`;
+      const Hide = /* html */ `<div class="icon-check" data-tip="点击此处可跳过该步骤"></div>`;
       const Reorder = /* html */ `<i class="icon-resize-vertical" data-tip="拖动到重新排序"></i>`;
       const common = /* html */ `<div data-type="${type}">${Hide}<div style="width:4em">${type}</div>${Trash}${Reorder}`;
 
@@ -1018,7 +1018,7 @@ function editHeightmap(options) {
             changeTemplate(template);
             $(this).dialog("close");
           },
-          Cancel: function () {
+          取消: function () {
             $(this).dialog("close");
           }
         }
@@ -1327,7 +1327,7 @@ function editHeightmap(options) {
         heightsFromImage(+convertColors.value);
         unassigned = colorsUnassignedContainer.querySelectorAll("div");
         if (!unassigned.length)
-          return tip("没有未分配的颜色。请加载图像并再次单击按钮", false, "error");
+          return tip("没有未分配的颜色。请加载图像并再次点击按钮", false, "error");
       }
 
       const getHeightByHue = function (color) {
@@ -1437,7 +1437,7 @@ function editHeightmap(options) {
       colorsUnassigned.style.display = "none";
       colorsSelectValue.innerHTML = colorsSelectFriendly.innerHTML = 0;
       viewbox.style("cursor", "default").on(".drag", null);
-      tip('高度图编辑模式处于活动状态。单击“退出自定义”以完成高度图', true);
+      tip('高度图编辑模式处于活动状态。点击“退出自定义”以完成高度图', true);
       $("#imageConverter").dialog("destroy");
       openBrushesPanel();
     }
@@ -1445,13 +1445,13 @@ function editHeightmap(options) {
     function closeImageConverter(event) {
       event.preventDefault();
       event.stopPropagation();
-      alertMessage.innerHTML = /* html */ ` 确实要关闭图像转换器吗？单击“取消”返回到转换。单击“完成”应用转换。单击“关闭”退出转换模式并恢复以前的高度图`;
+      alertMessage.innerHTML = /* html */ ` 确实要关闭图像转换器吗？点击“取消”返回到转换。点击“完成”应用转换。点击“关闭”退出转换模式并恢复以前的高度图`;
 
       $("#alert").dialog({
         resizable: false,
         title: "关闭图像转换器",
         buttons: {
-          Cancel: function () {
+          取消: function () {
             $(this).dialog("close");
           },
           Complete: function () {
@@ -1479,7 +1479,7 @@ function editHeightmap(options) {
     preview.width = grid.cellsX;
     preview.height = grid.cellsY;
     document.body.insertBefore(preview, optionsContainer);
-    preview.on("mouseover", () => tip("高度图预览。单击可下载屏幕大小的图像"));
+    preview.on("mouseover", () => tip("高度图预览。点击可下载屏幕大小的图像"));
     preview.on("click", downloadPreview);
     drawHeightmapPreview();
   }

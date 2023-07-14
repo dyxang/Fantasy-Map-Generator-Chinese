@@ -146,10 +146,10 @@ function editProvinces() {
         <fill-box fill="${p.color}"></fill-box>
         <input data-tip="省名。点击更改" class="name pointer" value="${p.name}" readonly />
         <svg data-tip="点击显示和编辑省徽" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
-        <input data-tip="省级表单名称。单击可更改" class="name pointer hide" value="${p.formName}" readonly />
+        <input data-tip="省级表单名称。点击可更改" class="name pointer hide" value="${p.formName}" readonly />
         <span data-tip="省会。点击放大查看" class="icon-star-empty pointer hide ${p.burg ? "" : "placeholder"}"></span>
         <select
-          data-tip="省会。单击此处可从国家内的市镇中进行选择。没有首都就意味着该省由国家首都管辖"
+          data-tip="省会。点击此处可从国家内的市镇中进行选择。没有首都就意味着该省由国家首都管辖"
           class="cultureBase hide ${p.burgs.length ? "" : "placeholder"}"
         >
           ${p.burgs.length ? getCapitalOptions(p.burgs, p.burg) : ""}
@@ -165,7 +165,7 @@ function editProvinces() {
         ></span>
         <span data-tip="切换省份焦点" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
         <span data-tip="锁定省份" class="icon-lock${p.lock ? '' : '-open'} hide"></span>
-        <span data-tip="移除省份" class="icon-trash-empty hide"></span>
+        <span data-tip="删除省份" class="icon-trash-empty hide"></span>
       </div>`;
     }
     body.innerHTML = lines;
@@ -393,11 +393,11 @@ function editProvinces() {
       title: "改变省份人口",
       width: "24em",
       buttons: {
-        Apply: function () {
+        应用: function () {
           applyPopulationChange();
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       },
@@ -440,9 +440,9 @@ function editProvinces() {
     alertMessage.innerHTML = /* html */ `你确定要删除该省吗？ <br />无法恢复此操作`;
     $("#alert").dialog({
       resizable: false,
-      title: "移除省份",
+      title: "删除省份",
       buttons: {
-        Remove: function () {
+        删除: function () {
           pack.cells.province.forEach((province, i) => {
             if (province === p) pack.cells.province[i] = 0;
           });
@@ -466,7 +466,7 @@ function editProvinces() {
           refreshProvincesEditor();
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -484,11 +484,11 @@ function editProvinces() {
       resizable: false,
       title: "更改省名",
       buttons: {
-        Apply: function () {
+        应用: function () {
           applyNameChange(p);
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       },
@@ -1044,7 +1044,7 @@ function editProvinces() {
       resizable: false,
       title: "删除所有省份",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
 
           // remove emblems
@@ -1064,7 +1064,7 @@ function editProvinces() {
 
           provincesEditorAddLines();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

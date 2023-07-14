@@ -51,7 +51,7 @@ function createRiver() {
       <span>Cell ${cell}</span>
       <span data-tip="设置流量影响河流宽度" style="margin-left: 0.4em">Flux</span>
       <input type="number" min=0 value="${flux}" class="editFlux" style="width: 5em"/>
-      <span data-tip="移除单元格" class="icon-trash-empty pointer"></span>
+      <span data-tip="删除单元格" class="icon-trash-empty pointer"></span>
     </div>`;
     body.innerHTML += line;
   }

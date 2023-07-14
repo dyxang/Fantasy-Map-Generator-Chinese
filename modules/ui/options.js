@@ -738,7 +738,7 @@ function regeneratePrompt(options) {
     resizable: false,
     title: "生成新地图",
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
       Generate: function () {
@@ -866,7 +866,7 @@ function loadURL() {
         loadMapFromURL(value);
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }
@@ -906,7 +906,7 @@ function openSaveTiles() {
           setTimeout(() => (status.innerHTML = ""), 8000);
         });
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     },

@@ -17,17 +17,17 @@ export function open() {
     resizable: false,
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      Select: function () {
+      选择: function () {
         const id = getSelected();
         applyOption($templateInput, id, getName(id));
         lock("template");
 
         $(this).dialog("close");
       },
-      "New Map": function () {
+      "新地图": function () {
         const id = getSelected();
         applyOption($templateInput, id, getName(id));
         lock("template");

@@ -30,7 +30,7 @@ function insertEditorHtml() {
       <div data-tip="按至高神排序" class="sortable alphabetically hide" data-sortby="deity">至高神&nbsp;</div>
       <div data-tip="按宗教地区分类" class="sortable hide" data-sortby="area">地区&nbsp;</div>
       <div data-tip="按信徒人数(宗教地区人口)排序" class="sortable hide" data-sortby="population">信徒&nbsp;</div>
-      <div data-tip="单击可按潜在区段类型排序" class="sortable alphabetically hide" data-sortby="expansion">潜在&nbsp;</div>
+      <div data-tip="点击可按潜在区段类型排序" class="sortable alphabetically hide" data-sortby="expansion">潜在&nbsp;</div>
       <div data-tip="点击按扩张主义排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
     </div>
     <div id="religionsBody" class="table" data-type="absolute"></div>
@@ -178,7 +178,7 @@ function religionsEditorAddLines() {
         data-expansionism=""
       >
         <svg width="9" height="9" class="placeholder"></svg>
-        <input data-tip="宗教名称。单击并键入以更改" class="religionName italic" style="width: 11em"
+        <input data-tip="宗教名称。点击并键入以更改" class="religionName italic" style="width: 11em"
           value="${r.name}" autocorrect="off" spellcheck="false" />
         <select data-tip="宗教类型" class="religionType placeholder" style="width: 5em">
           ${getTypeOptions(r.type)}
@@ -210,7 +210,7 @@ function religionsEditorAddLines() {
       data-expansionism="${r.expansionism}"
     >
       <fill-box fill="${r.color}"></fill-box>
-      <input data-tip="宗教名称。单击并键入以更改" class="religionName" style="width: 11em"
+      <input data-tip="宗教名称。点击并键入以更改" class="religionName" style="width: 11em"
         value="${r.name}" autocorrect="off" spellcheck="false" />
       <select data-tip="宗教类型" class="religionType" style="width: 5em">
         ${getTypeOptions(r.type)}
@@ -297,7 +297,7 @@ function getExpansionColumns(r) {
     </select>
     <span data-tip="宗教扩张。定义竞争规模" class="icon-resize-full hide"></span>
     <input
-      data-tip="宗教扩张。定义竞争规模。单击以更改，然后单击“重新计算”以应用更改"
+      data-tip="宗教扩张。定义竞争规模。点击以更改，然后点击“重新计算”以应用更改"
       class="religionExpantion hide"
       type="number"
       min="0"
@@ -444,11 +444,11 @@ function changePopulation() {
     title: "改变信徒人数",
     width: "24em",
     buttons: {
-      Apply: function () {
+      应用: function () {
         applyPopulationChange();
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     },
@@ -502,7 +502,7 @@ function religionRemovePrompt() {
   const religionId = +this.parentNode.dataset.id;
   confirmationDialog({
     title: "删除宗教信仰",
-    message: "你确定你想要移除宗教信仰吗? <br> 这个行为不能被恢复",
+    message: "你确定你想要删除宗教信仰吗? <br> 这个行为不能被恢复",
     confirm: "删除",
     onConfirm: () => removeReligion(religionId)
   });

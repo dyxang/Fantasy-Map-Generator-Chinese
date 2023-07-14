@@ -25,14 +25,14 @@ export function open() {
 function insertEditorHtml() {
   const editorHtml = /* html */ `<div id="culturesEditor" class="dialog stable">
     <div id="culturesHeader" class="header" style="grid-template-columns: 10em 7em 8em 4em 8em 5em 8em 8em">
-      <div data-tip="单击此处可按文化名称排序" class="sortable alphabetically" data-sortby="name">文化&nbsp;</div>
-      <div data-tip="单击此处可按类型排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
-      <div data-tip="单击此处可按文化命名库进行排序" class="sortable" data-sortby="base">名称库&nbsp;</div>
-      <div data-tip="单击此处可按文化单元格计数进行排序" class="sortable hide" data-sortby="cells">单元格&nbsp;</div>
+      <div data-tip="点击此处可按文化名称排序" class="sortable alphabetically" data-sortby="name">文化&nbsp;</div>
+      <div data-tip="点击此处可按类型排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
+      <div data-tip="点击此处可按文化命名库进行排序" class="sortable" data-sortby="base">名称库&nbsp;</div>
+      <div data-tip="点击此处可按文化单元格计数进行排序" class="sortable hide" data-sortby="cells">单元格&nbsp;</div>
       <div data-tip="按扩张主义排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
-      <div data-tip="单击此处可按文化面积进行排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
-      <div data-tip="单击此处可按文化人口进行排序" class="sortable hide icon-sort-number-down" data-sortby="population">人口&nbsp;</div>
-      <div data-tip="单击可按文化徽标形状排序" class="sortable alphabetically hide" data-sortby="emblems">徽章&nbsp;</div>
+      <div data-tip="点击此处可按文化面积进行排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
+      <div data-tip="点击此处可按文化人口进行排序" class="sortable hide icon-sort-number-down" data-sortby="population">人口&nbsp;</div>
+      <div data-tip="点击可按文化徽标形状排序" class="sortable alphabetically hide" data-sortby="emblems">徽章&nbsp;</div>
     </div>
     <div id="culturesBody" class="table" data-type="absolute"></div>
 
@@ -167,12 +167,12 @@ function culturesEditorAddLines() {
           data-emblems="${c.shield}"
         >
           <svg width="11" height="11" class="placeholder"></svg>
-          <input data-tip="非特定文化名称。单击并键入以更改" class="cultureName italic" style="width: 7em"
+          <input data-tip="非特定文化名称。点击并键入以更改" class="cultureName italic" style="width: 7em"
             value="${c.name}" autocorrect="off" spellcheck="false" />
           <span class="icon-cw placeholder"></span>
           <select class="cultureType placeholder">${getTypeOptions(c.type)}</select>
-          <span data-tip="单击此处可重新生成已分配此区域性的城市名称" class="icon-arrows-cw hide"></span>
-          <select data-tip="文化名称库。单击更改。单击箭头重新生成名称"
+          <span data-tip="点击此处可重新生成已分配此区域性的城市名称" class="icon-arrows-cw hide"></span>
+          <select data-tip="文化名称库。点击更改。点击箭头重新生成名称"
             class="cultureBase">${getBaseOptions(c.base)}</select>
           <span data-tip="单元格计数" class="icon-check-empty hide"></span>
           <div data-tip="单元格计数" class="cultureCells hide" style="width: 4em">${c.cells}</div>
@@ -202,19 +202,19 @@ function culturesEditorAddLines() {
         data-emblems="${c.shield}"
       >
         <fill-box fill="${c.color}"></fill-box>
-        <input data-tip="文化名称。单击并键入以更改" class="cultureName" style="width: 7em"
+        <input data-tip="文化名称。点击并键入以更改" class="cultureName" style="width: 7em"
           value="${c.name}" autocorrect="off" spellcheck="false" />
         <span data-tip="重新生成文化名称" class="icon-cw hiddenIcon" style="visibility: hidden"></span>
-        <select data-tip="文化类型。定义增长模型。单击可更改"
+        <select data-tip="文化类型。定义增长模型。点击可更改"
           class="cultureType">${getTypeOptions(c.type)}</select>
-        <span data-tip="单击此处可重新生成已分配此文化的城市的名称" class="icon-arrows-cw hide"></span>
-        <select data-tip="文化名称库。单击更改。单击箭头重新生成名称"
+        <span data-tip="点击此处可重新生成已分配此文化的城市的名称" class="icon-arrows-cw hide"></span>
+        <select data-tip="文化名称库。点击更改。点击箭头重新生成名称"
           class="cultureBase">${getBaseOptions(c.base)}</select>
         <span data-tip="单元格计数" class="icon-check-empty hide"></span>
         <div data-tip="单元格计数" class="cultureCells hide" style="width: 4em">${c.cells}</div>
         <span data-tip="文化扩张。定义竞争规模" class="icon-resize-full hide"></span>
         <input
-          data-tip="文化扩张。定义竞争规模。单击更改，然后单击“重新计算”应用更改"
+          data-tip="文化扩张。定义竞争规模。点击更改，然后点击“重新计算”应用更改"
           class="cultureExpan hide"
           type="number"
           min="0"
@@ -228,7 +228,7 @@ function culturesEditorAddLines() {
         <div data-tip="${populationTip}" class="culturePopulation hide pointer"
           style="width: 4em">${si(population)}</div>
         ${getShapeOptions(selectShape, c.shield)}
-        <span data-tip="移除文化" class="icon-lock${c.lock ? "" : "-open"} hide"></span>
+        <span data-tip="删除文化" class="icon-lock${c.lock ? "" : "-open"} hide"></span>
         <span data-tip="Remove culture" class="icon-trash-empty hide"></span>
       </div>`;
   }
@@ -293,7 +293,7 @@ function getShapeOptions(selectShape, selected) {
   const options = shapes.map(
     shape => `<option ${shape === selected ? "selected" : ""} value="${shape}">${capitalize(shape)}</option>`
   );
-  return `<select data-tip="与文化关联的徽标形状。单击可更改" class="cultureEmblems hide">${options}</select>`;
+  return `<select data-tip="与文化关联的徽标形状。点击可更改" class="cultureEmblems hide">${options}</select>`;
 }
 
 const cultureHighlightOn = debounce(event => {
@@ -467,11 +467,11 @@ function changePopulation() {
     title: "改变文化人口",
     width: "24em",
     buttons: {
-      Apply: function () {
+      应用: function () {
         applyPopulationChange(rural, urban, ruralPop.value, urbanPop.value, cultureId);
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     },
@@ -547,7 +547,7 @@ function cultureRemovePrompt() {
 
   const cultureId = +this.parentNode.dataset.id;
   confirmationDialog({
-    title: "移除文化",
+    title: "删除文化",
     message: "确实要删除文化吗? <br> 无法恢复此操作",
     confirm: "删除",
     onConfirm: () => removeCulture(cultureId)
@@ -692,7 +692,7 @@ function enterCultureManualAssignent() {
   $body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "none"));
   $("#culturesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg"}});
 
-  tip("单击文化选择，拖动圆圈可更改文化", true);
+  tip("点击文化选择，拖动圆圈可更改文化", true);
   viewbox
     .style("cursor", "crosshair")
     .on("click", selectCultureOnMapClick)
@@ -824,7 +824,7 @@ function addCulture() {
   const center = findCell(point[0], point[1]);
 
   if (pack.cells.h[center] < 20)
-    return tip("不能将文化中心放入水中。请单击陆地单元格", false, "error");
+    return tip("不能将文化中心放入水中。请点击陆地单元格", false, "error");
   const occupied = pack.cultures.some(c => !c.removed && c.center === center);
   if (occupied) return tip("此单元格已经是文化中心。请选择其他单元格", false, "error");
 

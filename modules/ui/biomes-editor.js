@@ -104,10 +104,10 @@ function editBiomes() {
           data-color=${b.color[i]}
         >
           <fill-box fill="${b.color[i]}"></fill-box>
-          <input data-tip="生物群落名称。单击并键入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
+          <input data-tip="生物群落名称。点击并键入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
           <span data-tip="生物群落可居住百分比" class="hide">%</span>
           <input
-            data-tip="生物群落可居住百分比。单击并设置新值以更改"
+            data-tip="生物群落可居住百分比。点击并设置新值以更改"
             type="number"
             min="0"
             max="9999"
@@ -121,7 +121,7 @@ function editBiomes() {
           <span data-tip="${populationTip}" class="icon-male hide"></span>
           <div data-tip="${populationTip}" class="biomePopulation hide">${si(population)}</div>
           <span data-tip="打开维基百科关于生物群落的文章" class="icon-info-circled pointer hide"></span>
-          ${i > 12 && !b.cells[i] ? '<span data-tip="移除定制的生物群落" class="icon-trash-empty hide"></span>' : ""}
+          ${i > 12 && !b.cells[i] ? '<span data-tip="删除定制的生物群落" class="icon-trash-empty hide"></span>' : ""}
         </div>
       `;
     }
@@ -286,14 +286,14 @@ function editBiomes() {
       <fill-box fill="${b.color[i]}"></fill-box>
       <input data-tip="生物群落名称。点击并键入更改” class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false">
       <span data-tip="生物群落可居住百分比" class="hide">%</span>
-      <input data-tip="生物群落可居住百分比。单击并设置新值以更改" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${b.habitability[i]}>
+      <input data-tip="生物群落可居住百分比。点击并设置新值以更改" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${b.habitability[i]}>
       <span data-tip="单元格计数" class="icon-check-empty hide"></span>
       <div data-tip="单元格计数" class="biomeCells hide">${b.cells[i]}</div>
       <span data-tip="生物区" style="padding-right: 4px" class="icon-map-o hide"></span>
       <div data-tip="生物区" class="biomeArea hide">0 ${unit}</div>
       <span data-tip="总人口: 0" class="icon-male hide"></span>
       <div data-tip="总人口: 0" class="biomePopulation hide">0</div>
-      <span data-tip="移除定制的生物群落" class="icon-trash-empty hide"></span>
+      <span data-tip="删除定制的生物群落" class="icon-trash-empty hide"></span>
     </div>`;
 
     body.insertAdjacentHTML("beforeend", line);

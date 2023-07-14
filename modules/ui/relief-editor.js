@@ -181,7 +181,7 @@ function editReliefIcon() {
     reliefIconsSeletionAny.style.display = "inline-block";
 
     viewbox.style("cursor", "crosshair").call(d3.drag().on("start", dragToRemove)).on("touchmove mousemove", moveBrush);
-    tip("拖动此形状可移除半径内的浮雕图标", true);
+    tip("拖动此形状可删除半径内的浮雕图标", true);
   }
 
   function dragToRemove() {
@@ -267,12 +267,12 @@ function editReliefIcon() {
       resizable: false,
       title: "删除浮雕图标",
       buttons: {
-        Remove: function () {
+        删除: function () {
           if (selection) selection.remove();
           $(this).dialog("close");
           $("#reliefEditor").dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

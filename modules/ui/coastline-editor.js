@@ -185,10 +185,10 @@ function editCoastline(node = d3.event.target) {
       <i>sea_island</i> 组`;
     $("#alert").dialog({
       resizable: false,
-      title: "清除海岸线组",
+      title: "删除海岸线组",
       width: "26em",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           const sea = document.getElementById("sea_island");
           const groupEl = document.getElementById(group);
@@ -199,7 +199,7 @@ function editCoastline(node = d3.event.target) {
           document.getElementById("coastlineGroup").selectedOptions[0].remove();
           document.getElementById("coastlineGroup").value = "sea_island";
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

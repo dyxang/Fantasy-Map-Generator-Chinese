@@ -92,11 +92,11 @@ function overviewBurgs() {
         data-population=${population}
         data-type="${type}"
       >
-        <span data-tip="单击可放大到视图" class="icon-dot-circled pointer"></span>
-        <input data-tip="城市名称。单击并键入以更改" class="burgName" value="${b.name}" autocorrect="off" spellcheck="false" />
+        <span data-tip="点击可放大到视图" class="icon-dot-circled pointer"></span>
+        <input data-tip="城市名称。点击并键入以更改" class="burgName" value="${b.name}" autocorrect="off" spellcheck="false" />
         <input data-tip="城市 省" class="burgState" value="${province}" disabled />
         <input data-tip="城市 国家" class="burgState" value="${state}" disabled />
-        <select data-tip="主导文化。单击可更改城市文化(使用文化编辑器更改单元格文化)" class="stateCulture">
+        <select data-tip="主导文化。点击可更改城市文化(使用文化编辑器更改单元格文化)" class="stateCulture">
           ${getCultureOptions(b.culture)}
         </select>
         <span data-tip="城市人口" class="icon-male"></span>
@@ -106,7 +106,7 @@ function overviewBurgs() {
             data-tip="${b.capital ? " 这个城市是国家首都" : "点击指定首都状态"}"
             class="icon-star-empty${b.capital ? "" : " inactive pointer"}"
           ></span>
-          <span data-tip="单击以切换港口状态" class="icon-anchor pointer${
+          <span data-tip="点击以切换港口状态" class="icon-anchor pointer${
             b.port ? "" : " inactive"
           }" style="font-size:.9em"></span>
         </div>
@@ -114,7 +114,7 @@ function overviewBurgs() {
         <span class="locks pointer ${
           b.lock ? "icon-lock" : "icon-lock-open inactive"
         }" onmouseover="showElementLockTip(event)"></span>
-        <span data-tip="移除城市" class="icon-trash-empty"></span>
+        <span data-tip="删除城市" class="icon-trash-empty"></span>
       </div>`;
     }
     body.insertAdjacentHTML("beforeend", lines);
@@ -242,9 +242,9 @@ function overviewBurgs() {
       return tip("你不能删除大写字母。请先更改大写字母", false, "error");
 
     confirmationDialog({
-      title: "移除城市",
+      title: "删除城市",
       message: "你确定要删除这个城市吗? 这个行为无法恢复",
-      confirm: "移除",
+      confirm: "删除",
       onConfirm: () => {
         removeBurg(burg);
         burgsOverviewAddLines();
@@ -278,7 +278,7 @@ function overviewBurgs() {
     const point = d3.mouse(this);
     const cell = findCell(point[0], point[1]);
     if (pack.cells.h[cell] < 20)
-      return tip("你不能将国家放入水中。请单击陆地单元格", false, "error");
+      return tip("你不能将国家放入水中。请点击陆地单元格", false, "error");
     if (pack.cells.burg[cell])
       return tip("这个单元格中已经有一个城市。请选择一个空闲单元格", false, "error");
 
@@ -385,7 +385,7 @@ function overviewBurgs() {
 
       burgsInfo.innerHTML = /* html */ `${name}. ${parent}. Population: ${population}`;
       burgHighlightOn(ev);
-      tip("单击可放大到视图");
+      tip("点击可放大到视图");
     }
 
     function hideInfo(ev) {
@@ -535,7 +535,7 @@ function overviewBurgs() {
           downloadFile(data, name);
         },
         Upload: () => burgsListToLoad.click(),
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -583,11 +583,11 @@ function overviewBurgs() {
   function triggerAllBurgsRemove() {
     const number = pack.burgs.filter(b => b.i && !b.removed && !b.capital && !b.lock).length;
     confirmationDialog({
-      title: `移除 ${number} 城市`,
+      title: `删除 ${number} 城市`,
       message: `
         确实要删除除大写之外的所有<i>未锁定</i>的城市吗?
-        <br><i>要移除一个首都，你必须先移除一个国家</i>`,
-      confirm: "移除",
+        <br><i>要删除一个首都，你必须先删除一个国家</i>`,
+      confirm: "删除",
       onConfirm: removeAllBurgs
     });
   }

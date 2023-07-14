@@ -45,8 +45,8 @@ function editRoute(onClick) {
   function showEditorTips() {
     showMainTip();
     if (routeNew.classList.contains("pressed")) return;
-    if (d3.event.target.id === elSelected.attr("id")) tip("单击此处可添加控制点");
-    else if (d3.event.target.parentNode.id === "controlPoints") tip("拖动以移动，单击以删除控制点");
+    if (d3.event.target.id === elSelected.attr("id")) tip("点击此处可添加控制点");
+    else if (d3.event.target.parentNode.id === "controlPoints") tip("拖动以移动，点击以删除控制点");
   }
 
   function drawControlPoints(node) {
@@ -193,12 +193,12 @@ function editRoute(onClick) {
     const count = elSelected.node().parentNode.childElementCount;
     alertMessage.innerHTML = /* html */ `你确定要删除 ${
       basic ? "组中的所有元素" : "整个路线组"
-    }? <br /><br />需要移除的路线: ${count}`;
+    }? <br /><br />需要删除的路线: ${count}`;
     $("#alert").dialog({
       resizable: false,
       title: "删除路线组",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           $("#routeEditor").dialog("close");
           hideGroupSection();
@@ -209,7 +209,7 @@ function editRoute(onClick) {
               .remove();
           else routes.select("#" + group).remove();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -297,14 +297,14 @@ function editRoute(onClick) {
     alertMessage.innerHTML = "确实要删除路线吗?";
     $("#alert").dialog({
       resizable: false,
-      title: "移除路线",
+      title: "删除路线",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           elSelected.remove();
           $("#routeEditor").dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

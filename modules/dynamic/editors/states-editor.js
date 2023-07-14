@@ -22,16 +22,16 @@ export function open() {
 function insertEditorHtml() {
   const editorHtml = /* html */ `<div id="statesEditor" class="dialog stable">
     <div id="statesHeader" class="header" style="grid-template-columns: 11em 8em 7em 7em 6em 6em 8em 6em 7em 6em">
-      <div data-tip="单击此处可按国家名进行排序" class="sortable alphabetically" data-sortby="name">国家&nbsp;</div>
-      <div data-tip="单击此处可按国家构成排序" class="sortable alphabetically" data-sortby="form">政体&nbsp;</div>
-      <div data-tip="单击可按首都排序" class="sortable alphabetically hide" data-sortby="capital">首都&nbsp;</div>
+      <div data-tip="点击此处可按国家名进行排序" class="sortable alphabetically" data-sortby="name">国家&nbsp;</div>
+      <div data-tip="点击此处可按国家构成排序" class="sortable alphabetically" data-sortby="form">政体&nbsp;</div>
+      <div data-tip="点击可按首都排序" class="sortable alphabetically hide" data-sortby="capital">首都&nbsp;</div>
       <div data-tip="按国家主导文化排序" class="sortable alphabetically hide" data-sortby="culture">文化&nbsp;</div>
-      <div data-tip="单击此处可按国家城市数进行排序" class="sortable hide" data-sortby="burgs">城市&nbsp;</div>
-      <div data-tip="单击此处可按国家区域进行排序" class="sortable hide icon-sort-number-down" data-sortby="area">面积&nbsp;</div>
-      <div data-tip="单击此处可按国家人口进行排序" class="sortable hide" data-sortby="population">人口&nbsp;</div>
-      <div data-tip="单击此处可按国家类型排序" class="sortable alphabetically hidden show hide" data-sortby="type">类型&nbsp;</div>
-      <div data-tip="单击此处可按国家扩张排序" class="sortable hidden show hide" data-sortby="expansionism">扩张&nbsp;</div>
-      <div data-tip="单击此处可按国家单元格计数进行排序" class="sortable hidden show hide" data-sortby="cells">单元格&nbsp;</div>
+      <div data-tip="点击此处可按国家城市数进行排序" class="sortable hide" data-sortby="burgs">城市&nbsp;</div>
+      <div data-tip="点击此处可按国家区域进行排序" class="sortable hide icon-sort-number-down" data-sortby="area">面积&nbsp;</div>
+      <div data-tip="点击此处可按国家人口进行排序" class="sortable hide" data-sortby="population">人口&nbsp;</div>
+      <div data-tip="点击此处可按国家类型排序" class="sortable alphabetically hidden show hide" data-sortby="type">类型&nbsp;</div>
+      <div data-tip="点击此处可按国家扩张排序" class="sortable hidden show hide" data-sortby="expansionism">扩张&nbsp;</div>
+      <div data-tip="点击此处可按国家单元格计数进行排序" class="sortable hidden show hide" data-sortby="cells">单元格&nbsp;</div>
     </div>
 
     <div id="statesBodySection" class="table" data-type="absolute"></div>
@@ -222,7 +222,7 @@ function statesEditorAddLines() {
         data-expansionism=""
       >
         <svg width="1em" height="1em" class="placeholder"></svg>
-        <input data-tip="中性土地名称。单击可更改" class="stateName name pointer italic" value="${
+        <input data-tip="中性土地名称。点击可更改" class="stateName name pointer italic" value="${
           s.name
         }" readonly />
         <svg class="coaIcon placeholder hide"></svg>
@@ -263,15 +263,15 @@ function statesEditorAddLines() {
       data-expansionism=${s.expansionism}
     >
       <fill-box fill="${s.color}"></fill-box>
-      <input data-tip="国家名称。单击更改" class="stateName name pointer" value="${s.name}" readonly />
+      <input data-tip="国家名称。点击更改" class="stateName name pointer" value="${s.name}" readonly />
       <svg data-tip="点击显示和编辑国徽" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#stateCOA${
         s.i
       }"></use></svg>
-      <input data-tip="国家类型名称。单击以更改" class="stateForm name pointer" value="${
+      <input data-tip="国家类型名称。点击以更改" class="stateForm name pointer" value="${
         s.formName
       }" readonly />
       <span data-tip="国家首府，点击放大" class="icon-star-empty pointer hide"></span>
-      <input data-tip="首都名称。单击并键入以重命名" class="stateCapital hide" value="${capital}" autocorrect="off" spellcheck="false" />
+      <input data-tip="首都名称。点击并键入以重命名" class="stateCapital hide" value="${capital}" autocorrect="off" spellcheck="false" />
       <select data-tip="主流文化，点击更改" class="stateCulture hide">${getCultureOptions(
         s.culture
       )}</select>
@@ -281,7 +281,7 @@ function statesEditorAddLines() {
       <div data-tip="国家面积" class="stateArea hide" style="width: 6em">${si(area)} ${unit}</div>
       <span data-tip="${populationTip}" class="icon-male hide"></span>
       <div data-tip="${populationTip}" class="statePopulation pointer hide" style="width: 5em">${si(population)}</div>
-      <select data-tip="国家类型。定义增长模型。单击更改" class="cultureType ${hidden} show hide">${getTypeOptions(
+      <select data-tip="国家类型。定义增长模型。点击更改" class="cultureType ${hidden} show hide">${getTypeOptions(
       s.type
     )}</select>
       <span data-tip="国家扩张主义" class="icon-resize-full ${hidden} show hide"></span>
@@ -293,7 +293,7 @@ function statesEditorAddLines() {
       <span data-tip="锁定国家（保护不受重新生成影响）" class="icon-lock${
         s.lock ? "" : "-open"
       } hide"></span>
-      <span data-tip="移除国家" class="icon-trash-empty hide"></span>
+      <span data-tip="删除国家" class="icon-trash-empty hide"></span>
     </div>`;
   }
   $body.innerHTML = lines;
@@ -416,11 +416,11 @@ function editStateName(state) {
     resizable: false,
     title: "更改国家名",
     buttons: {
-      Apply: function () {
+      应用: function () {
         applyNameChange(s);
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     },
@@ -540,11 +540,11 @@ function changePopulation(stateId) {
     title: "改变国家人口",
     width: "24em",
     buttons: {
-      Apply: function () {
+      应用: function () {
         applyPopulationChange();
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     },
@@ -1212,7 +1212,7 @@ function addState() {
   const point = d3.mouse(this);
   const center = findCell(point[0], point[1]);
   if (cells.h[center] < 20)
-    return tip("你不能将国家放入水中。请单击陆地单元格", false, "error");
+    return tip("你不能将国家放入水中。请点击陆地单元格", false, "error");
 
   let burg = cells.burg[center];
   if (burg && burgs[burg].capital)

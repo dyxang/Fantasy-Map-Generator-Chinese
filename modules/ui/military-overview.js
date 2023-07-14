@@ -54,7 +54,7 @@ function overviewMilitary() {
     const insert = html => document.getElementById("militaryTotal").insertAdjacentHTML("beforebegin", html);
     for (const u of options.military) {
       const label = capitalize(u.name.replace(/_/g, " "));
-      insert(`<div data-tip="国家 ${u.name} 单位数量. 单击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`);
+      insert(`<div data-tip="国家 ${u.name} 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`);
     }
     header.querySelectorAll(".removable").forEach(function (e) {
       e.addEventListener("click", function () {
@@ -239,7 +239,7 @@ function overviewMilitary() {
         Apply: applyMilitaryOptions,
         Add: () => addUnitLine({icon: "🛡️", name: "custom" + militaryOptionsTable.rows.length, rural: 0.2, urban: 0.5, crew: 1, power: 1, type: "melee"}),
         Restore: restoreDefaultUnits,
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       },
@@ -324,8 +324,8 @@ function overviewMilitary() {
           <input id="${name}Separate" type="checkbox" class="checkbox" ${separate ? "checked" : ""} />
           <label for="${name}Separate" class="checkbox-label"></label>
         </td>
-        <td data-tip="移除单位">
-          <span data-tip="移除单位类型" class="icon-trash-empty pointer" onclick="this.parentElement.parentElement.remove();"></span>
+        <td data-tip="删除单位">
+          <span data-tip="删除单位类型" class="icon-trash-empty pointer" onclick="this.parentElement.parentElement.remove();"></span>
         </td>`;
       tableBody.appendChild(row);
     }
@@ -362,7 +362,7 @@ function overviewMilitary() {
           Invert: function () {
             alertMessage.querySelectorAll("input").forEach(el => (el.checked = !el.checked));
           },
-          Apply: function () {
+          应用: function () {
             const inputs = Array.from(alertMessage.querySelectorAll("input"));
             const selected = inputs.reduce((acc, input) => {
               if (input.checked) acc.push(input.dataset.i);
@@ -377,7 +377,7 @@ function overviewMilitary() {
             el.setAttribute("title", getLimitTip(selected, data));
             $(this).dialog("close");
           },
-          Cancel: function () {
+          取消: function () {
             $(this).dialog("close");
           }
         }
@@ -422,14 +422,14 @@ function overviewMilitary() {
     alertMessage.innerHTML = "你确定要重新计算所有国家的军事力量吗? <br>所有国家的军队将重新生成";
     $("#alert").dialog({
       resizable: false,
-      title: "移除部队",
+      title: "删除部队",
       buttons: {
         Recalculate: function () {
           $(this).dialog("close");
           Military.generate();
           addLines();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

@@ -281,14 +281,14 @@ function editUnits() {
       <br />如果你只是想隐藏尺子，在菜单中切换尺子图层`;
     $("#alert").dialog({
       resizable: false,
-      title: "移除所有尺子",
+      title: "删除所有尺子",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           rulers.undraw();
           rulers = new Rulers();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

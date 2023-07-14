@@ -89,8 +89,8 @@ function editZones() {
       return `<div class="states" data-id="${zoneEl.id}" data-fill="${fill}" data-description="${description}"
         data-type="${type}" data-cells=${c.length} data-area=${area} data-population=${population}>
         <fill-box fill="${fill}"></fill-box>
-        <input data-tip="区域描述。单击并键入以更改" style="width: 11em" class="zoneName" value="${description}" autocorrect="off" spellcheck="false">
-        <input data-tip="区域类型。单击并键入以更改" class="zoneType" value="${type}">
+        <input data-tip="区域描述。点击并键入以更改" style="width: 11em" class="zoneName" value="${description}" autocorrect="off" spellcheck="false">
+        <input data-tip="区域类型。点击并键入以更改" class="zoneType" value="${type}">
         <span data-tip="单元格计数" class="icon-check-empty hide"></span>
         <div data-tip="单元格计数" class="stateCells hide">${c.length}</div>
         <span data-tip="区域面积" style="padding-right:4px" class="icon-map-o hide"></span>
@@ -100,7 +100,7 @@ function editZones() {
         <span data-tip="通过拖动可升高或降低区域" class="icon-resize-vertical hide"></span>
         <span data-tip="切换区域焦点" class="icon-pin ${focused ? "" : " inactive"} hide ${c.length ? "" : " placeholder"}"></span>
         <span data-tip="切换区域可见性" class="icon-eye ${inactive ? " inactive" : ""} hide ${c.length ? "" : " placeholder"}"></span>
-        <span data-tip="移除区域" class="icon-trash-empty hide"></span>
+        <span data-tip="删除区域" class="icon-trash-empty hide"></span>
       </div>`;
     });
 
@@ -173,7 +173,7 @@ function editZones() {
     body.querySelectorAll("div > input, select, svg").forEach(e => (e.style.pointerEvents = "none"));
     $("#zonesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}});
 
-    tip("单击以选择区域，拖动以绘制区域", true);
+    tip("点击以选择区域，拖动以绘制区域", true);
     viewbox.style("cursor", "crosshair").on("click", selectZoneOnMapClick).call(d3.drag().on("start", dragZoneBrush)).on("touchmove mousemove", moveZoneBrush);
 
     body.querySelector("div").classList.add("selected");
@@ -434,11 +434,11 @@ function editZones() {
       title: "变化区人口",
       width: "24em",
       buttons: {
-        Apply: function () {
+        应用: function () {
           applyPopulationChange();
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       },

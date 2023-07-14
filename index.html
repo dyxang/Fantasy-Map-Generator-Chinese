@@ -364,7 +364,7 @@
       <div id="collapsible">
         <button
           id="optionsTrigger"
-          data-tip="单击以显示菜单"
+          data-tip="点击以显示菜单"
           data-shortcut="Tab"
           class="options glow"
           onclick="showOptions(event)"
@@ -373,7 +373,7 @@
         </button>
         <button
           id="regenerate"
-          data-tip="单击以生成新的地图"
+          data-tip="点击以生成新的地图"
           data-shortcut="F2"
           onclick="regeneratePrompt()"
           class="options"
@@ -389,18 +389,18 @@
         <div class="tab">
           <button
             id="optionsHide"
-            data-tip="单击以隐藏菜单"
+            data-tip="点击以隐藏菜单"
             data-shortcut="Tab or Esc"
             class="options"
             onclick="hideOptions(event)"
           >
             ◄
           </button>
-          <button id="layersTab" data-tip="单击以更改地图图层" class="options active">图层</button>
-          <button id="styleTab" data-tip="单击以打开样式编辑器" class="options">风格</button>
-          <button id="optionsTab" data-tip="单击以更改 UI 和生成" class="options">选项</button>
-          <button id="toolsTab" data-tip="单击以打开工具菜单" class="options">工具</button>
-          <button id="aboutTab" data-tip="单击查看生成器信息" class="options">关于</button>
+          <button id="layersTab" data-tip="点击以更改地图图层" class="options active">图层</button>
+          <button id="styleTab" data-tip="点击以打开样式编辑器" class="options">风格</button>
+          <button id="optionsTab" data-tip="点击以更改 UI 和生成" class="options">选项</button>
+          <button id="toolsTab" data-tip="点击以打开工具菜单" class="options">工具</button>
+          <button id="aboutTab" data-tip="点击查看生成器信息" class="options">关于</button>
         </div>
 
         <div id="layersContent" class="tabcontent" style="display: block">
@@ -426,29 +426,29 @@
           </select>
           <button
             id="savePresetButton"
-            data-tip="单击以将显示的图层保存为新的预置"
+            data-tip="点击以将显示的图层保存为新的预置"
             class="icon-plus sideButton"
             style="display: none"
             onclick="savePreset()"
           ></button>
           <button
             id="removePresetButton"
-            data-tip="单击此处可删除当前自定义预置"
+            data-tip="点击此处可删除当前自定义预置"
             class="icon-minus sideButton"
             style="display: none"
             onclick="removePreset()"
           ></button>
 
-          <p data-tip="单击以切换图层，拖动以升起或降低图层。单击 Ctrl + 可编辑图层样式">
+          <p data-tip="点击以切换图层，拖动以升起或降低图层。点击 Ctrl + 可编辑图层样式">
             显示图层和图层顺序:
           </p>
           <ul
-            data-tip="单击以切换层，拖动以升高或降低层。按住Ctrl键并单击可编辑图层样式"
+            data-tip="点击以切换层，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
             id="mapLayers"
           >
             <li
               id="toggleTexture"
-              data-tip="纹理覆盖：单击以切换，拖动以升高或降低层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="纹理覆盖：点击以切换，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="X"
               class="buttonoff"
               onclick="toggleTexture(event)"
@@ -457,7 +457,7 @@
             </li>
             <li
               id="toggleHeight"
-              data-tip="高度贴图：单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="高度贴图：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="H"
               class="buttonoff"
               onclick="toggleHeight(event)"
@@ -466,7 +466,7 @@
             </li>
             <li
               id="toggleBiomes"
-              data-tip="生物群落：单击以切换，拖动以升高或降低层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="生物群落：点击以切换，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="B"
               class="buttonoff"
               onclick="toggleBiomes(event)"
@@ -475,7 +475,7 @@
             </li>
             <li
               id="toggleCells"
-              data-tip="单元格结构：单击以切换，拖动以升高或降低层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="单元格结构：点击以切换，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="E"
               class="buttonoff"
               onclick="toggleCells(event)"
@@ -484,7 +484,7 @@
             </li>
             <li
               id="toggleGrid"
-              data-tip="网格：单击可切换，拖动可升高或降低。按住Ctrl键并单击以编辑图层样式，然后选择“类型”"
+              data-tip="网格：点击可切换，拖动可升高或降低。按住Ctrl键并点击以编辑图层样式，然后选择“类型”"
               data-shortcut="G"
               class="buttonoff"
               onclick="toggleGrid(event)"
@@ -493,7 +493,7 @@
             </li>
             <li
               id="toggleCoordinates"
-              data-tip="坐标网格：单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="坐标网格：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="O"
               class="buttonoff"
               onclick="toggleCoordinates(event)"
@@ -502,7 +502,7 @@
             </li>
             <li
               id="toggleCompass"
-              data-tip="风向玫瑰图：单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="风向玫瑰图：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="W"
               class="buttonoff"
               onclick="toggleCompass(event)"
@@ -511,7 +511,7 @@
             </li>
             <li
               id="toggleRivers"
-              data-tip="河流：单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="河流：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="V"
               onclick="toggleRivers(event)"
             >
@@ -519,7 +519,7 @@
             </li>
             <li
               id="toggleRelief"
-              data-tip="浮雕和生物群落图标：单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="浮雕和生物群落图标：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="F"
               class="buttonoff"
               onclick="toggleRelief(event)"
@@ -528,7 +528,7 @@
             </li>
             <li
               id="toggleReligions"
-              data-tip="宗教：单击可切换，拖动可升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="宗教：点击可切换，拖动可升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="R"
               class="buttonoff"
               onclick="toggleReligions(event)"
@@ -537,7 +537,7 @@
             </li>
             <li
               id="toggleCultures"
-              data-tip="文化: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="文化: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="C"
               class="buttonoff"
               onclick="toggleCultures(event)"
@@ -546,7 +546,7 @@
             </li>
             <li
               id="toggleStates"
-              data-tip="国家: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="国家: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="S"
               onclick="toggleStates(event)"
             >
@@ -554,7 +554,7 @@
             </li>
             <li
               id="toggleProvinces"
-              data-tip="省: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="省: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="P"
               class="buttonoff"
               onclick="toggleProvinces(event)"
@@ -563,7 +563,7 @@
             </li>
             <li
               id="toggleZones"
-              data-tip="区域: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="区域: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="Z"
               class="buttonoff"
               onclick="toggleZones(event)"
@@ -572,7 +572,7 @@
             </li>
             <li
               id="toggleBorders"
-              data-tip="国界: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="国界: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="D"
               onclick="toggleBorders(event)"
             >
@@ -580,7 +580,7 @@
             </li>
             <li
               id="toggleRoutes"
-              data-tip="贸易路线: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="贸易路线: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="U"
               onclick="toggleRoutes(event)"
             >
@@ -588,7 +588,7 @@
             </li>
             <li
               id="toggleTemp"
-              data-tip="温度图: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="温度图: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="T"
               class="buttonoff"
               onclick="toggleTemp(event)"
@@ -597,7 +597,7 @@
             </li>
             <li
               id="togglePopulation"
-              data-tip="人口图: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="人口图: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="N"
               class="buttonoff"
               onclick="togglePopulation(event)"
@@ -606,7 +606,7 @@
             </li>
             <li
               id="toggleIce"
-              data-tip="冰山和冰川: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="冰山和冰川: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="J"
               class="buttonoff"
               onclick="toggleIce(event)"
@@ -615,7 +615,7 @@
             </li>
             <li
               id="togglePrec"
-              data-tip="降水图: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="降水图: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="A"
               class="buttonoff"
               onclick="togglePrec(event)"
@@ -624,7 +624,7 @@
             </li>
             <li
               id="toggleEmblems"
-              data-tip="徽标: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="徽标: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="Y"
               class="buttonoff"
               onclick="toggleEmblems(event)"
@@ -633,7 +633,7 @@
             </li>
             <li
               id="toggleLabels"
-              data-tip="标签: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="标签: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="L"
               onclick="toggleLabels(event)"
             >
@@ -641,7 +641,7 @@
             </li>
             <li
               id="toggleIcons"
-              data-tip="城市图标: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="城市图标: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="I"
               onclick="toggleIcons(event)"
             >
@@ -649,7 +649,7 @@
             </li>
             <li
               id="toggleMilitary"
-              data-tip="军事力量: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="军事力量: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="M"
               class="buttonoff"
               onclick="toggleMilitary(event)"
@@ -658,7 +658,7 @@
             </li>
             <li
               id="toggleMarkers"
-              data-tip="标记: 单击以切换，拖动以升高或降低图层。按住Ctrl键并单击可编辑图层样式"
+              data-tip="标记: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="K"
               class="buttonoff"
               onclick="toggleMarkers(event)"
@@ -667,7 +667,7 @@
             </li>
             <li
               id="toggleRulers"
-              data-tip="标尺：点击切换，拖动移动，点击标签删除。按住Ctrl键并单击可编辑图层样式"
+              data-tip="标尺：点击切换，拖动移动，点击标签删除。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="= (equal sign)"
               class="buttonoff"
               onclick="toggleRulers(event)"
@@ -676,7 +676,7 @@
             </li>
             <li
               id="toggleScaleBar"
-              data-tip="比例尺：单击以切换。按住Ctrl键并单击可编辑样式"
+              data-tip="比例尺：点击以切换。按住Ctrl键并点击可编辑样式"
               data-shortcut="/ (slash sign)"
               onclick="toggleScaleBar(event)"
               class="solid"
@@ -715,14 +715,14 @@
           ></select>
           <button
             id="addStyleButton"
-            data-tip="单击此处可将当前样式保存为新的预置"
+            data-tip="点击此处可将当前样式保存为新的预置"
             class="icon-plus sideButton"
             style="display: inline-block"
             onclick="addStylePreset()"
           ></button>
           <button
             id="removeStyleButton"
-            data-tip="单击此处可删除当前自定义样式预设"
+            data-tip="点击此处可删除当前自定义样式预设"
             class="icon-minus sideButton"
             style="display: none"
             onclick="requestRemoveStylePreset()"
@@ -919,7 +919,7 @@
                     </option>
                   </select>
                   <button
-                    data-tip="单击并提供要设置为纹理的图像的URL"
+                    data-tip="点击并提供要设置为纹理的图像的URL"
                     class="icon-plus sideButton"
                     onclick="textureProvideURL()"
                   ></button>
@@ -1918,7 +1918,7 @@
             </button>
             <button
               id="optionsReset"
-              data-tip="单击此处可还原默认选项(页面将重新加载)"
+              data-tip="点击此处可还原默认选项(页面将重新加载)"
               onclick="restoreDefaultOptions()"
             >
               重置为默认设置
@@ -1931,7 +1931,7 @@
           <div>
             <button
               id="editHeightmapButton"
-              data-tip="单击以打开 高度图 自定义菜单"
+              data-tip="点击以打开 高度图 自定义菜单"
               data-shortcut="Shift + H"
             >
             高度图
@@ -1939,7 +1939,7 @@
             <button id="editBiomesButton" data-tip="点击打开生物组编辑器" data-shortcut="Shift + B">
               生物群落
             </button>
-            <button id="editStatesButton" data-tip="单击此处可打开国家编辑器" data-shortcut="Shift + S">
+            <button id="editStatesButton" data-tip="点击此处可打开国家编辑器" data-shortcut="Shift + S">
               国家
             </button>
             <button id="editProvincesButton" data-tip="点击打开省编辑器" data-shortcut="Shift + P">
@@ -1947,7 +1947,7 @@
             </button>
             <button
               id="editDiplomacyButton"
-              data-tip="单击以打开外交关系编辑器"
+              data-tip="点击以打开外交关系编辑器"
               data-shortcut="Shift + D"
             >
             外交
@@ -1973,7 +1973,7 @@
           <div>
             <button
               id="overviewChartsButton"
-              data-tip="单击此处可打开“图表”以概述单元格数据"
+              data-tip="点击此处可打开“图表”以概述单元格数据"
               data-shortcut="Shift + A"
             >
             图表
@@ -2003,18 +2003,18 @@
           <div id="regenerateFeature">
             <button
               id="regenerateStateLabels"
-              data-tip="单击此处可根据当前边界更新状态标签的位置"
+              data-tip="点击此处可根据当前边界更新状态标签的位置"
             >
             标签
             </button>
             <button
               id="regenerateReliefIcons"
-              data-tip="单击可根据当前单元格生物群落和海拔重新生成所有浮雕图标"
+              data-tip="点击可根据当前单元格生物群落和海拔重新生成所有浮雕图标"
             >
             地形
             </button>
-            <button id="regenerateRoutes" data-tip="单击此处可重新生成所有路">路线</button>
-            <button id="regenerateRivers" data-tip="单击以重新生成所有河流(恢复默认状态)">
+            <button id="regenerateRoutes" data-tip="点击此处可重新生成所有路">路线</button>
+            <button id="regenerateRivers" data-tip="点击以重新生成所有河流(恢复默认状态)">
               河流
             </button>
             <button id="regeneratePopulation" data-tip="点击重新计算农村和城市人口">
@@ -2022,7 +2022,7 @@
             </button>
             <button
               id="regenerateStates"
-              data-tip="单击以选择新首都并重新生成状态。徽章和军事力量也将重生，城市将保持原样"
+              data-tip="点击以选择新首都并重新生成状态。徽章和军事力量也将重生，城市将保持原样"
             >
               国家
             </button>
@@ -2034,26 +2034,26 @@
             </button>
             <button
               id="regenerateBurgs"
-              data-tip="单击此处可重新生成所有解锁的城市和路。各州将保持现状。注意: 只有在有文化指定的人口密集地区才会产生城市"
+              data-tip="点击此处可重新生成所有解锁的城市和路。各州将保持现状。注意: 只有在有文化指定的人口密集地区才会产生城市"
             >
               城市
             </button>
             <button id="regenerateEmblems" data-tip="点击重新生成所有标志">徽标</button>
             <button id="regenerateReligions" data-tip="点击重生宗教">宗教</button>
-            <button id="regenerateCultures" data-tip="单击可重新生成文化">文化</button>
+            <button id="regenerateCultures" data-tip="点击可重新生成文化">文化</button>
             <button
               id="regenerateMilitary"
-              data-tip="单击此处可根据当前军事选项重新计算军事力量"
+              data-tip="点击此处可根据当前军事选项重新计算军事力量"
             >
             军队
             </button>
             <button id="regenerateIce" data-tip="点击重生成冰山和冰川">冰川</button>
-            <button id="regenerateMarkers" data-tip="单击以重新生成标记">
+            <button id="regenerateMarkers" data-tip="点击以重新生成标记">
               标记 <i id="configRegenerateMarkers" class="icon-cog" data-tip="点击设置数乘法器"></i>
             </button>
             <button
               id="regenerateZones"
-              data-tip="单击以重新生成区域。按住 Ctrl 并单击以设置区域数乘法器(number multiplier)"
+              data-tip="点击以重新生成区域。按住 Ctrl 并点击以设置区域数乘法器(number multiplier)"
             >
             区域
             </button>
@@ -2082,7 +2082,7 @@
             >
               河流
             </button>
-            <button id="addRoute" data-tip="单击地图以放置路线" data-shortcut="Shift + 4">路线</button>
+            <button id="addRoute" data-tip="点击地图以放置路线" data-shortcut="Shift + 4">路线</button>
             <button
               id="addMarker"
               data-tip="点击地图放置标记. 按住Shift添加多个"
@@ -2092,10 +2092,10 @@
             </button>
           </div>
 
-          <p>单击以创建新地图：</p>
+          <p>根据当前地图新建地图：</p>
           <div>
-            <button id="openSubmapMenu" data-tip="单击以从当前窗口生成子地图">Submap</button>
-            <button id="openResampleMenu" data-tip="单击以转换地图">改变</button>
+            <button id="openSubmapMenu" data-tip="点击根据当前地图【数据】生成新地图（Submap模式）">S模式</button>
+            <button id="openResampleMenu" data-tip="点击根据当前地图【样貌】生成新地图（Transform模式）">T模式</button>
           </div>
         </div>
 
@@ -2546,7 +2546,7 @@
           <button id="riverLegend" data-tip="编辑河流的自由文本注释（图例）" class="icon-edit"></button>
           <button
             id="riverRemove"
-            data-tip="移除河流"
+            data-tip="删除河流"
             data-shortcut="Delete"
             class="icon-trash fastDelete"
           ></button>
@@ -2577,7 +2577,7 @@
 
           <div data-tip="更改湖泊类型的类型（组）">
             <div class="label" style="width: 4.8em">类型：</div>
-            <span id="lakeGroupRemove" data-tip="移除组" class="icon-trash-empty pointer"></span>
+            <span id="lakeGroupRemove" data-tip="删除组" class="icon-trash-empty pointer"></span>
             <span id="lakeGroupAdd" data-tip="为湖创建新的类型(组)" class="icon-plus pointer"></span>
             <select id="lakeGroup" data-tip="选择湖泊类型(组)"></select>
             <input
@@ -2695,7 +2695,7 @@
           data-tip="显示路线的高程纵断面"
           class="icon-chart-area"
         ></button>
-        <button id="routeSplit" data-tip="单击控制点以拆分路线" class="icon-unlink"></button>
+        <button id="routeSplit" data-tip="点击控制点以拆分路线" class="icon-unlink"></button>
         <button id="routeLegend" data-tip="编辑路线的自由文本注释（图例）" class="icon-edit"></button>
         <button id="routeNew" data-tip="点击地图创建新路线" class="icon-map-pin"></button>
         <button id="routeRemove" data-tip="删除路" data-shortcut="Delete" class="icon-trash fastDelete"></button>
@@ -2708,7 +2708,7 @@
         <button id="iceNew" data-tip="添加冰山（点击地图）" class="icon-plus"></button>
         <button
           id="iceRemove"
-          data-tip="移除元素"
+          data-tip="删除元素"
           data-shortcut="Delete"
           class="icon-trash fastDelete"
         ></button>
@@ -2726,7 +2726,7 @@
             style="display: none; width: 9em"
           />
           <span id="coastlineGroupAdd" data-tip="为此海岸线创建新组" class="icon-plus pointer"></span>
-          <span id="coastlineGroupRemove" data-tip="移除组" class="icon-trash-empty pointer"></span>
+          <span id="coastlineGroupRemove" data-tip="删除组" class="icon-trash-empty pointer"></span>
         </div>
 
         <button
@@ -3107,13 +3107,13 @@
                 <div class="label">特点:</div>
                 <span
                   id="burgCapital"
-                  data-tip="显示该城市是否为国家首府。单击可切换"
+                  data-tip="显示该城市是否为国家首府。点击可切换"
                   data-feature="capital"
                   class="burgFeature icon-star"
                 ></span>
                 <span
                   id="burgPort"
-                  data-tip="显示城市是否为港口。单击可切换"
+                  data-tip="显示城市是否为港口。点击可切换"
                   data-feature="port"
                   class="burgFeature icon-anchor"
                 ></span>
@@ -3139,14 +3139,14 @@
                 ></span>
                 <span
                   id="burgTemple"
-                  data-tip="显示城市是否为宗教中心。单击可切换"
+                  data-tip="显示城市是否为宗教中心。点击可切换"
                   data-feature="temple"
                   class="burgFeature icon-chess-bishop"
                   style="font-size: 1.1em; margin-left: 3px"
                 ></span>
                 <span
                   id="burgShanty"
-                  data-tip="显示城市是否有棚户区。单击可切换"
+                  data-tip="显示城市是否有棚户区。点击可切换"
                   data-feature="shanty"
                   class="burgFeature icon-campground"
                   style="font-size: 1em"
@@ -3342,7 +3342,7 @@
             <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
             <i
               id="regimentNameRestore"
-              data-tip="单击以恢复军队的默认名称"
+              data-tip="点击以恢复军队的默认名称"
               class="icon-ccw pointer"
             ></i>
           </div>
@@ -3377,7 +3377,7 @@
           ></button>
           <button
             id="regimentRemove"
-            data-tip="移除军队"
+            data-tip="删除军队"
             data-shortcut="Delete"
             class="icon-trash fastDelete"
           ></button>
@@ -3618,7 +3618,7 @@
               </div>
               <button
                 id="battleDie_attackers"
-                data-tip="攻击者的随机因素。单击重新滚动"
+                data-tip="攻击者的随机因素。点击重新滚动"
                 style="padding: 0.1em 0.2em; width: 3.2em"
                 class="icon-button-die"
               ></button>
@@ -3713,13 +3713,13 @@
 
       <div id="regimentSelectorScreen" class="dialog" style="display: none">
         <div id="regimentSelectorHeader" class="header" style="grid-template-columns: 9em 13em 4em 6em">
-          <div data-tip="单击此处可按国家名进行排序" class="sortable alphabetically" data-sortby="state">
+          <div data-tip="点击此处可按国家名进行排序" class="sortable alphabetically" data-sortby="state">
             国家&nbsp;
           </div>
           <div data-tip="按军队名点击排序" class="sortable alphabetically" data-sortby="regiment">
             军队&nbsp;
           </div>
-          <div data-tip="单击此处可按总兵力进行排序" class="sortable" data-sortby="total">Total&nbsp;</div>
+          <div data-tip="点击此处可按总兵力进行排序" class="sortable" data-sortby="total">Total&nbsp;</div>
           <div
             data-tip="按到战场的距离进行排序"
             class="sortable icon-sort-number-up"
@@ -3926,7 +3926,7 @@
             <option value="exponent">^</option>
           </select>
           <input id="rescaleModifier" type="number" value="0.9" min="0" max="1.5" step="0.01" />
-          <button id="rescaleExecute" data-tip="单击以执行操作" class="icon-play-circled2"></button>
+          <button id="rescaleExecute" data-tip="点击以执行操作" class="icon-play-circled2"></button>
         </div>
       </div>
 
@@ -3970,9 +3970,9 @@
         </div>
         <div id="templateBody" data-changed="0" class="table" style="padding: 2px 0">
           <div data-type="Hill">
-            <div class="icon-check" data-tip="单击此处可跳过该步骤"></div>
+            <div class="icon-check" data-tip="点击此处可跳过该步骤"></div>
             <div style="width: 4em">山丘</div>
-            <i class="icon-trash-empty pointer" data-tip="移除梯级"></i>
+            <i class="icon-trash-empty pointer" data-tip="删除梯级"></i>
             <i class="icon-resize-vertical" data-tip="拖动重排"></i>
             <span
               >y:<input class="templateY" data-tip="以百分比表示的 Y 轴位置(minY-maxY 或 Y)" value="47-53"
@@ -4013,7 +4013,7 @@
             onclick="wiki('Heightmap-template-editor')"
           ></button>
           <label
-            data-tip="如果你希望模板每次都生成相同的高度图，则锁定种子(单击锁定图标)"
+            data-tip="如果你希望模板每次都生成相同的高度图，则锁定种子(点击锁定图标)"
           >
             Seed: <input id="templateSeed" value="" type="number" min="1" max="999999999" step="1" style="width: 8em" />
             <i data-locked="0" id="lock_templateSeed" class="icon-lock-open"></i>
@@ -4072,11 +4072,11 @@
 
         <button
           id="convertComplete"
-          data-tip="Complete the conversion. All unassigned colors will be considered as ocean"
+          data-tip="完成转换。所有未指定的颜色将被视为海洋"
           style="margin: 0.4em 0"
           class="glow"
         >
-          Complete the conversion
+          完成转换
         </button>
       </div>
 
@@ -4281,7 +4281,7 @@
           />
           <span
             id="stateNameEditorAddForm"
-            data-tip="单击此处可将自定义状态表单名添加到列表中"
+            data-tip="点击此处可将自定义状态表单名添加到列表中"
             class="icon-plus pointer"
           ></span>
         </div>
@@ -4298,7 +4298,7 @@
           <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="stateNameEditorFullRegenerate"
-            data-tip="单击此处可重新生成全名"
+            data-tip="点击此处可重新生成全名"
             data-tick="0"
             class="icon-arrows-cw pointer"
           ></span>
@@ -4312,16 +4312,16 @@
 
       <div id="provincesEditor" class="dialog stable" style="display: none">
         <div id="provincesHeader" class="header" style="grid-template-columns: 11em 8em 8em 8em 5em 8em">
-          <div data-tip="单击以按省名排序" class="sortable alphabetically" data-sortby="name">
+          <div data-tip="点击以按省名排序" class="sortable alphabetically" data-sortby="name">
             省&nbsp;
           </div>
-          <div data-tip="单击此处可按省份名称进行排序" class="sortable alphabetically hide" data-sortby="form">
+          <div data-tip="点击此处可按省份名称进行排序" class="sortable alphabetically hide" data-sortby="form">
             类型&nbsp;
           </div>
           <div data-tip="点击按省会排序" class="sortable alphabetically hide" data-sortby="capital">
             省会&nbsp;
           </div>
-          <div data-tip="单击此处可按省所有者进行排序" class="sortable alphabetically" data-sortby="state">
+          <div data-tip="点击此处可按省所有者进行排序" class="sortable alphabetically" data-sortby="state">
             从属&nbsp;
           </div>
           <div data-tip="按省区分类" class="sortable hide" data-sortby="area">地区&nbsp;</div>
@@ -4418,7 +4418,7 @@
 
       <div id="diplomacyEditor" class="dialog stable" style="display: none">
         <div id="diplomacyHeader" class="header" style="grid-template-columns: 15em 6em">
-          <div data-tip="单击此处可按国名进行排序" class="sortable alphabetically" data-sortby="name">
+          <div data-tip="点击此处可按国名进行排序" class="sortable alphabetically" data-sortby="name">
             国家&nbsp;
           </div>
           <div
@@ -4431,7 +4431,7 @@
         </div>
 
         <div id="diplomacyBodySection" class="table"></div>
-        <div class="info-line">单击国名查看关系。<br />单击关系名称以更改它</div>
+        <div class="info-line">点击国名查看关系。<br />点击关系名称以更改它</div>
 
         <div id="diplomacyBottom" style="margin-top: 0.1em">
           <button id="diplomacyEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
@@ -4528,7 +4528,7 @@
           />
           <span
             id="provinceNameEditorAddForm"
-            data-tip="单击此处可将自定义省份表单名称添加到列表中"
+            data-tip="点击此处可将自定义省份表单名称添加到列表中"
             class="icon-plus pointer"
           ></span>
         </div>
@@ -4545,7 +4545,7 @@
           <span data-tip="名称朗读。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="provinceNameEditorFullRegenerate"
-            data-tip="单击以重新生成全名"
+            data-tip="点击以重新生成全名"
             class="icon-arrows-cw pointer"
           ></span>
         </div>
@@ -4594,7 +4594,7 @@
 
           <fieldset>
             <legend>生成例子:</legend>
-            <div id="namesbaseExamples" data-tip="例子，单击以重新生成"></div>
+            <div id="namesbaseExamples" data-tip="例子，点击以重新生成"></div>
           </fieldset>
         </div>
 
@@ -4695,7 +4695,7 @@
             <button id="zonesManuallyCancel" data-tip="取消任务" class="icon-cancel"></button>
             <button
               id="zonesRemove"
-              data-tip="单击以切换刷子拖动的删除模式"
+              data-tip="点击以切换刷子拖动的删除模式"
               data-shortcut="Ctrl"
               class="icon-eraser"
             ></button>
@@ -4729,7 +4729,7 @@
           ></button>
           <button id="notesDownload" data-tip="下载备注" class="icon-download"></button>
           <button id="notesUpload" data-tip="上传备注" class="icon-upload"></button>
-          <button id="notesRemove" data-tip="移除备注" class="icon-trash fastDelete"></button>
+          <button id="notesRemove" data-tip="删除备注" class="icon-trash fastDelete"></button>
         </div>
       </div>
 
@@ -5130,7 +5130,7 @@
           ></button>
           <button
             id="removeRulers"
-            data-tip="从地图中删除所有标尺。单击标尺标签可分别删除标尺"
+            data-tip="从地图中删除所有标尺。点击标尺标签可分别删除标尺"
             class="icon-trash"
           ></button>
           <button id="unitsRestore" data-tip="还原默认单位设置" class="icon-ccw"></button>
@@ -5140,29 +5140,29 @@
       <div id="burgsOverview" class="dialog stable" style="display: none">
         <div id="burgsHeader" class="header" style="grid-template-columns: 8em 6em 6em 7em 7em 4em 2em">
           <div
-            data-tip="单击此处可按城市名进行排序"
+            data-tip="点击此处可按城市名进行排序"
             class="sortable alphabetically icon-sort-name-up"
             data-sortby="name"
           >
           城市&nbsp;
           </div>
-          <div data-tip="单击以按省名排序" class="sortable alphabetically" data-sortby="province">
+          <div data-tip="点击以按省名排序" class="sortable alphabetically" data-sortby="province">
             省&nbsp;
           </div>
-          <div data-tip="单击此处可按州名进行排序" class="sortable alphabetically" data-sortby="state">
+          <div data-tip="点击此处可按州名进行排序" class="sortable alphabetically" data-sortby="state">
             国&nbsp;
           </div>
-          <div data-tip="单击此处可按文化名称排序" class="sortable alphabetically" data-sortby="culture">
+          <div data-tip="点击此处可按文化名称排序" class="sortable alphabetically" data-sortby="culture">
             文化&nbsp;
           </div>
           <div data-tip="按城市人口排序" class="sortable" data-sortby="population">
             人口&nbsp;
           </div>
-          <div data-tip="单击此处可按城市类型进行排序" class="sortable alphabetically" data-sortby="type">Type&nbsp;</div>
+          <div data-tip="点击此处可按城市类型进行排序" class="sortable alphabetically" data-sortby="type">Type&nbsp;</div>
           <div
             id="burgsInvertLock"
             style="color: #6e5e66"
-            data-tip="单击此处可为所有城市反转锁定"
+            data-tip="点击此处可为所有城市反转锁定"
             class="icon-lock pointer"
           ></div>
         </div>
@@ -5203,7 +5203,7 @@
           <button id="burgsLockAll" data-tip="锁定或解锁所有的城市" class="icon-lock"></button>
           <button
             id="burgsRemoveAll"
-            data-tip="移除除首都以外所有未上锁的城市。移除首都首先移除其状态"
+            data-tip="删除除首都以外所有未上锁的城市。删除首都首先删除其状态"
             class="icon-trash"
           ></button>
         </div>
@@ -5252,7 +5252,7 @@
           <button id="riversOverviewRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
           <button
             id="addNewRiver"
-            data-tip="从单击的单元格开始自动添加河流。按住 Shift 添加多个"
+            data-tip="从点击的单元格开始自动添加河流。按住 Shift 添加多个"
             class="icon-plus"
           ></button>
           <button id="riverCreateNew" data-tip="创建新的河流选河单元" class="icon-map-pin"></button>
@@ -5262,17 +5262,17 @@
             data-tip="将与河流相关的数据保存为文本文件(. csv)"
             class="icon-download"
           ></button>
-          <button id="riversRemoveAll" data-tip="移除所有河流" class="icon-trash"></button>
+          <button id="riversRemoveAll" data-tip="删除所有河流" class="icon-trash"></button>
         </div>
       </div>
 
       <div id="militaryOverview" class="dialog stable" style="display: none">
         <div id="militaryHeader" class="header">
-          <div data-tip="国家名称。单击以进行排序" class="sortable alphabetically" data-sortby="state">
+          <div data-tip="国家名称。点击以进行排序" class="sortable alphabetically" data-sortby="state">
             国家&nbsp;
           </div>
           <div
-            data-tip="军事人员总数(考虑组员（Crew）)。单击以进行排序"
+            data-tip="军事人员总数(考虑组员（Crew）)。点击以进行排序"
             id="militaryTotal"
             class="sortable icon-sort-number-down"
             data-sortby="total"
@@ -5290,7 +5290,7 @@
             比率&nbsp;
           </div>
           <div
-            data-tip="战争警报。军队数量的调整取决于政治形势。单击以排序"
+            data-tip="战争警报。军队数量的调整取决于政治形势。点击以排序"
             class="sortable"
             data-sortby="alert"
           >
@@ -5343,7 +5343,7 @@
 
       <div id="regimentsOverview" class="dialog stable" style="display: none">
         <div id="regimentsHeader" class="header">
-          <div data-tip="国家名称。单击以进行排序" class="sortable alphabetically" data-sortby="state">
+          <div data-tip="国家名称。点击以进行排序" class="sortable alphabetically" data-sortby="state">
             国家&nbsp;
           </div>
           <div
@@ -5354,7 +5354,7 @@
             名称&nbsp;
           </div>
           <div
-            data-tip="军事人员总数(不包括组员（Crew）)。单击以进行排序"
+            data-tip="军事人员总数(不包括组员（Crew）)。点击以进行排序"
             id="regimentsTotal"
             class="sortable icon-sort-number-down"
             data-sortby="total"
@@ -5411,19 +5411,19 @@
 
       <div id="markersOverview" class="dialog stable" style="display: none">
         <div id="markersHeader" class="header" style="grid-template-columns: 15em 1em 3em">
-          <div data-tip="单击此处可按标记类型排序" class="sortable alphabetically" data-sortby="type">
+          <div data-tip="点击此处可按标记类型排序" class="sortable alphabetically" data-sortby="type">
             类型&nbsp;
           </div>
           <div
             id="markersInverPin"
             style="color: #6e5e66"
-            data-tip="单击以反转所有标记的引脚状态"
+            data-tip="点击以反转所有标记的引脚状态"
             class="icon-pin pointer"
           ></div>
           <div
             id="markersInverLock"
             style="color: #6e5e66"
-            data-tip="单击以反转所有标记的锁定状态"
+            data-tip="点击以反转所有标记的锁定状态"
             class="icon-lock pointer"
           ></div>
         </div>
@@ -5711,9 +5711,8 @@
           <button onclick="saveGeoJSON_Markers()" data-tip="下载 GeoJSON 格式的标记数据">markers</button>
         </div>
         <p>
-          GeoJSON 格式用于诸如 QGIS 之类的 GIS 工具
-          <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/GIS-data-export" target="_blank">wiki-page</a>
-          for guidance.
+          GeoJSON 格式用于诸如 QGIS 之类的 GIS 工具中，
+          参考<a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/GIS-data-export" target="_blank">维基页面</a>
         </p>
 
         <div style="margin: 1em 0 0.3em; font-weight: bold">导出到 JSON</div>
@@ -5730,8 +5729,8 @@
         <p>可以使用 JSON 格式的导出作为 API 的替代。</p>
 
         <p>
-            也可以将地图导出到 <i>Foundry VTT</i>, see
-          <a href="https://github.com/Ethck/azgaar-foundry" target="_blank">the module.</a>
+            也可以将地图导出到 <i>Foundry VTT</i>, 查看
+          <a href="https://github.com/Ethck/azgaar-foundry" target="_blank">模块</a>
         </p>
       </div>
 
@@ -5964,7 +5963,7 @@
     <div
       id="tooltip"
       style="opacity: 0"
-      data-main="单击箭头按钮查看选项。放大查看详细地图"
+      data-main="点击箭头按钮查看选项。放大查看详细地图"
     ></div>
 
     <div id="mapOverlay" style="display: none">拖放一个要打开的.map 文件</div>
@@ -7769,6 +7768,7 @@
     <script src="libs/jquery-3.1.1.min.js"></script>
     <script src="libs/jquery-ui.min.js"></script>
     <script src="versioning.js"></script>
+    <script src="message.js"></script>
     <script src="libs/d3.min.js"></script>
     <script src="libs/priority-queue.min.js"></script>
     <script src="libs/delaunator.min.js"></script>

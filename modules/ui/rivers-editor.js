@@ -10,7 +10,7 @@ function editRiver(id) {
 
   elSelected = d3.select("#" + id).on("click", addControlPoint);
 
-  tip("拖动控制点改变河道。点击移除它。点击河流添加额外的控制点。对于主要的变化，请创建一个新的河流代替", true);
+  tip("拖动控制点改变河道。点击删除它。点击河流添加额外的控制点。对于主要的变化，请创建一个新的河流代替", true);
   debug.append("g").attr("id", "controlCells");
   debug.append("g").attr("id", "controlPoints");
 
@@ -238,20 +238,20 @@ function editRiver(id) {
   }
 
   function removeRiver() {
-    alertMessage.innerHTML = "你确定要把这条河及其所有支流移除？";
+    alertMessage.innerHTML = "你确定要把这条河及其所有支流删除？";
     $("#alert").dialog({
       resizable: false,
       width: "22em",
-      title: "移除河流和支流",
+      title: "删除河流和支流",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           const river = +elSelected.attr("id").slice(5);
           Rivers.remove(river);
           elSelected.remove();
           $("#riverEditor").dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

@@ -581,7 +581,7 @@ function insertChart(id, sortedData, $chart, title) {
     <div>
       <button data-tip="下载表格数据为文本格式 (.csv)" class="icon-download"></button>
       <button data-tip="下载 svg 格式的图表(可以在浏览器或 Inkscape 中打开)" class="icon-chart-bar"></button>
-      <button data-tip="移除图表" class="icon-trash"></button>
+      <button data-tip="删除图表" class="icon-trash"></button>
     </div>
   `;
 

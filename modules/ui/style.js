@@ -544,7 +544,7 @@ styleFontAdd.addEventListener("click", function () {
     width: "26em",
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
-      Add: function () {
+      添加: function () {
         const family = addFontNameInput.value;
         const src = addFontURLInput.value;
         const method = addFontMethod.value;
@@ -562,7 +562,7 @@ styleFontAdd.addEventListener("click", function () {
         addFontURLInput.value = "";
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }
@@ -724,7 +724,7 @@ function textureProvideURL() {
     title: "加载自定义纹理",
     width: "26em",
     buttons: {
-      Apply: function () {
+      应用: function () {
         const name = textureURL.value.split("/").pop();
         if (!name || name === "") {
           tip("请提供一个有效的 URL", false, "error");
@@ -739,7 +739,7 @@ function textureProvideURL() {
         zoom.scaleBy(svg, 1.00001); // enforce browser re-draw
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }

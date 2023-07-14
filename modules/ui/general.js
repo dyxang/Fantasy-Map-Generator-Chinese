@@ -68,9 +68,9 @@ function showDataTip(event) {
 function showElementLockTip(event) {
   const locked = event?.target?.classList?.contains("icon-lock");
   if (locked) {
-    tip("单击以解锁该元素并允许通过再生工具更改该元素");
+    tip("点击以解锁该元素并允许通过再生工具更改该元素");
   } else {
-    tip("单击以锁定元素并防止再生工具对其进行更改");
+    tip("点击以锁定元素并防止再生工具对其进行更改");
   }
 }
 
@@ -133,7 +133,7 @@ function showMapTooltip(point, e, i, g) {
     d3.select(parent).raise();
 
     const name = g[i].fullName || g[i].name;
-    tip(`${name} ${type} 徽标。单击可编辑。按住 Shift 可显示相关区域或位置`);
+    tip(`${name} ${type} 徽标。点击可编辑。按住 Shift 可显示相关区域或位置`);
     return;
   }
 
@@ -148,7 +148,7 @@ function showMapTooltip(point, e, i, g) {
 
   if (group === "routes") return tip("点击编辑路线");
 
-  if (group === "terrain") return tip("单击以编辑浮雕图标");
+  if (group === "terrain") return tip("点击以编辑浮雕图标");
 
   if (subgroup === "burgLabels" || subgroup === "burgIcons") {
     const burg = +path[path.length - 10].dataset.id;
@@ -158,26 +158,26 @@ function showMapTooltip(point, e, i, g) {
     if (burgsOverview?.offsetParent) highlightEditorLine(burgsOverview, burg, 5000);
     return;
   }
-  if (group === "labels") return tip("单击以编辑标签");
+  if (group === "labels") return tip("点击以编辑标签");
 
-  if (group === "markers") return tip("单击以编辑标记并固定标记注释");
+  if (group === "markers") return tip("点击以编辑标记并固定标记注释");
 
   if (group === "ruler") {
     const tag = e.target.tagName;
     const className = e.target.getAttribute("class");
     if (tag === "circle" && className === "edge")
-      return tip("拖动以调整。按住 Ctrl 并拖动以添加一个点。单击以删除该点");
+      return tip("拖动以调整。按住 Ctrl 并拖动以添加一个点。点击以删除该点");
     if (tag === "circle" && className === "control")
-      return tip("拖动以调整。按住 Shift 并拖动以保持轴向。单击以移除该点");
+      return tip("拖动以调整。按住 Shift 并拖动以保持轴向。点击以删除该点");
     if (tag === "circle") return tip("拖动此形状可调整测量器");
-    if (tag === "polyline") return tip("单击拖动添加控制点");
+    if (tag === "polyline") return tip("点击拖动添加控制点");
     if (tag === "path") return tip("拖动此形状可移动测量器");
-    if (tag === "text") return tip("拖动以移动，单击以移除测量器");
+    if (tag === "text") return tip("拖动以移动，点击以删除测量器");
   }
 
-  if (subgroup === "burgIcons") return tip("单击以编辑城市");
+  if (subgroup === "burgIcons") return tip("点击以编辑城市");
 
-  if (subgroup === "burgLabels") return tip("单击以编辑城市");
+  if (subgroup === "burgLabels") return tip("点击以编辑城市");
 
   if (group === "lakes" && !land) {
     const lakeId = +e.target.dataset.f;
@@ -418,8 +418,8 @@ function highlightEmblemElement(type, el) {
 document.querySelectorAll("[data-locked]").forEach(function (e) {
   e.addEventListener("mouseover", function (event) {
     if (this.className === "icon-lock")
-      tip("单击以解锁该选项，并允许它在新地图生成时被随机化");
-    else tip("单击以锁定该选项，并始终在新地图生成时使用当前值");
+      tip("点击以解锁该选项，并允许它在新地图生成时被随机化");
+    else tip("点击以锁定该选项，并始终在新地图生成时使用当前值");
     event.stopPropagation();
   });
 
@@ -529,7 +529,7 @@ function showInfo() {
     title: document.title,
     width: "28em",
     buttons: {
-      OK: function () {
+      好的: function () {
         $(this).dialog("close");
       }
     },

@@ -34,11 +34,6 @@ const version = "1.89.32"; // generator version, update each time
         <li>宗教可以像文化一样被编辑和重绘</li>
         <li>锁定国家、省、文化和宗教防止“重新生成”的影响</li>
         <li>高度图笔刷:线性编辑选项</li>
-        <li>数据图表屏幕</li>
-        <li>文化和宗教在层次结构树中可以有多个父节点</li>
-        <li>高度图选择屏幕</li>
-        <li>简化 optimizeSpeed 渲染的样式</li>
-        <li>形容词生成规则改进</li>
         <li>汉化改进及为了理解还原英文的部分</li>
         <li>汉化破坏代码结构的问题</li>
         <li>以及更多细微改变</li>
@@ -48,7 +43,7 @@ const version = "1.89.32"; // generator version, update each time
       <span><i>Thanks for all supporters on <a href="${patreon}" target="_blank">Patreon</a>!</i></span>`;
 
     const buttons = {
-      Ok: function () {
+      好的: function () {
         $(this).dialog("close");
         if (storedVersion) localStorage.clear();
         localStorage.setItem("version", version);

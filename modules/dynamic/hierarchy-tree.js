@@ -387,7 +387,7 @@ function selectElement(d) {
       .map((origin, index) => {
         const {name, code} = validElements.find(r => r.i === origin) || {};
         const type = index ? "Secondary" : "Primary";
-        const tip = `${type} 起源: ${name}. 单击此处可删除指向该原点的链接`;
+        const tip = `${type} 起源: ${name}. 点击此处可删除指向该原点的链接`;
         return `<button data-id="${origin}" class="hierarchyTree_selectedButton hierarchyTree_selectedOrigin" data-tip="${tip}">${code}</button>`;
       })
       .join("");
@@ -446,7 +446,7 @@ function selectElement(d) {
       title: "选择起源",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
-        Select: () => {
+        选择: () => {
           $("#hierarchyTree_originSelector").dialog("close");
           const $selector = byId("hierarchyTree_originSelector");
           const selectedRadio = $selector.querySelector("input[type='radio']:checked");
@@ -462,7 +462,7 @@ function selectElement(d) {
           updateTree();
           createOriginButtons();
         },
-        Cancel: () => {
+        取消: () => {
           $("#hierarchyTree_originSelector").dialog("close");
         }
       }
@@ -483,7 +483,7 @@ function handleNoteEnter(d) {
   onNodeEnter(d);
 
   byId("hierarchyTree_infoLine").innerText = getDescription(d.data);
-  tip("拖到其他节点可添加父节点，单击可编辑");
+  tip("拖到其他节点可添加父节点，点击可编辑");
 }
 
 function handleNodeExit(d) {

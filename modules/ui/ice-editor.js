@@ -81,14 +81,14 @@ function editIce() {
     alertMessage.innerHTML = /* html */ `确定要删除 ${type}?`;
     $("#alert").dialog({
       resizable: false,
-      title: "移除 " + type,
+      title: "删除 " + type,
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           elSelected.remove();
           $("#iceEditor").dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

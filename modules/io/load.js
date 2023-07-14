@@ -53,10 +53,10 @@ function loadMapPrompt(blob) {
     resizable: false,
     title: "Load saved map",
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      Load: function () {
+      加载: function () {
         loadLastSavedMap();
         $(this).dialog("close");
       }
@@ -98,7 +98,7 @@ function showUploadErrorMessage(error, URL, random) {
     title: "载入错误",
     width: "32em",
     buttons: {
-      OK: function () {
+      好的: function () {
         $(this).dialog("close");
       }
     }
@@ -148,30 +148,30 @@ function parseLoadedResult(result) {
 }
 
 function showUploadMessage(type, mapData, mapVersion) {
-  const archive = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog", "archived version");
+  const archive = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog", "存档版本");
   let message, title, canBeLoaded;
 
   if (type === "invalid") {
-    message = `该文件看起来不像有效的 <i>.map</i> 文件.<br>请检查数据格式`;
-    title = "Invalid file";
+    message = `该文件不是有效的 <i>.map</i> 文件.<br>请检查数据格式`;
+    title = "无效文件";
     canBeLoaded = false;
   } else if (type === "ancient") {
-    message = `你正在尝试加载的地图版本 (${mapVersion}) 太旧，无法更新到当前版本.<br>请继续使用 ${archive}`;
-    title = "古老的档案";
+    message = `你尝试加载的地图版本 (${mapVersion}) 太旧，无法更新到当前版本.<br>请继续使用 ${archive}`;
+    title = "过旧文件";
     canBeLoaded = false;
   } else if (type === "newer") {
-    message = `要加载的地图版本 (${mapVersion}) 比现在的版本较新.<br>请加载相应版本的文件`;
-    title = "较新文件";
+    message = `你要加载的地图版本 (${mapVersion}) 比现在的版本还新.<br>请加载相应版本的文件`;
+    title = "过新文件";
     canBeLoaded = false;
   } else if (type === "outdated") {
-    message = `地图版本 (${mapVersion}) 与 Generator 版本(${ version })不匹配。 < br > 单击 OK 获取 map < b > auto-update </b > 。 < br > 如果出现问题，请继续使用 ${archive} 生成器`;
+    message = `地图版本 (${mapVersion}) 与 生成器当前版本(${ version })不匹配。 <br>点击“好的”让.map文件<b>自动更新</b> 。 <br> 如果出现问题，请继续使用 ${archive} 的生成器`;
     title = "过期文件";
     canBeLoaded = true;
   }
 
   alertMessage.innerHTML = message;
   const buttons = {
-    OK: function () {
+    好的: function () {
       $(this).dialog("close");
       if (canBeLoaded) parseLoadedData(mapData);
     }
@@ -419,9 +419,9 @@ async function parseLoadedData(data) {
     })();
 
     void (function restoreEvents() {
-      scaleBar.on("mousemove", () => tip("单击此处可打开“单位编辑器”")).on("click", () => editUnits());
+      scaleBar.on("mousemove", () => tip("点击此处可打开“单位编辑器”")).on("click", () => editUnits());
       legend
-        .on("mousemove", () => tip("拖动此形状可更改位置。单击可隐藏图例"))
+        .on("mousemove", () => tip("拖动此形状可更改位置。点击可隐藏图例"))
         .on("click", () => clearLegend());
     })();
 
@@ -510,7 +510,7 @@ async function parseLoadedData(data) {
         if (burg.cell === undefined || burg.x === undefined || burg.y === undefined) {
           ERROR &&
             console.error(
-              `数据完整性检查. 城市 ${burg.i} 没有单元格信息或坐标，移除了城市`
+              `数据完整性检查. 城市 ${burg.i} 没有单元格信息或坐标，删除了城市`
             );
           burg.removed = true;
         }
@@ -607,18 +607,18 @@ async function parseLoadedData(data) {
 
     $("#alert").dialog({
       resizable: false,
-      title: "Loading error",
+      title: "加载错误",
       maxWidth: "50em",
       buttons: {
-        "Select file": function () {
+        "选择文件": function () {
           $(this).dialog("close");
           mapToLoad.click();
         },
-        "New map": function () {
+        "新建地图": function () {
           $(this).dialog("close");
           regenerateMap("loading error");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       },

@@ -217,10 +217,10 @@ function editLake() {
     alertMessage.innerHTML = /* html */ `确实要删除该组吗? (${count}) 组的所有湖泊都将变成淡水湖`;
     $("#alert").dialog({
       resizable: false,
-      title: "移除湖泊群",
+      title: "删除湖泊群",
       width: "26em",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           const freshwater = document.getElementById("freshwater");
           const groupEl = document.getElementById(group);
@@ -231,7 +231,7 @@ function editLake() {
           document.getElementById("lakeGroup").selectedOptions[0].remove();
           document.getElementById("lakeGroup").value = "freshwater";
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

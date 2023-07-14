@@ -362,7 +362,7 @@ function editRegiment(selector) {
       resizable: false,
       title: "Remove regiment",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           const military = pack.states[elSelected.dataset.state].military;
           const regIndex = military.indexOf(regiment());
@@ -377,7 +377,7 @@ function editRegiment(selector) {
           if (regimentsOverviewRefresh.offsetParent) regimentsOverviewRefresh.click();
           $("#regimentEditor").dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

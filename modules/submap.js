@@ -390,7 +390,7 @@ window.Submap = (function () {
       if (searchFunc) {
         const [newCell, neighbor] = searchFunc(b.x, b.y);
         if (!newCell) {
-          WARN && console.warn(`无法重新安置城市: ${b.name} 沉没和毁灭. :-(`);
+          WARN && console.warn(`无法重新安置城市: ${b.name} 已沉没毁灭. :-(`);
           b.cell = null;
           b.removed = true;
           return;

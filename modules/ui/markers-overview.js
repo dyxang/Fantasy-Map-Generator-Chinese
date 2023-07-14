@@ -153,7 +153,7 @@ function overviewMarkers() {
 
   function triggerRemoveAll() {
     confirmationDialog({
-      title: "移除所有标记",
+      title: "删除所有标记",
       message: "确实要删除所有未锁定的标记吗? 无法恢复操作",
       confirm: "删除所有",
       onConfirm: removeAllMarkers

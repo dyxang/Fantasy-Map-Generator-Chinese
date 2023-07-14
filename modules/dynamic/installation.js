@@ -38,20 +38,20 @@ function openDialog() {
   `;
   $("#alert").dialog({
     resizable: false,
-    title: "Install the Application",
+    title: "安装网页为应用",
     width: "38em",
     buttons: {
-      Install: function () {
+      安装: function () {
         $(this).dialog("close");
         deferredPrompt.prompt();
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     },
     open: function () {
       const checkbox =
-        '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>do not ask again</i></label><span>';
+        '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>不再询问</i></label><span>';
       const pane = this.parentElement.querySelector(".ui-dialog-buttonpane");
       pane.insertAdjacentHTML("afterbegin", checkbox);
     },

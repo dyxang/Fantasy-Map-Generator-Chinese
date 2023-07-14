@@ -34,7 +34,7 @@ window.UISubmap = (function () {
           $(this).dialog("close");
           generateSubmap();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -98,15 +98,15 @@ window.UISubmap = (function () {
     };
 
     $("#resampleDialog").dialog({
-      title: "变换地图",
+      title: "转换地图",
       resizable: false,
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
-        Transform: function () {
+        转换: function () {
           $(this).dialog("close");
           resampleCurrentMap();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -319,7 +319,7 @@ window.UISubmap = (function () {
       title: "重新取样错误",
       width: "32em",
       buttons: {
-        Ok: function () {
+        好的: function () {
           $(this).dialog("close");
         }
       },

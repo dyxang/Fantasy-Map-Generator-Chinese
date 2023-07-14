@@ -269,7 +269,7 @@ function editDiplomacy() {
       width: fitContent(),
       title: `改变关系`,
       buttons: {
-        Apply: function () {
+        应用: function () {
           const formData = new FormData(byId("relationsForm"));
           const newRelation = formData.get("relationSelect");
           const objectIds = [...formData.getAll("objectSelect")].map(Number);
@@ -279,7 +279,7 @@ function editDiplomacy() {
           }
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

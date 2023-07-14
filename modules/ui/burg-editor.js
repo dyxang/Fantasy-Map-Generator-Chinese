@@ -284,12 +284,12 @@ function editBurg(id) {
     alertMessage.innerHTML = /* html */ `你确定要删除 ${
       basic || capital ? "所有未解锁的城市组元素" : "整个城市组"
     }?
-      <br />请注意，不会删除大写或锁定的城市. <br /><br />需要移除的城市: ${burgsToRemove.length}`;
+      <br />请注意，不会删除大写或锁定的城市. <br /><br />需要删除的城市: ${burgsToRemove.length}`;
     $("#alert").dialog({
       resizable: false,
-      title: "移除城市组",
+      title: "删除城市组",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           $("#burgEditor").dialog("close");
           hideGroupSection();
@@ -305,7 +305,7 @@ function editBurg(id) {
             if (anchorG) anchorG.remove();
           }
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -545,11 +545,11 @@ function editBurg(id) {
   function removeSelectedBurg() {
     const id = +elSelected.attr("data-id");
     if (pack.burgs[id].capital) {
-      alertMessage.innerHTML = /* html */ `你不能移除城市，因为它是一个国家的首府.<br /><br />
+      alertMessage.innerHTML = /* html */ `你不能删除城市，因为它是一个国家的首府.<br /><br />
       你可以使用城市编辑器更改首府 (shift + T)`;
       $("#alert").dialog({
         resizable: false,
-        title: "移除城市",
+        title: "删除城市",
         buttons: {
           Ok: function () {
             $(this).dialog("close");
@@ -557,17 +557,17 @@ function editBurg(id) {
         }
       });
     } else {
-      alertMessage.innerHTML = "你确定要移除这个城市吗?";
+      alertMessage.innerHTML = "你确定要删除这个城市吗?";
       $("#alert").dialog({
         resizable: false,
-        title: "移除城市",
+        title: "删除城市",
         buttons: {
-          Remove: function () {
+          删除: function () {
             $(this).dialog("close");
             removeBurg(id); // see Editors module
             $("#burgEditor").dialog("close");
           },
-          Cancel: function () {
+          取消: function () {
             $(this).dialog("close");
           }
         }

@@ -137,7 +137,7 @@ fogging
 // assign events separately as not a viewbox child
 scaleBar.on("mousemove", () => tip("点击打开单位编辑器")).on("click", () => editUnits());
 legend
-  .on("mousemove", () => tip("拖动来改变位置。单击以隐藏图例"))
+  .on("mousemove", () => tip("拖动来改变位置。点击以隐藏图例"))
   .on("click", () => clearLegend());
 
 // main data variables
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       width: "28em",
       position: {my: "center center-4em", at: "center", of: "svg"},
       buttons: {
-        OK: function () {
+        好的: function () {
           $(this).dialog("close");
         }
       }
@@ -644,7 +644,7 @@ void (function addDragToUpload() {
         title: "无效的文件格式",
         position: {my: "center", at: "center", of: "svg"},
         buttons: {
-          Close: function () {
+          关闭: function () {
             $(this).dialog("close");
           }
         }
@@ -737,15 +737,15 @@ async function generate(options) {
       title: "Generation error",
       width: "32em",
       buttons: {
-        "Clear data": function () {
+        "清除数据": function () {
           localStorage.clear();
           localStorage.setItem("version", version);
         },
-        Regenerate: function () {
+        重新生成: function () {
           regenerateMap("generation error");
           $(this).dialog("close");
         },
-        Ignore: function () {
+        忽略: function () {
           $(this).dialog("close");
         }
       },

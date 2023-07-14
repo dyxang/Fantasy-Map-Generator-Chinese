@@ -37,7 +37,7 @@ function editNotes(id, name) {
   } else {
     // if notes array is empty
     notesName.value = "";
-    notesLegend.innerHTML = "未添加注释。单击一个元素(例如标签或标记)并添加一个自由文本注释";
+    notesLegend.innerHTML = "未添加注释。点击一个元素(例如标签或标记)并添加一个自由文本注释";
   }
 
   $("#notesEditor").dialog({
@@ -136,8 +136,8 @@ function editNotes(id, name) {
 
     confirmationDialog({
       title: "找不到元素",
-      message: "找不到笔记元素，你要移除笔记吗?",
-      confirm: "移除",
+      message: "找不到笔记元素，你要删除笔记吗?",
+      confirm: "删除",
       cancel: "保持",
       onConfirm: removeLegend
     });

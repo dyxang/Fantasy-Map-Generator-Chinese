@@ -56,7 +56,7 @@ function overviewRivers() {
         <div data-tip="河口宽度" class="biomeArea">${width}</div>
         <input data-tip="流域(主干名称)" class="stateName" value="${basin}" disabled />
         <span data-tip="编辑河" class="icon-pencil"></span>
-        <span data-tip="移除河" class="icon-trash-empty"></span>
+        <span data-tip="删除河" class="icon-trash-empty"></span>
       </div>`;
     }
     body.insertAdjacentHTML("beforeend", lines);
@@ -145,19 +145,19 @@ function overviewRivers() {
 
   function triggerRiverRemove() {
     const river = +this.parentNode.dataset.id;
-    alertMessage.innerHTML = /* html */ `你确定要移除这条河吗? 所有的支流都将被自动移除`;
+    alertMessage.innerHTML = /* html */ `你确定要删除这条河吗? 所有的支流都将被自动删除`;
 
     $("#alert").dialog({
       resizable: false,
       width: "22em",
-      title: "移除河",
+      title: "删除河",
       buttons: {
-        Remove: function () {
+        删除: function () {
           Rivers.remove(river);
           riversOverviewAddLines();
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -165,16 +165,16 @@ function overviewRivers() {
   }
 
   function triggerAllRiversRemove() {
-    alertMessage.innerHTML = /* html */ `你确定要移除所有的河流吗？`;
+    alertMessage.innerHTML = /* html */ `你确定要删除所有的河流吗？`;
     $("#alert").dialog({
       resizable: false,
-      title: "移除所有河流",
+      title: "删除所有河流",
       buttons: {
-        Remove: function () {
+        删除: function () {
           $(this).dialog("close");
           removeAllRivers();
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }

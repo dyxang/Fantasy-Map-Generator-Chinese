@@ -471,7 +471,7 @@ function clearLegend() {
 // draw color (fill) picker
 function createPicker() {
   const pos = () => tip("拖动此形状可更改选择器位置");
-  const cl = () => tip("单击以关闭选择器");
+  const cl = () => tip("点击以关闭选择器");
   const closePicker = () => container.style("display", "none");
 
   const container = d3
@@ -575,7 +575,7 @@ function createPicker() {
   colors
     .selectAll("rect")
     .on("click", pickerFillClicked)
-    .on("mouseover", () => tip("单击以填充颜色"));
+    .on("mouseover", () => tip("点击以填充颜色"));
   hatches
     .selectAll("rect")
     .on("click", pickerFillClicked)
@@ -1108,7 +1108,7 @@ function selectIcon(initial, callback) {
     width: fitContent(),
     title: "选择图标",
     buttons: {
-      Apply: function () {
+      应用: function () {
         callback(input.value || "⠀");
         $(this).dialog("close");
       },

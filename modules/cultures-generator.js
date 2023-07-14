@@ -26,22 +26,22 @@ window.Cultures = (function () {
           resizable: false,
           title: "Extreme climate warning",
           buttons: {
-            Ok: function () {
+            å¥½çš„: function () {
               $(this).dialog("close");
             }
           }
         });
         return;
       } else {
-        WARN && console.warn(`µ¥Ôª¸ñÈËÊı²»¹» (${populated.length}). ½«Ö»Éú³É ${count} ÎÄ»¯`);
-        alertMessage.innerHTML = /* html */ ` Ö»ÓĞ ${populated.length} ÈË¿ÚÃÜ¼¯µÄµ¥Ôª£¬¾Ó×¡Ãæ»ı²»×ã.<br />
-          ½«Ö»Éú³É ${culturesInput.value} ¸öÇëÇóµÄÎÄ»¯ÖĞµÄ ${count} ¸ö.<br />
-          Çë¿¼ÂÇ¸ü¸Ä ÊÀ½çÅäÖÃÆ÷ ÖĞµÄÆøºòÉèÖÃ`;
+        WARN && console.warn(`å•å…ƒæ ¼äººæ•°ä¸å¤Ÿ (${populated.length}). å°†åªç”Ÿæˆ ${count} æ–‡åŒ–`);
+        alertMessage.innerHTML = /* html */ ` åªæœ‰ ${populated.length} äººå£å¯†é›†çš„å•å…ƒï¼Œå±…ä½é¢ç§¯ä¸è¶³.<br />
+          å°†åªç”Ÿæˆ ${culturesInput.value} ä¸ªè¯·æ±‚çš„æ–‡åŒ–ä¸­çš„ ${count} ä¸ª.<br />
+          è¯·è€ƒè™‘æ›´æ”¹ ä¸–ç•Œé…ç½®å™¨ ä¸­çš„æ°”å€™è®¾ç½®`;
         $("#alert").dialog({
           resizable: false,
-          title: "¼«¶ËÆøºò¾¯¸æ",
+          title: "æç«¯æ°”å€™è­¦å‘Š",
           buttons: {
-            Ok: function () {
+            å¥½çš„: function () {
               $(this).dialog("close");
             }
           }
@@ -110,7 +110,7 @@ window.Cultures = (function () {
 
     // make sure all bases exist in nameBases
     if (!nameBases.length) {
-      ERROR && console.error("Ãû³Æ¿âÎª¿Õ£¬½«Ó¦ÓÃÄ¬ÈÏµÄÃû³Æ¿â");
+      ERROR && console.error("ï¿½ï¿½ï¿½Æ¿ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½Æ¿ï¿½");
       nameBases = Names.getNameBases();
     }
 
