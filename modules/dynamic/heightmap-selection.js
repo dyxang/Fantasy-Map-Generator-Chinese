@@ -166,11 +166,11 @@ function insertHtml() {
           <div>
             <label data-tip="重新显示所有预览图像" class="checkbox-label" id="heightmapSelectionRedrawPreview">
               <i class="icon-cw"></i>
-              Redraw preview
+              重绘预览
             </label>
             <div>
               <input id="heightmapSelectionRenderOcean" class="checkbox" type="checkbox" />
-              <label data-tip="绘制水单元格高度" for="heightmapSelectionRenderOcean" class="checkbox-label">Render ocean heights</label>
+              <label data-tip="绘制水单元格高度" for="heightmapSelectionRenderOcean" class="checkbox-label">渲染海洋高度</label>
             </div>
             <div data-tip="用于高度图预览的配色方案">
             配色方案
@@ -183,8 +183,8 @@ function insertHtml() {
             </div>
           </div>
           <div>
-            <button data-tip="打开模板编辑器" data-tool="templateEditor" id="heightmapSelectionEditTemplates">Edit Templates</button>
-            <button data-tip="打开图像转换器" data-tool="imageConverter" id="heightmapSelectionImportHeightmap">Import Heightmap</button>
+            <button data-tip="打开模板编辑器" data-tool="templateEditor" id="heightmapSelectionEditTemplates">编辑模板</button>
+            <button data-tip="打开图像转换器" data-tool="imageConverter" id="heightmapSelectionImportHeightmap">导入高度图</button>
           </div>
         </div>
       </section>
