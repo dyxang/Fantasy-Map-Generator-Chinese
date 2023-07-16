@@ -28,7 +28,7 @@ function editDiplomacy() {
     Neutral: {
       inText: "中立",
       color: "#edeee8",
-      tip: "中立意味着状态关系既不是正的也不是负的"
+      tip: "中立意味着国家关系既不是正的也不是负的"
     },
     Suspicion: {
       inText: "怀疑",

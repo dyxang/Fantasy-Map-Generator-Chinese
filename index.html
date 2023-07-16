@@ -691,18 +691,18 @@
               标准
             </button>
             <button
-              data-tip="3D 场景中的地图显示。最适合高度图。不能用于编辑"
+              data-tip="3D 显示地图。展示高度图效果最好。无法编辑"
               id="viewMesh"
             >
               三维视景
             </button>
-            <button data-tip="项目地图在地球仪上。不能用于编辑" id="viewGlobe">球体</button>
+            <button data-tip="地球上显示地图。无法编辑" id="viewGlobe">球体</button>
           </div>
         </div>
 
         <div id="styleContent" class="tabcontent">
           <p
-            data-tip="选择一个样式预设。如果字体改变，状态标签可能需要重新生成"
+            data-tip="选择一个样式预设。如果字体改变，国家标签可能需要重新生成"
             style="display: inline-block"
           >
           风格预设:
@@ -1216,7 +1216,7 @@
             </tbody>
 
             <tbody id="styleStates" style="display: block">
-              <tr data-tip="设置状态填充不透明度。0: 不可见，1: 纯色">
+              <tr data-tip="设置国家填充不透明度。0: 不可见，1: 纯色">
                 <td>主体不透明度</td>
                 <td>
                   <input id="styleStatesBodyOpacity" type="range" min="0" max="1" step="0.01" />
@@ -1229,7 +1229,7 @@
                 <td><select id="styleStatesBodyFilter" /></td>
               </tr>
 
-              <tr data-tip="设置状态光环效果宽度">
+              <tr data-tip="设置国家光环效果宽度">
                 <td>光晕宽度</td>
                 <td>
                   <input id="styleStatesHaloWidth" type="range" min="0" max="30" step=".1" value="10" />
@@ -1660,7 +1660,7 @@
               </td>
             </tr>
 
-            <tr data-tip="选择状态标签模式: 显示短名称或全名">
+            <tr data-tip="选择国家标签模式: 显示短名称或全名">
               <td>
                 <i data-locked="0" id="lock_stateLabelsMode" class="icon-lock-open"></i>
               </td>
@@ -2003,7 +2003,7 @@
           <div id="regenerateFeature">
             <button
               id="regenerateStateLabels"
-              data-tip="点击此处可根据当前边界更新状态标签的位置"
+              data-tip="点击此处可根据当前边界更新国家标签的位置"
             >
             标签
             </button>
@@ -2022,7 +2022,7 @@
             </button>
             <button
               id="regenerateStates"
-              data-tip="点击以选择新首都并重新生成状态。徽章和军事力量也将重生，城市将保持原样"
+              data-tip="点击以选择新首都并重新生成国家。徽章和军事力量也将重生，城市将保持原样"
             >
               国家
             </button>
@@ -4281,7 +4281,7 @@
           />
           <span
             id="stateNameEditorAddForm"
-            data-tip="点击此处可将自定义状态表单名添加到列表中"
+            data-tip="点击此处可将自定义国家表单名添加到列表中"
             class="icon-plus pointer"
           ></span>
         </div>
@@ -4304,7 +4304,7 @@
           ></span>
         </div>
 
-        <div data-tip="取消选中以不更新名称更改时的状态标签" style="padding: 0.2em">
+        <div data-tip="取消选中以不更新名称更改时的国家标签" style="padding: 0.2em">
           <input id="stateNameEditorUpdateLabel" class="checkbox" type="checkbox" checked />
           <label for="stateNameEditorUpdateLabel" class="checkbox-label"><i>更新标签</i></label>
         </div>
@@ -4437,7 +4437,7 @@
           <button id="diplomacyEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
           <button
             id="diplomacyEditStyle"
-            data-tip="在样式编辑器中编辑状态(包括外交视图)样式"
+            data-tip="在样式编辑器中编辑国家(包括外交视图)样式"
             class="icon-adjust"
           ></button>
           <button id="diplomacyRegenerate" data-tip="重建外交关系" class="icon-retweet"></button>
@@ -4450,7 +4450,7 @@
           <button id="diplomacyShowMatrix" data-tip="显示关系表" class="icon-list-bullet"></button>
           <button
             id="diplomacyExport"
-            data-tip="将状态关系表保存为文本文件(. csv)"
+            data-tip="将国家关系表保存为文本文件(. csv)"
             class="icon-download"
           ></button>
         </div>
@@ -5203,7 +5203,7 @@
           <button id="burgsLockAll" data-tip="锁定或解锁所有的城市" class="icon-lock"></button>
           <button
             id="burgsRemoveAll"
-            data-tip="删除除首都以外所有未上锁的城市。删除首都首先删除其状态"
+            data-tip="删除除首都以外所有未上锁的城市。删除首都首先删除其国家"
             class="icon-trash"
           ></button>
         </div>
