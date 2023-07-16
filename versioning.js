@@ -2,7 +2,7 @@
 
 // version and caching control
 const version = "1.89.32";
-const notifactionv = "2023.07.16.1004"; // generator version, update each time
+const notifactionv = "2023.07.16.1515"; // generator version, update each time
 
 {
   document.title += " v" + version;
@@ -66,7 +66,7 @@ const notifactionv = "2023.07.16.1004"; // generator version, update each time
       position: {my: "center center-4em", at: "center", of: "svg"},
       buttons
     });
-  }
+  };
   const notifaction_Number = parseFloat(notifactionv);
   const stored_notifactionv = localStorage.getItem("notifactionv") ? parseFloat(localStorage.getItem("notifactionv")) : 0;
 
