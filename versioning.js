@@ -2,7 +2,7 @@
 
 // version and caching control
 const version = "1.89.32";
-const notifactionv = "2023.07.14.1644"; // generator version, update each time
+const notifactionv = "2023.07.16.1004"; // generator version, update each time
 
 {
   document.title += " v" + version;
@@ -83,7 +83,7 @@ const notifactionv = "2023.07.14.1644"; // generator version, update each time
     alertMessage.innerHTML = /* html */ `<strong>更新时间：${notifactionv}</strong>
 <p><strong></strong><p>
       <ul>
-统一名词，修正错误；更改了几处生硬汉化; 还原一部分汉化为英文（因为一些作者代码问题，强行汉化会让人摸不着头脑）
+修改代码错误;统一名词，修正错误；更改了几处生硬汉化; 还原一部分汉化为英文（因为一些作者代码问题，强行汉化会让人摸不着头脑）
       </ul>
 `;
 
