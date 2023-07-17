@@ -355,8 +355,8 @@
       <div id="loading-typography">
         <div id="titleName">Azgaar的</div>
         <div id="title">幻想地图生成器</div>
-        <div id="versionText">v<span id="version"></span>汉化版 B站:人类制作</div>
-        <p id="loading-text">载入<span>.</span><span>.</span><span>.</span></p>
+        <div id="versionText"></div>
+        <p id="loading-text">汉化版 B站:人类制作 载入<span>.</span><span>.</span><span>.</span></p>
       </div>
     </div>
 
@@ -2181,11 +2181,11 @@
         </div>
 
         <div id="aboutContent" class="tabcontent">
-          <p><b>特别关于个人汉化板的说明：</b>
+          <p><b>关于个人汉化板的特别说明：</b>
             <p><ol>1.项目本身使用<a href="./LICENSE" target="_blank">MIT许可证</a></ol>
-              <ol>2.本人为爱发电，B站ID人类制作</ol>
-            <ol>3.汉化问题/汉化造成的问题可以找我反应，项目的自己使用问题就不要找我了</ol>
-          <ol>4.关于这个网站域名还续不续费的<a href="https://t.bilibili.com/817675740681076752" target="_blank">投票</a></ol></p>
+              <ol>2.该版本为个人汉化，B站昵称人类制作，QQ交流群873020847</ol>
+            <ol>3.汉化问题/汉化造成的问题群内提出，官方问题找作者</ol>
+          <ol>4.该汉化网站域名还续不续费的<a href="https://t.bilibili.com/817675740681076752" target="_blank">投票</a></ol></p>
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator" target="_blank">幻想地图生成器“人类制作汉化版”</a> 是免费的程序生成幻想地图的
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/blob/master/LICENSE" target="_blank"
               >开源工具</a
@@ -5565,7 +5565,7 @@
       <div id="options3d" class="dialog stable" style="display: none">
         <div id="options3dMesh" style="display: none">
           <div data-tip="设置地图旋转速度。设置为0是你想关闭旋转">
-            <div>旋转:</div>
+            <div>旋转速度:</div>
             <input id="options3dMeshRotationRange" type="range" min="0" max="10" step=".1" />
             <input id="options3dMeshRotationNumber" type="number" min="0" max="10" step=".1" style="width: 3em" />
           </div>
@@ -5577,13 +5577,13 @@
           </div>
 
           <div data-tip="设置场景亮度">
-            <div>亮度:</div>
+            <div>场景亮度:</div>
             <input id="options3dLightnessRange" type="range" min="0" max="100" />
             <input id="options3dLightnessNumber" type="number" min="0" max="500" style="width: 3em" />
           </div>
 
           <div data-tip="设置太阳位置(x，y，z)来定义阴影">
-            <div>太阳的位置:</div>
+            <div>太阳位置:</div>
             <input id="options3dSunX" type="number" min="-2500" max="2500" step="100" style="width: 4.7em" />
             <input id="options3dSunY" type="number" min="0" max="5000" step="100" style="width: 4.7em" />
             <input id="options3dSunZ" type="number" min="-1500" max="1500" step="100" style="width: 4.7em" />
@@ -5617,7 +5617,7 @@
 
         <div id="options3dGlobe" style="display: none">
           <div data-tip="设置地球仪的旋转速度。如果要关闭旋转，则设置为0">
-            <div>旋转:</div>
+            <div>旋转速度:</div>
             <input id="options3dGlobeRotationRange" type="range" min="0" max="10" step=".1" />
             <input id="options3dGlobeRotationNumber" type="number" min="0" max="10" step=".1" style="width: 4em" />
           </div>
@@ -7768,7 +7768,7 @@
     <script src="libs/jquery-3.1.1.min.js"></script>
     <script src="libs/jquery-ui.min.js"></script>
     <script src="versioning.js"></script>
-    <!--script src="message.js"></script-->
+    <script src="message.js"></script>
     <script src="libs/d3.min.js"></script>
     <script src="libs/priority-queue.min.js"></script>
     <script src="libs/delaunator.min.js"></script>

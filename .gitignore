@@ -3,5 +3,6 @@
 /node_modules
 /dist
 /coverage
+/compare
 *.bak
 caddy.exe

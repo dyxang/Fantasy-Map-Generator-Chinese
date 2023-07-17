@@ -1,13 +1,12 @@
 "use strict";
 
 // version and caching control
-const version = "1.89.32";
-const notifactionv = "2023.07.16.2121"; // generator version, update each time
+const version = "1.89.33";// generator version, update each time
 
 {
   document.title += " v" + version;
-  const loadingScreenVersion = document.getElementById("version");
-  if (loadingScreenVersion) loadingScreenVersion.innerHTML = version;
+  const loadingScreenVersion = document.getElementById("versionText");
+  if (loadingScreenVersion) loadingScreenVersion.innerText = `v${version}`;
 
   const versionNumber = parseFloat(version);
   const storedVersion = localStorage.getItem("version") ? parseFloat(localStorage.getItem("version")) : 0;
@@ -16,7 +15,7 @@ const notifactionv = "2023.07.16.2121"; // generator version, update each time
   if (isOutdated) clearCache();
 
   const showUpdate = storedVersion < versionNumber;
-  if (showUpdate) setTimeout(showUpdateWindow, 6000);
+  if (showUpdate) setTimeout(showUpdateWindow, 20000);
 
   function showUpdateWindow() {
     const changelog = "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog";
@@ -64,50 +63,6 @@ const notifactionv = "2023.07.16.2121"; // generator version, update each time
       title: "更新说明",
       width: "28em",
       position: {my: "center center-4em", at: "center", of: "svg"},
-      buttons
-    });
-  };
-  const notifaction_Number = parseFloat(notifactionv);
-  const stored_notifactionv = localStorage.getItem("notifactionv") ? parseFloat(localStorage.getItem("notifactionv")) : 0;
-
-  const notifaction_isOutdated = stored_notifactionv !== notifaction_Number;
-  if (notifaction_isOutdated) clearCache();
-
-  const notifaction_showUpdate = stored_notifactionv < notifaction_Number;
-  if (notifaction_showUpdate) setTimeout(show_notifaction_Window, 60000);
-
-  function show_notifaction_Window() {
-    const changelog = "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog";
-
-
-    alertMessage.innerHTML = /* html */ `<strong>更新时间：${notifactionv}</strong>
-<p><strong></strong><p>
-      <ul>
-修复破坏代码的汉化;润色汉化；修改错误汉化（不结合上下文后果）；还原部分英文
-      </ul>
-`;
-
-    const buttons = {
-      好的: function () {
-        $(this).dialog("close");
-        if (stored_notifactionv) localStorage.clear();
-        localStorage.setItem("notifactionv", notifactionv);
-      }
-    };
-
-    if (stored_notifactionv) {
-      buttons.Reload = () => {
-        localStorage.clear();
-        localStorage.setItem("notifactionv", notifactionv);
-        location.reload();
-      };
-    }
-
-    $("#alert").dialog({
-      resizable: false,
-      title: "汉化版公告栏",
-      width: "28em",
-      position: {my: "center center-4em", at: "bottom ", of: "svg"},
       buttons
     });
   }

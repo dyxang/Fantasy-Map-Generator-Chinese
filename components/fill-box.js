@@ -65,7 +65,7 @@
     }
 
     get tip() {
-      return this.dataset.tip || "??????????";
+      return this.dataset.tip || "填充风格，点击更改";
     }
   }
 

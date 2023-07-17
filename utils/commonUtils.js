@@ -158,12 +158,12 @@ void (function () {
   const prompt = document.getElementById("prompt");
   const form = prompt.querySelector("#promptForm");
 
-  const defaultText = "Please provide an input";
+  const defaultText = "请输入";
   const defaultOptions = {default: 1, step: 0.01, min: 0, max: 100, required: true};
 
   window.prompt = function (promptText = defaultText, options = defaultOptions, callback) {
     if (options.default === undefined)
-      return ERROR && console.error("Prompt: options object does not have default value defined");
+      return ERROR && console.error("提示:options对象没有定义默认值");
 
     const input = prompt.querySelector("#promptInput");
     prompt.querySelector("#promptText").innerHTML = promptText;
@@ -176,7 +176,7 @@ void (function () {
     if (options.max !== undefined) input.max = options.max;
 
     input.required = options.required === false ? false : true;
-    input.placeholder = "type a " + type;
+    input.placeholder = "输入 " + type;
     input.value = options.default;
     prompt.style.display = "block";
 
