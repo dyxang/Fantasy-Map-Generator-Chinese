@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const notifactionv = "2023.07.16.2121"; 
+const notifactionv = "2023.07.17.1012"; 
  // generator version, update each time
 
 {
@@ -12,14 +12,13 @@ const notifactionv = "2023.07.16.2121";
   if (notifaction_isOutdated) clearCache();
 
   const notifaction_showUpdate = stored_notifactionv < notifaction_Number;
-  if (notifaction_showUpdate) setTimeout(show_notifaction_Window, 60000);
+  if (notifaction_showUpdate) setTimeout(show_notifaction_Window, 6000);
 
   function show_notifaction_Window() {
-    const changelog = "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog";
 
 
     alertMessage.innerHTML = /* html */ `<strong>更新时间：${notifactionv}</strong>
-<p><strong></strong><p>
+<p><strong>建了个交流群，群号在“关于”页面里</strong><p>
       <ul>
 修复破坏代码的汉化;润色汉化；修改错误汉化（不结合上下文后果）；还原部分英文
       </ul>
