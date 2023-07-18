@@ -18,7 +18,7 @@ const notifactionv = "2023.07.17.1012";
 
 
     alertMessage.innerHTML = /* html */ `<strong>更新时间：${notifactionv}</strong>
-<p><strong>建了个交流群，群号在“关于”页面里</strong><p>
+<p><strong>建了个交流群，群号：873020847</strong><p>
       <ul>
 修复破坏代码的汉化;润色汉化；修改错误汉化（不结合上下文后果）；还原部分英文
       </ul>
