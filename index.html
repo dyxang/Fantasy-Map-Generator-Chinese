@@ -1646,7 +1646,7 @@
             </tr>
 
             <tr
-              data-tip="界定应该产生多少有组织的宗教和邪教。文化在任何情况下都会有自己的民间宗教"
+              data-tip="界定应该产生多少有组织的宗教和异教。文化在任何情况下都会有自己的民间宗教"
             >
               <td>
                 <i data-locked="0" id="lock_religions" class="icon-lock-open"></i>
@@ -1952,21 +1952,21 @@
             >
             外交
             </button>
-            <button id="editCulturesButton" data-tip="点击打开Cultures编辑器" data-shortcut="Shift + C">
+            <button id="editCulturesButton" data-tip="点击打开文化编辑器" data-shortcut="Shift + C">
               文化
             </button>
-            <button id="editNamesBaseButton" data-tip="点击打开Namesbase编辑器" data-shortcut="Shift + N">
+            <button id="editNamesBaseButton" data-tip="点击打开名称库编辑器" data-shortcut="Shift + N">
               名称库
             </button>
-            <button id="editZonesButton" data-tip="点击打开Zones编辑器" data-shortcut="Shift + Z">区域</button>
-            <button id="editReligions" data-tip="点击打开Religions编辑器" data-shortcut="Shift + R">
+            <button id="editZonesButton" data-tip="点击打开区域编辑器" data-shortcut="Shift + Z">区域</button>
+            <button id="editReligions" data-tip="点击打开宗教编辑器" data-shortcut="Shift + R">
               宗教
             </button>
-            <button id="editEmblemButton" data-tip="点击打开Emblem编辑器" data-shortcut="Shift + Y">
+            <button id="editEmblemButton" data-tip="点击打开徽章编辑器" data-shortcut="Shift + Y">
               徽章
             </button>
-            <button id="editUnitsButton" data-tip="点击打开Units编辑器" data-shortcut="Shift + Q">单位</button>
-            <button id="editNotesButton" data-tip="点击打开Notes编辑器" data-shortcut="Shift + O">笔记</button>
+            <button id="editUnitsButton" data-tip="点击打开单位编辑器" data-shortcut="Shift + Q">单位</button>
+            <button id="editNotesButton" data-tip="点击打开笔记编辑器" data-shortcut="Shift + O">笔记</button>
           </div>
 
           <p>点击概览:</p>
@@ -1978,15 +1978,15 @@
             >
             图表
             </button>
-            <button id="overviewBurgsButton" data-tip="点击打开Burgs 预览" data-shortcut="Shift + T">
+            <button id="overviewBurgsButton" data-tip="点击打开城市预览" data-shortcut="Shift + T">
               城市
             </button>
-            <button id="overviewRiversButton" data-tip="点击打开Rivers 预览" data-shortcut="Shift + V">
+            <button id="overviewRiversButton" data-tip="点击打开河流预览" data-shortcut="Shift + V">
               河流
             </button>
             <button
               id="overviewMilitaryButton"
-              data-tip="点击打开Military Forces 预览"
+              data-tip="点击打开军队预览"
               data-shortcut="Shift + M"
             >
             军队
@@ -2791,7 +2791,7 @@
           <input id="reliefSpacingNumber" oninput="reliefSpacing.value = this.value" type="number" min="2" value="5" />
         </div>
 
-        <div id="reliefIconsDiv" data-tip="Select icon">
+        <div id="reliefIconsDiv" data-tip="选择图标">
           <div data-type="simple" style="display: none">
             <svg data-type="#relief-mount-1" data-tip="选择山脉图标">
               <use href="#relief-mount-1" width="40" height="40"></use>
@@ -3155,8 +3155,8 @@
 
               <div data-tip="城市年平均气温与现实世界城市进行比较">
                 <div class="label">温度：</div>
-                <span id="burgTemperature"></span>，就像
-                <span id="burgTemperatureLikeIn"></span>
+                <span id="burgTemperature"></span>，与
+                <span id="burgTemperatureLikeIn"></span>类似
                 <i
                   id="burgTemperatureGraph"
                   data-tip="显示城市的温度图"
@@ -3177,9 +3177,9 @@
             style="display: flex; flex-direction: column"
           >
             <div>
-              See in <a id="mfcgLink" target="_blank">City Generator by Watabou</a>.
+              在城市生成器（作者Watabou）中<a id="mfcgLink" target="_blank">查看</a>.
               <div id="mfcgBurgSeedSection">
-                Seed: <input id="mfcgBurgSeed" style="width: 10em" type="number" min="1" max="1e13" step="1" />
+                种子: <input id="mfcgBurgSeed" style="width: 10em" type="number" min="1" max="1e13" step="1" />
                 <i
                   id="regenerateMFCGBurgSeed"
                   data-tip="随机化中世纪幻想城市发生器种子"
@@ -3240,7 +3240,7 @@
           <button id="burgLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
           <button
             id="burgRemove"
-            data-tip="Remove non-capital burg"
+            data-tip="移除非首都城市"
             data-shortcut="Delete"
             class="icon-trash fastDelete"
           ></button>
@@ -3795,7 +3795,7 @@
             </svg>
           </button>
 
-          <button id="brushLine" data-tip="Line: select two points to change heights along the line">
+          <button id="brushLine" data-tip="直线:选择两个点沿直线改变高度">
             <svg viewBox="0 -5 100 100" height="1em" width="1.6em">
               <path d="M0 90 L100 10" fill="none" stroke="#000" stroke-width="7"></path>
             </svg>
@@ -3849,8 +3849,8 @@
         </div>
 
         <div id="lineSlider" style="display: none">
-          <div data-tip="Set change power">
-            <div style="width: 3.2em; display: inline-block"><i>Power:</i></div>
+          <div data-tip="设置改变力度">
+            <div style="width: 3.2em; display: inline-block"><i>力度:</i></div>
             <input
               id="linePower"
               oninput="tip('Line power: '+this.value); linePowerNumber.value = this.value"
@@ -4826,7 +4826,7 @@
           </div>
         </div>
         <div id="emblemsBottom">
-          <button id="emblemsRegenerate" data-tip="Regenerate emblem" class="icon-shuffle"></button>
+          <button id="emblemsRegenerate" data-tip="重新生成徽章" class="icon-shuffle"></button>
           <button
             id="emblemsArmoria"
             data-tip="在 Armoria 编辑徽章-专用纹章编辑器。下载徽章并上传回生成器地图"

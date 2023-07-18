@@ -506,11 +506,11 @@ function resetLanguage() {
   const languageSelect = document.querySelector("#google_translate_element select");
   if (!languageSelect.value) return;
 
-  languageSelect.value = "en";
+  languageSelect.value = "zh-cn";
   languageSelect.dispatchEvent(new Event("change"));
 
   // do once again to actually reset the language
-  languageSelect.value = "en";
+  languageSelect.value = "zh-cn";
   languageSelect.dispatchEvent(new Event("change"));
 }
 
