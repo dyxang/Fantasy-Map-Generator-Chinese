@@ -39,7 +39,7 @@ function insertEditorHtml() {
       <div data-tip="有组织的宗教总数" style="margin-left: 12px">
         有组织:&nbsp;<span id="religionsOrganized">0</span>
       </div>
-      <div data-tip="异端邪说的总数" style="margin-left: 12px">
+      <div data-tip="异教总数" style="margin-left: 12px">
         异教:&nbsp;<span id="religionsHeresies">0</span>
       </div>
       <div data-tip="密教总数" style="margin-left: 12px">

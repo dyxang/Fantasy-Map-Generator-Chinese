@@ -229,7 +229,7 @@ function culturesEditorAddLines() {
           style="width: 4em">${si(population)}</div>
         ${getShapeOptions(selectShape, c.shield)}
         <span data-tip="删除文化" class="icon-lock${c.lock ? "" : "-open"} hide"></span>
-        <span data-tip="Remove culture" class="icon-trash-empty hide"></span>
+        <span data-tip="删除文化" class="icon-trash-empty hide"></span>
       </div>`;
   }
   $body.innerHTML = lines;
