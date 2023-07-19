@@ -93,7 +93,7 @@ function editLake() {
       .attr("data-v", d => d)
       .call(d3.drag().on("drag", dragVertex))
       .on("mousemove", () =>
-        tip("拖动可移动顶点，请仅用于微调。编辑高度图可更改实际单元格高度")
+        tip("拖动可移动顶点，请仅用于微调。编辑高程图可更改实际单元格高度")
       );
   }
 

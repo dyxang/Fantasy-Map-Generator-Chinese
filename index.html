@@ -416,7 +416,7 @@
             <option value="religions">宗教地图</option>
             <option value="provinces">省份地图</option>
             <option value="biomes">生物群落图</option>
-            <option value="heightmap">高度图</option>
+            <option value="heightmap">高程图</option>
             <option value="physical">物理地图</option>
             <option value="poi">名胜古迹</option>
             <option value="military">军事地图</option>
@@ -462,7 +462,7 @@
               class="buttonoff"
               onclick="toggleHeight(event)"
             >
-              高度图(<u>h</u>)
+              高程图(<u>h</u>)
             </li>
             <li
               id="toggleBiomes"
@@ -691,7 +691,7 @@
               标准
             </button>
             <button
-              data-tip="3D 显示地图。展示高度图效果最好。无法编辑"
+              data-tip="3D 显示地图。展示高程图效果最好。无法编辑"
               id="viewMesh"
             >
               三维视景
@@ -745,7 +745,7 @@
             <option value="emblems">徽标</option>
             <option value="fogging">雾</option>
             <option value="gridOverlay">网格</option>
-            <option value="terrs">高度图</option>
+            <option value="terrs">高程图</option>
             <option value="ice">冰</option>
             <option value="labels">标签</option>
             <option value="lakes">湖</option>
@@ -1536,11 +1536,11 @@
               </td>
             </tr>
 
-            <tr data-tip="选择要在生成时使用的模板或预创建的高度图">
+            <tr data-tip="选择要在生成时使用的模板或预创建的高程图">
               <td>
                 <i data-locked="0" id="lock_template" class="icon-lock-open"></i>
               </td>
-              <td>高度图</td>
+              <td>高程图</td>
               <td id="templateInputContainer" class="pointer">
                 <select id="templateInput" data-stored="template" style="pointer-events: none"></select>
               </td>
@@ -1931,10 +1931,10 @@
           <div>
             <button
               id="editHeightmapButton"
-              data-tip="点击以打开 高度图 自定义菜单"
+              data-tip="点击以打开 高程图 自定义菜单"
               data-shortcut="Shift + H"
             >
-            高度图
+            高程图
             </button>
             <button id="editBiomesButton" data-tip="点击打开生物组编辑器" data-shortcut="Shift + B">
               生物群落
@@ -2100,18 +2100,18 @@
         </div>
 
         <div id="customizationMenu" class="tabcontent">
-          <p>高度图自定义工具：</p>
+          <p>高程图自定义工具：</p>
           <div id="customizeTools">
             <button data-tip="显示笔刷面板" id="paintBrushes">笔刷</button>
             <button data-tip="打开模板编辑器" id="applyTemplate" style="display: none">模板编辑器</button>
             <button data-tip="打开图像转换器" id="convertImage" style="display: none">图像转换器</button>
-            <button data-tip="将高度图数据渲染为一个小的单色图像" id="heightmapPreview">预览</button>
-            <button data-tip="在3D 场景中预览高度图" id="heightmap3DView">3D场景</button>
+            <button data-tip="将高程图数据渲染为一个小的单色图像" id="heightmapPreview">预览</button>
+            <button data-tip="在3D 场景中预览高程图" id="heightmap3DView">3D场景</button>
           </div>
 
           <p>Options:</p>
           <div id="customizeOptions">
-            <div data-tip="高度图编辑模式">编辑模式：<span id="heightmapEditMode"></span></div>
+            <div data-tip="高程图编辑模式">编辑模式：<span id="heightmapEditMode"></span></div>
             <div data-tip="渲染低于海平面的单元格（高度小于20）">
               <input id="renderOcean" class="checkbox" type="checkbox" />
               <label for="renderOcean" class="checkbox-label">生成海洋单元格</label>
@@ -2268,7 +2268,7 @@
 
     <div id="exitCustomization">
       <div data-tip="拖动以移动窗格">
-        <button data-tip="完成高度图并退出编辑模式" id="finalizeHeightmap">
+        <button data-tip="完成高程图并退出编辑模式" id="finalizeHeightmap">
           退出自定义
         </button>
       </div>
@@ -3958,7 +3958,7 @@
           <button data-type="Trough" data-tip="Trough: 拉长的凹陷">T</button>
           <button data-type="Strait" data-tip="Strait: 中心垂直或水平凹陷">S</button>
           <button data-type="Mask" data-tip="Mask: 靠近边缘或在地图中心的下部单元格">M</button>
-          <button data-type="Invert" data-tip="沿着轴线反转高度图">I</button>
+          <button data-type="Invert" data-tip="沿着轴线反转高程图">I</button>
           <button data-type="Add" data-tip="从范围内的所有高度增加或减少值">+</button>
           <button data-type="Multiply" data-tip="将范围内所有高度乘以因数">*</button>
           <button
@@ -4013,7 +4013,7 @@
             onclick="wiki('Heightmap-template-editor')"
           ></button>
           <label
-            data-tip="如果你希望模板每次都生成相同的高度图，则锁定种子(点击锁定图标)"
+            data-tip="如果你希望模板每次都生成相同的高程图，则锁定种子(点击锁定图标)"
           >
             Seed: <input id="templateSeed" value="" type="number" min="1" max="999999999" step="1" style="width: 8em" />
             <i data-locked="0" id="lock_templateSeed" class="icon-lock-open"></i>
@@ -4036,14 +4036,14 @@
           ></button>
           <button
             id="convertAutoFMG"
-            data-tip="使用生成器方案自动分配颜色(用于导出的彩色高度图)"
+            data-tip="使用生成器方案自动分配颜色(用于导出的彩色高程图)"
             class="icon-layer-group"
           ></button>
           <button id="convertColorsButton" data-tip="设置最大颜色数" class="icon-signal"></button>
           <input id="convertColors" value="100" style="display: none" />
           <button
             id="convertCancel"
-            data-tip="取消转换。将还原上一个高度图"
+            data-tip="取消转换。将还原上一个高程图"
             class="icon-cancel"
           ></button>
         </div>
@@ -5907,7 +5907,7 @@
 
         <p>要更改的设置: 填充率、地图像素大小</p>
         <p>
-          要复制的数据: 高度图，生物群落，宗教，人口，降水，文化，州，省，军事
+          要复制的数据: 高程图，生物群落，宗教，人口，降水，文化，州，省，军事
         </p>
         <p>待更新的数据: 区域、道路、河流</p>
         <p>城市可能重新映射错误，需要手动更改</p>
@@ -7768,7 +7768,6 @@
     <script src="libs/jquery-3.1.1.min.js"></script>
     <script src="libs/jquery-ui.min.js"></script>
     <script src="versioning.js"></script>
-    <script src="message.js"></script>
     <script src="libs/d3.min.js"></script>
     <script src="libs/priority-queue.min.js"></script>
     <script src="libs/delaunator.min.js"></script>

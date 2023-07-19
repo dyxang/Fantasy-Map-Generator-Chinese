@@ -436,7 +436,7 @@ async function parseLoadedData(data) {
       const cells = pack.cells;
 
       if (pack.cells.i.length !== pack.cells.state.length) {
-        const message = "数据完整性检查。条带问题。修复在擦除模式下编辑高度图";
+        const message = "数据完整性检查。条带问题。修复在擦除模式下编辑高程图";
         ERROR && console.error(message);
       }
 

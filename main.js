@@ -1995,7 +1995,7 @@ function showStatistics() {
 
   const stats = `  种子: ${seed}
     画布大小: ${graphWidth}x${graphHeight} px
-    高度图: ${heightmap} (${isRandomTemplate}${heightmapType})
+    高程图: ${heightmap} (${isRandomTemplate}${heightmapType})
     点: ${grid.points.length}
     格: ${pack.cells.i.length}
     地图大小: ${mapSizeOutput.value}%

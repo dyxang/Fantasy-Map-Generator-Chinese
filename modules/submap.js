@@ -52,7 +52,7 @@ window.Submap = (function () {
       }
     };
 
-    stage("重新采样高度图，温度和降水量.");
+    stage("重新采样高程图，温度和降水量.");
     // resample heightmap from old WorldState
     const n = grid.points.length;
     grid.cells.h = new Uint8Array(n); // heightmap

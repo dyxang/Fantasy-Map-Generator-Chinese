@@ -363,7 +363,7 @@ function editBiomes() {
     const point = d3.mouse(this);
     const i = findCell(point[0], point[1]);
     if (pack.cells.h[i] < 20) {
-      tip("你不能通过生物群落重新分配水。请编辑高度图来改变水", false, "error");
+      tip("你不能通过生物群落重新分配水。请编辑高程图来改变水", false, "error");
       return;
     }
 

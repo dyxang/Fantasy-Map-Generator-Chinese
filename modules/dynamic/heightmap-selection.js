@@ -13,7 +13,7 @@ export function open() {
   graph = getGraph(graph);
 
   $("#heightmapSelection").dialog({
-    title: "选择高度图",
+    title: "选择高程图",
     resizable: false,
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
@@ -152,12 +152,12 @@ function appendStyleSheet() {
 function insertHtml() {
   const heightmapSelectionHtml = /* html */ `<div id="heightmapSelection" class="dialog stable">
     <div class="heightmap-selection">
-      <section data-tip="选择高度图模板 - 模板可以在生成时提供独特但外观相似的地图">
-        <header><h1>高度图模板</h1></header>
+      <section data-tip="选择高程图模板 - 模板可以在生成时提供独特但外观相似的地图">
+        <header><h1>高程图模板</h1></header>
         <div class="heightmap-selection_container"></div>
       </section>
-      <section data-tip="选择预先创建的高度图-它将为每个地图相同">
-        <header><h1>预制的高度图</h1></header>
+      <section data-tip="选择预先创建的高程图-它将为每个地图相同">
+        <header><h1>预制的高程图</h1></header>
         <div class="heightmap-selection_container"></div>
       </section>
       <section>
@@ -172,7 +172,7 @@ function insertHtml() {
               <input id="heightmapSelectionRenderOcean" class="checkbox" type="checkbox" />
               <label data-tip="绘制水单元格高度" for="heightmapSelectionRenderOcean" class="checkbox-label">渲染海洋高度</label>
             </div>
-            <div data-tip="用于高度图预览的配色方案">
+            <div data-tip="用于高程图预览的配色方案">
             配色方案
               <select id="heightmapSelectionColorScheme">
                 <option value="bright" selected>Bright</option>
@@ -184,7 +184,7 @@ function insertHtml() {
           </div>
           <div>
             <button data-tip="打开模板编辑器" data-tool="templateEditor" id="heightmapSelectionEditTemplates">编辑模板</button>
-            <button data-tip="打开图像转换器" data-tool="imageConverter" id="heightmapSelectionImportHeightmap">导入高度图</button>
+            <button data-tip="打开图像转换器" data-tool="imageConverter" id="heightmapSelectionImportHeightmap">导入高程图</button>
           </div>
         </div>
       </section>
