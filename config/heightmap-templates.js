@@ -148,19 +148,19 @@ const heightmapTemplates = (function () {
     Range 6-8 40-50 5-95 10-90`;
 
   return {
-    volcano: {id: 0, name: "Volcano", template: volcano, probability: 3},
-    highIsland: {id: 1, name: "High Island", template: highIsland, probability: 19},
-    lowIsland: {id: 2, name: "Low Island", template: lowIsland, probability: 9},
-    continents: {id: 3, name: "Continents", template: continents, probability: 16},
-    archipelago: {id: 4, name: "Archipelago", template: archipelago, probability: 18},
-    atoll: {id: 5, name: "Atoll", template: atoll, probability: 1},
-    mediterranean: {id: 6, name: "Mediterranean", template: mediterranean, probability: 5},
-    peninsula: {id: 7, name: "Peninsula", template: peninsula, probability: 3},
-    pangea: {id: 8, name: "Pangea", template: pangea, probability: 5},
-    isthmus: {id: 9, name: "Isthmus", template: isthmus, probability: 2},
-    shattered: {id: 10, name: "Shattered", template: shattered, probability: 7},
-    taklamakan: {id: 11, name: "Taklamakan", template: taklamakan, probability: 1},
-    oldWorld: {id: 12, name: "Old World", template: oldWorld, probability: 8},
-    fractious: {id: 13, name: "Fractious", template: fractious, probability: 3}
+    volcano: {id: 0, name: "火山(Volcano)", template: volcano, probability: 3},
+    highIsland: {id: 1, name: "高地岛(High Island)", template: highIsland, probability: 19},
+    lowIsland: {id: 2, name: "低地岛(Low Island)", template: lowIsland, probability: 9},
+    continents: {id: 3, name: "大陆(Continents)", template: continents, probability: 16},
+    archipelago: {id: 4, name: "群岛(Archipelago)", template: archipelago, probability: 18},
+    atoll: {id: 5, name: "环礁(Atoll)", template: atoll, probability: 1},
+    mediterranean: {id: 6, name: "地中海(Mediterranean)", template: mediterranean, probability: 5},
+    peninsula: {id: 7, name: "半岛(Peninsula)", template: peninsula, probability: 3},
+    pangea: {id: 8, name: "泛大陆(Pangea)", template: pangea, probability: 5},
+    isthmus: {id: 9, name: "地峡(Isthmus)", template: isthmus, probability: 2},
+    shattered: {id: 10, name: "破碎地势(Shattered)", template: shattered, probability: 7},
+    taklamakan: {id: 11, name: "塔克拉玛干(Taklamakan)", template: taklamakan, probability: 1},
+    oldWorld: {id: 12, name: "旧世界(Old World)", template: oldWorld, probability: 8},
+    fractious: {id: 13, name: "混乱(Fractious)", template: fractious, probability: 3}
   };
 })();
