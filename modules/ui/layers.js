@@ -182,7 +182,7 @@ function restoreLayers() {
 
 function toggleHeight(event) {
   if (customization === 1) {
-    tip("当高度图处于编辑模式时，你不能关闭该层", false, "error");
+    tip("当高程图处于编辑模式时，你不能关闭该层", false, "error");
     return;
   }
 

@@ -23,16 +23,16 @@ function editHeightmap(options) {
   byId("templateRedo").on("click", () => restoreHistory(edits.n + 1));
 
   function showModeDialog() {
-    alertMessage.innerHTML = /* html */ `Heightmap 是所有其他数据(河流、城市、州等)所基于的核心元素。因此，最好的编辑方法是删除辅助数据，并让系统在编辑完成时自动重新生成它。
-    <p><i>擦除</i>模式还允许你将图像转换为高度图或使用模板编辑器。</p>
+    alertMessage.innerHTML = /* html */ `Heightmap 是所有其他数据(河流、城市、国家等)所基于的核心元素。因此，最好的编辑方法是删除辅助数据，并让系统在编辑完成时自动重新生成它。
+    <p><i>擦除</i>模式还允许你将图像转换为高程图或使用模板编辑器。</p>
     <p>你可以<i>保留</i>数据, 但你无法改变海岸线.</p>
     <p>尝试 <i>风险</i> 模式，以改变海岸线和保存数据. 将尽可能多地还原数据，但它可能导致不可预测的错误.</p>
-    <p>请在编辑高度图之前<span class="pseudoLink" onclick="dowloadMap();">保存地图</span>!</p>
+    <p>请在编辑高程图之前<span class="pseudoLink" onclick="dowloadMap();">保存地图</span>!</p>
     <p style="margin-bottom: 0">看看这个 ${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization", "wiki")} 寻求指引.</p>`;
 
     $("#alert").dialog({
       resizable: false,
-      title: "编辑高度图",
+      title: "编辑高程图",
       width: "28em",
       buttons: {
         Erase: () => enterHeightmapEditMode("erase"),
@@ -51,7 +51,7 @@ function editHeightmap(options) {
 
     customization = 1;
     closeDialogs();
-    tip('高度图编辑模式处于活动状态。点击“退出自定义”以完成高度图', true);
+    tip('高程图编辑模式处于活动状态。点击“退出自定义”以完成高程图', true);
 
     byId("options")
       .querySelectorAll(".tabcontent")
@@ -154,7 +154,7 @@ function editHeightmap(options) {
   function finalizeHeightmap() {
     if (viewbox.select("#heights").selectAll("*").size() < 200)
       return tip(
-        "土地面积不足! 应该至少有200个土地单元来最终确定高度图",
+        "土地面积不足! 应该至少有200个土地单元来最终确定高程图",
         null,
         "error"
       );
@@ -786,7 +786,7 @@ function editHeightmap(options) {
       if (changeOnlyLand.checked) return tip("当“仅更改土地单元格”模式设置时不允许", false, "error");
       const someHeights = grid.cells.h.some(h => h);
       if (!someHeights)
-        return tip("高度图已清除，如非必要，请勿双击", false, "error");
+        return tip("高程图已清除，如非必要，请勿双击", false, "error");
 
       grid.cells.h = new Uint8Array(grid.cells.i.length);
       viewbox.select("#heights").selectAll("*").remove();
@@ -932,7 +932,7 @@ function editHeightmap(options) {
       if (type === "Invert")
         return /* html */ `${common}
           <span>by:
-            <select class="templateDist" data-tip="沿轴线的镜像高度图" style="width: 7.8em">
+            <select class="templateDist" data-tip="沿轴线的镜像高程图" style="width: 7.8em">
               <option value="x" selected>x</option>
               <option value="y">y</option>
               <option value="xy">both</option>
@@ -1034,7 +1034,7 @@ function editHeightmap(options) {
       if (!templateString) return;
 
       const steps = templateString.split("\n");
-      if (!steps.length) return tip(`高度图模板: 没有定义步骤`, false, "error");
+      if (!steps.length) return tip(`高程图模板: 没有定义步骤`, false, "error");
 
       for (const step of steps) {
         const elements = step.trim().split(" ");
@@ -1437,7 +1437,7 @@ function editHeightmap(options) {
       colorsUnassigned.style.display = "none";
       colorsSelectValue.innerHTML = colorsSelectFriendly.innerHTML = 0;
       viewbox.style("cursor", "default").on(".drag", null);
-      tip('高度图编辑模式处于活动状态。点击“退出自定义”以完成高度图', true);
+      tip('高程图编辑模式处于活动状态。点击“退出自定义”以完成高程图', true);
       $("#imageConverter").dialog("destroy");
       openBrushesPanel();
     }
@@ -1445,7 +1445,7 @@ function editHeightmap(options) {
     function closeImageConverter(event) {
       event.preventDefault();
       event.stopPropagation();
-      alertMessage.innerHTML = /* html */ ` 确实要关闭图像转换器吗？点击“取消”返回到转换。点击“完成”应用转换。点击“关闭”退出转换模式并恢复以前的高度图`;
+      alertMessage.innerHTML = /* html */ ` 确实要关闭图像转换器吗？点击“取消”返回到转换。点击“完成”应用转换。点击“关闭”退出转换模式并恢复以前的高程图`;
 
       $("#alert").dialog({
         resizable: false,
@@ -1479,7 +1479,7 @@ function editHeightmap(options) {
     preview.width = grid.cellsX;
     preview.height = grid.cellsY;
     document.body.insertBefore(preview, optionsContainer);
-    preview.on("mouseover", () => tip("高度图预览。点击可下载屏幕大小的图像"));
+    preview.on("mouseover", () => tip("高程图预览。点击可下载屏幕大小的图像"));
     preview.on("click", downloadPreview);
     drawHeightmapPreview();
   }

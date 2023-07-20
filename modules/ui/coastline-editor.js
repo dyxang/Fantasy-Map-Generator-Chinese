@@ -55,7 +55,7 @@ function editCoastline(node = d3.event.target) {
       .attr("r", 0.4)
       .attr("data-v", d => d)
       .call(d3.drag().on("drag", dragVertex))
-      .on("mousemove", () => tip("拖动可移动顶点，请仅用于微调。编辑高度图可更改实际单元格高度"));
+      .on("mousemove", () => tip("拖动可移动顶点，请仅用于微调。编辑高程图可更改实际单元格高度"));
 
     const area = pack.features[f].area;
     coastlineArea.innerHTML = si(getArea(area)) + " " + getAreaUnit();

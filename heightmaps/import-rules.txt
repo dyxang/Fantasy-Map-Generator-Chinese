@@ -1,8 +1,8 @@
-To get heightmap with correct height scale:
-1. Open https://tangrams.github.io/heightmapper
-2. Toggle off auto-exposure
-3. Set max elevation to 2000
-4. Set min elevation to -500
-5. Find region you like
-6. Render image
-7. Optionally rescale image to a smaller size (e.g. 500x300px) as high resolution is not used
+要获得高度地图与正确的高度比例:
+1. 打开https://tangrams.github.io/heightmapper
+2. 关闭自动曝光(auto-exposure)
+3.设置最大仰角(elevation)为2000
+4. 将最小仰角设置为-500
+5. 找到你喜欢的区域
+6. 渲染图像
+7. 可选择重新缩放图像到较小的尺寸(例如500x300px)，因为不使用高分辨率

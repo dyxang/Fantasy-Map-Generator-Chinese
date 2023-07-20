@@ -416,7 +416,7 @@
             <option value="religions">宗教地图</option>
             <option value="provinces">省份地图</option>
             <option value="biomes">生物群落图</option>
-            <option value="heightmap">高度图</option>
+            <option value="heightmap">高程图</option>
             <option value="physical">物理地图</option>
             <option value="poi">名胜古迹</option>
             <option value="military">军事地图</option>
@@ -462,7 +462,7 @@
               class="buttonoff"
               onclick="toggleHeight(event)"
             >
-              高度图(<u>h</u>)
+              高程图(<u>h</u>)
             </li>
             <li
               id="toggleBiomes"
@@ -691,7 +691,7 @@
               标准
             </button>
             <button
-              data-tip="3D 显示地图。展示高度图效果最好。无法编辑"
+              data-tip="3D 显示地图。展示高程图效果最好。无法编辑"
               id="viewMesh"
             >
               三维视景
@@ -745,7 +745,7 @@
             <option value="emblems">徽标</option>
             <option value="fogging">雾</option>
             <option value="gridOverlay">网格</option>
-            <option value="terrs">高度图</option>
+            <option value="terrs">高程图</option>
             <option value="ice">冰</option>
             <option value="labels">标签</option>
             <option value="lakes">湖</option>
@@ -1229,7 +1229,7 @@
                 <td><select id="styleStatesBodyFilter" /></td>
               </tr>
 
-              <tr data-tip="设置国家光环效果宽度">
+              <tr data-tip="设置国家光晕效果宽度">
                 <td>光晕宽度</td>
                 <td>
                   <input id="styleStatesHaloWidth" type="range" min="0" max="30" step=".1" value="10" />
@@ -1237,7 +1237,7 @@
                 </td>
               </tr>
 
-              <tr data-tip="设置光晕不透明度。0: 不可见，1: 纯色">
+              <tr data-tip="设置光晕不透明度。0: 不可见 1: 纯色">
                 <td>光晕不透明度</td>
                 <td>
                   <input id="styleStatesHaloOpacity" type="range" min="0" max="1" step="0.01" value="1" />
@@ -1422,7 +1422,7 @@
           <div id="mapFilters" data-tip="设置一个滤镜，应用于地图">
             <p>切换地图滤镜：</p>
             <button id="grayscale" class="radio">灰度</button>
-            <button id="sepia" class="radio">乌贼墨</button>
+            <button id="sepia" class="radio">墨色</button>
             <button id="dingy" class="radio">浊色</button>
             <button id="tint" class="radio">淡色</button>
           </div>
@@ -1478,7 +1478,7 @@
               data-tip="设置用于图形生成的点数。这会严重影响性能。10K是唯一推荐值"
             >
               <td></td>
-              <td>点数</td>
+              <td>生成点数</td>
               <td>
                 <input id="pointsInput" type="range" min="1" max="13" value="4" data-cells="10000" />
               </td>
@@ -1511,7 +1511,7 @@
               <td>
                 <i data-locked="0" id="lock_era" class="icon-lock-open"></i>
               </td>
-              <td>年代</td>
+              <td>时间年代</td>
               <td>
                 <input
                   id="yearInput"
@@ -1536,11 +1536,11 @@
               </td>
             </tr>
 
-            <tr data-tip="选择要在生成时使用的模板或预创建的高度图">
+            <tr data-tip="选择要在生成时使用的模板或预创建的高程图">
               <td>
                 <i data-locked="0" id="lock_template" class="icon-lock-open"></i>
               </td>
-              <td>高度图</td>
+              <td>高程图</td>
               <td id="templateInputContainer" class="pointer">
                 <select id="templateInput" data-stored="template" style="pointer-events: none"></select>
               </td>
@@ -1560,21 +1560,21 @@
               </td>
             </tr>
 
-            <tr data-tip="选择一组用于生成名称和文化的文化">
+            <tr data-tip="选择一组用于生成名称和文化的文化风格">
               <td>
                 <i data-locked="0" id="lock_culturesSet" class="icon-lock-open"></i>
               </td>
               <td>文化设定</td>
               <td>
                 <select id="culturesSet" data-stored="culturesSet">
-                  <option value="world" data-max="32" selected>All-world</option>
-                  <option value="european" data-max="15">European</option>
-                  <option value="oriental" data-max="13">Oriental</option>
-                  <option value="english" data-max="10">English</option>
-                  <option value="antique" data-max="10">Antique</option>
-                  <option value="highFantasy" data-max="17">High Fantasy</option>
-                  <option value="darkFantasy" data-max="18">Dark Fantasy</option>
-                  <option value="random" data-max="100">Random</option>
+                  <option value="world" data-max="32" selected>全世界(All-world)</option>
+                  <option value="european" data-max="15">欧式(European)</option>
+                  <option value="oriental" data-max="13">东方式(Oriental)</option>
+                  <option value="english" data-max="10">英式(English)</option>
+                  <option value="antique" data-max="10">老式(Antique)</option>
+                  <option value="highFantasy" data-max="17">古典幻想(High Fantasy)</option>
+                  <option value="darkFantasy" data-max="18">黑暗幻想(Dark Fantasy)</option>
+                  <option value="random" data-max="100">随机(Random)</option>
                 </select>
               </td>
               <td></td>
@@ -1584,7 +1584,7 @@
               <td>
                 <i data-locked="0" id="lock_regions" class="icon-lock-open"></i>
               </td>
-              <td>国家数</td>
+              <td>国家数量</td>
               <td>
                 <input id="regionsInput" data-stored="regions" type="range" min="0" max="99" value="13" />
               </td>
@@ -1610,7 +1610,7 @@
               <td>
                 <i data-locked="0" id="lock_power" class="icon-lock-open"></i>
               </td>
-              <td>大小和种类</td>
+              <td>大小种类</td>
               <td>
                 <input id="powerInput" data-stored="power" type="range" min="0" max="10" step=".2" value="5" />
               </td>
@@ -1623,7 +1623,7 @@
               <td>
                 <i data-locked="0" id="lock_neutral" class="icon-lock-open"></i>
               </td>
-              <td>增长率</td>
+              <td>增长速率</td>
               <td>
                 <input id="neutralInput" data-stored="neutral" type="range" min=".1" max="2" step=".1" value="1" />
               </td>
@@ -1730,7 +1730,7 @@
 
             <tr data-tip="设置自动保存间隔，以分钟为单位。设置0为禁用自动保存。地图被保存到浏览器内存中">
               <td></td>
-              <td>自动保存间隔</td>
+              <td>自动保存</td>
               <td>
                 <input
                   id="autosaveIntervalInput"
@@ -1757,7 +1757,7 @@
 
             <tr data-tip="选择合成语音来朗读生成的名称">
               <td></td>
-              <td>朗读人声音</td>
+              <td>朗读人声</td>
               <td>
                 <select id="speakerVoice" data-stored="speakerVoice"></select>
               </td>
@@ -1899,7 +1899,7 @@
               <td>
                 <i data-tip="重置语言为英语" id="resetLanguage" class="icon-ccw"></i>
               </td>
-              <td>语言</td>
+              <td>界面语言</td>
               <td>
                 <button id="loadGoogleTranslateButton">初始化谷歌翻译</button>
                 <div id="google_translate_element"></div>
@@ -1931,13 +1931,13 @@
           <div>
             <button
               id="editHeightmapButton"
-              data-tip="点击以打开 高度图 自定义菜单"
+              data-tip="点击以打开 高程图 自定义菜单"
               data-shortcut="Shift + H"
             >
-            高度图
+            高程图
             </button>
             <button id="editBiomesButton" data-tip="点击打开生物组编辑器" data-shortcut="Shift + B">
-              生物群落
+              生物群
             </button>
             <button id="editStatesButton" data-tip="点击此处可打开国家编辑器" data-shortcut="Shift + S">
               国家
@@ -2100,18 +2100,18 @@
         </div>
 
         <div id="customizationMenu" class="tabcontent">
-          <p>高度图自定义工具：</p>
+          <p>高程图自定义工具：</p>
           <div id="customizeTools">
             <button data-tip="显示笔刷面板" id="paintBrushes">笔刷</button>
             <button data-tip="打开模板编辑器" id="applyTemplate" style="display: none">模板编辑器</button>
             <button data-tip="打开图像转换器" id="convertImage" style="display: none">图像转换器</button>
-            <button data-tip="将高度图数据渲染为一个小的单色图像" id="heightmapPreview">预览</button>
-            <button data-tip="在3D 场景中预览高度图" id="heightmap3DView">3D场景</button>
+            <button data-tip="将高程图数据渲染为一个小的单色图像" id="heightmapPreview">预览</button>
+            <button data-tip="在3D 场景中预览高程图" id="heightmap3DView">3D场景</button>
           </div>
 
           <p>Options:</p>
           <div id="customizeOptions">
-            <div data-tip="高度图编辑模式">编辑模式：<span id="heightmapEditMode"></span></div>
+            <div data-tip="高程图编辑模式">编辑模式：<span id="heightmapEditMode"></span></div>
             <div data-tip="渲染低于海平面的单元格（高度小于20）">
               <input id="renderOcean" class="checkbox" type="checkbox" />
               <label for="renderOcean" class="checkbox-label">生成海洋单元格</label>
@@ -2268,7 +2268,7 @@
 
     <div id="exitCustomization">
       <div data-tip="拖动以移动窗格">
-        <button data-tip="完成高度图并退出编辑模式" id="finalizeHeightmap">
+        <button data-tip="完成高程图并退出编辑模式" id="finalizeHeightmap">
           退出自定义
         </button>
       </div>
@@ -3958,7 +3958,7 @@
           <button data-type="Trough" data-tip="Trough: 拉长的凹陷">T</button>
           <button data-type="Strait" data-tip="Strait: 中心垂直或水平凹陷">S</button>
           <button data-type="Mask" data-tip="Mask: 靠近边缘或在地图中心的下部单元格">M</button>
-          <button data-type="Invert" data-tip="沿着轴线反转高度图">I</button>
+          <button data-type="Invert" data-tip="沿着轴线反转高程图">I</button>
           <button data-type="Add" data-tip="从范围内的所有高度增加或减少值">+</button>
           <button data-type="Multiply" data-tip="将范围内所有高度乘以因数">*</button>
           <button
@@ -4013,7 +4013,7 @@
             onclick="wiki('Heightmap-template-editor')"
           ></button>
           <label
-            data-tip="如果你希望模板每次都生成相同的高度图，则锁定种子(点击锁定图标)"
+            data-tip="如果你希望模板每次都生成相同的高程图，则锁定种子(点击锁定图标)"
           >
             Seed: <input id="templateSeed" value="" type="number" min="1" max="999999999" step="1" style="width: 8em" />
             <i data-locked="0" id="lock_templateSeed" class="icon-lock-open"></i>
@@ -4036,14 +4036,14 @@
           ></button>
           <button
             id="convertAutoFMG"
-            data-tip="使用生成器方案自动分配颜色(用于导出的彩色高度图)"
+            data-tip="使用生成器方案自动分配颜色(用于导出的彩色高程图)"
             class="icon-layer-group"
           ></button>
           <button id="convertColorsButton" data-tip="设置最大颜色数" class="icon-signal"></button>
           <input id="convertColors" value="100" style="display: none" />
           <button
             id="convertCancel"
-            data-tip="取消转换。将还原上一个高度图"
+            data-tip="取消转换。将还原上一个高程图"
             class="icon-cancel"
           ></button>
         </div>
@@ -4085,8 +4085,8 @@
           <div data-tip="按生物群落名称进行排序" class="sortable alphabetically" data-sortby="name">
             生物圈&nbsp;
           </div>
-          <div data-tip="按生物群落可居住性排序" class="sortable hide" data-sortby="habitability">
-            可居住性&nbsp;
+          <div data-tip="按生物群落宜居性排序" class="sortable hide" data-sortby="habitability">
+            宜居性&nbsp;
           </div>
           <div
             data-tip="按生物组单元数进行排序"
@@ -4914,10 +4914,10 @@
           <div data-tip="选择距离单位或提供自定义名称">
             <div>距离单位:</div>
             <select id="distanceUnitInput" data-stored="distanceUnit">
-              <option value="mi" selected>Mile (mi)</option>
-              <option value="km">Kilometer (km)</option>
-              <option value="lg">League (lg)</option>
-              <option value="vr">Versta (vr)</option>
+              <option value="mi" selected>英里 (mi)</option>
+              <option value="km">千米 (km)</option>
+              <option value="lg">里格 (lg|旧制约5公里)</option>
+              <option value="vr">维尔斯特 (vr|古俄单位)</option>
               <option value="custom_name">自定义名称</option>
             </select>
           </div>
@@ -4951,10 +4951,10 @@
           <div data-tip="选择一个高度单位或提供一个自定义名称">
             <div>高度单位:</div>
             <select id="heightUnit" data-stored="heightUnit">
-              <option value="ft" selected>Feet (ft)</option>
-              <option value="m">Meters (m)</option>
-              <option value="f">Fathoms (f)</option>
-              <option value="custom_name">Custom name</option>
+              <option value="ft" selected>英尺 (ft)</option>
+              <option value="m">米 (m)</option>
+              <option value="f">英寻 (f)</option>
+              <option value="custom_name">自定义名称</option>
             </select>
           </div>
 
@@ -4982,14 +4982,14 @@
           <div>
             <div>温度单位:</div>
             <select id="temperatureScale" data-stored="temperatureScale">
-              <option value="°C" selected>degree Celsius (°C)</option>
-              <option value="°F">degree Fahrenheit (°F)</option>
-              <option value="K">Kelvin (K)</option>
-              <option value="°R">degree Rankine (°R)</option>
-              <option value="°De">degree Delisle (°De)</option>
-              <option value="°N">degree Newton (°N)</option>
-              <option value="°Ré">degree Réaumur (°Ré)</option>
-              <option value="°Rø">degree Rømer (°Rø)</option>
+              <option value="°C" selected>摄氏度 (°C)</option>
+              <option value="°F">华氏度 (°F)</option>
+              <option value="K">开氏度 (K)</option>
+              <option value="°R">兰氏度 (°R)</option>
+              <option value="°De">德利尔度 (°De)</option>
+              <option value="°N">牛顿度 (°N)</option>
+              <option value="°Ré">列氏度 (°Ré)</option>
+              <option value="°Rø">罗氏度 (°Rø)</option>
             </select>
           </div>
 
@@ -5042,7 +5042,7 @@
           </div>
 
           <div data-tip="设置一个人口点有多少人">
-            <div>1个人口点 =</div>
+            <div>每人口点 =</div>
             <input
               id="populationRateOutput"
               data-stored="populationRate"
@@ -5147,10 +5147,10 @@
           城市&nbsp;
           </div>
           <div data-tip="点击以按省名排序" class="sortable alphabetically" data-sortby="province">
-            省&nbsp;
+            省份&nbsp;
           </div>
-          <div data-tip="点击此处可按州名进行排序" class="sortable alphabetically" data-sortby="state">
-            国&nbsp;
+          <div data-tip="点击此处可按国名进行排序" class="sortable alphabetically" data-sortby="state">
+            国家&nbsp;
           </div>
           <div data-tip="点击此处可按文化名称排序" class="sortable alphabetically" data-sortby="culture">
             文化&nbsp;
@@ -5907,7 +5907,7 @@
 
         <p>要更改的设置: 填充率、地图像素大小</p>
         <p>
-          要复制的数据: 高度图，生物群落，宗教，人口，降水，文化，州，省，军事
+          要复制的数据: 高程图，生物群落，宗教，人口，降水，文化，国，省，军事
         </p>
         <p>待更新的数据: 区域、道路、河流</p>
         <p>城市可能重新映射错误，需要手动更改</p>
@@ -7768,7 +7768,6 @@
     <script src="libs/jquery-3.1.1.min.js"></script>
     <script src="libs/jquery-ui.min.js"></script>
     <script src="versioning.js"></script>
-    <script src="message.js"></script>
     <script src="libs/d3.min.js"></script>
     <script src="libs/priority-queue.min.js"></script>
     <script src="libs/delaunator.min.js"></script>
