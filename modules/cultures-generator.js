@@ -110,7 +110,7 @@ window.Cultures = (function () {
 
     // make sure all bases exist in nameBases
     if (!nameBases.length) {
-      ERROR && console.error("���ƿ�Ϊ�գ���Ӧ��Ĭ�ϵ����ƿ�");
+      ERROR && console.error("名称库为空，应用默认库");
       nameBases = Names.getNameBases();
     }
 
