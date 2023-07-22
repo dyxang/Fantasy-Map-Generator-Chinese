@@ -1454,11 +1454,11 @@ function editHeightmap(options) {
           取消: function () {
             $(this).dialog("close");
           },
-          Complete: function () {
+          完成: function () {
             $(this).dialog("close");
             applyConversion();
           },
-          Close: function () {
+          关闭: function () {
             $(this).dialog("close");
             restoreImageConverterState();
             viewbox.select("#heights").selectAll("polygon").remove();

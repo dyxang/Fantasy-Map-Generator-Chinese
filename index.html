@@ -4026,12 +4026,12 @@
           <button id="convertImageLoad" data-tip="加载要转换的图像" class="icon-upload"></button>
           <button
             id="convertAutoLum"
-            data-tip="基于阈值自动分配颜色(适用于单色图像)"
+            data-tip="基于阈值自动分配颜色(灰度高程图)"
             class="icon-adjust"
           ></button>
           <button
             id="convertAutoHue"
-            data-tip="根据色相自动分配颜色(适用于彩色图像)"
+            data-tip="根据色相自动分配颜色(彩色高程图)"
             class="icon-paint-roller"
           ></button>
           <button
@@ -4062,7 +4062,8 @@
         </div>
 
         <div data-tip="选择一种颜色来重新分配高度值" id="colorsAssigned" style="display: none">
-          <i>指定颜色(<span id="colorsAssignedNumber"></span>):</i><br />
+          <i>指定颜色 (<span id="colorsAssignedNumber"></span>):</i>
+          <div id="colorsAssignedContainer" class="colorsContainer"></div>
         </div>
 
         <div data-tip="选择一种颜色来分配高度值" id="colorsUnassigned" style="display: none">
