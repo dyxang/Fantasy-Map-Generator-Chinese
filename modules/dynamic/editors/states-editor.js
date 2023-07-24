@@ -114,6 +114,7 @@ function insertEditorHtml() {
       </div>
 
       <button id="statesAdd" data-tip="添加一个新国家。按住 Shift 添加多个" class="icon-plus"></button>
+      <button id="statesMerge" data-tip="合并多个国家为一个" class="icon-layer-group"></button>
       <button id="statesExport" data-tip="将与国家相关的数据保存为文本文件(.csv)" class="icon-download"></button>
     </div>
   </div>`;
@@ -140,6 +141,7 @@ function addListeners() {
   byId("statesManuallyApply").on("click", applyStatesManualAssignent);
   byId("statesManuallyCancel").on("click", () => exitStatesManualAssignment(false));
   byId("statesAdd").on("click", enterAddStateMode);
+  byId("statesMerge").on("click", openStateMergeDialog);
   byId("statesExport").on("click", downloadStatesCsv);
 
   $body.on("click", event => {
@@ -1326,7 +1328,141 @@ function exitAddStateMode() {
   $body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "all"));
   if (statesAdd.classList.contains("pressed")) statesAdd.classList.remove("pressed");
 }
+function openStateMergeDialog() {
+  const emblem = i => /* html */ `<svg class="coaIcon" viewBox="0 0 200 200"><use href="#stateCOA${i}"></use></svg>`;
+  const validStates = pack.states.filter(s => s.i && !s.removed);
 
+  const statesSelector = validStates
+    .map(
+      s => /* html */ `
+      <div data-tip="${s.fullName}">
+        <input type="radio" name="rulingState" value="${s.i}" />
+        <input id="selectState${s.i}" class="checkbox" type="checkbox" name="statesToMerge" value="${s.i}"} />
+        <label for="selectState${s.i}" class="checkbox-label">${emblem(s.i)}${s.fullName}</label>
+      </div>
+    `
+    )
+    .join("");
+
+  alertMessage.innerHTML = /* html */ `
+    <form id='mergeStatesForm' style="overflow: hidden; display: flex; flex-direction: column; gap: 1em;">
+      <header style='font-weight:bold;'>选择要并入的多个国家和合并后的统治国家</header>
+      <main style='display: grid; grid-template-columns: 1fr 1fr; gap: .3em;'>
+        ${statesSelector}
+      </main>
+    </form>
+  `;
+
+  $("#alert").dialog({
+    width: fitContent(),
+    title: `合并国家`,
+    buttons: {
+      Merge: function () {
+        const formData = new FormData(byId("mergeStatesForm"));
+
+        const rulingStateId = Number(formData.get("rulingState"));
+        if (!rulingStateId) return tip("请选择并入后的统治国家", false, "error");
+        const rullingState = pack.states[rulingStateId];
+
+        const statesToMerge = formData
+          .getAll("statesToMerge")
+          .map(Number)
+          .filter(stateId => stateId !== rulingStateId);
+        if (!statesToMerge.length) return tip("请选择被合并的几个国家", false, "error");
+
+        confirmationDialog({
+          title: "合并国家",
+          // prettier-ignore
+          message: /* html */ `
+            <p>以下国家将被 <strong>移除</strong>: ${statesToMerge.map(stateId => `${emblem(stateId)}${pack.states[stateId].name}`).join(", ")}.</p>
+            <p>删除的国家数据(市镇、省、军队)将分配给以下国家: ${emblem(rullingState.i)}${rullingState.name}.</p>
+            <p>你确定要合并国家吗?此操作<strong>无法恢复</strong>。</p>`,
+          confirm: "并入",
+          onConfirm: () => {
+            mergeStates(statesToMerge, rulingStateId);
+            $(this).dialog("close");
+          }
+        });
+      },
+      Cancel: function () {
+        $(this).dialog("close");
+      }
+    }
+  });
+
+  function mergeStates(statesToMerge, rulingStateId) {
+    const rulingState = pack.states[rulingStateId];
+
+    // remove states to be merged
+    statesToMerge.forEach(stateId => {
+      const state = pack.states[stateId];
+      state.removed = true;
+
+      statesBody.select("#state" + stateId).remove();
+      statesBody.select("#state-gap" + stateId).remove();
+      statesHalo.select("#state-border" + stateId).remove();
+      labels.select("#stateLabel" + stateId).remove();
+      defs.select("#textPath_stateLabel" + stateId).remove();
+
+      byId("stateCOA" + stateId).remove();
+      emblems.select(`#stateEmblems > use[data-i='${stateId}']`).remove();
+
+      // add merged state regiments to the ruling state
+      state.military.forEach(m => {
+        const oldId = `regiment${stateId}-${m.i}`;
+
+        const newRegiment = {...m, i: rulingState.military.length};
+        rulingState.military.push(newRegiment);
+
+        const newId = `regiment${rulingStateId}-${newRegiment.i}`;
+
+        const note = notes.find(n => n.id === oldId);
+        if (note) note.id = newId;
+
+        const rulingStateArmy = armies.select("g#army" + rulingStateId);
+        armies
+          .select("g#army" + stateId)
+          .selectAll("g")
+          .each(function () {
+            this.setAttribute("id", newId);
+            rulingStateArmy.node().appendChild(this);
+          });
+        armies.select("g#army" + stateId).remove();
+      });
+    });
+
+    // reassing burgs
+    pack.burgs.forEach(b => {
+      if (statesToMerge.includes(b.state)) {
+        if (b.capital) {
+          moveBurgToGroup(b.i, "towns");
+          b.capital = 0;
+        }
+        b.state = rulingStateId;
+      }
+    });
+
+    // reassign provinces
+    pack.provinces.forEach((p, i) => {
+      if (statesToMerge.includes(p.state)) p.state = rulingStateId;
+    });
+
+    // reassing cells
+    pack.cells.state.forEach((s, i) => {
+      if (statesToMerge.includes(s)) pack.cells.state[i] = rulingStateId;
+    });
+
+    unfog();
+    debug.selectAll(".highlight").remove();
+
+    layerIsOn("toggleStates") ? drawStates() : toggleStates();
+    layerIsOn("toggleBorders") ? drawBorders() : toggleBorders();
+    layerIsOn("toggleProvinces") && drawProvinces();
+    BurgsAndStates.drawStateLabels([rulingStateId]);
+
+    refreshStatesEditor();
+  }
+}
 function downloadStatesCsv() {
   const unit = getAreaUnit("2");
   const headers = `Id,State,Full Name,Form,Color,Capital,Culture,Type,Expansionism,Cells,Burgs,Area ${unit},Total Population,Rural Population,Urban Population`;

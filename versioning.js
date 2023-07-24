@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.89.34";// generator version, update each time
+const version = "1.89.35";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -30,7 +30,8 @@ const version = "1.89.34";// generator version, update each time
 <p>我一直在修补这个个人汉化版本，但是也不知道有多少人在用，而且该网站域名九月初就要到期了，所以我发起了一个投票（在【关于】页面里），看看使用汉化的人多不多，多的话我就续费域名。</p>
 
       <ul>
-        <strong>以下是大版本更新内容，修复及改进不列出:</strong>
+        <strong>以下是版本更新内容，修复及改进不列出:</strong>
+        <li style="color: red;" >支持国家合并</li>
         <li>自动保存功能(选项中)</li>
         <li>谷歌翻译(选项中)</li>
         <li>宗教可以像文化一样被编辑和重绘</li>
