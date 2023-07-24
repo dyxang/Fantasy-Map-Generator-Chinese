@@ -310,7 +310,7 @@ window.Submap = (function () {
 
     stage("重画徽章.");
     drawEmblems();
-    stage("再生区域.");
+    stage("重生区域.");
     addZones();
     Names.getMapName();
     stage("还原笔记.");

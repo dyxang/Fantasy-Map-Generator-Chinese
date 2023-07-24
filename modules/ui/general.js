@@ -68,9 +68,9 @@ function showDataTip(event) {
 function showElementLockTip(event) {
   const locked = event?.target?.classList?.contains("icon-lock");
   if (locked) {
-    tip("点击以解锁该元素并允许通过再生工具更改该元素");
+    tip("点击以解锁该元素并允许通过重生工具更改该元素");
   } else {
-    tip("点击以锁定元素并防止再生工具对其进行更改");
+    tip("点击以锁定元素并防止重生工具对其进行更改");
   }
 }
 
@@ -148,7 +148,7 @@ function showMapTooltip(point, e, i, g) {
 
   if (group === "routes") return tip("点击编辑路线");
 
-  if (group === "terrain") return tip("点击以编辑浮雕图标");
+  if (group === "terrain") return tip("点击以编辑地貌图标");
 
   if (subgroup === "burgLabels" || subgroup === "burgIcons") {
     const burg = +path[path.length - 10].dataset.id;
