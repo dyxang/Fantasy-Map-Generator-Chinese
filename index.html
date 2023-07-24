@@ -519,12 +519,12 @@
             </li>
             <li
               id="toggleRelief"
-              data-tip="浮雕和生物群落图标：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
+              data-tip="地貌图标和生物群落图标：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="F"
               class="buttonoff"
               onclick="toggleRelief(event)"
             >
-              浮标(<u>f</u>)
+              地貌图标(<u>f</u>)
             </li>
             <li
               id="toggleReligions"
@@ -750,14 +750,14 @@
             <option value="labels">标签</option>
             <option value="lakes">湖</option>
             <option value="landmass">大陆</option>
-            <option value="legend">Legend</option>
+            <option value="legend">图列</option>
             <option value="markers">标记</option>
             <option value="armies">军事</option>
             <option value="ocean">大海</option>
             <option value="population">人口</option>
             <option value="prec">降水</option>
             <option value="provs">省</option>
-            <option value="terrain">Relief Icons</option>
+            <option value="terrain">地貌图标</option>
             <option value="relig">宗教</option>
             <option value="rivers">河流</option>
             <option value="routes">商路</option>
@@ -1045,7 +1045,7 @@
             </tbody>
 
             <tbody id="styleRelief">
-              <tr data-tip="选择一组浮雕图标。将重新生成所有浮雕图标">
+              <tr data-tip="选择一组地貌图标。将重新生成所有地貌图标">
                 <td>风格</td>
                 <td>
                   <select id="styleReliefSet">
@@ -1056,7 +1056,7 @@
                 </td>
               </tr>
 
-              <tr data-tip="定义浮雕图标的大小。将重新生成所有浮雕图标">
+              <tr data-tip="定义地貌图标的大小。将重新生成所有地貌图标">
                 <td>大小</td>
                 <td>
                   <input id="styleReliefSizeInput" data-stored="reliefSize" type="range" min=".2" max="4" step=".01" />
@@ -1065,7 +1065,7 @@
               </tr>
 
               <tr
-                data-tip="定义浮雕图标的密度。所有浮雕图标将重新生成。高度影响性能！"
+                data-tip="定义地貌图标的密度。所有地貌图标将重新生成。高度影响性能！"
               >
                 <td>密度</td>
                 <td>
@@ -1886,8 +1886,8 @@
               <td>形状渲染</td>
               <td>
                 <select id="shapeRendering" data-stored="shapeRendering">
-                  <option value="geometricPrecision">质量最好</option>
-                  <option value="optimizeSpeed" selected>性能最好</option>
+                  <option value="geometricPrecision">最佳质量</option>
+                  <option value="optimizeSpeed" selected>最佳性能</option>
                 </select>
               </td>
               <td></td>
@@ -2009,7 +2009,7 @@
             </button>
             <button
               id="regenerateReliefIcons"
-              data-tip="点击可根据当前单元格生物群落和海拔重新生成所有浮雕图标"
+              data-tip="点击可根据当前单元格生物群落和海拔重新生成所有地貌图标"
             >
             地形
             </button>
@@ -2118,7 +2118,7 @@
             </div>
             <div
               id="allowErosionBox"
-              data-tip="再生河流，让水流改变高度，形成新的湖泊。最好检查一下"
+              data-tip="重生河流，让水流改变高度，形成新的湖泊。最好检查一下"
             >
               <input id="allowErosion" class="checkbox" type="checkbox" checked />
               <label for="allowErosion" class="checkbox-label">允许水侵蚀</label>
@@ -2778,7 +2778,7 @@
           <input id="reliefRadiusNumber" oninput="reliefRadius.value = this.value" type="number" min="1" value="15" />
         </div>
 
-        <div id="reliefSpacingDiv" data-tip="设置浮雕图标之间的间距" style="display: none">
+        <div id="reliefSpacingDiv" data-tip="设置地貌图标之间的间距" style="display: none">
           <div class="reliefEditorLabel">间距：</div>
           <input
             id="reliefSpacing"
@@ -3036,8 +3036,8 @@
         </div>
 
         <div id="reliefBottom">
-          <button id="reliefEditStyle" data-tip="在样式编辑器中编辑浮雕图标样式" class="icon-adjust"></button>
-          <button id="reliefCopy" data-tip="复制选定的浮雕图标" class="icon-clone"></button>
+          <button id="reliefEditStyle" data-tip="在样式编辑器中编辑地貌图标样式" class="icon-adjust"></button>
+          <button id="reliefCopy" data-tip="复制选定的地貌图标" class="icon-clone"></button>
           <button id="reliefMoveFront" data-tip="将选定的图标移到前面" class="icon-level-up"></button>
           <button id="reliefMoveBack" data-tip="向后移动选定的图标" class="icon-level-down"></button>
           <button
@@ -4165,7 +4165,7 @@
           ></button>
           <button
             id="biomesRegenerateReliefIcons"
-            data-tip="基于当前生物群落和海拔再生浮雕图标"
+            data-tip="基于当前生物群落和海拔重生地貌图标"
             class="icon-tree"
           ></button>
           <button
@@ -5507,12 +5507,11 @@
             href="https://faqs.skillcrush.com/article/275-downloading-installing-a-font-on-your-computer"
             target="_blank"
             >安装在你的电脑上</a
-          >, 只要提供字体名称。请确保在安装后重新加载浏览器。这种字体在没有安装它的设备上无法工作。 好的字体来源有
-          <a href="https://fontesk.com" target="_blank">Fontdesk</a> 和
-          <a href="https://www.dafont.com" target="_blank">DaFont</a>.
+          >, 只需提供字体名称。请确保在安装后重新加载浏览器。这种字体在没有安装它的设备上无法工作。对于中国用户来说，推荐字体来源有
+          <a href="https://www.100font.com/" target="_blank">100font(免费可商用)</a> 和 Github 上的开源字体.
         </p>
         <p>
-          <strong>网络字体</strong>. 提供联机托管的字体文件的字体名称和链接。最好的免费字体托管是 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> and
+          <strong>网络字体</strong>. 请提供联机托管的字体文件的字体名称和链接。最好的免费字体托管是 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> and
           <a target="_blank" href="https://www.cdnfonts.com">CDN Fonts</a>. 要获取字体文件，请打开这些服务提供的 css 链接，并手动将该链接复制到所需变体的<code>woff2</code>。要添加另一个变体(例如西里尔字体) ，请在同一名称下再次添加该字体，但使用另一个 URL
         </p>
         <div style="margin-top: 0.3em" data-tip="选择字体添加方法">

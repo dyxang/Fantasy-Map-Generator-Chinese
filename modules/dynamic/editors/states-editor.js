@@ -51,7 +51,7 @@ function insertEditorHtml() {
       <button id="statesPercentage" data-tip="切换百分比/绝对值视图" class="icon-percent"></button>
       <button id="statesChart" data-tip="显示各国家的气泡图" class="icon-chart-area"></button>
 
-      <button id="statesRegenerate" data-tip="显示再生菜单和更多数据" class="icon-cog-alt"></button>
+      <button id="statesRegenerate" data-tip="显示重生菜单和更多数据" class="icon-cog-alt"></button>
       <div id="statesRegenerateButtons" style="display: none">
         <button id="statesRegenerateBack" data-tip="隐藏重生菜单" class="icon-cog-alt"></button>
         <button id="statesRandomize" data-tip="随机国家扩展值和重新计算国家和省" class="icon-shuffle"></button>
@@ -1357,7 +1357,7 @@ function openStateMergeDialog() {
     width: fitContent(),
     title: `合并国家`,
     buttons: {
-      Merge: function () {
+      并入: function () {
         const formData = new FormData(byId("mergeStatesForm"));
 
         const rulingStateId = Number(formData.get("rulingState"));
@@ -1384,7 +1384,7 @@ function openStateMergeDialog() {
           }
         });
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }
