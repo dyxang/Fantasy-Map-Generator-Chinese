@@ -12,7 +12,7 @@ function editIce() {
   ice.selectAll("*").classed("draggable", true).call(d3.drag().on("drag", dragElement));
 
   $("#iceEditor").dialog({
-    title: "Edit " + type,
+    title: "编辑 " + type,
     resizable: false,
     position: {my: "center top+60", at: "top", of: d3.event, collision: "fit"},
     close: closeEditor

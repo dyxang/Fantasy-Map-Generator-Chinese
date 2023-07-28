@@ -350,7 +350,7 @@ function getCellPopulation(i) {
 // get user-friendly (real-world) population value from map data
 function getFriendlyPopulation(i) {
   const [rural, urban] = getCellPopulation(i);
-  return `${si(rural + urban)} (${si(rural)} rural, urban ${si(urban)})`;
+  return `${si(rural + urban)} (${si(rural)} 农村人口, 城市 ${si(urban)})`;
 }
 
 function getPopulationTip(i) {

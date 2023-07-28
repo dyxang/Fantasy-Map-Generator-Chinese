@@ -1881,7 +1881,7 @@
               </td>
             </tr>
 
-            <tr data-tip="选择形状渲染模型，尝试设置性能最好来减缓卡顿反应慢等问题">
+            <tr data-tip="选择形状渲染模型，尝试最佳性能来减缓卡顿反应慢等问题">
               <td></td>
               <td>形状渲染</td>
               <td>
@@ -2482,7 +2482,7 @@
             <div class="label" style="width: 4.8em">名称：</div>
             <span
               id="riverNameCulture"
-              data-tip="为河流生成特定于文化的名称"
+              data-tip="依据文化为河流生成名字"
               class="icon-book pointer"
             ></span>
             <span id="riverNameRandom" data-tip="随机生成河流名称" class="icon-globe pointer"></span>
@@ -2495,17 +2495,17 @@
             <input id="riverType" autocorrect="off" spellcheck="false" />
           </div>
 
-          <div data-tip="选择父河流">
+          <div data-tip="选择主干">
             <div class="label">主干：</div>
             <select id="riverMainstem"></select>
           </div>
 
-          <div data-tip="河流流域（流域）">
-            <div class="label">盆地：</div>
+          <div data-tip="河流流域">
+            <div class="label">流域：</div>
             <input id="riverBasin" disabled />
           </div>
 
-          <div data-tip="河流流量（通量功率）">
+          <div data-tip="河流流量">
             <div class="label">流量：</div>
             <input id="riverDischarge" disabled />
           </div>
@@ -2526,7 +2526,7 @@
           </div>
 
           <div data-tip="河流宽度乘数。默认值为1">
-            <div class="label">宽度修改器：</div>
+            <div class="label">宽度倍数：</div>
             <input id="riverWidthFactor" type="number" min=".1" max="4" step=".1" />
           </div>
         </div>
@@ -2567,7 +2567,7 @@
             <div class="label" style="width: 4.8em">名称：</div>
             <span
               id="lakeNameCulture"
-              data-tip="为湖泊生成特定于文化的名称"
+              data-tip="依据文化为湖泊生成名字"
               class="icon-book pointer"
             ></span>
             <span id="lakeNameRandom" data-tip="随机生成湖名称" class="icon-globe pointer"></span>
@@ -3093,7 +3093,7 @@
                 <select id="burgCulture" style="width: 8em"></select>
                 <span
                   id="burgNameReCulture"
-                  data-tip="为城市生成特定于文化的名称"
+                  data-tip="依据文化为城市生成名字"
                   class="icon-book pointer"
                 ></span>
               </div>
@@ -3119,7 +3119,7 @@
                 ></span>
                 <span
                   id="burgCitadel"
-                  data-tip="显示城市是否有城城市。点击切换"
+                  data-tip="显示城市是否为要塞。点击切换"
                   data-feature="citadel"
                   class="burgFeature icon-chess-rook"
                   style="font-size: 1.1em"
@@ -3132,7 +3132,7 @@
                 ></span>
                 <span
                   id="burgPlaza"
-                  data-tip="显示城市是否是一个贸易中心(有大的市场)。点击切换"
+                  data-tip="显示城市是否为贸易中心(有大型市场)。点击切换"
                   data-feature="plaza"
                   class="burgFeature icon-store"
                   style="font-size: 1em"
@@ -3321,7 +3321,7 @@
           <button id="markerAdd" data-tip="添加该类型的其他标记" class="icon-plus"></button>
           <button
             id="markerRemove"
-            data-tip="Remove the marker"
+            data-tip="移除标记"
             data-shortcut="Delete"
             class="icon-trash fastDelete"
           ></button>
@@ -3388,13 +3388,13 @@
         <div id="battleBody">
           <template id="battlePhases_field">
             <button
-              data-tip="冲突阶段。范围单位优"
+              data-tip="冲突阶段。范围单位优势"
               data-phase="skirmish"
               class="icon-button-skirmish"
             ></button>
-            <button data-tip="近战阶段。近战单位表现出色" data-phase="melee" class="icon-button-melee"></button>
+            <button data-tip="近战阶段。近战单位优势" data-phase="melee" class="icon-button-melee"></button>
             <button
-              data-tip="追逐阶段，载具单位优"
+              data-tip="追逐阶段，载具单位优势"
               data-phase="pursue"
               class="icon-button-pursue"
             ></button>
@@ -3417,7 +3417,7 @@
               class="icon-button-boarding"
             ></button>
             <button
-              data-tip="海军单位追击敌人舰队，很少炮击敌人舰队"
+              data-tip="海军单位追击敌人舰队，少量炮击敌人舰队"
               data-phase="chase"
               class="icon-button-chase"
             ></button>
@@ -3440,7 +3440,7 @@
               class="icon-button-bombardment"
             ></button>
             <button
-              data-tip="攻击阶段，攻击敌人的城市，近战单位优先"
+              data-tip="攻击阶段，攻击敌人的城市，近战单位优势"
               data-phase="storming"
               class="icon-button-storming"
             ></button>
@@ -3458,12 +3458,12 @@
 
           <template id="battlePhases_siege_defenders">
             <button
-              data-tip="躲起来，躲在墙后面等着"
+              data-tip="躲在掩体后等待"
               data-phase="sheltering"
               class="icon-button-sheltering"
             ></button>
             <button
-              data-tip="出击阶段，从被包围的城市出击，近战单位优先"
+              data-tip="出击阶段，从被包围的城市出击，近战单位优势"
               data-phase="sortie"
               class="icon-button-sortie"
             ></button>
@@ -3473,7 +3473,7 @@
               class="icon-button-bombardment"
             ></button>
             <button
-              data-tip="防御阶段。远程和近战单位擅长"
+              data-tip="防御阶段。远程和近战单位优势"
               data-phase="defense"
               class="icon-button-defense"
             ></button>
@@ -3483,7 +3483,7 @@
               class="icon-button-surrendering"
             ></button>
             <button
-              data-tip="追踪阶段，骑警优先"
+              data-tip="追踪阶段，弓骑兵优势"
               data-phase="pursue"
               class="icon-button-pursue"
             ></button>
@@ -3495,9 +3495,9 @@
               data-phase="shock"
               class="icon-button-shock"
             ></button>
-            <button data-tip="近战阶段，近战单位优先" data-phase="melee" class="icon-button-melee"></button>
+            <button data-tip="近战阶段，近战单位优势" data-phase="melee" class="icon-button-melee"></button>
             <button
-              data-tip="追踪阶段，骑警优先"
+              data-tip="追踪阶段，弓骑兵优势"
               data-phase="pursue"
               class="icon-button-pursue"
             ></button>
@@ -3510,13 +3510,13 @@
 
           <template id="battlePhases_ambush_defenders">
             <button
-              data-tip="超价攻击阶段。单位强度增加，远程单位优先"
+              data-tip="超价攻击阶段。单位强度增加，远程单位优势"
               data-phase="surprise"
               class="icon-button-surprise"
             ></button>
-            <button data-tip="近战阶段，近战单位优先" data-phase="melee" class="icon-button-melee"></button>
+            <button data-tip="近战阶段，近战单位优势" data-phase="melee" class="icon-button-melee"></button>
             <button
-              data-tip="追踪阶段，骑警优先"
+              data-tip="追踪阶段，弓骑兵优势"
               data-phase="pursue"
               class="icon-button-pursue"
             ></button>
@@ -3533,9 +3533,9 @@
               data-phase="landing"
               class="icon-button-landing"
             ></button>
-            <button data-tip="近战阶段，近战单位优先" data-phase="melee" class="icon-button-melee"></button>
+            <button data-tip="近战阶段，近战单位优势" data-phase="melee" class="icon-button-melee"></button>
             <button
-              data-tip="追踪阶段，骑警优先"
+              data-tip="追踪阶段，弓骑兵优势"
               data-phase="pursue"
               class="icon-button-pursue"
             ></button>
@@ -3553,14 +3553,14 @@
               data-phase="defense"
               class="icon-button-defense"
             ></button>
-            <button data-tip="近战阶段，近战单位优先" data-phase="melee" class="icon-button-melee"></button>
+            <button data-tip="近战阶段，近战单位优势" data-phase="melee" class="icon-button-melee"></button>
             <button
               data-tip="等待阶段。无法追捕逃亡的海军"
               data-phase="waiting"
               class="icon-button-waiting"
             ></button>
             <button
-              data-tip="追击阶段，设法拦截逃跑的攻击者，骑兵小队优先"
+              data-tip="追击阶段，设法拦截逃跑的攻击者，弓骑兵小队优势"
               data-phase="pursue"
               class="icon-button-pursue"
             ></button>
@@ -3684,7 +3684,7 @@
             data-tip="输入全名" style="width: 46%">
             <button
               id="battleNameCulture"
-              data-tip="为地点和战役生成特定于文化的名称"
+              data-tip="依据文化为地点和战役生成名字"
               class="icon-book"
             ></button>
             <button
@@ -3696,7 +3696,7 @@
 
           <button id="battleAddRegiment" data-tip="在战斗中加入军队" class="icon-user-plus"></button>
           <button id="battleRoll" data-tip="掷骰子来更新随机因子" class="icon-die"></button>
-          <button id="battleRun" data-tip="一次又一次的战斗" class="icon-play"></button>
+          <button id="battleRun" data-tip="重复战斗" class="icon-play"></button>
           <button
             id="battleApply"
             data-tip="结束战斗: 应用当前结果并关闭窗口"
@@ -4189,7 +4189,7 @@
           <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="stateNameEditorShortCulture"
-            data-tip="生成特定于文化的名称"
+            data-tip="依据文化生成名字"
             class="icon-book pointer"
           ></span>
           <span id="stateNameEditorShortRandom" data-tip="随机生成名称" class="icon-globe pointer"></span>
@@ -4474,7 +4474,7 @@
           <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="provinceNameEditorShortCulture"
-            data-tip="生成特定于文化的名称"
+            data-tip="依据文化生成名字"
             class="icon-book pointer"
           ></span>
           <span id="provinceNameEditorShortRandom" data-tip="随机生成名称" class="icon-globe pointer"></span>
@@ -5273,7 +5273,7 @@
             国家&nbsp;
           </div>
           <div
-            data-tip="军事人员总数(考虑组员（Crew）)。点击以进行排序"
+            data-tip="军事人员总数(考虑工作人员)。点击以进行排序"
             id="militaryTotal"
             class="sortable icon-sort-number-down"
             data-sortby="total"
@@ -5355,7 +5355,7 @@
             名称&nbsp;
           </div>
           <div
-            data-tip="军事人员总数(不包括组员（Crew）)。点击以进行排序"
+            data-tip="军事人员总数(不包括工作人员)。点击以进行排序"
             id="regimentsTotal"
             class="sortable icon-sort-number-down"
             data-sortby="total"
@@ -5373,7 +5373,7 @@
             data-tip="切换百分比/绝对值视图"
             class="icon-percent"
           ></button>
-          <button id="regimentsAddNew" data-tip="加入新军队" class="icon-user-plus"></button>
+          <button id="regimentsAddNew" data-tip="单击后点击地图新建军队" class="icon-user-plus"></button>
           <div data-tip="选择国家" style="display: inline-block">
             <span>国家: </span
             ><select id="regimentsFilter"></select>
@@ -5399,7 +5399,7 @@
                 <th style="width: 5em" data-tip="选择允许的宗教">宗教</th>
                 <th data-tip="农村人口征兵比例">农村</th>
                 <th data-tip="城市人口征兵比例">城市</th>
-                <th data-tip="组员（Crew）平均人数(用于计算总人数)">组员（Crew）</th>
+                <th data-tip="工作人员平均人数(用于计算总人数)">工作人员</th>
                 <th data-tip="单位军事力量(用于作战模拟)">力量</th>
                 <th data-tip="单位类型适用于重新计算力的特殊规则">类型</th>
                 <th data-tip="检查单元是否是独立的，是否只能与相同类型的单元堆叠">Sep.</th>
@@ -5558,7 +5558,7 @@
         <div style="font-style: italic; font-size: 1.2em; margin: 0.4em 0 0 0.4em">
           <span>从列表中选择或粘贴 Unicode字符: </span>
           <input id="iconInput" style="width: 2em" />
-          <span>. See <a href="https://emojipedia.org" target="_blank">Emojipedia</a> for reference</span>
+          <span>. 查阅<a href="https://emojipedia.org" target="_blank">Emojipedia</a></span>
         </div>
       </div>
 
@@ -5917,7 +5917,7 @@
           <input id="submapLockMarkers" class="checkbox" type="checkbox" checked />
           <label for="submapLockMarkers" class="checkbox-label">标记</label>
         </div>
-        <div data-tip="锁定从原始地图复制的所有城堡">
+        <div data-tip="锁定从原始地图复制的所有城市">
           <input id="submapLockBurgs" class="checkbox" type="checkbox" checked />
           <label for="submapLockBurgs" class="checkbox-label">城市</label>
         </div>
@@ -5927,7 +5927,7 @@
           <input id="submapDepressRivers" class="checkbox" type="checkbox" />
           <label for="submapDepressRivers" class="checkbox-label">侵蚀河床</label>
         </div>
-        <div data-tip="重新缩放样式(堡标签，徽标大小) ，以匹配新的规模">
+        <div data-tip="重新缩放样式(城市标签，徽标大小) ，以匹配新的规模">
           <input id="submapRescaleStyles" class="checkbox" type="checkbox" checked />
           <label for="submapRescaleStyles" class="checkbox-label">缩放样式</label>
         </div>
