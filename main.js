@@ -135,7 +135,7 @@ fogging
   .attr("filter", "url(#splotch)");
 
 // assign events separately as not a viewbox child
-scaleBar.on("mousemove", () => tip("点击打开单位编辑器")).on("click", () => editUnits());
+scaleBar.on("mousemove", () => tip("打开单位编辑器")).on("click", () => editUnits());
 legend
   .on("mousemove", () => tip("拖动来改变位置。点击以隐藏图例"))
   .on("click", () => clearLegend());
@@ -292,7 +292,7 @@ async function checkLoadParameters() {
     console.error(error);
           }
 
-    WARN && console.warn("生成随机地图");
+    WARN && console.warn("随机生成地图");
   generateMapOnLoad();
 }
 
@@ -2012,7 +2012,7 @@ function showStatistics() {
 }
 
 const regenerateMap = debounce(async function (options) {
-  WARN && console.warn("生成新随机地图");
+  WARN && console.warn("随机生成新地图");
 
   const cellsDesired = +byId("pointsInput").dataset.cells;
   const shouldShowLoading = cellsDesired > 10000;

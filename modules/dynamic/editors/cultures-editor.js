@@ -25,14 +25,14 @@ export function open() {
 function insertEditorHtml() {
   const editorHtml = /* html */ `<div id="culturesEditor" class="dialog stable">
     <div id="culturesHeader" class="header" style="grid-template-columns: 10em 7em 8em 4em 8em 5em 8em 8em">
-      <div data-tip="点击此处可按文化名称排序" class="sortable alphabetically" data-sortby="name">文化&nbsp;</div>
-      <div data-tip="点击此处可按类型排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
-      <div data-tip="点击此处可按文化命名库进行排序" class="sortable" data-sortby="base">名称库&nbsp;</div>
-      <div data-tip="点击此处可按文化单元格计数进行排序" class="sortable hide" data-sortby="cells">单元格&nbsp;</div>
-      <div data-tip="按扩张主义排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
-      <div data-tip="点击此处可按文化面积进行排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
-      <div data-tip="点击此处可按文化人口进行排序" class="sortable hide icon-sort-number-down" data-sortby="population">人口&nbsp;</div>
-      <div data-tip="点击可按文化徽标形状排序" class="sortable alphabetically hide" data-sortby="emblems">徽章&nbsp;</div>
+      <div data-tip="按文化名称排序" class="sortable alphabetically" data-sortby="name">文化&nbsp;</div>
+      <div data-tip="按类型排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
+      <div data-tip="按文化命名库进行排序" class="sortable" data-sortby="base">名称库&nbsp;</div>
+      <div data-tip="按文化单元格计数进行排序" class="sortable hide" data-sortby="cells">单元格&nbsp;</div>
+      <div data-tip="按扩张值排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
+      <div data-tip="按文化面积进行排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
+      <div data-tip="按文化人口进行排序" class="sortable hide icon-sort-number-down" data-sortby="population">人口&nbsp;</div>
+      <div data-tip="按文化徽标形状排序" class="sortable alphabetically hide" data-sortby="emblems">徽章&nbsp;</div>
     </div>
     <div id="culturesBody" class="table" data-type="absolute"></div>
 
@@ -79,7 +79,7 @@ function insertEditorHtml() {
       <button id="culturesRecalculate" data-tip="根据增长相关属性的当前值重新计算文化" class="icon-retweet"></button>
       <span data-tip="允许文化中心、扩展和类型更改立即生效">
         <input id="culturesAutoChange" class="checkbox" type="checkbox" />
-        <label for="culturesAutoChange" class="checkbox-label"><i>auto-apply changes</i></label>
+        <label for="culturesAutoChange" class="checkbox-label"><i>自动应用更改</i></label>
       </span>
     </div>
   </div>`;

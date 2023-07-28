@@ -18,7 +18,7 @@ function overviewMarkers() {
   addLines();
 
   $("#markersOverview").dialog({
-    title: "标记概述",
+    title: "标记概况",
     resizable: false,
     width: fitContent(),
     close: close,

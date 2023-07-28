@@ -15,7 +15,7 @@ function overviewMilitary() {
   updateHeaders();
 
   $("#militaryOverview").dialog({
-    title: "军事概述",
+    title: "军事概况",
     resizable: false,
     width: fitContent(),
     position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}
@@ -388,7 +388,7 @@ function overviewMilitary() {
       const unitLines = Array.from(tableBody.querySelectorAll("tr"));
       const names = unitLines.map(r => r.querySelector("input").value.replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, "_"));
       if (new Set(names).size !== names.length) {
-        tip("所有单位都应该有唯一的名称", false, "error");
+        tip("所有单位都应有唯一的名称", false, "error");
         return;
       }
 

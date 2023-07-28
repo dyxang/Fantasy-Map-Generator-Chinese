@@ -471,7 +471,7 @@ function clearLegend() {
 // draw color (fill) picker
 function createPicker() {
   const pos = () => tip("拖动此形状可更改选择器位置");
-  const cl = () => tip("点击以关闭选择器");
+  const cl = () => tip("关闭选择器");
   const closePicker = () => container.style("display", "none");
 
   const container = d3
@@ -575,12 +575,12 @@ function createPicker() {
   colors
     .selectAll("rect")
     .on("click", pickerFillClicked)
-    .on("mouseover", () => tip("点击以填充颜色"));
+    .on("mouseover", () => tip("填充颜色"));
   hatches
     .selectAll("rect")
     .on("click", pickerFillClicked)
     .on("mouseover", function () {
-      tip("点击填充剖面线 " + this.id);
+      tip("填充剖面线 " + this.id);
     });
 
   // append box
@@ -1101,7 +1101,7 @@ function selectIcon(initial, callback) {
     }
   };
   table.onmouseover = e => {
-    if (e.target.tagName === "TD") tip(`点击选择 ${e.target.innerHTML} 图标`);
+    if (e.target.tagName === "TD") tip(`选择 ${e.target.innerHTML} 图标`);
   };
 
   $("#iconSelector").dialog({

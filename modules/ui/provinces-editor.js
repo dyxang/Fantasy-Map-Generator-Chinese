@@ -145,8 +145,8 @@ function editProvinces() {
       >
         <fill-box fill="${p.color}"></fill-box>
         <input data-tip="省名。点击更改" class="name pointer" value="${p.name}" readonly />
-        <svg data-tip="点击显示和编辑省徽" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
-        <input data-tip="省级表单名称。点击可更改" class="name pointer hide" value="${p.formName}" readonly />
+        <svg data-tip="显示和编辑省徽" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
+        <input data-tip="省级类型称。点击可更改" class="name pointer hide" value="${p.formName}" readonly />
         <span data-tip="省会。点击放大查看" class="icon-star-empty pointer hide ${p.burg ? "" : "placeholder"}"></span>
         <select
           data-tip="省会。点击此处可从国家内的市镇中进行选择。没有首都就意味着该省由国家首都管辖"

@@ -102,8 +102,8 @@ const quantizationMap = {
     stackable: false,
     landOnly: false
   },
-  max_elevation: {//翻译到此处
-    label: "Maximum mean elevation",
+  max_elevation: {
+    label: "最高平均海拔",
     quantize: cellId => pack.cells.h[cellId],
     aggregate: values => d3.max(values),
     formatTicks: value => getHeight(value),
@@ -112,7 +112,7 @@ const quantizationMap = {
     landOnly: false
   },
   min_elevation: {
-    label: "Minimum mean elevation",
+    label: "最低平均海拔",
     quantize: cellId => pack.cells.h[cellId],
     aggregate: values => d3.min(values),
     formatTicks: value => getHeight(value),
@@ -121,7 +121,7 @@ const quantizationMap = {
     landOnly: false
   },
   average_temperature: {
-    label: "Annual mean temperature",
+    label: "年平均温度",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => d3.mean(values),
     formatTicks: value => convertTemperature(value),
@@ -130,7 +130,7 @@ const quantizationMap = {
     landOnly: false
   },
   max_temperature: {
-    label: "Mean annual maximum temperature",
+    label: "年平均最高温",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => d3.max(values),
     formatTicks: value => convertTemperature(value),
@@ -139,7 +139,7 @@ const quantizationMap = {
     landOnly: false
   },
   min_temperature: {
-    label: "Mean annual minimum temperature",
+    label: "年平均最低温",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => d3.min(values),
     formatTicks: value => convertTemperature(value),
@@ -148,7 +148,7 @@ const quantizationMap = {
     landOnly: false
   },
   average_precipitation: {
-    label: "Annual mean precipitation",
+    label: "年平均降水量",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(d3.mean(values)),
     formatTicks: value => getPrecipitation(rn(value)),
@@ -157,7 +157,7 @@ const quantizationMap = {
     landOnly: true
   },
   max_precipitation: {
-    label: "Mean annual maximum precipitation",
+    label: "年平均最大降水量",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(d3.max(values)),
     formatTicks: value => getPrecipitation(rn(value)),
@@ -166,7 +166,7 @@ const quantizationMap = {
     landOnly: true
   },
   min_precipitation: {
-    label: "Mean annual minimum precipitation",
+    label: "年平均最小降水量",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(d3.min(values)),
     formatTicks: value => getPrecipitation(rn(value)),
@@ -175,7 +175,7 @@ const quantizationMap = {
     landOnly: true
   },
   coastal_cells: {
-    label: "Number of coastal cells",
+    label: "海岸单元数量",
     quantize: cellId => (pack.cells.t[cellId] === 1 ? 1 : 0),
     aggregate: values => d3.sum(values),
     formatTicks: value => value,
@@ -184,7 +184,7 @@ const quantizationMap = {
     landOnly: true
   },
   river_cells: {
-    label: "Number of river cells",
+    label: "河流单元数量",
     quantize: cellId => (pack.cells.r[cellId] ? 1 : 0),
     aggregate: values => d3.sum(values),
     formatTicks: value => value,
@@ -287,38 +287,38 @@ function insertHtml() {
       <div>
         <button data-tip="添加一个图表" type="submit">绘制</button>
 
-        <select data-tip="选择实体(y 轴)" id="chartsOverview__entitiesSelect">
+        <select data-tip="选择纵坐标" id="chartsOverview__entitiesSelect">
           ${createOptions(entities)}
         </select>
 
-        <label>by
-          <select data-tip="选择要按(x 轴)绘图的值" id="chartsOverview__plotBySelect">
+        <label>横坐标
+          <select data-tip="选择横坐标" id="chartsOverview__plotBySelect">
             ${createOptions(plotBy)}
           </select>
         </label>
 
         <label>分组
-          <select data-tip="选择要分组的实体。如果不需要分组，请将其设置为与实体相同" id="chartsOverview__groupBySelect">
+          <select data-tip="选择横轴如何分组。如果不需要分组，请将其设置为与纵坐标相同" id="chartsOverview__groupBySelect">
             ${createOptions(entities)}
           </select>
         </label>
 
         <label data-tip="Sorting type">排序
           <select id="chartsOverview__sortingSelect">
-            <option value="value">按值</option>
-            <option value="name">按名</option>
+            <option value="value">数值</option>
+            <option value="name">名称</option>
             <option value="natural">自然</option>
           </select>
         </label>
       </div>
       <div>
-        <span data-tip="Chart type">类型</span>
+        <span data-tip="Chart type">图类</span>
         <select id="chartsOverview__chartType">
-          <option value="stackedBar" selected>堆叠条形图</option>
-          <option value="normalizedStackedBar">标准化堆叠条形图</option>
+          <option value="stackedBar" selected>堆积条形图</option>
+          <option value="normalizedStackedBar">标准堆积条形图</option>
         </select>
 
-        <span data-tip="要显示的列">列</span>
+        <span data-tip="按列显示的数量">列</span>
         <select id="chartsOverview__viewColumns">
           <option value="1" selected>1</option>
           <option value="2">2</option>
