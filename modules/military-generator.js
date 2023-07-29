@@ -406,7 +406,7 @@ window.Military = (function () {
     const year = campaign ? rand(campaign.start, campaign.end) : gauss(options.year - 100, 150, 1, options.year - 6);
     const conflict = campaign ? ` 期间 ${campaign.name}` : "";
     const legend = `军队成立于 ${year} ${options.era}${conflict}. ${station}${troops}`;
-    notes.push({id: `regiment${s.i}-${r.i}`, name: `${r.icon} ${r.name}`, legend});
+    notes.push({id: `军队${s.i}-${r.i}`, name: `${r.icon} ${r.name}`, legend});
   };
 
   return {generate, redraw, getDefaultOptions, getName, generateNote, drawRegiments, drawRegiment, moveRegiment, getTotal, getEmblem};
