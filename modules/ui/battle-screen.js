@@ -182,7 +182,7 @@ class Battle {
           added = isAdded(r),
           dist = added ? "0 " + distanceUnitInput.value : distance(r);
         return `<div ${added ? "class='inactive'" : ""} data-s=${s.i} data-i=${r.i} data-state=${s.name} data-regiment=${r.name} 
-        data-total=${r.a} data-distance=${dist} data-tip="点击选择军队">
+        data-total=${r.a} data-distance=${dist} data-tip="选择军队">
         <svg width=".9em" height=".9em" style="margin-bottom:-1px; stroke: #333"><rect x="0" y="0" width="100%" height="100%" fill="${s.color}" ></svg>
         <div style="width:6em">${s.name.slice(0, 11)}</div>
         <div style="width:1.2em">${r.icon}</div>

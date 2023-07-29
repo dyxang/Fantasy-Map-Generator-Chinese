@@ -47,7 +47,7 @@ toolsContent.addEventListener("click", function (event) {
       },
       open: function () {
         const checkbox =
-          '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>不要再问</i></label><span>';
+          '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>不再询问</i></label><span>';
         const pane = this.parentElement.querySelector(".ui-dialog-buttonpane");
         pane.insertAdjacentHTML("afterbegin", checkbox);
       },

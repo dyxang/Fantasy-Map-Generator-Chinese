@@ -155,7 +155,7 @@ function showBurgTemperatureGraph(id) {
       const type = this.getAttribute("data-type");
       const temp = convertTemperature(yscale.invert(y - yOffset));
       const month = months[rn(((x - xOffset) / chartWidth) * 12)] || months[0];
-      tip(`平均 ${type} 气温在 ${month}: ${temp}`);
+      tip(`${month} 平均 ${type} 气温：${temp}`);
     }
   }
 }

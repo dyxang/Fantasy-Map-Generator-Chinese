@@ -92,7 +92,7 @@ function loadMapFromURL(maplink, random) {
 function showUploadErrorMessage(error, URL, random) {
   ERROR && console.error(error);
   alertMessage.innerHTML = /* html */ `无法从 ${link(URL, "已提供连结")} 提供地图. ${
-    random ? `生成一个新的随机地图. ` : ""
+    random ? `随机生成一个新地图. ` : ""
   } 请确保链接文件可以访问，并且服务器端允许 CORS`;
   $("#alert").dialog({
     title: "载入错误",
@@ -602,7 +602,7 @@ async function parseLoadedData(data) {
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件, <br />生成一个新的随机地图或取消加载
+    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件, <br />随机生成一个新地图或取消加载
       <p id="errorBox">${parseError(error)}</p>`;
 
     $("#alert").dialog({

@@ -49,7 +49,7 @@ function overviewRivers() {
         data-basin="${basin}"
       >
         <span data-tip="点击关注河流" class="icon-dot-circled pointer"></span>
-        <div data-tip="河名" class="riverName">${r.name}</div>
+        <div data-tip="河流名称" class="riverName">${r.name}</div>
         <div data-tip="河流类型名称" class="riverType">${r.type}</div>
         <div data-tip="河流流量(通量功率)" class="biomeArea">${discharge}</div>
         <div data-tip="从源头到出口的河流长度" class="biomeArea">${length}</div>
