@@ -160,7 +160,7 @@ function editProvinces() {
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="culturePopulation hide">${si(population)}</div>
         <span
-          data-tip="宣布省份独立(将非首都的省份和市镇合并为一个新的国家)"
+          data-tip="宣布省份独立(把非首都的省份和市镇合并为一个新的国家)"
           class="icon-flag-empty ${separable ? "" : "placeholder"} hide"
         ></span>
         <span data-tip="切换省份焦点" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
@@ -950,7 +950,7 @@ function editProvinces() {
       return tip("该单元格已经是不同省份的中心。请选择其他单元格", false, "error");
 
     const state = cells.state[center];
-    if (!state) return tip("你不能在中立的土地上建立一个省。请先将这块土地分配给一个国家", false, "error");
+    if (!state) return tip("你不能在中立的土地上建立一个省。请先把这块土地分配给一个国家", false, "error");
 
     if (d3.event.shiftKey === false) exitAddProvinceMode();
 

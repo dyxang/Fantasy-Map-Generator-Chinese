@@ -104,7 +104,7 @@ function editReliefIcon() {
     }
 
     viewbox.style("cursor", "crosshair").call(d3.drag().on("start", dragToAdd)).on("touchmove mousemove", moveBrush);
-    tip("拖动此形状，可将地貌图标放置在半径范围内", true);
+    tip("拖动以放置地貌图标在半径范围内", true);
   }
 
   function moveBrush() {

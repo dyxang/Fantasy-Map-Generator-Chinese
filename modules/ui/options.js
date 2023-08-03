@@ -818,7 +818,7 @@ async function showLoadPane() {
 
     if (!files) {
       loadFromDropboxButtons.style.display = "none";
-      fileSelect.innerHTML = /* html */ `<option value="" disabled selected>首先将文件保存到 Dropbox</option>`;
+      fileSelect.innerHTML = /* html */ `<option value="" disabled selected>首先把文件保存到 Dropbox</option>`;
       return;
     }
 
@@ -850,7 +850,7 @@ function loadURL() {
   const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
   const inner = `提供 .map 文件的 URL:
     <input id="mapURL" type="url" style="width: 24em" placeholder="https://e-cloud.com/test.map">
-    <br><i>请注意，服务器应允许 CORS 文件加载。如果 CORS 不允许，将文件保存到 Dropbox 并提供直接链接</i>`;
+    <br><i>请注意，服务器应允许 CORS 文件加载。如果 CORS 不允许，把文件保存到 Dropbox 并提供直接链接</i>`;
   alertMessage.innerHTML = inner;
   $("#alert").dialog({
     resizable: false,

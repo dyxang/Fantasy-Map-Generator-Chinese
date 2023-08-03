@@ -5,7 +5,7 @@ async function quickLoad() {
   const blob = await ldb.get("lastMap");
   if (blob) loadMapPrompt(blob);
   else {
-    tip("没有存储地图。请先将地图保存到浏览器的存储系统", true, "error", 2000);
+    tip("没有存储地图。请先把地图保存到浏览器的存储系统", true, "error", 2000);
     ERROR && console.error("No map stored");
   }
 }
