@@ -185,8 +185,8 @@ async function quickSave() {
 const saveReminder = function () {
   if (localStorage.getItem("noReminder")) return;
   const message = [
-    "请不要忘记将你的工作保存为.map 文件",
-    "请记住将工作保存为.map 文件",
+    "请不要忘记把你的工作保存为.map 文件",
+    "请记住把工作保存为.map 文件",
     "以.map 格式保存将确保在出现问题时数据不会丢失",
     "安全第一，请保存地图",
     "不要忘记定期保存你的地图！",

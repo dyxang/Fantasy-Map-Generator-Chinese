@@ -418,8 +418,8 @@ function highlightEmblemElement(type, el) {
 document.querySelectorAll("[data-locked]").forEach(function (e) {
   e.addEventListener("mouseover", function (event) {
     if (this.className === "icon-lock")
-      tip("点击以解锁该选项，并允许它在新地图生成时被随机化");
-    else tip("点击以锁定该选项，并始终在新地图生成时使用当前值");
+      tip("点击以解锁该选项，使其在生成新地图时改变");
+    else tip("点击以锁定该选项，使其在生成新地图时不变");
     event.stopPropagation();
   });
 

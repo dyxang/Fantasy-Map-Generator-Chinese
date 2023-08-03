@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.89.35";// generator version, update each time
+const version = "1.89.37";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -27,10 +27,12 @@ const version = "1.89.35";// generator version, update each time
       ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
 <p><strong>⚠请汉化版使用者阅读以下内容！</strong></p>
 <p>应要求，建了个汉化版交流的群：873020847</p>
-<p>我一直在修补这个个人汉化版本，但是也不知道有多少人在用，而且该网站域名九月初就要到期了，所以我发起了一个投票（在【关于】页面里），看看使用汉化的人多不多，多的话我就续费域名。</p>
 
+<p>我一直在修补这个个人汉化版本，但是也不知道有多少人在用，而且该网站域名九月初就要到期了，所以我发起了一个投票（在【关于】页面里），看看使用汉化的人多不多，多的话我就续费域名。</p>
+<p><b>感谢4位神秘人和网友“长江长”的赞赏</b></p>
+<p><img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 40vh;max-width: 40vw;"></p>
       <ul>
-        <strong>以下是版本更新内容，修复及改进不列出:</strong>
+        <strong>版本更新内容，修复及改进不列出:</strong>
         <li>支持国家合并</li>
         <li>自动保存功能(选项中)</li>
         <li>谷歌翻译(选项中)</li>
@@ -39,8 +41,7 @@ const version = "1.89.35";// generator version, update each time
         <li>高程图笔刷:线性编辑选项</li>
       </ul>
 
-      <p>Join our <a href="${discord}" target="_blank">Discord server</a> and <a href="${reddit}" target="_blank">Reddit community</a> to ask questions, share maps, discuss the Generator and Worlbuilding, report bugs and propose new features.</p>
-      <span><i>Thanks for all supporters on <a href="${patreon}" target="_blank">Patreon</a>!</i></span>`;
+`;
 
     const buttons = {
       好的: function () {

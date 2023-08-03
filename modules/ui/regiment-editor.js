@@ -297,7 +297,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAttach").classList.toggle("pressed");
     if (document.getElementById("regimentAttach").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", attachRegimentOnClick);
-      tip("点击另一个军队将两个军队联合起来。当前的军队将被删除", true);
+      tip("点击另一个军队把两个军队联合起来。当前的军队将被删除", true);
       armies.selectAll(":scope > g").classed("draggable", false);
     } else {
       clearMainTip();
