@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Azgaar的奇幻地图生成器-Fantasy Map Generator</title>
+    <title>Azgaar的奇幻地图生成器</title>
     <meta name="application-name" content="Azgaar's Fantasy Map Generator" />
     <meta name="author" content="Azgaar" />
     <meta
@@ -25,7 +25,10 @@
     <link rel="apple-touch-icon" href="images/icons/maskable_icon_x192.png" />
     <link rel="canonical" href="https://azgaar.github.io/Fantasy-Map-Generator/" />
     <link rel="manifest" href="manifest.webmanifest" />
-
+<!--使用中文字体美化尝试-->
+<link rel="preconnect" href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn">
+<link href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<!--结束-->
     <!-- inline css for loading screen -->
     <style type="text/css">
       body {
@@ -1310,7 +1313,7 @@
                   <output id="styleArmiesFillOpacityOutput">1</output>
                 </td>
               </tr>
-              <tr data-tip="设置军队的大小。所有军队将在变更时重Roll(位置默认)">
+              <tr data-tip="设置军队规模。所有军队将在变更时重Roll(位置默认)">
                 <td>盒子大小</td>
                 <td>
                   <input id="styleArmiesSize" type="range" min="1" max="10" step=".1" value="3" />
@@ -1381,7 +1384,7 @@
             </tbody>
 
             <tbody id="styleClipping">
-              <tr data-tip="剪裁。只有未剪切的部分将是可见的">
+              <tr data-tip="剪裁。只有未剪切的部分是可见的">
                 <td>剪裁</td>
                 <td>
                   <select id="styleClippingInput">
@@ -1487,7 +1490,7 @@
               </td>
             </tr>
 
-            <tr data-tip="定义地图名称(将用于命名下载的文件)">
+            <tr data-tip="定义地图名称(用于命名下载的文件)">
               <td>
                 <i data-locked="0" id="lock_mapName" class="icon-lock-open"></i>
               </td>
@@ -1619,7 +1622,7 @@
               </td>
             </tr>
 
-            <tr data-tip="设置国家和文化的增长率。确定有多少土地将保持中立">
+            <tr data-tip="设置国家和文化的增长率。确定有多少土地保持中立">
               <td>
                 <i data-locked="0" id="lock_neutral" class="icon-lock-open"></i>
               </td>
@@ -2034,7 +2037,7 @@
             </button>
             <button
               id="regenerateBurgs"
-              data-tip="点击此处可重新生成所有解锁的城市和路。各国将保持现状。注意: 只有在有文化指定的人口密集地区才会产生城市"
+              data-tip="点击此处可重新生成所有解锁的城市和路。各国将保持原样。注意: 只有在有文化指定的人口密集地区才会产生城市"
             >
               城市
             </button>
@@ -3359,7 +3362,7 @@
         <div id="regimentBottom">
           <button id="regimentAttack" data-tip="攻击外国军队" class="icon-target"></button>
           <button id="regimentAdd" data-tip="创建新的军队" class="icon-user-plus"></button>
-          <button id="regimentSplit" data-tip="将军队分成两个单独的军队" class="icon-half"></button>
+          <button id="regimentSplit" data-tip="将军队分割为两个军队" class="icon-half"></button>
           <button
             id="regimentAttach"
             data-tip="把一个军队与另一个军队连在一起（包括这个军队与其他军队）"
@@ -3753,7 +3756,7 @@
             </svg>
           </button>
 
-          <button id="brushLower" data-tip="低刷: 拖动以降低力量值半径内单元格的高度">
+          <button id="brushLower" data-tip="降低刷: 拖动以降低力量值半径内单元格的高度">
             <svg viewBox="15 15 70 70" height="1em" width="1.6em">
               <path d="M50,30 v35 l-12,-8 m12,8 l12,-8 M20,78 h60" fill="none" stroke="#000" stroke-width="5" />
             </svg>
@@ -3770,7 +3773,7 @@
 
           <button
             id="brushAlign"
-            data-tip="对齐画笔: 拖动以设置单元格半径的高度到鼠标点上单元格的高度"
+            data-tip="对齐刷: 拖动以设置单元格半径的高度到鼠标点上单元格的高度"
           >
             <svg viewBox="15 15 70 70" height="1em" width="1.6em">
               <path d="m20,50 h56 m0,20 h-56" fill="none" stroke="#000" stroke-width="5" />
@@ -3795,7 +3798,7 @@
             </svg>
           </button>
 
-          <button id="brushLine" data-tip="直线:选择两个点沿直线改变高度">
+          <button id="brushLine" data-tip="直线刷:选择两个点沿直线改变高度">
             <svg viewBox="0 -5 100 100" height="1em" width="1.6em">
               <path d="M0 90 L100 10" fill="none" stroke="#000" stroke-width="7"></path>
             </svg>
@@ -3877,7 +3880,7 @@
           style="margin-bottom: 0.6em"
         >
           <input id="changeOnlyLand" class="checkbox" type="checkbox" />
-          <label for="changeOnlyLand" class="checkbox-label"><i>只改变土壤单元格</i></label>
+          <label for="changeOnlyLand" class="checkbox-label"><i>只改变陆地单元格</i></label>
         </div>
 
         <div id="modifyButtons">
@@ -4043,7 +4046,7 @@
           <input id="convertColors" value="100" style="display: none" />
           <button
             id="convertCancel"
-            data-tip="取消转换。将还原上一个高程图"
+            data-tip="取消转换。还原为上一个高程图"
             class="icon-cancel"
           ></button>
         </div>
@@ -4170,7 +4173,7 @@
           ></button>
           <button
             id="biomesExport"
-            data-tip="将生物群落相关数据保存为CSV文件"
+            data-tip="把生物群落相关数据保存为CSV文件"
             class="icon-download"
           ></button>
         </div>
@@ -4366,7 +4369,7 @@
           ></button>
           <button
             id="provincesExport"
-            data-tip="将与省份相关的数据保存为CSV文件"
+            data-tip="把与省份相关的数据保存为CSV文件"
             class="icon-download"
           ></button>
 
@@ -4444,14 +4447,14 @@
           <button id="diplomacyRegenerate" data-tip="重建外交关系" class="icon-retweet"></button>
           <button
             id="diplomacyReset"
-            data-tip="将选定国家的外交关系重置为中立"
+            data-tip="把选定国家的外交关系重置为中立"
             class="icon-eraser"
           ></button>
           <button id="diplomacyHistory" data-tip="展示关系史" class="icon-hourglass-1"></button>
           <button id="diplomacyShowMatrix" data-tip="显示关系表" class="icon-list-bullet"></button>
           <button
             id="diplomacyExport"
-            data-tip="将国家关系表保存为CSV文件"
+            data-tip="把国家关系表保存为CSV文件"
             class="icon-download"
           ></button>
         </div>
@@ -4939,7 +4942,7 @@
             />
           </div>
 
-          <div data-tip='面积单位, 输入“square”将平方符号加到距离单位'>
+          <div data-tip='面积单位, 输入“square”为距离单位添加平方符号'>
             <div>面积单位:</div>
             <input id="areaUnit" data-stored="areaUnit" type="text" value="square" />
           </div>
@@ -5197,7 +5200,7 @@
           <button id="addNewBurg" data-tip="添加一个新的城市。按住 Shift 添加多个" class="icon-plus"></button>
           <button
             id="burgsExport"
-            data-tip="将与 burgs 相关的数据保存为CSV文件"
+            data-tip="把城镇相关的数据保存为CSV文件"
             class="icon-download"
           ></button>
           <button id="burgNamesImport" data-tip="批量重命名城市" class="icon-upload"></button>
@@ -5260,7 +5263,7 @@
           <button id="riversBasinHighlight" data-tip="切换流域高亮模式" class="icon-sitemap"></button>
           <button
             id="riversExport"
-            data-tip="将与河流相关的数据保存为CSV文件"
+            data-tip="把河流相关的数据保存为CSV文件"
             class="icon-download"
           ></button>
           <button id="riversRemoveAll" data-tip="删除所有河流" class="icon-trash"></button>
@@ -5335,7 +5338,7 @@
           ></button>
           <button
             id="militaryExport"
-            data-tip="将军事相关数据保存为CSV文件"
+            data-tip="把军事相关数据保存为CSV文件"
             class="icon-download"
           ></button>
           <button id="militaryWiki" data-tip="打开军事部队教程" class="icon-info"></button>
@@ -5380,7 +5383,7 @@
           </div>
           <button
             id="regimentsExport"
-            data-tip="将军事相关数据保存为CSV文件"
+            data-tip="把军事相关数据保存为CSV文件"
             class="icon-download"
           ></button>
         </div>
@@ -5446,7 +5449,7 @@
           ></button>
           <button id="markersGenerationConfig" data-tip="配置标记生成选项" class="icon-cog"></button>
           <button id="markersRemoveAll" data-tip="删除所有未锁定的标记" class="icon-trash"></button>
-          <button id="markersExport" data-tip="将标记数据保存为CSV文件" class="icon-download"></button>
+          <button id="markersExport" data-tip="把标记数据保存为CSV文件" class="icon-download"></button>
         </div>
       </div>
 
@@ -5480,7 +5483,7 @@
         </div>
 
         <div id="styleSaverBottom">
-          <button id="styleSaverSave" data-tip="将当前 JSON 保存为一个新的样式预设" class="icon-check"></button>
+          <button id="styleSaverSave" data-tip="把当前 JSON 保存为一个新的样式预设" class="icon-check"></button>
           <button
             id="styleSaverDownload"
             data-tip="以. json 文件的形式下载样式(可以在任何文本编辑器中打开)"
@@ -5669,7 +5672,7 @@
           <button onclick="saveJPEG()" data-tip="以. jpeg (有损压缩)图像的形式下载地图的可见部分">
             .jpeg
           </button>
-          <button onclick="openSaveTiles()" data-tip="将地图拆分成更小的 png 块，并作为压缩文件下载">
+          <button onclick="openSaveTiles()" data-tip="把地图拆分成更小的 png 块，并作为压缩文件下载">
             tiles
           </button>
           <span data-tip="检查不允许系统自动隐藏标签">
@@ -5729,7 +5732,7 @@
         <p>可以使用 JSON 格式的导出作为 API 的替代。</p>
 
         <p>
-            也可以将地图导出到 <i>Foundry VTT</i>, 查看
+            也可以把地图导出到 <i>Foundry VTT</i>, 查看
           <a href="https://github.com/Ethck/azgaar-foundry" target="_blank">模块</a>
         </p>
       </div>
@@ -5737,15 +5740,15 @@
       <div id="saveMapData" style="display: none" class="dialog">
         <div style="margin-top: 0.3em">
           <strong>保存地图到</strong>
-          <button onclick="dowloadMap()" data-tip="将.map 文件下载到本地磁盘" data-shortcut="Ctrl + S">
+          <button onclick="dowloadMap()" data-tip="把.map 文件下载到本地磁盘" data-shortcut="Ctrl + S">
             电脑
           </button>
-          <button onclick="saveToDropbox()" data-tip="将.map 文件保存到 Dropbox" data-shortcut="Ctrl + C">
+          <button onclick="saveToDropbox()" data-tip="把.map 文件保存到 Dropbox" data-shortcut="Ctrl + C">
             dropbox
           </button>
           <button
             onclick="quickSave()"
-            data-tip="将项目保存到浏览器存储。它可能是不可靠的"
+            data-tip="把项目保存到浏览器存储。它可能不可靠"
             data-shortcut="F6"
           >
             浏览器
@@ -5796,7 +5799,7 @@
       </div>
 
       <div id="saveTilesScreen" style="display: none" class="dialog">
-        <p>地图将被分割成瓷砖和下载为一个单一的压缩文件。避免保存到大图像</p>
+        <p>地图将被分割成图块(Tiles)和下载为一个单一的压缩文件。避免保存到大图像</p>
         <div data-tip="列数" style="margin-bottom: 0.3em">
           <div class="label">列:</div>
           <input

@@ -1,7 +1,13 @@
 :root {
-  --monospace: Consolas, monospace;
+  --monospace: 'HarmonyOS', Consolas, monospace;
   --serif: Georgia, serif;
-  --sans-serif: Helvetica, Arial, sans-serif;
+  --sans-serif: 'ZCOOL XiaoWei', Helvetica, Arial, sans-serif;
+}
+
+/*使用中文字体美化尝试*/
+@font-face {
+  font-family: "HarmonyOS";
+  src: url("./zh_font/HarmonyOS_Sans_SC_Regular.ttf");
 }
 
 /* hide Google translate header */

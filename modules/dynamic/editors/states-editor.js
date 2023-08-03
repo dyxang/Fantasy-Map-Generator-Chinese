@@ -115,7 +115,7 @@ function insertEditorHtml() {
 
       <button id="statesAdd" data-tip="添加一个新国家。按住 Shift 添加多个" class="icon-plus"></button>
       <button id="statesMerge" data-tip="合并多个国家为一个" class="icon-layer-group"></button>
-      <button id="statesExport" data-tip="将与国家相关的数据保存为文本文件(.csv)" class="icon-download"></button>
+      <button id="statesExport" data-tip="把与国家相关的数据保存为文本文件(.csv)" class="icon-download"></button>
     </div>
   </div>`;
 
@@ -1214,7 +1214,7 @@ function addState() {
   const point = d3.mouse(this);
   const center = findCell(point[0], point[1]);
   if (cells.h[center] < 20)
-    return tip("你不能将国家放入水中。请点击陆地单元格", false, "error");
+    return tip("你不能把国家放入水中。请点击陆地单元格", false, "error");
 
   let burg = cells.burg[center];
   if (burg && burgs[burg].capital)

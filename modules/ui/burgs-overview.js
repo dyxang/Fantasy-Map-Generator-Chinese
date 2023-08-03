@@ -278,7 +278,7 @@ function overviewBurgs() {
     const point = d3.mouse(this);
     const cell = findCell(point[0], point[1]);
     if (pack.cells.h[cell] < 20)
-      return tip("你不能将国家放入水中。请点击陆地单元格", false, "error");
+      return tip("你不能把国家放入水中。请点击陆地单元格", false, "error");
     if (pack.cells.burg[cell])
       return tip("这个单元格中已经有一个城市。请选择一个空闲单元格", false, "error");
 

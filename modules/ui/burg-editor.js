@@ -481,7 +481,7 @@ function editBurg(id) {
     const burg = pack.burgs[id];
 
     if (cells.h[cell] < 20) {
-      tip("无法将城市放入水中! 请选择一个陆地单元格", false, "error");
+      tip("无法把城市放入水中! 请选择一个陆地单元格", false, "error");
       return;
     }
 
