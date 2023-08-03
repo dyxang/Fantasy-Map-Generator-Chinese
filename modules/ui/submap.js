@@ -26,7 +26,7 @@ window.UISubmap = (function () {
 
   function openSubmapMenu() {
     $("#submapOptionsDialog").dialog({
-      title: "创建 Submap",
+      title: "Submap 模式创建地图",
       resizable: false,
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
@@ -98,11 +98,11 @@ window.UISubmap = (function () {
     };
 
     $("#resampleDialog").dialog({
-      title: "转换地图",
+      title: "Transform 模式创建地图",
       resizable: false,
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
-        转换: function () {
+        Transform: function () {
           $(this).dialog("close");
           resampleCurrentMap();
         },

@@ -39,9 +39,6 @@ const version = "1.89.37";// generator version, update each time
         <li>宗教可以像文化一样被编辑和重绘</li>
         <li>锁定国家、省、文化和宗教防止“重新生成”的影响</li>
         <li>高程图笔刷:线性编辑选项</li>
-        <li>汉化改进及为了理解还原英文的部分</li>
-        <li>汉化破坏代码结构的问题</li>
-        <li>以及更多细微改变</li>
       </ul>
 
 `;

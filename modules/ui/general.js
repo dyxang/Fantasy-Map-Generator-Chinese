@@ -68,9 +68,9 @@ function showDataTip(event) {
 function showElementLockTip(event) {
   const locked = event?.target?.classList?.contains("icon-lock");
   if (locked) {
-    tip("点击以解锁该元素并允许通过重生工具更改该元素");
+    tip("解锁该元素并允许通过重生工具更改该元素");
   } else {
-    tip("点击以锁定元素并防止重生工具对其进行更改");
+    tip("锁定元素并防止重生工具对其进行更改");
   }
 }
 
@@ -148,7 +148,7 @@ function showMapTooltip(point, e, i, g) {
 
   if (group === "routes") return tip("点击编辑路线");
 
-  if (group === "terrain") return tip("点击以编辑地貌图标");
+  if (group === "terrain") return tip("编辑地貌图标");
 
   if (subgroup === "burgLabels" || subgroup === "burgIcons") {
     const burg = +path[path.length - 10].dataset.id;
@@ -158,9 +158,9 @@ function showMapTooltip(point, e, i, g) {
     if (burgsOverview?.offsetParent) highlightEditorLine(burgsOverview, burg, 5000);
     return;
   }
-  if (group === "labels") return tip("点击以编辑标签");
+  if (group === "labels") return tip("编辑标签");
 
-  if (group === "markers") return tip("点击以编辑标记并固定标记注释");
+  if (group === "markers") return tip("编辑标记并固定标记注释");
 
   if (group === "ruler") {
     const tag = e.target.tagName;
@@ -175,9 +175,9 @@ function showMapTooltip(point, e, i, g) {
     if (tag === "text") return tip("拖动以移动，点击以删除测量器");
   }
 
-  if (subgroup === "burgIcons") return tip("点击以编辑城市");
+  if (subgroup === "burgIcons") return tip("编辑城市");
 
-  if (subgroup === "burgLabels") return tip("点击以编辑城市");
+  if (subgroup === "burgLabels") return tip("编辑城市");
 
   if (group === "lakes" && !land) {
     const lakeId = +e.target.dataset.f;
@@ -505,7 +505,7 @@ function showInfo() {
   alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b> (FMG)是一个免费的开源应用程序。这意味着你拥有所有创建的地图，并且可以随意使用它们。
 
     <p>
-      发展是社区支持的，你可以捐赠 ${Patreon}. 你还可以帮助创建概述、教程和传播关于生成器的信息.
+      支持社区发展，你可以捐赠 ${Patreon}. 你还可以帮助创建概述、教程和传播关于生成器的信息.
     </p>
 
     <p>

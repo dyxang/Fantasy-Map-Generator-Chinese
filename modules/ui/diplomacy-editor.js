@@ -2,7 +2,7 @@
 function editDiplomacy() {
   if (customization) return;
   if (pack.states.filter(s => s.i && !s.removed).length < 2)
-    return tip("应该至少有2个国家编辑的外交", false, "error");
+    return tip("应至少有2个国家来编辑外交", false, "error");
 
   const body = document.getElementById("diplomacyBodySection");
 

@@ -23,12 +23,12 @@ function editHeightmap(options) {
   byId("templateRedo").on("click", () => restoreHistory(edits.n + 1));
 
   function showModeDialog() {
-    alertMessage.innerHTML = /* html */ `Heightmap 是所有其他数据(河流、城市、国家等)所基于的核心元素。因此，最好的编辑方法是删除辅助数据，并让系统在编辑完成时自动重新生成它。
-    <p><i>擦除</i>模式还允许你将图像转换为高程图或使用模板编辑器。</p>
-    <p>你可以<i>保留</i>数据, 但你无法改变海岸线.</p>
-    <p>尝试 <i>风险</i> 模式，以改变海岸线和保存数据. 将尽可能多地还原数据，但它可能导致不可预测的错误.</p>
+    alertMessage.innerHTML = /* html */ `高程图 是支撑所有其他数据(河流、城市、国家等)的核心元素。因此，最好的编辑方法是删除其他数据，并在编辑完成时自动重新生成它。
+    <p><b>Erase</b>：允许你将图像转换为高程图或使用模板编辑器。</p>
+    <p><b>Keep</b>：保留数据, 但无法改变海岸线。</p>
+    <p><b>Risk</b>：改变海岸线和保留数据。尽可能地还原数据，但它可能导致不可预测的错误。</p>
     <p>请在编辑高程图之前<span class="pseudoLink" onclick="dowloadMap();">保存地图</span>!</p>
-    <p style="margin-bottom: 0">看看这个 ${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization", "wiki")} 寻求指引.</p>`;
+    <p style="margin-bottom: 0">查看 ${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization", "wiki")} 获取帮助.</p>`;
 
     $("#alert").dialog({
       resizable: false,
@@ -154,7 +154,7 @@ function editHeightmap(options) {
   function finalizeHeightmap() {
     if (viewbox.select("#heights").selectAll("*").size() < 200)
       return tip(
-        "土地面积不足! 应该至少有200个土地单元来最终确定高程图",
+        "土地面积不足! 应至少有200个土地单元来最终确定高程图",
         null,
         "error"
       );
@@ -882,7 +882,7 @@ function editHeightmap(options) {
     }
 
     function getStepHTML(type, count, arg3, arg4, arg5) {
-      const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="点击以删除该步骤"></i>`;
+      const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="删除该步骤"></i>`;
       const Hide = /* html */ `<div class="icon-check" data-tip="点击此处可跳过该步骤"></div>`;
       const Reorder = /* html */ `<i class="icon-resize-vertical" data-tip="拖动到重新排序"></i>`;
       const common = /* html */ `<div data-type="${type}">${Hide}<div style="width:4em">${type}</div>${Trash}${Reorder}`;
@@ -1437,7 +1437,7 @@ function editHeightmap(options) {
       colorsUnassigned.style.display = "none";
       colorsSelectValue.innerHTML = colorsSelectFriendly.innerHTML = 0;
       viewbox.style("cursor", "default").on(".drag", null);
-      tip('高程图编辑模式处于活动状态。点击“退出自定义”以完成高程图', true);
+      tip('高程图编辑模式已激活。点击“退出自定义”以完成高程图', true);
       $("#imageConverter").dialog("destroy");
       openBrushesPanel();
     }

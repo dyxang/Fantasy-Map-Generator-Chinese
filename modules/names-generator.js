@@ -119,7 +119,7 @@ window.Names = (function () {
         .join("");
 
     if (name.length < 2) {
-      ERROR && console.error("名称太短! 将选择随机名称");
+      ERROR && console.error("名称太短! 将随机选择名称");
       name = ra(nameBases[base].b.split(","));
     }
 

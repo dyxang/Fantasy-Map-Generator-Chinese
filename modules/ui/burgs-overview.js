@@ -92,7 +92,7 @@ function overviewBurgs() {
         data-population=${population}
         data-type="${type}"
       >
-        <span data-tip="点击可放大到视图" class="icon-dot-circled pointer"></span>
+        <span data-tip="放大到视图" class="icon-dot-circled pointer"></span>
         <input data-tip="城市名称。点击并键入以更改" class="burgName" value="${b.name}" autocorrect="off" spellcheck="false" />
         <input data-tip="城市 省" class="burgState" value="${province}" disabled />
         <input data-tip="城市 国家" class="burgState" value="${state}" disabled />
@@ -106,7 +106,7 @@ function overviewBurgs() {
             data-tip="${b.capital ? " 这个城市是国家首都" : "点击指定首都状态"}"
             class="icon-star-empty${b.capital ? "" : " inactive pointer"}"
           ></span>
-          <span data-tip="点击以切换港口状态" class="icon-anchor pointer${
+          <span data-tip="切换港口状态" class="icon-anchor pointer${
             b.port ? "" : " inactive"
           }" style="font-size:.9em"></span>
         </div>
@@ -385,7 +385,7 @@ function overviewBurgs() {
 
       burgsInfo.innerHTML = /* html */ `${name}. ${parent}. Population: ${population}`;
       burgHighlightOn(ev);
-      tip("点击可放大到视图");
+      tip("放大到视图");
     }
 
     function hideInfo(ev) {
