@@ -1,12 +1,12 @@
 :root {
-  --monospace: 'HarmonyOS', Consolas, monospace;
+  --monospace: 'HarmonyOS Sans SC', Consolas, monospace;
   --serif: Georgia, serif;
   --sans-serif: 'ZCOOL XiaoWei', Helvetica, Arial, sans-serif;
 }
 
 /*使用中文字体美化尝试*/
 @font-face {
-  font-family: "HarmonyOS";
+  font-family: "HarmonyOS Sans SC";
   src: url("./zh_font/HarmonyOS_Sans_SC_Regular.ttf");
 }
 
