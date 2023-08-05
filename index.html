@@ -27,7 +27,7 @@
     <link rel="manifest" href="manifest.webmanifest" />
 <!--使用中文字体美化尝试-->
 <link rel="preconnect" href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn">
-<link href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<link href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
 <!--结束-->
     <!-- inline css for loading screen -->
     <style type="text/css">
@@ -2529,7 +2529,7 @@
           </div>
 
           <div data-tip="河流宽度乘数。默认值为1">
-            <div class="label">宽度修改器：</div>
+            <div class="label">宽度倍数：</div>
             <input id="riverWidthFactor" type="number" min=".1" max="4" step=".1" />
           </div>
         </div>
@@ -2537,7 +2537,7 @@
         <div id="riverBottom">
           <button
             id="riverCreateSelectingCells"
-            data-tip="创建新的河流选择河流单元"
+            data-tip="选择单元格新建河流"
             class="icon-map-pin"
           ></button>
           <button id="riverEditStyle" data-tip="在样式编辑器中编辑所有河流的样式" class="icon-brush"></button>
@@ -2581,7 +2581,7 @@
           <div data-tip="更改湖泊类型的类型（组）">
             <div class="label" style="width: 4.8em">类型：</div>
             <span id="lakeGroupRemove" data-tip="删除组" class="icon-trash-empty pointer"></span>
-            <span id="lakeGroupAdd" data-tip="为湖创建新的类型(组)" class="icon-plus pointer"></span>
+            <span id="lakeGroupAdd" data-tip="为湖新建类型(组)" class="icon-plus pointer"></span>
             <select id="lakeGroup" data-tip="选择湖泊类型(组)"></select>
             <input
               id="lakeGroupName"
@@ -3209,7 +3209,7 @@
             <input
               id="burgInputGroup"
               placeholder="新的组别名称"
-              data-tip="为城市创建新的组"
+              data-tip="为城市新建组"
               style="display: none; width: 10em"
             />
             <i id="burgAddGroup" data-tip="为城市建立新的组" class="icon-plus pointer"></i>
@@ -3361,7 +3361,7 @@
 
         <div id="regimentBottom">
           <button id="regimentAttack" data-tip="攻击外国军队" class="icon-target"></button>
-          <button id="regimentAdd" data-tip="创建新的军队" class="icon-user-plus"></button>
+          <button id="regimentAdd" data-tip="新建军队" class="icon-user-plus"></button>
           <button id="regimentSplit" data-tip="将军队分割为两个军队" class="icon-half"></button>
           <button
             id="regimentAttach"
@@ -5259,7 +5259,7 @@
             data-tip="从点击的单元格开始自动添加河流。按住 Shift 添加多个"
             class="icon-plus"
           ></button>
-          <button id="riverCreateNew" data-tip="创建新的河流选河单元" class="icon-map-pin"></button>
+          <button id="riverCreateNew" data-tip="新建河流选河单元" class="icon-map-pin"></button>
           <button id="riversBasinHighlight" data-tip="切换流域高亮模式" class="icon-sitemap"></button>
           <button
             id="riversExport"

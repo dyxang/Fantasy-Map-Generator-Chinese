@@ -196,7 +196,7 @@ function editRegiment(selector) {
     document.getElementById("regimentAdd").classList.toggle("pressed");
     if (document.getElementById("regimentAdd").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", addRegimentOnClick);
-      tip("点击地图创建新的军队或舰队", true);
+      tip("点击地图新建军队或舰队", true);
     } else {
       clearMainTip();
       viewbox.on("click", clicked).style("cursor", "default");

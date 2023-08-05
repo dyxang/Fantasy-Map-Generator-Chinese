@@ -35,7 +35,7 @@ function showElevationProfile(data, routeLen, isRiver) {
   document.getElementById("epSave").addEventListener("click", downloadCSV);
 
   $("#elevationProfile").dialog({
-    title: "Elevation profile",
+    title: "纵剖面",
     resizable: false,
     width: window.width,
     close: closeElevationProfile,

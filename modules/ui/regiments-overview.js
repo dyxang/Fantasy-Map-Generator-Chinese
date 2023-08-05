@@ -148,7 +148,7 @@ function overviewRegiments(state) {
     document.getElementById("regimentsAddNew").classList.toggle("pressed");
     if (document.getElementById("regimentsAddNew").classList.contains("pressed")) {
       viewbox.style("cursor", "crosshair").on("click", addRegimentOnClick);
-      tip("点击地图创建新的军队或舰队", true);
+      tip("点击地图新建军队或舰队", true);
       if (regimentAdd.offsetParent) regimentAdd.classList.add("pressed");
     } else {
       clearMainTip();
