@@ -165,7 +165,7 @@ async function initiateAutosave() {
     const mapData = getMapData();
     const blob = new Blob([mapData], {type: "text/plain"});
     await ldb.set("lastMap", blob);
-    console.log("Autosaved at", new Date().toLocaleTimeString());
+    INFO && console.log("自动保存于", new Date().toLocaleTimeString());
     lastSavedAt = Date.now();
   }
 

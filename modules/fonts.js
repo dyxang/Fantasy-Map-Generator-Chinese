@@ -284,7 +284,7 @@ function addFontOption(family) {
 }
 
 async function fetchGoogleFont(family) {
-  const url = `https://fonts.googleapis.com/css2?family=${family.replace(/ /g, "+")}`;
+  const url = `https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=${family.replace(/ /g, "+")}`;
   try {
     const resp = await fetch(url);
     const text = await resp.text();
@@ -333,8 +333,8 @@ async function loadFontsAsDataURI(fonts) {
 
 async function addGoogleFont(family) {
   const fontRanges = await fetchGoogleFont(family);
-  if (!fontRanges) return tip("无法获取此值的 Google 字体", true, "error", 4000);
-  tip(`Google 字体 ${family} 正在加载...`, true, "warn", 4000);
+  if (!fontRanges) return tip("鏃犳硶鑾峰彇姝ゅ�肩殑 Google 瀛椾綋", true, "error", 4000);
+  tip(`Google 瀛椾綋 ${family} 姝ｅ湪鍔犺浇...`, true, "warn", 4000);
 
   const promises = fontRanges.map(range => {
     const {src, unicodeRange, variant} = range;
@@ -346,13 +346,13 @@ async function addGoogleFont(family) {
     .then(fontFaces => {
       fontFaces.forEach(fontFace => document.fonts.add(fontFace));
       fonts.push(...fontRanges);
-      tip(`Google 字体 ${family} 被添加到列表中`, true, "success", 4000);
+      tip(`Google 瀛椾綋 ${family} 琚坊鍔犲埌鍒楄〃涓璥, true, "success", 4000);
       addFontOption(family);
       document.getElementById("styleSelectFont").value = family;
       changeFont();
     })
     .catch(err => {
-      tip(`加载 Google 字体 ${family} 失败 `, true, "error", 4000);
+      tip(`鍔犺浇 Google 瀛椾綋 ${family} 澶辫触 `, true, "error", 4000);
       ERROR && console.error(err);
     });
 }
@@ -362,7 +362,7 @@ function addLocalFont(family) {
 
   const fontFace = new FontFace(family, `local(${family})`, {display: "block"});
   document.fonts.add(fontFace);
-  tip(`本地字体 ${family} 添加到字体列表中`, true, "success", 4000);
+  tip(`鏈湴瀛椾綋 ${family} 娣诲姞鍒板瓧浣撳垪琛ㄤ腑`, true, "success", 4000);
   addFontOption(family);
   document.getElementById("styleSelectFont").value = family;
   changeFont();
@@ -374,7 +374,7 @@ function addWebFont(family, url) {
 
   const fontFace = new FontFace(family, src, {display: "block"});
   document.fonts.add(fontFace);
-  tip(`字体 ${family} 被添加到列表中`, true, "success", 4000);
+  tip(`瀛椾綋 ${family} 琚坊鍔犲埌鍒楄〃涓璥, true, "success", 4000);
   addFontOption(family);
   document.getElementById("styleSelectFont").value = family;
   changeFont();
