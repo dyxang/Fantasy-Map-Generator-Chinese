@@ -121,7 +121,7 @@
       }
     </style>
 
-    <link rel="preload" href="index.css?v=1.89.21" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+    <link rel="preload" href="index.css?v=1.89.38" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="icons.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="libs/jquery-ui.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
   </head>
@@ -5442,6 +5442,14 @@
 
         <div id="markersBottom">
           <button id="markersOverviewRefresh" data-tip="刷新“概述”窗口" class="icon-cw"></button>
+          <input type="hidden" id="addedMarkerType" name="addedMarkerType" value="" />
+          <span id="markerTypeSelectorWrapper">
+              <button 
+              id="markerTypeSelector"
+              data-tip="为新添加的标记选择标记类型。"
+            >❓</button>
+            <div id="markerTypeSelectMenu"></div>
+          </span>
           <button
             id="markersAddFromOverview"
             data-tip="添加一个新标记。按住 Shift 添加多个"
@@ -5502,8 +5510,8 @@
       <div id="addFontDialog" style="display: none" class="dialog">
         <span>添加自定义字体的方法有三种:</span>
         <p>
-          <strong>谷歌字体</strong>. 打开 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, 找到你喜欢的字体并在下面的字段中输入它的名称。
-        </p>
+          <strong>谷歌字体</strong>. 打开 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, 找到喜欢的字体并在下面输入名称。
+        </p><p>汉化版使用上交大的字体镜像</p>
         <p>
           <strong>本地字体</strong>. 如果你有字体的话
           <a
@@ -7820,7 +7828,7 @@
     <script defer src="modules/relief-icons.js"></script>
     <script defer src="modules/ui/style.js"></script>
     <script defer src="modules/ui/editors.js?v=1.89.35"></script>
-    <script defer src="modules/ui/tools.js?v=1.89.27"></script>
+    <script defer src="modules/ui/tools.js?v=1.89.38"></script>
     <script defer src="modules/ui/world-configurator.js"></script>
     <script defer src="modules/ui/heightmap-editor.js?v=1.89.06"></script>
     <script defer src="modules/ui/provinces-editor.js?v=1.89.00"></script>
@@ -7845,7 +7853,7 @@
     <script defer src="modules/ui/rivers-overview.js"></script>
     <script defer src="modules/ui/military-overview.js"></script>
     <script defer src="modules/ui/regiments-overview.js?v=1.89.20"></script>
-    <script defer src="modules/ui/markers-overview.js?v=1.89.20"></script>
+    <script defer src="modules/ui/markers-overview.js?v=1.89.38"></script>
     <script defer src="modules/ui/regiment-editor.js"></script>
     <script defer src="modules/ui/battle-screen.js"></script>
     <script defer src="modules/ui/emblems-editor.js?v=1.89.21"></script>
