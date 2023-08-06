@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.89.38";// generator version, update each time
+const version = "1.89.39";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -32,7 +32,8 @@ const version = "1.89.38";// generator version, update each time
 <p><b>感谢4位神秘人和网友“长江长”的赞赏</b></p>
 <p><img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 40vh;max-width: 40vw;"></p>
       <ul>
-        <strong>版本更新内容，修复及改进不列出:</strong>
+        <strong>版本更新内容，小改进不列出:</strong>
+        <li>新的3D场景选项和质量改进</li>
         <li>支持国家合并</li>
         <li>自动保存功能(选项中)</li>
         <li>谷歌翻译(选项中)</li>

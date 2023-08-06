@@ -5593,6 +5593,17 @@
             <input id="options3dLightnessNumber" type="number" min="0" max="500" style="width: 3em" />
           </div>
 
+          <div data-tip="设置网格纹理分辨率">
+            <div>纹理分辨率:</div>
+            <select id="options3dMeshSkinResolution" style="width: 10em">
+              <option value="512">512x512px</option>
+              <option value="1024">1024x1024px</option>
+              <option value="2048">2048x2048px</option>
+              <option value="4096">4096x4096px</option>
+              <option value="8192">8192x8192px</option>
+            </select>
+          </div>
+
           <div data-tip="设置太阳位置(x，y，z)来定义阴影">
             <div>太阳位置:</div>
             <input id="options3dSunX" type="number" min="-2500" max="2500" step="100" style="width: 4.7em" />
@@ -5608,6 +5619,20 @@
           <div data-tip="切换天空模式" style="margin: 0.6em 0 0.3em -0.2em">
             <input id="options3dMeshSkyMode" class="checkbox" type="checkbox" />
             <label for="options3dMeshSkyMode" class="checkbox-label"><i>展现天空，延伸水面</i></label>
+          </div>
+
+          <div data-tip="切换三维细分，增加多边形数量。需要一些时间。【警告】：会平滑正在进行的尖锐点。" style="margin: 0.6em 0 0.3em -0.2em">
+            <input id="options3dSubdivide" class="checkbox" type="checkbox" />
+            <label for="options3dSubdivide" class="checkbox-label"><i>几何平滑器.</i></label>
+          </div>
+
+          <div data-tip="设置太阳颜色" id="options3dSunColorSection">
+            <span>太阳颜色:</span
+            ><input
+              id="options3dSunColor"
+              type="color"
+              style="width: 4.4em; height: 1em; border: 0; padding: 0; margin: 0 0.2em"
+            />
           </div>
 
           <div data-tip="设置天空和水的颜色" id="options3dColorSection" style="display: none">
@@ -5699,7 +5724,7 @@
           data-tip="定义保存的 png/jpeg 图像的比例(例如5倍)。保存大图像的速度很慢，可能会导致浏览器崩溃！"
           style="margin-bottom: 0.3em"
         >
-          PNG / JPEG scale:
+          PNG / JPEG 比例:
           <input
             id="pngResolutionInput"
             data-stored="pngResolution"
@@ -5722,7 +5747,7 @@
           <button onclick="saveGeoJSON_Markers()" data-tip="下载 GeoJSON 格式的标记数据">markers</button>
         </div>
         <p>
-          GeoJSON 格式用于诸如 QGIS 之类的 GIS 工具中，
+          GeoJSON 格式用于 QGIS 等 GIS 工具中，
           参考<a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/GIS-data-export" target="_blank">维基页面</a>
         </p>
 
@@ -5737,10 +5762,10 @@
             grid cells
           </button>
         </div>
-        <p>可以使用 JSON 格式的导出作为 API 的替代。</p>
+        <p>可使用 JSON 格式的导出作为 API 的替代。</p>
 
         <p>
-            也可以把地图导出到 <i>Foundry VTT</i>, 查看
+            也可把地图导出到 <i>Foundry VTT</i>, 查看
           <a href="https://github.com/Ethck/azgaar-foundry" target="_blank">模块</a>
         </p>
       </div>
@@ -7822,7 +7847,7 @@
     <script src="modules/ui/stylePresets.js?v=1.89.11"></script>
 
     <script src="modules/ui/general.js?v=1.87.03"></script>
-    <script src="modules/ui/options.js?v=1.89.19"></script>
+    <script src="modules/ui/options.js?v=1.89.36"></script>
     <script src="main.js?v=1.89.32"></script>
 
     <script defer src="modules/relief-icons.js"></script>
@@ -7858,7 +7883,7 @@
     <script defer src="modules/ui/battle-screen.js"></script>
     <script defer src="modules/ui/emblems-editor.js?v=1.89.21"></script>
     <script defer src="modules/ui/markers-editor.js"></script>
-    <script defer src="modules/ui/3d.js"></script>
+    <script defer src="modules/ui/3d.js?v=1.89.36"></script>
     <script defer src="modules/ui/submap.js"></script>
     <script defer src="modules/ui/hotkeys.js?v=1.88.00"></script>
     <script defer src="modules/coa-renderer.js?v=1.87.08"></script>
