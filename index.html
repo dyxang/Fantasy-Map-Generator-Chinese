@@ -708,7 +708,7 @@
             data-tip="选择一个样式预设。如果字体改变，国家标签可能需要重新生成"
             style="display: inline-block"
           >
-          风格预设:
+          样式预设:
           </p>
           <select
             data-tip="选择样式预设"
@@ -731,7 +731,7 @@
             onclick="requestRemoveStylePreset()"
           ></button>
 
-          <p data-tip="选择一个元素来编辑其样式" style="display: inline-block">选择元素:</p>
+          <p></p><p data-tip="选择一个元素来编辑其样式" style="display: inline-block">选择元素:</p>
           <select
             data-tip="选择一个元素来编辑其样式(列表按字母顺序排列)"
             id="styleElementSelect"
@@ -1371,7 +1371,7 @@
               <tr data-tip="允许系统隐藏徽标组，如果他们的大小在太小或太大的规模">
                 <td colspan="2">
                   <input id="hideEmblems" class="checkbox" type="checkbox" onchange="invokeActiveZooming()" checked />
-                  <label for="hideEmblems" class="checkbox-label">Toggle visibility automatically</label>
+                  <label for="hideEmblems" class="checkbox-label">自动切换可见性</label>
                 </td>
               </tr>
             </tbody>
@@ -5444,10 +5444,7 @@
           <button id="markersOverviewRefresh" data-tip="刷新“概述”窗口" class="icon-cw"></button>
           <input type="hidden" id="addedMarkerType" name="addedMarkerType" value="" />
           <span id="markerTypeSelectorWrapper">
-              <button 
-              id="markerTypeSelector"
-              data-tip="为新添加的标记选择标记类型。"
-            >❓</button>
+          <button id="markerTypeSelector" data-tip="为新添加的标记选择标记类型。">❓</button>
             <div id="markerTypeSelectMenu"></div>
           </span>
           <button
@@ -5621,9 +5618,9 @@
             <label for="options3dMeshSkyMode" class="checkbox-label"><i>展现天空，延伸水面</i></label>
           </div>
 
-          <div data-tip="切换三维细分，增加多边形数量。需要一些时间。【警告】：会平滑正在进行的尖锐点。" style="margin: 0.6em 0 0.3em -0.2em">
+          <div data-tip="增加多边形数量以平滑尖锐点。请注意，计算可能需要一些时间" style="margin: 0.6em 0 0.3em -0.2em">
             <input id="options3dSubdivide" class="checkbox" type="checkbox" />
-            <label for="options3dSubdivide" class="checkbox-label"><i>几何平滑器.</i></label>
+            <label for="options3dSubdivide" class="checkbox-label"><i>几何平滑</i></label>
           </div>
 
           <div data-tip="设置太阳颜色" id="options3dSunColorSection">
