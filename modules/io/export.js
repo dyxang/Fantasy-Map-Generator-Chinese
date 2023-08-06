@@ -11,7 +11,7 @@ async function saveSVG() {
   link.click();
 
   tip(
-    `${link.download} 已下载，打开“下载”屏幕(crtl + J)检查。你可以在选项中设置图像比例`,
+    `${link.download} 已下载，打开“下载”屏幕(Ctrl + J)检查。你可以在选项中设置图像比例`,
     true,
     "success",
     5000
@@ -42,7 +42,7 @@ async function savePNG() {
         canvas.remove();
         window.URL.revokeObjectURL(link.href);
         tip(
-          `${link.download} 已下载，打开“下载”屏幕(crtl + J)检查。你可以在选项中设置图像比例`,
+          `${link.download} 已下载，打开“下载”屏幕(Ctrl + J)检查。你可以在选项中设置图像比例`,
           true,
           "success",
           5000
@@ -73,7 +73,7 @@ async function saveJPEG() {
     link.download = getFileName() + ".jpeg";
     link.href = URL;
     link.click();
-    tip(`${link.download} 已下载，打开“下载”屏幕(crtl + J)检查。你可以在选项中设置图像比例`, true, "success", 7000);
+    tip(`${link.download} 已下载，打开“下载”屏幕(Ctrl + J)检查。你可以在选项中设置图像比例`, true, "success", 7000);
     window.setTimeout(() => window.URL.revokeObjectURL(URL), 5000);
   };
 
