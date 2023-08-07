@@ -29,7 +29,7 @@ const version = "1.90.01";// generator version, update each time
 <p>应要求，建了个汉化版交流的群：873020847</p>
 
 <p>一直在跟进个人汉化版本，但不知道有多少人在用，而且该网站域名九月初就要到期了，所以我发起了一个投票（在【关于】页面里），看使用汉化的人多不多，多的话我就续费域名。</p>
-<p><b>感谢4位神秘人和网友“长江长”的赞赏</b></p>
+<p><b>感谢5位神秘人和网友:长江长、蔡**、星空下的牧草的赞赏</b></p>
 <p><img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 40vh;max-width: 40vw;"></p>
       <ul>
         <strong>版本更新内容，小改进不列出:</strong>
