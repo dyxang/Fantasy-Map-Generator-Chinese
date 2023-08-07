@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.89.39";// generator version, update each time
+const version = "1.90.01";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -33,7 +33,10 @@ const version = "1.89.39";// generator version, update each time
 <p><img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 40vh;max-width: 40vw;"></p>
       <ul>
         <strong>版本更新内容，小改进不列出:</strong>
-        <li>新的3D场景选项</li>
+        <li>南北极温度可独立设置</li>
+        <li>70多项新纹章填充</li>
+        <li>支持多色纹章填充</li>
+        <li>新3D场景选项和改进</li>
         <li>支持国家合并</li>
         <li>自动保存功能(选项中)</li>
         <li>谷歌翻译(选项中)</li>

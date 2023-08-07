@@ -2279,29 +2279,58 @@
 
     <div id="dialogs">
       <div id="worldConfigurator" class="dialog stable" style="display: none">
-        <div>
+        <div  style="display: flex">
           <div id="worldControls">
             <div>
               <i data-locked="0" id="lock_temperatureEquator" class="icon-lock-open"></i>
               <label data-tip="设置赤道温度">
                 <i>赤道：</i>
-                <input
-                  id="temperatureEquatorInput"
-                  data-stored="temperatureEquator"
-                  type="number"
-                  min="-50"
-                  max="50"
-                />°C = <span id="temperatureEquatorF"></span>°F
+                <input id="temperatureEquatorInput" data-stored="temperatureEquator" type="number" min="-50" max="50" />
+                <span>°C = <span id="temperatureEquatorF"></span></span>
                 <input id="temperatureEquatorOutput" data-stored="temperatureEquator" type="range" min="-50" max="50" />
               </label>
             </div>
             <div>
-              <i data-locked="0" id="lock_temperaturePole" class="icon-lock-open"></i>
-              <label data-tip="设置极点附近的温度">
-                <i>极点：</i>
-                <input id="temperaturePoleInput" data-stored="temperaturePole" type="number" min="-50" max="50" />°C =
-                <span id="temperaturePoleF"></span>°F
-                <input id="temperaturePoleOutput" data-stored="temperaturePole" type="range" min="-50" max="50" />
+              <label data-tip="设置北极年平均温度">
+                <i data-locked="0" id="lock_temperatureNorthPole" class="icon-lock-open"></i>
+                <i>北极:</i>
+                <input
+                  id="temperatureNorthPoleInput"
+                  data-stored="temperatureNorthPole"
+                  type="number"
+                  min="-50"
+                  max="50"
+                  />
+                  <span>°C = <span id="temperatureNorthPoleF"></span></span>
+                  <input
+                    id="temperatureNorthPoleOutput"
+                    data-stored="temperatureNorthPole"
+                    type="range"
+                    min="-50"
+                    max="50"
+                  />
+              </label>
+            </div>
+
+            <div>
+              <label data-tip="设置南极年平均温度">
+                <i data-locked="0" id="lock_temperatureSouthPole" class="icon-lock-open"></i>
+                <i>南极:</i>
+                <input
+                  id="temperatureSouthPoleInput"
+                  data-stored="temperatureSouthPole"
+                  type="number"
+                  min="-50"
+                  max="50"
+                />
+                <span>°C = <span id="temperatureSouthPoleF"></span></span>
+                <input
+                  id="temperatureSouthPoleOutput"
+                  data-stored="temperatureSouthPole"
+                  type="range"
+                  min="-50"
+                  max="50"
+                />
               </label>
             </div>
             <div>
@@ -2357,59 +2386,65 @@
             <div data-tip="地球仪上的地图坐标"><i>坐标:</i> <span id="mapCoordinates"></span></div>
           </div>
 
-          <svg id="globe" width="22em" height="22em" viewBox="-20 -25 240 240">
-            <defs>
-              <linearGradient id="temperatureGradient" x1="0" x2="0" y1="0" y2="1">
-                <stop class="tempGradient90" offset="0%" stop-color="blue" />
-                <stop class="tempGradient60" offset="16.6%" stop-color="green" />
-                <stop class="tempGradient30" offset="33.3%" stop-color="yellow" />
-                <stop class="tempGradient0" offset="50%" stop-color="red" />
-                <stop class="tempGradient30" offset="66.6%" stop-color="yellow" />
-                <stop class="tempGradient60" offset="83.3%" stop-color="green" />
-                <stop class="tempGradient90" offset="100%" stop-color="blue" />
-              </linearGradient>
-            </defs>
-            <g id="globeNoteLines">
-              <line x1="5" x2="220" y1="0" y2="0" />
-              <line x1="5" x2="220" y1="13" y2="13" />
-              <line x1="5" x2="220" y1="49.5" y2="49.5" />
-              <line x1="-5" x2="220" y1="100" y2="100" />
-              <line x1="5" x2="220" y1="150.5" y2="150.5" />
-              <line x1="5" x2="220" y1="187" y2="187" />
-              <line x1="5" x2="220" y1="200" y2="200" />
-            </g>
+          <div style="display: flex; flex-direction: column; align-items: flex-end">
+            <svg id="globe" width="22em" viewBox="-20 -25 240 240">
+              <defs>
+                <linearGradient id="temperatureGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop id="grad90" offset="0%" stop-color="blue" />
+                  <stop id="grad60" offset="16.6%" stop-color="green" />
+                  <stop id="grad30" offset="33.3%" stop-color="yellow" />
+                  <stop id="grad0" offset="50%" stop-color="red" />
+                  <stop id="grad-30" offset="66.6%" stop-color="yellow" />
+                  <stop id="grad-60" offset="83.3%" stop-color="green" />
+                  <stop id="grad-90" offset="100%" stop-color="blue" />
+                </linearGradient>
+              </defs>
+              <g id="globeNoteLines">
+                <line x1="5" x2="220" y1="0" y2="0" />
+                <line x1="5" x2="220" y1="13" y2="13" />
+                <line x1="5" x2="220" y1="49.5" y2="49.5" />
+                <line x1="-5" x2="220" y1="100" y2="100" />
+                <line x1="5" x2="220" y1="150.5" y2="150.5" />
+                <line x1="5" x2="220" y1="187" y2="187" />
+                <line x1="5" x2="220" y1="200" y2="200" />
+              </g>
             <g id="globeWindArrows" data-tip="按一下以改变风向" stroke-linejoin="round">
-              <circle cx="210" cy="6" r="12" />
-              <path data-tier="0" d="M210,11 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(225 210 6)" />
-              <circle cx="210" cy="30" r="12" />
-              <path data-tier="1" d="M210,35 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(45 210 30)" />
-              <circle cx="210" cy="75" r="12" />
-              <path data-tier="2" d="M210,80 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(225 210 75)" />
-              <circle cx="210" cy="130" r="12" />
-              <path data-tier="3" d="M210,135 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(315 210 130)" />
-              <circle cx="210" cy="173" r="12" />
-              <path data-tier="4" d="M210,178 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(135 210 173)" />
-              <circle cx="210" cy="194" r="12" />
-              <path data-tier="5" d="M210,199 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(315 210 194)" />
-            </g>
-            <g id="globaAxisLabels">
+                <circle cx="210" cy="6" r="12" />
+                <path data-tier="0" d="M210,11 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(225 210 6)" />
+                <circle cx="210" cy="30" r="12" />
+                <path data-tier="1" d="M210,35 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(45 210 30)" />
+                <circle cx="210" cy="75" r="12" />
+                <path data-tier="2" d="M210,80 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(225 210 75)" />
+                <circle cx="210" cy="130" r="12" />
+                <path data-tier="3" d="M210,135 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(315 210 130)" />
+                <circle cx="210" cy="173" r="12" />
+                <path data-tier="4" d="M210,178 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(135 210 173)" />
+                <circle cx="210" cy="194" r="12" />
+                <path data-tier="5" d="M210,199 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(315 210 194)" />
+              </g>
+              <g id="globaAxisLabels">
               <text x="82%" y="-4%">风</text>
               <text x="-8%" y="-4%">纬度</text>
-            </g>
-            <g id="globeLatLabels">
-              <text x="-15" y="5">90°</text>
-              <text x="-15" y="18">60°</text>
-              <text x="-15" y="53">30°</text>
-              <text x="-15" y="103">0°</text>
-              <text x="-15" y="153">30°</text>
-              <text x="-15" y="190">60°</text>
-              <text x="-15" y="204">90°</text>
-            </g>
-            <circle id="globeOutline" cx="100" cy="100" r="100" />
-            <line id="globeEquator" x1="1" x2="199" y1="100" y2="100" />
-            <path id="globeGraticule" />
-            <path id="globeArea" />
-          </svg>
+              </g>
+              <g id="globeLatLabels">
+                <text x="-15" y="5">90°</text>
+                <text x="-15" y="18">60°</text>
+                <text x="-15" y="53">30°</text>
+                <text x="-15" y="103">0°</text>
+                <text x="-15" y="153">30°</text>
+                <text x="-15" y="190">60°</text>
+                <text x="-15" y="204">90°</text>
+              </g>
+              <circle id="globeOutline" cx="100" cy="100" r="100" />
+              <line id="globeEquator" x1="1" x2="199" y1="100" y2="100" />
+              <path id="globeGraticule" />
+              <path id="globeArea" />
+            </svg>
+
+            <button id="restoreWinds" data-tip="单击恢复默认风向(基于地球)">
+              恢复风向
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5620,7 +5655,9 @@
 
           <div data-tip="增加多边形数量以平滑尖锐点。请注意，计算可能需要一些时间" style="margin: 0.6em 0 0.3em -0.2em">
             <input id="options3dSubdivide" class="checkbox" type="checkbox" />
-            <label for="options3dSubdivide" class="checkbox-label"><i>几何平滑</i></label>
+            <label for="options3dSubdivide" class="checkbox-label">
+              <i>几何平滑 <small style="color: darkred">[慢]</small></i>
+            </label>
           </div>
 
           <div data-tip="设置太阳颜色" id="options3dSunColorSection">
@@ -7810,7 +7847,7 @@
     <script src="utils/commonUtils.js?v=1.89.29"></script>
     <script src="utils/arrayUtils.js"></script>
     <script src="utils/colorUtils.js"></script>
-    <script src="utils/graphUtils.js?v=1.88.02"></script>
+    <script src="utils/graphUtils.js?v=1.90.01"></script>
     <script src="utils/nodeUtils.js"></script>
     <script src="utils/numberUtils.js?v=1.89.08"></script>
     <script src="utils/polyfills.js"></script>
@@ -7833,7 +7870,7 @@
     <script src="modules/religions-generator.js?v=1.89.36"></script>
     <script src="modules/military-generator.js"></script>
     <script src="modules/markers-generator.js?v=1.89.34"></script>
-    <script src="modules/coa-generator.js"></script>
+    <script src="modules/coa-generator.js?v=1.89.39"></script>
     <script src="modules/submap.js?v=1.88.05"></script>
     <script src="libs/polylabel.min.js"></script>
     <script src="libs/lineclip.min.js"></script>
@@ -7844,14 +7881,14 @@
     <script src="modules/ui/stylePresets.js?v=1.89.11"></script>
 
     <script src="modules/ui/general.js?v=1.87.03"></script>
-    <script src="modules/ui/options.js?v=1.89.36"></script>
-    <script src="main.js?v=1.89.32"></script>
+    <script src="modules/ui/options.js?v=1.90.00"></script>
+    <script src="main.js?v=1.90.00"></script>
 
     <script defer src="modules/relief-icons.js"></script>
     <script defer src="modules/ui/style.js"></script>
     <script defer src="modules/ui/editors.js?v=1.89.35"></script>
-    <script defer src="modules/ui/tools.js?v=1.89.38"></script>
-    <script defer src="modules/ui/world-configurator.js"></script>
+    <script defer src="modules/ui/tools.js?v=1.90.00"></script>
+    <script defer src="modules/ui/world-configurator.js?v=1.90.00"></script>
     <script defer src="modules/ui/heightmap-editor.js?v=1.89.06"></script>
     <script defer src="modules/ui/provinces-editor.js?v=1.89.00"></script>
     <script defer src="modules/ui/biomes-editor.js"></script>
@@ -7883,12 +7920,12 @@
     <script defer src="modules/ui/3d.js?v=1.89.36"></script>
     <script defer src="modules/ui/submap.js"></script>
     <script defer src="modules/ui/hotkeys.js?v=1.88.00"></script>
-    <script defer src="modules/coa-renderer.js?v=1.87.08"></script>
+    <script defer src="modules/coa-renderer.js?v=1.89.39"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
 
-    <script defer src="modules/io/save.js?v=1.89.29"></script>
-    <script defer src="modules/io/load.js?v=1.89.30"></script>
+    <script defer src="modules/io/save.js?v=1.90.00"></script>
+    <script defer src="modules/io/load.js?v=1.90.00"></script>
     <script defer src="modules/io/cloud.js"></script>
     <script defer src="modules/io/export.js?v=1.89.17"></script>
     <script defer src="modules/io/formats.js"></script>

@@ -5,8 +5,8 @@
 // set debug options
 const PRODUCTION = location.hostname && location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
 const DEBUG = localStorage.getItem("debug");
-const INFO = DEBUG || !PRODUCTION;
-const TIME = DEBUG || !PRODUCTION;
+const INFO = true;
+const TIME = true;
 const WARN = true;
 const ERROR = true;
 
@@ -179,13 +179,17 @@ function onZoom() {
 const onZoomDebouced = debounce(onZoom, 50);
 const zoom = d3.zoom().scaleExtent([1, 20]).on("zoom", onZoomDebouced);
 
-// default options
+// default options, based on Earth data
 let options = {
   pinNotes: false,
   showMFCGMap: true,
   winds: [225, 45, 225, 315, 135, 315],
+  temperatureEquator: 27,
+  temperatureNorthPole: -30,
+  temperatureSouthPole: -15,
   stateLabelsMode: "auto"
 };
+
 let mapCoordinates = {}; // map coordinates on globe
 let populationRate = +document.getElementById("populationRateInput").value;
 let distanceScale = +document.getElementById("distanceScaleInput").value;
@@ -283,16 +287,16 @@ async function checkLoadParameters() {
   // check if there is a map saved to indexedDB
   try {
     const blob = await ldb.get("lastMap");
-        if (blob) {
-      WARN && console.warn("载入最新保存地图");
-            uploadMap(blob);
+    if (blob) {
+      WARN && console.warn("Loading last stored map");
+      uploadMap(blob);
       return;
     }
-          } catch (error) {
+  } catch (error) {
     console.error(error);
-          }
+  }
 
-    WARN && console.warn("随机生成地图");
+  WARN && console.warn("Generate random map");
   generateMapOnLoad();
 }
 
@@ -383,7 +387,7 @@ function findBurgForMFCG(params) {
   const selected = d3.scan(selection, (a, b) => Math.abs(a.population - size) - Math.abs(b.population - size));
   const burgId = selection[selected].i;
   if (!burgId) {
-    ERROR && console.error("不能为MFCG选择城市");
+    ERROR && console.error("Cannot select a burg for MFCG");
     return;
   }
 
@@ -467,7 +471,7 @@ function applyDefaultBiomesSystem() {
   const biomesMartix = [
     // hot ↔ cold [>19°C; <-4°C]; dry ↕ wet
     new Uint8Array([1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10]),
-    new Uint8Array([3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 9, 9, 9, 9, 10, 10, 10]),
+    new Uint8Array([1, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 9, 9, 9, 9, 10, 10, 10]),
     new Uint8Array([5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 9, 9, 9, 9, 9, 10, 10, 10]),
     new Uint8Array([5, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 10, 10, 10]),
     new Uint8Array([7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 10, 10])
@@ -968,7 +972,7 @@ function defineMapSize() {
 
     const part = grid.features.some(f => f.land && f.border); // if land goes over map borders
     const max = part ? 80 : 100; // max size
-    const lat = () => gauss(P(0.5) ? 40 : 60, 15, 25, 75); // latitude shift
+    const lat = () => gauss(P(0.5) ? 40 : 60, 20, 25, 75); // latitude shift
 
     if (!part) {
       if (template === "Pangea") return [100, 50];
@@ -1003,30 +1007,49 @@ function calculateMapCoordinates() {
   mapCoordinates = {latT, latN, latS, lonT: lon * 2, lonW: -lon, lonE: lon};
 }
 
-// temperature model
+// temperature model, trying to follow real-world data
+// based on http://www-das.uwyo.edu/~geerts/cwx/notes/chap16/Image64.gif
 function calculateTemperatures() {
   TIME && console.time("calculateTemperatures");
   const cells = grid.cells;
   cells.temp = new Int8Array(cells.i.length); // temperature array
 
-  const tEq = +temperatureEquatorInput.value;
-  const tPole = +temperaturePoleInput.value;
-  const tDelta = tEq - tPole;
-  const int = d3.easePolyInOut.exponent(0.5); // interpolation function
+  const {temperatureEquator, temperatureNorthPole, temperatureSouthPole} = options;
+  const tropics = [16, -20]; // tropics zone
+  const tropicalGradient = 0.15;
 
-  d3.range(0, cells.i.length, grid.cellsX).forEach(function (r) {
-    const y = grid.points[r][1];
-    const lat = Math.abs(mapCoordinates.latN - (y / graphHeight) * mapCoordinates.latT); // [0; 90]
-    const initTemp = tEq - int(lat / 90) * tDelta;
-    for (let i = r; i < r + grid.cellsX; i++) {
-      cells.temp[i] = minmax(initTemp - convertToFriendly(cells.h[i]), -128, 127);
+  const tempNorthTropic = temperatureEquator - tropics[0] * tropicalGradient;
+  const northernGradient = (tempNorthTropic - temperatureNorthPole) / (90 - tropics[0]);
+
+  const tempSouthTropic = temperatureEquator + tropics[1] * tropicalGradient;
+  const southernGradient = (tempSouthTropic - temperatureSouthPole) / (90 + tropics[1]);
+
+  const exponent = +heightExponentInput.value;
+
+  for (let rowCellId = 0; rowCellId < cells.i.length; rowCellId += grid.cellsX) {
+    const [, y] = grid.points[rowCellId];
+    const rowLatitude = mapCoordinates.latN - (y / graphHeight) * mapCoordinates.latT; // [90; -90]
+    const tempSeaLevel = calculateSeaLevelTemp(rowLatitude);
+    DEBUG && console.info(`${rn(rowLatitude)}° sea temperature: ${rn(tempSeaLevel)}°C`);
+
+    for (let cellId = rowCellId; cellId < rowCellId + grid.cellsX; cellId++) {
+      const tempAltitudeDrop = getAltitudeTemperatureDrop(cells.h[cellId]);
+      cells.temp[cellId] = minmax(tempSeaLevel - tempAltitudeDrop, -128, 127);
     }
-  });
+  }
 
-  // temperature decreases by 6.5 degree C per 1km
-  function convertToFriendly(h) {
+  function calculateSeaLevelTemp(latitude) {
+    const isTropical = latitude <= 16 && latitude >= -20;
+    if (isTropical) return temperatureEquator - Math.abs(latitude) * tropicalGradient;
+
+    return latitude > 0
+      ? tempNorthTropic - (latitude - tropics[0]) * northernGradient
+      : tempSouthTropic + (latitude - tropics[1]) * southernGradient;
+  }
+
+  // temperature drops by 6.5°C per 1km of altitude
+  function getAltitudeTemperatureDrop(h) {
     if (h < 20) return 0;
-    const exponent = +heightExponentInput.value;
     const height = Math.pow(h - 18, exponent);
     return rn((height / 1000) * 6.5);
   }
@@ -1993,18 +2016,18 @@ function showStatistics() {
   const heightmapType = isTemplate ? "template" : "precreated";
   const isRandomTemplate = isTemplate && !locked("template") ? "random " : "";
 
-  const stats = `  种子: ${seed}
-    画布大小: ${graphWidth}x${graphHeight} px
-    高程图: ${heightmap} (${isRandomTemplate}${heightmapType})
-    点: ${grid.points.length}
-    格: ${pack.cells.i.length}
-    地图大小: ${mapSizeOutput.value}%
-    国家: ${pack.states.length - 1}
-    省份: ${pack.provinces.length - 1}
-    城市: ${pack.burgs.length - 1}
-    宗教: ${pack.religions.length - 1}
-    文化设定: ${culturesSet.selectedOptions[0].innerText}
-    文化: ${pack.cultures.length - 1}`;
+  const stats = `  Seed: ${seed}
+    Canvas size: ${graphWidth}x${graphHeight} px
+    Heightmap: ${heightmap} (${isRandomTemplate}${heightmapType})
+    Points: ${grid.points.length}
+    Cells: ${pack.cells.i.length}
+    Map size: ${mapSizeOutput.value}%
+    States: ${pack.states.length - 1}
+    Provinces: ${pack.provinces.length - 1}
+    Burgs: ${pack.burgs.length - 1}
+    Religions: ${pack.religions.length - 1}
+    Culture set: ${culturesSet.selectedOptions[0].innerText}
+    Cultures: ${pack.cultures.length - 1}`;
 
   mapId = Date.now(); // unique map id is it's creation date number
   mapHistory.push({seed, width: graphWidth, height: graphHeight, template: heightmap, created: mapId});
