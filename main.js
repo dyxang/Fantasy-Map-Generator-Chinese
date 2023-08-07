@@ -288,7 +288,7 @@ async function checkLoadParameters() {
   try {
     const blob = await ldb.get("lastMap");
     if (blob) {
-      WARN && console.warn("Loading last stored map");
+      WARN && console.warn("载入最近保存地图");
       uploadMap(blob);
       return;
     }
@@ -296,7 +296,7 @@ async function checkLoadParameters() {
     console.error(error);
   }
 
-  WARN && console.warn("Generate random map");
+  WARN && console.warn("随机生成地图");
   generateMapOnLoad();
 }
 
@@ -387,7 +387,7 @@ function findBurgForMFCG(params) {
   const selected = d3.scan(selection, (a, b) => Math.abs(a.population - size) - Math.abs(b.population - size));
   const burgId = selection[selected].i;
   if (!burgId) {
-    ERROR && console.error("Cannot select a burg for MFCG");
+    ERROR && console.error("不能为MFCG选择城市");
     return;
   }
 

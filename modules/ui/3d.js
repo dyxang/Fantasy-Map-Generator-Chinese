@@ -209,7 +209,7 @@ window.ThreeD = (function () {
   async function newMesh(canvas) {
     const loaded = await loadTHREE();
     if (!loaded) {
-      tip("Cannot load 3d library", false, "error", 4000);
+      tip("无法加载3D库", false, "error", 4000);
       return false;
     }
 
@@ -555,7 +555,7 @@ window.ThreeD = (function () {
   async function newGlobe(canvas) {
     const loaded = await loadTHREE();
     if (!loaded) {
-      tip("Cannot load 3d library", false, "error", 4000);
+      tip("无法加载3D库", false, "error", 4000);
       return false;
     }
 
