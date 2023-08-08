@@ -391,16 +391,16 @@ function editDiplomacy() {
       title: "关系史",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
-        Save: function () {
+        保存: function () {
           const data = this.querySelector("div").innerText.split("\n").join("\r\n");
           const name = getFileName("Relations history") + ".txt";
           downloadFile(data, name);
         },
-        Clear: function () {
+        清除: function () {
           pack.states[0].diplomacy = [];
           $(this).dialog("close");
         },
-        Close: function () {
+        关闭: function () {
           $(this).dialog("close");
         }
       }

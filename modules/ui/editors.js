@@ -1112,7 +1112,7 @@ function selectIcon(initial, callback) {
         callback(input.value || "⠀");
         $(this).dialog("close");
       },
-      Close: function () {
+      关闭: function () {
         callback(initial);
         $(this).dialog("close");
       }

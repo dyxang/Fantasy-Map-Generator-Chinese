@@ -756,7 +756,7 @@ function showSavePane() {
     width: "25em",
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }
@@ -778,7 +778,7 @@ function showExportPane() {
     width: "26em",
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }
@@ -797,7 +797,7 @@ async function showLoadPane() {
     width: "24em",
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }

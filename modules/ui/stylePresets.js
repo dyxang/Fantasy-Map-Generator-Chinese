@@ -88,6 +88,9 @@ function applyStyle(style) {
       } else {
         el.setAttribute(attribute, value);
       }
+      if (layerIsOn("toggleTexture") && selector === "#textureImage" && attribute === "src") {
+        el.setAttribute("href", value);
+      }
     }
   }
 }
@@ -224,7 +227,7 @@ function addStylePreset() {
       "#ice": ["opacity", "fill", "stroke", "stroke-width", "filter"],
       "#emblems": ["opacity", "stroke-width", "filter"],
       "#texture": ["opacity", "filter", "mask"],
-      "#textureImage": ["x", "y"],
+      "#textureImage": ["x", "y", "src"],
       "#zones": ["opacity", "stroke", "stroke-width", "stroke-dasharray", "stroke-linecap", "filter", "mask"],
       "#oceanLayers": ["filter", "layers"],
       "#oceanBase": ["fill"],
