@@ -5,17 +5,17 @@ function editWorld() {
     resizable: false,
     width: "minmax(40em, 85vw)",
     buttons: {
-      "Whole World": () => applyWorldPreset(100, 50),
-      Northern: () => applyWorldPreset(33, 25),
-      Tropical: () => applyWorldPreset(33, 50),
-      Southern: () => applyWorldPreset(33, 75)
+      "全世界": () => applyWorldPreset(100, 50),
+      北半球: () => applyWorldPreset(33, 25),
+      热带区: () => applyWorldPreset(33, 50),
+      南半球: () => applyWorldPreset(33, 75)
     },
     open: function () {
       const buttons = $(this).dialog("widget").find(".ui-dialog-buttonset > button");
       buttons[0].addEventListener("mousemove", () => tip("点击设置地图大小以覆盖整个世界"));
-      buttons[1].addEventListener("mousemove", () => tip("点击此处可设置覆盖北纬地区的地图大小"));
-      buttons[2].addEventListener("mousemove", () => tip("点击此处可设置覆盖热带纬度的地图大小"));
-      buttons[3].addEventListener("mousemove", () => tip("点击此处可设置覆盖南半球纬度的地图大小"));
+      buttons[1].addEventListener("mousemove", () => tip("点击此处可设置覆盖北半球的地图大小"));
+      buttons[2].addEventListener("mousemove", () => tip("点击此处可设置覆盖热带区的地图大小"));
+      buttons[3].addEventListener("mousemove", () => tip("点击此处可设置覆盖南半球的地图大小"));
     },
     close: function () {
       $(this).dialog("destroy");
