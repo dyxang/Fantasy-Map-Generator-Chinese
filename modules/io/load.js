@@ -405,7 +405,7 @@ async function parseLoadedData(data) {
       if (hasChildren(statesBody)) turnOn("toggleStates");
       if (hasChildren(provs)) turnOn("toggleProvinces");
       if (hasChildren(zones) && notHidden(zones)) turnOn("toggleZones");
-      if (notHidden(borders) && hasChild(compass, "use")) turnOn("toggleBorders");
+      if (notHidden(borders) && hasChild(borders, "path")) turnOn("toggleBorders");
       if (notHidden(routes) && hasChild(routes, "path")) turnOn("toggleRoutes");
       if (hasChildren(temperature)) turnOn("toggleTemp");
       if (hasChild(population, "line")) turnOn("togglePopulation");
@@ -432,7 +432,7 @@ async function parseLoadedData(data) {
     {
       // dynamically import and run auto-udpdate script
       const versionNumber = parseFloat(params[0]);
-      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.87.08");
+      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.91.00");
       resolveVersionConflicts(versionNumber);
     }
 

@@ -2023,14 +2023,8 @@ window.COArenderer = (function () {
 
   // render coa if does not exist
   const trigger = async function (id, coa) {
-    if (coa === "custom") {
-      console.warn("无法生成自定义徽标", coa);
-      return;
-    }
-    if (!coa) {
-      console.warn(`徽标 ${id} 未定义`);
-      return;
-    }
+    if (!coa) return console.warn(`徽标 ${id} 未定义`);
+    if (coa.custom) return console.warn("无法生成自定义徽标", coa);
     if (!document.getElementById(id)) return draw(id, coa);
   };
 
