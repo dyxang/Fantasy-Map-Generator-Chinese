@@ -1,3 +1,11 @@
+export const trbackers = `Crisp
+怎么回事
+■越
+星空下的牧草
+■■晗
+长江长
+wx
+及其他六个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
 Richard Rogers

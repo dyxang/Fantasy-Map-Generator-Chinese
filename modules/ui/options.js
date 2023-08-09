@@ -90,6 +90,20 @@ async function showSupporters() {
   });
 }
 
+async function showBackers() {
+  const {trbackers} = await import("../dynamic/supporters.js?v=1.89.15");
+  const list = trbackers.split("\n").sort();
+  const columns = window.innerWidth < 800 ? 2 : 5;
+
+  alertMessage.innerHTML =
+    `<ul style='column-count: ${columns}; column-gap: 2em'>` + list.map(n => `<li>${n}</li>`).join("") + "</ul>";
+  $("#alert").dialog({
+    resizable: false,
+    title: "汉化版赞赏者 - 真名已打码",
+    width: "min-width",
+    position: {my: "center", at: "center", of: "svg"}
+  });
+}
 // on any option or dialog change
 document.getElementById("options").addEventListener("change", storeValueIfRequired);
 document.getElementById("dialogs").addEventListener("change", storeValueIfRequired);
