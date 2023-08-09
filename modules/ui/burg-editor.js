@@ -433,7 +433,7 @@ function editBurg(id) {
   function addCustomMfcgLink() {
     const id = +elSelected.attr("data-id");
     const burg = pack.burgs[id];
-    const message = "输入指向城市地图的自定义链接。它可以是一个链接到中世纪幻想城市生成器或其他工具。保持空白以使用 MFCG 种子";
+    const message = "输入指向城市地图的自定义链接。它可以是中世纪幻想城市生成器或其他工具的链接。留空以使用 MFCG 种子";
     prompt(message, {default: burg.link || "", required: false}, link => {
       if (link) burg.link = link;
       else delete burg.link;
