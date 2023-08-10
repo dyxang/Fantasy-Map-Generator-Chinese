@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.91.03";// generator version, update each time
+const version = "1.91.04";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -28,7 +28,7 @@ const version = "1.91.03";// generator version, update each time
 <p><strong>⚠请汉化版使用者阅读以下内容！</strong></p>
 <p>主站已改为<a href="https://www.8desk.top" target="_blank">链接A</a>，子站为<a href="https://zan.8desk.top" target="_blank">链接B</a></p>
 <p>应要求，建了个汉化版交流的群：873020847</p>
-<p>关于页面有个投票，使用该网站的访客参与一下</p>
+<p>关于页面有个投票，访客参与一下</p>
 <p><a href="https://zan.8desk.top" target="_blank" style="color:#deb640;font-size:125%;">感谢赞赏者的名单</a></p>
 <p><img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 35vh;max-width: 35vw;"></p>
       <ul>

@@ -1022,7 +1022,7 @@
 
             <tbody id="styleShift">
               <tr data-tip="按轴移动元素">
-                <td>Shift by axes</td>
+                <td>按轴移动</td>
                 <td>
                   <input id="styleShiftX" type="number" data-tip="以像素为单位移动x轴" />
                   <input id="styleShiftY" type="number" data-tip="以像素为单位按y轴移动" />
@@ -1040,7 +1040,7 @@
               </tr>
 
               <tr data-tip="用轴移动风玫瑰">
-                <td>Shift by axes</td>
+                <td>按轴移动</td>
                 <td>
                   <input id="styleCompassShiftX" type="number" value="80" data-tip="以像素为单位移动x轴" />
                   <input id="styleCompassShiftY" type="number" value="80" data-tip="以像素为单位按y轴移动" />
@@ -5775,10 +5775,10 @@
 
         <div style="margin: 1em 0 0.3em; font-weight: bold">导出到 GeoJSON</div>
         <div>
-          <button onclick="saveGeoJSON_Cells()" data-tip="下载 GeoJSON 格式的单元格数据">cells</button>
-          <button onclick="saveGeoJSON_Routes()" data-tip="以 GeoJSON 格式下载路线数据">routes</button>
-          <button onclick="saveGeoJSON_Rivers()" data-tip="下载 GeoJSON 格式的河流数据">rivers</button>
-          <button onclick="saveGeoJSON_Markers()" data-tip="下载 GeoJSON 格式的标记数据">markers</button>
+          <button onclick="saveGeoJSON_Cells()" data-tip="下载 GeoJSON 格式的单元格数据">单元格</button>
+          <button onclick="saveGeoJSON_Routes()" data-tip="以 GeoJSON 格式下载路线数据">路线</button>
+          <button onclick="saveGeoJSON_Rivers()" data-tip="下载 GeoJSON 格式的河流数据">河流</button>
+          <button onclick="saveGeoJSON_Markers()" data-tip="下载 GeoJSON 格式的标记数据">标记</button>
         </div>
         <p>
           GeoJSON 格式用于 QGIS 等 GIS 工具中，
@@ -5790,17 +5790,17 @@
           <button onclick="exportToJson('Full')" data-tip="用 JSON 下载完整数据">完整</button>
           <button onclick="exportToJson('Minimal')" data-tip="用 JSON 下载最小数据">极简</button>
           <button onclick="exportToJson('PackCells')" data-tip="用 JSON 下载地图元数据和包单元数据">
-            pack cells
+            包单元格
           </button>
           <button onclick="exportToJson('GridCells')" data-tip="在 JSON 下载地图元数据和网格单元数据">
-            grid cells
+            网单元格
           </button>
         </div>
-        <p>可使用 JSON 格式的导出作为 API 的替代。</p>
+        <p>可用 JSON 格式导出作为 API 的替代。</p>
 
         <p>
             也可把地图导出到 <i>Foundry VTT</i>, 查看
-          <a href="https://github.com/Ethck/azgaar-foundry" target="_blank">模块</a>
+          <a href="https://github.com/Ethck/azgaar-foundry" target="_blank">该模块</a>
         </p>
       </div>
 
@@ -7925,8 +7925,8 @@
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
 
-    <script defer src="modules/io/save.js?v=1.90.00"></script>
-    <script defer src="modules/io/load.js?v=1.91.03"></script>
+    <script defer src="modules/io/save.js?v=1.91.04"></script>
+    <script defer src="modules/io/load.js?v=1.91.04"></script>
     <script defer src="modules/io/cloud.js"></script>
     <script defer src="modules/io/export.js?v=1.89.17"></script>
     <script defer src="modules/io/formats.js"></script>
