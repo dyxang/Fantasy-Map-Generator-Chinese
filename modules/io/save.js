@@ -24,7 +24,7 @@ function getMapData() {
     urbanization,
     mapSizeOutput.value,
     latitudeOutput.value,
-    "" // previously used for temperatureEquatorOutput.value
+    "",// previously used for temperatureEquatorOutput.value
     "", // previously used for tempNorthOutput.value
     precOutput.value,
     JSON.stringify(options),
