@@ -1,5 +1,5 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js");
-
+//修改过期时间弥补出错
 const {Route, registerRoute} = workbox.routing;
 const {CacheFirst, NetworkFirst} = workbox.strategies;
 const {CacheableResponsePlugin} = workbox.cacheableResponse;
@@ -28,7 +28,7 @@ registerRoute(
     request.destination === "script" && !url.pathname.endsWith("min.js") && !url.pathname.includes("versioning.js"),
   new CacheFirst({
     cacheName: "fmg-scripts",
-    plugins: getPolitics({entries: 100, days: 30})
+    plugins: getPolitics({entries: 100, days: 1})
   })
 );
 
@@ -44,7 +44,7 @@ registerRoute(
   ({request, url}) => request.destination === "script" && url.pathname.endsWith("min.js"),
   new CacheFirst({
     cacheName: "fmg-libs",
-    plugins: getPolitics({entries: 100, days: 30})
+    plugins: getPolitics({entries: 100, days: 1})
   })
 );
 
