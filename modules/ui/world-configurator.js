@@ -84,7 +84,7 @@ function editWorld() {
     Lakes.defineGroup();
     Rivers.specify();
     pack.cells.h = new Float32Array(heights);
-    defineBiomes();
+    Biomes.define();
 
     if (layerIsOn("toggleTemp")) drawTemp();
     if (layerIsOn("togglePrec")) drawPrec();

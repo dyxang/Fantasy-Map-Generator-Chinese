@@ -88,7 +88,9 @@ function editBiomes() {
       const rural = b.rural[i] * populationRate;
       const urban = b.urban[i] * populationRate * urbanization;
       const population = rn(rural + urban);
-      const populationTip = `总人口: ${si(population)}; 农村人口: ${si(rural)}; 城市人口: ${si(urban)}`;
+      const populationTip = `总人口: ${si(population)}; 农村人口: ${si(
+        rural
+      )}; 城市人口: ${si(urban)}`;
       totalArea += area;
       totalPopulation += population;
 
@@ -104,7 +106,9 @@ function editBiomes() {
           data-color=${b.color[i]}
         >
           <fill-box fill="${b.color[i]}"></fill-box>
-          <input data-tip="生物群落名称。点击并键入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
+          <input data-tip="生物群落名称。点击并键入以更改" class="biomeName" value="${
+            b.name[i]
+          }" autocorrect="off" spellcheck="false" />
           <span data-tip="生物群落可居住百分比" class="hide">%</span>
           <input
             data-tip="生物群落可居住百分比。点击并设置新值以更改"
@@ -121,8 +125,12 @@ function editBiomes() {
           <span data-tip="${populationTip}" class="icon-male hide"></span>
           <div data-tip="${populationTip}" class="biomePopulation hide">${si(population)}</div>
           <span data-tip="打开维基百科关于生物群落的文章" class="icon-info-circled pointer hide"></span>
-          ${i > 12 && !b.cells[i] ? '<span data-tip="删除定制的生物群落" class="icon-trash-empty hide"></span>' : ""}
-        </div>
+          ${
+            i > 12 && !b.cells[i]
+              ? '<span data-tip="删除定制的生物群落" class="icon-trash-empty hide"></span>'
+              : ""
+          }
+          </div>
       `;
     }
     body.innerHTML = lines;
@@ -403,8 +411,14 @@ function editBiomes() {
 
       // change of append new element
       if (exists.size()) exists.attr("data-biome", biomeNew).attr("fill", color).attr("stroke", color);
-      else temp.append("polygon").attr("data-cell", i).attr("data-biome", biomeNew).attr("points", getPackPolygon(i)).attr("fill", color).attr("stroke", color);
-    });
+      else
+        temp
+          .append("polygon")
+          .attr("data-cell", i)
+          .attr("data-biome", biomeNew)
+          .attr("points", getPackPolygon(i))
+          .attr("fill", color)
+          .attr("stroke", color);    });
   }
 
   function moveBiomeBrush() {
@@ -449,8 +463,8 @@ function editBiomes() {
   }
 
   function restoreInitialBiomes() {
-    biomesData = applyDefaultBiomesSystem();
-    defineBiomes();
+    biomesData = Biomes.getDefault();
+    Biomes.define();
     drawBiomes();
     recalculatePopulation();
     refreshBiomesEditor();
