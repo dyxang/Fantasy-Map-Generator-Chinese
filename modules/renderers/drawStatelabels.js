@@ -123,8 +123,8 @@ function drawStateLabels(list) {
 
     for (const [stateId, pathPoints] of labelPaths) {
       const state = states[stateId];
-      if (!state.i || state.removed) throw new Error("State must not be neutral or removed");
-      if (pathPoints.length < 2) throw new Error("Label path must have at least 2 points");
+      if (!state.i || state.removed) throw new Error("国家不得为中立或已删除");
+      if (pathPoints.length < 2) throw new Error("标签路径必须至少有2个点");
 
       textGroup.select("#stateLabel" + stateId).remove();
       pathGroup.select("#textPath_stateLabel" + stateId).remove();
