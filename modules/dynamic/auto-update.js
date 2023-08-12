@@ -639,7 +639,6 @@ export function resolveVersionConflicts(version) {
   if (version < 1.9) {
     // from v1.90.02 texture image is always there
     if (!texture.selectAll("*").size()) {
-      texture.style("display", "none");
       texture
         .append("image")
         .attr("id", "textureImage")
@@ -697,5 +696,24 @@ export function resolveVersionConflicts(version) {
         delete burg.coaSize;
       }
     });
+  }
+  if (version < 1.92) {
+    // v1.92 change labels text-anchor from 'start' to 'middle'
+    labels.selectAll("tspan").each(function () {
+      this.setAttribute("x", 0);
+    });
+    // leftover from v1.90.02
+    texture.style("display", null);
+    const textureImage = texture.select("#textureImage");
+    if (textureImage) {
+      const xlink = textureImage.attr("xlink:href");
+      const href = textureImage.attr("href");
+      const src = xlink || href;
+
+      if (src) {
+        textureImage.attr("src", src);
+        textureImage.attr("xlink:href", null);
+      }
+    }
   } 
 }
