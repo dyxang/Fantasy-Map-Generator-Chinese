@@ -124,7 +124,9 @@ function editProvinces() {
       const rural = p.rural * populationRate;
       const urban = p.urban * populationRate * urbanization;
       const population = rn(rural + urban);
-      const populationTip = `总人口: ${si(population)}; 农村人口: ${si(rural)}; 城市人口: ${si(urban)}`;
+      const populationTip = `总人口: ${si(population)}; 农村人口: ${si(
+        rural
+      )}; 城市人口: ${si(urban)}`;
       totalPopulation += population;
 
       const stateName = pack.states[p.state].name;
@@ -145,9 +147,15 @@ function editProvinces() {
       >
         <fill-box fill="${p.color}"></fill-box>
         <input data-tip="省名。点击更改" class="name pointer" value="${p.name}" readonly />
-        <svg data-tip="显示和编辑省徽" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
-        <input data-tip="省级类型称。点击可更改" class="name pointer hide" value="${p.formName}" readonly />
-        <span data-tip="省会。点击放大查看" class="icon-star-empty pointer hide ${p.burg ? "" : "placeholder"}"></span>
+        <svg data-tip="显示和编辑省徽" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${
+          p.i
+        }"></use></svg>
+        <input data-tip="省类称。点击更改" class="name pointer hide" value="${
+          p.formName
+        }" readonly />
+        <span data-tip="省会。点击放大查看" class="icon-star-empty pointer hide ${
+          p.burg ? "" : "placeholder"
+        }"></span>
         <select
           data-tip="省会。点击此处可从国家内的市镇中进行选择。没有首都就意味着该省由国家首都管辖"
           class="cultureBase hide ${p.burgs.length ? "" : "placeholder"}"
@@ -164,7 +172,7 @@ function editProvinces() {
           class="icon-flag-empty ${separable ? "" : "placeholder"} hide"
         ></span>
         <span data-tip="切换省份焦点" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
-        <span data-tip="锁定省份" class="icon-lock${p.lock ? '' : '-open'} hide"></span>
+        <span data-tip="锁定省份" class="icon-lock${p.lock ? "" : "-open"} hide"></span>
         <span data-tip="删除省份" class="icon-trash-empty hide"></span>
       </div>`;
     }
@@ -193,7 +201,9 @@ function editProvinces() {
 
   function getCapitalOptions(burgs, capital) {
     let options = "";
-    burgs.forEach(b => (options += `<option ${b === capital ? "selected" : ""} value="${b}">${pack.burgs[b].name}</option>`));
+    burgs.forEach(
+      b => (options += `<option ${b === capital ? "selected" : ""} value="${b}">${pack.burgs[b].name}</option>`)
+    );
     return options;
   }
 
@@ -267,7 +277,11 @@ function editProvinces() {
     const {name, burg: burgId, burgs: provinceBurgs} = province;
 
     if (provinceBurgs.some(b => burgs[b].capital))
-      return tip("无法宣布有省会城市的独立。请先更改省会城市", false, "error");
+    return tip(
+      "无法宣布有省会城市的独立。请先更改省会城市",
+      false,
+      "error"
+    );
     if (!burgId) return tip("没有城市就不能宣布独立", false, "error");
 
     const oldStateId = province.state;
@@ -313,8 +327,10 @@ function editProvinces() {
       return relations;
     });
     diplomacy.push("x");
-    states[0].diplomacy.push([`独立宣言`, `${name} 宣布从 ${states[oldStateId].name} 独立`]);
-
+    states[0].diplomacy.push([
+      `独立宣言`,
+      `${name} 宣布从 ${states[oldStateId].name} 独立`
+    ]);
     // create new state
     states.push({
       i: newStateId,
@@ -348,7 +364,7 @@ function editProvinces() {
 
     BurgsAndStates.collectStatistics();
     BurgsAndStates.defineStateForms(newStates);
-    BurgsAndStates.drawStateLabels(allStates);
+    drawStateLabels(allStates);
 
     // redraw emblems
     allStates.forEach(stateId => {
@@ -375,8 +391,12 @@ function editProvinces() {
     const l = n => Number(n).toLocaleString();
 
     alertMessage.innerHTML = /* html */ ` 农村: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> 城市:
-      <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" ${p.burgs.length ? "" : "disabled"} />
-      <p>总人口: ${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
+    <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" ${
+      p.burgs.length ? "" : "disabled"
+    } />
+      <p>总人口: ${l(total)} ⇒ <span id="totalPop">${l(
+      total
+    )}</span> (<span id="totalPopPerc">100</span>%)</p>`;
 
     const update = function () {
       const totalNew = ruralPop.valueAsNumber + urbanPop.valueAsNumber;
@@ -694,7 +714,13 @@ function editProvinces() {
 
     function updateChart() {
       const value =
-        this.value === "area" ? d => d.area : this.value === "rural" ? d => d.rural : this.value === "urban" ? d => d.urban : d => d.rural + d.urban;
+      this.value === "area"
+      ? d => d.area
+      : this.value === "rural"
+      ? d => d.rural
+      : this.value === "urban"
+      ? d => d.urban
+      : d => d.rural + d.urban;
 
       root.sum(value);
       node.data(treeLayout(root).leaves());
@@ -776,7 +802,13 @@ function editProvinces() {
 
     customization = 11;
     provs.select("g#provincesBody").append("g").attr("id", "temp");
-    provs.select("g#provincesBody").append("g").attr("id", "centers").attr("fill", "none").attr("stroke", "#ff0000").attr("stroke-width", 1);
+    provs
+      .select("g#provincesBody")
+      .append("g")
+      .attr("id", "centers")
+      .attr("fill", "none")
+      .attr("stroke", "#ff0000")
+      .attr("stroke-width", 1);
 
     document.querySelectorAll("#provincesBottom > *").forEach(el => (el.style.display = "none"));
     document.getElementById("provincesManuallyButtons").style.display = "inline-block";
@@ -788,7 +820,11 @@ function editProvinces() {
     $("#provincesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}});
 
     tip("Click on a province to select, drag the circle to change province", true);
-    viewbox.style("cursor", "crosshair").on("click", selectProvinceOnMapClick).call(d3.drag().on("start", dragBrush)).on("touchmove mousemove", moveBrush);
+    viewbox
+      .style("cursor", "crosshair")
+      .on("click", selectProvinceOnMapClick)
+      .call(d3.drag().on("start", dragBrush))
+      .on("touchmove mousemove", moveBrush);
 
     body.querySelector("div").classList.add("selected");
     selectProvince(+body.querySelector("div").dataset.id);
@@ -859,7 +895,11 @@ function editProvinces() {
       if (i === pack.provinces[provinceOld].center) {
         const center = centers.select("polygon[data-center='" + i + "']");
         if (!center.size()) centers.append("polygon").attr("data-center", i).attr("points", getPackPolygon(i));
-        tip("省中心不能分配到其他地区。请先删除省", false, "error");
+        tip(
+          "省中心不能分配到其他地区。请先删除省",
+          false,
+          "error"
+        );
         return;
       }
 
@@ -921,8 +961,8 @@ function editProvinces() {
     provincesHeader.querySelector("div[data-sortby='state']").style.left = "22em";
     provincesFooter.style.display = "block";
     body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "all"));
-    if (!close) $("#provincesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}});
-
+    if (!close)
+      $("#provincesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}});
     restoreDefaultEvents();
     clearMainTip();
     const selected = body.querySelector("div.selected");
@@ -943,15 +983,19 @@ function editProvinces() {
     const {cells, provinces} = pack;
     const point = d3.mouse(this);
     const center = findCell(point[0], point[1]);
-    if (cells.h[center] < 20) return tip("你不能把省放入水中。请点击陆地单元格", false, "error");
-
+    if (cells.h[center] < 20)
+      return tip("你不能把省放入水中。请点击陆地单元格", false, "error");
     const oldProvince = cells.province[center];
     if (oldProvince && provinces[oldProvince].center === center)
       return tip("该单元格已经是不同省份的中心。请选择其他单元格", false, "error");
 
     const state = cells.state[center];
-    if (!state) return tip("你不能在中立的土地上建立一个省。请先把这块土地分配给一个国家", false, "error");
-
+    if (!state)
+      return tip(
+        "你不能在中立的土地上建立一个省。请先把这块土地分配给一个国家",
+        false,
+        "error"
+      );
     if (d3.event.shiftKey === false) exitAddProvinceMode();
 
     const province = provinces.length;
@@ -1016,7 +1060,10 @@ function editProvinces() {
 
   function downloadProvincesData() {
     const unit = areaUnit.value === "square" ? distanceUnitInput.value + "2" : areaUnit.value;
-    let data = "Id,Province,Full Name,Form,State,Color,Capital,Area " + unit + ",Total Population,Rural Population,Urban Population\n"; // headers
+    let data =
+      "Id,Province,Full Name,Form,State,Color,Capital,Area " +
+      unit +
+      ",Total Population,Rural Population,Urban Population\n"; // headers
 
     body.querySelectorAll(":scope > div").forEach(function (el) {
       const key = parseInt(el.dataset.id);

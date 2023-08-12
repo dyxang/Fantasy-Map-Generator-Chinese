@@ -248,7 +248,7 @@ function editHeightmap(options) {
 
     drawStates();
     drawBorders();
-    BurgsAndStates.drawStateLabels();
+    drawStateLabels();
 
     Rivers.specify();
     Lakes.generateName();
@@ -437,7 +437,7 @@ function editHeightmap(options) {
       c.center = findCell(c.x, c.y);
     }
 
-    BurgsAndStates.drawStateLabels();
+    drawStateLabels();
     drawStates();
     drawBorders();
 

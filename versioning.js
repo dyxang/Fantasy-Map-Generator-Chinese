@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.91.05";// generator version, update each time
+const version = "1.92.02";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -33,6 +33,7 @@ const version = "1.91.05";// generator version, update each time
 <p><img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 35vh;max-width: 35vw;"></p>
       <ul>
         <strong>版本更新内容，小改进不列出:</strong>
+        <li>一种新的国家标签放置算法</li>
         <li>南北极温度可独立设置</li>
         <li>70多项新纹章填充</li>
         <li>支持多色纹章填充</li>
@@ -40,8 +41,6 @@ const version = "1.91.05";// generator version, update each time
         <li>支持国家合并</li>
         <li>自动保存功能(选项中)</li>
         <li>宗教可以像文化一样被编辑和重绘</li>
-        <li>锁定国家、省、文化和宗教防止“重新生成”的影响</li>
-        <li>高程图笔刷:线性编辑选项</li>
       </ul>
 
 `;
