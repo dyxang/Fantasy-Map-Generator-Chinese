@@ -510,10 +510,9 @@ function showInfo() {
     </p>
 
     <p>
-    获得帮助的最好方式是联系社区 ${Discord} 和 ${Reddit}. 在提问之前，请查看 ${QuickStart},  ${QAA},
+      获得帮助的最好方式是联系社区 ${Discord} 和 ${Reddit}. 在提问之前，请查看 ${QuickStart},  ${QAA},
       和 ${VideoTutorial}.
     </p>
-
 
     <ul style="columns:2">
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator", "GitHub repository")}</li>
@@ -522,14 +521,14 @@ function showInfo() {
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys", "Hotkeys")}</li>
       <li>${link("https://trello.com/b/7x832DG4/fantasy-map-generator", "Devboard")}</li>
       <li><a href="mailto:azgaar.fmg@yandex.by" target="_blank">Contact Azgaar</a></li>
-      </ul>
+    </ul>
     
-      <p>Check out our other projects:
-        <ul>
-          <li>${Armoria}: a tool for creating heraldic coats of arms</li>
-          <li>${Deorum}: a vast gallery of customizable fantasy characters</li>
-        </ul>
-      </p>`;`;
+    <p>Check out our other projects:
+      <ul>
+        <li>${Armoria}: a tool for creating heraldic coats of arms</li>
+        <li>${Deorum}: a vast gallery of customizable fantasy characters</li>
+      </ul>
+    </p>`;
 
   $("#alert").dialog({
     resizable: false,

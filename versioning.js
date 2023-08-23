@@ -30,7 +30,7 @@ const version = "1.93.02";// generator version, update each time
 <p>应要求，建了个汉化版交流的群：873020847</p>
 <p>关于页面有个投票，访客参与一下</p>
 <p><a href="https://zan.8desk.top" target="_blank" style="color:#deb640;font-size:125%;">感谢赞赏者的名单</a></p>
-<p><img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 35vh;max-width: 35vw;"></p>
+<p><img src="https://s2.loli.net/2023/08/23/H7agdnpb5CtWGe2.jpg" alt="赞赏码" style="max-height: 35vh;max-width: 35vw;"></p>
       <ul>
         <strong>版本更新内容:</strong>
         <li>自动加载上次保存的地图可选(参见<i>加载行为</i>选项)</li>

@@ -6,6 +6,9 @@ export const trbackers = `Crisp
 长江长
 wx
 小光
+居高声自远
+爱之梦
+路旁的菜叶
 及其他六个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
