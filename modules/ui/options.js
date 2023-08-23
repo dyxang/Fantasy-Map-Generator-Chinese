@@ -76,7 +76,7 @@ document
 
 // show popup with a list of Patreon supportes (updated manually)
 async function showSupporters() {
-  const {supporters} = await import("../dynamic/supporters.js?v=1.89.15");
+  const {supporters} = await import("../dynamic/supporters.js?v=1.93.02");
   const list = supporters.split("\n").sort();
   const columns = window.innerWidth < 800 ? 2 : 5;
 
@@ -91,7 +91,7 @@ async function showSupporters() {
 }
 
 async function showBackers() {
-  const {trbackers} = await import("../dynamic/supporters.js?v=1.89.15");
+  const {trbackers} = await import("../dynamic/supporters.js?v=1.93.02");
   const list = trbackers.split("\n").sort();
   const columns = window.innerWidth < 800 ? 2 : 5;
 
@@ -808,7 +808,7 @@ async function showLoadPane() {
   $("#loadMapData").dialog({
     title: "加载地图",
     resizable: false,
-    width: "24em",
+    width: "auto",
     position: {my: "center", at: "center", of: "svg"},
     buttons: {
       关闭: function () {
@@ -859,7 +859,7 @@ async function connectToDropbox() {
 
 function loadURL() {
   const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-  const inner = `提供 .map 文件的 URL:
+  const inner = `提供地图文件的 URL:
     <input id="mapURL" type="url" style="width: 24em" placeholder="https://e-cloud.com/test.map">
     <br><i>请注意，服务器应允许 CORS 文件加载。如果 CORS 不允许，把文件保存到 Dropbox 并提供直接链接</i>`;
   alertMessage.innerHTML = inner;

@@ -269,7 +269,7 @@ async function checkLoadParameters() {
   const url = new URL(window.location.href);
   const params = url.searchParams;
 
-  // of there is a valid maplink, try to load .map file from URL
+  // of there is a valid maplink, try to load .map/.gz file from URL
   if (params.get("maplink")) {
     WARN && console.warn("从链接载入地图");
     const maplink = params.get("maplink");
@@ -291,17 +291,19 @@ async function checkLoadParameters() {
   }
 
   // check if there is a map saved to indexedDB
-  try {
-    const blob = await ldb.get("lastMap");
-    if (blob) {
-      WARN && console.warn("载入最近保存地图");
-      uploadMap(blob);
-      return;
+  if (byId("onloadBehavior").value === "lastSaved") {
+    try {
+      const blob = await ldb.get("lastMap");
+      if (blob) {
+        WARN && console.warn("Loading last stored map");
+        uploadMap(blob);
+        return;
+      }
+    } catch (error) {
+      ERROR && console.error(error);
     }
-  } catch (error) {
-    console.error(error);
   }
-
+// else generate random map
   WARN && console.warn("随机生成地图");
   generateMapOnLoad();
 }
@@ -573,9 +575,10 @@ void (function addDragToUpload() {
     overlay.style.display = "none";
     if (e.dataTransfer.items == null || e.dataTransfer.items.length !== 1) return; // no files or more than one
     const file = e.dataTransfer.items[0].getAsFile();
-    if (file.name.indexOf(".map") == -1) {
-      // not a .map file
-      alertMessage.innerHTML = "请上传一个先前下载的<b>.map</b>文件";
+
+    if (!file.name.endsWith(".map") && !file.name.endsWith(".gz")) {
+      alertMessage.innerHTML =
+        "请上传先前下载的地图文件 (<i>.map</i> 或 <i>.gz</i> 格式) ";
       $("#alert").dialog({
         resizable: false,
         title: "无效的文件格式",
@@ -595,7 +598,7 @@ void (function addDragToUpload() {
     if (closeDialogs) closeDialogs();
     uploadMap(file, () => {
       overlay.style.display = "none";
-      overlay.innerHTML = "拖拽入 .map 文件打开";
+      overlay.innerHTML = "拖拽入地图文件打开";
     });
   });
 })();

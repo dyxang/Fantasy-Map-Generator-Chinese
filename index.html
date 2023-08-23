@@ -12,7 +12,7 @@
       content="汉化版，免费的网络应用程序，帮助幻想作家，游戏大师和制图师创建和编辑幻想地图"
     />
 
-    <meta property="og:url" content="https://azgaar.github.io/Fantasy-Map-Generator" />
+    <meta property="og:url" content="https://8desk.top" />
     <meta property="og:title" content="Azgaar's Fantasy Map Generator(个人汉化)" />
     <meta
       property="og:description"
@@ -24,7 +24,7 @@
     <link rel="icon" type="image/png" href="images/icons/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="images/icons/favicon-16x16.png" sizes="16x16" />
     <link rel="apple-touch-icon" href="images/icons/maskable_icon_x192.png" />
-    <link rel="canonical" href="https://azgaar.github.io/Fantasy-Map-Generator/" />
+    <link rel="canonical" href="https://8desk.top/" />
     <link rel="manifest" href="manifest.webmanifest" />
 <!--使用中文字体美化尝试-->
 <link rel="preconnect" href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn">
@@ -1758,7 +1758,17 @@
                 />
               </td>
             </tr>
-
+            <tr data-tip="设置生成器加载时应该做什么">
+              <td></td>
+              <td>加载行为</td>
+              <td>
+                <select id="onloadBehavior" data-stored="onloadBehavior">
+                  <option value="random" selected>生成随机地图</option>
+                  <option value="lastSaved">打开最后保存的地图</option>
+                </select>
+              </td>
+              <td></td>
+            </tr>
             <tr data-tip="选择合成语音来朗读生成的名称">
               <td></td>
               <td>朗读人声</td>
@@ -2195,7 +2205,7 @@
             <img src="https://pic.imgdb.cn/item/64c48f1e1ddac507ccde116b.png" alt="赞赏码" style="max-height: 40vh;max-width: 40vw;position: center;">
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator" target="_blank">幻想地图生成器“人类制作汉化版”</a> 是免费的程序生成幻想地图的
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/blob/master/LICENSE" target="_blank">开源工具(MIT许可)</a>
-            <p>你可使用生成的地图，编辑或新建地图。查看以下内容
+            <p>Azgaar的工具。你可使用生成的地图，编辑或新建地图。查看以下内容
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Quick-Start-Tutorial" target="_blank"
               >快速开始</a
             >, <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A" target="_blank">问题解答</a>,
@@ -2215,13 +2225,22 @@
             请<a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">报告Bugs</a>.也可以通过 <a href="mailto:azgaar.fmg@yandex.by" target="_blank">发邮件</a>联系我.
           </p>
           <p>
-            Special thanks to
-            <a data-tip="点击查看作者支持者" onclick="showSupporters()">all supporters</a> on Patreon!
+            作者特别感谢Patreon上的
+            <a data-tip="点击查看作者支持者" onclick="showSupporters()">所有支持者</a>!
           </p>
+          <div style="text-align: left">
+            <p>看看我们的其他项目:</p>
+            <div>
+              • <a href="https://azgaar.github.io/Armoria" target="_blank">Armoria</a>: 创造纹章的工具
+            </div>
+            <div>
+              • <a href="https://deorum.vercel.app" target="_blank">Deorum</a>: 大型定制幻想角色画廊
+            </div>
+          </div>
           <ul class="share-buttons">
             <li>
               <a
-                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazgaar.github.io%2FFantasy-Map-Generator%2F&quote="
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F8desk.top&quote="
                 data-tip="Share on Facebook"
                 target="_blank"
                 ><img alt="Share on Facebook" src="images/Facebook.png" loading="lazy"
@@ -2260,10 +2279,10 @@
         </div>
 
         <div id="sticked">
-          <button id="newMapButton" data-tip="根据选项生成新的地图" data-shortcut="F2">新建地图</button>
+          <button id="newMapButton" data-tip="根据选项生成新地图" data-shortcut="F2">新建地图</button>
           <button id="exportButton" data-tip="选择下载图像或导出地图数据的格式">导出</button>
-          <button id="saveButton" data-tip="以.map 格式保存全功能 map">保存</button>
-          <button id="loadButton" data-tip="以.map 格式加载全功能地图">载入</button>
+          <button id="saveButton" data-tip="以.map 格式保存全功能地图">保存</button>
+          <button id="loadButton" data-tip="加载.map 或 .gz格式全功能地图">载入</button>
           <button id="zoomReset" data-tip="重置地图放大" data-shortcut="0 (zero)">重设缩放</button>
         </div>
       </div>
@@ -4645,15 +4664,15 @@
           ></button>
           <button id="namesbaseAdd" data-tip="添加新的名称库" class="icon-plus"></button>
           <button id="namesbaseDefault" data-tip="还原默认名称库" class="icon-cancel"></button>
-          <button id="namesbaseDownload" data-tip="下载命名库到电脑" class="icon-download"></button>
+          <button id="namesbaseDownload" data-tip="下载命名库到设备" class="icon-download"></button>
           <button
             id="namesbaseUpload"
-            data-tip="从电脑上传名称库，替换当前集"
+            data-tip="从设备上传名称库，替换当前集"
             class="icon-upload"
           ></button>
           <button
             id="namesbaseUploadExtend"
-            data-tip="从电脑上传名称库，扩展当前集"
+            data-tip="从设备上传名称库，扩展当前集"
             class="icon-up-circled2"
           ></button>
           <button
@@ -5549,7 +5568,7 @@
           <a
             href="https://faqs.skillcrush.com/article/275-downloading-installing-a-font-on-your-computer"
             target="_blank"
-            >安装在你的电脑上</a
+            >安装在你的设备上</a
           >, 只需提供字体名称。请确保在安装后重新加载浏览器。这种字体在没有安装它的设备上无法工作。对于中国用户来说，推荐字体来源有
           <a href="https://www.100font.com/" target="_blank">100font(免费可商用)</a> 和 Github 上的开源字体.
         </p>
@@ -5807,32 +5826,36 @@
       <div id="saveMapData" style="display: none" class="dialog">
         <div style="margin-top: 0.3em">
           <strong>保存地图到</strong>
-          <button onclick="dowloadMap()" data-tip="把.map 文件下载到本地磁盘" data-shortcut="Ctrl + S">
-            电脑
+          <button onclick="saveMap('machine')" data-tip="把地图文件下载到本地硬盘" data-shortcut="Ctrl + S">
+            设备
           </button>
-          <button onclick="saveToDropbox()" data-tip="把.map 文件保存到 Dropbox" data-shortcut="Ctrl + C">
+          <button onclick="saveMap('dropbox')" data-tip="把地图文件保存到 Dropbox" data-shortcut="Ctrl + C">
             dropbox
           </button>
-          <button
-            onclick="quickSave()"
-            data-tip="把项目保存到浏览器存储。它可能不可靠"
-            data-shortcut="F6"
-          >
+          <button onclick="saveMap('storage')" data-tip="仅把项目保存至浏览器内部存储" data-shortcut="F6">
             浏览器
           </button>
         </div>
         <p>
-          地图以 .map 格式保存，可以通过 载入 菜单加载回来。如果文件丢失，则无法恢复进度。请将旧的 .map 文件作为备份保存在你的计算机或云存储中。
+          地图以 .map 格式保存，可以通过 载入 菜单加载回来。如果文件丢失，则无法恢复进度。请将旧文件作为备份保存在你的计算机或云存储中。
         </p>
       </div>
 
       <div id="loadMapData" style="display: none" class="dialog">
         <div>
           <strong>载入地图</strong>
-          <button onclick="mapToLoad.click()" data-tip="从本地磁盘加载.map 文件">电脑</button>
-          <button onclick="loadURL()" data-tip="从 URL 加载.map 文件(服务器应允许 CORS)">URL</button>
+          <button onclick="mapToLoad.click()" data-tip="从本地硬盘加载地图文件 (.map 或 .gz)">
+            设备
+          </button>
+          <button
+            onclick="loadURL()"
+            data-tip="加载网址上的地图文件 (.map 或 .gz) 请注意服务器必须允许 CORS"
+          >
+            URL
+          </button>   
           <button onclick="quickLoad()" data-tip="从浏览器存储加载地图(如果之前保存)">浏览器</button>
         </div>
+        <p>点击文字<i>“浏览器”</i> 打开最后一次保存的地图</p>
         <div id="loadFromDropbox">
           <p style="margin-bottom: 0.3em">
             从你的 Dropbox 账户
@@ -5847,7 +5870,7 @@
 
           <select id="loadFromDropboxSelect" style="width: 22em"></select>
           <div id="loadFromDropboxButtons" style="margin-bottom: 0.6em">
-            <button onclick="loadFromDropbox()" data-tip="从 Dropbox 加载.map 文件">导入</button>
+            <button onclick="loadFromDropbox()" data-tip="从 Dropbox 加载地图文件（.map 或 .gz）">导入</button>
             <button
               onclick="createSharableDropboxLink()"
               data-tip="选择文件并创建一个链接与你的朋友共享"
@@ -5972,7 +5995,7 @@
       <div id="submapOptionsDialog" style="display: none" class="dialog">
         <p style="font-weight: bold">
           这个操作具有破坏性和不可逆性，它将在现有地图的基础上创建一个全新的地图。
-不要忘记首先将当前项目保存为一个. map 文件！
+不要忘记首先将当前文件保存到设备上！
         </p>
 
         <p>要更改的设置: 填充率、地图像素大小</p>
@@ -6036,10 +6059,10 @@
       data-main="点击箭头按钮查看选项。放大查看详细地图"
     ></div>
 
-    <div id="mapOverlay" style="display: none">拖放一个要打开的.map 文件</div>
+    <div id="mapOverlay" style="display: none">拖放地图文件以打开</div>
 
     <div id="fileInputs" style="display: none">
-      <input type="file" accept=".map" id="mapToLoad" />
+      <input type="file" accept=".map,.gz" id="mapToLoad" />
       <input type="file" accept=".txt,.csv" id="burgsListToLoad" />
       <input type="file" accept=".txt" id="legendsToLoad" />
       <input type="file" accept="image/*" id="imageToLoad" />
@@ -7851,7 +7874,7 @@
     <script src="utils/graphUtils.js?v=1.90.01"></script>
     <script src="utils/nodeUtils.js"></script>
     <script src="utils/numberUtils.js?v=1.89.08"></script>
-    <script src="utils/polyfills.js"></script>
+    <script src="utils/polyfills.js?v=1.93.00"></script>
     <script src="utils/probabilityUtils.js?v=1.88.00"></script>
     <script src="utils/stringUtils.js"></script>
     <script src="utils/languageUtils.js"></script>
@@ -7883,16 +7906,16 @@
     <script src="modules/ui/measurers.js?v=1.87.02"></script>
     <script src="modules/ui/stylePresets.js?v=1.89.11"></script>
 
-    <script src="modules/ui/general.js?v=1.87.03"></script>
-    <script src="modules/ui/options.js?v=1.91.00"></script>
-    <script src="main.js?v=1.92.00"></script>
+    <script src="modules/ui/general.js?v=1.93.01"></script>
+    <script src="modules/ui/options.js?v=1.93.02"></script>
+    <script src="main.js?v=1.93.02"></script>
 
     <script defer src="modules/relief-icons.js"></script>
     <script defer src="modules/ui/style.js"></script>
     <script defer src="modules/ui/editors.js?v=1.92.00"></script>
     <script defer src="modules/ui/tools.js?v=1.92.00"></script>
     <script defer src="modules/ui/world-configurator.js?v=1.91.05"></script>
-    <script defer src="modules/ui/heightmap-editor.js?v=1.92.00"></script>
+    <script defer src="modules/ui/heightmap-editor.js?v=1.93.00"></script>
     <script defer src="modules/ui/provinces-editor.js?v=1.92.00"></script>
     <script defer src="modules/ui/biomes-editor.js?v=1.91.05"></script>
     <script defer src="modules/ui/namesbase-editor.js?v=1.89.26"></script>
@@ -7922,13 +7945,12 @@
     <script defer src="modules/ui/markers-editor.js"></script>
     <script defer src="modules/ui/3d.js?v=1.89.36"></script>
     <script defer src="modules/ui/submap.js?v=1.92.00"></script>
-    <script defer src="modules/ui/hotkeys.js?v=1.88.00"></script>
+    <script defer src="modules/ui/hotkeys.js?v=1.93.00"></script>
     <script defer src="modules/coa-renderer.js?v=1.91.00"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
-
-    <script defer src="modules/io/save.js?v=1.91.04"></script>
-    <script defer src="modules/io/load.js?v=1.92.02"></script>
+    <script defer src="modules/io/save.js?v=1.93.02"></script>
+    <script defer src="modules/io/load.js?v=1.93.02"></script>
     <script defer src="modules/io/cloud.js"></script>
     <script defer src="modules/io/export.js?v=1.89.17"></script>
     <script defer src="modules/io/formats.js"></script>

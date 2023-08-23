@@ -441,7 +441,7 @@ function editEmblem(type, id, el) {
           "</div>"
         : "";
 
-      const FMG = `<a href="https://azgaar.github.io/Fantasy-Map-Generator" target="_blank">Azgaar's Fantasy Map Generator</a>`;
+      const FMG = `<a href="https://8desk.top" target="_blank">Azgaar's Fantasy Map Generator</a>`;
       const license = `<a target="_blank" href="https://github.com/Azgaar/Armoria#license">the license</a>`;
       const html = /* html */ `<!DOCTYPE html>
         <html>
@@ -495,7 +495,7 @@ function editEmblem(type, id, el) {
               margin-top: 0.8em;
             }
           </style>
-          <link href="https://fonts.googleapis.com/css2?family=Forum&family=Overlock+SC" rel="stylesheet" />
+          <link href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=Forum&family=Overlock+SC" rel="stylesheet" />
           <body>
             <div><h1>${mapName.value} 徽标画廊</h1></div>
             ${stateSection} ${provinceSections} ${burgSections} ${neutralsSection}

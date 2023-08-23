@@ -1,6 +1,5 @@
 "use strict";
-// Functions to load and parse .map files
-
+// Functions to load and parse .map/.gz files
 async function quickLoad() {
   const blob = await ldb.get("lastMap");
   if (blob) loadMapPrompt(blob);
@@ -111,11 +110,11 @@ function uploadMap(file, callback) {
   const currentVersion = parseFloat(version);
 
   const fileReader = new FileReader();
-  fileReader.onload = function (fileLoadedEvent) {
+  fileReader.onloadend = async function (fileLoadedEvent) {
     if (callback) callback();
     document.getElementById("coas").innerHTML = ""; // remove auto-generated emblems
     const result = fileLoadedEvent.target.result;
-    const [mapData, mapVersion] = parseLoadedResult(result);
+    const [mapData, mapVersion] = await parseLoadedResult(result);
 
     const isInvalid = !mapData || isNaN(mapVersion) || mapData.length < 26 || !mapData[5];
     const isUpdated = mapVersion === currentVersion;
@@ -130,18 +129,38 @@ function uploadMap(file, callback) {
     if (isOutdated) return showUploadMessage("outdated", mapData, mapVersion);
   };
 
-  fileReader.readAsText(file, "UTF-8");
+  fileReader.readAsArrayBuffer(file);
 }
 
-function parseLoadedResult(result) {
+async function uncompress(compressedData) {
   try {
+    const uncompressedStream = new Blob([compressedData]).stream().pipeThrough(new DecompressionStream("gzip"));
+
+    let uncompressedData = [];
+    for await (const chunk of uncompressedStream) {
+      uncompressedData = uncompressedData.concat(Array.from(chunk));
+    }
+
+    return new Uint8Array(uncompressedData);
+  } catch (error) {
+    ERROR && console.error(error);
+    return null;
+  }
+}
+
+async function parseLoadedResult(result) {
+  try {
+    const resultAsString = new TextDecoder().decode(result);
     // data can be in FMG internal format or base64 encoded
-    const isDelimited = result.substr(0, 10).includes("|");
-    const decoded = isDelimited ? result : decodeURIComponent(atob(result));
+    const isDelimited = resultAsString.substring(0, 10).includes("|");
+    const decoded = isDelimited ? resultAsString : decodeURIComponent(atob(resultAsString));
     const mapData = decoded.split("\r\n");
     const mapVersion = parseFloat(mapData[0].split("|")[0] || mapData[0]);
     return [mapData, mapVersion];
   } catch (error) {
+        // map file can be compressed with gzip
+        const uncompressedData = await uncompress(result);
+        if (uncompressedData) return parseLoadedResult(uncompressedData);
     ERROR && console.error(error);
     return [null, null];
   }
@@ -152,7 +171,7 @@ function showUploadMessage(type, mapData, mapVersion) {
   let message, title, canBeLoaded;
 
   if (type === "invalid") {
-    message = `该文件不是有效的 <i>.map</i> 文件.<br>请检查数据格式`;
+    message = `该文件不是有效的保存文件.<br>请检查数据格式`;
     title = "无效文件";
     canBeLoaded = false;
   } else if (type === "ancient") {
@@ -164,7 +183,7 @@ function showUploadMessage(type, mapData, mapVersion) {
     title = "过新文件";
     canBeLoaded = false;
   } else if (type === "outdated") {
-    message = `地图版本 (${mapVersion}) 与 生成器当前版本(${ version })不匹配。 <br>点击“好的”让.map文件<b>自动更新</b> 。 <br> 如果出现问题，请继续使用 ${archive} 的生成器`;
+    message = `地图版本 (${mapVersion}) 与 生成器当前版本(${ version })不匹配。 <br>点击“好的”让.map文件<b style="color: #005000">自动更新</b> 。 <br> 如果出现问题，请继续使用 ${archive} 的生成器`;
     title = "过期文件";
     canBeLoaded = true;
   }
@@ -432,7 +451,7 @@ async function parseLoadedData(data) {
     {
       // dynamically import and run auto-udpdate script
       const versionNumber = parseFloat(params[0]);
-      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.92.02");
+      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.93.00");
       resolveVersionConflicts(versionNumber);
     }
 

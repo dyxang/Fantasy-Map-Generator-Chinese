@@ -1,6 +1,6 @@
 "use strict";
 
-// update old .map version to the current one
+// update old map file to the current version
 export function resolveVersionConflicts(version) {
   if (version < 1) {
     // v1.0 added a new religions layer
@@ -638,7 +638,9 @@ export function resolveVersionConflicts(version) {
   }
   if (version < 1.9) {
     // from v1.90.02 texture image is always there
-    if (!texture.selectAll("*").size()) {
+        if (!texture.select("#textureImage").size()) {
+      // cleanup old texture if it has no id and add new one
+      texture.selectAll("*").remove();
       texture
         .append("image")
         .attr("id", "textureImage")
@@ -677,21 +679,21 @@ export function resolveVersionConflicts(version) {
 
     // from 1.91.00 coaSize is moved to coa object
     pack.states.forEach(state => {
-      if (state.coaSize) {
+      if (state.coaSize && state.coa) {
         state.coa.size = state.coaSize;
         delete state.coaSize;
       }
     });
 
     pack.provinces.forEach(province => {
-      if (province.coaSize) {
+      if (province.coaSize && province.coa) {
         province.coa.size = province.coaSize;
         delete province.coaSize;
       }
     });
 
     pack.burgs.forEach(burg => {
-      if (burg.coaSize) {
+      if (burg.coaSize && burg.coa) {
         burg.coa.size = burg.coaSize;
         delete burg.coaSize;
       }
@@ -705,7 +707,7 @@ export function resolveVersionConflicts(version) {
     // leftover from v1.90.02
     texture.style("display", null);
     const textureImage = texture.select("#textureImage");
-    if (textureImage) {
+    if (textureImage.size()) {
       const xlink = textureImage.attr("xlink:href");
       const href = textureImage.attr("href");
       const src = xlink || href;

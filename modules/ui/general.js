@@ -494,6 +494,7 @@ function showInfo() {
   const Reddit = link("https://www.reddit.com/r/FantasyMapGenerator", "Reddit");
   const Patreon = link("https://www.patreon.com/azgaar", "Patreon");
   const Armoria = link("https://azgaar.github.io/Armoria", "Armoria");
+  const Deorum = link("https://deorum.vercel.app", "Deorum");
 
   const QuickStart = link(
     "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Quick-Start-Tutorial",
@@ -513,7 +514,6 @@ function showInfo() {
       和 ${VideoTutorial}.
     </p>
 
-    <p>看看我们的另一个项目: ${Armoria} — 纹章生成器和编辑器.</p>
 
     <ul style="columns:2">
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator", "GitHub repository")}</li>
@@ -522,7 +522,14 @@ function showInfo() {
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys", "Hotkeys")}</li>
       <li>${link("https://trello.com/b/7x832DG4/fantasy-map-generator", "Devboard")}</li>
       <li><a href="mailto:azgaar.fmg@yandex.by" target="_blank">Contact Azgaar</a></li>
-    </ul>`;
+      </ul>
+    
+      <p>Check out our other projects:
+        <ul>
+          <li>${Armoria}: a tool for creating heraldic coats of arms</li>
+          <li>${Deorum}: a vast gallery of customizable fantasy characters</li>
+        </ul>
+      </p>`;`;
 
   $("#alert").dialog({
     resizable: false,

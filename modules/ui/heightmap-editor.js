@@ -27,7 +27,7 @@ function editHeightmap(options) {
     <p><b>Erase</b>：允许你将图像转换为高程图或使用模板编辑器。</p>
     <p><b>Keep</b>：保留数据, 但无法改变海岸线。</p>
     <p><b>Risk</b>：改变海岸线和保留数据。尽可能地还原数据，但它可能导致不可预测的错误。</p>
-    <p>请在编辑高程图之前<span class="pseudoLink" onclick="dowloadMap();">保存地图</span>!</p>
+    <p>请在编辑高程图之前<span class="pseudoLink" onclick="saveMap('machine')">保存地图</span>!</p>
     <p style="margin-bottom: 0">查看 ${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization", "wiki")} 获取帮助.</p>`;
 
     $("#alert").dialog({
