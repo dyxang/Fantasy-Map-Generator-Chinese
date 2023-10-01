@@ -76,7 +76,7 @@ document
 
 // show popup with a list of Patreon supportes (updated manually)
 async function showSupporters() {
-  const {supporters} = await import("../dynamic/supporters.js?v=1.93.02");
+  const {supporters} = await import("../dynamic/supporters.js?v=1.93.03");
   const list = supporters.split("\n").sort();
   const columns = window.innerWidth < 800 ? 2 : 5;
 
@@ -303,7 +303,7 @@ function showSeedHistoryDialog() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Seed history",
+    title: "种子历史",
     position: {my: "center", at: "center", of: "svg"}
   });
 }
@@ -800,7 +800,7 @@ function showExportPane() {
 }
 
 async function exportToJson(type) {
-  const {exportToJson} = await import("../dynamic/export-json.js");
+  const {exportToJson} = await import("../dynamic/export-json.js?v=1.93.03");
   exportToJson(type);
 }
 

@@ -1135,7 +1135,7 @@ function editHeightmap(options) {
     closeDialogs("#imageConverter");
 
     $("#imageConverter").dialog({
-      title: "Image Converter",
+      title: "图像转换器",
       maxHeight: svgHeight * 0.8,
       minHeight: "auto",
       width: "20em",

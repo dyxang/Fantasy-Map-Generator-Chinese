@@ -9,6 +9,8 @@ wx
 居高声自远
 爱之梦
 路旁的菜叶
+米卡柳丁
+■兵
 及其他六个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
@@ -542,4 +544,9 @@ Vector Tragedy
 yann
 Blarghle Hargle
 Jelke Boonstra
-afistupmabum`;
+afistupmabum
+Rob Frantz
+Driver
+Tr4v3l3r
+Cooper Cantrell
+Maximilien Bouillot`;

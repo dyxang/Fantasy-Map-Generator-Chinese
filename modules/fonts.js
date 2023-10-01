@@ -1,6 +1,15 @@
 "use strict";
 
 const fonts = [
+  {family: "叛逆明朝 僅繁體中文",
+  src: "url(https://cdn.chuqis.com/gh/dyxang/zh_font@main/Hangyaku-ywzMm.ttf)"
+},
+{family: "钟齐志莽行书",
+src: "url(https://cdn.chuqis.com/gh/dyxang/zh_font@main/ZhiMangXing-Regular.ttf)"
+},
+{family: "云峰飞云体",
+src: "url(https://cdn.chuqis.com/gh/dyxang/zh_font@main/云峰飞云体.ttf)"
+},
   {family: "Arial"},
   {family: "Brush Script MT"},
   {family: "Century Gothic"},

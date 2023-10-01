@@ -15,7 +15,7 @@ function overviewBurgs() {
   modules.overviewBurgs = true;
 
   $("#burgsOverview").dialog({
-    title: "Burgs Overview",
+    title: "城镇概况",
     resizable: false,
     width: fitContent(),
     close: exitAddBurgMode,

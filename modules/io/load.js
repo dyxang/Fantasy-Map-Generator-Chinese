@@ -50,7 +50,7 @@ function loadMapPrompt(blob) {
   对当前地图所做的所有未保存的更改都将丢失`;
   $("#alert").dialog({
     resizable: false,
-    title: "Load saved map",
+    title: "载入已保存地图",
     buttons: {
       取消: function () {
         $(this).dialog("close");

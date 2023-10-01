@@ -86,6 +86,7 @@ function handleMouseMove() {
   else showMapTooltip(point, d3.event, i, gridCell);
   if (cellInfo?.offsetParent) updateCellInfo(point, i, gridCell);
 }
+let currentNoteId = null; // store currently displayed node to not rerender to often
 
 // show note box on hover (if any)
 function showNotes(e) {
@@ -96,13 +97,16 @@ function showNotes(e) {
 
   const note = notes.find(note => note.id === id);
   if (note !== undefined && note.legend !== "") {
+    if (currentNoteId === id) return;
+    currentNoteId = id;
     document.getElementById("notes").style.display = "block";
     document.getElementById("notesHeader").innerHTML = note.name;
     document.getElementById("notesBody").innerHTML = note.legend;
-  } else if (!options.pinNotes && !markerEditor?.offsetParent) {
+  } else if (!options.pinNotes && !markerEditor?.offsetParent && !e.shiftKey) {
     document.getElementById("notes").style.display = "none";
     document.getElementById("notesHeader").innerHTML = "";
     document.getElementById("notesBody").innerHTML = "";
+    currentNoteId = null;
   }
 }
 
@@ -160,7 +164,7 @@ function showMapTooltip(point, e, i, g) {
   }
   if (group === "labels") return tip("编辑标签");
 
-  if (group === "markers") return tip("编辑标记并固定标记注释");
+  if (group === "markers") return tip("编辑标记,按住Shift关联标记不关闭");
 
   if (group === "ruler") {
     const tag = e.target.tagName;

@@ -135,7 +135,7 @@ function applyStyleWithUiRefresh(style) {
 }
 
 function addStylePreset() {
-  $("#styleSaver").dialog({title: "Style Saver", width: "26em", position: {my: "center", at: "center", of: "svg"}});
+  $("#styleSaver").dialog({title: "样式保存", width: "26em", position: {my: "center", at: "center", of: "svg"}});
 
   const styleName = stylePreset.value.replace(customPresetPrefix, "");
   document.getElementById("styleSaverName").value = styleName;
