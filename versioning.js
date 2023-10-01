@@ -32,7 +32,7 @@ const version = "1.93.04";// generator version, update each time
 <p><img src="https://s2.loli.net/2023/08/23/H7agdnpb5CtWGe2.jpg" alt="赞赏码" style="max-height: 35vh;max-width: 35vw;"></p>
       <ul>
         <strong>版本更新内容:</strong>
-        <li>随机偶遇事件 (整合了 <a href="https://deorum.vercel.app/" target="_blank">Deorum</a>，国内无法访问)</li>
+        <li>随机偶遇事件 (整合了 <a href="https://deorum.vercel.app/" target="_blank">Deorum</a>）<a href="https://deorum.8desk.top/" target="_blank">国内镜像</a>（严禁登录）</li>
         <li>自动加载上次保存的地图可选(参见<i>加载行为</i>选项)</li>
         <li>一种新的国家标签放置算法</li>
         <li>南北极温度可独立设置</li>
