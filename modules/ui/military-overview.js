@@ -231,7 +231,7 @@ function overviewMilitary() {
     options.military.map(unit => addUnitLine(unit));
 
     $("#militaryOptions").dialog({
-      title: "Edit Military Units",
+      title: "编辑军事单位",
       resizable: false,
       width: fitContent(),
       position: {my: "center", at: "center", of: "svg"},

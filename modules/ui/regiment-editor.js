@@ -360,7 +360,7 @@ function editRegiment(selector) {
     alertMessage.innerHTML = "你确定要撤军吗？";
     $("#alert").dialog({
       resizable: false,
-      title: "Remove regiment",
+      title: "移除部队",
       buttons: {
         删除: function () {
           $(this).dialog("close");

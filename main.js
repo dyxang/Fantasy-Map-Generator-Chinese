@@ -674,7 +674,7 @@ async function generate(options) {
       <p id="errorBox">${parsedError}</p>`;
     $("#alert").dialog({
       resizable: false,
-      title: "Generation error",
+      title: "生成错误",
       width: "32em",
       buttons: {
         "清除数据": function () {

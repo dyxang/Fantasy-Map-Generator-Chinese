@@ -20,7 +20,7 @@ async function saveMap(method) {
 
     $("#alert").dialog({
       resizable: false,
-      title: "Saving error",
+      title: "保存错误",
       width: "28em",
       buttons: {
         Retry: function () {

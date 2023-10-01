@@ -303,7 +303,7 @@ function showSeedHistoryDialog() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Seed history",
+    title: "种子历史",
     position: {my: "center", at: "center", of: "svg"}
   });
 }
