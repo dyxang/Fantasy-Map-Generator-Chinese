@@ -1271,9 +1271,9 @@ window.Markers = (function () {
   }
 
   function addEncounter(id, cell) {
-    const name = "随机邂逅";
+    const name = "随机偶遇";
     const encounterSeed = cell; // use just cell Id to not overwhelm the Vercel KV database
-    const legend = `<div>你邂逅了一位角色.</div><iframe src="https://deorum.vercel.app/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
+    const legend = `<div>你偶遇了一位人物.</div><a href="https://deorum.vercel.app/encounter/${encounterSeed}" target="_blank" style="color:#deb640;">查看角色卡[国内无法访问]</a><iframe src="https://deorum.vercel.app/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
     notes.push({id, name, legend});
   }
   return {add, generate, regenerate, getConfig, setConfig, deleteMarker};
