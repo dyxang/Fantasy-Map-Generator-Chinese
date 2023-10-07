@@ -7,7 +7,7 @@
 /*使用中文字体美化尝试*/
 @font-face {
   font-family: "HarmonyOS Sans SC";
-  src: url("https://cdn.chuqis.com/gh/dyxang/zh_font@main/HarmonyOS_Sans_SC_Regular.ttf");
+  src: url("https://cdn.jsdelivr.net/gh/dyxang/zh_font@main/HarmonyOS_Sans_SC_Regular.ttf");
 }
 
 /* hide Google translate header */

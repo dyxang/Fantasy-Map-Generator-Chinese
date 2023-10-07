@@ -495,7 +495,7 @@ function editEmblem(type, id, el) {
               margin-top: 0.8em;
             }
           </style>
-          <link href="https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=Forum&family=Overlock+SC" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Forum&family=Overlock+SC" rel="stylesheet" />
           <body>
             <div><h1>${mapName.value} 徽标画廊</h1></div>
             ${stateSection} ${provinceSections} ${burgSections} ${neutralsSection}
