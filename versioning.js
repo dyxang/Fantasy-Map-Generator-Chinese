@@ -26,7 +26,7 @@ const version = "1.93.04";// generator version, update each time
     alertMessage.innerHTML = /* html */ `幻想地图生成器更新到版本<strong>${version}</strong>，此版本兼容<a href="${changelog}" target="_blank">这些版本</a>，地图文件将自动更新
       ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
 <p><strong>⚠请汉化版使用者阅读以下内容！</strong></p>
-<p>主站已改为<a href="https://www.8desk.top" target="_blank">链接A</a>，子站为<a href="https://zan.8desk.top" target="_blank">链接B</a></p>
+<p>主站改为<a href="https://www.8desk.top" target="_blank">链接A</a>|<a href="https://hk.8desk.top" target="_blank">国内节点</a>，子站为<a href="https://zan.8desk.top" target="_blank">链接B</a></p>
 <p>应要求，建了个汉化版交流的群：873020847</p>
 <p><a href="https://zan.8desk.top" target="_blank" font-size:125%;">感谢赞赏者的名单</a></p>
 <p><img src="https://s2.loli.net/2023/08/23/H7agdnpb5CtWGe2.jpg" alt="赞赏码" style="max-height: 35vh;max-width: 35vw;"></p>
