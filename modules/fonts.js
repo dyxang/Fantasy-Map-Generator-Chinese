@@ -2,14 +2,28 @@
 
 const fonts = [
   {family: "叛逆明朝 僅繁體中文",
-  src: "url(https://cdn.jsdelivr.net/gh/dyxang/zh_font@main/Hangyaku-ywzMm.ttf)"
+  src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/Hangyaku-ywzMm.ttf)"
 },
 {family: "钟齐志莽行书",
-src: "url(https://cdn.jsdelivr.net/gh/dyxang/zh_font@main/ZhiMangXing-Regular.ttf)"
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/ZhiMangXing-Regular.ttf)"
 },
 {family: "云峰飞云体",
-src: "url(https://cdn.jsdelivr.net/gh/dyxang/zh_font@main/云峰飞云体.ttf)"
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/云峰飞云体.ttf)"
 },
+{family: "马善政毛笔楷书",
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/MaShanZheng-Regular.ttf)"},
+{family: "三极泼墨体",
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/三极泼墨体.ttf)"},
+{family: "汇文明朝体",
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/汇文明朝体.otf)"},
+{family: "Silver像素体",
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/Silver.ttf)"},
+{family: "演示佛系体",
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/Slidefu-Regular.ttf)"},
+{family: "Pacifico",
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/Pacifico-Regular.ttf)"},
+{family: "X Typewriter",
+src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/XTypewriter-Regular.woff2)"},
   {family: "Arial"},
   {family: "Brush Script MT"},
   {family: "Century Gothic"},
