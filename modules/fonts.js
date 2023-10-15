@@ -15,7 +15,7 @@ src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/MaShanZheng-Regular.
 {family: "三极泼墨体",
 src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/三极泼墨体.ttf)"},
 {family: "汇文明朝体",
-src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/汇文明朝体.otf)"},
+src: "url(./zh_font/汇文明朝体.otf)"},
 {family: "Silver像素体",
 src: "url(https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/Silver.ttf)"},
 {family: "演示佛系体",
