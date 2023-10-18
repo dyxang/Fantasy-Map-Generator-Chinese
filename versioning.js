@@ -43,7 +43,8 @@ const version = "1.93.04";// generator version, update each time
         <li>自动保存功能(选项中)</li>
         <li>宗教可以像文化一样被编辑和重绘</li>
       </ul>
-
+      <p>加入作者 <a href="${discord}" target="_blank">Discord</a> 和 <a href="${reddit}" target="_blank">Reddit 社区</a>提出问题，分享地图，讨论生成器和世界构建，报告错误并提出新功能。</p>
+      <span><i>感谢所有支持，去<a href="${patreon}" target="_blank">支持原作者（Patreon）</a>!</i></span>
 `;
 
     const buttons = {

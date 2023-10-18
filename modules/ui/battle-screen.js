@@ -515,11 +515,11 @@ class Battle {
   run() {
     // validations
     if (!this.attackers.power) {
-      tip("Attackers army destroyed", false, "warn");
+      tip("进攻方覆没", false, "warn");
       return;
     }
     if (!this.defenders.power) {
-      tip("Defenders army destroyed", false, "warn");
+      tip("防守方覆没", false, "warn");
       return;
     }
 

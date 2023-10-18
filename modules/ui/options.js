@@ -752,7 +752,7 @@ function regeneratePrompt(options) {
       取消: function () {
         $(this).dialog("close");
       },
-      Generate: function () {
+      生成: function () {
         closeDialogs();
         regenerateMap(options);
       }
