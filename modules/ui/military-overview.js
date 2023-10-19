@@ -236,9 +236,9 @@ function overviewMilitary() {
       width: fitContent(),
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
-        Apply: applyMilitaryOptions,
-        Add: () => addUnitLine({icon: "🛡️", name: "custom" + militaryOptionsTable.rows.length, rural: 0.2, urban: 0.5, crew: 1, power: 1, type: "melee"}),
-        Restore: restoreDefaultUnits,
+        应用: applyMilitaryOptions,
+        添加: () => addUnitLine({icon: "🛡️", name: "custom" + militaryOptionsTable.rows.length, rural: 0.2, urban: 0.5, crew: 1, power: 1, type: "melee"}),
+        复原: restoreDefaultUnits,
         取消: function () {
           $(this).dialog("close");
         }
