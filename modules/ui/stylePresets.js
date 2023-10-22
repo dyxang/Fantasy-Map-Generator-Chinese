@@ -44,13 +44,13 @@ async function getStylePreset(desiredPreset) {
   if (isCustom) {
     const storedStyleJSON = localStorage.getItem(desiredPreset);
     if (!storedStyleJSON) {
-      ERROR && console.error(`定制风格 ${desiredPreset} 在 localStorage 中找不到. 应用默认样式`);
+      ERROR && console.error(`定制样式 ${desiredPreset} 在 localStorage 中找不到. 应用默认样式`);
       presetToLoad = "default";
     } else {
       const isValid = JSON.isValid(storedStyleJSON);
       if (isValid) return [desiredPreset, JSON.parse(storedStyleJSON)];
 
-      ERROR && console.error(`定制风格 ${desiredPreset} 存储在 localStorage 中无效. 应用默认样式`);
+      ERROR && console.error(`定制样式 ${desiredPreset} 存储在 localStorage 中无效. 应用默认样式`);
       presetToLoad = "default";
     }
   }

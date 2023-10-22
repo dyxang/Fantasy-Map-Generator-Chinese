@@ -1,6 +1,8 @@
 class Voronoi {
   /**
-   * 以防有倒卖和转载不标出处的情况 留个小信息 这可是原作者Azzagar的心血啊 汉化完后如果这样也太过分了Creates a Voronoi diagram from the given Delaunator, a list of points, and the number of points. The Voronoi diagram is constructed using (I think) the {@link https://en.wikipedia.org/wiki/Bowyer%E2%80%93Watson_algorithm |Bowyer-Watson Algorithm}
+   * 以防有倒卖和转载不标出处的情况 留个小信息 这可是原作者Azzagar的心血啊 汉化完后如果这样也太过分了
+   * 实际证明，9.22开始，确实有人这样倒卖
+   * Creates a Voronoi diagram from the given Delaunator, a list of points, and the number of points. The Voronoi diagram is constructed using (I think) the {@link https://en.wikipedia.org/wiki/Bowyer%E2%80%93Watson_algorithm |Bowyer-Watson Algorithm}
    * The {@link https://github.com/mapbox/delaunator/ |Delaunator} library uses {@link https://en.wikipedia.org/wiki/Doubly_connected_edge_list |half-edges} to represent the relationship between points and triangles.
    * @param {{triangles: Uint32Array, halfedges: Int32Array}} delaunay A {@link https://github.com/mapbox/delaunator/blob/master/index.js |Delaunator} instance.
    * @param {[number, number][]} points A list of coordinates.

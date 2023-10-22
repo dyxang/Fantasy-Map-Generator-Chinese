@@ -360,7 +360,8 @@
         <div id="titleName">Azgaar的</div>
         <div id="title">幻想地图生成器</div>
         <div id="versionText"> </div>
-        <p id="loading-text">汉化版 B站:人类制作 载入<span>.</span><span>.</span><span>.</span></p>
+        <p id="loading-text">个人汉化版载入中<span>.</span><span>.</span><span>.</span></p>
+        超时请访问hk.8desk.top
       </div>
     </div>
 
@@ -401,7 +402,7 @@
             ◄
           </button>
           <button id="layersTab" data-tip="更改地图图层" class="options active">图层</button>
-          <button id="styleTab" data-tip="打开样式编辑器" class="options">风格</button>
+          <button id="styleTab" data-tip="打开样式编辑器" class="options">样式</button>
           <button id="optionsTab" data-tip="更改 UI 和生成" class="options">选项</button>
           <button id="toolsTab" data-tip="打开工具菜单" class="options">工具</button>
           <button id="aboutTab" data-tip="点击查看生成器信息" class="options">关于</button>
@@ -760,7 +761,7 @@
             <option value="ocean">大海</option>
             <option value="population">人口</option>
             <option value="prec">降水</option>
-            <option value="provs">省</option>
+            <option value="provs">省份</option>
             <option value="terrain">地貌图标</option>
             <option value="relig">宗教</option>
             <option value="rivers">河流</option>
@@ -1050,7 +1051,7 @@
 
             <tbody id="styleRelief">
               <tr data-tip="选择一组地貌图标。将重新生成所有地貌图标">
-                <td>风格</td>
+                <td>样式</td>
                 <td>
                   <select id="styleReliefSet">
                     <option value="simple" selected>普通</option>
@@ -1295,7 +1296,7 @@
               </tr>
 
               <tr data-tip="选择直线插值类型">
-                <td>线条风格</td>
+                <td>线条样式</td>
                 <td>
                   <select id="styleHeightmapCurve">
                     <option value="0" selected>弯曲</option>
@@ -2417,7 +2418,7 @@
               ></span>
               <span
                 id="meridianLengthEarth"
-                data-tip="幻想世界子午线长度相对于现实世界地球(20公里)"
+                data-tip="幻想世界子午线长度相对于现实世界(两万公里)的百分比"
               ></span>
             </div>
             <div data-tip="地球仪上的地图坐标"><i>坐标:</i> <span id="mapCoordinates"></span></div>
@@ -3151,13 +3152,13 @@
               </div>
 
               <div data-tip="选择城市类型。对徽标生成有轻微影响">
-                <div class="label">Type:</div>
+                <div class="label">类型:</div>
                 <select id="burgType" style="width: 8em">
                   <option value="Generic">通用</option>
                   <option value="River">河流</option>
                   <option value="Lake">湖泊</option>
-                  <option value="Naval">海军</option>
-                  <option value="Nomadic">游牧民</option>
+                  <option value="Naval">沿海</option>
+                  <option value="Nomadic">游牧</option>
                   <option value="Hunting">狩猎</option>
                   <option value="Highland">高地</option>
                 </select>
@@ -3293,12 +3294,12 @@
             <button id="burgStyleHide" data-tip="隐藏样式编辑部分" class="icon-brush"></button>
             <button
               id="burgEditLabelStyle"
-              data-tip="编辑标签风格在风格的城市组编辑器"
+              data-tip="编辑标签样式在样式的城市组编辑器"
               class="icon-font"
             ></button>
             <button
               id="burgEditIconStyle"
-              data-tip="编辑风格图标为城市组的风格编辑器"
+              data-tip="编辑样式图标为城市组的样式编辑器"
               class="icon-dot-circled"
             ></button>
             <button
@@ -4196,7 +4197,7 @@
 
         <div id="biomesBottom">
           <button id="biomesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
-          <button id="biomesEditStyle" data-tip="在风格编辑器中编辑生物群落风格" class="icon-adjust"></button>
+          <button id="biomesEditStyle" data-tip="在样式编辑器中编辑生物群落样式" class="icon-adjust"></button>
           <button id="biomesLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
           <button
             id="biomesPercentage"

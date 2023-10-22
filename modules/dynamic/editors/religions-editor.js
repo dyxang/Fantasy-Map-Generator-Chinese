@@ -58,7 +58,7 @@ function insertEditorHtml() {
 
     <div id="religionsBottom">
       <button id="religionsEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
-      <button id="religionsEditStyle" data-tip="在风格编辑器中编辑宗教风格" class="icon-adjust"></button>
+      <button id="religionsEditStyle" data-tip="在样式编辑器中编辑宗教样式" class="icon-adjust"></button>
       <button id="religionsLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
       <button id="religionsPercentage" data-tip="切换百分比/绝对值显示模式" class="icon-percent"></button>
       <button id="religionsHeirarchy" data-tip="显示宗教等级树" class="icon-sitemap"></button>
