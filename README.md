@@ -19,9 +19,9 @@
 我当时就去看了看，好家伙这个网站更新日志是跟我以前的一模一样，需要VIP会员才能使用。
 它还说这是它自己汉化的，连我网站链接都没删干净。
 
-![证据图片1](https://pic.imgdb.cn/item/65348d3ac458853aefaec645.png)
-[视频证据](https://www.bilibili.com/video/BV1uH4y197wY/)、[详细证据](https://wwue.lanzoub.com/il9sV1ci3aza
-)
+![证据图片1](./README/证据.png)
+[视频证据](https://www.bilibili.com/video/BV1uH4y197wY/)
+[详细证据](https://wwue.lanzoub.com/il9sV1ci3aza)
 
 我对汉化版的优化改动变成它优化改动的了，从去年汉化到现在变成它的独家首发了。
 
