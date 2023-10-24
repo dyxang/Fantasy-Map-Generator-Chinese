@@ -7,7 +7,7 @@
 - 汉化版国内节点👉[https://8desk.top](https://8desk.top)
 
 ## 许可
-本汉化使用[GNU GPLv3](./LICENSE)，即GNU 通用公共许可证。
+本汉化使用[GNU AGPLv3](./LICENSE)作为许可
 
 ## 注意墨星写作网这个倒卖他人成果的网站 https://www.mx-xz.com/
 
@@ -31,6 +31,5 @@
 
 ## 支持我
 [![译者的爱发电](https://s2.loli.net/2023/10/22/UnIcrH82z3avE4d.jpg)](https://afdian.net/a/freeguy)
-[]() 
 
 [支持原作者](https://www.patreon.com/azgaar)
