@@ -501,10 +501,10 @@ function showInfo() {
   const Deorum = link("https://deorum.vercel.app", "Deorum");
 
   const QuickStart = link(
-    "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Quick-Start-Tutorial",
+    "https://github.com/dyxang/Fantasy-Map-Generator-Chinese/wiki",
     "快速入门教程"
   );
-  const QAA = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A", "Q&A page");
+  const QAA = link("https://github.com/dyxang/Fantasy-Map-Generator-Chinese/wiki/%E9%97%AE%E4%B8%8E%E7%AD%94", "问答");
   const VideoTutorial = link("https://youtube.com/playlist?list=PLtgiuDC8iVR2gIG8zMTRn7T_L0arl9h1C", "Video tutorial");
 
   alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b> (FMG)是一个免费的开源应用程序。这意味着你拥有所有创建的地图，并且可以随意使用它们。
@@ -520,7 +520,7 @@ function showInfo() {
 
     <ul style="columns:2">
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator", "GitHub repository")}</li>
-      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/blob/master/LICENSE", "License")}</li>
+      <li>${link("https://github.com/dyxang/Fantasy-Map-Generator-Chinese/blob/master/LICENSE", "License")}</li>
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog", "Changelog")}</li>
       <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys", "Hotkeys")}</li>
       <li>${link("https://trello.com/b/7x832DG4/fantasy-map-generator", "Devboard")}</li>

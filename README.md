@@ -6,8 +6,8 @@
 - 汉化版国际节点👉[https://8desk.top](https://8desk.top)
 - 汉化版国内节点👉[https://hk.8desk.top](https://hk.8desk.top)
 
-任何问题请到 Github Discussion 提出，谢谢，Gitee只是一个同步镜像。
-Issue 不适合仅做翻译的项目，故关闭。另外，由于刚刚公开仓库，所以Wiki和公告正在写中。
+有问题可以先看看[问与答](https://github.com/dyxang/Fantasy-Map-Generator-Chinese/wiki/%E9%97%AE%E4%B8%8E%E7%AD%94)然后再在 Github Discussion 提出，谢谢，Gitee只是一个同步镜像。
+Issue 不适合仅做翻译的项目，故关闭。另外，由于刚刚公开仓库，所以Wiki和公告正在施工。
 
 ## 许可
 本汉化使用[GNU AGPLv3](./LICENSE)作为许可
