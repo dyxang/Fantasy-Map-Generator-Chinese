@@ -28,7 +28,6 @@ const version = "1.93.05";// generator version, update each time
 <p><strong>⚠请汉化版使用者阅读以下内容！</strong></p>
 <p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://hk.8desk.top" target="_blank">国内节点</a>③<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
 <p>应要求，建了个汉化版交流的群：873020847</p>
-<p><a href="./README/README.html" target="_blank" style="color: #946ce6;">关于有网站倒卖我汉化版的声明</a></p>
 <p><a href="https://afdian.net/a/freeguy" target="_blank" style="color: #946ce6;">爱发电支持译者</a></p>
       <ul>
         <strong>版本更新内容:</strong>
