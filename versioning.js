@@ -27,8 +27,9 @@ const version = "1.93.05";// generator version, update each time
       ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
 <p><strong>⚠请汉化版使用者阅读以下内容！</strong></p>
 <p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://hk.8desk.top" target="_blank">国内节点</a>③<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
-<p>应要求，建了个汉化版交流的群：873020847</p>
-<p><a href="https://afdian.net/a/freeguy" target="_blank" style="color: #946ce6;">爱发电支持译者</a></p>
+<p>应要求，建了个汉化版交流的群：873020847</p>汉化版完全免费，支持译者:
+<p><a href="https://afdian.net/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
+<p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>版本更新内容:</strong>
         <li>随机偶遇事件 (整合了 <a href="https://deorum.vercel.app/" target="_blank">Deorum</a> 国内可能无法访问）</li>
