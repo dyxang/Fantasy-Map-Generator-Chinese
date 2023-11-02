@@ -13,7 +13,12 @@ Issue 不适合仅做翻译的项目，故关闭。另外，由于刚刚公开�
 本汉化使用[GNU AGPLv3](./LICENSE)作为许可
 
 ## 支持
-[![译者的爱发电](https://s2.loli.net/2023/10/22/UnIcrH82z3avE4d.jpg)](https://afdian.net/a/freeguy)
+
+| 爱发电 | 赞赏码   | 
+| ---- | ---- | 
+|[![译者的爱发电](https://s2.loli.net/2023/11/02/MHDtEfQeKYdJBA3.jpg)](https://afdian.net/a/freeguy)|![donate.jpg](https://s2.loli.net/2023/11/02/LUxHGtkwlrIyCef.jpg)|
+
+
 
 [在 Patron 上支持原作者](https://www.patreon.com/azgaar)
 
