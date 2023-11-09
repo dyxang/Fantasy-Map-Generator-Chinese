@@ -12,6 +12,7 @@ wx
 米卡柳丁
 ■兵
 DCVSMarvel
+爱发电用户_eUkY
 及其他七个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
@@ -550,4 +551,10 @@ Rob Frantz
 Driver
 Tr4v3l3r
 Cooper Cantrell
-Maximilien Bouillot`;
+Maximilien Bouillot
+J.E. Ellis
+Igor
+John Todd
+burning.rosary
+Shane Roppel
+Hank Agrippa`;
