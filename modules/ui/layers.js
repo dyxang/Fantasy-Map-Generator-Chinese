@@ -297,15 +297,12 @@ function drawHeightmap() {
   TIME && console.timeEnd("drawHeightmap");
 }
 
-function getColorScheme(scheme) {
-  if (scheme === "bright") return d3.scaleSequential(d3.interpolateSpectral);
-  if (scheme === "light") return d3.scaleSequential(d3.interpolateRdYlGn);
-  if (scheme === "green") return d3.scaleSequential(d3.interpolateGreens);
-  if (scheme === "monochrome") return d3.scaleSequential(d3.interpolateGreys);
-  return d3.scaleSequential(d3.interpolateSpectral);
+function getColorScheme(scheme = "bright") {
+  if (scheme in heightmapColorSchemes) return heightmapColorSchemes[scheme];
+  throw new Error(`Unsupported color scheme: ${scheme}`);
 }
 
-function getColor(value, scheme = getColorScheme()) {
+function getColor(value, scheme = getColorScheme("bright")) {
   return scheme(1 - (value < 20 ? value - 5 : value) / 100);
 }
 

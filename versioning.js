@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.93.05";// generator version, update each time
+const version = "1.93.07";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -32,6 +32,7 @@ const version = "1.93.05";// generator version, update each time
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>版本更新内容:</strong>
+        <li>新的样式预设Night和高程图配色方案</li>
         <li>随机偶遇事件 (整合了 <a href="https://deorum.vercel.app/" target="_blank">Deorum</a> 国内可能无法访问）</li>
         <li>自动加载上次保存的地图可选(参见<i>加载行为</i>选项)</li>
         <li>新的国家标签放置算法</li>

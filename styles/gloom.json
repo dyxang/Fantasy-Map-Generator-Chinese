@@ -293,10 +293,10 @@
   "#terrs": {
     "opacity": 1,
     "scheme": "bright",
-    "terracing": 0,
-    "skip": 0,
-    "relax": 1,
-    "curve": 1,
+    "terracing": 2,
+    "skip": 1,
+    "relax": 2,
+    "curve": 0,
     "filter": "url(#filter-grayscale)",
     "mask": "url(#land)"
   },

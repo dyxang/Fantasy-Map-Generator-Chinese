@@ -150,6 +150,10 @@ function appendStyleSheet() {
 }
 
 function insertHtml() {
+  const heightmapColorSchemeOptions = Object.keys(heightmapColorSchemes)
+  .map(scheme => `<option value="${scheme}">${scheme}</option>`)
+  .join("");
+
   const heightmapSelectionHtml = /* html */ `<div id="heightmapSelection" class="dialog stable">
     <div class="heightmap-selection">
       <section data-tip="选择高程图模板 - 模板可以在生成时提供独特但外观相似的地图">
@@ -174,12 +178,7 @@ function insertHtml() {
             </div>
             <div data-tip="用于高程图预览的配色方案">
             配色方案
-              <select id="heightmapSelectionColorScheme">
-                <option value="bright" selected>Bright</option>
-                <option value="light">Light</option>
-                <option value="green">Green</option>
-                <option value="monochrome">Monochrome</option>
-              </select>
+              <select id="heightmapSelectionColorScheme">${heightmapColorSchemeOptions}</select>
             </div>
           </div>
           <div>
@@ -274,8 +273,7 @@ function drawHeights(heights) {
   const ctx = canvas.getContext("2d");
   const imageData = ctx.createImageData(graph.cellsX, graph.cellsY);
 
-  const schemeId = byId("heightmapSelectionColorScheme").value;
-  const scheme = getColorScheme(schemeId);
+  const scheme = getColorScheme(byId("heightmapSelectionColorScheme").value);
   const renderOcean = byId("heightmapSelectionRenderOcean").checked;
   const getHeight = height => (height < 20 ? (renderOcean ? height : 0) : height);
 
