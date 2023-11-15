@@ -122,7 +122,7 @@
       }
     </style>
 
-    <link rel="preload" href="index.css?v=1.93.04" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+    <link rel="preload" href="index.css?v=1.93.10" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="icons.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="libs/jquery-ui.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
   </head>
@@ -4376,9 +4376,9 @@
           ></span>
         </div>
 
-        <div data-tip="取消选中以不更新名称更改时的国家标签" style="padding: 0.2em">
+        <div data-tip="取消选中以不更新名称更改时的国家标签" style="padding-block: 0.2em">
           <input id="stateNameEditorUpdateLabel" class="checkbox" type="checkbox" checked />
-          <label for="stateNameEditorUpdateLabel" class="checkbox-label"><i>更新标签</i></label>
+          <label for="stateNameEditorUpdateLabel" class="checkbox-label"><i>应用以更新标签</i></label>
         </div>
       </div>
 
@@ -5211,24 +5211,20 @@
 
       <div id="burgsOverview" class="dialog stable" style="display: none">
         <div id="burgsHeader" class="header" style="grid-template-columns: 8em 6em 6em 7em 7em 4em 2em">
-          <div
-            data-tip="点击此处可按城市名进行排序"
-            class="sortable alphabetically icon-sort-name-up"
-            data-sortby="name"
-          >
-          城市&nbsp;
-          </div>
+          <div data-tip="点击此处可按城市名进行排序" class="sortable alphabetically" data-sortby="name">城市</div>
           <div data-tip="按省名排序" class="sortable alphabetically" data-sortby="province">
-            省份&nbsp;
+            省份
           </div>
-          <div data-tip="点击此处可按国名进行排序" class="sortable alphabetically" data-sortby="state">
-            国家&nbsp;
-          </div>
+          <div data-tip="点击此处可按国家名进行排序" class="sortable alphabetically" data-sortby="state">国家</div>
           <div data-tip="点击此处可按文化名称排序" class="sortable alphabetically" data-sortby="culture">
-            文化&nbsp;
+            文化
           </div>
-          <div data-tip="按城市人口排序" class="sortable" data-sortby="population">
-            人口&nbsp;
+          <div
+            data-tip="点击此处可按城市人口排序"
+            class="sortable icon-sort-number-down"
+            data-sortby="population"
+          >
+            人口
           </div>
           <div data-tip="点击此处可按城市类型进行排序" class="sortable alphabetically" data-sortby="type">Type&nbsp;</div>
           <div
@@ -5241,10 +5237,10 @@
 
         <div id="burgsBody" class="table"></div>
 
-        <div id="burgsFilters" data-tip="应用滤镜">
-          <span>国家: </span>
+          <div id="burgsFilters" data-tip="应用过滤器" style="padding-block: 0.1em">
+            <label for="burgsFilterState">国家:</label>
           <select id="burgsFilterState" style="width: 28%"></select>
-          <span>文化:</span>
+          <label for="burgsFilterCulture">文化:</label>
           <select id="burgsFilterCulture" style="width: 28%"></select>
         </div>
 
@@ -5252,6 +5248,7 @@
           <div data-tip="城市展示" style="margin-left: 4px">
             城市:&nbsp;<span id="burgsFooterBurgs">0</span>
           </div>
+
           <div data-tip="平均人口" style="margin-left: 14px">
             平均人口:&nbsp;<span id="burgsFooterPopulation">0</span>
           </div>
@@ -7926,7 +7923,7 @@
 
     <script defer src="modules/relief-icons.js"></script>
     <script defer src="modules/ui/style.js?v=1.93.07"></script>
-    <script defer src="modules/ui/editors.js?v=1.92.00"></script>
+    <script defer src="modules/ui/editors.js?v=1.93.10"></script>
     <script defer src="modules/ui/tools.js?v=1.92.00"></script>
     <script defer src="modules/ui/world-configurator.js?v=1.91.05"></script>
     <script defer src="modules/ui/heightmap-editor.js?v=1.93.00"></script>
@@ -7948,7 +7945,7 @@
     <script defer src="modules/ui/notes-editor.js?v=1.93.09"></script>
     <script defer src="modules/ui/diplomacy-editor.js?v=1.88.04"></script>
     <script defer src="modules/ui/zones-editor.js"></script>
-    <script defer src="modules/ui/burgs-overview.js?v=1.89.20"></script>
+    <script defer src="modules/ui/burgs-overview.js?v=1.93.10"></script>
     <script defer src="modules/ui/rivers-overview.js"></script>
     <script defer src="modules/ui/military-overview.js"></script>
     <script defer src="modules/ui/regiments-overview.js?v=1.89.20"></script>

@@ -152,6 +152,7 @@ function addListeners() {
     else if (classList.contains("name")) editStateName(stateId);
     else if (classList.contains("coaIcon")) editEmblem("state", "stateCOA" + stateId, pack.states[stateId]);
     else if (classList.contains("icon-star-empty")) stateCapitalZoomIn(stateId);
+    else if (classList.contains("icon-dot-circled")) overviewBurgs({stateId});
     else if (classList.contains("statePopulation")) changePopulation(stateId);
     else if (classList.contains("icon-pin")) toggleFog(stateId, classList);
     else if (classList.contains("icon-trash-empty")) stateRemovePrompt(stateId);
@@ -232,7 +233,7 @@ function statesEditorAddLines() {
         <span class="icon-star-empty placeholder hide"></span>
         <input class="stateCapital placeholder hide" />
         <select class="stateCulture placeholder hide">${getCultureOptions(0)}</select>
-        <span data-tip="城市计数" class="icon-dot-circled hide" style="padding-right: 1px"></span>
+        <span data-tip="点击查看中性城市" class="icon-dot-circled pointer hide" style="padding-right: 1px"></span>
         <div data-tip="城市计数" class="stateBurgs hide">${s.burgs}</div>
         <span data-tip="中立地区" style="padding-right: 4px" class="icon-map-o hide"></span>
         <div data-tip="中立地区面积" class="stateArea hide" style="width: 6em">${si(area)} ${unit}</div>
@@ -277,7 +278,7 @@ function statesEditorAddLines() {
       <select data-tip="主流文化，点击更改" class="stateCulture hide">${getCultureOptions(
         s.culture
       )}</select>
-      <span data-tip="城市计数" style="padding-right: 1px" class="icon-dot-circled hide"></span>
+      <span data-tip="点击查看国家城市" style="padding-right: 1px" class="icon-dot-circled pointer hide"></span>
       <div data-tip="城市计数" class="stateBurgs hide">${s.burgs}</div>
       <span data-tip="国家面积" style="padding-right: 4px" class="icon-map-o hide"></span>
       <div data-tip="国家面积" class="stateArea hide" style="width: 6em">${si(area)} ${unit}</div>
