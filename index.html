@@ -5666,11 +5666,13 @@
             </select>
           </div>
 
-          <div data-tip="设置太阳位置(x，y，z)来定义阴影">
-            <div>太阳位置:</div>
-            <input id="options3dSunX" type="number" min="-2500" max="2500" step="100" style="width: 4.7em" />
-            <input id="options3dSunY" type="number" min="0" max="5000" step="100" style="width: 4.7em" />
-            <input id="options3dSunZ" type="number" min="-1500" max="1500" step="100" style="width: 4.7em" />
+          <div data-tip="设置太阳位置 (x, y) 与颜色" style="margin-top: 0.4em">
+            <label>太阳位置与颜色:</label>
+            <div style="display: flex; gap: 0.2em">
+              <input id="options3dSunX" type="number" min="-2500" max="2500" step="100" style="width: 4.7em" />
+              <input id="options3dSunY" type="number" min="0" max="5000" step="100" style="width: 4.7em" />
+              <input id="options3dSunColor" type="color" style="padding: 0; height: 1.5em; border: none" />
+            </div>         
           </div>
 
           <div data-tip="切换3D 标签" style="margin: 0.6em 0 0.3em -0.2em">
@@ -5685,18 +5687,9 @@
 
           <div data-tip="增加多边形数量以平滑尖锐点。请注意，计算可能需要一些时间" style="margin: 0.6em 0 0.3em -0.2em">
             <input id="options3dSubdivide" class="checkbox" type="checkbox" />
-            <label for="options3dSubdivide" class="checkbox-label">
-              <i>几何平滑 <small style="color: darkred">[慢]</small></i>
-            </label>
-          </div>
-
-          <div data-tip="设置太阳颜色" id="options3dSunColorSection">
-            <span>太阳颜色:</span
-            ><input
-              id="options3dSunColor"
-              type="color"
-              style="width: 4.4em; height: 1em; border: 0; padding: 0; margin: 0 0.2em"
-            />
+            <label for="options3dSubdivide" class="checkbox-label"
+              ><i>几何平滑 <small style="color: darkred">[慢]</small></i></label
+            >
           </div>
 
           <div data-tip="设置天空和水的颜色" id="options3dColorSection" style="display: none">
@@ -5729,6 +5722,7 @@
               <option value="1">1x</option>
               <option value="2">2x</option>
               <option value="4">4x</option>
+              <option value="8">8x</option>
             </select>
           </div>
 
@@ -7918,7 +7912,7 @@
     <script src="modules/ui/stylePresets.js?v=1.93.07"></script>
 
     <script src="modules/ui/general.js?v=1.93.04"></script>
-    <script src="modules/ui/options.js?v=1.93.07"></script>
+    <script src="modules/ui/options.js?v=1.93.11"></script>
     <script src="main.js?v=1.93.02"></script>
 
     <script defer src="modules/relief-icons.js"></script>
@@ -7954,7 +7948,7 @@
     <script defer src="modules/ui/battle-screen.js"></script>
     <script defer src="modules/ui/emblems-editor.js?v=1.91.00"></script>
     <script defer src="modules/ui/markers-editor.js"></script>
-    <script defer src="modules/ui/3d.js?v=1.89.36"></script>
+    <script defer src="modules/ui/3d.js?v=1.93.11"></script>
     <script defer src="modules/ui/submap.js?v=1.92.00"></script>
     <script defer src="modules/ui/hotkeys.js?v=1.93.00"></script>
     <script defer src="modules/coa-renderer.js?v=1.91.00"></script>

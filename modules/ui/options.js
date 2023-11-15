@@ -1017,7 +1017,7 @@ async function enter3dView(type) {
   canvas.style.display = "block";
   canvas.onmouseenter = () => {
     const help =
-      "左键改变角度，中鼠标键/鼠标滚轮缩放，右鼠标平移. 按字母<b>O</b>来切换选项";
+      "左键改变角度，鼠标中键/滚轮缩放，右键/按住Shift平移. 按字母<b>O</b>来切换选项";
     +canvas.dataset.hovered > 2 ? tip("") : tip(help);
     canvas.dataset.hovered = (+canvas.dataset.hovered | 0) + 1;
   };
@@ -1070,7 +1070,6 @@ function toggle3dOptions() {
   document.getElementById("options3dLightnessNumber").addEventListener("change", changeLightness);
   document.getElementById("options3dSunX").addEventListener("change", changeSunPosition);
   document.getElementById("options3dSunY").addEventListener("change", changeSunPosition);
-  document.getElementById("options3dSunZ").addEventListener("change", changeSunPosition);
   document.getElementById("options3dMeshSkinResolution").addEventListener("change", changeResolutionScale);
   document.getElementById("options3dMeshRotationRange").addEventListener("input", changeRotation);
   document.getElementById("options3dMeshRotationNumber").addEventListener("change", changeRotation);
@@ -1094,7 +1093,6 @@ function toggle3dOptions() {
     options3dLightnessRange.value = options3dLightnessNumber.value = ThreeD.options.lightness * 100;
     options3dSunX.value = ThreeD.options.sun.x;
     options3dSunY.value = ThreeD.options.sun.y;
-    options3dSunZ.value = ThreeD.options.sun.z;
     options3dMeshRotationRange.value = options3dMeshRotationNumber.value = ThreeD.options.rotateMesh;
     options3dMeshSkinResolution.value = ThreeD.options.resolutionScale;
     options3dGlobeRotationRange.value = options3dGlobeRotationNumber.value = ThreeD.options.rotateGlobe;
@@ -1130,8 +1128,7 @@ function toggle3dOptions() {
   function changeSunPosition() {
     const x = +options3dSunX.value;
     const y = +options3dSunY.value;
-    const z = +options3dSunZ.value;
-    ThreeD.setSun(x, y, z);
+    ThreeD.setSun(x, y);
   }
 
   function changeRotation() {
