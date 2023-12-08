@@ -192,6 +192,14 @@ function mapSizeInputChange() {
   }
 }
 
+function restoreDefaultCanvasSize() {
+  mapWidthInput.value = window.innerWidth;
+  mapHeightInput.value = window.innerHeight;
+  localStorage.removeItem("mapHeight");
+  localStorage.removeItem("mapWidth");
+  fitMapToScreen();
+}
+
 // on map creation
 function applyGraphSize() {
   graphWidth = +mapWidthInput.value;
@@ -226,12 +234,6 @@ function fitMapToScreen() {
   if (window.fitLegendBox) fitLegendBox();
 }
 
-function restoreDefaultCanvasSize() {
-  mapWidthInput.value = window.innerWidth;
-  mapHeightInput.value = window.innerHeight;
-  localStorage.removeItem("mapHeight");
-  localStorage.removeItem("mapWidth");
-}
 
 function toggleTranslateExtent(el) {
   const on = (el.dataset.on = +!+el.dataset.on);
