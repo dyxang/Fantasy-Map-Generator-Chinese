@@ -153,7 +153,7 @@ optionsContent.addEventListener("change", function (event) {
 
   if (id === "zoomExtentMin" || id === "zoomExtentMax") changeZoomExtent(value);
   else if (id === "optionsSeed") generateMapWithSeed("seed change");
-  else if (id === "uiSizeInput" || id === "uiSizeOutput") changeUIsize(value);
+  else if (id === "uiSizeInput" || id === "uiSizeOutput") changeUiSize(value);
   else if (id === "shapeRendering") setRendering(value);
   else if (id === "yearInput") changeYear();
   else if (id === "eraInput") changeEra();
@@ -162,7 +162,7 @@ optionsContent.addEventListener("change", function (event) {
 
 optionsContent.addEventListener("click", function (event) {
   const id = event.target.id;
-  if (id === "toggleFullscreen") toggleFullscreen();
+  if (id === "restoreDefaultCanvasSize") restoreDefaultCanvasSize();
   else if (id === "optionsMapHistory") showSeedHistoryDialog();
   else if (id === "optionsCopySeed") copyMapURL();
   else if (id === "optionsEraRegenerate") regenerateEra();
@@ -179,7 +179,7 @@ function mapSizeInputChange() {
   const $mapWidthInput = byId("mapWidthInput");
   const $mapHeightInput = byId("mapHeightInput");
 
-  changeMapSize();
+  fitMapToScreen();
   localStorage.setItem("mapWidth", $mapWidthInput.value);
   localStorage.setItem("mapHeight", $mapHeightInput.value);
 
@@ -192,74 +192,60 @@ function mapSizeInputChange() {
   }
 }
 
-// change svg size on manual size change or window resize (do not change graph size!)
-function changeMapSize() {
+// on map creation
+function applyGraphSize() {
+  graphWidth = +mapWidthInput.value;
+  graphHeight = +mapHeightInput.value;
+
+  landmass.select("rect").attr("x", 0).attr("y", 0).attr("width", graphWidth).attr("height", graphHeight);
+  oceanPattern.select("rect").attr("x", 0).attr("y", 0).attr("width", graphWidth).attr("height", graphHeight);
+  oceanLayers.select("rect").attr("x", 0).attr("y", 0).attr("width", graphWidth).attr("height", graphHeight);
+  fogging.selectAll("rect").attr("x", 0).attr("y", 0).attr("width", graphWidth).attr("height", graphHeight);
+  defs.select("mask#fog > rect").attr("width", graphWidth).attr("height", graphHeight);
+  defs.select("mask#water > rect").attr("width", graphWidth).attr("height", graphHeight);
+}
+
+// on generate, on load, on resize, on canvas size change
+function fitMapToScreen() {
   svgWidth = Math.min(+mapWidthInput.value, window.innerWidth);
   svgHeight = Math.min(+mapHeightInput.value, window.innerHeight);
   svg.attr("width", svgWidth).attr("height", svgHeight);
 
-  const maxWidth = Math.max(+mapWidthInput.value, graphWidth);
-  const maxHeight = Math.max(+mapHeightInput.value, graphHeight);
-
-  zoom.translateExtent([
+  const zoomExtent = [
     [0, 0],
-    [maxWidth, maxHeight]
-  ]);
+    [graphWidth, graphHeight]
+  ];
 
-  landmass.select("rect").attr("x", 0).attr("y", 0).attr("width", maxWidth).attr("height", maxHeight);
-  oceanPattern.select("rect").attr("x", 0).attr("y", 0).attr("width", maxWidth).attr("height", maxHeight);
-  oceanLayers.select("rect").attr("x", 0).attr("y", 0).attr("width", maxWidth).attr("height", maxHeight);
-  fogging.selectAll("rect").attr("x", 0).attr("y", 0).attr("width", maxWidth).attr("height", maxHeight);
-  defs.select("mask#fog > rect").attr("width", maxWidth).attr("height", maxHeight);
-  defs.select("mask#water > rect").attr("width", maxWidth).attr("height", maxHeight);
+  const zoomMin = rn(Math.max(svgWidth / graphWidth, svgHeight / graphHeight), 3);
+  zoomExtentMin.value = zoomMin;
+  const zoomMax = +zoomExtentMax.value;
+
+  zoom.translateExtent(zoomExtent).scaleExtent([zoomMin, zoomMax]).scaleTo(svg, zoomMin);
 
   fitScaleBar();
   if (window.fitLegendBox) fitLegendBox();
 }
 
-// just apply canvas size that was already set
-function applyMapSize() {
-  const zoomMin = +zoomExtentMin.value;
-  const zoomMax = +zoomExtentMax.value;
-  graphWidth = +mapWidthInput.value;
-  graphHeight = +mapHeightInput.value;
-  svgWidth = Math.min(graphWidth, window.innerWidth);
-  svgHeight = Math.min(graphHeight, window.innerHeight);
-  svg.attr("width", svgWidth).attr("height", svgHeight);
-  zoom
-    .translateExtent([
-      [0, 0],
-      [graphWidth, graphHeight]
-    ])
-    .scaleExtent([zoomMin, zoomMax])
-    .scaleTo(svg, zoomMin);
-}
-
-function toggleFullscreen() {
-  if (mapWidthInput.value != window.innerWidth || mapHeightInput.value != window.innerHeight) {
-    mapWidthInput.value = window.innerWidth;
-    mapHeightInput.value = window.innerHeight;
-    localStorage.removeItem("mapHeight");
-    localStorage.removeItem("mapWidth");
-  } else {
-    mapWidthInput.value = graphWidth;
-    mapHeightInput.value = graphHeight;
-  }
-  changeMapSize();
+function restoreDefaultCanvasSize() {
+  mapWidthInput.value = window.innerWidth;
+  mapHeightInput.value = window.innerHeight;
+  localStorage.removeItem("mapHeight");
+  localStorage.removeItem("mapWidth");
 }
 
 function toggleTranslateExtent(el) {
   const on = (el.dataset.on = +!+el.dataset.on);
-  if (on)
+  if (on) {
     zoom.translateExtent([
       [-graphWidth / 2, -graphHeight / 2],
       [graphWidth * 1.5, graphHeight * 1.5]
     ]);
-  else
+  } else {
     zoom.translateExtent([
       [0, 0],
       [graphWidth, graphHeight]
     ]);
+  }
 }
 
 // add voice options
@@ -321,12 +307,6 @@ function restoreSeed(id) {
   if (locked("template")) unlock("template");
 
   regeneratePrompt({seed});
-}
-
-function restoreDefaultZoomExtent() {
-  zoomExtentMin.value = 1;
-  zoomExtentMax.value = 20;
-  zoom.scaleExtent([1, 20]).scaleTo(svg, 1);
 }
 
 function copyMapURL() {
@@ -428,7 +408,7 @@ function changeStatesNumber(value) {
   labels.select("#countries").attr("data-size", Math.max(rn(18 - value / 6), 4));
 }
 
-function changeUIsize(value) {
+function changeUiSize(value) {
   if (isNaN(+value) || +value < 0.5) return;
 
   const max = getUImaxSize();
@@ -543,6 +523,12 @@ function changeZoomExtent(value) {
   zoom.scaleTo(svg, scale);
 }
 
+function restoreDefaultZoomExtent() {
+  zoomExtentMin.value = 1;
+  zoomExtentMax.value = 20;
+  zoom.scaleExtent([1, 20]).scaleTo(svg, 1);
+}
+
 // restore options stored in localStorage
 function applyStoredOptions() {
   if (!stored("mapWidth") || !stored("mapHeight")) {
@@ -585,8 +571,8 @@ function applyStoredOptions() {
   if (stored("regions")) changeStatesNumber(stored("regions"));
 
   uiSizeInput.max = uiSizeOutput.max = getUImaxSize();
-  if (stored("uiSize")) changeUIsize(stored("uiSize"));
-  else changeUIsize(minmax(rn(mapWidthInput.value / 1280, 1), 1, 2.5));
+  if (stored("uiSize")) changeUiSize(stored("uiSize"));
+  else changeUiSize(minmax(rn(mapWidthInput.value / 1280, 1), 1, 2.5));
 
   // search params overwrite stored and default options
   const params = new URL(window.location.href).searchParams;
@@ -626,7 +612,6 @@ function randomizeOptions() {
   if (randomize || !locked("temperatureNorthPole")) options.temperatureNorthPole = gauss(-25, 7, -40, 10, 0);
   if (randomize || !locked("temperatureSouthPole")) options.temperatureSouthPole = gauss(-15, 7, -40, 10, 0);
   if (randomize || !locked("prec")) precInput.value = precOutput.value = gauss(100, 40, 5, 500);
-
 
   // 'Units Editor' settings
   const US = navigator.language === "en-US";
@@ -746,7 +731,7 @@ function regeneratePrompt(options) {
   if (workingTime < 5) return regenerateMap(options);
 
   alertMessage.innerHTML = /* html */ `确实要生成新的地图吗？<br />
-  对当前地图所做的所有未保存的更改都将丢失`;
+    对当前地图所做的所有未保存的更改都将丢失`;
   $("#alert").dialog({
     resizable: false,
     title: "生成新地图",

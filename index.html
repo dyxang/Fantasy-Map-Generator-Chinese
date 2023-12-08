@@ -1394,9 +1394,11 @@
           </p>
           <table>
             <tr
-              data-tip="画布的宽度和高度(以像素为单位)。在生成时定义地图大小，然后地图大小不能改变，画布大小只能改变可见区域。保持画布大小等于或小于窗口大小，以提高性能。地图的最佳长宽比是2:1"
+              data-tip="在生成时设置原始地图大小,之后无法更改。始终保持画布尺寸等于或小于屏幕尺寸。最好使用默认值。对于完整地球地图，使用宽高比 2:1"
             >
-              <td></td>
+            <td>
+              <i data-tip="恢复默认画布尺寸" id="restoreDefaultCanvasSize" class="icon-ccw"></i>
+            </td>
               <td>画布尺寸</td>
               <td>
                 <input id="mapWidthInput" class="paired" type="number" min="240" value="960" />
@@ -1404,13 +1406,7 @@
                 <input id="mapHeightInput" class="paired" type="number" min="135" value="540" />
                 <span>px</span>
               </td>
-              <td>
-                <i
-                  data-tip="在窗口大小和初始画布大小之间切换"
-                  id="toggleFullscreen"
-                  class="icon-resize-full-alt"
-                ></i>
-              </td>
+              <td></td>
             </tr>
 
             <tr data-tip="地图种子编号。只有当画布大小和选项相同时，种子才生成相同的地图">
@@ -7862,7 +7858,7 @@
     <script src="modules/military-generator.js"></script>
     <script src="modules/markers-generator.js?v=1.93.04"></script>
     <script src="modules/coa-generator.js?v=1.91.05"></script>
-    <script src="modules/submap.js?v=1.91.05"></script>
+    <script src="modules/submap.js?v=1.94.01"></script>
     <script src="libs/polylabel.min.js"></script>
     <script src="libs/lineclip.min.js"></script>
     <script src="libs/alea.min.js"></script>
@@ -7871,9 +7867,9 @@
     <script src="modules/ui/measurers.js?v=1.87.02"></script>
     <script src="modules/ui/stylePresets.js?v=1.94.00"></script>
 
-    <script src="modules/ui/general.js?v=1.94.00"></script>
-    <script src="modules/ui/options.js?v=1.94.00"></script>
-    <script src="main.js?v=1.94.00"></script>
+    <script src="modules/ui/general.js?v=1.94.01"></script>
+    <script src="modules/ui/options.js?v=1.94.01"></script>
+    <script src="main.js?v=1.94.01"></script>
 
     <script defer src="modules/relief-icons.js"></script>
     <script defer src="modules/ui/style.js?v=1.94.00"></script>

@@ -307,6 +307,7 @@ async function generateMapOnLoad() {
   await generate(); // generate map
   focusOn(); // based on searchParams focus on point, cell or burg from MFCG
   applyPreset(); // apply saved layers preset
+  fitMapToScreen();
 }
 
 // focus on coordinates, cell or burg provided in searchParams
@@ -606,7 +607,7 @@ async function generate(options) {
     setSeed(precreatedSeed);
     INFO && console.group("生成的地图 " + seed);
 
-    applyMapSize();
+    applyGraphSize();
     randomizeOptions();
 
     if (shouldRegenerateGrid(grid, precreatedSeed)) grid = precreatedGraph || generateGrid();
@@ -1942,6 +1943,7 @@ const regenerateMap = debounce(async function (options) {
   if (ThreeD.options.isOn) ThreeD.redraw();
   if ($("#worldConfigurator").is(":visible")) editWorld();
 
+  fitMapToScreen();
   shouldShowLoading && hideLoading();
   clearMainTip();
 }, 250);
