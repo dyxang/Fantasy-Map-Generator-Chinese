@@ -410,7 +410,7 @@ async function parseLoadedData(data) {
         .forEach(el => el.classList.add("buttonoff"));
 
       // turn on active layers
-      if (notHidden(texture) && hasChild(texture, "image")) turnOn("toggleTexture");
+      if (hasChild(texture, "image")) turnOn("toggleTexture");
       if (hasChildren(terrs)) turnOn("toggleHeight");
       if (hasChildren(biomes)) turnOn("toggleBiomes");
       if (hasChildren(cells)) turnOn("toggleCells");
@@ -451,7 +451,7 @@ async function parseLoadedData(data) {
     {
       // dynamically import and run auto-update script
       const versionNumber = parseFloat(params[0]);
-      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.93.00");
+      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.94.00");
       resolveVersionConflicts(versionNumber);
     }
 
@@ -462,7 +462,13 @@ async function parseLoadedData(data) {
         addCustomColorScheme(scheme);
       }
     }
-    
+
+    {
+      // add custom texture if any
+      const textureHref = texture.attr("data-href");
+      updateTextureSelectValue(textureHref);
+    }
+
     void (function checkDataIntegrity() {
       const cells = pack.cells;
 

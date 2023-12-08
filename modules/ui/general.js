@@ -9,7 +9,7 @@ window.addEventListener("resize", function (e) {
   changeMapSize();
 });
 
-if (location.hostname && location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
   window.onbeforeunload = () => "你确定要离开吗？";
 }
 

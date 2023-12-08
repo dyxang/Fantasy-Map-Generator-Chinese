@@ -51,7 +51,8 @@ async function getStylePreset(desiredPreset) {
       const isValid = JSON.isValid(storedStyleJSON);
       if (isValid) return [desiredPreset, JSON.parse(storedStyleJSON)];
 
-      ERROR && console.error(`定制样式 ${desiredPreset} 存储在 localStorage 中无效. 应用默认样式`);
+      ERROR &&
+        console.error(`定制样式 ${desiredPreset} 存储在 localStorage 无效. 应用默认样式`);
       presetToLoad = "default";
     }
   }
@@ -61,21 +62,19 @@ async function getStylePreset(desiredPreset) {
 }
 
 async function fetchSystemPreset(preset) {
-  const style = await fetch(`./styles/${preset}.json`)
-    .then(res => res.json())
-    .catch(err => {
-      ERROR && console.error("加载样式预设错误", preset, err);
-      return null;
-    });
-
-  if (!style) throw new Error("无法获取样式预设", preset);
-  return style;
+  try {
+    const res = await fetch(`./styles/${preset}.json`);
+    return await res.json();
+  } catch (err) {
+    throw new Error("无法获取样式预设", preset);
+  }
 }
 
 function applyStyle(style) {
   for (const selector in style) {
     const el = document.querySelector(selector);
     if (!el) continue;
+
     for (const attribute in style[selector]) {
       const value = style[selector][attribute];
 
@@ -89,15 +88,19 @@ function applyStyle(style) {
       } else {
         el.setAttribute(attribute, value);
       }
-      if (layerIsOn("toggleTexture") && selector === "#textureImage" && attribute === "src") {
-        el.setAttribute("href", value);
+
+      if (selector === "#texture") {
+        const image = document.querySelector("#texture > image");
+        if (image) {
+          if (attribute === "data-x") image.setAttribute("x", value);
+          if (attribute === "data-y") image.setAttribute("y", value);
+          if (attribute === "data-href") image.setAttribute("href", value);
+        }
       }
 
       // add custom heightmap color scheme
       if (selector === "#terrs" && attribute === "scheme" && !(value in heightmapColorSchemes)) {
-        const colors = value.split(",");
-        heightmapColorSchemes[value] = d3.scaleSequential(d3.interpolateRgbBasis(colors));
-        document.getElementById("styleHeightmapScheme").options.add(new Option(value, value));
+        addCustomColorScheme(value);
       }
     }
   }
@@ -105,10 +108,7 @@ function applyStyle(style) {
 
 function requestStylePresetChange(preset) {
   const isConfirmed = sessionStorage.getItem("styleChangeConfirmed");
-  if (isConfirmed) {
-    changeStyle(preset);
-    return;
-  }
+  if (isConfirmed) return changeStyle(preset);
 
   confirmationDialog({
     title: "更改样式预设",
@@ -126,8 +126,8 @@ function requestStylePresetChange(preset) {
 
 async function changeStyle(desiredPreset) {
   const styleData = await getStylePreset(desiredPreset);
-  const [appliedPreset, style] = styleData;
-  localStorage.setItem("presetStyle", appliedPreset);
+  const [presetName, style] = styleData;
+  localStorage.setItem("presetStyle", presetName);
   applyStyleWithUiRefresh(style);
 }
 
@@ -234,8 +234,7 @@ function addStylePreset() {
       ],
       "#ice": ["opacity", "fill", "stroke", "stroke-width", "filter"],
       "#emblems": ["opacity", "stroke-width", "filter"],
-      "#texture": ["opacity", "filter", "mask"],
-      "#textureImage": ["x", "y", "src"],
+      "#texture": ["opacity", "filter", "mask", "data-x", "data-y", "data-href"],
       "#zones": ["opacity", "stroke", "stroke-width", "stroke-dasharray", "stroke-linecap", "filter", "mask"],
       "#oceanLayers": ["filter", "layers"],
       "#oceanBase": ["fill"],
@@ -344,7 +343,8 @@ function addStylePreset() {
     if (!styleJSON) return tip("请提供样式 JSON", false, "error");
     if (!JSON.isValid(styleJSON)) return tip("JSON 字符串无效，请检查格式", false, "error");
     if (!desiredName) return tip("请提供预设名称", false, "error");
-    if (styleSaverTip.innerHTML === "default") return tip("你不能覆盖默认预设，请更改名称", false, "error");
+    if (styleSaverTip.innerHTML === "default")
+      return tip("你不能覆盖默认预设，请更改名称", false, "error");
 
     const presetName = customPresetPrefix + desiredName;
     applyOption(stylePreset, presetName, desiredName + " [custom]");

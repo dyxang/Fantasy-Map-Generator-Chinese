@@ -636,20 +636,6 @@ export function resolveVersionConflicts(version) {
       if (coa?.shield === "state") delete coa.shield;
     });
   }
-  if (version < 1.9) {
-    // from v1.90.02 texture image is always there
-        if (!texture.select("#textureImage").size()) {
-      // cleanup old texture if it has no id and add new one
-      texture.selectAll("*").remove();
-      texture
-        .append("image")
-        .attr("id", "textureImage")
-        .attr("width", "100%")
-        .attr("height", "100%")
-        .attr("preserveAspectRatio", "xMidYMid slice")
-        .attr("src", "https://i2.wp.com/azgaar.files.wordpress.com/2021/10/marble-big.jpg");
-    }
-  } 
 
   if (version < 1.91) {
     // from 1.91.00 custom coa is moved to coa object
@@ -699,23 +685,29 @@ export function resolveVersionConflicts(version) {
       }
     });
   }
+
   if (version < 1.92) {
     // v1.92 change labels text-anchor from 'start' to 'middle'
     labels.selectAll("tspan").each(function () {
       this.setAttribute("x", 0);
     });
-    // leftover from v1.90.02
-    texture.style("display", null);
-    const textureImage = texture.select("#textureImage");
-    if (textureImage.size()) {
-      const xlink = textureImage.attr("xlink:href");
-      const href = textureImage.attr("href");
-      const src = xlink || href;
+  }
 
-      if (src) {
-        textureImage.attr("src", src);
-        textureImage.attr("xlink:href", null);
-      }
+  if (version < 1.94) {
+    // from v1.94.00 texture image is removed when layer is off
+    texture.style("display", null);
+
+    const textureImage = texture.select("image");
+    if (textureImage.size()) {
+      // restore parameters
+      const x = Number(textureImage.attr("x") || 0);
+      const y = Number(textureImage.attr("y") || 0);
+      const href = textureImage.attr("xlink:href") || textureImage.attr("href") || textureImage.attr("src");
+      // save parameters to parent element
+      texture.attr("data-href", href).attr("data-x", x).attr("data-y", y);
+      // recreate image in expected format
+      textureImage.remove();
+      drawTexture();
     }
-  } 
+  }
 }
