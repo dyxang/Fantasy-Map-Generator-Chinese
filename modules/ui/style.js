@@ -4,7 +4,7 @@
 // add available filters to lists
 {
   const filters = Array.from(byId("filters").querySelectorAll("filter"));
-  const emptyOption = '<option value="" selected>否</option>';
+  const emptyOption = '<option value="" selected>None</option>';
   const options = filters.map(filter => {
     const id = filter.getAttribute("id");
     const name = filter.getAttribute("name");
@@ -355,24 +355,24 @@ function selectStyleElement() {
     const auto = (styleCoastlineAuto.checked = coastline.select("#sea_island").attr("auto-filter"));
     if (auto) styleFilter.style.display = "none";
   }
-}
 
+  if (styleElement === "vignette") {
+    styleVignette.style.display = "block";
 
-if (styleElement === "vignette") {
-  styleVignette.style.display = "block";
-
-  const maskRect = byId("vignette-rect");
-  if (maskRect) {
-    const digit = str => str.replace(/[^\d.]/g, "");
-    styleVignetteX.value = digit(maskRect.getAttribute("x"));
-    styleVignetteY.value = digit(maskRect.getAttribute("y"));
-    styleVignetteWidth.value = digit(maskRect.getAttribute("width"));
-    styleVignetteHeight.value = digit(maskRect.getAttribute("height"));
-    styleVignetteRx.value = digit(maskRect.getAttribute("rx"));
-    styleVignetteRy.value = digit(maskRect.getAttribute("ry"));
-    styleVignetteBlur.value = styleVignetteBlurOutput.value = digit(maskRect.getAttribute("filter"));
+    const maskRect = byId("vignette-rect");
+    if (maskRect) {
+      const digit = str => str.replace(/[^\d.]/g, "");
+      styleVignetteX.value = digit(maskRect.getAttribute("x"));
+      styleVignetteY.value = digit(maskRect.getAttribute("y"));
+      styleVignetteWidth.value = digit(maskRect.getAttribute("width"));
+      styleVignetteHeight.value = digit(maskRect.getAttribute("height"));
+      styleVignetteRx.value = digit(maskRect.getAttribute("rx"));
+      styleVignetteRy.value = digit(maskRect.getAttribute("ry"));
+      styleVignetteBlur.value = styleVignetteBlurOutput.value = digit(maskRect.getAttribute("filter"));
+    }
   }
 }
+
 // Handle style inputs change
 styleGroupSelect.addEventListener("change", selectStyleElement);
 
@@ -486,8 +486,6 @@ styleGridShiftY.addEventListener("input", function () {
   getEl().attr("dy", this.value);
   if (layerIsOn("toggleGrid")) drawGrid();
 });
-
-
 
 styleRescaleMarkers.addEventListener("change", function () {
   markers.attr("rescale", +this.checked);
