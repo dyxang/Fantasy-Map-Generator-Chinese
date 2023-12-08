@@ -18,13 +18,13 @@ window.Cultures = (function () {
         pack.cultures = [{name: "Wildlands", i: 0, base: 1, shield: "round"}];
         cells.culture = cultureIds;
 
-        alertMessage.innerHTML = /* html */ `The climate is harsh and people cannot live in this world.<br />
-          No cultures, states and burgs will be created.<br />
-          Please consider changing climate settings in the World Configurator`;
+        alertMessage.innerHTML = /* html */ `气候恶劣，人们无法生活在这个世界上。<br />
+          文化、国家、城镇不会创建。<br />
+          请考虑在世界配置中更改气候设置`;
 
         $("#alert").dialog({
           resizable: false,
-          title: "Extreme climate warning",
+          title: "极端气候警告",
           buttons: {
             好的: function () {
               $(this).dialog("close");
