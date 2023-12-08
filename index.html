@@ -122,7 +122,7 @@
       }
     </style>
 
-    <link rel="preload" href="index.css?v=1.93.10" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+    <link rel="preload" href="index.css?v=1.93.12" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="icons.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="libs/jquery-ui.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
   </head>
@@ -1260,13 +1260,6 @@
             </tbody>
 
             <tbody id="styleHeightmap">
-              <tr data-tip="为元素选择配色方案">
-                <td>配色方案</td>
-                <td>
-                  <select id="styleHeightmapScheme"></select>
-                </td>
-              </tr>
-
               <tr data-tip="梯田率。设置为0(切换关闭) ，以提高性能">
                 <td>阶地</td>
                 <td>
@@ -1274,6 +1267,7 @@
                   <output id="styleHeightmapTerracingOutput">0</output>
                 </td>
               </tr>
+
               <tr data-tip="减少层数，提高性能">
                 <td>减少层</td>
                 <td>
@@ -1298,6 +1292,18 @@
                     <option value="1">线性</option>
                     <option value="2">矩形</option>
                   </select>
+                </td>
+              </tr>
+              <tr data-tip="为元素选择配色方案">
+                <td>配色方案</td>
+                <td>
+                  <select id="styleHeightmapScheme"></select>
+                  <button
+                  id="openCreateHeightmapSchemeButton"
+                  data-tip="点击添加自定义高程图配色方案"
+                  data-stops="#ffffff,#EEEECC,#D2B48C,#008000,#008080"
+                  class="icon-plus sideButton"
+                ></button>
                 </td>
               </tr>
             </tbody>
@@ -2474,7 +2480,7 @@
               <path id="globeArea" />
             </svg>
 
-            <button id="restoreWinds" data-tip="单击恢复默认风向(基于地球)">
+            <button id="restoreWinds" data-tip="点击恢复默认风向(基于地球)">
               恢复风向
             </button>
           </div>
@@ -5441,7 +5447,7 @@
             data-tip="切换百分比/绝对值视图"
             class="icon-percent"
           ></button>
-          <button id="regimentsAddNew" data-tip="单击后点击地图新建军队" class="icon-user-plus"></button>
+          <button id="regimentsAddNew" data-tip="点击后点击地图新建军队" class="icon-user-plus"></button>
           <div data-tip="选择国家" style="display: inline-block">
             <span>国家: </span
             ><select id="regimentsFilter"></select>
@@ -7876,7 +7882,7 @@
     <script src="utils/commonUtils.js?v=1.89.29"></script>
     <script src="utils/arrayUtils.js"></script>
     <script src="utils/colorUtils.js"></script>
-    <script src="utils/graphUtils.js?v=1.90.01"></script>
+    <script src="utils/graphUtils.js?v=1.93.12"></script>
     <script src="utils/nodeUtils.js"></script>
     <script src="utils/numberUtils.js?v=1.89.08"></script>
     <script src="utils/polyfills.js?v=1.93.00"></script>
@@ -7912,11 +7918,11 @@
     <script src="modules/ui/stylePresets.js?v=1.93.07"></script>
 
     <script src="modules/ui/general.js?v=1.93.04"></script>
-    <script src="modules/ui/options.js?v=1.93.11"></script>
+    <script src="modules/ui/options.js?v=1.93.12"></script>
     <script src="main.js?v=1.93.02"></script>
 
     <script defer src="modules/relief-icons.js"></script>
-    <script defer src="modules/ui/style.js?v=1.93.07"></script>
+    <script defer src="modules/ui/style.js?v=1.93.12"></script>
     <script defer src="modules/ui/editors.js?v=1.93.10"></script>
     <script defer src="modules/ui/tools.js?v=1.92.00"></script>
     <script defer src="modules/ui/world-configurator.js?v=1.91.05"></script>
