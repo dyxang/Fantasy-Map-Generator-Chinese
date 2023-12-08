@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.94.06";// generator version, update each time
+const version = "1.95.00";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -32,6 +32,7 @@ const version = "1.94.06";// generator version, update each time
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>版本更新内容:</strong>
+        <li>渐变视觉图层和渐变造型选项</li>
         <li>自定义高程图配色方案</li>
         <li>新的样式预设Night和高程图配色方案</li>
         <li>随机偶遇事件 (整合了 <a href="https://deorum.vercel.app/" target="_blank">Deorum</a> 国内可能无法访问）</li>
@@ -42,8 +43,6 @@ const version = "1.94.06";// generator version, update each time
         <li>支持多色纹章填充</li>
         <li>新3D场景选项和改进</li>
         <li>支持国家合并</li>
-        <li>自动保存功能(选项中)</li>
-        <li>宗教可以像文化一样被编辑和重绘</li>
       </ul>
       <p>加入作者 <a href="${discord}" target="_blank">Discord</a> 和 <a href="${reddit}" target="_blank">Reddit 社区</a>提出问题，分享地图，讨论生成器和世界构建，报告错误并提出新功能。</p>
       <span><i>感谢所有支持，去<a href="${patreon}" target="_blank">支持原作者（Patreon）</a>!</i></span>

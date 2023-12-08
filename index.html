@@ -343,9 +343,17 @@
         <pattern id="oceanic" width="100" height="100" patternUnits="userSpaceOnUse">
           <image id="oceanicPattern" href="./images/pattern1.png" opacity="0.2"></image>
         </pattern>
+
+        <mask id="vignette-mask">
+          <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+          <rect id="vignette-rect" fill="black"></rect>
+        </mask>
       </defs>
       <g id="viewbox"></g>
       <g id="scaleBar"></g>
+      <g id="vignette" mask="url(#vignette-mask)">
+        <rect x="0" y="0" width="100%" height="100%" />
+      </g>
     </svg>
 
     <div id="loading">
@@ -688,6 +696,15 @@
             >
               比例尺(<u>/</u>)
             </li>
+            <li
+            id="toggleVignette"
+            data-tip="晕影（边框渐变）：单击切换。按 Ctrl + 单击编辑样式"
+            data-shortcut="[ (方括号)"
+            onclick="toggleVignette(event)"
+            class="solid"
+          >
+            晕影
+          </li>
           </ul>
 
           <div id="viewMode" data-tip="设置显示模式">
@@ -770,6 +787,7 @@
             <option value="regions" selected>国家</option>
             <option value="temperature">温度</option>
             <option value="texture">纹理</option>
+            <option value="vignette">晕影</option>
             <option value="compass">风向图</option>
             <option value="zones">区域</option>
           </select>
@@ -894,8 +912,53 @@
               </tr>
             </tbody>
 
+            <tbody id="styleVignette">
+              <tr data-tip="选择预设晕影">
+                <td>预设</td>
+                <td>
+                  <select id="styleVignettePreset"></select>
+                </td>
+              </tr>
+
+              <tr data-tip="晕影矩形位置（以百分比表示）">
+                <td>位置</td>
+                <td style="display: flex; flex-direction: column; gap: 2px">
+                  <div>
+                    <span>x </span>
+                    <input id="styleVignetteX" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                    <span>宽&nbsp; </span>
+                    <input id="styleVignetteWidth" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                  </div>
+                  <div>
+                    <span>y </span>
+                    <input id="styleVignetteY" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                    <span>高 </span>
+                    <input id="styleVignetteHeight" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                  </div>
+                </td>
+              </tr>
+
+              <tr data-tip="设置晕影的 X 和 Y 半径（以百分比为单位）">
+                <td>半径</td>
+                <td>
+                  <span>x </span>
+                  <input id="styleVignetteRx" type="number" min="0" max="50" style="width: 5em" />
+                  <span>y </span>
+                  <input id="styleVignetteRy" type="number" min="0" max="50" style="width: 5em" />
+                </td>
+              </tr>
+
+              <tr data-tip="设置晕影模糊扩散（单位像素）">
+                <td>模糊</td>
+                <td>
+                  <input id="styleVignetteBlur" type="range" min="0" max="400" step="1" value="50" />
+                  <output id="styleVignetteBlurOutput">50</output>px
+                </td>
+              </tr>
+            </tbody>
+
             <tbody id="styleOcean">
-              <tr data-tip="选择海洋模式">
+              <tr data-tip="选择海洋图案">
                 <td>图案</td>
                 <td>
                   <select id="styleOceanPattern">
@@ -975,15 +1038,6 @@
               </tr>
             </tbody>
 
-            <tbody id="styleShift">
-              <tr data-tip="按轴移动元素">
-                <td>按轴移动</td>
-                <td>
-                  <input id="styleShiftX" type="number" data-tip="以像素为单位移动x轴" />
-                  <input id="styleShiftY" type="number" data-tip="以像素为单位按y轴移动" />
-                </td>
-              </tr>
-            </tbody>
 
             <tbody id="styleCompass">
               <tr data-tip="设定风玫瑰大小">
@@ -7845,7 +7899,7 @@
     <script src="config/heightmap-templates.js"></script>
     <script src="config/precreated-heightmaps.js"></script>
     <script src="modules/heightmap-generator.js?v=1.88.00"></script>
-    <script src="modules/ocean-layers.js?v=1.93.07"></script>
+    <script src="modules/ocean-layers.js?v=1.95.00"></script>
     <script src="modules/river-generator.js?v=1.89.13"></script>
     <script src="modules/lakes.js"></script>
     <script src="modules/biomes.js"></script>
@@ -7906,12 +7960,12 @@
     <script defer src="modules/ui/markers-editor.js"></script>
     <script defer src="modules/ui/3d.js?v=1.94.03"></script>
     <script defer src="modules/ui/submap.js?v=1.94.03"></script>
-    <script defer src="modules/ui/hotkeys.js?v=1.93.00"></script>
+    <script defer src="modules/ui/hotkeys.js?v=1.95.00"></script>
     <script defer src="modules/coa-renderer.js?v=1.94.00"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
     <script defer src="modules/io/save.js?v=1.93.02"></script>
-    <script defer src="modules/io/load.js?v=1.94.05"></script>
+    <script defer src="modules/io/load.js?v=1.95.00"></script>
     <script defer src="modules/io/cloud.js?v=1.94.04"></script>
     <script defer src="modules/io/export.js?v=1.94.03"></script>
     <script defer src="modules/io/formats.js"></script>
