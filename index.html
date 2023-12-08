@@ -5708,18 +5708,18 @@
         <div style="margin-bottom: 0.3em; font-weight: bold">下载图片</div>
         <div>
           <button
-            onclick="saveSVG()"
+            onclick="exportToSvg()"
             data-tip="以矢量图像的形式下载地图(直接在浏览器或 Inkscape 中打开)"
           >
             .svg
           </button>
-          <button onclick="savePNG()" data-tip="以. png (无损压缩)的形式下载地图的可见部分">
+          <button onclick="exportToPng()" data-tip="以. png (无损压缩)的形式下载地图的可见部分">
             .png
           </button>
-          <button onclick="saveJPEG()" data-tip="以. jpeg (有损压缩)图像的形式下载地图的可见部分">
+          <button onclick="exportToJpeg()" data-tip="以. jpeg (有损压缩)图像的形式下载地图的可见部分">
             .jpeg
           </button>
-          <button onclick="openSaveTiles()" data-tip="把地图拆分成更小的 png 块，并作为压缩文件下载">
+          <button onclick="openExportToPngTiles()" data-tip="把地图拆分成更小的 png 块，并作为压缩文件下载">
             tiles
           </button>
           <span data-tip="检查不允许系统自动隐藏标签">
@@ -5849,7 +5849,7 @@
         </div>
       </div>
 
-      <div id="saveTilesScreen" style="display: none" class="dialog">
+      <div id="exportToPngTilesScreen" style="display: none" class="dialog">
         <p>地图将被分割成图块(Tiles)和下载为一个单一的压缩文件。避免保存到大图像</p>
         <div data-tip="列数" style="margin-bottom: 0.3em">
           <div class="label">列:</div>
@@ -7864,12 +7864,12 @@
     <script src="libs/alea.min.js"></script>
     <script src="modules/fonts.js?v=1.89.18"></script>
     <script src="modules/ui/layers.js?v=1.94.00"></script>
-    <script src="modules/ui/measurers.js?v=1.87.02"></script>
+    <script src="modules/ui/measurers.js?v=1.94.02"></script>
     <script src="modules/ui/stylePresets.js?v=1.94.00"></script>
 
     <script src="modules/ui/general.js?v=1.94.01"></script>
-    <script src="modules/ui/options.js?v=1.94.01"></script>
-    <script src="main.js?v=1.94.01"></script>
+    <script src="modules/ui/options.js?v=1.94.02"></script>
+    <script src="main.js?v=1.94.02"></script>
 
     <script defer src="modules/relief-icons.js"></script>
     <script defer src="modules/ui/style.js?v=1.94.00"></script>
@@ -7891,7 +7891,7 @@
     <script defer src="modules/ui/rivers-creator.js?v=1.89.13"></script>
     <script defer src="modules/ui/relief-editor.js"></script>
     <script defer src="modules/ui/burg-editor.js"></script>
-    <script defer src="modules/ui/units-editor.js"></script>
+    <script defer src="modules/ui/units-editor.js?v=1.94.02"></script>
     <script defer src="modules/ui/notes-editor.js?v=1.93.09"></script>
     <script defer src="modules/ui/diplomacy-editor.js?v=1.88.04"></script>
     <script defer src="modules/ui/zones-editor.js"></script>
@@ -7905,7 +7905,7 @@
     <script defer src="modules/ui/emblems-editor.js?v=1.91.00"></script>
     <script defer src="modules/ui/markers-editor.js"></script>
     <script defer src="modules/ui/3d.js?v=1.93.11"></script>
-    <script defer src="modules/ui/submap.js?v=1.92.00"></script>
+    <script defer src="modules/ui/submap.js?v=1.94.02"></script>
     <script defer src="modules/ui/hotkeys.js?v=1.93.00"></script>
     <script defer src="modules/coa-renderer.js?v=1.94.00"></script>
     <script defer src="libs/rgbquant.min.js"></script>
@@ -7913,7 +7913,7 @@
     <script defer src="modules/io/save.js?v=1.93.02"></script>
     <script defer src="modules/io/load.js?v=1.94.01"></script>
     <script defer src="modules/io/cloud.js"></script>
-    <script defer src="modules/io/export.js?v=1.94.00"></script>
+    <script defer src="modules/io/export.js?v=1.94.02"></script>
     <script defer src="modules/io/formats.js"></script>
 
     <!-- Web Components -->

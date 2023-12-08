@@ -428,7 +428,8 @@ function handleZoom(isScaleChanged, isPositionChanged) {
 
   if (isScaleChanged) {
     invokeActiveZooming();
-    drawScaleBar(scale);
+    drawScaleBar(scaleBar, scale);
+    fitScaleBar(scaleBar, svgWidth, svgHeight);
   }
 
   // zoom image converter overlay
@@ -654,7 +655,7 @@ async function generate(options) {
     Markers.generate();
     addZones();
 
-    drawScaleBar(scale);
+    drawScaleBar(scaleBar, scale);
     Names.getMapName();
 
     WARN && console.warn(`总计: ${rn((performance.now() - timeStart) / 1000, 2)}s`);

@@ -1,27 +1,21 @@
 "use strict";
 // Functions to export map to image or data files
 
-// download map as SVG
-async function saveSVG() {
-  TIME && console.time("saveSVG");
+async function exportToSvg() {
+  TIME && console.time("exportToSvg");
   const url = await getMapURL("svg", {fullMap: true});
   const link = document.createElement("a");
   link.download = getFileName() + ".svg";
   link.href = url;
   link.click();
 
-  tip(
-    `${link.download} 已下载，打开“下载”屏幕(Ctrl + J)检查。你可以在选项中设置图像比例`,
-    true,
-    "success",
-    5000
-  );
-  TIME && console.timeEnd("saveSVG");
+  const message = `${link.download} 已保存. 打开 'Downloads' 窗 (ctrl + J) 以检查`;
+  tip(message, true, "success", 5000);
+  TIME && console.timeEnd("exportToSvg");
 }
 
-// download map as PNG
-async function savePNG() {
-  TIME && console.time("savePNG");
+async function exportToPng() {
+  TIME && console.time("exportToPng");
   const url = await getMapURL("png");
 
   const link = document.createElement("a");
@@ -41,22 +35,17 @@ async function savePNG() {
       window.setTimeout(function () {
         canvas.remove();
         window.URL.revokeObjectURL(link.href);
-        tip(
-          `${link.download} 已下载，打开“下载”屏幕(Ctrl + J)检查。你可以在选项中设置图像比例`,
-          true,
-          "success",
-          5000
-        );
+        const message = `${link.download} 已保存. 打开 'Downloads' 窗口 (ctrl + J) 以检查. 您可以在选项中设置图像比例`;
+        tip(message, true, "success", 5000);
       }, 1000);
     });
   };
 
-  TIME && console.timeEnd("savePNG");
+  TIME && console.timeEnd("exportToPng");
 }
 
-// download map as JPEG
-async function saveJPEG() {
-  TIME && console.time("saveJPEG");
+async function exportToJpeg() {
+  TIME && console.time("exportToJpeg");
   const url = await getMapURL("png");
 
   const canvas = document.createElement("canvas");
@@ -77,11 +66,10 @@ async function saveJPEG() {
     window.setTimeout(() => window.URL.revokeObjectURL(URL), 5000);
   };
 
-  TIME && console.timeEnd("saveJPEG");
+  TIME && console.timeEnd("exportToJpeg");
 }
 
-// download map as png tiles
-async function saveTiles() {
+async function exportToPngTiles() {
   return new Promise(async (resolve, reject) => {
     // download schema
     const urlSchema = await getMapURL("tiles", {debug: true, fullMap: true});
@@ -160,7 +148,6 @@ async function getMapURL(type, options = {}) {
     fullMap = false
   } = options;
 
-  if (fullMap) drawScaleBar(1);
 
   const cloneEl = document.getElementById("map").cloneNode(true); // clone svg
   cloneEl.id = "fantasyMap";
@@ -183,13 +170,14 @@ async function getMapURL(type, options = {}) {
     clone.select("#oceanBase").attr("opacity", 0);
     clone.select("#oceanPattern").attr("opacity", 0);
   }
-  if (noScaleBar) clone.select("#scaleBar")?.remove();
   if (noIce) clone.select("#ice")?.remove();
+  if (noScaleBar) clone.select("#scaleBar")?.remove();
   if (fullMap) {
     // reset transform to show the whole map
     clone.attr("width", graphWidth).attr("height", graphHeight);
     clone.select("#viewbox").attr("transform", null);
-    drawScaleBar(scale);
+    drawScaleBar(clone.select("#scaleBar"), 1);
+    fitScaleBar(clone.select("#scaleBar"), graphWidth, graphHeight);
   }
 
   if (type === "svg") removeUnusedElements(clone);
