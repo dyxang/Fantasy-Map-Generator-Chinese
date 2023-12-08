@@ -340,7 +340,15 @@ async function parseLoadedData(data) {
       debug = viewbox.select("#debug");
       burgLabels = labels.select("#burgLabels");
     })();
-
+    void (function addMissingElements() {
+      if (!texture.size()) {
+        texture = viewbox
+          .insert("g", "#landmass")
+          .attr("id", "texture")
+          .attr("data-href", "./images/textures/plaster.jpg");
+      }
+    })();
+    
     void (function parseGridData() {
       grid = JSON.parse(data[6]);
 
