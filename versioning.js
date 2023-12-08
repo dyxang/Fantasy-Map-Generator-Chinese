@@ -32,7 +32,7 @@ const version = "1.95.04";// generator version, update each time
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>版本更新内容:</strong>
-        <li>渐变视觉图层和渐变造型选项</li>
+        <li>晕影视觉图层和造型选项</li>
         <li>自定义高程图配色方案</li>
         <li>新的样式预设Night和高程图配色方案</li>
         <li>随机偶遇事件 (整合了 <a href="https://deorum.vercel.app/" target="_blank">Deorum</a> 国内可能无法访问）</li>
