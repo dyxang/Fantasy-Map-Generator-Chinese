@@ -390,11 +390,6 @@ function inlineStyle(clone) {
       const key = compStyle[i];
       const value = compStyle.getPropertyValue(key);
 
-      // Firefox mask hack
-      if (key === "mask-image" && value !== defaultStyles.getPropertyValue(key)) {
-        style += "mask-image: url('#land');";
-        continue;
-      }
 
       if (key === "cursor") continue; // cursor should be default
       if (this.hasAttribute(key)) continue; // don't add style if there is the same attribute
