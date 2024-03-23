@@ -140,9 +140,6 @@ function applyStyleWithUiRefresh(style) {
 
   invokeActiveZooming();
   setPresetRemoveButtonVisibiliy();
-
-  drawScaleBar(scaleBar, scale);
-  fitScaleBar(scaleBar, svgWidth, svgHeight);
 }
 
 function addStylePreset() {
@@ -242,18 +239,7 @@ function addStylePreset() {
       "#oceanLayers": ["filter", "layers"],
       "#oceanBase": ["fill"],
       "#oceanicPattern": ["href", "opacity"],
-      "#terrs #oceanHeights": [
-        "data-render",
-        "opacity",
-        "scheme",
-        "terracing",
-        "skip",
-        "relax",
-        "curve",
-        "filter",
-        "mask"
-      ],
-      "#terrs #landHeights": ["opacity", "scheme", "terracing", "skip", "relax", "curve", "filter", "mask"],
+      "#terrs": ["opacity", "scheme", "terracing", "skip", "relax", "curve", "filter", "mask"],
       "#legend": [
         "data-size",
         "font-size",
@@ -315,19 +301,7 @@ function addStylePreset() {
       ],
       "#fogging": ["opacity", "fill", "filter"],
       "#vignette": ["opacity", "fill", "filter"],
-      "#vignette-rect": ["x", "y", "width", "height", "rx", "ry", "filter"],
-      "#scaleBar": ["opacity", "fill", "font-size", "data-bar-size", "data-x", "data-y", "data-label"],
-      "#scaleBarBack": [
-        "opacity",
-        "fill",
-        "stroke",
-        "stroke-width",
-        "filter",
-        "data-top",
-        "data-right",
-        "data-bottom",
-        "data-left"
-      ]
+      "#vignette-rect": ["x", "y", "width", "height", "rx", "ry", "filter"]
     };
 
     for (const selector in attributes) {

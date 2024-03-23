@@ -28,7 +28,7 @@ window.Submap = (function () {
 
     const projection = options.projection;
     const inverse = options.inverse;
-    const stage = s => INFO && console.info("SUBMAP:", s);
+    const stage = s => INFO && console.log("SUBMAP:", s);
     const timeStart = performance.now();
     invokeActiveZooming();
 
@@ -36,7 +36,7 @@ window.Submap = (function () {
     seed = parentMap.seed;
     Math.random = aleaPRNG(seed);
     INFO && console.group("带种子的子地图: " + seed);
-    DEBUG && console.info("使用选项:", options);
+    DEBUG && console.log("使用选项:", options);
 
     // create new grid
     applyGraphSize();
@@ -396,7 +396,7 @@ window.Submap = (function () {
           b.removed = true;
           return;
         }
-        DEBUG && console.info(`移动 ${b.name} 从 ${cityCell} 到 ${newCell} 邻近 ${neighbor}.`);
+        DEBUG && console.log(`移动 ${b.name} 从 ${cityCell} 到 ${newCell} 邻近 ${neighbor}.`);
         [b.x, b.y] = b.port ? getMiddlePoint(newCell, neighbor) : cells.p[newCell];
         if (b.port) b.port = cells.f[neighbor]; // copy feature number
         b.cell = newCell;

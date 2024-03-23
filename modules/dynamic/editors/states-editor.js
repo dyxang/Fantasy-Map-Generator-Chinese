@@ -434,13 +434,13 @@ function editStateName(state) {
   modules.editStateName = true;
 
   // add listeners
-  byId("stateNameEditorShortCulture").on("click", regenerateShortNameCulture);
+  byId("stateNameEditorShortCulture").on("click", regenerateShortNameCuture);
   byId("stateNameEditorShortRandom").on("click", regenerateShortNameRandom);
   byId("stateNameEditorAddForm").on("click", addCustomForm);
   byId("stateNameEditorCustomForm").on("change", addCustomForm);
   byId("stateNameEditorFullRegenerate").on("click", regenerateFullName);
-           
-  function regenerateShortNameCulture() {
+
+  function regenerateShortNameCuture() {
     const state = +stateNameEditor.dataset.state;
     const culture = pack.states[state].culture;
     const name = Names.getState(Names.getCultureShort(culture), culture);
@@ -1393,7 +1393,6 @@ function openStateMergeDialog() {
 
   function mergeStates(statesToMerge, rulingStateId) {
     const rulingState = pack.states[rulingStateId];
-    const rulingStateArmy = byId("army" + rulingStateId);
 
     // remove states to be merged
     statesToMerge.forEach(stateId => {
@@ -1410,24 +1409,27 @@ function openStateMergeDialog() {
       emblems.select(`#stateEmblems > use[data-i='${stateId}']`).remove();
 
       // add merged state regiments to the ruling state
-      state.military.forEach(regiment => {
-        const oldId = `regiment${stateId}-${regiment.i}`;
-        const newIndex = rulingState.military.length;
-        rulingState.military.push({...regiment, i: newIndex});
-        const newId = `regiment${rulingStateId}-${newIndex}`;
+      state.military.forEach(m => {
+        const oldId = `regiment${stateId}-${m.i}`;
+
+        const newRegiment = {...m, i: rulingState.military.length};
+        rulingState.military.push(newRegiment);
+
+        const newId = `regiment${rulingStateId}-${newRegiment.i}`;
 
         const note = notes.find(n => n.id === oldId);
         if (note) note.id = newId;
 
-        const element = byId(oldId);
-        if (element) {
-          element.id = newId;
-          element.dataset.state = rulingStateId;
-          element.dataset.i = newIndex;
-          rulingStateArmy.appendChild(element);
-        }
+        const rulingStateArmy = armies.select("g#army" + rulingStateId);
+        armies
+          .select("g#army" + stateId)
+          .selectAll("g")
+          .each(function () {
+            this.setAttribute("id", newId);
+            rulingStateArmy.node().appendChild(this);
+          });
+        armies.select("g#army" + stateId).remove();
       });
-      armies.select("g#army" + stateId).remove();
     });
 
     // reassing burgs
