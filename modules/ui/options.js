@@ -706,7 +706,7 @@ function changeEra() {
 }
 
 async function openTemplateSelectionDialog() {
-  const HeightmapSelectionDialog = await import("../dynamic/heightmap-selection.js?v=1.93.12");
+  const HeightmapSelectionDialog = await import("../dynamic/heightmap-selection.js?v=1.96.00");
   HeightmapSelectionDialog.open();
 }
 
@@ -789,7 +789,7 @@ function showExportPane() {
 }
 
 async function exportToJson(type) {
-  const {exportToJson} = await import("../dynamic/export-json.js?v=1.93.03");
+  const {exportToJson} = await import("../dynamic/export-json.js?v=1.96.00");
   exportToJson(type);
 }
 

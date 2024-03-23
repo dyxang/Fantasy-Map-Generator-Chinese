@@ -12,7 +12,7 @@ async function quickLoad() {
 async function loadFromDropbox() {
   const mapPath = byId("loadFromDropboxSelect")?.value;
 
-  DEBUG && console.log("Loading map from Dropbox:", mapPath);
+  DEBUG && console.info("Loading map from Dropbox:", mapPath);
   const blob = await Cloud.providers.dropbox.load(mapPath);
   uploadMap(blob);
 }
@@ -180,22 +180,22 @@ function showUploadMessage(type, mapData, mapVersion) {
     title = "过新文件";
     canBeLoaded = false;
   } else if (type === "outdated") {
-    message = `地图版本 (${mapVersion}) 与 生成器当前版本(${ version })不匹配。 <br>点击“好的”让.map文件<b style="color: #005000">自动更新</b> 。 <br> 如果出现问题，请继续使用 ${archive} 的生成器`;
-    title = "过期文件";
-    canBeLoaded = true;
+    INFO && console.info(`加载地图中. 从 ${mapVersion} 自动更新至 ${version}`);
+    parseLoadedData(mapData, mapVersion);
+    return;
   }
 
   alertMessage.innerHTML = message;
   const buttons = {
     好的: function () {
       $(this).dialog("close");
-      if (canBeLoaded) parseLoadedData(mapData);
+      if (canBeLoaded) parseLoadedData(mapData, mapVersion);
     }
   };
   $("#alert").dialog({title, buttons});
 }
 
-async function parseLoadedData(data) {
+async function parseLoadedData(data, mapVersion) {
   try {
     // exit customization
     if (window.closeDialogs) closeDialogs();
@@ -215,6 +215,7 @@ async function parseLoadedData(data) {
 
     INFO && console.group("Loaded Map " + seed);
 
+    // TODO: move all to options object
     void (function parseSettings() {
       const settings = data[1].split("|");
       if (settings[0]) applyOption(distanceUnitInput, settings[0]);
@@ -223,12 +224,7 @@ async function parseLoadedData(data) {
       if (settings[3]) applyOption(heightUnit, settings[3]);
       if (settings[4]) heightExponentInput.value = heightExponentOutput.value = settings[4];
       if (settings[5]) temperatureScale.value = settings[5];
-      if (settings[6]) barSizeInput.value = barSizeOutput.value = settings[6];
-      if (settings[7] !== undefined) barLabel.value = settings[7];
-      if (settings[8] !== undefined) barBackOpacity.value = settings[8];
-      if (settings[9]) barBackColor.value = settings[9];
-      if (settings[10]) barPosX.value = settings[10];
-      if (settings[11]) barPosY.value = settings[11];
+      // setting 6-11 (scaleBar) are part of style now, kept as "" in newer versions for compatibility
       if (settings[12]) populationRate = populationRateInput.value = populationRateOutput.value = settings[12];
       if (settings[13]) urbanization = urbanizationInput.value = urbanizationOutput.value = settings[13];
       if (settings[14]) mapSizeInput.value = mapSizeOutput.value = minmax(settings[14], 1, 100);
@@ -456,16 +452,16 @@ async function parseLoadedData(data) {
     {
       // dynamically import and run auto-update script
       const versionNumber = parseFloat(params[0]);
-      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.95.00");
+      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.96.00");
       resolveVersionConflicts(versionNumber);
     }
 
     {
       // add custom heightmap color scheme if any
-      const scheme = terrs.attr("scheme");
-      if (!(scheme in heightmapColorSchemes)) {
-        addCustomColorScheme(scheme);
-      }
+      const oceanScheme = terrs.select("#oceanHeights").attr("scheme");
+      const landScheme = terrs.select("#landHeights").attr("scheme");
+      if (!(oceanScheme in heightmapColorSchemes)) addCustomColorScheme(oceanScheme);
+      if (!(landScheme in heightmapColorSchemes)) addCustomColorScheme(landScheme);
     }
 
     {
@@ -639,7 +635,7 @@ async function parseLoadedData(data) {
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件, <br />随机生成一个新地图或取消加载
+    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件, <br>随机生成一个新地图或取消加载.<br><br>地图版本: ${mapVersion}. 生成器版本: ${version}.
       <p id="errorBox">${parseError(error)}</p>`;
 
     $("#alert").dialog({

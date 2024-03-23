@@ -126,50 +126,6 @@ function editBurg(id) {
     }
   }
 
-  // in °C, array from -1 °C; source: https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature
-  function getTemperatureLikeness(temperature) {
-    if (temperature < -5) return "Yakutsk";
-    const cities = [
-      "Snag (Yukon)",
-      "Yellowknife (Canada)",
-      "Okhotsk (Russia)",
-      "Fairbanks (Alaska)",
-      "Nuuk (Greenland)",
-      "Murmansk", // -5 - 0
-      "Arkhangelsk",
-      "Anchorage",
-      "Tromsø",
-      "Reykjavik",
-      "Riga",
-      "Stockholm",
-      "Halifax",
-      "Prague",
-      "Copenhagen",
-      "London", // 1 - 10
-      "Antwerp",
-      "Paris",
-      "Milan",
-      "Batumi",
-      "Rome",
-      "Dubrovnik",
-      "Lisbon",
-      "Barcelona",
-      "Marrakesh",
-      "Alexandria", // 11 - 20
-      "Tegucigalpa",
-      "Guangzhou",
-      "Rio de Janeiro",
-      "Dakar",
-      "Miami",
-      "Jakarta",
-      "Mogadishu",
-      "Bangkok",
-      "Aden",
-      "Khartoum"
-    ]; // 21 - 30
-    if (temperature > 30) return "Mecca";
-    return cities[temperature + 5] || null;
-  }
 
   function dragBurgLabel() {
     const tr = parseTransform(this.getAttribute("transform"));
@@ -284,7 +240,9 @@ function editBurg(id) {
     alertMessage.innerHTML = /* html */ `你确定要删除 ${
       basic || capital ? "所有未解锁的城市组元素" : "整个城市组"
     }?
-      <br />请注意，不会删除大写或锁定的城市. <br /><br />需要删除的城市: ${burgsToRemove.length}`;
+      <br />请注意，不会删除大写或锁定的城市. <br /><br />需要删除的城市: ${
+        burgsToRemove.length
+      }`;
     $("#alert").dialog({
       resizable: false,
       title: "删除城市组",
@@ -580,4 +538,49 @@ function editBurg(id) {
     burgLabels.selectAll("text").call(d3.drag().on("drag", null)).classed("draggable", false);
     unselect();
   }
+}
+
+// in °C, array from -1 °C; source: https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature
+function getTemperatureLikeness(temperature) {
+  if (temperature < -5) return "Yakutsk";
+  const cities = [
+    "Snag (Yukon)",
+    "Yellowknife (Canada)",
+    "Okhotsk (Russia)",
+    "Fairbanks (Alaska)",
+    "Nuuk (Greenland)",
+    "Murmansk", // -5 - 0
+    "Arkhangelsk",
+    "Anchorage",
+    "Tromsø",
+    "Reykjavik",
+    "Riga",
+    "Stockholm",
+    "Halifax",
+    "Prague",
+    "Copenhagen",
+    "London", // 1 - 10
+    "Antwerp",
+    "Paris",
+    "Milan",
+    "Batumi",
+    "Rome",
+    "Dubrovnik",
+    "Lisbon",
+    "Barcelona",
+    "Marrakesh",
+    "Alexandria", // 11 - 20
+    "Tegucigalpa",
+    "Guangzhou",
+    "Rio de Janeiro",
+    "Dakar",
+    "Miami",
+    "Jakarta",
+    "Mogadishu",
+    "Bangkok",
+    "Aden",
+    "Khartoum"
+  ]; // 21 - 30
+  if (temperature > 30) return "Mecca";
+  return cities[temperature + 5] || null;
 }
