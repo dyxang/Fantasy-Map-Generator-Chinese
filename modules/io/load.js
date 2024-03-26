@@ -12,7 +12,7 @@ async function quickLoad() {
 async function loadFromDropbox() {
   const mapPath = byId("loadFromDropboxSelect")?.value;
 
-  DEBUG && console.log("Loading map from Dropbox:", mapPath);
+  DEBUG && console.info("Loading map from Dropbox:", mapPath);
   const blob = await Cloud.providers.dropbox.load(mapPath);
   uploadMap(blob);
 }
@@ -44,7 +44,7 @@ function loadMapPrompt(blob) {
   }
 
   alertMessage.innerHTML = /* html */ `确实要加载已保存的地图吗?<br />
-  对当前地图所做的所有未保存的更改都将丢失`;
+    对当前地图所做的所有未保存的更改都将丢失`;
   $("#alert").dialog({
     resizable: false,
     title: "载入已保存地图",
@@ -87,7 +87,7 @@ function loadMapFromURL(maplink, random) {
 
 function showUploadErrorMessage(error, URL, random) {
   ERROR && console.error(error);
-  alertMessage.innerHTML = /* html */ `无法从 ${link(URL, "已提供连结")} 提供地图. ${
+  alertMessage.innerHTML = /* html */ `无法从 ${link(URL, "link provided")} 提供地图. ${
     random ? `随机生成一个新地图. ` : ""
   } 请确保链接文件可以访问，并且服务器端允许 CORS`;
   $("#alert").dialog({
@@ -151,13 +151,15 @@ async function parseLoadedResult(result) {
     // data can be in FMG internal format or base64 encoded
     const isDelimited = resultAsString.substring(0, 10).includes("|");
     const decoded = isDelimited ? resultAsString : decodeURIComponent(atob(resultAsString));
+
     const mapData = decoded.split("\r\n");
     const mapVersion = parseFloat(mapData[0].split("|")[0] || mapData[0]);
     return [mapData, mapVersion];
   } catch (error) {
-        // map file can be compressed with gzip
-        const uncompressedData = await uncompress(result);
-        if (uncompressedData) return parseLoadedResult(uncompressedData);
+    // map file can be compressed with gzip
+    const uncompressedData = await uncompress(result);
+    if (uncompressedData) return parseLoadedResult(uncompressedData);
+
     ERROR && console.error(error);
     return [null, null];
   }
@@ -180,22 +182,22 @@ function showUploadMessage(type, mapData, mapVersion) {
     title = "过新文件";
     canBeLoaded = false;
   } else if (type === "outdated") {
-    message = `地图版本 (${mapVersion}) 与 生成器当前版本(${ version })不匹配。 <br>点击“好的”让.map文件<b style="color: #005000">自动更新</b> 。 <br> 如果出现问题，请继续使用 ${archive} 的生成器`;
-    title = "过期文件";
-    canBeLoaded = true;
+    INFO && console.info(`载入地图，自动从 ${mapVersion} 更新到 ${version}`);
+    parseLoadedData(mapData, mapVersion);
+    return;
   }
 
   alertMessage.innerHTML = message;
   const buttons = {
     好的: function () {
       $(this).dialog("close");
-      if (canBeLoaded) parseLoadedData(mapData);
+      if (canBeLoaded) parseLoadedData(mapData, mapVersion);
     }
   };
   $("#alert").dialog({title, buttons});
 }
 
-async function parseLoadedData(data) {
+async function parseLoadedData(data, mapVersion) {
   try {
     // exit customization
     if (window.closeDialogs) closeDialogs();
@@ -215,6 +217,7 @@ async function parseLoadedData(data) {
 
     INFO && console.group("Loaded Map " + seed);
 
+    // TODO: move all to options object
     void (function parseSettings() {
       const settings = data[1].split("|");
       if (settings[0]) applyOption(distanceUnitInput, settings[0]);
@@ -223,12 +226,7 @@ async function parseLoadedData(data) {
       if (settings[3]) applyOption(heightUnit, settings[3]);
       if (settings[4]) heightExponentInput.value = heightExponentOutput.value = settings[4];
       if (settings[5]) temperatureScale.value = settings[5];
-      if (settings[6]) barSizeInput.value = barSizeOutput.value = settings[6];
-      if (settings[7] !== undefined) barLabel.value = settings[7];
-      if (settings[8] !== undefined) barBackOpacity.value = settings[8];
-      if (settings[9]) barBackColor.value = settings[9];
-      if (settings[10]) barPosX.value = settings[10];
-      if (settings[11]) barPosY.value = settings[11];
+      // setting 6-11 (scaleBar) are part of style now, kept as "" in newer versions for compatibility
       if (settings[12]) populationRate = populationRateInput.value = populationRateOutput.value = settings[12];
       if (settings[13]) urbanization = urbanizationInput.value = urbanizationOutput.value = settings[13];
       if (settings[14]) mapSizeInput.value = mapSizeOutput.value = minmax(settings[14], 1, 100);
@@ -340,6 +338,7 @@ async function parseLoadedData(data) {
       debug = viewbox.select("#debug");
       burgLabels = labels.select("#burgLabels");
     })();
+
     void (function addMissingElements() {
       if (!texture.size()) {
         texture = viewbox
@@ -348,7 +347,7 @@ async function parseLoadedData(data) {
           .attr("data-href", "./images/textures/plaster.jpg");
       }
     })();
-    
+
     void (function parseGridData() {
       grid = JSON.parse(data[6]);
 
@@ -456,16 +455,16 @@ async function parseLoadedData(data) {
     {
       // dynamically import and run auto-update script
       const versionNumber = parseFloat(params[0]);
-      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.95.00");
+      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.97.04");
       resolveVersionConflicts(versionNumber);
     }
 
-    {
-      // add custom heightmap color scheme if any
-      const scheme = terrs.attr("scheme");
-      if (!(scheme in heightmapColorSchemes)) {
-        addCustomColorScheme(scheme);
-      }
+    // add custom heightmap color scheme if any
+    if (heightmapColorSchemes) {
+      const oceanScheme = byId("oceanHeights")?.getAttribute("scheme");
+      if (oceanScheme && !(oceanScheme in heightmapColorSchemes)) addCustomColorScheme(oceanScheme);
+      const landScheme = byId("#landHeights")?.getAttribute("scheme");
+      if (landScheme && !(landScheme in heightmapColorSchemes)) addCustomColorScheme(landScheme);
     }
 
     {
@@ -478,7 +477,7 @@ async function parseLoadedData(data) {
       const cells = pack.cells;
 
       if (pack.cells.i.length !== pack.cells.state.length) {
-        const message = "数据完整性检查。条带问题。修复在擦除模式下编辑高程图";
+        const message = "数据完整性检查。检测到条带问题。要修复请在清除模式下编辑高程图";
         ERROR && console.error(message);
       }
 
@@ -486,7 +485,7 @@ async function parseLoadedData(data) {
       invalidStates.forEach(s => {
         const invalidCells = cells.i.filter(i => cells.state[i] === s);
         invalidCells.forEach(i => (cells.state[i] = 0));
-        ERROR && console.error("数据完整性检查。无效状态", s, "被分配到各个单元格", invalidCells);
+        ERROR && console.error("数据完整性检查。无效状态", s, "被分配到某些单元格", invalidCells);
       });
 
       const invalidProvinces = [...new Set(cells.province)].filter(
@@ -495,14 +494,14 @@ async function parseLoadedData(data) {
       invalidProvinces.forEach(p => {
         const invalidCells = cells.i.filter(i => cells.province[i] === p);
         invalidCells.forEach(i => (cells.province[i] = 0));
-        ERROR && console.error("数据完整性检查。无效省份", p, "被分配到各个单元格", invalidCells);
+        ERROR && console.error("数据完整性检查。无效省份", p, "被分配到某些单元格", invalidCells);
       });
 
       const invalidCultures = [...new Set(cells.culture)].filter(c => !pack.cultures[c] || pack.cultures[c].removed);
       invalidCultures.forEach(c => {
         const invalidCells = cells.i.filter(i => cells.culture[i] === c);
         invalidCells.forEach(i => (cells.province[i] = 0));
-        ERROR && console.error("数据完整性检查. 无效文化", c, "被分配到各个单元格", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效文化", c, "被分配到某些单元格", invalidCells);
       });
 
       const invalidReligions = [...new Set(cells.religion)].filter(
@@ -511,14 +510,14 @@ async function parseLoadedData(data) {
       invalidReligions.forEach(r => {
         const invalidCells = cells.i.filter(i => cells.religion[i] === r);
         invalidCells.forEach(i => (cells.religion[i] = 0));
-        ERROR && console.error("数据完整性检查. 无效的宗教", r, "被分配到各个单元格", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效的宗教", r, "被分配到某些单元格", invalidCells);
       });
 
       const invalidFeatures = [...new Set(cells.f)].filter(f => f && !pack.features[f]);
       invalidFeatures.forEach(f => {
         const invalidCells = cells.i.filter(i => cells.f[i] === f);
         // No fix as for now
-        ERROR && console.error("数据完整性检查. 无效文化", f, "被分配到各个单元格", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效文化", f, "被分配到某些单元格", invalidCells);
       });
 
       const invalidBurgs = [...new Set(cells.burg)].filter(
@@ -527,7 +526,7 @@ async function parseLoadedData(data) {
       invalidBurgs.forEach(burgId => {
         const invalidCells = cells.i.filter(i => cells.burg[i] === burgId);
         invalidCells.forEach(i => (cells.burg[i] = 0));
-        ERROR && console.error("数据完整性检查. 无效城市", b, "被分配到各个单元格", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效城市", burgId, "被分配到某些单元格", invalidCells);
       });
 
       const invalidRivers = [...new Set(cells.r)].filter(r => r && !pack.rivers.find(river => river.i === r));
@@ -535,24 +534,31 @@ async function parseLoadedData(data) {
         const invalidCells = cells.i.filter(i => cells.r[i] === r);
         invalidCells.forEach(i => (cells.r[i] = 0));
         rivers.select("river" + r).remove();
-        ERROR && console.error("数据完整性检查. 无效河流", r, "被分配到各个单元格", invalidCells);
+        ERROR && console.error("数据完整性检查. 无效河流", r, "被分配到某些单元格", invalidCells);
       });
 
       pack.burgs.forEach(burg => {
-        if ((!burg.i || burg.removed) && burg.lock) {
+        if (typeof burg.capital === "boolean") burg.capital = Number(burg.capital);
+
+        if (!burg.i && burg.lock) {
+          ERROR && console.error(`数据完整性检查。Burg 0 被标记为已锁定，状态删除`);
+          delete burg.lock;
+          return;
+        }
+
+        if (burg.removed && burg.lock) {
           ERROR &&
-            console.error(
-              `Data Integrity Check. Burg ${burg.i || "0"} is removed or invalid but still locked. Unlocking the burg`
-            );
+            console.error(`数据完整性检查。删除的城镇 ${burg.i} 标记为锁定。解锁城镇。`);
           delete burg.lock;
           return;
         }
 
         if (!burg.i || burg.removed) return;
+
         if (burg.cell === undefined || burg.x === undefined || burg.y === undefined) {
           ERROR &&
             console.error(
-              `数据完整性检查. 城市 ${burg.i} 没有单元格信息或坐标，删除了城市`
+              `数据完整性检查. 城市 ${burg.i} 没有单元格信息或坐标，删除城市`
             );
           burg.removed = true;
         }
@@ -582,6 +588,51 @@ async function parseLoadedData(data) {
         if (burg.state === undefined) {
           ERROR && console.error("数据完整性检查. 城市", burg.i, "无国家数据");
           burg.state = 0;
+        }
+      });
+
+      pack.states.forEach(state => {
+        if (state.removed) return;
+
+        const stateBurgs = pack.burgs.filter(b => b.state === state.i && !b.removed);
+        const capitalBurgs = stateBurgs.filter(b => b.capital);
+
+        if (!state.i && capitalBurgs.length) {
+          ERROR &&
+            console.error(
+              `数据完整性检查。将中性城市 (${capitalBurgs
+                .map(b => b.i)
+                .join(", ")}) 标记为首都。将它们移动到城镇`
+            );
+
+          capitalBurgs.forEach(burg => {
+            burg.capital = 0;
+            moveBurgToGroup(burg.i, "towns");
+          });
+
+          return;
+        }
+
+        if (capitalBurgs.length > 1) {
+          const message = `数据完整性检查。国家 ${state.i} 有多个指定首都 (${capitalBurgs
+            .map(b => b.i)
+            .join(", ")}) 。保留第一个作为首都，并将其他首都移动到城镇`;
+          ERROR && console.error(message);
+
+          capitalBurgs.forEach((burg, i) => {
+            if (!i) return;
+            burg.capital = 0;
+            moveBurgToGroup(burg.i, "towns");
+          });
+
+          return;
+        }
+
+        if (state.i && stateBurgs.length && !capitalBurgs.length) {
+          ERROR &&
+            console.error(`数据完整性检查。国家 ${state.i} 无首都指定第一个城市为首都`);
+          stateBurgs[0].capital = 1;
+          moveBurgToGroup(stateBurgs[0].i, "cities");
         }
       });
 
@@ -639,7 +690,7 @@ async function parseLoadedData(data) {
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件, <br />随机生成一个新地图或取消加载
+    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件.， <br>随机生成一个新地图或取消加载。<br>地图版本: ${mapVersion}. 生成器版本: ${version}.
       <p id="errorBox">${parseError(error)}</p>`;
 
     $("#alert").dialog({

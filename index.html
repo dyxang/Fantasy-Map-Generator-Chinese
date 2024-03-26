@@ -122,7 +122,7 @@
       }
     </style>
 
-    <link rel="preload" href="index.css?v=1.95.00" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+    <link rel="preload" href="index.css?v=1.96.00" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="icons.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="libs/jquery-ui.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
   </head>
@@ -350,7 +350,9 @@
         </mask>
       </defs>
       <g id="viewbox"></g>
-      <g id="scaleBar"></g>
+      <g id="scaleBar">
+        <rect id="scaleBarBack"></rect>
+      </g>
       <g id="vignette" mask="url(#vignette-mask)">
         <rect x="0" y="0" width="100%" height="100%" />
       </g>
@@ -784,6 +786,7 @@
             <option value="rivers">河流</option>
             <option value="routes">商路</option>
             <option value="ruler">标尺</option>
+            <option value="scaleBar">比例尺</option>
             <option value="regions" selected>国家</option>
             <option value="temperature">温度</option>
             <option value="texture">纹理</option>
@@ -805,6 +808,64 @@
                 <td><b>组</b></td>
                 <td>
                   <select id="styleGroupSelect"></select>
+                </td>
+              </tr>
+            </tbody>
+
+
+            <tbody id="styleHeightmap">
+              <tr id="styleHeightmapRenderOceanOption" data-tip="选中以渲染海洋高度图">
+                <td colspan="2">
+                  <input id="styleHeightmapRenderOcean" class="checkbox" type="checkbox" />
+                  <label for="styleHeightmapRenderOcean" class="checkbox-label">渲染海洋高度图</label>
+                </td>
+              </tr>
+
+              <tr data-tip="梯田率。设置为0(切换关闭) ，以提高性能">
+                <td>阶地</td>
+                <td>
+                  <input id="styleHeightmapTerracingInput" type="range" min="0" max="20" step="1" />
+                  <output id="styleHeightmapTerracingOutput">0</output>
+                </td>
+              </tr>
+
+              <tr data-tip="减少层数，提高性能">
+                <td>减少层</td>
+                <td>
+                  <input id="styleHeightmapSkipInput" type="range" min="0" max="10" step="1" value="5" />
+                  <output id="styleHeightmapSkipOutput">5</output>
+                </td>
+              </tr>
+
+              <tr data-tip="Line simplification rate. Increase to slightly improve performance">
+                <td>简化线</td>
+                <td>
+                  <input id="styleHeightmapSimplificationInput" type="range" min="0" max="10" step="1" value="0" />
+                  <output id="styleHeightmapSimplificationOutput">0</output>
+                </td>
+              </tr>
+
+              <tr data-tip="选择直线插值类型">
+                <td>线条样式</td>
+                <td>
+                  <select id="styleHeightmapCurve">
+                    <option value="curveBasisClosed" selected>弯曲</option>
+                    <option value="curveLinear">线性</option>
+                    <option value="curveStep">矩形</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr data-tip="为元素选择配色方案">
+                <td>配色方案</td>
+                <td>
+                  <select id="styleHeightmapScheme"></select>
+                  <button
+                    id="openCreateHeightmapSchemeButton"
+                    data-tip="点击添加自定义高程图配色方案"
+                    data-stops="#ffffff,#EEEECC,#D2B48C,#008000,#008080"
+                    class="icon-plus sideButton"
+                  ></button>
                 </td>
               </tr>
             </tbody>
@@ -1267,54 +1328,6 @@
               </tr>
             </tbody>
 
-            <tbody id="styleHeightmap">
-              <tr data-tip="梯田率。设置为0(切换关闭) ，以提高性能">
-                <td>阶地</td>
-                <td>
-                  <input id="styleHeightmapTerracingInput" type="range" min="0" max="20" step="1" />
-                  <output id="styleHeightmapTerracingOutput">0</output>
-                </td>
-              </tr>
-
-              <tr data-tip="减少层数，提高性能">
-                <td>减少层</td>
-                <td>
-                  <input id="styleHeightmapSkipInput" type="range" min="0" max="10" step="1" value="5" />
-                  <output id="styleHeightmapSkipOutput">5</output>
-                </td>
-              </tr>
-
-              <tr data-tip="线路简化率。增加到略微提高性能">
-                <td>简化线</td>
-                <td>
-                  <input id="styleHeightmapSimplificationInput" type="range" min="0" max="10" step="1" value="0" />
-                  <output id="styleHeightmapSimplificationOutput">0</output>
-                </td>
-              </tr>
-
-              <tr data-tip="选择直线插值类型">
-                <td>线条样式</td>
-                <td>
-                  <select id="styleHeightmapCurve">
-                    <option value="0" selected>弯曲</option>
-                    <option value="1">线性</option>
-                    <option value="2">矩形</option>
-                  </select>
-                </td>
-              </tr>
-              <tr data-tip="为元素选择配色方案">
-                <td>配色方案</td>
-                <td>
-                  <select id="styleHeightmapScheme"></select>
-                  <button
-                  id="openCreateHeightmapSchemeButton"
-                  data-tip="点击添加自定义高程图配色方案"
-                  data-stops="#ffffff,#EEEECC,#D2B48C,#008000,#008080"
-                  class="icon-plus sideButton"
-                ></button>
-                </td>
-              </tr>
-            </tbody>
 
             <tbody id="styleArmies">
               <tr data-tip="设置填充透明度。设置为0使其完全透明">
@@ -1431,6 +1444,84 @@
                 </td>
               </tr>
             </tbody>
+
+            <tbody id="styleScaleBar">
+              <tr data-tip="设置比例尺与字体大小">
+                <td>尺寸</td>
+                <td>
+                  <span>比例尺 </span>
+                  <input id="styleScaleBarSize" type="number" min=".5" max="5" step=".1" />
+                  <span>字体 </span>
+                  <input id="styleScaleBarFontSize" type="number" min="1" max="100" step=".1" />
+                </td>
+              </tr>
+
+              <tr data-tip="设置比例尺右下角的位置（以百分比表示）">
+                <td>位置</td>
+                <td>
+                  <span>x </span>
+                  <input id="styleScaleBarPositionX" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                  <span>y </span>
+                  <input id="styleScaleBarPositionY" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                </td>
+              </tr>
+
+              <tr data-tip="键入比例尺标签，保留空白以隐藏标签">
+                <td>标签</td>
+                <td>
+                  <input id="styleScaleBarLabel" type="text" />
+                </td>
+              </tr>
+
+              <tr data-tip="设置背景透明度。0：透明，1：不透明">
+                <td>背景透明度</td>
+                <td>
+                  <input id="styleScaleBarBackgroundOpacityInput" type="range" min="0" max="1" step="0.01" />
+                  <output id="styleScaleBarBackgroundOpacityOutput"></output>
+                </td>
+              </tr>
+
+              <tr data-tip="设置背景填充颜色">
+                <td>背景填充</td>
+                <td>
+                  <input id="styleScaleBarBackgroundFillInput" type="color" />
+                  <output id="styleScaleBarBackgroundFillOutput"></output>
+                </td>
+              </tr>
+
+              <tr data-tip="设置背景描边颜色和宽度">
+                <td>背景边框</td>
+                <td>
+                  <input id="styleScaleBarBackgroundStrokeInput" type="color" />
+                  <output id="styleScaleBarBackgroundStrokeOutput"></output>
+
+                  <span>宽 </span>
+                  <input
+                    id="styleScaleBarBackgroundStrokeWidth"
+                    type="number"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    style="width: 5em"
+                  />
+                </td>
+              </tr>
+
+              <tr data-tip="设置背景元素填充：顶部、右侧、底部、左侧（以像素为单位）">
+                <td>背景填充</td>
+                <td style="display: flex; gap: 4px">
+                  <input id="styleScaleBarBackgroundPaddingTop" type="number" min="0" max="100" style="width: 5em" />
+                  <input id="styleScaleBarBackgroundPaddingRight" type="number" min="0" max="100" style="width: 5em" />
+                  <input id="styleScaleBarBackgroundPaddingBottom" type="number" min="0" max="100" style="width: 5em" />
+                  <input id="styleScaleBarBackgroundPaddingLeft" type="number" min="0" max="100" style="width: 5em" />
+                </td>
+              </tr>
+
+              <tr data-tip="选择背景滤镜">
+                <td>背景滤镜</td>
+                <td><select id="styleScaleBarBackgroundFilter" /></td>
+              </tr>
+            </tbody>            
           </table>
 
           <div id="mapFilters" data-tip="设置一个滤镜，应用于地图">
@@ -3184,6 +3275,21 @@
                 <input id="burgPopulation" type="number" min="0" step="1" style="width: 8em" />
               </div>
 
+              <div data-tip="城市年平均气温与现实世界城市进行比较">
+                <div class="label">温度：</div>
+                <span id="burgTemperature"></span>，与
+                <span id="burgTemperatureLikeIn"></span>类似
+                <i
+                  id="burgTemperatureGraph"
+                  data-tip="显示城市的温度图"
+                  class="icon-chart-area pointer"
+                ></i>
+              </div>
+
+              <div data-tip="城市高度高于平均海平面">
+                <div class="label">高度:</div>
+                <span id="burgElevation"></span> 海平面以上
+              </div>
               <div>
                 <div class="label">特点:</div>
                 <span
@@ -3234,48 +3340,25 @@
                 ></span>
               </div>
 
-              <div data-tip="城市年平均气温与现实世界城市进行比较">
-                <div class="label">温度：</div>
-                <span id="burgTemperature"></span>，与
-                <span id="burgTemperatureLikeIn"></span>类似
-                <i
-                  id="burgTemperatureGraph"
-                  data-tip="显示城市的温度图"
-                  class="icon-chart-area pointer"
-                ></i>
-              </div>
 
-              <div data-tip="城市高度高于平均海平面">
-                <div class="label">高度:</div>
-                <span id="burgElevation"></span> 海平面以上
-              </div>
             </div>
           </div>
 
-          <div
-            id="mfcgPreviewSection"
-            data-tip="中世纪幻想城市生成器中的城市预览。默认种子是地图种子和城市 ID 的组合"
-            style="display: flex; flex-direction: column"
-          >
-            <div>
-              在城市生成器（作者Watabou）中<a id="mfcgLink" target="_blank">查看</a>.
-              <div id="mfcgBurgSeedSection">
-                种子: <input id="mfcgBurgSeed" style="width: 10em" type="number" min="1" max="1e13" step="1" />
+          <div id="burgPreviewSection" data-tip="城镇地图预览" style="display: flex; flex-direction: column">
+            <div style="display: flex; justify-content: space-between">
+              <span>城镇预览:</span>
+              <div style="display: flex; gap: 0.5em">
                 <i
-                  id="regenerateMFCGBurgSeed"
-                  data-tip="随机生成MFCG种子"
-                  class="icon-arrows-cw pointer"
-                  style="margin-left: 0.1em"
-                ></i>
-              </div>
-              <i
-                id="addCustomMFCGBurgLink"
-                data-tip="提供到城市地图的自定义链接"
+                id="burgLinkEdit"
+                data-tip="提供链接城镇地图的自定义链接"
                 class="icon-pencil pointer"
-                style="margin-left: 0.1em"
-              ></i>
+                style="margin-top: -0.1em"
+                ></i>
+                <i id="burgLinkOpen" data-tip="在新标签页打开城镇图" class="icon-link-ext pointer"></i>
+              </div>
+
             </div>
-            <iframe id="mfcgPreview" sandbox="allow-scripts"></iframe>
+            <div id="burgPreviewObject" style="max-width: 30em; pointer-events: none"></div>
           </div>
         </div>
 
@@ -3315,7 +3398,7 @@
           </div>
 
           <button id="burgEditEmblem" data-tip="编辑徽章" class="icon-shield-alt"></button>
-          <button id="burgToggleMFCGMap" data-tip="切换 MFCG 地图" class="icon-map"></button>
+          <button id="burgTogglePreview" data-tip="切换预览" class="icon-map"></button>
           <button id="burgRelocate" data-tip="重新安置城市区" class="icon-target"></button>
           <button id="burglLegend" data-tip="编辑自由的文字说明(图例)为这个城市" class="icon-edit"></button>
           <button id="burgLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
@@ -4393,7 +4476,7 @@
       </div>
 
       <div id="provincesEditor" class="dialog stable" style="display: none">
-        <div id="provincesHeader" class="header" style="grid-template-columns: 11em 8em 8em 8em 5em 8em">
+        <div id="provincesHeader" class="header" style="grid-template-columns: 11em 8em 8em 6em 6em 6em 8em">
           <div data-tip="按省名排序" class="sortable alphabetically" data-sortby="name">
             省&nbsp;
           </div>
@@ -4406,6 +4489,9 @@
           <div data-tip="点击此处可按省从属进行排序" class="sortable alphabetically" data-sortby="state">
             从属&nbsp;
           </div>
+          <div data-tip="点击此处可按省的城市数排序" class="sortable hide" data-sortby="burgs">
+            城镇&nbsp;
+          </div>
           <div data-tip="按省区分类" class="sortable hide" data-sortby="area">地区&nbsp;</div>
           <div data-tip="按省份人口点击排序" class="sortable hide" data-sortby="population">
             人口&nbsp;
@@ -4417,6 +4503,9 @@
         <div id="provincesFooter" class="totalLine">
           <div data-tip="各省展示" style="margin-left: 4px">
             各省:&nbsp;<span id="provincesFooterNumber">0</span>
+          </div>
+          <div data-tip="城市总数" style="margin-left: 12px">
+            城镇:&nbsp;<span id="provincesFooterBurgs">0</span>
           </div>
           <div data-tip="平均面积" style="margin-left: 14px">
             平均面积:&nbsp;<span id="provincesFooterArea">0</span>
@@ -4555,7 +4644,7 @@
           <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="provinceNameEditorShortCulture"
-            data-tip="依据文化生成名字"
+            data-tip="依据文化为省份生成名字"
             class="icon-book pointer"
           ></span>
           <span id="provinceNameEditorShortRandom" data-tip="随机生成名称" class="icon-globe pointer"></span>
@@ -4630,6 +4719,14 @@
             data-tip="重新生成全名"
             class="icon-arrows-cw pointer"
           ></span>
+        </div>
+
+        <div
+          id="provinceCultureName"
+          data-tip="该省的主导文化。这定义了基于文化的命名。可以通过文化编辑器进行更改"
+          style="margin-top: 0.2em"
+        >
+          主导文化:&nbsp;<span id="provinceCultureDisplay"></span>
         </div>
       </div>
 
@@ -5075,48 +5172,6 @@
             </select>
           </div>
 
-          <div class="unitsHeader">
-            <span class="icon-minus"></span>
-            <div>比例尺:</div>
-          </div>
-
-          <div data-tip="设置比例尺大小">
-            <div>比例尺大小:</div>
-            <input id="barSizeOutput" data-stored="barSize" type="range" min=".5" max="5" value="2" step=".1" />
-            <input id="barSizeInput" data-stored="barSize" type="number" min=".5" max="5" value="2" step=".1" />
-          </div>
-
-          <div data-tip="键入比例尺标签，留空以隐藏标签">
-            <div>比例尺标签:</div>
-            <input id="barLabel" data-stored="barLabel" type="text" placeholder="hidden" value="" />
-          </div>
-
-          <div data-tip="为比例尺设置背景">
-            <div>比例尺背景:</div>
-            <input
-              id="barBackOpacity"
-              data-stored="barBackOpacity"
-              type="range"
-              min="0"
-              max="1"
-              value=".2"
-              step=".01"
-            />
-            <input id="barBackColor" data-stored="barBackColor" type="color" value="#ffffff" />
-          </div>
-
-          <div data-tip="设置比例尺右下角的位置(百分比)">
-            <div>比例尺位置:</div>
-            x:<input id="barPosX" data-stored="barPosX" type="number" min="0" max="100" step=".1" value="99" /> y:<input
-              id="barPosY"
-              data-stored="barPosY"
-              type="number"
-              min="0"
-              max="100"
-              step=".1"
-              value="99"
-            />
-          </div>
 
           <div class="unitsHeader">
             <span class="icon-male"></span>
@@ -5480,7 +5535,7 @@
                 <th data-tip="工作人员平均人数(用于计算总人数)">工作人员</th>
                 <th data-tip="单位军事力量(用于作战模拟)">力量</th>
                 <th data-tip="单位类型适用于重新计算力的特殊规则">类型</th>
-                <th data-tip="检查单元是否是独立的，是否只能与相同类型的单元堆叠">Sep.</th>
+                <th data-tip="检查单元是否是独立的，是否只能与相同类型的单元堆叠">分离</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -5640,7 +5695,7 @@
         <table id="iconTable" class="table pointer" style="font-size: 2em; text-align: center; width: 100%"></table>
         <div style="font-style: italic; font-size: 1.2em; margin: 0.4em 0 0 0.4em">
           <span>从列表中选择或粘贴 Unicode字符: </span>
-          <input id="iconInput" style="width: 2em" />
+          <input id="iconInput" style="width: 2.5em" />
           <span>. 查阅<a href="https://emojipedia.org" target="_blank">Emojipedia</a></span>
         </div>
       </div>
@@ -5904,7 +5959,7 @@
       </div>
 
       <div id="exportToPngTilesScreen" style="display: none" class="dialog">
-        <p>地图将被分割成图块(Tiles)和下载为一个单一的压缩文件。避免保存到大图像</p>
+        <p>地图将被分割成图块(Tiles)和下载为一个单一的压缩文件。避免保存图像过大</p>
         <div data-tip="列数" style="margin-bottom: 0.3em">
           <div class="label">列:</div>
           <input
@@ -5912,7 +5967,7 @@
             data-stored="tileCols"
             type="range"
             min="2"
-            max="20"
+            max="26"
             value="8"
             style="width: 10em"
           />
@@ -5925,7 +5980,7 @@
             data-stored="tileRows"
             type="range"
             min="2"
-            max="20"
+            max="26"
             value="8"
             style="width: 10em"
           />
@@ -5948,7 +6003,7 @@
           <div class="label">总大小:</div>
           <div id="tileSize" style="display: inline-block">1000 x 1000 px</div>
         </div>
-        <div id="tileStatus" style="background-color: #33333310; font-style: italic"></div>
+        <div id="tileStatus" style="font-style: italic"></div>
       </div>
 
       <div id="resampleDialog" style="display: none" class="dialog">
@@ -7886,7 +7941,7 @@
     <script src="utils/commonUtils.js?v=1.89.29"></script>
     <script src="utils/arrayUtils.js"></script>
     <script src="utils/colorUtils.js"></script>
-    <script src="utils/graphUtils.js?v=1.93.12"></script>
+    <script src="utils/graphUtils.js?v=1.96.00"></script>
     <script src="utils/nodeUtils.js"></script>
     <script src="utils/numberUtils.js?v=1.89.08"></script>
     <script src="utils/polyfills.js?v=1.95.03"></script>
@@ -7899,39 +7954,39 @@
     <script src="config/heightmap-templates.js"></script>
     <script src="config/precreated-heightmaps.js"></script>
     <script src="modules/heightmap-generator.js?v=1.88.00"></script>
-    <script src="modules/ocean-layers.js?v=1.95.00"></script>
+    <script src="modules/ocean-layers.js?v=1.96.00"></script>
     <script src="modules/river-generator.js?v=1.89.13"></script>
     <script src="modules/lakes.js"></script>
     <script src="modules/biomes.js"></script>
     <script src="modules/names-generator.js?v=1.87.14"></script>
-    <script src="modules/cultures-generator.js?v=1.89.10"></script>
-    <script src="modules/renderers/state-labels.js"></script>
-    <script src="modules/burgs-and-states.js?v=1.92.00"></script>
+    <script src="modules/cultures-generator.js?v=1.96.05"></script>
+    <script src="modules/renderers/state-labels.js?v=1.96.04"></script>
+    <script src="modules/burgs-and-states.js?v=1.97.00"></script>
     <script src="modules/routes-generator.js"></script>
     <script src="modules/religions-generator.js?v=1.93.08"></script>
-    <script src="modules/military-generator.js"></script>
+    <script src="modules/military-generator.jsv=1.96.01"></script>
     <script src="modules/markers-generator.js?v=1.93.04"></script>
     <script src="modules/coa-generator.js?v=1.91.05"></script>
-    <script src="modules/submap.js?v=1.94.01"></script>
+    <script src="modules/submap.js?v=1.96.00"></script>
     <script src="libs/polylabel.min.js"></script>
     <script src="libs/lineclip.min.js"></script>
     <script src="libs/alea.min.js"></script>
     <script src="modules/fonts.js?v=1.89.18"></script>
-    <script src="modules/ui/layers.js?v=1.94.00"></script>
-    <script src="modules/ui/measurers.js?v=1.94.03"></script>
-    <script src="modules/ui/stylePresets.js?v=1.95.00"></script>
+    <script src="modules/ui/layers.js?v=1.96.00"></script>
+    <script src="modules/ui/measurers.js?v=1.96.00"></script>
+    <script src="modules/ui/stylePresets.js?v=1.96.00"></script>
 
-    <script src="modules/ui/general.js?v=1.94.01"></script>
-    <script src="modules/ui/options.js?v=1.94.06"></script>
-    <script src="main.js?v=1.94.05"></script>
+    <script src="modules/ui/general.js?v=1.96.00"></script>
+    <script src="modules/ui/options.js?v=1.96.00"></script>
+    <script src="main.js?v=1.97.00"></script>
 
     <script defer src="modules/relief-icons.js"></script>
-    <script defer src="modules/ui/style.js?v=1.95.00"></script>
-    <script defer src="modules/ui/editors.js?v=1.95.04"></script>
-    <script defer src="modules/ui/tools.js?v=1.95.01"></script>
+    <script defer src="modules/ui/style.js?v=1.96.00"></script>
+    <script defer src="modules/ui/editors.js?v=1.97.00"></script>
+    <script defer src="modules/ui/tools.js?v=1.96.03"></script>
     <script defer src="modules/ui/world-configurator.js?v=1.91.05"></script>
-    <script defer src="modules/ui/heightmap-editor.js?v=1.93.00"></script>
-    <script defer src="modules/ui/provinces-editor.js?v=1.92.00"></script>
+    <script defer src="modules/ui/heightmap-editor.js?v=1.96.00"></script>
+    <script defer src="modules/ui/provinces-editor.js?v=1.96.00"></script>
     <script defer src="modules/ui/biomes-editor.js?v=1.91.05"></script>
     <script defer src="modules/ui/namesbase-editor.js?v=1.95.02"></script>
     <script defer src="modules/ui/elevation-profile.js"></script>
@@ -7944,14 +7999,14 @@
     <script defer src="modules/ui/rivers-editor.js"></script>
     <script defer src="modules/ui/rivers-creator.js?v=1.89.13"></script>
     <script defer src="modules/ui/relief-editor.js"></script>
-    <script defer src="modules/ui/burg-editor.js"></script>
-    <script defer src="modules/ui/units-editor.js?v=1.94.02"></script>
+    <script defer src="modules/ui/burg-editor.jsv=1.97.00"></script>
+    <script defer src="modules/ui/units-editor.js?v=1.96.00"></script>
     <script defer src="modules/ui/notes-editor.js?v=1.93.09"></script>
     <script defer src="modules/ui/diplomacy-editor.js?v=1.88.04"></script>
     <script defer src="modules/ui/zones-editor.js"></script>
-    <script defer src="modules/ui/burgs-overview.js?v=1.93.10"></script>
+    <script defer src="modules/ui/burgs-overview.js?v=1.97.00"></script>
     <script defer src="modules/ui/rivers-overview.js"></script>
-    <script defer src="modules/ui/military-overview.js"></script>
+    <script defer src="modules/ui/military-overview.js?v=1.96.07"></script>
     <script defer src="modules/ui/regiments-overview.js?v=1.89.20"></script>
     <script defer src="modules/ui/markers-overview.js?v=1.89.38"></script>
     <script defer src="modules/ui/regiment-editor.js"></script>
@@ -7959,15 +8014,15 @@
     <script defer src="modules/ui/emblems-editor.js?v=1.91.00"></script>
     <script defer src="modules/ui/markers-editor.js"></script>
     <script defer src="modules/ui/3d.js?v=1.94.03"></script>
-    <script defer src="modules/ui/submap.js?v=1.94.03"></script>
+    <script defer src="modules/ui/submap.js?v=1.96.00"></script>
     <script defer src="modules/ui/hotkeys.js?v=1.95.00"></script>
     <script defer src="modules/coa-renderer.js?v=1.94.00"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
-    <script defer src="modules/io/save.js?v=1.93.02"></script>
-    <script defer src="modules/io/load.js?v=1.95.00"></script>
-    <script defer src="modules/io/cloud.js?v=1.94.04"></script>
-    <script defer src="modules/io/export.js?v=1.95.05"></script>
+    <script defer src="modules/io/save.js?v=1.96.00"></script>
+    <script defer src="modules/io/load.js?v=1.97.04"></script>
+    <script defer src="modules/io/cloud.js?v=1.96.00"></script>
+    <script defer src="modules/io/export.js?v=1.97.03"></script>
     <script defer src="modules/io/formats.js"></script>
 
     <!-- Web Components -->

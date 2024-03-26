@@ -54,7 +54,9 @@ function overviewMilitary() {
     const insert = html => document.getElementById("militaryTotal").insertAdjacentHTML("beforebegin", html);
     for (const u of options.military) {
       const label = capitalize(u.name.replace(/_/g, " "));
-      insert(`<div data-tip="国家 ${u.name} 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`);
+      insert(
+        `<div data-tip="国家 ${u.name} 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`
+        );
     }
     header.querySelectorAll(".removable").forEach(function (e) {
       e.addEventListener("click", function () {
@@ -76,7 +78,9 @@ function overviewMilitary() {
       const rate = (total / population) * 100;
 
       const sortData = options.military.map(u => `data-${u.name}="${getForces(u)}"`).join(" ");
-      const lineData = options.military.map(u => `<div data-type="${u.name}" data-tip="国家 ${u.name} 单位数量">${getForces(u)}</div>`).join(" ");
+      const lineData = options.military
+      .map(u => `<div data-type="${u.name}" data-tip="国家 ${u.name} 单位数量">${getForces(u)}</div>`)
+      .join(" ");
 
       lines += /* html */ `<div
         class="states"
@@ -91,9 +95,14 @@ function overviewMilitary() {
         <fill-box data-tip="${s.fullName}" fill="${s.color}" disabled></fill-box>
         <input data-tip="${s.fullName}" style="width:6em" value="${s.name}" readonly />
         ${lineData}
-        <div data-type="total" data-tip="国家军事人员总数 (考虑到工作人员)" style="font-weight: bold">${si(total)}</div>
+        <div data-type="total" data-tip="国家军事人员总数 (考虑到工作人员)" style="font-weight: bold">${si(
+          total
+          )}</div>
         <div data-type="population" data-tip="国家人口">${si(population)}</div>
-        <div data-type="rate" data-tip="军事人员比率(国家人口的百分比)。取决于战争预警程度">${rn(rate, 2)}%</div>
+        <div data-type="rate" data-tip="军事人员比率(国家人口的百分比)。取决于战争预警程度">${rn(
+          rate, 
+          2
+        )}%</div>
         <input
           data-tip="战争预警程度。可编辑修改的军事力量的数量，取决于政治局势"
           style="width:4.1em"
@@ -131,7 +140,9 @@ function overviewMilitary() {
     });
 
     const getForces = u => s.military.reduce((s, r) => s + (r.u[u.name] || 0), 0);
-    options.military.forEach(u => (line.dataset[u.name] = line.querySelector(`div[data-type='${u.name}']`).innerHTML = getForces(u)));
+    options.military.forEach(
+      u => (line.dataset[u.name] = line.querySelector(`div[data-type='${u.name}']`).innerHTML = getForces(u))
+      );
 
     const population = rn((s.rural + s.urban * urbanization) * populationRate);
     const total = (line.dataset.total = options.military.reduce((s, u) => s + getForces(u) * u.crew, 0));
@@ -237,7 +248,16 @@ function overviewMilitary() {
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
         应用: applyMilitaryOptions,
-        添加: () => addUnitLine({icon: "🛡️", name: "custom" + militaryOptionsTable.rows.length, rural: 0.2, urban: 0.5, crew: 1, power: 1, type: "melee"}),
+        添加: () => 
+        addUnitLine({
+          icon: "🛡️", 
+          name: "custom" + militaryOptionsTable.rows.length, 
+          rural: 0.2, 
+          urban: 0.5, 
+          crew: 1, 
+          power: 1, 
+          type: "melee"
+        }),
         复原: restoreDefaultUnits,
         取消: function () {
           $(this).dialog("close");
@@ -262,7 +282,7 @@ function overviewMilitary() {
       if (el.tagName !== "BUTTON") return;
       const type = el.dataset.type;
 
-      if (type === "icon") return selectIcon(el.innerHTML, v => (el.innerHTML = v));
+      if (type === "icon") return selectIcon(el.textContent, v => (el.textContent = v));
       if (type === "biomes") {
         const {i, name, color} = biomesData;
         const biomesArray = Array(i.length).fill(null);
@@ -294,7 +314,9 @@ function overviewMilitary() {
     function addUnitLine(unit) {
       const {type, icon, name, rural, urban, power, crew, separate} = unit;
       const row = document.createElement("tr");
-      const typeOptions = types.map(t => `<option ${type === t ? "selected" : ""} value="${t}">${t}</option>`).join(" ");
+      const typeOptions = types
+      .map(t => `<option ${type === t ? "selected" : ""} value="${t}">${t}</option>`)
+      .join(" ");
 
       const getLimitButton = attr =>
         `<button 
@@ -305,7 +327,9 @@ function overviewMilitary() {
           ${getLimitText(unit[attr])}
         </button>`;
 
-      row.innerHTML = /* html */ `<td><button data-type="icon" data-tip="点击选择单位图标">${icon || " "}</button></td>
+      row.innerHTML = /* html */ `<td><button data-type="icon" data-tip="点击选择单位图标">${
+        icon || " "
+      }</button></td>
         <td><input data-tip="键入单元名称。如果更改现有单元的名称，将替换旧单元" value="${name}" /></td>
         <td>${getLimitButton("biomes")}</td>
         <td>${getLimitButton("states")}</td>
@@ -344,7 +368,9 @@ function overviewMilitary() {
       const lines = filtered.map(
         ({i, name, fullName, color}) =>
           `<tr data-tip="${name}"><td><span style="color:${color}">⬤</span></td>
-            <td><input data-i="${i}" id="el${i}" type="checkbox" class="checkbox" ${!initial.length || initial.includes(i) ? "checked" : ""} >
+            <td><input data-i="${i}" id="el${i}" type="checkbox" class="checkbox" ${
+              !initial.length || initial.includes(i) ? "checked" : ""
+            } >
             <label for="el${i}" class="checkbox-label">${fullName || name}</label>
           </td></tr>`
       );
@@ -387,22 +413,21 @@ function overviewMilitary() {
     function applyMilitaryOptions() {
       const unitLines = Array.from(tableBody.querySelectorAll("tr"));
       const names = unitLines.map(r => r.querySelector("input").value.replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, "_"));
-      if (new Set(names).size !== names.length) {
-        tip("所有单位都应有唯一的名称", false, "error");
-        return;
-      }
+      if (new Set(names).size !== names.length) return tip("所有单位都应有唯一的名称", false, "error");
 
       $("#militaryOptions").dialog("close");
+
       options.military = unitLines.map((r, i) => {
         const elements = Array.from(r.querySelectorAll("input, button, select"));
-        const [icon, name, biomes, states, cultures, religions, rural, urban, crew, power, type, separate] = elements.map(el => {
-          const {type, value} = el.dataset || {};
-          if (type === "icon") return el.innerHTML || "⠀";
-          if (type) return value ? value.split(",").map(v => parseInt(v)) : null;
-          if (el.type === "number") return +el.value || 0;
-          if (el.type === "checkbox") return +el.checked || 0;
-          return el.value;
-        });
+        const [icon, name, biomes, states, cultures, religions, rural, urban, crew, power, type, separate] =
+          elements.map(el => {
+            const {type, value} = el.dataset || {};
+            if (type === "icon") return el.textContent || "⠀";
+            if (type) return value ? value.split(",").map(v => parseInt(v)) : null;
+            if (el.type === "number") return +el.value || 0;
+            if (el.type === "checkbox") return +el.checked || 0;
+            return el.value;
+          });
 
         const unit = {icon, name: names[i], rural, urban, crew, power, type, separate};
         if (biomes) unit.biomes = biomes;
@@ -419,7 +444,8 @@ function overviewMilitary() {
   }
 
   function militaryRecalculate() {
-    alertMessage.innerHTML = "你确定要重新计算所有国家的军事力量吗? <br>所有国家的军队将重新生成";
+    alertMessage.innerHTML = 
+    "你确定要重新计算所有国家的军事力量吗? <br>所有国家的军队将重新生成";
     $("#alert").dialog({
       resizable: false,
       title: "删除部队",
