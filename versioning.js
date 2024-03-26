@@ -1,7 +1,7 @@
 "use strict";
 
 // version and caching control
-const version = "1.95.05";// generator version, update each time
+const version = "1.97.04";// generator version, update each time
 
 {
   document.title += " v" + version;
@@ -31,7 +31,10 @@ const version = "1.95.05";// generator version, update each time
 <p><a href="https://afdian.net/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
-        <strong>版本更新内容:</strong>
+        <strong>最近版本更新内容:</strong>
+        <li>预览村庄地图</li>
+        <li>渲染海洋高程图</li>
+        <li>比例尺样式</li>
         <li>晕影视觉图层和造型选项</li>
         <li>自定义高程图配色方案</li>
         <li>新的样式预设Night和高程图配色方案</li>
@@ -40,9 +43,6 @@ const version = "1.95.05";// generator version, update each time
         <li>新的国家标签放置算法</li>
         <li>南北极温度可独立设置</li>
         <li>70多项新纹章填充</li>
-        <li>支持多色纹章填充</li>
-        <li>新3D场景选项和改进</li>
-        <li>支持国家合并</li>
       </ul>
       <p>加入作者 <a href="${discord}" target="_blank">Discord</a> 和 <a href="${reddit}" target="_blank">Reddit 社区</a>提出问题，分享地图，讨论生成器和世界构建，报告错误并提出新功能。</p>
       <span><i>感谢所有支持，去<a href="${patreon}" target="_blank">支持原作者（Patreon）</a>!</i></span>
