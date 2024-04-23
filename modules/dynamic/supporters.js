@@ -13,6 +13,8 @@ wx
 ■兵
 DCVSMarvel
 爱发电用户_eUkY
+爱发电用户_HEeR
+神经漫游者nobu
 及其他七个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
