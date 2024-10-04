@@ -2879,15 +2879,15 @@
             <span id="routeGenerateName" data-tip="生成路线名" class="icon-globe pointer"></span>
           </div>
 
-          <div data-tip="Select route group">
-            <div class="label">Group:</div>
+          <div data-tip="选择路线组">
+            <div class="label">组:</div>
             <select id="routeGroup"></select>
-            <span id="routeGroupEdit" data-tip="Edit route groups" class="icon-pencil pointer"></span>
-            <span id="routeEditStyle" data-tip="Edit style for the route group" class="icon-brush pointer"></span>
+            <span id="routeGroupEdit" data-tip="编辑路线组" class="icon-pencil pointer"></span>
+            <span id="routeEditStyle" data-tip="编辑路线组样式" class="icon-brush pointer"></span>
           </div>
 
-          <div data-tip="Route length in selected units">
-            <div class="label">Length:</div>
+          <div data-tip="选定单元格表示的路线长度">
+            <div class="label">长:</div>
             <input id="routeLength" disabled />
           </div>
         </div>
@@ -2895,29 +2895,29 @@
         <div id="routeBottom">
           <button
             id="routeCreateSelectingCells"
-            data-tip="Create a new route selecting route cells"
+            data-tip="选择道路单元创建一条新道路"
             class="icon-map-pin"
           ></button>
           <button
             id="routeJoin"
-            data-tip="Click to join the route to another route that starts or ends at the same cell"
+            data-tip="将该路线加入到在同一路线开始或结束的另一条路线"
             class="icon-link"
           ></button>
           <button
             id="routeSplit"
-            data-tip="Click on a control point to split the route there"
+            data-tip="点击控制点分割路线"
             class="icon-unlink"
           ></button>
           <button
             id="routeElevationProfile"
-            data-tip="Show the elevation profile for the route"
+            data-tip="显示路线的高程轮廓"
             class="icon-chart-area"
           ></button>
-          <button id="routeLegend" data-tip="Edit free text notes (legend) for the route" class="icon-edit"></button>
+          <button id="routeLegend" data-tip="编辑路线的自由文本注释(图例)" class="icon-edit"></button>
           <button id="routeLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
           <button
             id="routeRemove"
-            data-tip="Remove route"
+            data-tip="移除路线"
             data-shortcut="Delete"
             class="icon-trash fastDelete"
           ></button>
@@ -2925,15 +2925,15 @@
       </div>
 
       <div id="routeCreator" class="dialog" style="display: none">
-        <div>Click on map to add/remove route points</div>
+        <div>点击地图添加/删除路线点</div>
         <div id="routeCreatorBody" class="table" style="margin: 0.3em 0"></div>
         <div id="routeCreatorBottom">
-          <button id="routeCreatorComplete" data-tip="Complete route creation" class="icon-check"></button>
-          <button id="routeCreatorCancel" data-tip="Cancel the creation" class="icon-cancel"></button>
+          <button id="routeCreatorComplete" data-tip="完成创建" class="icon-check"></button>
+          <button id="routeCreatorCancel" data-tip="取消创建" class="icon-cancel"></button>
           <div style="display: inline-block">
-            Group:
+            组:
             <select id="routeCreatorGroupSelect"></select>
-            <span id="routeCreatorGroupEdit" data-tip="Edit route groups" class="icon-pencil pointer"></span>
+            <span id="routeCreatorGroupEdit" data-tip="编辑路线组" class="icon-pencil pointer"></span>
           </div>
         </div>
       </div>
@@ -2941,7 +2941,7 @@
       <div id="routeGroupsEditor" class="dialog" style="display: none">
         <div id="routeGroupsEditorBody" class="table" style="padding: 0.3em 0; width: 100%"></div>
         <div id="routeGroupsEditorBottom">
-          <button id="routeGroupsEditorAdd" data-tip="Add route group" class="icon-plus"></button>
+          <button id="routeGroupsEditorAdd" data-tip="添加路线组" class="icon-plus"></button>
         </div>
       </div>
 
@@ -2982,7 +2982,7 @@
           data-tip="在样式编辑器中编辑海岸线组样式"
           class="icon-brush"
         ></button>
-        <button id="coastlineArea" data-tip="Landmass area in selected units">0</button>
+        <button id="coastlineArea" data-tip="选定单位的陆地面积">0</button>
       </div>
 
       <div id="reliefEditor" class="dialog" style="display: none">

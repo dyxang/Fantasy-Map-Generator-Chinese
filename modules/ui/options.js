@@ -287,7 +287,7 @@ function generateMapWithSeed() {
 function showSeedHistoryDialog() {
   const lines = mapHistory.map((h, i) => {
     const created = new Date(h.created).toLocaleTimeString();
-    const button = `<i data-tip="Click to generate a map with this seed" onclick="restoreSeed(${i})" class="icon-history optionsSeedRestore"></i>`;
+    const button = `<i data-tip="单击以使用此种子生成地图" onclick="restoreSeed(${i})" class="icon-history optionsSeedRestore"></i>`;
     return `<li>Seed: ${h.seed} ${button}. Size: ${h.width}x${h.height}. Template: ${h.template}. Created: ${created}</li>`;
   });
   alertMessage.innerHTML = /* html */ `<ol style="margin: 0; padding-left: 1.5em">

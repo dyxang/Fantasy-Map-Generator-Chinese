@@ -8,7 +8,7 @@ function createRoute(defaultGroup) {
   byId("toggleCells").dataset.forced = +!layerIsOn("toggleCells");
   if (!layerIsOn("toggleCells")) toggleCells();
 
-  tip("Click to add route point, click again to remove", true);
+  tip("单击可添加路由点，再次单击可移除", true);
   debug.append("g").attr("id", "controlCells");
   debug.append("g").attr("id", "controlPoints");
   viewbox.style("cursor", "crosshair").on("click", onClick);
