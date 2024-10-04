@@ -44,11 +44,11 @@ function overviewRoutes() {
         data-group="${route.group}"
         data-length="${route.length}"
       >
-        <span data-tip="Click to focus on route" class="icon-dot-circled pointer"></span>
-        <div data-tip="Route name" style="width: 15em; margin-left: 0.4em;">${route.name}</div>
-        <div data-tip="Route group" style="width: 8em;">${route.group}</div>
-        <div data-tip="Route length" style="width: 6em;">${length}</div>
-        <span data-tip="Edit route" class="icon-pencil"></span>
+        <span data-tip="定位并聚焦于路线" class="icon-dot-circled pointer"></span>
+        <div data-tip="路线名" style="width: 15em; margin-left: 0.4em;">${route.name}</div>
+        <div data-tip="路线组" style="width: 8em;">${route.group}</div>
+        <div data-tip="路线长" style="width: 6em;">${length}</div>
+        <span data-tip="编辑路线" class="icon-pencil"></span>
         <span class="locks pointer ${
           route.lock ? "icon-lock" : "icon-lock-open inactive"
         }" onmouseover="showElementLockTip(event)"></span>

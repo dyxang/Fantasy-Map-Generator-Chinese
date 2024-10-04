@@ -40,7 +40,7 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>最近更新:</strong>
-        <li>Azgaar 机器人回答问题并提供帮助（使用英语）</li>
+        <li>Azgaar Bot回答问题并帮助（可使用中文）</li>
         <li>标签:可以设置字母间距</li>
         <li>Zone性能改进</li>
         <li>注释编辑器:按需AI文本生成</li>
