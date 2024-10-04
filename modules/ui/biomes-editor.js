@@ -130,7 +130,7 @@ function editBiomes() {
               ? '<span data-tip="删除定制的生物群落" class="icon-trash-empty hide"></span>'
               : ""
           }
-          </div>
+        </div>
       `;
     }
     body.innerHTML = lines;
@@ -219,18 +219,18 @@ function editBiomes() {
 
     const wikiBase = "https://en.wikipedia.org/wiki/";
     const pages = {
-      "热沙漠": "Desert_climate#Hot_desert_climates",
-      "冷沙漠": "Desert_climate#Cold_desert_climates",
-      "热带草原气候" : "Tropical_and_subtropical_grasslands,_savannas,_and_shrublands",
-      "草原气候" : "Temperate_grasslands,_savannas,_and_shrublands",
+      "热带沙漠": "Desert_climate#Hot_desert_climates",
+      "寒漠": "Desert_climate#Cold_desert_climates",
+      Savanna: "Tropical_and_subtropical_grasslands,_savannas,_and_shrublands",
+      Grassland: "Temperate_grasslands,_savannas,_and_shrublands",
       "热带季雨林": "Seasonal_tropical_forest",
       "温带落叶林": "Temperate_deciduous_forest",
       "热带雨林": "Tropical_rainforest",
       "温带雨林": "Temperate_rainforest",
-      "北方针叶林" : "Taiga",
-      "苔原" : "Tundra",
-      "冰川" : "Glacier",
-      "湿地" : "Wetland"
+      Taiga: "Taiga",
+      Tundra: "Tundra",
+      Glacier: "Glacier",
+      Wetland: "Wetland"
     };
     const customBiomeLink = `https://en.wikipedia.org/w/index.php?search=${biomeName}`;
     const link = pages[biomeName] ? wikiBase + pages[biomeName] : customBiomeLink;
@@ -317,7 +317,7 @@ function editBiomes() {
   }
 
   function regenerateIcons() {
-    ReliefIcons();
+    ReliefIcons.draw();
     if (!layerIsOn("toggleRelief")) toggleRelief();
   }
 
@@ -383,14 +383,14 @@ function editBiomes() {
   }
 
   function dragBiomeBrush() {
-    const r = +biomesManuallyBrush.value;
+    const r = +biomesBrush.value;
 
     d3.event.on("drag", () => {
       if (!d3.event.dx && !d3.event.dy) return;
       const p = d3.mouse(this);
       moveCircle(p[0], p[1], r);
 
-      const found = r > 5 ? findAll(p[0], p[1], r) : [findCell(p[0], p[1], r)];
+      const found = r > 5 ? findAll(p[0], p[1], r) : [findCell(p[0], p[1])];
       const selection = found.filter(isLand);
       if (selection) changeBiomeForSelection(selection);
     });
@@ -418,13 +418,14 @@ function editBiomes() {
           .attr("data-biome", biomeNew)
           .attr("points", getPackPolygon(i))
           .attr("fill", color)
-          .attr("stroke", color);    });
+          .attr("stroke", color);
+    });
   }
 
   function moveBiomeBrush() {
     showMainTip();
     const point = d3.mouse(this);
-    const radius = +biomesManuallyBrush.value;
+    const radius = +biomesBrush.value;
     moveCircle(point[0], point[1], radius);
   }
 

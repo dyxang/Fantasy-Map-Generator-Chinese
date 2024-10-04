@@ -51,24 +51,9 @@ function insertEditorHtml() {
       <button id="culturesHeirarchy" data-tip="显示文化层次结构树" class="icon-sitemap"></button>
       <button id="culturesManually" data-tip="手动重新分配文化" class="icon-brush"></button>
       <div id="culturesManuallyButtons" style="display: none">
-        <label data-tip="Change brush size" data-shortcut="+ (increase), – (decrease)" class="italic">笔刷大小:
-          <input
-            id="culturesManuallyBrush"
-            oninput="tip('笔刷大小: '+this.value); culturesManuallyBrushNumber.value = this.value"
-            type="range"
-            min="5"
-            max="99"
-            value="15"
-            style="width: 7em"
-          />
-          <input
-            id="culturesManuallyBrushNumber"
-            oninput="tip('笔刷大小: '+this.value); culturesManuallyBrush.value = this.value"
-            type="number"
-            min="5"
-            max="99"
-            value="15"
-          /> </label><br />
+        <div data-tip="改变笔刷大小。快捷键:+增加;-减少" style="margin-block: 0.3em;">
+          <slider-input id="culturesBrush" min="1" max="100" value="15">笔刷大小:</slider-input>
+        </div>
         <button id="culturesManuallyApply" data-tip="应用分配" class="icon-check"></button>
         <button id="culturesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
       </div>
@@ -500,6 +485,7 @@ function applyPopulationChange(oldRural, oldUrban, newRural, newUrban, culture) 
     burgs.forEach(b => (b.population = population));
   }
 
+  if (layerIsOn("togglePopulation")) drawPopulation();
   refreshCulturesEditor();
 }
 
@@ -512,7 +498,7 @@ function cultureRegenerateBurgs() {
     b.name = Names.getCulture(cultureId);
     labels.select("[data-id='" + b.i + "']").text(b.name);
   });
-  tip(`${cBurgs.length} 城市的名字重生了`, false, "success");
+  tip(`${cBurgs.length} 城市的名字重新生成了`, false, "success");
 }
 
 function removeCulture(cultureId) {
@@ -718,7 +704,7 @@ function selectCultureOnMapClick() {
 }
 
 function dragCultureBrush() {
-  const radius = +culturesManuallyBrush.value;
+  const radius = +culturesBrush.value;
 
   d3.event.on("drag", () => {
     if (!d3.event.dx && !d3.event.dy) return;
@@ -759,7 +745,7 @@ function changeCultureForSelection(selection) {
 function moveCultureBrush() {
   showMainTip();
   const point = d3.mouse(this);
-  const radius = +culturesManuallyBrush.value;
+  const radius = +culturesBrush.value;
   moveCircle(point[0], point[1], radius);
 }
 
@@ -913,7 +899,7 @@ async function uploadCulturesData() {
       current.expansionism = +culture.expansionism;
 
       if (cultureTypes.includes(culture.type)) current.type = culture.type;
-            else current.type = "Generic";
+      else current.type = "Generic";
     }
 
     function restoreOrigins(originsString) {
@@ -931,6 +917,7 @@ async function uploadCulturesData() {
       current.origins = originIds.filter(id => id !== null);
       if (!current.origins.length) current.origins = [0];
     }
+
     culture.origins = current.i ? restoreOrigins(culture.origins || "") : [null];
     current.shield = shapes.includes(culture.emblemsShape) ? culture.emblemsShape : "heater";
 

@@ -27,7 +27,7 @@ window.Markers = (function () {
       {type: "water-sources", icon: "💧", min: 1, each: 1000, multiplier: 1, list: listWaterSources, add: addWaterSource},
       {type: "mines", icon: "⛏️", dx: 48, px: 13, min: 1, each: 15, multiplier: 1, list: listMines, add: addMine},
       {type: "bridges", icon: "🌉", px: 14, min: 1, each: 5, multiplier: 1, list: listBridges, add: addBridge},
-      {type: "inns", icon: "🍻", px: 14, min: 1, each: 100, multiplier: 1, list: listInns, add: addInn},
+      {type: "inns", icon: "🍻", px: 14, min: 1, each: 10, multiplier: 1, list: listInns, add: addInn},
       {type: "lighthouses", icon: "🚨", px: 14, min: 1, each: 2, multiplier: 1, list: listLighthouses, add: addLighthouse},
       {type: "waterfalls", icon: "⟱", dy: 54, px: 16, min: 1, each: 5, multiplier: 1, list: listWaterfalls, add: addWaterfall},
       {type: "battlefields", icon: "⚔️", dy: 52, min: 50, each: 700, multiplier: 1, list: listBattlefields, add: addBattlefield},
@@ -117,6 +117,7 @@ window.Markers = (function () {
       while (quantity && candidates.length) {
         const [cell] = extractAnyElement(candidates);
         const marker = addMarker({icon, type, dx, dy, px}, {cell});
+        if (!marker) continue;
         add("marker" + marker.i, cell);
         quantity--;
       }
@@ -150,6 +151,7 @@ window.Markers = (function () {
   }
 
   function addMarker(base, marker) {
+    if (marker.cell === undefined) return;
     const i = last(pack.markers)?.i + 1 || 0;
     const [x, y] = getMarkerCoordinates(marker.cell);
     marker = {...base, x, y, ...marker, i};
@@ -279,7 +281,8 @@ window.Markers = (function () {
   }
 
   function listInns({cells}) {
-    return cells.i.filter(i => !occupied[i] && cells.h[i] >= 20 && cells.road[i] > 4 && cells.pop[i] > 10);
+    const crossRoads = cells.i.filter(i => !occupied[i] && cells.pop[i] > 5 && Routes.isCrossroad(i));
+    return crossRoads;
   }
 
   function addInn(id, cell) {
@@ -542,7 +545,7 @@ window.Markers = (function () {
 
   function listLighthouses({cells}) {
     return cells.i.filter(
-      i => !occupied[i] && cells.harbor[i] > 6 && cells.c[i].some(c => cells.h[c] < 20 && cells.road[c])
+      i => !occupied[i] && cells.harbor[i] > 6 && cells.c[i].some(c => cells.h[c] < 20 && Routes.isConnected(c))
     );
   }
 
@@ -553,7 +556,7 @@ window.Markers = (function () {
     notes.push({
       id,
       name: getAdjective(proper) + " 灯塔" + name,
-      legend: `在公海上作为船只灯塔的灯塔`
+      legend: `在公海上作为船只信标的灯塔`
     });
   }
 
@@ -640,7 +643,7 @@ window.Markers = (function () {
 
   function listSeaMonsters({cells, features}) {
     return cells.i.filter(
-      i => !occupied[i] && cells.h[i] < 20 && cells.road[i] && features[cells.f[i]].type === "ocean"
+      i => !occupied[i] && cells.h[i] < 20 && Routes.isConnected(i) && features[cells.f[i]].type === "ocean"
     );
   }
 
@@ -790,7 +793,7 @@ window.Markers = (function () {
         cells.religion[i] &&
         cells.biome[i] === 1 &&
         cells.pop[i] > 1 &&
-        cells.road[i]
+        Routes.isConnected(i)
     );
   }
 
@@ -805,7 +808,7 @@ window.Markers = (function () {
   }
 
   function listBrigands({cells}) {
-    return cells.i.filter(i => !occupied[i] && cells.culture[i] && cells.road[i] > 4);
+    return cells.i.filter(i => !occupied[i] && cells.culture[i] && Routes.hasRoad(i));
   }
 
   function addBrigands(id, cell) {
@@ -865,7 +868,7 @@ window.Markers = (function () {
 
   // Pirates spawn on sea routes
   function listPirates({cells}) {
-    return cells.i.filter(i => !occupied[i] && cells.h[i] < 20 && cells.road[i]);
+    return cells.i.filter(i => !occupied[i] && cells.h[i] < 20 && Routes.isConnected(i));
   }
 
   function addPirates(id, cell) {
@@ -959,7 +962,7 @@ window.Markers = (function () {
   }
 
   function listCircuses({cells}) {
-    return cells.i.filter(i => !occupied[i] && cells.culture[i] && cells.h[i] >= 20 && pack.cells.road[i]);
+    return cells.i.filter(i => !occupied[i] && cells.culture[i] && cells.h[i] >= 20 && Routes.isConnected(i));
   }
 
   function addCircuse(id, cell) {
@@ -1180,7 +1183,7 @@ window.Markers = (function () {
       formation = "Glacial " + formation;
     }
     const name = `${toponym} ${formation}`;
-    const legend = `The ${name}. 当地人称它是 ${rw(status)}.`;
+    const legend = `The ${name}. Locals claim that it is ${rw(status)}.`;
     notes.push({id, name, legend});
   }
 
@@ -1266,15 +1269,17 @@ window.Markers = (function () {
 
     notes.push({id, name, legend});
   }
+
   function listEncounters({cells}) {
     return cells.i.filter(i => !occupied[i] && cells.h[i] >= 20 && cells.pop[i] > 1);
   }
 
   function addEncounter(id, cell) {
-    const name = "随机偶遇";
+    const name = "偶遇";
     const encounterSeed = cell; // use just cell Id to not overwhelm the Vercel KV database
-    const legend = `<div>你偶遇了一位人物.下面内容可能因为处于海外无法访问，</div><a href="https://deorum.vercel.app/encounter/${encounterSeed}" target="_blank" style="color:#deb640;">官方链接</a><iframe src="https://deorum.vercel.app/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
+    const legend = `<div>你偶遇了一位人物.（以下内容由于被墙无法直接访问）</div><a href="https://deorum.vercel.app/encounter/${encounterSeed}" target="_blank" style="color:#deb640;">官方链接</a><iframe src="https://deorum.vercel.app/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
     notes.push({id, name, legend});
   }
+
   return {add, generate, regenerate, getConfig, setConfig, deleteMarker};
 })();

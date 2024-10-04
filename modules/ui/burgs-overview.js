@@ -2,7 +2,7 @@
 function overviewBurgs(settings = {stateId: null, cultureId: null}) {
   if (customization) return;
   closeDialogs("#burgsOverview, .stable");
-  if (!layerIsOn("toggleIcons")) toggleIcons();
+  if (!layerIsOn("toggleBurgIcons")) toggleBurgIcons();
   if (!layerIsOn("toggleLabels")) toggleLabels();
 
   const body = byId("burgsBody");
@@ -36,7 +36,6 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
   });
   byId("burgsLockAll").addEventListener("click", toggleLockAll);
   byId("burgsRemoveAll").addEventListener("click", triggerAllBurgsRemove);
-  byId("burgsInvertLock").addEventListener("click", invertLock);
 
   function refreshBurgsEditor() {
     updateFilter();
@@ -76,7 +75,7 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
     for (const b of filtered) {
       const population = b.population * populationRate * urbanization;
       totalPopulation += population;
-      const type = b.capital && b.port ? "a-capital-port" : b.capital ? "c-capital" : b.port ? "p-port" : "z-burg";
+      const features = b.capital && b.port ? "a-capital-port" : b.capital ? "c-capital" : b.port ? "p-port" : "z-burg";
       const state = pack.states[b.state].name;
       const prov = pack.cells.province[b.cell];
       const province = prov ? pack.provinces[prov].name : "";
@@ -90,25 +89,28 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
         data-province="${province}"
         data-culture="${culture}"
         data-population=${population}
-        data-type="${type}"
+        data-features="${features}"
       >
         <span data-tip="放大到视图" class="icon-dot-circled pointer"></span>
-        <input data-tip="城市名称。点击并键入以更改" class="burgName" value="${b.name}" autocorrect="off" spellcheck="false" />
+        <input data-tip="城市名称。点击并键入以更改" class="burgName" value="${
+          b.name
+        }" autocorrect="off" spellcheck="false" />
         <input data-tip="城市 省" class="burgState" value="${province}" disabled />
         <input data-tip="城市 国家" class="burgState" value="${state}" disabled />
         <select data-tip="主导文化。点击可更改城市文化(使用文化编辑器更改单元格文化)" class="stateCulture">
           ${getCultureOptions(b.culture)}
         </select>
         <span data-tip="城市人口" class="icon-male"></span>
-        <input data-tip="城市人口，可以更改类型" class="burgPopulation" value=${si(population)} />
-        <div class="burgType">
+        <input data-tip="城市人口，可以更改类型" value=${si(
+          population
+        )} class="burgPopulation" style="width: 5em" />
+        <div style="width: 3em">
           <span
             data-tip="${b.capital ? " 这个城市是国家首都" : "点击指定首都状态"}"
-            class="icon-star-empty${b.capital ? "" : " inactive pointer"}"
-          ></span>
+            class="icon-star-empty${b.capital ? "" : " inactive pointer"}" style="padding: 0 1px;"></span>
           <span data-tip="切换港口状态" class="icon-anchor pointer${
             b.port ? "" : " inactive"
-          }" style="font-size:.9em"></span>
+          }" style="font-size: .9em; padding: 0 1px;"></span>
         </div>
         <span data-tip="编辑城市" class="icon-pencil"></span>
         <span class="locks pointer ${
@@ -153,9 +155,9 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
   }
 
   function burgHighlightOn(event) {
-    if (!layerIsOn("toggleLabels")) toggleLabels();
     const burg = +event.target.dataset.id;
-    burgLabels.select("[data-id='" + burg + "']").classed("drag", true);
+    const label = burgLabels.select("[data-id='" + burg + "']");
+    if (label.size()) label.classed("drag", true);
   }
 
   function burgHighlightOff() {
@@ -277,7 +279,8 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
 
   function addBurgOnClick() {
     const point = d3.mouse(this);
-    const cell = findCell(point[0], point[1]);
+    const cell = findCell(...point);
+
     if (pack.cells.h[cell] < 20)
       return tip("你不能把国家放入水中。请点击陆地单元格", false, "error");
     if (pack.cells.burg[cell])
@@ -338,8 +341,8 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
       .sum(d => d.population)
       .sort((a, b) => b.value - a.value);
 
-    const width = 150 + 200 * uiSizeOutput.value;
-    const height = 150 + 200 * uiSizeOutput.value;
+    const width = 150 + 200 * uiSize.value;
+    const height = 150 + 200 * uiSize.value;
     const margin = {top: 0, right: -50, bottom: -10, left: -50};
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
@@ -597,11 +600,6 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
 
   function removeAllBurgs() {
     pack.burgs.filter(b => b.i && !(b.capital || b.lock)).forEach(b => removeBurg(b.i));
-    burgsOverviewAddLines();
-  }
-
-  function invertLock() {
-    pack.burgs = pack.burgs.map(burg => ({...burg, lock: !burg.lock}));
     burgsOverviewAddLines();
   }
 

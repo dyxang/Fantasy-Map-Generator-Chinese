@@ -151,8 +151,8 @@ function appendStyleSheet() {
 
 function insertHtml() {
   const heightmapColorSchemeOptions = Object.keys(heightmapColorSchemes)
-  .map(scheme => `<option value="${scheme}">${scheme}</option>`)
-  .join("");
+    .map(scheme => `<option value="${scheme}">${scheme}</option>`)
+    .join("");
 
   const heightmapSelectionHtml = /* html */ `<div id="heightmapSelection" class="dialog stable">
     <div class="heightmap-selection">
@@ -201,8 +201,8 @@ function insertHtml() {
       const heights = HeightmapGenerator.fromTemplate(graph, key);
 
       return /* html */ `<article data-id="${key}" data-seed="${initialSeed}">
-      <img src="${getHeightmapPreview(heights)}" alt="${name}" />
-      <div>
+        <img src="${getHeightmapPreview(heights)}" alt="${name}" />
+        <div>
           ${name}
           <span data-tip="重新生成预览" class="icon-cw regeneratePreview"></span>
         </div>
@@ -264,7 +264,6 @@ function getGraph(currentGraph) {
   delete newGraph.cells.h;
   return newGraph;
 }
-
 
 function drawTemplatePreview(id) {
   const heights = HeightmapGenerator.fromTemplate(graph, id);

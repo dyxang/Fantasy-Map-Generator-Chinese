@@ -79,7 +79,9 @@ function overviewRegiments(state) {
 
     lines += /* html */ `<div id="regimentsTotalLine" class="totalLine" data-tip="所有展示的军队的总数">
       <div style="width: 21em; margin-left: 1em">军队: ${regiments.length}</div>
-      ${options.military.map(u => `<div style="width:5em">${si(d3.sum(regiments.map(r => r.u[u.name] || 0)))}</div>`).join(" ")}
+      ${options.military
+        .map(u => `<div style="width:5em">${si(d3.sum(regiments.map(r => r.u[u.name] || 0)))}</div>`)
+        .join(" ")}
       <div style="width:5em">${si(d3.sum(regiments.map(r => r.a)))}</div>
     </div>`;
 
@@ -173,7 +175,7 @@ function overviewRegiments(state) {
     reg.name = Military.getName(reg, military);
     military.push(reg);
     Military.generateNote(reg, pack.states[state]); // add legend
-    Military.drawRegiment(reg, state);
+    drawRegiment(reg, state);
     toggleAdd();
   }
 

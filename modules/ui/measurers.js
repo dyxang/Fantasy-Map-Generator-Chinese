@@ -66,7 +66,7 @@ class Measurer {
   }
 
   getDash() {
-    return rn(30 / distanceScaleInput.value, 2);
+    return rn(30 / distanceScale, 2);
   }
 
   drag() {
@@ -205,7 +205,7 @@ class Ruler extends Measurer {
 
   updateLabel() {
     const length = this.getLength();
-    const text = rn(length * distanceScaleInput.value) + " " + distanceUnitInput.value;
+    const text = rn(length * distanceScale) + " " + distanceUnitInput.value;
     const [x, y] = last(this.points);
     this.el.select("text").attr("x", x).attr("y", y).text(text);
   }
@@ -337,7 +337,7 @@ class Opisometer extends Measurer {
 
   updateLabel() {
     const length = this.el.select("path").node().getTotalLength();
-    const text = rn(length * distanceScaleInput.value) + " " + distanceUnitInput.value;
+    const text = rn(length * distanceScale) + " " + distanceUnitInput.value;
     const [x, y] = last(this.points);
     this.el.select("text").attr("x", x).attr("y", y).text(text);
   }
@@ -475,7 +475,7 @@ class RouteOpisometer extends Measurer {
 
   updateLabel() {
     const length = this.el.select("path").node().getTotalLength();
-    const text = rn(length * distanceScaleInput.value) + " " + distanceUnitInput.value;
+    const text = rn(length * distanceScale) + " " + distanceUnitInput.value;
     const [x, y] = last(this.points);
     this.el.select("text").attr("x", x).attr("y", y).text(text);
   }
@@ -486,9 +486,7 @@ class RouteOpisometer extends Measurer {
       const cells = pack.cells;
 
       const c = findCell(mousePoint[0], mousePoint[1]);
-      if (!cells.road[c] && !d3.event.sourceEvent.shiftKey) {
-        return;
-      }
+      if (!Routes.isConnected(c) && !d3.event.sourceEvent.shiftKey) return;
 
       context.trackCell(c, rigth);
     });
@@ -533,3 +531,31 @@ class Planimeter extends Measurer {
   }
 }
 
+function createDefaultRuler() {
+  TIME && console.time("createDefaultRuler");
+  const {features, vertices} = pack;
+
+  const areas = features.map(f => (f.land ? f.area || 0 : -Infinity));
+  const largestLand = areas.indexOf(Math.max(...areas));
+  const featureVertices = features[largestLand].vertices;
+
+  const MIN_X = 100;
+  const MAX_X = graphWidth - 100;
+  const MIN_Y = 100;
+  const MAX_Y = graphHeight - 100;
+
+  let leftmostVertex = [graphWidth - MIN_X, graphHeight / 2];
+  let rightmostVertex = [MIN_X, graphHeight / 2];
+
+  for (const vertex of featureVertices) {
+    const [x, y] = vertices.p[vertex];
+    if (y < MIN_Y || y > MAX_Y) continue;
+    if (x < leftmostVertex[0] && x >= MIN_X) leftmostVertex = [x, y];
+    if (x > rightmostVertex[0] && x <= MAX_X) rightmostVertex = [x, y];
+  }
+
+  rulers = new Rulers();
+  rulers.create(Ruler, [leftmostVertex, rightmostVertex]);
+
+  TIME && console.timeEnd("createDefaultRuler");
+}

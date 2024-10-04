@@ -1,31 +1,26 @@
 "use strict";
-/*
-Cell resampler module used by submapper and resampler (transform)
-main function: resample(options);
-*/
 
 window.Submap = (function () {
   const isWater = (pack, id) => pack.cells.h[id] < 20;
   const inMap = (x, y) => x > 0 && x < graphWidth && y > 0 && y < graphHeight;
 
-  function resample(parentMap, options) {
-    /*
+  /*
     generate new map based on an existing one (resampling parentMap)
     parentMap: {seed, grid, pack} from original map
     options = {
-          projection: f(Number,Number)->[Number, Number]
-                      function to calculate new coordinates
-          inverse: g(Number,Number)->[Number, Number]
-                    inverse of f
-          depressRivers: Bool     carve out riverbeds?
-          smoothHeightMap: Bool   run smooth filter on heights
-          addLakesInDepressions:  call FMG original funtion on heightmap
+      projection: f(Number,Number)->[Number, Number]
+                  function to calculate new coordinates
+      inverse: g(Number,Number)->[Number, Number]
+                inverse of f
+      depressRivers: Bool     carve out riverbeds?
+      smoothHeightMap: Bool   run smooth filter on heights
+      addLakesInDepressions:  call FMG original funtion on heightmap
 
-          lockMarkers: Bool       Auto lock all copied markers
-          lockBurgs: Bool         Auto lock all copied burgs
+      lockMarkers: Bool       Auto lock all copied markers
+      lockBurgs: Bool         Auto lock all copied burgs
       }
     */
-
+  function resample(parentMap, options) {
     const projection = options.projection;
     const inverse = options.inverse;
     const stage = s => INFO && console.info("SUBMAP:", s);
@@ -38,7 +33,6 @@ window.Submap = (function () {
     INFO && console.group("带种子的子地图: " + seed);
     DEBUG && console.info("使用选项:", options);
 
-    // create new grid
     applyGraphSize();
     grid = generateGrid();
 
@@ -110,33 +104,27 @@ window.Submap = (function () {
       });
     }
 
-    stage("探测文化、海洋和形成的湖泊.");
-    markFeatures();
-    markupGridOcean();
+    stage("检测文化、海洋和形成的湖泊.");
+    Features.markupGrid();
 
-    // Warning: addLakesInDeepDepressions can be very slow!
-    if (options.addLakesInDepressions) {
-      addLakesInDeepDepressions();
-      openNearSeaLakes();
-    }
+    addLakesInDeepDepressions();
+    openNearSeaLakes();
 
     OceanLayers();
 
     calculateMapCoordinates();
-    // calculateTemperatures();
-    // generatePrecipitation();
-    stage("清理单元格.");
+    calculateTemperatures();
+    generatePrecipitation();
+    stage("清理单元格");
     reGraph();
 
     // remove misclassified cells
-    stage("定义海岸线.");
-    drawCoastline();
+    stage("定义海岸线");
+    Features.markupPack();
+    createDefaultRuler();
 
-    /****************************************************/
-    /* Packed Graph */
-    /****************************************************/
+    // Packed Graph
     const oldCells = parentMap.pack.cells;
-    // const reverseMap = new Map(); // cellmap from new -> oldcell
     const forwardMap = parentMap.pack.cells.p.map(_ => []); // old -> [newcelllist]
 
     const pn = pack.cells.i.length;
@@ -145,15 +133,13 @@ window.Submap = (function () {
     cells.state = new Uint16Array(pn);
     cells.burg = new Uint16Array(pn);
     cells.religion = new Uint16Array(pn);
-    cells.road = new Uint16Array(pn);
-    cells.crossroad = new Uint16Array(pn);
     cells.province = new Uint16Array(pn);
 
     stage("重新抽样文化、国家和宗教地图.");
     for (const [id, gridCellId] of cells.g.entries()) {
       const oldGridId = reverseGridMap[gridCellId];
       if (oldGridId === undefined) {
-        console.error("找不到旧的单元格号码", reverseGridMap, "in", gridCellId);
+        console.error("找不到旧的单元格id", reverseGridMap, "in", gridCellId);
         continue;
       }
       // find old parent's children
@@ -163,7 +149,7 @@ window.Submap = (function () {
       if (!oldChildren.length) {
         // it *must* be a (deleted) deep ocean cell
         if (!oldGrid.cells.h[oldGridId] < 20) {
-          console.error(`警告, ${gridCellId} 应该是水单元格, 而不是 ${oldGrid.cells.h[oldGridId]}`);
+          console.error(`Warning, ${gridCellId} should be water cell, not ${oldGrid.cells.h[oldGridId]}`);
           continue;
         }
         // find replacement: closest water cell
@@ -171,7 +157,7 @@ window.Submap = (function () {
         const [tx, ty] = inverse(x, y);
         oldid = oldCells.q.find(tx, ty, Infinity)[2];
         if (!oldid) {
-          console.warn("警告，四周找不到身份信息", id, "parent", gridCellId);
+          console.warn("Warning, no id found in quad", id, "parent", gridCellId);
           continue;
         }
       } else {
@@ -181,23 +167,23 @@ window.Submap = (function () {
         oldChildren.forEach(oid => {
           // this should be always true, unless some algo modded the height!
           if (isWater(parentMap.pack, oid) !== isWater(pack, id)) {
-            console.warn(`单元格沉没是因为 addLakesInDepressions: ${oid}`);
+            console.warn(`cell sank because of addLakesInDepressions: ${oid}`);
           }
           const [oldpx, oldpy] = oldCells.p[oid];
           const nd = distance(projection(oldpx, oldpy));
           if (isNaN(nd)) {
-            console.error("距离不是数字!", "Old point:", oldpx, oldpy);
+            console.error("Distance is not a number!", "Old point:", oldpx, oldpy);
           }
           if (nd < d) [d, oldid] = [nd, oid];
         });
         if (oldid === undefined) {
-          console.warn("警告，无法匹配", id, "(parent:", gridCellId, ")");
+          console.warn("Warning, no match for", id, "(parent:", gridCellId, ")");
           continue;
         }
       }
 
       if (isWater(pack, id) !== isWater(parentMap.pack, oldid)) {
-        WARN && console.warn("检测到类型差异:", id, oldid, `${pack.cells.t[id]} != ${oldCells.t[oldid]}`);
+        WARN && console.warn("Type discrepancy detected:", id, oldid, `${pack.cells.t[id]} != ${oldCells.t[oldid]}`);
       }
 
       cells.culture[id] = oldCells.culture[oldid];
@@ -210,8 +196,6 @@ window.Submap = (function () {
 
     stage("重建河网.");
     Rivers.generate();
-    drawRivers();
-    Lakes.defineGroup();
 
     // biome calculation based on (resampled) grid.cells.temp and prec
     // it's safe to recalculate.
@@ -254,6 +238,7 @@ window.Submap = (function () {
         ? pack.burgs[s.capital].cell // capital is the best bet
         : pack.cells.state.findIndex(x => x === i); // otherwise use the first valid cell
     });
+    BurgsAndStates.getPoles();
 
     // transfer provinces, mark provinces without land as removed.
     stage("移植省份.");
@@ -269,18 +254,13 @@ window.Submap = (function () {
       const newCenters = forwardMap[p.center];
       p.center = newCenters.length ? newCenters[0] : pack.cells.province.findIndex(x => x === i);
     });
-
-    BurgsAndStates.drawBurgs();
+    Provinces.getPoles();
 
     stage("重建道路网络.");
-    Routes.regenerate();
-
-    drawStates();
-    drawBorders();
-    drawStateLabels();
+    regenerateRoutes();
 
     Rivers.specify();
-    Lakes.generateName();
+    Features.specify();
 
     stage("转移军队.");
     for (const s of pack.states) {
@@ -293,7 +273,6 @@ window.Submap = (function () {
       }
       s.military = s.military.filter(m => m.cell).map((m, i) => ({...m, i}));
     }
-    Military.redraw();
 
     stage("复制记号.");
     for (const m of pack.markers) {
@@ -309,10 +288,8 @@ window.Submap = (function () {
     }
     if (layerIsOn("toggleMarkers")) drawMarkers();
 
-    stage("重画徽章.");
-    drawEmblems();
-    stage("重生区域.");
-    addZones();
+    stage("重建区域");
+    Zones.generate();
     Names.getMapName();
     stage("还原笔记.");
     notes = parentMap.notes;
@@ -320,7 +297,7 @@ window.Submap = (function () {
 
     WARN && console.warn(`总计: ${rn((performance.now() - timeStart) / 1000, 2)}s`);
     showStatistics();
-    INFO && console.groupEnd("生成地图 " + seed);
+    INFO && console.groupEnd("Generated Map " + seed);
   }
 
   /* find the nearest cell accepted by filter f *and* having at
@@ -391,22 +368,39 @@ window.Submap = (function () {
       if (searchFunc) {
         const [newCell, neighbor] = searchFunc(b.x, b.y);
         if (!newCell) {
-          WARN && console.warn(`无法重新安置城市: ${b.name} 已沉没毁灭. :-(`);
+          WARN && console.warn(`Can not relocate Burg: ${b.name} sunk and destroyed. :-(`);
           b.cell = null;
           b.removed = true;
           return;
         }
-        DEBUG && console.info(`移动 ${b.name} 从 ${cityCell} 到 ${newCell} 邻近 ${neighbor}.`);
-        [b.x, b.y] = b.port ? getMiddlePoint(newCell, neighbor) : cells.p[newCell];
+        DEBUG && console.info(`Moving ${b.name} from ${cityCell} to ${newCell} near ${neighbor}.`);
+        [b.x, b.y] = b.port ? getCloseToEdgePoint(newCell, neighbor) : cells.p[newCell];
         if (b.port) b.port = cells.f[neighbor]; // copy feature number
         b.cell = newCell;
-        if (b.port && !isWater(pack, neighbor)) console.error("冲突！邻近一定要是水!", b);
+        if (b.port && !isWater(pack, neighbor)) console.error("betrayal! negihbor must be water!", b);
       } else {
         b.cell = cityCell;
       }
       if (b.i && !b.lock) b.lock = options.lockBurgs;
       cells.burg[b.cell] = id;
     });
+  }
+
+  function getCloseToEdgePoint(cell1, cell2) {
+    const {cells, vertices} = pack;
+
+    const [x0, y0] = cells.p[cell1];
+
+    const commonVertices = cells.v[cell1].filter(vertex => vertices.c[vertex].some(cell => cell === cell2));
+    const [x1, y1] = vertices.p[commonVertices[0]];
+    const [x2, y2] = vertices.p[commonVertices[1]];
+    const xEdge = (x1 + x2) / 2;
+    const yEdge = (y1 + y2) / 2;
+
+    const x = rn(x0 + 0.95 * (xEdge - x0), 2);
+    const y = rn(y0 + 0.95 * (yEdge - y0), 2);
+
+    return [x, y];
   }
 
   // export

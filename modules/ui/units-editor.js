@@ -17,28 +17,22 @@ function editUnits() {
   };
 
   // add listeners
-  byId("distanceUnitInput").addEventListener("change", changeDistanceUnit);
-  byId("distanceScaleOutput").addEventListener("input", changeDistanceScale);
-  byId("distanceScaleInput").addEventListener("change", changeDistanceScale);
-  byId("heightUnit").addEventListener("change", changeHeightUnit);
-  byId("heightExponentInput").addEventListener("input", changeHeightExponent);
-  byId("heightExponentOutput").addEventListener("input", changeHeightExponent);
-  byId("temperatureScale").addEventListener("change", changeTemperatureScale);
+  byId("distanceUnitInput").on("change", changeDistanceUnit);
+  byId("distanceScaleInput").on("change", changeDistanceScale);
+  byId("heightUnit").on("change", changeHeightUnit);
+  byId("heightExponentInput").on("input", changeHeightExponent);
+  byId("temperatureScale").on("change", changeTemperatureScale);
 
+  byId("populationRateInput").on("change", changePopulationRate);
+  byId("urbanizationInput").on("change", changeUrbanizationRate);
+  byId("urbanDensityInput").on("change", changeUrbanDensity);
 
-  byId("populationRateOutput").addEventListener("input", changePopulationRate);
-  byId("populationRateInput").addEventListener("change", changePopulationRate);
-  byId("urbanizationOutput").addEventListener("input", changeUrbanizationRate);
-  byId("urbanizationInput").addEventListener("change", changeUrbanizationRate);
-  byId("urbanDensityOutput").addEventListener("input", changeUrbanDensity);
-  byId("urbanDensityInput").addEventListener("change", changeUrbanDensity);
-
-  byId("addLinearRuler").addEventListener("click", addRuler);
-  byId("addOpisometer").addEventListener("click", toggleOpisometerMode);
-  byId("addRouteOpisometer").addEventListener("click", toggleRouteOpisometerMode);
-  byId("addPlanimeter").addEventListener("click", togglePlanimeterMode);
-  byId("removeRulers").addEventListener("click", removeAllRulers);
-  byId("unitsRestore").addEventListener("click", restoreDefaultUnits);
+  byId("addLinearRuler").on("click", addRuler);
+  byId("addOpisometer").on("click", toggleOpisometerMode);
+  byId("addRouteOpisometer").on("click", toggleRouteOpisometerMode);
+  byId("addPlanimeter").on("click", togglePlanimeterMode);
+  byId("removeRulers").on("click", removeAllRulers);
+  byId("unitsRestore").on("click", restoreDefaultUnits);
 
   function changeDistanceUnit() {
     if (this.value === "custom_name") {
@@ -56,6 +50,7 @@ function editUnits() {
   }
 
   function changeDistanceScale() {
+    distanceScale = +this.value;
     renderScaleBar();
     calculateFriendlyGridSize();
   }
@@ -71,13 +66,12 @@ function editUnits() {
 
   function changeHeightExponent() {
     calculateTemperatures();
-    if (layerIsOn("toggleTemp")) drawTemp();
+    if (layerIsOn("toggleTemperature")) drawTemperature();
   }
 
   function changeTemperatureScale() {
-    if (layerIsOn("toggleTemp")) drawTemp();
+    if (layerIsOn("toggleTemperature")) drawTemperature();
   }
-
 
   function changePopulationRate() {
     populationRate = +this.value;
@@ -92,10 +86,8 @@ function editUnits() {
   }
 
   function restoreDefaultUnits() {
-    // distanceScale
     distanceScale = 3;
-    byId("distanceScaleOutput").value = 3;
-    byId("distanceScaleInput").value = 3;
+    byId("distanceScaleInput").value = distanceScale;
     unlock("distanceScale");
 
     // units
@@ -112,17 +104,16 @@ function editUnits() {
     calculateFriendlyGridSize();
 
     // height exponent
-    heightExponentInput.value = heightExponentOutput.value = 1.8;
+    heightExponentInput.value = 1.8;
     localStorage.removeItem("heightExponent");
     calculateTemperatures();
-
 
     renderScaleBar();
 
     // population
-    populationRate = populationRateOutput.value = populationRateInput.value = 1000;
-    urbanization = urbanizationOutput.value = urbanizationInput.value = 1;
-    urbanDensity = urbanDensityOutput.value = urbanDensityInput.value = 10;
+    populationRate = populationRateInput.value = 1000;
+    urbanization = urbanizationInput.value = 1;
+    urbanDensity = urbanDensityInput.value = 10;
     localStorage.removeItem("populationRate");
     localStorage.removeItem("urbanization");
     localStorage.removeItem("urbanDensity");
@@ -182,13 +173,15 @@ function editUnits() {
       tip("沿着路线画一条曲线来测量长度。按住 Shift 来测量远离道路的距离.", true);
       unitsBottom.querySelectorAll(".pressed").forEach(button => button.classList.remove("pressed"));
       this.classList.add("pressed");
+
       viewbox.style("cursor", "crosshair").call(
         d3.drag().on("start", function () {
           const cells = pack.cells;
           const burgs = pack.burgs;
           const point = d3.mouse(this);
           const c = findCell(point[0], point[1]);
-          if (cells.road[c] || d3.event.sourceEvent.shiftKey) {
+
+          if (Routes.isConnected(c) || d3.event.sourceEvent.shiftKey) {
             const b = cells.burg[c];
             const x = b ? burgs[b].x : cells.p[c][0];
             const y = b ? burgs[b].y : cells.p[c][1];
@@ -197,7 +190,7 @@ function editUnits() {
             d3.event.on("drag", function () {
               const point = d3.mouse(this);
               const c = findCell(point[0], point[1]);
-              if (cells.road[c] || d3.event.sourceEvent.shiftKey) {
+              if (Routes.isConnected(c) || d3.event.sourceEvent.shiftKey) {
                 routeOpisometer.trackCell(c, true);
               }
             });

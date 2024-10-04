@@ -16,7 +16,7 @@ Issue 不适合仅做翻译的项目，故关闭。另外，由于刚刚公开�
 
 | 爱发电 | 赞赏码   | 
 | ---- | ---- | 
-|[![译者的爱发电](https://s2.loli.net/2023/11/02/MHDtEfQeKYdJBA3.jpg)](https://afdian.net/a/freeguy)|![donate.jpg](https://s2.loli.net/2023/11/02/LUxHGtkwlrIyCef.jpg)|
+|[![译者的爱发电](https://s2.loli.net/2024/09/29/Xoq8dxhYCEI2Pij.jpg)](https://afdian.com/a/freeguy)|![donate.jpg](https://s2.loli.net/2023/11/02/LUxHGtkwlrIyCef.jpg)|
 
 
 

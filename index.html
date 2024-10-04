@@ -28,6 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
 <!--结束-->
+<script defer src="https://sakura.1inn.top/script.js" data-website-id="279a18ba-42d8-487c-84ee-162e139e209b"></script>
     <!-- inline css for loading screen -->
     <style type="text/css">
       body {
@@ -120,7 +121,7 @@
       }
     </style>
 
-    <link rel="preload" href="index.css?v=1.96.00" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+    <link rel="preload" href="index.css?v=1.105.7" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="icons.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="libs/jquery-ui.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
   </head>
@@ -326,6 +327,10 @@
         </g>
 
         <g id="deftemp">
+          <g id="featurePaths"></g>
+          <g id="textPaths"></g>
+          <g id="statePaths"></g>
+          <g id="defs-emblems"></g>
           <mask id="land"></mask>
           <mask id="water">
             <rect x="0" y="0" width="100%" height="100%" fill="white" />
@@ -333,9 +338,6 @@
           <mask id="fog" style="stroke-width: 10; stroke: black; stroke-linejoin: round; stroke-opacity: 0.1">
             <rect x="0" y="0" width="100%" height="100%" fill="white" stroke="none" />
           </mask>
-          <g id="textPaths"></g>
-          <g id="statePaths"></g>
-          <g id="defs-emblems"></g>
         </g>
 
         <pattern id="oceanic" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -362,13 +364,13 @@
         <rect x="-1%" y="-1%" width="102%" height="102%" fill="url(#oceanic)" />
       </svg>
       <svg id="loading-rose" width="100%" height="100%" viewBox="0 0 700 700">
-        <use href="#rose" x="50%" y="50%" />
+        <use href="#defs-compass-rose" x="50%" y="50%" />
       </svg>
       <div id="loading-typography">
         <div id="titleName">Azgaar的</div>
         <div id="title">幻想地图生成器</div>
         <div id="versionText"> </div>
-        <p id="loading-text">个人汉化版载入中<span>.</span><span>.</span><span>.</span></p>
+        <p id="loading-text">汉化版载入中<span>.</span><span>.</span><span>.</span></p>
         超时请访问hk.8desk.top
       </div>
     </div>
@@ -421,7 +423,7 @@
           <select
             data-tip="选择一个地图图层预设"
             id="layersPreset"
-            onchange="changePreset(this.value)"
+            onchange="handleLayersPresetChange(this.value)"
             style="width: 45%"
           >
             <option value="political" selected>行政区域图</option>
@@ -452,9 +454,7 @@
             onclick="removePreset()"
           ></button>
 
-          <p data-tip="切换图层，拖动以升起或降低图层。点击 Ctrl + 可编辑图层样式">
-            显示图层和图层顺序:
-          </p>
+          <p>显示图层和图层顺序:</p>
           <ul
             data-tip="点击以切换图层，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
             id="mapLayers"
@@ -463,7 +463,6 @@
               id="toggleTexture"
               data-tip="材质图：点击以切换，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="X"
-              class="buttonoff"
               onclick="toggleTexture(event)"
             >
             纹理(<u>x</u>)
@@ -472,7 +471,6 @@
               id="toggleHeight"
               data-tip="高程图：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="H"
-              class="buttonoff"
               onclick="toggleHeight(event)"
             >
               高程图(<u>h</u>)
@@ -481,7 +479,6 @@
               id="toggleBiomes"
               data-tip="生物群：点击以切换，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="B"
-              class="buttonoff"
               onclick="toggleBiomes(event)"
             >
               生物群(<u>x</u>)
@@ -490,7 +487,6 @@
               id="toggleCells"
               data-tip="单元格：点击以切换，拖动以升高或降低层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="E"
-              class="buttonoff"
               onclick="toggleCells(event)"
             >
               单元格(<u>e</u>)
@@ -499,7 +495,6 @@
               id="toggleGrid"
               data-tip="网格：点击以切换，拖动可升高或降低。按住Ctrl键并点击以编辑图层样式，然后选择“类型”"
               data-shortcut="G"
-              class="buttonoff"
               onclick="toggleGrid(event)"
             >
               网格(<u>g</u>)
@@ -508,7 +503,6 @@
               id="toggleCoordinates"
               data-tip="坐标：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="O"
-              class="buttonoff"
               onclick="toggleCoordinates(event)"
             >
             坐标(<u>o</u>)
@@ -517,7 +511,6 @@
               id="toggleCompass"
               data-tip="风向图：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="W"
-              class="buttonoff"
               onclick="toggleCompass(event)"
             >
               风向玫瑰图(<u>w</u>)
@@ -534,7 +527,6 @@
               id="toggleRelief"
               data-tip="地貌和生物群落图标：点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="F"
-              class="buttonoff"
               onclick="toggleRelief(event)"
             >
               地貌图标(<u>f</u>)
@@ -543,7 +535,6 @@
               id="toggleReligions"
               data-tip="宗教：点击可切换，拖动可升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="R"
-              class="buttonoff"
               onclick="toggleReligions(event)"
             >
               宗教(<u>r</u>)
@@ -552,7 +543,6 @@
               id="toggleCultures"
               data-tip="文化: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="C"
-              class="buttonoff"
               onclick="toggleCultures(event)"
             >
               文化(<u>c</u>)
@@ -569,7 +559,6 @@
               id="toggleProvinces"
               data-tip="省: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="P"
-              class="buttonoff"
               onclick="toggleProvinces(event)"
             >
               省份(<u>p</u>)
@@ -578,7 +567,6 @@
               id="toggleZones"
               data-tip="区域: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="Z"
-              class="buttonoff"
               onclick="toggleZones(event)"
             >
               区域(<u>z</u>)
@@ -600,11 +588,10 @@
               路线(<u>u</u>)
             </li>
             <li
-              id="toggleTemp"
+              id="toggleTemperature"
               data-tip="温度图: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="T"
-              class="buttonoff"
-              onclick="toggleTemp(event)"
+              onclick="toggleTemperature(event)"
             >
               温度图(<u>t</u>)
             </li>
@@ -612,7 +599,6 @@
               id="togglePopulation"
               data-tip="人口图: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="N"
-              class="buttonoff"
               onclick="togglePopulation(event)"
             >
               人口(<u>n</u>)
@@ -621,17 +607,15 @@
               id="toggleIce"
               data-tip="冰山和冰川: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="J"
-              class="buttonoff"
               onclick="toggleIce(event)"
             >
               冰(<u>J</u>)
             </li>
             <li
-              id="togglePrec"
+              id="togglePrecipitation"
               data-tip="降水图: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="A"
-              class="buttonoff"
-              onclick="togglePrec(event)"
+              onclick="togglePrecipitation(event)"
             >
               降水(<u>a</u>)
             </li>
@@ -639,7 +623,6 @@
               id="toggleEmblems"
               data-tip="徽标: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="Y"
-              class="buttonoff"
               onclick="toggleEmblems(event)"
             >
               徽标(<u>Y</u>)
@@ -653,10 +636,10 @@
               标签(<u>l</u>)
             </li>
             <li
-              id="toggleIcons"
+              id="toggleBurgIcons"
               data-tip="城市图标: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="I"
-              onclick="toggleIcons(event)"
+              onclick="toggleBurgIcons(event)"
             >
               图标(<u>i</u>)
             </li>
@@ -664,7 +647,6 @@
               id="toggleMilitary"
               data-tip="军事力量: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="M"
-              class="buttonoff"
               onclick="toggleMilitary(event)"
             >
               军事(<u>m</u>)
@@ -673,7 +655,6 @@
               id="toggleMarkers"
               data-tip="标记: 点击以切换，拖动以升高或降低图层。按住Ctrl键并点击可编辑图层样式"
               data-shortcut="K"
-              class="buttonoff"
               onclick="toggleMarkers(event)"
             >
               标记(<u>k</u>)
@@ -681,8 +662,7 @@
             <li
               id="toggleRulers"
               data-tip="标尺：点击切换，拖动移动，点击标签删除。按住Ctrl键并点击可编辑图层样式"
-              data-shortcut="= (等于号)"
-              class="buttonoff"
+              data-shortcut="= (equal sign)"
               onclick="toggleRulers(event)"
             >
               标尺(<u>=</u>)
@@ -690,22 +670,24 @@
             <li
               id="toggleScaleBar"
               data-tip="比例尺：点击以切换。按住Ctrl键并点击可编辑样式"
-              data-shortcut="/ (正斜杠)"
+              data-shortcut="/ (slash sign)"
               onclick="toggleScaleBar(event)"
               class="solid"
             >
               比例尺(<u>/</u>)
             </li>
             <li
-            id="toggleVignette"
-            data-tip="晕影（边框渐变）：单击切换。按 Ctrl + 单击编辑样式"
-            data-shortcut="[ (方括号)"
-            onclick="toggleVignette(event)"
-            class="solid"
-          >
+              id="toggleVignette"
+              data-tip="晕影（边框渐变）：单击切换。按 Ctrl + 单击编辑样式"
+              data-shortcut="[ (left square bracket)"
+              onclick="toggleVignette(event)"
+              class="solid"
+            >
             晕影
-          </li>
+            </li>
           </ul>
+          <div class="tip">单击可切换，拖动可升高或降低图层</div>
+          <div class="tip">Ctrl + 单击编辑图层样式</div>
 
           <div id="viewMode" data-tip="设置显示模式">
             <p>显示模式：</p>
@@ -716,7 +698,7 @@
               data-tip="3D 显示地图。展示高程图效果最好。无法编辑"
               id="viewMesh"
             >
-              三维视景
+              3D scene
             </button>
             <button data-tip="地球上显示地图。无法编辑" id="viewGlobe">球体</button>
           </div>
@@ -752,7 +734,7 @@
 
           <p></p><p data-tip="选择一个元素来编辑其样式" style="display: inline-block">选择元素:</p>
           <select
-            data-tip="选择一个元素来编辑其样式(列表按字母顺序排列)"
+            data-tip="Select an element to edit its style (list is ordered alphabetically)"
             id="styleElementSelect"
             style="width: 42%"
           >
@@ -810,7 +792,6 @@
               </tr>
             </tbody>
 
-
             <tbody id="styleHeightmap">
               <tr id="styleHeightmapRenderOceanOption" data-tip="选中以渲染海洋高度图">
                 <td colspan="2">
@@ -822,24 +803,21 @@
               <tr data-tip="梯田率。设置为0(切换关闭) ，以提高性能">
                 <td>阶地</td>
                 <td>
-                  <input id="styleHeightmapTerracingInput" type="range" min="0" max="20" step="1" />
-                  <output id="styleHeightmapTerracingOutput">0</output>
+                  <slider-input id="styleHeightmapTerracing" min="0" max="20" step="1"></slider-input>
                 </td>
               </tr>
 
               <tr data-tip="减少层数，提高性能">
                 <td>减少层</td>
                 <td>
-                  <input id="styleHeightmapSkipInput" type="range" min="0" max="10" step="1" value="5" />
-                  <output id="styleHeightmapSkipOutput">5</output>
+                  <slider-input id="styleHeightmapSkip" min="0" max="10" step="1"></slider-input>
                 </td>
               </tr>
 
               <tr data-tip="Line simplification rate. Increase to slightly improve performance">
                 <td>简化线</td>
                 <td>
-                  <input id="styleHeightmapSimplificationInput" type="range" min="0" max="10" step="1" value="0" />
-                  <output id="styleHeightmapSimplificationOutput">0</output>
+                  <slider-input id="styleHeightmapSimplification" min="0" max="10" step="1"></slider-input>
                 </td>
               </tr>
 
@@ -857,7 +835,7 @@
               <tr data-tip="为元素选择配色方案">
                 <td>配色方案</td>
                 <td>
-                  <select id="styleHeightmapScheme"></select>
+                  <select id="styleHeightmapScheme" style="width: 86%"></select>
                   <button
                     id="openCreateHeightmapSchemeButton"
                     data-tip="点击添加自定义高程图配色方案"
@@ -869,11 +847,10 @@
             </tbody>
 
             <tbody id="styleOpacity" style="display: none">
-              <tr data-tip="设置不透明度。0: 透明，1: 纯色">
+              <tr data-tip="设置不透明度。0: 透明，1:完全不透明">
                 <td>透明度</td>
                 <td>
-                  <input id="styleOpacityInput" type="range" min="0" max="1" step="0.01" value=".4" />
-                  <output id="styleOpacityOutput">0.4</output>
+                  <slider-input id="styleOpacityInput" min="0" max="1" step="0.01"></slider-input>
                 </td>
               </tr>
             </tbody>
@@ -882,8 +859,7 @@
               <tr data-tip="在一列中设置最大项数">
                 <td>列项目</td>
                 <td>
-                  <input id="styleLegendColItems" type="range" min="1" max="30" step="1" value="8" />
-                  <output id="styleLegendColItemsOutput">8</output>
+                  <slider-input id="styleLegendColItems" min="1" max="30" step="1"></slider-input>
                 </td>
               </tr>
 
@@ -898,8 +874,7 @@
               <tr data-tip="设置背景透明度">
                 <td>透明度</td>
                 <td>
-                  <input id="styleLegendOpacity" type="range" min="0" max="1" step="0.01" value="1" />
-                  <output id="styleLegendOpacityOutput">1</output>
+                  <slider-input id="styleLegendOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
@@ -926,7 +901,7 @@
               <tr data-tip="选择图像的纹理。大纹理会严重影响性能">
                 <td>图像</td>
                 <td>
-                  <select id="styleTextureInput">
+                  <select id="styleTextureInput" style="width: 86%">
                     <option value="">无纹理</option>
                     <option value="./images/textures/folded-paper-big.jpg">Folded paper big</option>
                     <option value="./images/textures/folded-paper-small.jpg">Folded paper small</option>
@@ -1010,8 +985,7 @@
               <tr data-tip="设置晕影模糊扩散（单位像素）">
                 <td>模糊</td>
                 <td>
-                  <input id="styleVignetteBlur" type="range" min="0" max="400" step="1" value="50" />
-                  <output id="styleVignetteBlurOutput">50</output>px
+                  <slider-input id="styleVignetteBlur" min="0" max="400" step="1"></slider-input>
                 </td>
               </tr>
             </tbody>
@@ -1036,8 +1010,7 @@
               <tr data-tip="设置海洋图案不透明度">
                 <td>图案透明度</td>
                 <td>
-                  <input id="styleOceanPatternOpacity" type="range" min="0" max="1" step=".01" value=".2" />
-                  <output id="styleOceanPatternOpacityOutput">0.2</output>
+                  <slider-input id="styleOceanPatternOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
 
@@ -1073,6 +1046,13 @@
                     <option value="pointyHex">Hex grid (pointy)</option>
                     <option value="flatHex">Hex grid (flat)</option>
                     <option value="square">Square grid</option>
+                    <option value="square45deg">Square 45 degrees grid</option>
+                    <option value="squareTruncated">Truncated square grid</option>
+                    <option value="squareTetrakis">Tetrakis square grid</option>
+                    <option value="triangleHorizontal">Triangle grid (horizontal)</option>
+                    <option value="triangleVertical">Triangle grid (vertical)</option>
+                    <option value="trihexagonal">Trihexagonal grid</option>
+                    <option value="rhombille">Rhombille grid</option>
                   </select>
                 </td>
               </tr>
@@ -1085,6 +1065,9 @@
                     id="styleGridSizeFriendly"
                     data-tip="栅格单元中心之间的距离（地图比例）"
                   ></output>
+                  <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Scale-and-distance#grids" target="_blank">
+                    <span data-tip="打开wiki文章“scale and distance”，了解网格比例" class="icon-info-circled pointer"></span>
+                  </a>
                 </td>
               </tr>
 
@@ -1097,13 +1080,11 @@
               </tr>
             </tbody>
 
-
             <tbody id="styleCompass">
               <tr data-tip="设定风玫瑰大小">
                 <td>大小</td>
                 <td>
-                  <input id="styleCompassSizeInput" type="range" min=".02" max="1" step=".01" value=".25" />
-                  <output id="styleCompassSizeOutput">.25</output>
+                  <slider-input id="styleCompassSizeInput" min=".02" max="1" step=".01"></slider-input>
                 </td>
               </tr>
 
@@ -1131,8 +1112,7 @@
               <tr data-tip="定义地貌图标的大小。将重新生成所有地貌图标">
                 <td>大小</td>
                 <td>
-                  <input id="styleReliefSizeInput" data-stored="reliefSize" type="range" min=".2" max="4" step=".01" />
-                  <output id="styleReliefSizeOutput"></output>
+                  <slider-input id="styleReliefSize" min=".2" max="4" step=".01"></slider-input>
                 </td>
               </tr>
 
@@ -1141,16 +1121,7 @@
               >
                 <td>密度</td>
                 <td>
-                  <input
-                    id="styleReliefDensityInput"
-                    data-stored="reliefDensity"
-                    type="range"
-                    min=".3"
-                    max=".8"
-                    step=".01"
-                    value=".4"
-                  />
-                  <output id="styleReliefDensityOutput">.4</output>
+                  <slider-input id="styleReliefDensity" min=".3" max=".8" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
@@ -1179,8 +1150,16 @@
               <tr data-tip="设置划线宽度">
                 <td>划线宽度</td>
                 <td>
-                  <input id="styleStrokeWidthInput" type="range" min="0" max="5" step=".01" value="1" />
-                  <output id="styleStrokeWidthOutput">1</output>
+                  <slider-input id="styleStrokeWidthInput" min="0" max="5" step=".01"></slider-input>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody id="styleLetterSpacing">
+              <tr data-tip="Set letter spacing">
+                <td>Letter spacing</td>
+                <td>
+                  <slider-input id="styleLetterSpacingInput" min="0" max="20" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
@@ -1191,10 +1170,10 @@
                 <td>
                   <input id="styleStrokeDasharrayInput" type="text" value="1 2" style="width: 26%" />
                   <select id="styleStrokeLinecapInput" style="width: 32%">
-                    <option value="inherit" selected>继承</option>
-                    <option value="butt">底部</option>
-                    <option value="round">四周</option>
-                    <option value="square">正方形</option>
+                    <option value="inherit" selected>Inherit</option>
+                    <option value="butt">Butt</option>
+                    <option value="round">Round</option>
+                    <option value="square">Square</option>
                   </select>
                 </td>
               </tr>
@@ -1213,7 +1192,7 @@
               <tr data-tip="选择字体">
                 <td>字体</td>
                 <td>
-                  <select id="styleSelectFont"></select>
+                  <select id="styleSelectFont" style="width: 85%"></select>
                   <button id="styleFontAdd" data-tip="添加字体" class="icon-plus sideButton"></button>
                 </td>
               </tr>
@@ -1225,7 +1204,7 @@
                 <td>
                   <button id="styleFontPlus" data-tip="增大字体" class="whiteButton">+</button>
                   <button id="styleFontMinus" data-tip="减小字体" class="whiteButton">-</button>
-                  <input id="styleFontSize" type="number" min=".5" max="100" step=".1" value="14" />
+                  <input id="styleFontSize" type="number" min=".5" max="100" step=".1" />
                 </td>
               </tr>
             </tbody>
@@ -1265,16 +1244,14 @@
               <tr data-tip="定义温度层的透明度。设置为0使其完全透明">
                 <td>填充不透明度</td>
                 <td>
-                  <input id="styleTemperatureFillOpacityInput" type="range" min="0" max="1" step=".01" value=".3" />
-                  <output id="styleTemperatureFillOpacityOutput">0.3</output>
+                  <slider-input id="styleTemperatureFillOpacityInput" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
 
               <tr data-tip="设置标签大小">
                 <td>标签尺寸</td>
                 <td>
-                  <input id="styleTemperatureFontSizeInput" type="range" min="0" max="30" value="8" />
-                  <output id="styleTemperatureFontSizeOutput">8</output>
+                  <slider-input id="styleTemperatureFontSizeInput" min="0" max="30" step="1"></slider-input>
                 </td>
               </tr>
 
@@ -1291,8 +1268,7 @@
               <tr data-tip="设置国家填充不透明度。0: 不可见，1: 纯色">
                 <td>主体不透明度</td>
                 <td>
-                  <input id="styleStatesBodyOpacity" type="range" min="0" max="1" step="0.01" />
-                  <output id="styleStatesBodyOpacityOutput"></output>
+                  <slider-input id="styleStatesBodyOpacity" min="0" max="1" step="0.01"></slider-input>
                 </td>
               </tr>
 
@@ -1301,45 +1277,45 @@
                 <td><select id="styleStatesBodyFilter" /></td>
               </tr>
 
+              <tr style="margin-top: 0.8em">
+                <td style="font-style: italic">
+                  光晕只有在“渲染”选项设置为“最佳质量”时才会渲染!
+                </td>
+              </tr>
+
               <tr data-tip="设置国家光晕效果宽度">
                 <td>光晕宽度</td>
                 <td>
-                  <input id="styleStatesHaloWidth" type="range" min="0" max="30" step=".1" value="10" />
-                  <output id="styleStatesHaloWidthOutput">10</output>
+                  <slider-input id="styleStatesHaloWidth" min="0" max="30" step="0.1"></slider-input>
                 </td>
               </tr>
 
-              <tr data-tip="设置光晕不透明度。0: 不可见 1: 纯色">
+              <tr data-tip="设置光晕不透明度。0: 透明 1: 完全不透明">
                 <td>光晕不透明度</td>
                 <td>
-                  <input id="styleStatesHaloOpacity" type="range" min="0" max="1" step="0.01" value="1" />
-                  <output id="styleStatesHaloOpacityOutput">1</output>
+                  <slider-input id="styleStatesHaloOpacity" min="0" max="1" step="0.01"></slider-input>
                 </td>
               </tr>
 
-              <tr data-tip="选择光晕效果力度(模糊)。设置为0使其成为实线">
+              <tr data-tip="选择光晕效果力度(模糊)。设置为0使其成为实线" style="margin-bottom: 1em">
                 <td>光晕模糊</td>
                 <td>
-                  <input id="styleStatesHaloBlur" type="range" min="0" max="10" step="0.01" value="4" />
-                  <output id="styleStatesHaloBlurOutput">4</output>
+                  <slider-input id="styleStatesHaloBlur" min="0" max="10" step="0.01"></slider-input>
                 </td>
               </tr>
             </tbody>
-
 
             <tbody id="styleArmies">
               <tr data-tip="设置填充透明度。设置为0使其完全透明">
                 <td>填充不透明度</td>
                 <td>
-                  <input id="styleArmiesFillOpacity" type="range" min="0" max="1" step=".01" value="1" />
-                  <output id="styleArmiesFillOpacityOutput">1</output>
+                  <slider-input id="styleArmiesFillOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
               <tr data-tip="设置军队规模。所有军队将在变更时重Roll(位置默认)">
                 <td>盒子大小</td>
                 <td>
-                  <input id="styleArmiesSize" type="range" min="1" max="10" step=".1" value="3" />
-                  <output id="styleArmiesSizeOutput">3</output>
+                  <slider-input id="styleArmiesSize" min="0" max="10" step=".1"></slider-input>
                 </td>
               </tr>
             </tbody>
@@ -1348,49 +1324,25 @@
               <tr data-tip="设置国家标志大小乘数">
                 <td>国家徽标大小</td>
                 <td>
-                  <input
-                    id="emblemsStateSizeInput"
-                    data-stored="emblemsStateSize"
-                    type="number"
-                    min="0"
-                    max="5"
-                    step=".02"
-                    value="1"
-                  />
+                  <slider-input id="emblemsStateSizeInput" min="0" max="5" step=".01"></slider-input>
                 </td>
               </tr>
 
               <tr data-tip="设置省徽大小乘数">
                 <td>省徽标大小</td>
                 <td>
-                  <input
-                    id="emblemsProvinceSizeInput"
-                    data-stored="emblemsProvinceSize"
-                    type="number"
-                    min="0"
-                    max="5"
-                    step=".02"
-                    value="1"
-                  />
+                  <slider-input id="emblemsProvinceSizeInput" min="0" max="5" step=".01"></slider-input>
                 </td>
               </tr>
 
               <tr data-tip="设置城市徽大小乘数">
                 <td>城市徽标大小</td>
                 <td>
-                  <input
-                    id="emblemsBurgSizeInput"
-                    data-stored="emblemsBurgSize"
-                    type="number"
-                    min="0"
-                    max="5"
-                    step=".02"
-                    value="1"
-                  />
+                  <slider-input id="emblemsBurgSizeInput" min="0" max="5" step=".01"></slider-input>
                 </td>
               </tr>
 
-              <tr data-tip="允许系统隐藏徽标组，如果他们的大小在太小或太大的规模">
+              <tr data-tip="允许系统隐藏徽标组，如果他们的大小比例太小或太大">
                 <td colspan="2">
                   <input id="hideEmblems" class="checkbox" type="checkbox" onchange="invokeActiveZooming()" checked />
                   <label for="hideEmblems" class="checkbox-label">自动切换可见性</label>
@@ -1474,15 +1426,14 @@
               <tr data-tip="设置背景透明度。0：透明，1：不透明">
                 <td>背景透明度</td>
                 <td>
-                  <input id="styleScaleBarBackgroundOpacityInput" type="range" min="0" max="1" step="0.01" />
-                  <output id="styleScaleBarBackgroundOpacityOutput"></output>
+                  <slider-input id="styleScaleBarBackgroundOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
 
               <tr data-tip="设置背景填充颜色">
                 <td>背景填充</td>
                 <td>
-                  <input id="styleScaleBarBackgroundFillInput" type="color" />
+                  <input id="styleScaleBarBackgroundFill" type="color" />
                   <output id="styleScaleBarBackgroundFillOutput"></output>
                 </td>
               </tr>
@@ -1490,7 +1441,7 @@
               <tr data-tip="设置背景描边颜色和宽度">
                 <td>背景边框</td>
                 <td>
-                  <input id="styleScaleBarBackgroundStrokeInput" type="color" />
+                  <input id="styleScaleBarBackgroundStroke" type="color" />
                   <output id="styleScaleBarBackgroundStrokeOutput"></output>
 
                   <span>宽 </span>
@@ -1519,7 +1470,7 @@
                 <td>背景滤镜</td>
                 <td><select id="styleScaleBarBackgroundFilter" /></td>
               </tr>
-            </tbody>            
+            </tbody>
           </table>
 
           <div id="mapFilters" data-tip="设置一个滤镜，应用于地图">
@@ -1552,7 +1503,9 @@
               <td></td>
             </tr>
 
-            <tr data-tip="地图种子编号。只有当画布大小和选项相同时，种子才生成相同的地图">
+            <tr
+              data-tip="地图种子编号。只有当画布大小和选项相同时，种子才生成相同的地图"
+            >
               <td>
                 <i
                   data-tip="显示种子历史记录以应用以前的种子"
@@ -1576,10 +1529,20 @@
             <tr
               data-tip="设置用于图形生成的点数。这会严重影响性能。10K是唯一推荐值"
             >
-              <td></td>
+              <td>
+                <i data-locked="0" id="lock_points" class="icon-lock-open"></i>
+              </td>
               <td>生成点数</td>
               <td>
-                <input id="pointsInput" type="range" min="1" max="13" value="4" data-cells="10000" />
+                <input
+                  id="pointsInput"
+                  data-stored="points"
+                  type="range"
+                  min="1"
+                  max="13"
+                  value="4"
+                  data-cells="10000"
+                />
               </td>
               <td>
                 <output id="pointsOutputFormatted" style="color: #053305">10K</output>
@@ -1608,7 +1571,7 @@
 
             <tr data-tip="定义当前年份和时代名称">
               <td>
-                <i data-locked="0" id="lock_era" class="icon-lock-open"></i>
+                <i data-locked="0" id="lock_year" data-ids="year,era" class="icon-lock-open"></i>
               </td>
               <td>时间年代</td>
               <td>
@@ -1666,7 +1629,7 @@
               <td>文化背景</td>
               <td>
                 <select id="culturesSet" data-stored="culturesSet">
-                  <option value="world" data-max="32" selected>全世界(All-world)</option>
+                  <option value="world" data-max="32" selected>全世界式(All-world)</option>
                   <option value="european" data-max="15">欧式(European)</option>
                   <option value="oriental" data-max="13">东方式(Oriental)</option>
                   <option value="english" data-max="10">英式(English)</option>
@@ -1681,53 +1644,41 @@
 
             <tr data-tip="定义应生成多少个国家和首府">
               <td>
-                <i data-locked="0" id="lock_regions" class="icon-lock-open"></i>
+                <i data-locked="0" id="lock_statesNumber" class="icon-lock-open"></i>
               </td>
               <td>国家数量</td>
-              <td>
-                <input id="regionsInput" data-stored="regions" type="range" min="0" max="99" value="13" />
-              </td>
-              <td>
-                <input id="regionsOutput" data-stored="regions" type="number" min="0" max="999" value="13" />
+              <td colspan="2">
+                <slider-input id="statesNumber" data-stored="statesNumber" min="0" max="100"></slider-input>
               </td>
             </tr>
 
             <tr data-tip="定义城市百分比，形成一个单独的省份">
               <td>
-                <i data-locked="0" id="lock_provinces" class="icon-lock-open"></i>
+                <i data-locked="0" id="lock_provincesRatio" class="icon-lock-open"></i>
               </td>
               <td>省份比率</td>
-              <td>
-                <input id="provincesInput" data-stored="provinces" type="range" min="0" max="100" value="30" />
-              </td>
-              <td>
-                <input id="provincesOutput" data-stored="provinces" type="number" min="0" max="100" value="30" />
+              <td colspan="2">
+                <slider-input id="provincesRatio" data-stored="provincesRatio" min="0" max="100"></slider-input>
               </td>
             </tr>
 
             <tr data-tip="定义国家和文化的大小差异。它定义了扩张主义价值观">
               <td>
-                <i data-locked="0" id="lock_power" class="icon-lock-open"></i>
+                <i data-locked="0" id="lock_sizeVariety" class="icon-lock-open"></i>
               </td>
               <td>大小种类</td>
-              <td>
-                <input id="powerInput" data-stored="power" type="range" min="0" max="10" step=".2" value="5" />
-              </td>
-              <td>
-                <input id="powerOutput" data-stored="power" type="number" min="0" max="10" step=".1" value="5" />
+              <td colspan="2">
+                <slider-input id="sizeVariety" data-stored="sizeVariety" min="0" max="10" step=".1"></slider-input>
               </td>
             </tr>
 
             <tr data-tip="设置国家和文化的增长率。确定有多少土地保持中立">
               <td>
-                <i data-locked="0" id="lock_neutral" class="icon-lock-open"></i>
+                <i data-locked="0" id="lock_growthRate" class="icon-lock-open"></i>
               </td>
               <td>增长速率</td>
-              <td>
-                <input id="neutralInput" data-stored="neutral" type="range" min=".1" max="2" step=".1" value="1" />
-              </td>
-              <td>
-                <input id="neutralOutput" data-stored="neutral" type="number" min=".1" max="2" step=".1" value="1" />
+              <td colspan="2">
+                <slider-input id="growthRate" data-stored="growthRate" min=".1" max="2" step=".1"></slider-input>
               </td>
             </tr>
 
@@ -1748,18 +1699,21 @@
               data-tip="确定应产生多少有组织的宗教和异教。文化在任何情况下都会有自己的民间宗教"
             >
               <td>
-                <i data-locked="0" id="lock_religions" class="icon-lock-open"></i>
+                <i data-locked="0" id="lock_religionsNumber" class="icon-lock-open"></i>
               </td>
               <td>宗教数量</td>
-              <td>
-                <input id="religionsInput" data-stored="religions" type="range" min="0" max="50" step="1" value="15" />
-              </td>
-              <td>
-                <output id="religionsOutput" data-stored="religions" value="auto"></output>
+              <td colspan="2">
+                <slider-input
+                  id="religionsNumber"
+                  data-stored="religionsNumber"
+                  min="0"
+                  max="50"
+                  step="1"
+                ></slider-input>
               </td>
             </tr>
 
-            <tr data-tip="选择国家标签模式: 显示短名称或全名">
+            <tr data-tip="选择国家标签模式: 显示简写或全称">
               <td>
                 <i data-locked="0" id="lock_stateLabelsMode" class="icon-lock-open"></i>
               </td>
@@ -1767,8 +1721,8 @@
               <td>
                 <select id="stateLabelsModeInput" data-stored="stateLabelsMode">
                   <option value="auto">自动</option>
-                  <option value="short">简称</option>
-                  <option value="full">全名</option>
+                  <option value="short">简写</option>
+                  <option value="full">全称</option>
                 </select>
               </td>
               <td></td>
@@ -1784,22 +1738,16 @@
             >
               <td></td>
               <td>界面大小</td>
-              <td>
-                <input id="uiSizeInput" data-stored="uiSize" type="range" min=".6" max="3" step=".1" />
-              </td>
-              <td>
-                <input id="uiSizeOutput" data-stored="uiSize" type="number" min=".6" max="3" step=".1" />
+              <td colspan="2">
+                <slider-input id="uiSize" data-stored="uiSize" min=".6" max="3" step=".1"></slider-input>
               </td>
             </tr>
 
-            <tr data-tip="设置工具提示大小">
+            <tr data-tip="设置工具栏大小">
               <td></td>
               <td>工具栏大小</td>
-              <td>
-                <input id="tooltipSizeInput" data-stored="tooltipSize" type="range" min="4" max="32" value="14" />
-              </td>
-              <td>
-                <input id="tooltipSizeOutput" data-stored="tooltipSize" type="number" min="0" max="256" value="14" />
+              <td colspan="2">
+                <slider-input id="tooltipSize" data-stored="tooltipSize" min="1" max="32" value="14"></slider-input>
               </td>
             </tr>
 
@@ -1819,15 +1767,12 @@
             <tr data-tip="设置对话框和工具窗口透明度">
               <td></td>
               <td>透明度</td>
-              <td>
-                <input id="transparencyInput" data-stored="transparency" type="range" min="0" max="100" />
-              </td>
-              <td>
-                <input id="transparencyOutput" data-stored="transparency" type="number" min="0" max="100" />
+              <td colspan="2">
+                <slider-input id="transparencyInput" data-stored="transparency" min="0" max="100"></slider-input>
               </td>
             </tr>
 
-            <tr data-tip="设置自动保存间隔，以分钟为单位。设置0为禁用自动保存。地图被保存到浏览器内存中">
+            <tr data-tip="设置自动保存间隔，单位：分钟。设置为0禁用自动保存。地图被保存到浏览器内存中">
               <td></td>
               <td>自动保存</td>
               <td>
@@ -1853,6 +1798,7 @@
                 />
               </td>
             </tr>
+
             <tr data-tip="设置生成器加载时应该做什么">
               <td></td>
               <td>加载行为</td>
@@ -1864,14 +1810,25 @@
               </td>
               <td></td>
             </tr>
+
+            <tr data-tip="切换Azgaar助手(右下角的帮助气泡)">
+              <td></td>
+              <td>Azgaar 助手</td>
+              <td>
+                <select id="azgaarAssistant" data-stored="azgaarAssistant">
+                  <option value="show" selected>显示</option>
+                  <option value="hide">隐藏</option>
+              </td>
+            </tr>
+
             <tr data-tip="选择合成语音来朗读生成的名称">
               <td></td>
-              <td>朗读人声</td>
+              <td>朗读者音色</td>
               <td>
                 <select id="speakerVoice" data-stored="speakerVoice"></select>
               </td>
               <td>
-                <span id="speakerTest" data-tip="测试声音" style="cursor: pointer">🔊</span>
+                <span id="speakerTest" data-tip="单击测试朗读人声" style="cursor: pointer">🔊</span>
               </td>
             </tr>
 
@@ -2020,39 +1977,32 @@
           <div>
             <button
               id="configureWorld"
-              data-tip="打开世界配置设置地图位置的地球和世界气候"
+              data-tip="单击打开世界配置器，来设置全球和世界气候在地图上的位置"
               onclick="editWorld()"
             >
             配置世界
             </button>
             <button
               id="optionsReset"
-              data-tip="点击此处可还原默认选项(页面将重新加载)"
-              onclick="restoreDefaultOptions()"
+              data-tip="单击以恢复默认选项并重新加载页面"
+              onclick="cleanupData()"
             >
-              重置为默认设置
+              恢复默认
             </button>
           </div>
         </div>
 
         <div id="toolsContent" class="tabcontent">
-          <p>点击配置:</p>
-          <div>
-            <button
-              id="editHeightmapButton"
-              data-tip="打开 高程图 自定义菜单"
-              data-shortcut="Shift + H"
-            >
-            高程图
-            </button>
+          <div class="separator">编辑</div>
+          <div class="grid">
             <button id="editBiomesButton" data-tip="打开生物组编辑器" data-shortcut="Shift + B">
-              生物群
+              生物组
             </button>
-            <button id="editStatesButton" data-tip="此处可打开国家编辑器" data-shortcut="Shift + S">
-              国家
+            <button id="overviewBurgsButton" data-tip="打开城市编辑器" data-shortcut="Shift + T">
+              城市
             </button>
-            <button id="editProvincesButton" data-tip="打开省编辑器" data-shortcut="Shift + P">
-              省
+            <button id="editCulturesButton" data-tip="打开文化编辑器" data-shortcut="Shift + C">
+              文化
             </button>
             <button
               id="editDiplomacyButton"
@@ -2061,104 +2011,106 @@
             >
             外交
             </button>
-            <button id="editCulturesButton" data-tip="打开文化编辑器" data-shortcut="Shift + C">
-              文化
-            </button>
-            <button id="editNamesBaseButton" data-tip="打开名称库编辑器" data-shortcut="Shift + N">
-              名称库
-            </button>
-            <button id="editZonesButton" data-tip="打开区域编辑器" data-shortcut="Shift + Z">区域</button>
-            <button id="editReligions" data-tip="打开宗教编辑器" data-shortcut="Shift + R">
-              宗教
-            </button>
             <button id="editEmblemButton" data-tip="打开徽章编辑器" data-shortcut="Shift + Y">
               徽章
             </button>
-            <button id="editUnitsButton" data-tip="打开单位编辑器" data-shortcut="Shift + Q">单位</button>
-            <button id="editNotesButton" data-tip="打开笔记编辑器" data-shortcut="Shift + O">笔记</button>
-          </div>
-
-          <p>点击概览:</p>
-          <div>
             <button
-              id="overviewChartsButton"
-              data-tip="点击此处可打开“图表”以概览单元格数据"
-              data-shortcut="Shift + A"
+              id="editHeightmapButton"
+              data-tip="打开高程图自定义菜单"
+              data-shortcut="Shift + H"
             >
-            图表
+              高程图
             </button>
-            <button id="overviewBurgsButton" data-tip="打开城市预览" data-shortcut="Shift + T">
-              城市
-            </button>
-            <button id="overviewRiversButton" data-tip="打开河流预览" data-shortcut="Shift + V">
-              河流
+            <button id="overviewMarkersButton" data-tip="打开标记预览" data-shortcut="Shift + K">
+              标记
             </button>
             <button
               id="overviewMilitaryButton"
               data-tip="打开军队预览"
               data-shortcut="Shift + M"
             >
-            军队
+              军队
             </button>
-            <button id="overviewMarkersButton" data-tip="打开Markers 预览" data-shortcut="Shift + K">
-              标记
+            <button id="editNamesBaseButton" data-tip="打开名称库编辑器" data-shortcut="Shift + N">
+              名称库
             </button>
-            <button id="overviewCellsButton" data-tip="打开单元格详细信息视图" data-shortcut="Shift + E">
-              单元
+            <button id="editNotesButton" data-tip="打开笔记编辑器" data-shortcut="Shift + O">
+              笔记
+            </button>
+            <button id="editProvincesButton" data-tip="打开省编辑器" data-shortcut="Shift + P">
+              省
+            </button>
+            <button id="editReligions" data-tip="打开宗教编辑器" data-shortcut="Shift + R">
+              宗教
+            </button>
+            <button id="overviewRiversButton" data-tip="打开河流编辑器" data-shortcut="Shift + V">
+              河流
+            </button>
+            <button id="overviewRoutesButton" data-tip="打开路线编辑器" data-shortcut="Shift + U">
+              路线
+            </button>
+            <button id="editStatesButton" data-tip="打开国家编辑器" data-shortcut="Shift + S">
+              国家
+            </button>
+            <button id="editUnitsButton" data-tip="打开单位编辑器" data-shortcut="Shift + Q">
+              单位
+            </button>
+            <button id="editZonesButton" data-tip="打开区域编辑器" data-shortcut="Shift + Z">
+              区域
             </button>
           </div>
 
-          <p>点击重生:</p>
-          <div id="regenerateFeature">
+          <div class="separator">点击重生</div>
+          <div id="regenerateFeature" class="grid">
+            <button
+              id="regenerateBurgs"
+              data-tip="点击重新生成所有未锁定的城市和路线。各国将保持现状。注:城市只在人口密集区产生，并被指定文化"
+            >
+              城镇
+            </button>
+            <button id="regenerateCultures" data-tip="单击重生未锁定文化">文化</button>
+            <button id="regenerateEmblems" data-tip="单击重生所有徽标">徽标</button>
+            <button id="regenerateIce" data-tip="单击重生冰山和冰川">冰川</button>
             <button
               id="regenerateStateLabels"
-              data-tip="点击此处可根据当前边界更新国家标签的位置"
+              data-tip="单击可根据当前边界更新国家标签的位置"
             >
-            标签
+              国家标签
+            </button>
+            <button id="regenerateMarkers" data-tip="单击重生未锁定标记">
+              标记 <i id="configRegenerateMarkers" class="icon-cog" data-tip="单击设置乘数"></i>
             </button>
             <button
-              id="regenerateReliefIcons"
-              data-tip="点击可根据当前单元格生物群落和海拔重新生成所有地貌图标"
+              id="regenerateMilitary"
+              data-tip="单击根据当前军事选项重新计算军事力量"
             >
-            地形
+              军队
             </button>
-            <button id="regenerateRoutes" data-tip="点击此处可重新生成所有路">路线</button>
-            <button id="regenerateRivers" data-tip="重新生成所有河流(恢复默认状态)">
-              河流
-            </button>
-            <button id="regeneratePopulation" data-tip="重新计算农村和城市人口">
+            <button id="regeneratePopulation" data-tip="单击重新计算农村和城市人口">
               人口
             </button>
             <button
-              id="regenerateStates"
-              data-tip="选择新首都并重新生成国家。徽章和军事力量也将重生，城市将保持原样"
-            >
-              国家
-            </button>
-            <button
               id="regenerateProvinces"
-              data-tip="重建未锁定省份。国家将保持原样"
+              data-tip="单击重新生成未锁定省份。国家不变"
             >
               省份
             </button>
             <button
-              id="regenerateBurgs"
-              data-tip="点击此处可重新生成所有解锁的城市和路。各国将保持原样。注意: 只有在有文化指定的人口密集地区才会产生城市"
+              id="regenerateReliefIcons"
+              data-tip="单击以根据当前生物群系和海拔重新生成所有地貌图标"
             >
-              城市
+              地貌图标
             </button>
-            <button id="regenerateEmblems" data-tip="重新生成所有标志">徽标</button>
-            <button id="regenerateReligions" data-tip="重生宗教">宗教</button>
-            <button id="regenerateCultures" data-tip="重新生成文化">文化</button>
+            <button id="regenerateReligions" data-tip="单击重生未锁定宗教">宗教</button>
+            <button id="regenerateRivers" data-tip="单击重新生成所有河流(恢复默认状态)">
+              河流
+            </button>
+            <button id="regenerateRoutes" data-tip="Click to regenerate all unlocked routes">Routes</button>
             <button
-              id="regenerateMilitary"
-              data-tip="点击此处可根据当前军事选项重新计算军事力量"
+              id="regenerateStates"
+              data-tip="单击重生未锁定国家。徽标、军队也将更改，城市不变，但首都改变"
             >
-            军队
-            </button>
-            <button id="regenerateIce" data-tip="点击重生成冰山和冰川">冰川</button>
-            <button id="regenerateMarkers" data-tip="重新生成标记">
-              标记 <i id="configRegenerateMarkers" class="icon-cog" data-tip="设置数乘法器"></i>
+              国家
             </button>
             <button
               id="regenerateZones"
@@ -2168,8 +2120,8 @@
             </button>
           </div>
 
-          <p>点击添加:</p>
-          <div id="addFeature">
+          <div class="separator">点击添加</div>
+          <div id="addFeature" class="grid">
             <button
               id="addBurgTool"
               data-tip="点击地图放置一个城市。 按住 Shift 添加多个"
@@ -2185,26 +2137,40 @@
               标签
             </button>
             <button
+              id="addMarker"
+              data-tip="点击地图放置标记. 按住 Shift 添加多个"
+              data-shortcut="Shift + 5"
+            >
+              标记
+            </button>
+            <button
               id="addRiver"
               data-tip="在地图上点击放置一条河流. 按住Shift添加多个"
               data-shortcut="Shift + 3"
             >
               河流
             </button>
-            <button id="addRoute" data-tip="点击地图以放置路线" data-shortcut="Shift + 4">路线</button>
+            <button id="addRoute" data-tip="打开路线创建对话框" data-shortcut="Shift + 4">路线</button>
+          </div>
+
+          <div class="separator">点击显示</div>
+          <div class="grid">
+            <button id="overviewCellsButton" data-tip="打开单元格详细信息视图" data-shortcut="Shift + E">
+              单元格
+            </button>
             <button
-              id="addMarker"
-              data-tip="点击地图放置标记. 按住Shift添加多个"
-              data-shortcut="Shift + 5"
+              id="overviewChartsButton"
+              data-tip="打开“图表”以预览单元格数据"
+              data-shortcut="Shift + A"
             >
-              标记
+              图表
             </button>
           </div>
 
-          <p>根据当前地图新建地图：</p>
-          <div>
-            <button id="openSubmapMenu" data-tip="根据当前地图【数据】生成新地图（Submap模式）">S模式</button>
-            <button id="openResampleMenu" data-tip="根据当前地图【样貌】生成新地图（Transform模式）">T模式</button>
+          <div class="separator">点击创建</div>
+          <div class="grid">
+            <button id="openSubmapMenu" data-tip="单击以从当前视窗生成下位图">下位图</button>
+            <button id="openResampleMenu" data-tip="单击使地图产生变换">变换图</button>
           </div>
         </div>
 
@@ -2227,10 +2193,10 @@
             </div>
             <div
               id="allowErosionBox"
-              data-tip="重生河流，让水流改变高度，形成新的湖泊。最好检查一下"
+              data-tip="重生河流，改变水流高度形成新的湖泊。使用后最好检查一下"
             >
               <input id="allowErosion" class="checkbox" type="checkbox" checked />
-              <label for="allowErosion" class="checkbox-label">允许水侵蚀</label>
+              <label for="allowErosion" class="checkbox-label">允许水蚀</label>
             </div>
             <div
               data-tip="解决凹陷所需的最大迭代次数。如果河流没有尽头，则增加"
@@ -2296,7 +2262,6 @@
 <p>3.主站为①<a href="https://www.8desk.top" target="_blank">www.8desk.top</a>②<a href="https://hk.8desk.top" target="_blank">国内节点</a>，子站为<a href="https://zan.8desk.top" target="_blank">zan.8desk.top</a>
           <p style="color:#d3e8e1;font-size:125%;">感谢所有<a data-tip="点击查看汉化赞赏者" onclick="showBackers()" style="color:#d3e8e1;">汉化赞赏者</a>！
 <button><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color:#d3e8e1;">支持译者</a></button></p>
-            <!--img src="https://s2.loli.net/2023/08/23/H7agdnpb5CtWGe2.jpg" alt="赞赏码" style="max-height: 38vh;max-width: 38vw;position: center;"-->
             <a href="https://github.com/dyxang/Fantasy-Map-Generator-Chinese/" target="_blank">幻想地图生成器汉化版</a> 是生成幻想地图的
             <a href="https://github.com/dyxang/Fantasy-Map-Generator-Chinese/blob/master/LICENSE" target="_blank">开源工具</a>
             <p>Azgaar的工具。你可使用生成的地图，编辑或新建地图。查看以下内容
@@ -2312,31 +2277,40 @@
           <p>
 更多关于页面信息请访问官方版<a href="https://azgaar.github.io/Fantasy-Map-Generator/" target="_blank">FMG Official</a>
           </p>
+
           <p>
             这个项目正在积极开发中。创造者和主要维护者:Azgaar。要跟踪开发进度，请参见
             <a href="https://trello.com/b/7x832DG4/fantasy-map-generator" target="_blank">开发进度板</a>． 有关旧版本，参阅
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog" target="_blank">changelog</a>.
             请<a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">报告Bugs</a>.也可以通过 <a href="mailto:azgaar.fmg@yandex.by" target="_blank">发邮件</a>联系我.
           </p>
-          <div style="
+
+          <div
+            style="
               background-color: #e85b46;
               padding: 0.4em;
               width: max-content;
               margin: 0.6em auto 0 auto;
               border: 1px solid #943838;
-            ">
-            <a href="https://www.patreon.com/azgaar" target="_blank" style="color: white; text-decoration: none; font-family: sans-serif">
+            "
+          >
+            <a
+              href="https://www.patreon.com/azgaar"
+              target="_blank"
+              style="color: white; text-decoration: none; font-family: sans-serif"
+            >
               <div>
                 <div style="width: 0.8em; display: inline-block; padding: 0 0.2em; fill: white">
                   <svg viewBox="0 0 569 546">
-                    <circle cx="362.589996" cy="204.589996" data-fill="1" id="Oval" r="204.589996"></circle>
-                    <rect data-fill="2" height="545.799988" id="Rectangle" width="100" x="0" y="0"></rect>
+                    <circle cx="362.589996" cy="204.589996" data-fill="1" id="Oval" r="204.589996" />
+                    <rect data-fill="2" height="545.799988" id="Rectangle" width="100" x="0" y="0" />
                   </svg>
                 </div>
-                PATREON 上支持原作者
+                PATREON网站上支持原作者
               </div>
             </a>
           </div>
+
           <p>
             作者特别感谢Patreon上的
             <a data-tip="点击查看作者支持者" onclick="showSupporters()">所有支持者</a>!
@@ -2411,7 +2385,7 @@
 
     <div id="dialogs">
       <div id="worldConfigurator" class="dialog stable" style="display: none">
-        <div  style="display: flex">
+        <div style="display: flex">
           <div id="worldControls">
             <div>
               <i data-locked="0" id="lock_temperatureEquator" class="icon-lock-open"></i>
@@ -2432,15 +2406,15 @@
                   type="number"
                   min="-50"
                   max="50"
-                  />
-                  <span>°C = <span id="temperatureNorthPoleF"></span></span>
-                  <input
-                    id="temperatureNorthPoleOutput"
-                    data-stored="temperatureNorthPole"
-                    type="range"
-                    min="-50"
-                    max="50"
-                  />
+                />
+                <span>°C = <span id="temperatureNorthPoleF"></span></span>
+                <input
+                  id="temperatureNorthPoleOutput"
+                  data-stored="temperatureNorthPole"
+                  type="range"
+                  min="-50"
+                  max="50"
+                />
               </label>
             </div>
 
@@ -2469,15 +2443,15 @@
               <i data-locked="0" id="lock_mapSize" class="icon-lock-open"></i>
               <label data-tip="设置地图大小相对于世界大小">
                 <i>地图大小：</i>
-                <input id="mapSizeInput" data-stored="mapSize" type="number" min="1" max="100" />%
-                <input id="mapSizeOutput" data-stored="mapSize" type="range" min="1" max="100" />
+                <input id="mapSizeInput" data-stored="mapSize" type="number" min="1" max="100" step="0.1" />%
+                <input id="mapSizeOutput" data-stored="mapSize" type="range" min="1" max="100" step="0.1" />
               </label>
             </div>
             <div>
               <i data-locked="0" id="lock_latitude" class="icon-lock-open"></i>
-              <label data-tip="设置南北地图位移">
+              <label data-tip="设置南北地图偏移。设置为50使地图中心位于赤道上">
                 <i>纬度:</i>
-                <input id="latitudeInput" data-stored="latitude" type="number" min="0" max="100" step="1" />
+                <input id="latitudeInput" data-stored="latitude" type="number" min="0" max="100" step="0.1" />
                 <br /><i>N</i
                 ><input
                   id="latitudeOutput"
@@ -2485,14 +2459,42 @@
                   type="range"
                   min="0"
                   max="100"
-                  step="1"
+                  step="0.1"
                   style="width: 10.3em"
                 /><i>S</i>
               </label>
             </div>
 
             <div>
-              <label data-tip="设置降水量-云可以带来的水量。定义河流和生物群落的产生">
+              <i data-locked="0" id="lock_longitude" class="icon-lock-open"></i>
+              <label data-tip="设置一个西向东的地图位移。设置为50，使地图中心位于本初子午线">
+                <i>经度:</i>
+                <input
+                  id="longitudeInput"
+                  data-stored="longitude"
+                  type="number"
+                  min="0"
+                  max="100"
+                  value="50"
+                  step="0.1"
+                />
+                <br /><i>W</i
+                ><input
+                  id="longitudeOutput"
+                  data-stored="longitude"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  style="width: 10.3em"
+                /><i>E</i>
+              </label>
+            </div>
+
+            <div>
+              <label
+                data-tip="Set precipitation - water amount clouds can bring. Defines rivers and biomes generation. Keep around 100% for default generation"
+              >
                 <i data-locked="0" id="lock_prec" class="icon-lock-open"></i>
                 <i>降水量:</i>
                 <input id="precInput" data-stored="prec" type="number" />%
@@ -2567,8 +2569,10 @@
                 <text x="-15" y="190">60°</text>
                 <text x="-15" y="204">90°</text>
               </g>
-              <circle id="globeOutline" cx="100" cy="100" r="100" />
-              <line id="globeEquator" x1="1" x2="199" y1="100" y2="100" />
+              <circle id="globeGradient" cx="100" cy="100" r="100" fill="url(#temperatureGradient)" stroke="none" />
+              <line id="globePrimeMeridian" x1="100" x2="100" y1="0" y2="200" />
+              <line id="globeEquator" x1="1" x2="200" y1="100" y2="100" />
+              <circle id="globeOutline" cx="100" cy="100" r="100" fill="none" />
               <path id="globeGraticule" />
               <path id="globeArea" />
             </svg>
@@ -2577,6 +2581,14 @@
               恢复风向
             </button>
           </div>
+        </div>
+
+        <div style="margin-top: 0.3em">
+          <i>预设:</i>
+          <button id="wcWholeWorld" data-tip="设置地图大小覆盖整个世界">Whole world</button>
+          <button id="wcNorthern" data-tip="设置地图大小覆盖北纬地区">Northern</button>
+          <button id="wcTropical" data-tip="设置地图大小覆盖赤道">Tropical</button>
+          <button id="wcSouthern" data-tip="设置地图大小覆盖南纬地区">Southern</button>
         </div>
       </div>
 
@@ -2607,7 +2619,7 @@
             data-tip='键入以更改标签。输入“ |”以移动到新行'
             style="width: 12em"
           />
-          <span data-tip="称谓名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="称谓（名字）。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span id="labelTextRandom" data-tip="生成随机名称" class="icon-shuffle pointer"></span>
         </div>
 
@@ -2634,6 +2646,24 @@
             step="1"
             style="width: 4.5em"
           />
+        </div>
+
+        <button id="labelLetterSpacingShow" data-tip="显示字母间距部分" class="icon-text-width"></button>
+        <div id="labelLetterSpacingSection" style="display: none">
+          <button
+            id="labelLetterSpacingHide"
+            data-tip="Hide the letter spacing section"
+            class="icon-text-width"
+          ></button>
+          <slider-input
+            id="labelLetterSpacingSize"
+            style="display: inline-block"
+            data-tip="Set the letter spacing size for this label"
+            min="0"
+            max="20"
+            step=".01"
+            value="0"
+          ></slider-input>
         </div>
 
         <button id="labelAlign" data-tip="将文本路径转换为直线" class="icon-resize-horizontal"></button>
@@ -2840,41 +2870,84 @@
       </div>
 
       <div id="routeEditor" class="dialog" style="display: none">
-        <button id="routeGroupsShow" data-tip="显示组选择" class="icon-tags"></button>
-        <div id="routeGroupsSelection" style="display: none">
-          <button id="routeGroupsHide" data-tip="隐藏组部分" class="icon-tags"></button>
-          <select id="routeGroup" data-tip="为此路线选择组" style="width: 12em"></select>
-          <input
-            id="routeGroupName"
-            placeholder="new group name"
-            data-tip="提供新组的名称"
-            style="display: none; width: 12em"
-          />
-          <span id="routeGroupAdd" data-tip="为此路线创建新组" class="icon-plus pointer"></span>
-          <span
-            id="routeGroupRemove"
-            data-tip="删除此组的所有路"
-            class="icon-trash-empty pointer"
-          ></span>
+        <div id="routeBody" style="padding-bottom: 0.3em">
+          <div>
+            <div class="label">名字:</div>
+            <input id="routeName" data-tip="重命名路线" autocorrect="off" spellcheck="false" />
+            <span data-tip="朗读名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+            <span id="routeGenerateName" data-tip="生成路线名" class="icon-globe pointer"></span>
+          </div>
+
+          <div data-tip="Select route group">
+            <div class="label">Group:</div>
+            <select id="routeGroup"></select>
+            <span id="routeGroupEdit" data-tip="Edit route groups" class="icon-pencil pointer"></span>
+            <span id="routeEditStyle" data-tip="Edit style for the route group" class="icon-brush pointer"></span>
+          </div>
+
+          <div data-tip="Route length in selected units">
+            <div class="label">Length:</div>
+            <input id="routeLength" disabled />
+          </div>
         </div>
 
-        <button id="routeEditStyle" data-tip="在样式编辑器中编辑路组样式" class="icon-brush"></button>
-        <button id="routeLength" data-tip="以选定单位表示的路线长度">0</button>
-        <button
-          id="routeElevationProfile"
-          data-tip="显示路线的高程纵断面"
-          class="icon-chart-area"
-        ></button>
-        <button id="routeSplit" data-tip="点击控制点以拆分路线" class="icon-unlink"></button>
-        <button id="routeLegend" data-tip="编辑路线的自由文本注释（图例）" class="icon-edit"></button>
-        <button id="routeNew" data-tip="点击地图创建新路线" class="icon-map-pin"></button>
-        <button id="routeRemove" data-tip="删除路" data-shortcut="Delete" class="icon-trash fastDelete"></button>
+        <div id="routeBottom">
+          <button
+            id="routeCreateSelectingCells"
+            data-tip="Create a new route selecting route cells"
+            class="icon-map-pin"
+          ></button>
+          <button
+            id="routeJoin"
+            data-tip="Click to join the route to another route that starts or ends at the same cell"
+            class="icon-link"
+          ></button>
+          <button
+            id="routeSplit"
+            data-tip="Click on a control point to split the route there"
+            class="icon-unlink"
+          ></button>
+          <button
+            id="routeElevationProfile"
+            data-tip="Show the elevation profile for the route"
+            class="icon-chart-area"
+          ></button>
+          <button id="routeLegend" data-tip="Edit free text notes (legend) for the route" class="icon-edit"></button>
+          <button id="routeLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
+          <button
+            id="routeRemove"
+            data-tip="Remove route"
+            data-shortcut="Delete"
+            class="icon-trash fastDelete"
+          ></button>
+        </div>
+      </div>
+
+      <div id="routeCreator" class="dialog" style="display: none">
+        <div>Click on map to add/remove route points</div>
+        <div id="routeCreatorBody" class="table" style="margin: 0.3em 0"></div>
+        <div id="routeCreatorBottom">
+          <button id="routeCreatorComplete" data-tip="Complete route creation" class="icon-check"></button>
+          <button id="routeCreatorCancel" data-tip="Cancel the creation" class="icon-cancel"></button>
+          <div style="display: inline-block">
+            Group:
+            <select id="routeCreatorGroupSelect"></select>
+            <span id="routeCreatorGroupEdit" data-tip="Edit route groups" class="icon-pencil pointer"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="routeGroupsEditor" class="dialog" style="display: none">
+        <div id="routeGroupsEditorBody" class="table" style="padding: 0.3em 0; width: 100%"></div>
+        <div id="routeGroupsEditorBottom">
+          <button id="routeGroupsEditorAdd" data-tip="Add route group" class="icon-plus"></button>
+        </div>
       </div>
 
       <div id="iceEditor" class="dialog" style="display: none">
         <button id="iceEditStyle" data-tip="在样式编辑器中编辑样式" class="icon-brush"></button>
         <button id="iceRandomize" data-tip="随机产生冰山形状" class="icon-shuffle"></button>
-        <input id="iceSize" data-tip="更改冰山大小" type="range" min=".05" max="1" step=".01" />
+        <input id="iceSize" data-tip="更改冰山大小" type="range" min=".05" max="2" step=".01" />
         <button id="iceNew" data-tip="添加冰山（点击地图）" class="icon-plus"></button>
         <button
           id="iceRemove"
@@ -2895,7 +2968,11 @@
             data-tip="提供新组的名称"
             style="display: none; width: 9em"
           />
-          <span id="coastlineGroupAdd" data-tip="为此海岸线创建新组" class="icon-plus pointer"></span>
+          <span
+            id="coastlineGroupAdd"
+            data-tip="为此海岸线创建新组"
+            class="icon-plus pointer"
+          ></span>
           <span id="coastlineGroupRemove" data-tip="删除组" class="icon-trash-empty pointer"></span>
         </div>
 
@@ -3226,7 +3303,7 @@
               <use id="burgEmblem"></use>
             </svg>
             <div style="display: grid; grid-auto-rows: minmax(1.6em, auto)">
-              <div id="burgProvinceAndState" style="font-style: italic; max-width: 16em"></div>
+              <div id="burgProvinceAndState" style="font-weight: bold; max-width: 16em"></div>
 
               <div>
                 <div class="label">名称：</div>
@@ -3235,7 +3312,7 @@
                   data-tip="输入重命名城市"
                   autocorrect="off"
                   spellcheck="false"
-                  style="width: 8em"
+                  style="width: 9em"
                 />
                 <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
                 <span
@@ -3260,7 +3337,7 @@
 
               <div data-tip="选择主导文化">
                 <div class="label">文化:</div>
-                <select id="burgCulture" style="width: 8em"></select>
+                <select id="burgCulture" style="width: 9em"></select>
                 <span
                   id="burgNameReCulture"
                   data-tip="依据文化为城市生成名字"
@@ -3270,11 +3347,11 @@
 
               <div data-tip="设置城市人口">
                 <div class="label">人口:</div>
-                <input id="burgPopulation" type="number" min="0" step="1" style="width: 8em" />
+                <input id="burgPopulation" type="number" min="0" step="1" style="width: 9em" />
               </div>
 
               <div data-tip="城市年平均气温与现实世界城市进行比较">
-                <div class="label">温度：</div>
+                <div class="label">温度:</div>
                 <span id="burgTemperature"></span>，与
                 <span id="burgTemperatureLikeIn"></span>类似
                 <i
@@ -3288,6 +3365,7 @@
                 <div class="label">高度:</div>
                 <span id="burgElevation"></span> 海平面以上
               </div>
+
               <div>
                 <div class="label">特点:</div>
                 <span
@@ -3337,8 +3415,6 @@
                   style="font-size: 1em"
                 ></span>
               </div>
-
-
             </div>
           </div>
 
@@ -3354,9 +3430,8 @@
                 ></i>
                 <i id="burgLinkOpen" data-tip="在新标签页打开城镇图" class="icon-link-ext pointer"></i>
               </div>
-
             </div>
-            <div id="burgPreviewObject" style="max-width: 30em; pointer-events: none"></div>
+            <div id="burgPreviewObject" style="pointer-events: none"></div>
           </div>
         </div>
 
@@ -3397,12 +3472,13 @@
 
           <button id="burgEditEmblem" data-tip="编辑徽章" class="icon-shield-alt"></button>
           <button id="burgTogglePreview" data-tip="切换预览" class="icon-map"></button>
-          <button id="burgRelocate" data-tip="重新安置城市区" class="icon-target"></button>
+          <button id="burgLocate" data-tip="安置城市区" class="icon-target"></button>
+          <button id="burgRelocate" data-tip="安置城市。点击地图移动城镇" class="icon-map-pin"></button>
           <button id="burglLegend" data-tip="编辑自由的文字说明(图例)为这个城市" class="icon-edit"></button>
           <button id="burgLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
           <button
             id="burgRemove"
-            data-tip="移除非首都城市"
+            data-tip="移除非首都城"
             data-shortcut="Delete"
             class="icon-trash fastDelete"
           ></button>
@@ -3824,7 +3900,7 @@
           <button id="battleType" data-tip="战斗类型，点击更改"></button>
           <div class="battleTypes" style="display: none">
             <button
-              data-tip="野战: 一种标准的战斗形式"
+              data-tip="陆战: 一种标准的战斗形式"
               data-type="field"
               class="icon-button-field"
             ></button>
@@ -3881,7 +3957,7 @@
           <div data-tip="按军队名点击排序" class="sortable alphabetically" data-sortby="regiment">
             军队&nbsp;
           </div>
-          <div data-tip="点击此处可按总兵力进行排序" class="sortable" data-sortby="total">Total&nbsp;</div>
+          <div data-tip="点击此处可按总兵力进行排序" class="sortable" data-sortby="total">总共&nbsp;</div>
           <div
             data-tip="按到战场的距离进行排序"
             class="sortable icon-sort-number-up"
@@ -3965,72 +4041,24 @@
         </div>
 
         <div id="brushesSliders" style="display: none">
-          <div data-tip="改变笔刷大小" data-shortcut="+ (increase), – (decrease)" style="padding-bottom: 1px">
-            <div style="width: 3.2em; display: inline-block"><i>半径:</i></div>
-            <input
-              id="brushRadius"
-              oninput="tip('笔刷半径：'+this.value); brushRadiusNumber.value = this.value"
-              type="range"
-              min="1"
-              max="99"
-              value="25"
-              style="width: 13em"
-            />
-            <input
-              id="brushRadiusNumber"
-              oninput="tip('笔刷半径：'+this.value); brushRadius.value = this.value"
-              type="number"
-              min="1"
-              max="99"
-              value="25"
-              style="border: 1px solid #d4d4d4"
-            />
+          <div data-tip="改变笔刷大小. 快捷键: + 增加; – 减少">
+            <slider-input id="heightmapBrushRadius" min="1" max="100" value="25">
+              <div style="width: 3.5em">半径:</div>
+            </slider-input>
           </div>
 
-          <div data-tip="设置笔刷力度">
-            <div style="width: 3.2em; display: inline-block"><i>力度:</i></div>
-            <input
-              id="brushPower"
-              oninput="tip('笔刷力度：'+this.value); brushPowerNumber.value = this.value"
-              type="range"
-              min="1"
-              max="10"
-              value="5"
-              style="width: 13em"
-            />
-            <input
-              id="brushPowerNumber"
-              oninput="tip('笔刷力度：'+this.value); brushPower.value = this.value"
-              type="number"
-              min="1"
-              max="10"
-              value="5"
-              style="border: 1px solid #d4d4d4"
-            />
+          <div data-tip="改变笔刷力度">
+            <slider-input id="heightmapBrushPower" min="1" max="10" value="5">
+              <div style="width: 3.5em">力度:</div>
+            </slider-input>
           </div>
         </div>
 
         <div id="lineSlider" style="display: none">
-          <div data-tip="设置改变力度">
-            <div style="width: 3.2em; display: inline-block"><i>力度:</i></div>
-            <input
-              id="linePower"
-              oninput="tip('Line power: '+this.value); linePowerNumber.value = this.value"
-              type="range"
-              min="-100"
-              max="100"
-              value="30"
-              style="width: 13em"
-            />
-            <input
-              id="linePowerNumber"
-              oninput="tip('Line power: '+this.value); linePower.value = this.value"
-              type="number"
-              min="-100"
-              max="100"
-              value="30"
-              style="border: 1px solid #d4d4d4"
-            />
+          <div data-tip="改变工具力度. 快捷键: + 增加; – 减少">
+            <slider-input id="heightmapLinePower" min="-100" max="100" value="30">
+              <div style="width: 3.5em">力度:</div>
+            </slider-input>
           </div>
         </div>
 
@@ -4048,7 +4076,7 @@
           <button id="rescaleShow" data-tip="显示重新分级滑块" class="icon-exchange"></button>
           <button
             id="rescaleCondShow"
-            data-tip="重新分级: 如果条件满足，改变高度"
+            data-tip="缩放器：若条件达成，则更改高度。"
             class="icon-if"
           ></button>
           <button id="smoothHeights" data-tip="把所有的高度都抹平一点" class="icon-smooth"></button>
@@ -4057,7 +4085,7 @@
         </div>
 
         <div id="rescaleSection" style="display: none">
-          <button id="rescaleHide" data-tip="隐藏重新分级滑块" class="icon-exchange"></button>
+          <button id="rescaleHide" data-tip="隐藏缩放器滑块" class="icon-exchange"></button>
           <input
             id="rescaler"
             data-tip="更改所有单元格的高度"
@@ -4074,7 +4102,7 @@
           data-tip="如果 高度 大于或等于 X，小于或等于 Y，则使用操作数 V 执行操作 Z"
           style="display: none"
         >
-          <button id="rescaleCondHide" data-tip="隐藏重新分级器" class="icon-if"></button>
+          <button id="rescaleCondHide" data-tip="隐藏缩放器" class="icon-if"></button>
           <label>h ≥</label>
           <input id="rescaleLower" value="20" type="number" min="0" max="100" />
           <label>≤</label>
@@ -4114,18 +4142,18 @@
           </select>
         </div>
         <div id="templateTools">
-          <button data-type="Hill" data-tip="山丘: 小团">H</button>
-          <button data-type="Pit" data-tip="坑: 圆形凹陷">P</button>
-          <button data-type="Range" data-tip="范围: 拉长的海拔高度">R</button>
-          <button data-type="Trough" data-tip="Trough: 拉长的凹陷">T</button>
-          <button data-type="Strait" data-tip="Strait: 中心垂直或水平凹陷">S</button>
-          <button data-type="Mask" data-tip="Mask: 靠近边缘或在地图中心的下部单元格">M</button>
-          <button data-type="Invert" data-tip="沿着轴线反转高程图">I</button>
-          <button data-type="Add" data-tip="从范围内的所有高度增加或减少值">+</button>
-          <button data-type="Multiply" data-tip="将范围内所有高度乘以因数">*</button>
+          <button data-type="Hill" data-tip="山丘：小的凸起物">H</button>
+          <button data-type="Pit" data-tip="洼地：圆形的凹陷">P</button>
+          <button data-type="Range" data-tip="山脉：长条形的隆起">R</button>
+          <button data-type="Trough" data-tip="山谷：长条形的凹陷">T</button>
+          <button data-type="Strait" data-tip="海峡：位于中心的垂直或水平凹陷">S</button>
+          <button data-type="Mask" data-tip="掩模：位于边缘或地图中心的较低单元格">M</button>
+          <button data-type="Invert" data-tip="沿轴翻转高度图">I</button>
+          <button data-type="Add" data-tip="向范围内的所有高度值添加或减去值">+</button>
+          <button data-type="Multiply" data-tip="将范围内的所有高度值乘以因子">*</button>
           <button
             data-type="Smooth"
-            data-tip="用邻居的平均值平滑替换单元格高度的地图"
+            data-tip="平滑地图，用相邻单元的平均值替换单元的高度"
           >
             ~
           </button>
@@ -4140,18 +4168,18 @@
               >y:<input class="templateY" data-tip="以百分比表示的 Y 轴位置(minY-maxY 或 Y)" value="47-53"
             /></span>
             <span
-              >x:<input class="templateX" data-tip="X 轴百分比位置(minX-maxX 或 X)" value="65-75"
+              >x:<input class="templateX" data-tip="X axis position in percentage (minX-maxX or X)" value="65-75"
             /></span>
             <span
               >h:<input
                 class="templateHeight"
-                data-tip="团块最大高度，使用连字符获取范围内的随机数"
+                data-tip="凸起最大高度，使用连字符获取范围内的随机数"
                 value="90-100"
             /></span>
             <span
               >n:<input
                 class="templateCount"
-                data-tip="要添加的团块，请使用连字符获取范围内的随机数"
+                data-tip="要添加的凸起，请使用连字符获取范围内的随机数"
                 value="1"
             /></span>
           </div>
@@ -4175,7 +4203,7 @@
             onclick="wiki('Heightmap-template-editor')"
           ></button>
           <label
-            data-tip="如果你希望模板每次都生成相同的高程图，则锁定种子(点击锁定图标)"
+            data-tip="若希望模板每次生成相同高程图，则锁定种子(点击锁定图标)"
           >
             Seed: <input id="templateSeed" value="" type="number" min="1" max="999999999" step="1" style="width: 8em" />
             <i data-locked="0" id="lock_templateSeed" class="icon-lock-open"></i>
@@ -4296,28 +4324,12 @@
             class="icon-brush"
           ></button>
           <div id="biomesManuallyButtons" style="display: none">
-            <label data-tip="改变笔刷大小" data-shortcut="+ (increase), – (decrease)" class="italic"
-              >笔刷半径:
-              <input
-                id="biomesManuallyBrush"
-                oninput="tip('笔刷半径:'+this.value); biomesManuallyBrushNumber.value = this.value"
-                type="range"
-                min="5"
-                max="99"
-                value="15"
-                style="width: 4em"
-              />
-              <input
-                id="biomesManuallyBrushNumber"
-                oninput="tip('笔刷半径: '+this.value); biomesManuallyBrush.value = this.value"
-                type="number"
-                min="5"
-                max="99"
-                value="15"
-              /> </label
-            ><br />
-            <button id="biomesManuallyApply" data-tip="应用分配" class="icon-check"></button>
-            <button id="biomesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
+            <div data-tip="改变笔刷大小。快捷键:+增加;-减少" style="margin-block: 0.3em">
+              笔刷大小:
+              <slider-input id="biomesBrush" min="1" max="100" value="15"></slider-input>
+            </div>
+            <button id="biomesManuallyApply" data-tip="Apply current assignment" class="icon-check"></button>
+            <button id="biomesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
           </div>
           <button id="biomesAdd" data-tip="添加自定义生物群落" class="icon-plus"></button>
           <button
@@ -4343,12 +4355,12 @@
           <div data-tip="国家名" class="label">简称:</div>
           <input
             id="stateNameEditorShort"
-            data-tip="键入以更改短名称"
+            data-tip="键入以更改简称"
             autocorrect="off"
             spellcheck="false"
             style="width: 11em"
           />
-          <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="朗读名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="stateNameEditorShortCulture"
             data-tip="依据文化生成名字"
@@ -4358,88 +4370,88 @@
         </div>
 
         <div data-tip="选择类型名称">
-          <div data-tip="国家类型名称" class="label">类型名称:</div>
+          <div data-tip="国家类型名称" class="label">类型:</div>
           <select id="stateNameEditorSelectForm" style="width: 11em">
             <option value="">空白</option>
             <optgroup label="Monarchy">
-              <option value="Beylik">Beylik=土耳其省辖区</option>
-              <option value="Despotate">Despotate=专制</option>
-              <option value="Dominion">Dominion=自治领</option>
-              <option value="Duchy">Duchy=公国</option>
-              <option value="Emirate">Emirate=酋长国</option>
-              <option value="Empire">Empire=帝国</option>
-              <option value="Horde">Horde-部落</option>
-              <option value="Grand Duchy">Grand Duchy=大公国</option>
+              <option value="Beylik">Beylik</option>
+              <option value="Despotate">Despotate</option>
+              <option value="Dominion">Dominion</option>
+              <option value="Duchy">Duchy</option>
+              <option value="Emirate">Emirate</option>
+              <option value="Empire">Empire</option>
+              <option value="Horde">Horde</option>
+              <option value="Grand Duchy">Grand Duchy</option>
               <option value="Heptarchy">Heptarchy</option>
               <option value="Khaganate">Khaganate</option>
               <option value="Khanate">Khanate</option>
-              <option value="Kingdom">Kingdom=王国</option>
+              <option value="Kingdom">Kingdom</option>
               <option value="Marches">Marches</option>
               <option value="Principality">Principality</option>
               <option value="Satrapy">Satrapy</option>
-              <option value="Shogunate">Shogunate=幕府</option>
-              <option value="Sultanate">Sultanate=苏丹国</option>
-              <option value="Tsardom">Tsardom=沙皇国</option>
+              <option value="Shogunate">Shogunate</option>
+              <option value="Sultanate">Sultanate</option>
+              <option value="Tsardom">Tsardom</option>
               <option value="Ulus">Ulus</option>
-              <option value="Viceroyalty">Viceroyalty=总督辖区</option>
+              <option value="Viceroyalty">Viceroyalty</option>
             </optgroup>
             <optgroup label="Republic">
-              <option value="Chancellery">Chancellery=总理府</option>
-              <option value="City-state">City-state=联邦</option>
-              <option value="Diarchy">Diarchy=二元政体</option>
-              <option value="Federation">Federation=联合</option>
-              <option value="Free City">Free City=自由城</option>
+              <option value="Chancellery">Chancellery</option>
+              <option value="City-state">City-state</option>
+              <option value="Diarchy">Diarchy</option>
+              <option value="Federation">Federation</option>
+              <option value="Free City">Free City</option>
               <option value="Most Serene Republic">Most Serene Republic</option>
-              <option value="Oligarchy">Oligarchy=寡头政治</option>
+              <option value="Oligarchy">Oligarchy</option>
               <option value="Protectorate">Protectorate</option>
-              <option value="Republic">Republic=共和国</option>
-              <option value="Tetrarchy">Tetrarchy=四元政体</option>
-              <option value="Trade Company">Trade Company=贸易公司</option>
-              <option value="Triumvirate">Triumvirate=三元整体</option>
+              <option value="Republic">Republic</option>
+              <option value="Tetrarchy">Tetrarchy</option>
+              <option value="Trade Company">Trade Company</option>
+              <option value="Triumvirate">Triumvirate</option>
             </optgroup>
             <optgroup label="Union">
-              <option value="Confederacy">Confederacy=邦联</option>
-              <option value="Confederation">Confederation=联邦</option>
-              <option value="Conglomerate">Conglomerate=集团</option>
-              <option value="Commonwealth">Commonwealth=英联邦</option>
+              <option value="Confederacy">Confederacy</option>
+              <option value="Confederation">Confederation</option>
+              <option value="Conglomerate">Conglomerate</option>
+              <option value="Commonwealth">Commonwealth</option>
               <option value="League">League</option>
               <option value="Union">Union</option>
-              <option value="United Hordes">United Hordes=联合部落</option>
-              <option value="United Kingdom">United Kingdom=联合王国</option>
-              <option value="United Provinces">United Provinces=联合省</option>
-              <option value="United Republic">United Republic=联合共和国</option>
-              <option value="United States">United States=联合州</option>
-              <option value="United Tribes">United Tribes=联合部落</option>
+              <option value="United Hordes">United Hordes</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="United Provinces">United Provinces</option>
+              <option value="United Republic">United Republic</option>
+              <option value="United States">United States</option>
+              <option value="United Tribes">United Tribes</option>
             </optgroup>
             <optgroup label="Theocracy">
-              <option value="Bishopric">Bishopric=主教</option>
-              <option value="Brotherhood">Brotherhood=兄弟会</option>
+              <option value="Bishopric">Bishopric</option>
+              <option value="Brotherhood">Brotherhood</option>
               <option value="Caliphate">Caliphate</option>
-              <option value="Diocese">Diocese=教区</option>
-              <option value="Divine Duchy">Divine Duchy=圣公国</option>
-              <option value="Divine Grand Duchy">Divine Grand Duchy=神圣大公国</option>
-              <option value="Divine Principality">Divine Principality=圣公国（女）</option>
-              <option value="Divine Kingdom">Divine Kingdom=神圣王国</option>
-              <option value="Divine Empire">Divine Empire=神圣帝国</option>
-              <option value="Eparchy">Eparchy=教区</option>
-              <option value="Exarchate">Exarchate=执行</option>
-              <option value="Holy State">Holy State=圣州</option>
+              <option value="Diocese">Diocese</option>
+              <option value="Divine Duchy">Divine Duchy</option>
+              <option value="Divine Grand Duchy">Divine Grand Duchy</option>
+              <option value="Divine Principality">Divine Principality</option>
+              <option value="Divine Kingdom">Divine Kingdom</option>
+              <option value="Divine Empire">Divine Empire</option>
+              <option value="Eparchy">Eparchy</option>
+              <option value="Exarchate">Exarchate</option>
+              <option value="Holy State">Holy State</option>
               <option value="Imamah">Imamah</option>
-              <option value="Patriarchate">Patriarchate=宗主教区</option>
-              <option value="Theocracy">Theocracy=神权统治</option>
+              <option value="Patriarchate">Patriarchate</option>
+              <option value="Theocracy">Theocracy</option>
             </optgroup>
             <optgroup label="Anarchy">
-              <option value="Commune">Commune=公社</option>
-              <option value="Community">Community=社区</option>
-              <option value="Council">Council=理事会</option>
-              <option value="Free Territory">Free Territory=自由领主</option>
-              <option value="Tribes">Tribes=部落</option>
+              <option value="Commune">Commune</option>
+              <option value="Community">Community</option>
+              <option value="Council">Council</option>
+              <option value="Free Territory">Free Territory</option>
+              <option value="Tribes">Tribes</option>
             </optgroup>
           </select>
           <input
             id="stateNameEditorCustomForm"
-            placeholder="键入类名称"
-            data-tip="输入自定义类名称"
+            placeholder="键入类名"
+            data-tip="输入自定义类名"
             style="display: none; width: 11em"
           />
           <span
@@ -4458,7 +4470,7 @@
             spellcheck="false"
             style="width: 11em"
           />
-          <span data-tip="说出名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="朗读名字。你可以在选项中更改语音和语言" class="speaker">🔊</span>
           <span
             id="stateNameEditorFullRegenerate"
             data-tip="点击此处可重新生成全名"
@@ -4467,9 +4479,9 @@
           ></span>
         </div>
 
-        <div data-tip="取消选中以不更新名称更改时的国家标签" style="padding-block: 0.2em">
+        <div data-tip="取消选中使名称更改时不更新国家标签" style="padding-block: 0.2em">
           <input id="stateNameEditorUpdateLabel" class="checkbox" type="checkbox" checked />
-          <label for="stateNameEditorUpdateLabel" class="checkbox-label"><i>应用以更新标签</i></label>
+          <label for="stateNameEditorUpdateLabel" class="checkbox-label"><i>应用时更新标签</i></label>
         </div>
       </div>
 
@@ -4529,7 +4541,7 @@
           <button id="provincesChart" data-tip="显示省份图" class="icon-chart-area"></button>
           <button
             id="provincesToggleLabels"
-            data-tip="切换省份标签。更改菜单样式省份的大小"
+            data-tip="切换省份标签。在“菜单⭢样式⭢省份”中更改大小"
             class="icon-font"
           ></button>
           <button
@@ -4540,26 +4552,10 @@
 
           <button id="provincesManually" data-tip="手动重新分配省份" class="icon-brush"></button>
           <div id="provincesManuallyButtons" style="display: none">
-            <label data-tip="Change brush size" data-shortcut="+ (increase), – (decrease)" class="italic"
-              >笔刷大小:
-              <input
-                id="provincesManuallyBrush"
-                oninput="tip('笔刷大小: '+this.value); provincesManuallyBrushNumber.value = this.value"
-                type="range"
-                min="5"
-                max="99"
-                value="8"
-                style="width: 5em"
-              />
-              <input
-                id="provincesManuallyBrushNumber"
-                oninput="tip('笔刷大小: '+this.value); provincesManuallyBrush.value = this.value"
-                type="number"
-                min="5"
-                max="99"
-                value="8"
-              /> </label
-            ><br />
+            <div data-tip="更改笔刷大小. 快捷键: + 增加; – 减小" style="margin-block: 0.3em">
+              笔刷大小:
+              <slider-input id="provincesBrush" min="1" max="100" value="8"></slider-input>
+            </div>
             <button id="provincesManuallyApply" data-tip="应用任务" class="icon-check"></button>
             <button id="provincesManuallyCancel" data-tip="取消任务" class="icon-cancel"></button>
           </div>
@@ -4651,43 +4647,43 @@
         <div data-tip="选择类型名称">
           <div data-tip="省类名" class="label">类型名称:</div>
           <select id="provinceNameEditorSelectForm" style="display: inline-block; width: 11em; height: 1.645em">
-            <option value="">blank=无类别</option>
-            <option value="Area">Area=地区</option>
-            <option value="Autonomy">Autonomy=自治</option>
-            <option value="Barony">Barony=男爵领地</option>
-            <option value="Canton">Canton=州</option>
-            <option value="Captaincy">Captaincy=大将</option>
-            <option value="Chiefdom">Chiefdom=酋长领地</option>
-            <option value="Clan">Clan=宗族</option>
-            <option value="Colony">Colony=殖民地</option>
-            <option value="Council">Council=委员会</option>
-            <option value="County">County=县</option>
-            <option value="Deanery">Deanery=教区</option>
-            <option value="Department">Department=部门</option>
-            <option value="Dependency">Dependency=属国</option>
-            <option value="Diaconate">Diaconate=执事会</option>
-            <option value="District">District=地方</option>
-            <option value="Earldom">Earldom=伯爵地</option>
-            <option value="Governorate">Governorate=省</option>
+            <option value="">blank</option>
+            <option value="Area">Area</option>
+            <option value="Autonomy">Autonomy</option>
+            <option value="Barony">Barony</option>
+            <option value="Canton">Canton</option>
+            <option value="Captaincy">Captaincy</option>
+            <option value="Chiefdom">Chiefdom</option>
+            <option value="Clan">Clan</option>
+            <option value="Colony">Colony</option>
+            <option value="Council">Council</option>
+            <option value="County">County</option>
+            <option value="Deanery">Deanery</option>
+            <option value="Department">Department</option>
+            <option value="Dependency">Dependency</option>
+            <option value="Diaconate">Diaconate</option>
+            <option value="District">District</option>
+            <option value="Earldom">Earldom</option>
+            <option value="Governorate">Governorate</option>
             <option value="Island">Island</option>
             <option value="Islands">Islands</option>
             <option value="Land">Land</option>
-            <option value="Landgrave">Landgrave=伯爵领主</option>
-            <option value="Mandate">Mandate=委任统治</option>
-            <option value="Margrave">Margrave=总督</option>
-            <option value="Municipality">Municipality=自治区</option>
-            <option value="Occupation zone">Occupation zone=占领区</option>
-            <option value="Parish">Parish=堂区</option>
-            <option value="Prefecture">Prefecture=县区</option>
-            <option value="Province">Province=省</option>
-            <option value="Region">Region=地带</option>
-            <option value="Republic">Republic=共和国</option>
-            <option value="Reservation">Reservation=保留地</option>
-            <option value="Seneschalty">Seneschalty=总管</option>
-            <option value="Shire">Shire=郡</option>
+            <option value="Landgrave">Landgrave</option>
+            <option value="Mandate">Mandate</option>
+            <option value="Margrave">Margrave</option>
+            <option value="Municipality">Municipality</option>
+            <option value="Occupation zone">Occupation zone</option>
+            <option value="Parish">Parish</option>
+            <option value="Prefecture">Prefecture</option>
+            <option value="Province">Province</option>
+            <option value="Region">Region</option>
+            <option value="Republic">Republic</option>
+            <option value="Reservation">Reservation</option>
+            <option value="Seneschalty">Seneschalty</option>
+            <option value="Shire">Shire</option>
             <option value="State">State</option>
-            <option value="Territory">Territory=领土</option>
-            <option value="Tribe">Tribe=部落</option>
+            <option value="Territory">Territory</option>
+            <option value="Tribe">Tribe</option>
           </select>
           <input
             id="provinceNameEditorCustomForm"
@@ -4839,43 +4835,38 @@
         <div id="zonesBottom">
           <button id="zonesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
           <button id="zonesEditStyle" data-tip="在样式编辑器中编辑区域样式" class="icon-adjust"></button>
-          <button id="zonesLegend" data-tip="切换图例" class="icon-list-bullet"></button>
+          <button
+            id="zonesLegend"
+            data-tip="切换图例框(显示所有非隐藏区域)"
+            class="icon-list-bullet"
+          ></button>
           <button
             id="zonesPercentage"
             data-tip="切换百分比/绝对值视图"
             class="icon-percent"
           ></button>
 
-          <button id="zonesManually" data-tip="重新分配区域" class="icon-brush"></button>
+          <button id="zonesManually" data-tip="重新指定区域" class="icon-brush"></button>
           <div id="zonesManuallyButtons" style="display: none">
-            <label data-tip="改变刷子大小" data-shortcut="+ (increase), – (decrease)" class="italic"
-              >Brush:
-              <input
-                id="zonesBrush"
-                oninput="tip('Brush size: '+this.value); zonesBrushNumber.value = this.value"
-                type="range"
-                min="5"
-                max="50"
-                value="7"
-                style="width: 9em"
-              />
-              <input
-                id="zonesBrushNumber"
-                oninput="tip('Brush size: '+this.value); zonesBrush.value = this.value"
-                type="number"
-                min="5"
-                max="50"
-                value="7"
-              /> </label
-            ><br />
-            <button id="zonesManuallyApply" data-tip="应用任务" class="icon-check"></button>
-            <button id="zonesManuallyCancel" data-tip="取消任务" class="icon-cancel"></button>
-            <button
-              id="zonesRemove"
-              data-tip="切换刷子拖动的删除模式"
-              data-shortcut="Ctrl"
-              class="icon-eraser"
-            ></button>
+            <div data-tip="改变刷子大小. 快捷键: + 增加; – 下降" style="margin-block: 0.3em">
+              笔刷大小:
+              <slider-input id="zonesBrush" min="1" max="100" value="8"></slider-input>
+            </div>
+            <div>
+              <input id="zonesBrushLandOnly" class="checkbox" type="checkbox" checked />
+              <label for="zonesBrushLandOnly" class="checkbox-label"><i>仅改变陆地</i></label>
+            </div>
+
+            <div style="margin-top: 0.3em">
+              <button id="zonesManuallyApply" data-tip="应用分配" class="icon-check"></button>
+              <button id="zonesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
+              <button
+                id="zonesRemove"
+                data-tip="切换刷子拖动的删除模式"
+                data-shortcut="Ctrl"
+                class="icon-eraser"
+              ></button>
+            </div>
           </div>
 
           <button id="zonesAdd" data-tip="添加新的区域层" class="icon-plus"></button>
@@ -4894,11 +4885,12 @@
           <select id="notesSelect" data-tip="选择元素ID" style="width: 12em"></select>
           <strong>元素名: </strong>
           <input id="notesName" data-tip="设置元素名称" autocorrect="off" spellcheck="false" style="width: 16em" />
-          <span data-tip="朗读示例。您可以在选项中更改语音和语言" class="speaker">🔊</span>
+          <span data-tip="朗读名字。您可以在选项中更改语音和语言" class="speaker">🔊</span>
         </div>
         <div id="notesLegend" contenteditable="true"></div>
         <div style="margin-top: 0.3em">
           <button id="notesFocus" data-tip="专注在选定的物体上" class="icon-target"></button>
+          <button id="notesGenerateWithAi" data-tip="用AI生成笔记" class="icon-robot"></button>
           <button
             id="notesPin"
             data-tip="切换笔记框显示: 鼠标移动时隐藏或不隐藏笔记框"
@@ -4907,6 +4899,32 @@
           <button id="notesDownload" data-tip="下载备注" class="icon-download"></button>
           <button id="notesUpload" data-tip="上传备注" class="icon-upload"></button>
           <button id="notesRemove" data-tip="删除备注" class="icon-trash fastDelete"></button>
+        </div>
+      </div>
+
+      <div id="aiGenerator" class="dialog stable" style="display: none">
+        <div style="display: flex; flex-direction: column; gap: 0.3em; width: 100%">
+          <textarea id="aiGeneratorResult" placeholder="生成的文本将出现在这里" cols="30" rows="10"></textarea>
+          <textarea id="aiGeneratorPrompt" placeholder="在这里输入提示符" cols="30" rows="5"></textarea>
+          <div style="display: flex; align-items: center; gap: 1em">
+            <label for="aiGeneratorModel"
+              >模型:
+              <select id="aiGeneratorModel"></select>
+            </label>
+
+            <label for="aiGeneratorKey"
+              >Key:
+              <input id="aiGeneratorKey" placeholder="输入 OpenAI API key" class="icon-key" />
+              <a
+                href="https://platform.openai.com/account/api-keys"
+                target="_blank"
+                rel="noreferrer"
+                class="icon-help-circled"
+                style="text-decoration: none"
+                data-tip="在OpenAI网站上获取密钥并将存储在浏览器中，并直接发送到OpenAI API。地图生成器不存储Key或任何生成的数据！"
+              ></a>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -5085,48 +5103,41 @@
         <div id="unitsBody" style="margin-left: 1.1em">
           <div class="unitsHeader" style="margin-top: 0.4em">
             <span class="icon-map-signs"></span>
-            <div>距离:</div>
+            <label>距离:</label>
           </div>
 
           <div data-tip="选择距离单位或提供自定义名称">
-            <div>距离单位:</div>
+            <label>距离单位:</label>
             <select id="distanceUnitInput" data-stored="distanceUnit">
               <option value="mi" selected>英里 (mi)</option>
               <option value="km">千米 (km)</option>
               <option value="lg">里格 (lg|旧制约5公里)</option>
               <option value="vr">维尔斯特 (vr|古俄单位)</option>
+              <option value="nmi">海里 (nmi)</option>
+              <option value="nlg">海里格 (nlg)</option>
               <option value="custom_name">自定义名称</option>
             </select>
           </div>
 
-          <i data-locked="0" id="lock_distanceScale" class="icon-lock-open"></i>
           <div data-tip="选择一个像素中有多少个距离单位">
-            <div>1地图像素 =</div>
-            <input id="distanceScaleOutput" type="range" min=".01" max="20" step=".1" value="3" />
-            <input
-              id="distanceScaleInput"
-              data-stored="distanceScale"
-              type="number"
-              min=".01"
-              max="100"
-              step=".01"
-              value="3"
-              data-value="3"
-            />
+            <i data-locked="0" id="lock_distanceScale" class="icon-lock-open"></i>
+            <slider-input id="distanceScaleInput" data-stored="distanceScale" min=".01" max="20" step=".1" value="3">
+              <label>1地图像素:</label>
+            </slider-input>
           </div>
 
           <div data-tip='面积单位, 输入“square”为距离单位添加平方符号'>
-            <div>面积单位:</div>
+            <label>面积单位:</label>
             <input id="areaUnit" data-stored="areaUnit" type="text" value="square" />
           </div>
 
           <div class="unitsHeader">
             <span class="icon-signal"></span>
-            <div>高度:</div>
+            <label>高度:</label>
           </div>
 
           <div data-tip="选择一个高度单位或提供一个自定义名称">
-            <div>高度单位:</div>
+            <label>高度单位:</label>
             <select id="heightUnit" data-stored="heightUnit">
               <option value="ft" selected>英尺 (ft)</option>
               <option value="m">米 (m)</option>
@@ -5138,17 +5149,16 @@
           <div
             data-tip="设置高度指数， 例如 海拔高度变化的锐度。海拔高度影响温度与生物群落"
           >
-            <div>指数:</div>
-            <input id="heightExponentOutput" type="range" min="1.5" max="2.2" value="2" step=".01" />
-            <input
+            <slider-input
               id="heightExponentInput"
               data-stored="heightExponent"
-              type="number"
               min="1.5"
               max="2.2"
-              value="2"
               step=".01"
-            />
+              value="2"
+            >
+              <label>指数:</label>
+            </slider-input>
           </div>
 
           <div class="unitsHeader" data-tip="选择温度刻度">
@@ -5157,7 +5167,7 @@
           </div>
 
           <div>
-            <div>温度单位:</div>
+            <label>温度单位:</label>
             <select id="temperatureScale" data-stored="temperatureScale">
               <option value="°C" selected>摄氏度 (°C)</option>
               <option value="°F">华氏度 (°F)</option>
@@ -5170,76 +5180,34 @@
             </select>
           </div>
 
-
           <div class="unitsHeader">
             <span class="icon-male"></span>
-            <div>人口:</div>
+            <label>人口:</label>
           </div>
 
-          <div data-tip="设置一个人口点有多少人">
-            <div>每人口点 =</div>
-            <input
-              id="populationRateOutput"
-              data-stored="populationRate"
-              type="range"
-              min="10"
-              max="9990"
-              step="10"
-              value="1000"
-            />
-            <input
+          <div data-tip="设置一个人口点等于多少人">
+            <slider-input
               id="populationRateInput"
               data-stored="populationRate"
-              type="number"
               min="10"
-              max="9990"
+              max="10000"
               step="10"
               value="1000"
-            />
+            >
+              <label>每人口点:</label>
+            </slider-input>
           </div>
 
           <div data-tip="设定城市化率: 城市人口相对于所有人口">
-            <div>城市化率:</div>
-            <input
-              id="urbanizationOutput"
-              data-stored="urbanization"
-              type="range"
-              min=".01"
-              max="5"
-              step=".01"
-              value="1"
-            />
-            <input
-              id="urbanizationInput"
-              data-stored="urbanization"
-              type="number"
-              min=".01"
-              max="5"
-              step=".01"
-              value="1"
-            />
+            <slider-input id="urbanizationInput" data-stored="urbanization" min=".01" max="5" step=".01" value="1">
+              <label>城市化率:</label>
+            </slider-input>
           </div>
 
           <div data-tip="设置城市密度: 中世纪幻想城市生成器中每座建筑的平均人口">
-            <div>城市密度:</div>
-            <input
-              id="urbanDensityOutput"
-              data-stored="urbanDensity"
-              type="range"
-              min="1"
-              max="200"
-              step="1"
-              value="10"
-            />
-            <input
-              id="urbanDensityInput"
-              data-stored="urbanDensity"
-              type="number"
-              min="1"
-              max="200"
-              step="1"
-              value="10"
-            />
+            <slider-input id="urbanDensityInput" data-stored="urbanDensity" min="1" max="200" step="1" value="10">
+              <label>城市密度:</label>
+            </slider-input>
           </div>
         </div>
 
@@ -5273,7 +5241,7 @@
       </div>
 
       <div id="burgsOverview" class="dialog stable" style="display: none">
-        <div id="burgsHeader" class="header" style="grid-template-columns: 8em 6em 6em 7em 7em 4em 2em">
+        <div id="burgsHeader" class="header" style="grid-template-columns: 8em 6em 6em 6em 8em 6em">
           <div data-tip="点击此处可按城市名进行排序" class="sortable alphabetically" data-sortby="name">城市</div>
           <div data-tip="按省名排序" class="sortable alphabetically" data-sortby="province">
             省份
@@ -5289,13 +5257,7 @@
           >
             人口
           </div>
-          <div data-tip="点击此处可按城市类型进行排序" class="sortable alphabetically" data-sortby="type">Type&nbsp;</div>
-          <div
-            id="burgsInvertLock"
-            style="color: #6e5e66"
-            data-tip="点击此处可为所有城市反转锁定"
-            class="icon-lock pointer"
-          ></div>
+          <div data-tip="点击按城市功能排序" class="sortable alphabetically" data-sortby="features">功能&nbsp;</div>
         </div>
 
         <div id="burgsBody" class="table"></div>
@@ -5303,6 +5265,7 @@
           <div id="burgsFilters" data-tip="应用过滤器" style="padding-block: 0.1em">
             <label for="burgsFilterState">国家:</label>
           <select id="burgsFilterState" style="width: 28%"></select>
+
           <label for="burgsFilterCulture">文化:</label>
           <select id="burgsFilterCulture" style="width: 28%"></select>
         </div>
@@ -5338,6 +5301,47 @@
             data-tip="删除除首都以外所有未上锁的城市。删除首都首先删除其国家"
             class="icon-trash"
           ></button>
+        </div>
+      </div>
+
+      <div id="routesOverview" class="dialog stable" style="display: none">
+        <div id="routesHeader" class="header" style="grid-template-columns: 17em 8em 8em">
+          <div data-tip="路线名排序" class="sortable alphabetically" data-sortby="name">
+            路线名&nbsp;
+          </div>
+          <div data-tip="路线组排序" class="sortable alphabetically" data-sortby="group">
+            路线组&nbsp;
+          </div>
+          <div data-tip="路线长排序" class="sortable icon-sort-number-down" data-sortby="length">
+            路线长&nbsp;
+          </div>
+        </div>
+
+        <div id="routesBody" class="table"></div>
+
+        <div id="routesFooter" class="totalLine">
+          <div data-tip="路线数" style="margin-left: 4px">
+            路线总数:&nbsp;<span id="routesFooterNumber">0</span>
+          </div>
+          <div data-tip="平均长度" style="margin-left: 12px">
+            平均长度:&nbsp;<span id="routesFooterLength">0</span>
+          </div>
+        </div>
+
+        <div id="routesBottom">
+          <button id="routesOverviewRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+          <button
+            id="routesCreateNew"
+            data-tip="选择路线单元创建一条新路线"
+            class="icon-map-pin"
+          ></button>
+          <button
+            id="routesExport"
+            data-tip="将路线相关数据保存为文本文件(.csv)"
+            class="icon-download"
+          ></button>
+          <button id="routesLockAll" data-tip="锁定或解锁所有路线" class="icon-lock"></button>
+          <button id="routesRemoveAll" data-tip="移除所有路线" class="icon-trash"></button>
         </div>
       </div>
 
@@ -5533,7 +5537,9 @@
                 <th data-tip="工作人员平均人数(用于计算总人数)">工作人员</th>
                 <th data-tip="单位军事力量(用于作战模拟)">力量</th>
                 <th data-tip="单位类型适用于重新计算力的特殊规则">类型</th>
-                <th data-tip="检查单元是否是独立的，是否只能与相同类型的单元堆叠">分离</th>
+                <th data-tip="检查单元是否是独立的，是否只能与相同类型的单元堆叠">
+                  分离
+                </th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -5673,12 +5679,13 @@
         </p>
         <p><b>纬度:</b> <span id="infoLat"></span></p>
         <p><b>经度:</b> <span id="infoLon"></span></p>
+        <p><b>地理区域:</b> <span id="infoGeozone"></span></p>
         <p><b>面积:</b> <span id="infoArea">0</span></p>
         <p><b>类型:</b> <span id="infoFeature">n/a</span></p>
         <p><b>降水:</b> <span id="infoPrec">0</span></p>
         <p><b>河流:</b> <span id="infoRiver">no</span></p>
         <p><b>人口:</b> <span id="infoPopulation">0</span></p>
-        <p><b>海拔:</b> <span id="infoEvelation">0</span></p>
+        <p><b>海拔:</b> <span id="infoElevation">0</span></p>
         <p><b>深度:</b> <span id="infoDepth">0</span></p>
         <p><b>温度:</b> <span id="infoTemp">0</span></p>
         <p><b>生态:</b> <span id="infoBiome">n/a</span></p>
@@ -5703,19 +5710,19 @@
           <div data-tip="设置地图旋转速度。设置为0是你想关闭旋转">
             <div>旋转速度:</div>
             <input id="options3dMeshRotationRange" type="range" min="0" max="10" step=".1" />
-            <input id="options3dMeshRotationNumber" type="number" min="0" max="10" step=".1" style="width: 3em" />
+            <input id="options3dMeshRotationNumber" type="number" min="0" max="10" step=".1" style="width: 4em" />
           </div>
 
           <div data-tip="设置高度比例">
             <div>高度比例:</div>
             <input id="options3dScaleRange" type="range" min="0" max="100" />
-            <input id="options3dScaleNumber" type="number" min="0" max="1000" style="width: 3em" />
+            <input id="options3dScaleNumber" type="number" min="0" max="1000" style="width: 4em" />
           </div>
 
           <div data-tip="设置场景亮度">
             <div>场景亮度:</div>
             <input id="options3dLightnessRange" type="range" min="0" max="100" />
-            <input id="options3dLightnessNumber" type="number" min="0" max="500" style="width: 3em" />
+            <input id="options3dLightnessNumber" type="number" min="0" max="500" style="width: 4em" />
           </div>
 
           <div data-tip="设置网格纹理分辨率">
@@ -5735,7 +5742,7 @@
               <input id="options3dSunX" type="number" min="-2500" max="2500" step="100" style="width: 4.7em" />
               <input id="options3dSunY" type="number" min="0" max="5000" step="100" style="width: 4.7em" />
               <input id="options3dSunColor" type="color" style="padding: 0; height: 1.5em; border: none" />
-            </div>         
+            </div>
           </div>
 
           <div data-tip="切换3D 标签" style="margin: 0.6em 0 0.3em -0.2em">
@@ -5748,10 +5755,13 @@
             <label for="options3dMeshSkyMode" class="checkbox-label"><i>展现天空，延伸水面</i></label>
           </div>
 
-          <div data-tip="增加多边形数量以平滑尖锐点。请注意，计算可能需要一些时间" style="margin: 0.6em 0 0.3em -0.2em">
+          <div
+            data-tip="增加多边形数量以平滑尖锐点。请注意，计算可能需要一些时间"
+            style="margin: 0.6em 0 0.3em -0.2em"
+          >
             <input id="options3dSubdivide" class="checkbox" type="checkbox" />
             <label for="options3dSubdivide" class="checkbox-label"
-              ><i>几何平滑 <small style="color: darkred">[慢]</small></i></label
+              ><i>几何平滑 <small style="color: darkred">[很慢]</small></i></label
             >
           </div>
 
@@ -5823,10 +5833,16 @@
           <button onclick="exportToPng()" data-tip="以. png (无损压缩)的形式下载地图的可见部分">
             .png
           </button>
-          <button onclick="exportToJpeg()" data-tip="以. jpeg (有损压缩)图像的形式下载地图的可见部分">
+          <button
+            onclick="exportToJpeg()"
+            data-tip="以. jpeg (有损压缩)图像的形式下载地图的可见部分"
+          >
             .jpeg
           </button>
-          <button onclick="openExportToPngTiles()" data-tip="把地图拆分成更小的 png 块，并作为压缩文件下载">
+          <button
+            onclick="openExportToPngTiles()"
+            data-tip="把地图拆分成更小的 png 块，并作为压缩文件下载"
+          >
             tiles
           </button>
           <span data-tip="检查不允许系统自动隐藏标签">
@@ -5862,10 +5878,10 @@
 
         <div style="margin: 1em 0 0.3em; font-weight: bold">导出到 GeoJSON</div>
         <div>
-          <button onclick="saveGeoJSON_Cells()" data-tip="下载 GeoJSON 格式的单元格数据">单元格</button>
-          <button onclick="saveGeoJSON_Routes()" data-tip="以 GeoJSON 格式下载路线数据">路线</button>
-          <button onclick="saveGeoJSON_Rivers()" data-tip="下载 GeoJSON 格式的河流数据">河流</button>
-          <button onclick="saveGeoJSON_Markers()" data-tip="下载 GeoJSON 格式的标记数据">标记</button>
+          <button onclick="saveGeoJsonCells()" data-tip="下载 GeoJSON 格式的单元格数据">单元格</button>
+          <button onclick="saveGeoJsonRoutes()" data-tip="以 GeoJSON 格式下载路线数据">路线</button>
+          <button onclick="saveGeoJsonRivers()" data-tip="下载 GeoJSON 格式的河流数据">河流</button>
+          <button onclick="saveGeoJsonMarkers()" data-tip="下载 GeoJSON 格式的标记数据">标记</button>
         </div>
         <p>
           GeoJSON 格式用于 QGIS 等 GIS 工具中，
@@ -6063,14 +6079,14 @@
       <div id="submapOptionsDialog" style="display: none" class="dialog">
         <p style="font-weight: bold">
           这个操作具有破坏性和不可逆性，它将在现有地图的基础上创建一个全新的地图。
-不要忘记首先将当前文件保存到设备上！
+不要忘记首先将当前文件保存到设备上做备份！
         </p>
 
         <p>要更改的设置: 填充率、地图像素大小</p>
         <p>
           要复制的数据: 高程图，生物群落，宗教，人口，降水，文化，国，省，军事
         </p>
-        <p>待更新的数据: 区域、道路、河流</p>
+        <p>待重生成的数据: 区域、道路、河流</p>
         <p>城市可能重新映射错误，需要手动更改</p>
 
         <p>保存数据:</p>
@@ -7712,18 +7728,19 @@
           </symbol>
         </g>
 
-        <g id="rose" stroke-width="1">
-          <g id="sL" stroke="#3f3f3f">
+        <g id="defs-compass-rose" stroke-width="1.1">
+          <g id="rose-coord-line" stroke="#3f3f3f">
             <line id="sL1" x1="0" y1="-20000" x2="0" y2="20000" />
             <line id="sL2" x1="-20000" y1="0" x2="20000" y2="0" />
           </g>
-          <use href="#sL" transform="rotate(45)" />
-          <use href="#sL" transform="rotate(22.5)" />
-          <use href="#sL" transform="rotate(-22.5)" />
-          <use href="#sL" transform="rotate(11.25)" />
-          <use href="#sL" transform="rotate(-11.25)" />
-          <use href="#sL" transform="rotate(56.25)" />
-          <use href="#sL" transform="rotate(-56.25)" />
+          <use href="#rose-coord-line" transform="rotate(45)" />
+          <use href="#rose-coord-line" transform="rotate(22.5)" />
+          <use href="#rose-coord-line" transform="rotate(-22.5)" />
+          <use href="#rose-coord-line" transform="rotate(11.25)" />
+          <use href="#rose-coord-line" transform="rotate(-11.25)" />
+          <use href="#rose-coord-line" transform="rotate(56.25)" />
+          <use href="#rose-coord-line" transform="rotate(-56.25)" />
+
           <g stroke-width="8" stroke-opacity="1" shape-rendering="geometricprecision">
             <circle r="9" stroke="#000000" fill="#1b1b1b" />
             <circle r="75" stroke="#008000" fill="#ffffff" fill-opacity=".1" />
@@ -7774,6 +7791,27 @@
           </pattern>
           <pattern id="pattern_flatHex" width="43.4" height="25" patternUnits="userSpaceOnUse" fill="none">
             <path d="M 43.4,0 36.2,12.5 43.4,25 M 21.7,12.5 H 36.2 Z M 0,0 H 14.5 L 21.7,12.5 14.5,25 H 0" />
+          </pattern>
+          <pattern id="pattern_square45deg" width="35.355" height="35.355" patternUnits="userSpaceOnUse" fill="none">
+            <path d="M 0 0 L 35.355 35.355 M 0 35.355 L 35.355 0" />
+          </pattern>
+          <pattern id="pattern_squareTruncated" width="25" height="25" patternUnits="userSpaceOnUse" fill="none">
+            <path d="M 8.33 25 L 0 16.66 V 8.33 L 8.33 0 16.66 0 25 8.33  M 16.66 25 L 25 16.66 L 25 8.33 M 8.33 25 L 16.66 25" />
+          </pattern>
+          <pattern id="pattern_squareTetrakis" width="25" height="25" patternUnits="userSpaceOnUse" fill="none">
+            <path d="M 25 0 L 0 0 0 25 M 0 0 L 25 25 M 0 25 L 25 0 M 12.5 0 L 12.5 25 M 0 12.5 L 25 12.5 M 0 25 L 25 25 L 25 0" />
+          </pattern>
+          <pattern id="pattern_triangleHorizontal" width="41.76" height="72.33" patternUnits="userSpaceOnUse" fill="none">
+            <path d="M 41.76 36.165 H 0 L 20.88 0 41.76 36.165 20.88 72.33 0 36.165 M 0 0 H 72.33 M 0 72.33 L 41.76 72.33" />
+          </pattern>
+          <pattern id="pattern_triangleVertical" width="72.33" height="41.76" patternUnits="userSpaceOnUse" fill="none">
+            <path d="M 36.165 0 L 0 20.88 36.165 41.76 72.33 20.88 36.165 0 V 41.76 M 0 0 V 72.33 M 72.33 0 L 72.33 41.76">
+          </pattern>
+          <pattern id="pattern_trihexagonal" width="25" height="43.4" patternUnits="userSpaceOnUse" fill="none">
+            <path d="M 25 10.85 H 0 L 18.85 43.4 25 32.55 H 0 L 18.85 0 25 10.85" />
+          </pattern>
+          <pattern id="pattern_rhombille" width="82.5" height="50" patternUnits="userSpaceOnUse" fill="none">
+            <path d="M 13.8 50 L 0 25 13.8 0 H 41.2 L 27.5 25 41.2 50 55 25 41.2 0 68.8 0 82.5 25 68.8 50 M 0 25 H 27.5 M 55 25 H 82.5 M 13.8 50 H 41.2 L 68.8 50" />
           </pattern>
         </g>
 
@@ -7926,103 +7964,124 @@
       </defs>
     </svg>
 
+    <script src="components/fill-box.js"></script>
+    <script src="components/slider-input.js"></script>
+
     <script src="libs/jquery-3.1.1.min.js"></script>
     <script src="libs/jquery-ui.min.js"></script>
     <script src="versioning.js"></script>
     <script src="libs/d3.min.js"></script>
     <script src="libs/priority-queue.min.js"></script>
+    <script src="libs/flatqueue.js"></script>
     <script src="libs/delaunator.min.js"></script>
-    <script src="libs/indexedDB.js?v=1.91.01"></script>
+    <script src="libs/indexedDB.js?v=1.99.00"></script>
 
-
-    <script src="utils/shorthands.js"></script>
-    <script src="utils/commonUtils.js?v=1.89.29"></script>
-    <script src="utils/arrayUtils.js"></script>
-    <script src="utils/colorUtils.js"></script>
-    <script src="utils/graphUtils.js?v=1.96.00"></script>
-    <script src="utils/nodeUtils.js"></script>
-    <script src="utils/numberUtils.js?v=1.89.08"></script>
-    <script src="utils/polyfills.js?v=1.95.03"></script>
-    <script src="utils/probabilityUtils.js?v=1.88.00"></script>
-    <script src="utils/stringUtils.js"></script>
-    <script src="utils/languageUtils.js"></script>
-    <script src="utils/unitUtils.js?v=1.87.00"></script>
+    <script src="utils/shorthands.js?v=1.99.00"></script>
+    <script src="utils/commonUtils.js?v=1.103.0"></script>
+    <script src="utils/arrayUtils.js?v=1.99.00"></script>
+    <script src="utils/functionUtils.js?v=1.99.00"></script>
+    <script src="utils/colorUtils.js?v=1.99.00"></script>
+    <script src="utils/graphUtils.js?v=1.99.00"></script>
+    <script src="utils/nodeUtils.js?v=1.99.00"></script>
+    <script src="utils/numberUtils.js?v=1.99.00"></script>
+    <script src="utils/polyfills.js?v=1.99.00"></script>
+    <script src="utils/probabilityUtils.js?v=1.99.05"></script>
+    <script src="utils/stringUtils.js?v=1.99.00"></script>
+    <script src="utils/languageUtils.js?v=1.99.00"></script>
+    <script src="utils/unitUtils.js?v=1.99.00"></script>
+    <script src="utils/pathUtils.js?v=1.105.8"></script>
+    <script defer src="utils/debugUtils.js?v=1.99.00"></script>
 
     <script src="modules/voronoi.js"></script>
     <script src="config/heightmap-templates.js"></script>
     <script src="config/precreated-heightmaps.js"></script>
-    <script src="modules/heightmap-generator.js?v=1.88.00"></script>
-    <script src="modules/ocean-layers.js?v=1.96.00"></script>
-    <script src="modules/river-generator.js?v=1.89.13"></script>
-    <script src="modules/lakes.js"></script>
-    <script src="modules/biomes.js"></script>
+    <script src="modules/heightmap-generator.js?v=1.99.00"></script>
+    <script src="modules/features.js?v=1.104.0"></script>
+    <script src="modules/ocean-layers.js?v=1.104.8"></script>
+    <script src="modules/river-generator.js?v=1.99.05"></script>
+    <script src="modules/lakes.js?v=1.99.00"></script>
+    <script src="modules/biomes.js?v=1.99.00"></script>
     <script src="modules/names-generator.js?v=1.87.14"></script>
-    <script src="modules/cultures-generator.js?v=1.96.05"></script>
-    <script src="modules/renderers/state-labels.js?v=1.96.04"></script>
-    <script src="modules/burgs-and-states.js?v=1.97.00"></script>
-    <script src="modules/routes-generator.js"></script>
-    <script src="modules/religions-generator.js?v=1.93.08"></script>
-    <script src="modules/military-generator.js?v=1.96.01"></script>
-    <script src="modules/markers-generator.js?v=1.93.04"></script>
-    <script src="modules/coa-generator.js?v=1.91.05"></script>
-    <script src="modules/submap.js?v=1.96.00"></script>
-    <script src="libs/polylabel.min.js"></script>
-    <script src="libs/lineclip.min.js"></script>
-    <script src="libs/alea.min.js"></script>
-    <script src="modules/fonts.js?v=1.89.18"></script>
-    <script src="modules/ui/layers.js?v=1.96.00"></script>
-    <script src="modules/ui/measurers.js?v=1.96.00"></script>
-    <script src="modules/ui/stylePresets.js?v=1.96.00"></script>
+    <script src="modules/cultures-generator.js?v=1.99.05"></script>
+    <script src="modules/burgs-and-states.js?v=1.105.7"></script>
+    <script src="modules/provinces-generator.js?v=1.104.0"></script>
+    <script src="modules/routes-generator.js?v=1.104.10"></script>
+    <script src="modules/religions-generator.js?v=1.99.05"></script>
+    <script src="modules/military-generator.js?v=1.104.0"></script>
+    <script src="modules/markers-generator.js?v=1.104.0"></script>
+    <script src="modules/zones-generator.js?v=1.104.0"></script>
+    <script src="modules/coa-generator.js?v=1.99.00"></script>
+    <script src="modules/submap.js?v=1.104.0"></script>
+    <script src="libs/alea.min.js?v1.105.0"></script>
+    <script src="libs/polylabel.min.js?v1.105.0"></script>
+    <script src="libs/lineclip.min.js?v1.105.0"></script>
+    <script src="libs/simplify.js?v1.105.6"></script>
+    <script src="modules/fonts.js?v=1.99.03"></script>
+    <script src="modules/ui/layers.js?v=1.101.00"></script>
+    <script src="modules/ui/measurers.js?v=1.99.00"></script>
+    <script src="modules/ui/style-presets.js?v=1.100.00"></script>
+    <script src="modules/ui/general.js?v=1.100.00"></script>
+    <script src="modules/ui/options.js?v=1.105.0"></script>
+    <script src="main.js?v=1.105.9"></script>
 
-    <script src="modules/ui/general.js?v=1.96.00"></script>
-    <script src="modules/ui/options.js?v=1.96.00"></script>
-    <script src="main.js?v=1.97.00"></script>
-
-    <script defer src="modules/relief-icons.js"></script>
-    <script defer src="modules/ui/style.js?v=1.96.00"></script>
-    <script defer src="modules/ui/editors.js?v=1.97.00"></script>
-    <script defer src="modules/ui/tools.js?v=1.96.03"></script>
-    <script defer src="modules/ui/world-configurator.js?v=1.91.05"></script>
-    <script defer src="modules/ui/heightmap-editor.js?v=1.96.00"></script>
-    <script defer src="modules/ui/provinces-editor.js?v=1.96.00"></script>
-    <script defer src="modules/ui/biomes-editor.js?v=1.91.05"></script>
-    <script defer src="modules/ui/namesbase-editor.js?v=1.95.02"></script>
-    <script defer src="modules/ui/elevation-profile.js"></script>
-    <script defer src="modules/ui/temperature-graph.js?v=1.90.03"></script>
-    <script defer src="modules/ui/routes-editor.js?v=1.89.04"></script>
-    <script defer src="modules/ui/ice-editor.js?v=1.89.08"></script>
-    <script defer src="modules/ui/lakes-editor.js?v=1.87.10"></script>
-    <script defer src="modules/ui/coastline-editor.js"></script>
-    <script defer src="modules/ui/labels-editor.js?v=1.92.00"></script>
-    <script defer src="modules/ui/rivers-editor.js"></script>
-    <script defer src="modules/ui/rivers-creator.js?v=1.89.13"></script>
-    <script defer src="modules/ui/relief-editor.js"></script>
-    <script defer src="modules/ui/burg-editor.js?v=1.97.00"></script>
-    <script defer src="modules/ui/units-editor.js?v=1.96.00"></script>
-    <script defer src="modules/ui/notes-editor.js?v=1.93.09"></script>
-    <script defer src="modules/ui/diplomacy-editor.js?v=1.88.04"></script>
-    <script defer src="modules/ui/zones-editor.js"></script>
-    <script defer src="modules/ui/burgs-overview.js?v=1.97.00"></script>
-    <script defer src="modules/ui/rivers-overview.js"></script>
-    <script defer src="modules/ui/military-overview.js?v=1.96.07"></script>
-    <script defer src="modules/ui/regiments-overview.js?v=1.89.20"></script>
-    <script defer src="modules/ui/markers-overview.js?v=1.89.38"></script>
-    <script defer src="modules/ui/regiment-editor.js"></script>
-    <script defer src="modules/ui/battle-screen.js"></script>
-    <script defer src="modules/ui/emblems-editor.js?v=1.91.00"></script>
-    <script defer src="modules/ui/markers-editor.js"></script>
-    <script defer src="modules/ui/3d.js?v=1.94.03"></script>
-    <script defer src="modules/ui/submap.js?v=1.96.00"></script>
-    <script defer src="modules/ui/hotkeys.js?v=1.95.00"></script>
-    <script defer src="modules/coa-renderer.js?v=1.94.00"></script>
+    <script defer src="modules/relief-icons.js?v=1.99.05"></script>
+    <script defer src="modules/ui/style.js?v=1.104.0"></script>
+    <script defer src="modules/ui/editors.js?v=1.105.2"></script>
+    <script defer src="modules/ui/tools.js?v=1.104.0"></script>
+    <script defer src="modules/ui/world-configurator.js?v=1.105.4"></script>
+    <script defer src="modules/ui/heightmap-editor.js?v=1.105.2"></script>
+    <script defer src="modules/ui/provinces-editor.js?v=1.104.0"></script>
+    <script defer src="modules/ui/biomes-editor.js?v=1.99.05"></script>
+    <script defer src="modules/ui/namesbase-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/elevation-profile.js?v=1.99.00"></script>
+    <script defer src="modules/ui/temperature-graph.js?v=1.99.00"></script>
+    <script defer src="modules/ui/routes-editor.js?v=1.104.3"></script>
+    <script defer src="modules/ui/routes-creator.js?v=1.104.3"></script>
+    <script defer src="modules/ui/route-group-editor.js?v=1.103.8"></script>
+    <script defer src="modules/ui/ice-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/lakes-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/coastline-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/labels-editor.js?v=1.101.00"></script>
+    <script defer src="modules/ui/rivers-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/rivers-creator.js?v=1.99.00"></script>
+    <script defer src="modules/ui/relief-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/burg-editor.js?v=1.102.00"></script>
+    <script defer src="modules/ui/units-editor.js?v=1.104.0"></script>
+    <script defer src="modules/ui/notes-editor.js?v=1.99.06"></script>
+    <script defer src="modules/ui/ai-generator.js?v=1.99.09"></script>
+    <script defer src="modules/ui/diplomacy-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/zones-editor.js?v=1.100.00"></script>
+    <script defer src="modules/ui/burgs-overview.js?v=1.105.7"></script>
+    <script defer src="modules/ui/routes-overview.js?v=1.104.3"></script>
+    <script defer src="modules/ui/rivers-overview.js?v=1.99.00"></script>
+    <script defer src="modules/ui/military-overview.js?v=1.99.00"></script>
+    <script defer src="modules/ui/regiments-overview.js?v=1.104.0"></script>
+    <script defer src="modules/ui/markers-overview.js?v=1.99.00"></script>
+    <script defer src="modules/ui/regiment-editor.js?v=1.104.14"></script>
+    <script defer src="modules/ui/battle-screen.js?v=1.99.00"></script>
+    <script defer src="modules/ui/emblems-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/markers-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/3d.js?v=1.99.00"></script>
+    <script defer src="modules/ui/submap.js?v=1.99.10"></script>
+    <script defer src="modules/ui/hotkeys.js?v=1.104.0"></script>
+    <script defer src="modules/coa-renderer.js?v=1.99.00"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
-    <script defer src="modules/io/save.js?v=1.96.00"></script>
-    <script defer src="modules/io/load.js?v=1.97.04"></script>
-    <script defer src="modules/io/cloud.js?v=1.96.00"></script>
-    <script defer src="modules/io/export.js?v=1.97.03"></script>
+    <script defer src="modules/io/save.js?v=1.100.00"></script>
+    <script defer src="modules/io/load.js?v=1.105.10"></script>
+    <script defer src="modules/io/cloud.js?v=1.99.00"></script>
+    <script defer src="modules/io/export.js?v=1.100.00"></script>
 
-    <!-- Web Components -->
-    <script defer src="components/fill-box.js"></script>
+    <script defer src="modules/renderers/draw-features.js?v=1.104.15"></script>
+    <script defer src="modules/renderers/draw-borders.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-heightmap.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-markers.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-scalebar.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-temperature.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-emblems.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-military.js?v=1.104.13"></script>
+    <script defer src="modules/renderers/draw-state-labels.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-burg-labels.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-burg-icons.js?v=1.104.0"></script>
   </body>
 </html>

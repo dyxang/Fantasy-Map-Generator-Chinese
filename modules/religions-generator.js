@@ -421,10 +421,12 @@ window.Religions = (function () {
     "Ancestor Worship": {Beliefs: 1, Forefathers: 2, Ancestors: 2},
     "Nature Worship": {Beliefs: 3, Druids: 1},
     Totemism: {Beliefs: 2, Totems: 2, Idols: 1},
-    Monotheism: {Religion: 1, Church: 1},
+
+    Monotheism: {Religion: 2, Church: 3, Faith: 1},
     Dualism: {Religion: 3, Faith: 1, Cult: 1},
     Pantheism: {Religion: 1, Faith: 1},
     "Non-theism": {Beliefs: 3, Spirits: 1},
+
     Cult: {Cult: 4, Sect: 2, Arcanum: 1, Order: 1, Worship: 1},
     "Dark Cult": {Cult: 2, Blasphemy: 1, Circle: 1, Coven: 1, Idols: 1, Occultism: 1},
     Sect: {Sect: 3, Society: 1},
@@ -455,7 +457,7 @@ window.Religions = (function () {
     const lockedReligions = pack.religions?.filter(r => r.i && r.lock && !r.removed) || [];
 
     const folkReligions = generateFolkReligions();
-    const organizedReligions = generateOrganizedReligions(+religionsInput.value, lockedReligions);
+    const organizedReligions = generateOrganizedReligions(+religionsNumber.value, lockedReligions);
 
     const namedReligions = specifyReligions([...folkReligions, ...organizedReligions]);
     const indexedReligions = combineReligions(namedReligions, lockedReligions);
@@ -690,15 +692,14 @@ window.Religions = (function () {
 
   // growth algorithm to assign cells to religions
   function expandReligions(religions) {
-    const cells = pack.cells;
+    const {cells, routes} = pack;
     const religionIds = spreadFolkReligions(religions);
 
     const queue = new PriorityQueue({comparator: (a, b) => a.p - b.p});
     const cost = [];
 
-    const maxExpansionCost = (cells.i.length / 20) * neutralInput.value; // limit cost for organized religions growth
-
-    const biomePassageCost = cellId => biomesData.cost[cells.biome[cellId]];
+    // limit cost for organized religions growth
+    const maxExpansionCost = (cells.i.length / 20) * byId("growthRate").valueAsNumber;
 
     religions
       .filter(r => r.i && !r.lock && r.type !== "Folk" && !r.removed)
@@ -709,11 +710,6 @@ window.Religions = (function () {
       });
 
     const religionsMap = new Map(religions.map(r => [r.i, r]));
-
-    const isMainRoad = cellId => cells.road[cellId] - cells.crossroad[cellId] > 4;
-    const isTrail = cellId => cells.h[cellId] > 19 && cells.road[cellId] - cells.crossroad[cellId] === 1;
-    const isSeaRoute = cellId => cells.h[cellId] < 20 && cells.road[cellId];
-    const isWater = cellId => cells.h[cellId] < 20;
 
     while (queue.length) {
       const {e: cellId, p, r, s: state} = queue.dequeue();
@@ -726,7 +722,7 @@ window.Religions = (function () {
 
         const cultureCost = culture !== cells.culture[nextCell] ? 10 : 0;
         const stateCost = state !== cells.state[nextCell] ? 10 : 0;
-        const passageCost = getPassageCost(nextCell);
+        const passageCost = getPassageCost(cellId, nextCell);
 
         const cellCost = cultureCost + stateCost + passageCost;
         const totalCost = p + 10 + cellCost / expansionism;
@@ -743,11 +739,18 @@ window.Religions = (function () {
 
     return religionIds;
 
-    function getPassageCost(cellId) {
-      if (isWater(cellId)) return isSeaRoute ? 50 : 500;
-      if (isMainRoad(cellId)) return 1;
-      const biomeCost = biomePassageCost(cellId);
-      return isTrail(cellId) ? biomeCost / 1.5 : biomeCost;
+    function getPassageCost(cellId, nextCellId) {
+      const route = Routes.getRoute(cellId, nextCellId);
+      if (isWater(cellId)) return route ? 50 : 500;
+
+      const biomePassageCost = biomesData.cost[cells.biome[nextCellId]];
+
+      if (route) {
+        if (route.group === "roads") return 1;
+        return biomePassageCost / 3; // trails and other routes
+      }
+
+      return biomePassageCost;
     }
   }
 
@@ -885,7 +888,7 @@ window.Religions = (function () {
     if (a === "Adjective + Animal + of + Genitive")
       return `${ra(base.adjective)} ${ra(base.animal)} of ${ra(base.genitive)}`;
 
-    ERROR && console.error("未知生成要求");
+    ERROR && console.error("Unkown generation approach");
   }
 
   function generateReligionName(variety, form, deity, center) {
@@ -895,6 +898,7 @@ window.Religions = (function () {
     const type = rw(types[form]);
     const supreme = deity.split(/[ ,]+/)[0];
     const culture = cultures[cells.culture[center]].name;
+
     const place = adj => {
       const burgId = cells.burg[center];
       const stateId = cells.state[center];

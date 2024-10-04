@@ -225,7 +225,7 @@ window.ThreeD = (function () {
     spotLight.shadow.mapSize.width = 2048;
     spotLight.shadow.mapSize.height = 2048;
     scene.add(spotLight);
-    //scene.add(new THREE.SpotLightHelper(spotLight));
+    // scene.add(new THREE.SpotLightHelper(spotLight));
 
     // Renderer
     Renderer = new THREE.WebGLRenderer({canvas, antialias: true, preserveDrawingBuffer: true});
@@ -374,7 +374,7 @@ window.ThreeD = (function () {
       }
 
       // icons
-      if (layerIsOn("toggleIcons")) {
+      if (layerIsOn("toggleBurgIcons")) {
         const geometry = isCity ? city_icon_geometry : town_icon_geometry;
         const material = isCity ? city_icon_material : town_icon_material;
         const iconMesh = new THREE.Mesh(geometry, material);
@@ -445,6 +445,7 @@ window.ThreeD = (function () {
       const url = await getMapURL("mesh", {
         noLabels: options.labels3d,
         noWater: options.extendedWater,
+        noViewbox: true,
         fullMap: true
       });
       const canvas = document.createElement("canvas");
@@ -624,7 +625,7 @@ window.ThreeD = (function () {
       material.map = texture;
       if (addMesh) addGlobe3dMesh();
     };
-    img2.src = await getMapURL("mesh", {noScaleBar: true, fullMap: true});
+    img2.src = await getMapURL("mesh", {noScaleBar: true, fullMap: true, noVignette: true});
   }
 
   function addGlobe3dMesh() {

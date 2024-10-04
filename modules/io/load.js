@@ -1,4 +1,5 @@
 "use strict";
+
 // Functions to load and parse .map/.gz files
 async function quickLoad() {
   const blob = await ldb.get("lastMap");
@@ -94,6 +95,7 @@ function showUploadErrorMessage(error, URL, random) {
     title: "载入错误",
     width: "32em",
     buttons: {
+      "清除缓存": () => cleanupData(),
       好的: function () {
         $(this).dialog("close");
       }
@@ -103,26 +105,28 @@ function showUploadErrorMessage(error, URL, random) {
 
 function uploadMap(file, callback) {
   uploadMap.timeStart = performance.now();
-  const OLDEST_SUPPORTED_VERSION = 0.7;
-  const currentVersion = parseFloat(version);
 
   const fileReader = new FileReader();
   fileReader.onloadend = async function (fileLoadedEvent) {
     if (callback) callback();
     byId("coas").innerHTML = ""; // remove auto-generated emblems
+
     const result = fileLoadedEvent.target.result;
-    const [mapData, mapVersion] = await parseLoadedResult(result);
+    const {mapData, mapVersion} = await parseLoadedResult(result);
 
-    const isInvalid = !mapData || isNaN(mapVersion) || mapData.length < 26 || !mapData[5];
-    const isUpdated = mapVersion === currentVersion;
-    const isAncient = mapVersion < OLDEST_SUPPORTED_VERSION;
-    const isNewer = mapVersion > currentVersion;
-    const isOutdated = mapVersion < currentVersion;
-
+    const isInvalid = !mapData || !isValidVersion(mapVersion) || mapData.length < 10 || !mapData[5];
     if (isInvalid) return showUploadMessage("invalid", mapData, mapVersion);
-    if (isUpdated) return parseLoadedData(mapData);
+
+    const isUpdated = compareVersions(mapVersion, VERSION).isEqual;
+    if (isUpdated) return showUploadMessage("updated", mapData, mapVersion);
+
+    const isAncient = compareVersions(mapVersion, "0.70.0").isOlder;
     if (isAncient) return showUploadMessage("ancient", mapData, mapVersion);
+
+    const isNewer = compareVersions(mapVersion, VERSION).isNewer;
     if (isNewer) return showUploadMessage("newer", mapData, mapVersion);
+
+    const isOutdated = compareVersions(mapVersion, VERSION).isOlder;
     if (isOutdated) return showUploadMessage("outdated", mapData, mapVersion);
   };
 
@@ -152,49 +156,51 @@ async function parseLoadedResult(result) {
     const isDelimited = resultAsString.substring(0, 10).includes("|");
     const decoded = isDelimited ? resultAsString : decodeURIComponent(atob(resultAsString));
 
-    const mapData = decoded.split("\r\n");
-    const mapVersion = parseFloat(mapData[0].split("|")[0] || mapData[0]);
-    return [mapData, mapVersion];
+    const mapData = decoded.split("\r\n"); // split by CRLF
+    const mapVersion = parseMapVersion(mapData[0].split("|")[0] || mapData[0] || "");
+
+    return {mapData, mapVersion};
   } catch (error) {
-    // map file can be compressed with gzip
-    const uncompressedData = await uncompress(result);
+    const uncompressedData = await uncompress(result); // file can be gzip compressed
     if (uncompressedData) return parseLoadedResult(uncompressedData);
 
     ERROR && console.error(error);
-    return [null, null];
+    return {mapData: null, mapVersion: null};
   }
 }
 
 function showUploadMessage(type, mapData, mapVersion) {
-  const archive = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog", "存档版本");
-  let message, title, canBeLoaded;
+  let message, title;
 
   if (type === "invalid") {
-    message = `该文件不是有效的保存文件.<br>请检查数据格式`;
+    message = "该文件不是有效的保存文件.<br>请检查数据格式";
     title = "无效文件";
-    canBeLoaded = false;
+  } else if (type === "updated") {
+    parseLoadedData(mapData, mapVersion);
+    return;
   } else if (type === "ancient") {
+    const archive = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog", "archived version");
     message = `你尝试加载的地图版本 (${mapVersion}) 太旧，无法更新到当前版本.<br>请继续使用 ${archive}`;
-    title = "过旧文件";
-    canBeLoaded = false;
+    title = "老旧文件";
   } else if (type === "newer") {
     message = `你要加载的地图版本 (${mapVersion}) 比现在的版本还新.<br>请加载相应版本的文件`;
-    title = "过新文件";
-    canBeLoaded = false;
+    title = "版本过新文件";
   } else if (type === "outdated") {
-    INFO && console.info(`载入地图，自动从 ${mapVersion} 更新到 ${version}`);
+    INFO && console.info(`载入地图，自动从 ${mapVersion} 更新到 ${VERSION}`);
     parseLoadedData(mapData, mapVersion);
     return;
   }
 
   alertMessage.innerHTML = message;
-  const buttons = {
-    好的: function () {
-      $(this).dialog("close");
-      if (canBeLoaded) parseLoadedData(mapData, mapVersion);
+  $("#alert").dialog({
+    title,
+    buttons: {
+      "清除缓存": () => cleanupData(),
+      OK: function () {
+        $(this).dialog("close");
+      }
     }
-  };
-  $("#alert").dialog({title, buttons});
+  });
 }
 
 async function parseLoadedData(data, mapVersion) {
@@ -204,31 +210,29 @@ async function parseLoadedData(data, mapVersion) {
     customization = 0;
     if (customizationMenu.offsetParent) styleTab.click();
 
-    const params = data[0].split("|");
-    void (function parseParameters() {
+    {
+      const params = data[0].split("|");
       if (params[3]) {
         seed = params[3];
         optionsSeed.value = seed;
-      }
+        INFO && console.group("Loaded Map " + seed);
+      } else INFO && console.group("Loaded Map");
       if (params[4]) graphWidth = +params[4];
       if (params[5]) graphHeight = +params[5];
       mapId = params[6] ? +params[6] : Date.now();
-    })();
+    }
 
-    INFO && console.group("Loaded Map " + seed);
-
-    // TODO: move all to options object
-    void (function parseSettings() {
+    {
       const settings = data[1].split("|");
       if (settings[0]) applyOption(distanceUnitInput, settings[0]);
-      if (settings[1]) distanceScale = distanceScaleInput.value = distanceScaleOutput.value = settings[1];
+      if (settings[1]) distanceScale = distanceScaleInput.value = settings[1];
       if (settings[2]) areaUnit.value = settings[2];
       if (settings[3]) applyOption(heightUnit, settings[3]);
-      if (settings[4]) heightExponentInput.value = heightExponentOutput.value = settings[4];
+      if (settings[4]) heightExponentInput.value = settings[4];
       if (settings[5]) temperatureScale.value = settings[5];
       // setting 6-11 (scaleBar) are part of style now, kept as "" in newer versions for compatibility
-      if (settings[12]) populationRate = populationRateInput.value = populationRateOutput.value = settings[12];
-      if (settings[13]) urbanization = urbanizationInput.value = urbanizationOutput.value = settings[13];
+      if (settings[12]) populationRate = populationRateInput.value = settings[12];
+      if (settings[13]) urbanization = urbanizationInput.value = settings[13];
       if (settings[14]) mapSizeInput.value = mapSizeOutput.value = minmax(settings[14], 1, 100);
       if (settings[15]) latitudeInput.value = latitudeOutput.value = minmax(settings[15], 0, 100);
       if (settings[18]) precInput.value = precOutput.value = settings[18];
@@ -240,17 +244,18 @@ async function parseLoadedData(data, mapVersion) {
       if (settings[21]) hideLabels.checked = +settings[21];
       if (settings[22]) stylePreset.value = settings[22];
       if (settings[23]) rescaleLabels.checked = +settings[23];
-      if (settings[24]) urbanDensity = urbanDensityInput.value = urbanDensityOutput.value = +settings[24];
-    })();
+      if (settings[24]) urbanDensity = urbanDensityInput.value = +settings[24];
+      if (settings[25]) longitudeInput.value = longitudeOutput.value = minmax(settings[25] || 50, 0, 100);
+    }
 
-    void (function applyOptionsToUI() {
+    {
       stateLabelsModeInput.value = options.stateLabelsMode;
       yearInput.value = options.year;
       eraInput.value = options.era;
       shapeRendering.value = viewbox.attr("shape-rendering") || "geometricPrecision";
-    })();
+    }
 
-    void (function parseConfiguration() {
+    {
       if (data[2]) mapCoordinates = JSON.parse(data[2]);
       if (data[4]) notes = JSON.parse(data[4]);
       if (data[33]) rulers.fromString(data[33]);
@@ -266,13 +271,14 @@ async function parseLoadedData(data, mapVersion) {
           declareFont(usedFont);
         });
       }
+    }
 
+    {
       const biomes = data[3].split("|");
       biomesData = Biomes.getDefault();
       biomesData.color = biomes[0].split(",");
       biomesData.habitability = biomes[1].split(",").map(h => +h);
       biomesData.name = biomes[2].split(",");
-
       // push custom biomes if any
       for (let i = biomesData.i.length; i < biomesData.name.length; i++) {
         biomesData.i.push(biomesData.i.length);
@@ -280,14 +286,14 @@ async function parseLoadedData(data, mapVersion) {
         biomesData.icons.push([]);
         biomesData.cost.push(50);
       }
-    })();
+    }
 
-    void (function replaceSVG() {
+    {
       svg.remove();
       document.body.insertAdjacentHTML("afterbegin", data[5]);
-    })();
+    }
 
-    void (function redefineElements() {
+    {
       svg = d3.select("#map");
       defs = svg.select("#deftemp");
       viewbox = svg.select("#viewbox");
@@ -337,34 +343,33 @@ async function parseLoadedData(data, mapVersion) {
       fogging = viewbox.select("#fogging");
       debug = viewbox.select("#debug");
       burgLabels = labels.select("#burgLabels");
-    })();
 
-    void (function addMissingElements() {
       if (!texture.size()) {
         texture = viewbox
           .insert("g", "#landmass")
           .attr("id", "texture")
           .attr("data-href", "./images/textures/plaster.jpg");
       }
-    })();
+      if (!emblems.size()) {
+        emblems = viewbox.insert("g", "#labels").attr("id", "emblems").style("display", "none");
+      }
+    }
 
-    void (function parseGridData() {
+    {
       grid = JSON.parse(data[6]);
-
       const {cells, vertices} = calculateVoronoi(grid.points, grid.boundary);
       grid.cells = cells;
       grid.vertices = vertices;
-
       grid.cells.h = Uint8Array.from(data[7].split(","));
       grid.cells.prec = Uint8Array.from(data[8].split(","));
       grid.cells.f = Uint16Array.from(data[9].split(","));
       grid.cells.t = Int8Array.from(data[10].split(","));
       grid.cells.temp = Int8Array.from(data[11].split(","));
-    })();
+    }
 
-    void (function parsePackData() {
+    {
       reGraph();
-      reMarkFeatures();
+      Features.markupPack();
       pack.features = JSON.parse(data[12]);
       pack.cultures = JSON.parse(data[13]);
       pack.states = JSON.parse(data[14]);
@@ -373,21 +378,22 @@ async function parseLoadedData(data, mapVersion) {
       pack.provinces = data[30] ? JSON.parse(data[30]) : [0];
       pack.rivers = data[32] ? JSON.parse(data[32]) : [];
       pack.markers = data[35] ? JSON.parse(data[35]) : [];
-
-      const cells = pack.cells;
-      cells.biome = Uint8Array.from(data[16].split(","));
-      cells.burg = Uint16Array.from(data[17].split(","));
-      cells.conf = Uint8Array.from(data[18].split(","));
-      cells.culture = Uint16Array.from(data[19].split(","));
-      cells.fl = Uint16Array.from(data[20].split(","));
-      cells.pop = Float32Array.from(data[21].split(","));
-      cells.r = Uint16Array.from(data[22].split(","));
-      cells.road = Uint16Array.from(data[23].split(","));
-      cells.s = Uint16Array.from(data[24].split(","));
-      cells.state = Uint16Array.from(data[25].split(","));
-      cells.religion = data[26] ? Uint16Array.from(data[26].split(",")) : new Uint16Array(cells.i.length);
-      cells.province = data[27] ? Uint16Array.from(data[27].split(",")) : new Uint16Array(cells.i.length);
-      cells.crossroad = data[28] ? Uint16Array.from(data[28].split(",")) : new Uint16Array(cells.i.length);
+      pack.routes = data[37] ? JSON.parse(data[37]) : [];
+      pack.zones = data[38] ? JSON.parse(data[38]) : [];
+      pack.cells.biome = Uint8Array.from(data[16].split(","));
+      pack.cells.burg = Uint16Array.from(data[17].split(","));
+      pack.cells.conf = Uint8Array.from(data[18].split(","));
+      pack.cells.culture = Uint16Array.from(data[19].split(","));
+      pack.cells.fl = Uint16Array.from(data[20].split(","));
+      pack.cells.pop = Float32Array.from(data[21].split(","));
+      pack.cells.r = Uint16Array.from(data[22].split(","));
+      // data[23] had deprecated cells.road
+      pack.cells.s = Uint16Array.from(data[24].split(","));
+      pack.cells.state = Uint16Array.from(data[25].split(","));
+      pack.cells.religion = data[26] ? Uint16Array.from(data[26].split(",")) : new Uint16Array(pack.cells.i.length);
+      pack.cells.province = data[27] ? Uint16Array.from(data[27].split(",")) : new Uint16Array(pack.cells.i.length);
+      // data[28] had deprecated cells.crossroad
+      pack.cells.routes = data[36] ? JSON.parse(data[36]) : {};
 
       if (data[31]) {
         const namesDL = data[31].split("/");
@@ -398,9 +404,9 @@ async function parseLoadedData(data, mapVersion) {
           nameBases[i] = {name: e[0], min: e[1], max: e[2], d: e[3], m: e[4], b};
         });
       }
-    })();
+    }
 
-    void (function restoreLayersState() {
+    {
       const isVisible = selection => selection.node() && selection.style("display") !== "none";
       const isVisibleNode = node => node && node.style.display !== "none";
       const hasChildren = selection => selection.node()?.hasChildNodes();
@@ -414,7 +420,7 @@ async function parseLoadedData(data, mapVersion) {
 
       // turn on active layers
       if (hasChild(texture, "image")) turnOn("toggleTexture");
-      if (hasChildren(terrs)) turnOn("toggleHeight");
+      if (hasChildren(terrs.select("#landHeights"))) turnOn("toggleHeight");
       if (hasChildren(biomes)) turnOn("toggleBiomes");
       if (hasChildren(cells)) turnOn("toggleCells");
       if (hasChildren(gridOverlay)) turnOn("toggleGrid");
@@ -429,13 +435,13 @@ async function parseLoadedData(data, mapVersion) {
       if (hasChildren(zones) && isVisible(zones)) turnOn("toggleZones");
       if (isVisible(borders) && hasChild(borders, "path")) turnOn("toggleBorders");
       if (isVisible(routes) && hasChild(routes, "path")) turnOn("toggleRoutes");
-      if (hasChildren(temperature)) turnOn("toggleTemp");
+      if (hasChildren(temperature)) turnOn("toggleTemperature");
       if (hasChild(population, "line")) turnOn("togglePopulation");
       if (hasChildren(ice)) turnOn("toggleIce");
-      if (hasChild(prec, "circle")) turnOn("togglePrec");
+      if (hasChild(prec, "circle")) turnOn("togglePrecipitation");
       if (isVisible(emblems) && hasChild(emblems, "use")) turnOn("toggleEmblems");
       if (isVisible(labels)) turnOn("toggleLabels");
-      if (isVisible(icons)) turnOn("toggleIcons");
+      if (isVisible(icons)) turnOn("toggleBurgIcons");
       if (hasChildren(armies) && isVisible(armies)) turnOn("toggleMilitary");
       if (hasChildren(markers)) turnOn("toggleMarkers");
       if (isVisible(ruler)) turnOn("toggleRulers");
@@ -443,20 +449,19 @@ async function parseLoadedData(data, mapVersion) {
       if (isVisibleNode(byId("vignette"))) turnOn("toggleVignette");
 
       getCurrentPreset();
-    })();
+    }
 
-    void (function restoreEvents() {
+    {
       scaleBar.on("mousemove", () => tip("点击此处可打开“单位编辑器”")).on("click", () => editUnits());
       legend
         .on("mousemove", () => tip("拖动此形状可更改位置。点击可隐藏图例"))
         .on("click", () => clearLegend());
-    })();
+    }
 
     {
       // dynamically import and run auto-update script
-      const versionNumber = parseFloat(params[0]);
-      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.97.04");
-      resolveVersionConflicts(versionNumber);
+      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.105.10");
+      resolveVersionConflicts(mapVersion);
     }
 
     // add custom heightmap color scheme if any
@@ -473,7 +478,7 @@ async function parseLoadedData(data, mapVersion) {
       if (textureHref) updateTextureSelectValue(textureHref);
     }
 
-    void (function checkDataIntegrity() {
+    {
       const cells = pack.cells;
 
       if (pack.cells.i.length !== pack.cells.state.length) {
@@ -547,8 +552,7 @@ async function parseLoadedData(data, mapVersion) {
         }
 
         if (burg.removed && burg.lock) {
-          ERROR &&
-            console.error(`数据完整性检查。删除的城镇 ${burg.i} 标记为锁定。解锁城镇。`);
+          ERROR && console.error(`[Data integrity] Removed burg ${burg.i} is marked as locked. Unlocking the burg`);
           delete burg.lock;
           return;
         }
@@ -557,36 +561,34 @@ async function parseLoadedData(data, mapVersion) {
 
         if (burg.cell === undefined || burg.x === undefined || burg.y === undefined) {
           ERROR &&
-            console.error(
-              `数据完整性检查. 城市 ${burg.i} 没有单元格信息或坐标，删除城市`
-            );
+            console.error(`[Data integrity] Burg ${burg.i} is missing cell info or coordinates. Removing the burg`);
           burg.removed = true;
         }
 
         if (burg.port < 0) {
-          ERROR && console.error("数据完整性检查. 城市", burg.i, "港口值无效", burg.port);
+          ERROR && console.error("[Data integrity] Burg", burg.i, "has invalid port value", burg.port);
           burg.port = 0;
         }
 
         if (burg.cell >= cells.i.length) {
-          ERROR && console.error("数据完整性检查. 城市", burg.i, "链接到无效单元格", burg.cell);
+          ERROR && console.error("[Data integrity] Burg", burg.i, "is linked to invalid cell", burg.cell);
           burg.cell = findCell(burg.x, burg.y);
           cells.i.filter(i => cells.burg[i] === burg.i).forEach(i => (cells.burg[i] = 0));
           cells.burg[burg.cell] = burg.i;
         }
 
         if (burg.state && !pack.states[burg.state]) {
-          ERROR && console.error("数据完整性检查. 城市", burg.i, "链接到无效国家", burg.state);
+          ERROR && console.error("[Data integrity] Burg", burg.i, "is linked to invalid state", burg.state);
           burg.state = 0;
         }
 
         if (burg.state && pack.states[burg.state].removed) {
-          ERROR && console.error("数据完整性检查. 城市", burg.i, "链接到已删除国家", burg.state);
+          ERROR && console.error("[Data integrity] Burg", burg.i, "is linked to removed state", burg.state);
           burg.state = 0;
         }
 
         if (burg.state === undefined) {
-          ERROR && console.error("数据完整性检查. 城市", burg.i, "无国家数据");
+          ERROR && console.error("[Data integrity] Burg", burg.i, "has no state data");
           burg.state = 0;
         }
       });
@@ -600,9 +602,9 @@ async function parseLoadedData(data, mapVersion) {
         if (!state.i && capitalBurgs.length) {
           ERROR &&
             console.error(
-              `数据完整性检查。将中性城市 (${capitalBurgs
+              `[Data integrity] Neutral burgs (${capitalBurgs
                 .map(b => b.i)
-                .join(", ")}) 标记为首都。将它们移动到城镇`
+                .join(", ")}) marked as capitals. Moving them to towns`
             );
 
           capitalBurgs.forEach(burg => {
@@ -639,9 +641,40 @@ async function parseLoadedData(data, mapVersion) {
       pack.provinces.forEach(p => {
         if (!p.i || p.removed) return;
         if (pack.states[p.state] && !pack.states[p.state].removed) return;
-        ERROR && console.error("数据完整性检查. 省", p.i, "链接到已删除国家", p.state);
-        p.removed = true; // remove incorrect province
+        ERROR &&
+          console.error(
+            `[Data integrity] Province ${p.i} is linked to removed state ${p.state}. Removing the province`
+          );
+        p.removed = true;
       });
+
+      pack.routes.forEach(route => {
+        if (!route.points || route.points.length < 2) {
+          ERROR && console.error(`[Data integrity] Route ${route.i} has less than 2 points. Removing the route`);
+          Routes.remove(route);
+        }
+      });
+
+      for (const from in pack.cells.routes) {
+        const value = pack.cells.routes[from];
+        if (!value) continue;
+
+        if (Object.keys(value).length === 0) {
+          // remove empty object
+          delete pack.cells.routes[from];
+          continue;
+        }
+
+        for (const to in value) {
+          const routeId = value[to];
+          const route = pack.routes.find(r => r.i === routeId);
+          if (!route) {
+            ERROR &&
+              console.error(`[Data integrity] Route ${routeId} from ${from} to ${to} is missing. Removing the route`);
+            delete pack.cells.routes[from][to];
+          }
+        }
+      }
 
       {
         const markerIds = [];
@@ -649,7 +682,7 @@ async function parseLoadedData(data, mapVersion) {
 
         pack.markers.forEach(marker => {
           if (markerIds[marker.i]) {
-            ERROR && console.error("数据完整性检查. 标记", marker.i, "具有非唯一 id。更改为", nextId);
+            ERROR && console.error("[Data integrity] Marker", marker.i, "has non-unique id. Changing to", nextId);
 
             const domElements = document.querySelectorAll("#marker" + marker.i);
             if (domElements[1]) domElements[1].id = "marker" + nextId; // rename 2nd dom element
@@ -667,20 +700,25 @@ async function parseLoadedData(data, mapVersion) {
         // sort markers by index
         pack.markers.sort((a, b) => a.i - b.i);
       }
-    })();
+    }
 
-    fitMapToScreen();
+    {
+      // remove href from emblems, to trigger rendering on load
+      emblems.selectAll("use").attr("href", null);
+    }
 
-    // remove href from emblems, to trigger rendering on load
-    emblems.selectAll("use").attr("href", null);
+    {
+      // draw data layers (not kept in svg)
+      if (rulers && layerIsOn("toggleRulers")) rulers.draw();
+      if (layerIsOn("toggleGrid")) drawGrid();
+    }
 
-    // draw data layers (no kept in svg)
-    if (rulers && layerIsOn("toggleRulers")) rulers.draw();
-    if (layerIsOn("toggleGrid")) drawGrid();
-
-    if (window.restoreDefaultEvents) restoreDefaultEvents();
-    focusOn(); // based on searchParams focus on point, cell or burg
-    invokeActiveZooming();
+    {
+      if (window.restoreDefaultEvents) restoreDefaultEvents();
+      focusOn(); // based on searchParams focus on point, cell or burg
+      invokeActiveZooming();
+      fitMapToScreen();
+    }
 
     WARN && console.warn(`TOTAL: ${rn((performance.now() - uploadMap.timeStart) / 1000, 2)}s`);
     showStatistics();
@@ -690,7 +728,7 @@ async function parseLoadedData(data, mapVersion) {
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件.， <br>随机生成一个新地图或取消加载。<br>地图版本: ${mapVersion}. 生成器版本: ${version}.
+    alertMessage.innerHTML = /* html */ `地图加载时发生错误。请选择要加载的其他文件。 <br>随机生成一个新地图或取消加载。<br>地图版本: ${mapVersion}. 生成器版本: ${VERSION}.
       <p id="errorBox">${parseError(error)}</p>`;
 
     $("#alert").dialog({
@@ -698,6 +736,7 @@ async function parseLoadedData(data, mapVersion) {
       title: "加载错误",
       maxWidth: "50em",
       buttons: {
+        "清除缓存": () => cleanupData(),
         "选择文件": function () {
           $(this).dialog("close");
           mapToLoad.click();

@@ -66,25 +66,9 @@ function insertEditorHtml() {
 
       <button id="religionsManually" data-tip="手动重新分配宗教信仰" class="icon-brush"></button>
       <div id="religionsManuallyButtons" style="display: none">
-        <label data-tip="改变笔刷大小" data-shortcut="+ (increase), – (decrease)" class="italic">笔刷大小:
-          <input
-            id="religionsManuallyBrush"
-            oninput="tip('笔刷大小: '+this.value); religionsManuallyBrushNumber.value = this.value"
-            type="range"
-            min="5"
-            max="99"
-            value="15"
-            style="width: 7em"
-          />
-          <input
-            id="religionsManuallyBrushNumber"
-            oninput="tip('笔刷大小: '+this.value); religionsManuallyBrush.value = this.value"
-            type="number"
-            min="5"
-            max="99"
-            value="15"
-          /> </label
-        ><br />
+        <div data-tip="改变笔刷大小 快捷键: + 增加; – 减少" style="margin-block: 0.3em;">
+          <slider-input id="religionsBrush" min="1" max="100" value="15">笔刷大小:</slider-input>
+        </div>
         <button id="religionsManuallyApply" data-tip="应用分配" class="icon-check"></button>
         <button id="religionsManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
       </div>
@@ -282,7 +266,7 @@ function getTypeOptions(type) {
 function getExpansionColumns(r) {
   if (r.type === "Folk") {
     const tip =
-      "传统宗教没有竞争力，也没有扩张。最初，它们覆盖了母体文化的所有，但当它们扩张时，就会被有组织的宗教所取代";
+      "传统宗教没有竞争、扩张性。最初，它们覆盖着自己的母体文明，但当它们扩张时，就会被有组织的宗教所取代";
     return /* html */ `
       <span data-tip="${tip}" class="icon-resize-full-alt hide" style="padding-right: 2px"></span>
       <span data-tip="${tip}" class="religionExtent hide" style="width: 5em">culture</span>
@@ -295,9 +279,9 @@ function getExpansionColumns(r) {
     <select data-tip="潜在宗教范围" class="religionExtent hide" style="width: 5em">
       ${getExtentOptions(r.expansion)}
     </select>
-    <span data-tip="宗教扩张。定义竞争规模" class="icon-resize-full hide"></span>
+    <span data-tip="宗教扩张。定义争夺规模" class="icon-resize-full hide"></span>
     <input
-      data-tip="宗教扩张。定义竞争规模。点击以更改，然后点击“重新计算”以应用更改"
+      data-tip="宗教扩张。定义争夺规模。点击以更改，然后点击“重新计算”以应用更改"
       class="religionExpantion hide"
       type="number"
       min="0"
@@ -418,7 +402,7 @@ function changePopulation() {
   const burgs = pack.burgs.filter(b => !b.removed && pack.cells.religion[b.cell] === religionId);
 
   alertMessage.innerHTML = /* html */ `<div>
-    <i>所有宗教领域的人口都被认为是该宗教的信徒，这意味着信徒数量的变化将直接影响人口</i>
+    <i>所有宗教领域中的人口都被认定为是该宗教的信徒，信徒数量的变化将直接影响人口</i>
     <div style="margin: 0.5em 0">
       农村: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" />
       城市: <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em"
@@ -478,6 +462,7 @@ function changePopulation() {
       burgs.forEach(b => (b.population = population));
     }
 
+    if (layerIsOn("togglePopulation")) drawPopulation();
     refreshReligionsEditor();
   }
 }
@@ -696,7 +681,7 @@ function selectReligionOnMapClick() {
 }
 
 function dragReligionBrush() {
-  const radius = +byId("religionsManuallyBrushNumber").value;
+  const radius = +byId("religionsBrush").value;
 
   d3.event.on("drag", () => {
     if (!d3.event.dx && !d3.event.dy) return;
@@ -736,7 +721,7 @@ function changeReligionForSelection(selection) {
 function moveReligionBrush() {
   showMainTip();
   const [x, y] = d3.mouse(this);
-  const radius = +byId("religionsManuallyBrushNumber").value;
+  const radius = +byId("religionsBrush").value;
   moveCircle(x, y, radius);
 }
 

@@ -55,8 +55,10 @@ function overviewMilitary() {
     for (const u of options.military) {
       const label = capitalize(u.name.replace(/_/g, " "));
       insert(
-        `<div data-tip="国家 ${u.name} 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`
-        );
+        `<div data-tip="国家 ${
+          u.name
+        } 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name.toLowerCase()}">${label}&nbsp;</div>`
+      );
     }
     header.querySelectorAll(".removable").forEach(function (e) {
       e.addEventListener("click", function () {
@@ -77,10 +79,10 @@ function overviewMilitary() {
       const total = options.military.reduce((s, u) => s + getForces(u) * u.crew, 0);
       const rate = (total / population) * 100;
 
-      const sortData = options.military.map(u => `data-${u.name}="${getForces(u)}"`).join(" ");
+      const sortData = options.military.map(u => `data-${u.name.toLowerCase()}="${getForces(u)}"`).join(" ");
       const lineData = options.military
-      .map(u => `<div data-type="${u.name}" data-tip="国家 ${u.name} 单位数量">${getForces(u)}</div>`)
-      .join(" ");
+        .map(u => `<div data-type="${u.name}" data-tip="国家 ${u.name} 单位数量">${getForces(u)}</div>`)
+        .join(" ");
 
       lines += /* html */ `<div
         class="states"
@@ -142,7 +144,7 @@ function overviewMilitary() {
     const getForces = u => s.military.reduce((s, r) => s + (r.u[u.name] || 0), 0);
     options.military.forEach(
       u => (line.dataset[u.name] = line.querySelector(`div[data-type='${u.name}']`).innerHTML = getForces(u))
-      );
+    );
 
     const population = rn((s.rural + s.urban * urbanization) * populationRate);
     const total = (line.dataset.total = options.military.reduce((s, u) => s + getForces(u) * u.crew, 0));
@@ -248,16 +250,16 @@ function overviewMilitary() {
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
         应用: applyMilitaryOptions,
-        添加: () => 
-        addUnitLine({
-          icon: "🛡️", 
-          name: "custom" + militaryOptionsTable.rows.length, 
-          rural: 0.2, 
-          urban: 0.5, 
-          crew: 1, 
-          power: 1, 
-          type: "melee"
-        }),
+        添加: () =>
+          addUnitLine({
+            icon: "🛡️",
+            name: "custom" + militaryOptionsTable.rows.length,
+            rural: 0.2,
+            urban: 0.5,
+            crew: 1,
+            power: 1,
+            type: "melee"
+          }),
         复原: restoreDefaultUnits,
         取消: function () {
           $(this).dialog("close");
@@ -315,8 +317,8 @@ function overviewMilitary() {
       const {type, icon, name, rural, urban, power, crew, separate} = unit;
       const row = document.createElement("tr");
       const typeOptions = types
-      .map(t => `<option ${type === t ? "selected" : ""} value="${t}">${t}</option>`)
-      .join(" ");
+        .map(t => `<option ${type === t ? "selected" : ""} value="${t}">${t}</option>`)
+        .join(" ");
 
       const getLimitButton = attr =>
         `<button 
@@ -369,8 +371,8 @@ function overviewMilitary() {
         ({i, name, fullName, color}) =>
           `<tr data-tip="${name}"><td><span style="color:${color}">⬤</span></td>
             <td><input data-i="${i}" id="el${i}" type="checkbox" class="checkbox" ${
-              !initial.length || initial.includes(i) ? "checked" : ""
-            } >
+            !initial.length || initial.includes(i) ? "checked" : ""
+          } >
             <label for="el${i}" class="checkbox-label">${fullName || name}</label>
           </td></tr>`
       );
@@ -469,7 +471,7 @@ function overviewMilitary() {
     body.querySelectorAll(":scope > div").forEach(function (el) {
       data += el.dataset.id + ",";
       data += el.dataset.state + ",";
-      data += units.map(u => el.dataset[u]).join(",") + ",";
+      data += units.map(u => el.dataset[u.toLowerCase()]).join(",") + ",";
       data += el.dataset.total + ",";
       data += el.dataset.population + ",";
       data += rn(el.dataset.rate, 2) + "%,";

@@ -8,6 +8,7 @@ window.Rivers = (function () {
 
     const riversData = {}; // rivers data
     const riverParents = {};
+
     const addCellToRiver = function (cell, river) {
       if (!riversData[river]) riversData[river] = [cell];
       else riversData[river].push(cell);
@@ -19,7 +20,7 @@ window.Rivers = (function () {
     let riverNext = 1; // first river id is 1
 
     const h = alterHeights();
-    Lakes.prepareLakeData(h);
+    Lakes.detectCloseLakes(h);
     resolveDepressions(h);
     drainWater();
     defineRivers();
@@ -35,14 +36,12 @@ window.Rivers = (function () {
     TIME && console.timeEnd("generateRivers");
 
     function drainWater() {
-      //const MIN_FLUX_TO_FORM_RIVER = 10 * distanceScale;
       const MIN_FLUX_TO_FORM_RIVER = 30;
       const cellsNumberModifier = (pointsInput.dataset.cells / 10000) ** 0.25;
 
       const prec = grid.cells.prec;
-      const area = pack.cells.area;
       const land = cells.i.filter(i => h[i] >= 20).sort((a, b) => h[b] - h[a]);
-      const lakeOutCells = Lakes.setClimateData(h);
+      const lakeOutCells = Lakes.defineClimateData(h);
 
       land.forEach(function (i) {
         cells.fl[i] += prec[cells.g[i]] / cellsNumberModifier; // add flux from precipitation

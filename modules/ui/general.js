@@ -67,9 +67,9 @@ function showDataTip(event) {
 function showElementLockTip(event) {
   const locked = event?.target?.classList?.contains("icon-lock");
   if (locked) {
-    tip("解锁该元素并允许通过重生工具更改该元素");
+    tip("已解锁，该元素并允许通过重生工具更改该元素");
   } else {
-    tip("锁定元素并防止重生工具对其进行更改");
+    tip("已锁定，元素并防止重生工具对其进行更改");
   }
 }
 
@@ -85,6 +85,7 @@ function handleMouseMove() {
   else showMapTooltip(point, d3.event, i, gridCell);
   if (cellInfo?.offsetParent) updateCellInfo(point, i, gridCell);
 }
+
 let currentNoteId = null; // store currently displayed node to not rerender to often
 
 // show note box on hover (if any)
@@ -98,6 +99,7 @@ function showNotes(e) {
   if (note !== undefined && note.legend !== "") {
     if (currentNoteId === id) return;
     currentNoteId = id;
+
     document.getElementById("notes").style.display = "block";
     document.getElementById("notesHeader").innerHTML = note.name;
     document.getElementById("notesBody").innerHTML = note.legend;
@@ -149,18 +151,28 @@ function showMapTooltip(point, e, i, g) {
     return;
   }
 
-  if (group === "routes") return tip("点击编辑路线");
+  if (group === "routes") {
+    const routeId = +e.target.id.slice(5);
+    const route = pack.routes.find(route => route.i === routeId);
+    if (route) {
+      if (route.name) return tip(`${route.name}. 点击编辑路线`);
+      return tip("点击编辑路线");
+    }
+  }
 
   if (group === "terrain") return tip("编辑地貌图标");
 
   if (subgroup === "burgLabels" || subgroup === "burgIcons") {
-    const burg = +path[path.length - 10].dataset.id;
-    const b = pack.burgs[burg];
-    const population = si(b.population * populationRate * urbanization);
-    tip(`${b.name}. 人口: ${population}. 点击编辑`);
-    if (burgsOverview?.offsetParent) highlightEditorLine(burgsOverview, burg, 5000);
-    return;
+    const burgId = +path[path.length - 10].dataset.id;
+    if (burgId) {
+      const burg = pack.burgs[burgId];
+      const population = si(burg.population * populationRate * urbanization);
+      tip(`${burg.name}. 人口: ${population}. 点击编辑`);
+      if (burgsOverview?.offsetParent) highlightEditorLine(burgsOverview, burgId, 5000);
+      return;
+    }
   }
+
   if (group === "labels") return tip("编辑标签");
 
   if (group === "markers") return tip("编辑标记,按住Shift关联标记不关闭");
@@ -192,18 +204,20 @@ function showMapTooltip(point, e, i, g) {
   if (group === "coastline") return tip("点击编辑海岸线");
 
   if (group === "zones") {
-    const zone = path[path.length - 8];
-    tip(zone.dataset.description);
-    if (zonesEditor?.offsetParent) highlightEditorLine(zonesEditor, zone.id, 5000);
+    const element = path[path.length - 8];
+    const zoneId = +element.dataset.id;
+    const zone = pack.zones.find(zone => zone.i === zoneId);
+    tip(zone.name);
+    if (zonesEditor?.offsetParent) highlightEditorLine(zonesEditor, zoneId, 5000);
     return;
   }
 
   if (group === "ice") return tip("点击编辑冰层");
 
   // covering elements
-  if (layerIsOn("togglePrec") && land) tip("年降水量: " + getFriendlyPrecipitation(i));
+  if (layerIsOn("togglePrecipitation") && land) tip("年降水量: " + getFriendlyPrecipitation(i));
   else if (layerIsOn("togglePopulation")) tip(getPopulationTip(i));
-  else if (layerIsOn("toggleTemp")) tip("温度: " + convertTemperature(grid.cells.temp[g]));
+  else if (layerIsOn("toggleTemperature")) tip("温度: " + convertTemperature(grid.cells.temp[g]));
   else if (layerIsOn("toggleBiomes") && pack.cells.biome[i]) {
     const biome = pack.cells.biome[i];
     tip("生物圈: " + biomesData.name[biome]);
@@ -249,10 +263,11 @@ function updateCellInfo(point, i, g) {
   const f = cells.f[i];
   infoLat.innerHTML = toDMS(getLatitude(y, 4), "lat");
   infoLon.innerHTML = toDMS(getLongitude(x, 4), "lon");
+  infoGeozone.innerHTML = getGeozone(getLatitude(y, 4));
 
   infoCell.innerHTML = i;
   infoArea.innerHTML = cells.area[i] ? si(getArea(cells.area[i])) + " " + getAreaUnit() : "n/a";
-  infoEvelation.innerHTML = getElevation(pack.features[f], pack.cells.h[i]);
+  infoElevation.innerHTML = getElevation(pack.features[f], pack.cells.h[i]);
   infoDepth.innerHTML = getDepth(pack.features[f], point);
   infoTemp.innerHTML = convertTemperature(grid.cells.temp[g]);
   infoPrec.innerHTML = cells.h[i] >= 20 ? getFriendlyPrecipitation(i) : "n/a";
@@ -276,6 +291,18 @@ function updateCellInfo(point, i, g) {
   infoBiome.innerHTML = biomesData.name[cells.biome[i]];
 }
 
+function getGeozone(latitude) {
+  if (latitude > 66.5) return "Arctic";
+  if (latitude > 35) return "Temperate North";
+  if (latitude > 23.5) return "Subtropical North";
+  if (latitude > 1) return "Tropical North";
+  if (latitude > -1) return "Equatorial";
+  if (latitude > -23.5) return "Tropical South";
+  if (latitude > -35) return "Subtropical South";
+  if (latitude > -66.5) return "Temperate South";
+  return "Antarctic";
+}
+
 // convert coordinate to DMS format
 function toDMS(coord, c) {
   const degrees = Math.floor(Math.abs(coord));
@@ -283,7 +310,7 @@ function toDMS(coord, c) {
   const minutes = Math.floor(minutesNotTruncated);
   const seconds = Math.floor((minutesNotTruncated - minutes) * 60);
   const cardinal = c === "lat" ? (coord >= 0 ? "N" : "S") : coord >= 0 ? "E" : "W";
-  return degrees + "° " + minutes + "′ " + seconds + "″ " + cardinal;
+  return degrees + "°" + minutes + "′" + seconds + "″" + cardinal;
 }
 
 // get surface elevation
@@ -419,17 +446,17 @@ function highlightEmblemElement(type, el) {
 
 // assign lock behavior
 document.querySelectorAll("[data-locked]").forEach(function (e) {
-  e.addEventListener("mouseover", function (event) {
+  e.addEventListener("mouseover", function (e) {
+    e.stopPropagation();
     if (this.className === "icon-lock")
       tip("点击以解锁该选项，使其在生成新地图时改变");
     else tip("点击以锁定该选项，使其在生成新地图时不变");
-    event.stopPropagation();
   });
 
   e.addEventListener("click", function () {
-    const id = this.id.slice(5);
-    if (this.className === "icon-lock") unlock(id);
-    else lock(id);
+    const ids = this.dataset.ids ? this.dataset.ids.split(",") : [this.id.slice(5)];
+    const fn = this.className === "icon-lock" ? unlock : lock;
+    ids.forEach(fn);
   });
 });
 

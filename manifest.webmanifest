@@ -3,11 +3,10 @@
   "display": "standalone",
   "orientation": "any",
   "name": "Azgaar的幻想地图生成器",
-  "theme_color": "#f9f7e8",
   "short_name": "幻想地图生成器",
   "description": "用来生成交互式和高度可定制地图的Web应用程序",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "url": "https://www.8desk.top",
   "icons": [
     {

@@ -30,7 +30,7 @@ export function open(props) {
 
   dataElements = props.data;
   validElements = cleanupOrigins(dataElements);
-  if (validElements.length < 3) return tip(`Not enough ${props.type} to show hierarchy`, false, "error");
+  if (validElements.length < 3) return tip(`没有足够的 ${props.type} 来显示层级体系`, false, "error");
 
   onNodeEnter = props.onNodeEnter;
   onNodeLeave = props.onNodeLeave;

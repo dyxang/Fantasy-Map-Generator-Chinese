@@ -55,6 +55,7 @@ function editNotes(id, name) {
   byId("notesLegend").addEventListener("blur", updateLegend);
   byId("notesPin").addEventListener("click", toggleNotesPin);
   byId("notesFocus").addEventListener("click", validateHighlightElement);
+  byId("notesGenerateWithAi").addEventListener("click", openAiGenerator);
   byId("notesDownload").addEventListener("click", downloadLegends);
   byId("notesUpload").addEventListener("click", () => legendsToLoad.click());
   byId("legendsToLoad").addEventListener("change", function () {
@@ -64,7 +65,7 @@ function editNotes(id, name) {
 
   async function initEditor() {
     if (!window.tinymce) {
-      const url = "https://cdn.tiny.cloud/1/gsx8f7be55yuktfb80jai0dbrvjttbq4e1t4c07xjof3p933/tinymce/5/tinymce.min.js";
+      const url = "https://8desk.top/libs/tinymce/tinymce.min.js";
       try {
         await import(url);
       } catch (error) {
@@ -79,11 +80,13 @@ function editNotes(id, name) {
     }
 
     if (window.tinymce) {
+      window.tinymce._setBaseUrl("https://8desk.top/libs/tinymce");
       tinymce.init({
+        license_key: "gpl",
         selector: "#notesLegend",
         height: "90%",
         menubar: false,
-        plugins: `autolink lists link charmap print code fullscreen image link media table paste hr wordcount`,
+        plugins: `autolink lists link charmap code fullscreen image link media table wordcount`,
         toolbar: `code | undo redo | removeformat | bold italic strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media table | fontselect fontsizeselect | blockquote hr charmap | print fullscreen`,
         media_alt_source: false,
         media_poster: false,
@@ -141,6 +144,25 @@ function editNotes(id, name) {
     });
   }
 
+  function openAiGenerator() {
+    const note = notes.find(note => note.id === notesSelect.value);
+
+    let prompt = `Respond with description. Use simple dry language. Invent facts, names and details. Split to paragraphs and format to HTML. Remove h tags, remove markdown.`;
+    if (note?.name) prompt += ` Name: ${note.name}.`;
+    if (note?.legend) prompt += ` Data: ${note.legend}`;
+
+    const onApply = result => {
+      notesLegend.innerHTML = result;
+      if (note) {
+        note.legend = result;
+        updateNotesBox(note);
+        if (window.tinymce) tinymce.activeEditor.setContent(note.legend);
+      }
+    };
+
+    geneateWithAi(prompt, onApply);
+  }
+
   function downloadLegends() {
     const notesData = JSON.stringify(notes);
     const name = getFileName("Notes") + ".txt";
@@ -166,6 +188,7 @@ function editNotes(id, name) {
       removeEditor();
       editNotes(notes[0].id, notes[0].name);
     }
+
     confirmationDialog({
       title: "删除笔记",
       message: "确实要删除选中的笔记吗? 无法撤消此操作",
@@ -173,7 +196,6 @@ function editNotes(id, name) {
       onConfirm: removeLegend
     });
   }
-
 
   function toggleNotesPin() {
     options.pinNotes = !options.pinNotes;

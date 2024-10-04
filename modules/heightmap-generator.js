@@ -25,12 +25,12 @@ window.HeightmapGenerator = (function () {
     const templateString = heightmapTemplates[id]?.template || "";
     const steps = templateString.split("\n");
 
-    if (!steps.length) throw new Error(`¸ß¶ÈÍ¼Ä£°å: Ã»ÓĞÌİ¼¶. Ä£°å: ${id}. Ìİ¼¶: ${steps}`);
+    if (!steps.length) throw new Error(`é«˜åº¦å›¾æ¨¡æ¿: æ²¡æœ‰æ¢¯çº§. æ¨¡æ¿: ${id}. æ¢¯çº§: ${steps}`);
     setGraph(graph);
 
     for (const step of steps) {
       const elements = step.trim().split(" ");
-      if (elements.length < 2) throw new Error(`¸ß¶ÈÍ¼Ä£°å: Ìİ¼¶ < 2. Ä£°å: ${id}. Ìİ¼¶: ${elements}`);
+      if (elements.length < 2) throw new Error(`é«˜åº¦å›¾æ¨¡æ¿: æ¢¯çº§ < 2. æ¨¡æ¿: ${id}. æ¢¯çº§: ${elements}`);
       addStep(...elements);
     }
 
@@ -507,7 +507,7 @@ window.HeightmapGenerator = (function () {
 
   function getPointInRange(range, length) {
     if (typeof range !== "string") {
-      ERROR && console.error("·¶Î§Ó¦¸ÃÊÇÒ»¸ö×Ö·û´®");
+      ERROR && console.error("èŒƒå›´åº”è¯¥æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²");
       return;
     }
 

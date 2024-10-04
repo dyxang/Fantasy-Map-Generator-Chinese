@@ -2,7 +2,7 @@
 function editDiplomacy() {
   if (customization) return;
   if (pack.states.filter(s => s.i && !s.removed).length < 2)
-    return tip("应至少有2个国家来编辑外交", false, "error");
+    return tip("应至少有2个国家以编辑外交", false, "error");
 
   const body = document.getElementById("diplomacyBodySection");
 
@@ -18,39 +18,39 @@ function editDiplomacy() {
     Ally: {
       inText: "盟友",
       color: "#00b300",
-      tip: "同盟国达成防御协议，在第三方侵略的情况下相互保护"
+      tip: "同盟国达成防御协议，在第三方侵略时下相互提供保护"
     },
     Friendly: {
       inText: "友好",
       color: "#d4f8aa",
-      tip: "当一个国家与另一个国家有共同利益时，这个国家对另一个国家是友好的"
+      tip: "当国与国之间有共同利益时，那对另一个国家态度就是友好的"
     },
     Neutral: {
       inText: "中立",
       color: "#edeee8",
-      tip: "中立意味着国家关系既不是正的也不是负的"
+      tip: "中立，意味着国家关系非恶也无好"
     },
     Suspicion: {
       inText: "怀疑",
       color: "#eeafaa",
-      tip: "怀疑意味着国家对另一个国家持谨慎的不信任态度"
+      tip: "怀疑，意味着国家对另一个国家持谨慎的不信任态度"
     },
-    Enemy: {inText: "交战", color: "#e64b40", tip: "敌人是相互交战的国家"},
+    Enemy: {inText: "交战", color: "#e64b40", tip: "已成为敌人，国家相互交战"},
     Unknown: {
       inText: "未知",
       color: "#a9a9a9",
-      tip: "如果国家之间没有足够的相互信息，那么关系就是未知的"
+      tip: "如果国家之间没有足够的互动信息，那么关系就是未知的"
     },
     Rival: {
       inText: "对抗",
       color: "#ad5a1f",
-      tip: "竞争是一种在该地区争夺主导地位的状态"
+      tip: "斗争，是一种在该地区争夺主导地位的状态"
     },
-    Vassal: {inText: "附庸", color: "#87CEFA", tip: "附属国是对其领主负有义务的国家"},
+    Vassal: {inText: "附庸", color: "#87CEFA", tip: "附属国，隶属于其领主国，并负有义务"},
     Suzerain: {
       inText: "宗主",
       color: "#00008B",
-      tip: "宗主国是一个对其附属国有一定控制权的国家"
+      tip: "宗主国，指对其附属国有一定控制权的国家"
     }
   };
 
@@ -120,7 +120,7 @@ function editDiplomacy() {
       const relation = state.diplomacy[selectedId];
       const {color, inText} = relations[relation];
 
-      const tip = `${state.name} 与 ${selectedName} 关系是: ${inText}`;
+      const tip = `${state.name} 对于 ${selectedName} 的关系是: ${inText}`;
       const tipSelect = `${tip}. 点击查看关系 ${state.name}`;
       const tipChange = `点击更改关系. ${tip}`;
 
@@ -304,13 +304,13 @@ function editDiplomacy() {
     ];
     const ally = () => [`Defence pact`, `${subjectName} 与 ${objectName} 签订防御条约`];
     const vassal = () => [`Vassalization`, `${subjectName} 成为 ${objectName} 的附庸`];
-    const suzerain = () => [`Vassalization`, `${subjectName} 让 ${objectName} 成为附庸`];
-    const rival = () => [`Rivalization`, `${subjectName} 与 ${objectName} 成了死敌`];
+    const suzerain = () => [`Vassalization`, `${subjectName} 使 ${objectName} 成为附庸`];
+    const rival = () => [`Rivalization`, `${subjectName} 成了 ${objectName} 的敌人`];
     const unknown = () => [
       `关系解除`,
-      `${subjectName} 召回了他们的大使，抹去了 ${objectName} 所有的记录`
+      `${subjectName} 召回了他们的使节，抹去了 ${objectName} 所有的记录`
     ];
-    const war = () => [`宣战`, `${subjectName} 向敌人 ${objectName} 宣战`];
+    const war = () => [`War declaration`, `${subjectName} 向敌人 ${objectName} 宣战`];
     const peace = () => {
       const treaty = `${subjectName} 与 ${objectName} 同意停火并签署了和平条约`;
       const changed =

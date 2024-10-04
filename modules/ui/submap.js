@@ -28,6 +28,7 @@ window.UISubmap = (function () {
     $("#submapOptionsDialog").dialog({
       title: "Submap 模式创建地图",
       resizable: false,
+      width: "32em",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
         Submap: function () {
@@ -142,9 +143,10 @@ window.UISubmap = (function () {
       fullMap: true,
       noLabels: true,
       noScaleBar: true,
+      noVignette: true,
       noIce: true
     });
-  
+
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     canvas.width = w;
@@ -157,18 +159,6 @@ window.UISubmap = (function () {
     $container.textContent = "";
     $container.appendChild(canvas);
     return canvas;
-  }
-
-  // currently unused alternative to PNG version
-  async function loadPreviewSVG($container, w, h) {
-    $container.innerHTML = /*html*/ `
-      <svg id="submapPreviewSVG" viewBox="0 0 ${graphWidth} ${graphHeight}">
-        <rect width="100%" height="100%" fill="${byId("styleOceanFill").value}" />
-        <rect fill="url(#oceanic)" width="100%" height="100%" />
-        <use href="#map"></use>
-      </svg>
-    `;
-    return byId("submapPreviewSVG");
   }
 
   // Resample the whole map to different cell resolution or shape
@@ -184,7 +174,8 @@ window.UISubmap = (function () {
       [
         (x - cx) * Math.cos(alfa) - (y - cy) * Math.sin(alfa) + cx,
         (y - cy) * Math.cos(alfa) + (x - cx) * Math.sin(alfa) + cy
-      ];    const shift = (dx, dy) => (x, y) => [x + dx, y + dy];
+      ];
+    const shift = (dx, dy) => (x, y) => [x + dx, y + dy];
     const scale = r => (x, y) => [(x - cx) * r + cx, (y - cy) * r + cy];
     const flipH = (x, y) => [-x + 2 * cx, y];
     const flipV = (x, y) => [x, -y + 2 * cy];
@@ -199,7 +190,7 @@ window.UISubmap = (function () {
       [projection, inverse] = [
         app(scale(Math.pow(1.1, ratio)), projection),
         app(inverse, scale(Math.pow(1.1, -ratio)))
-      ];    
+      ];
     if (mirrorH) [projection, inverse] = [app(flipH, projection), app(inverse, flipH)];
     if (mirrorV) [projection, inverse] = [app(flipV, projection), app(inverse, flipV)];
     if (shiftX || shiftY) {
@@ -257,11 +248,9 @@ window.UISubmap = (function () {
     byId("latitudeInput").value = latitudeOutput.value;
 
     // fix scale
-    distanceScaleInput.value = distanceScaleOutput.value = rn((distanceScale = distanceScaleOutput.value / scale), 2);
-    populationRateInput.value = populationRateOutput.value = rn(
-      (populationRate = populationRateOutput.value / scale),
-      2
-    );
+    distanceScale = distanceScaleInput.value = rn(distanceScaleInput.value / scale, 2);
+    populationRate = populationRateInput.value = rn(populationRateInput.value / scale, 2);
+
     customization = 0;
     startResample(options);
   }, 1000);
@@ -295,7 +284,7 @@ window.UISubmap = (function () {
 
     oldstate = null; // destroy old state to free memory
 
-    restoreLayers();
+    drawLayers();
     if (ThreeD.options.isOn) ThreeD.redraw();
     if ($("#worldConfigurator").is(":visible")) editWorld();
   }
@@ -317,11 +306,6 @@ window.UISubmap = (function () {
       bl.dataset["size"] = Math.max(rn((size + size / scale) / 2, 2), 1) * scale;
     }
 
-    // emblems
-    const emblemMod = minmax((scale - 1) * 0.3 + 1, 0.5, 5);
-    emblemsStateSizeInput.value = minmax(+emblemsStateSizeInput.value * emblemMod, 0.5, 5);
-    emblemsProvinceSizeInput.value = minmax(+emblemsProvinceSizeInput.value * emblemMod, 0.5, 5);
-    emblemsBurgSizeInput.value = minmax(+emblemsBurgSizeInput.value * emblemMod, 0.5, 5);
     drawEmblems();
   }
 

@@ -1,5 +1,3 @@
-import {rollups} from "../../../utils/functionUtils.js";
-
 const entitiesMap = {
   states: {//不确定是否会对数据照成影响
     label: "国家",

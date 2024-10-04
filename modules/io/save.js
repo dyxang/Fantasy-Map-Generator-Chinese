@@ -1,7 +1,8 @@
 "use strict";
+
 // functions to save the project to a file
 async function saveMap(method) {
-  if (customization) return tip("Map cannot be saved in EDIT mode, please complete the edit and retry", false, "error");
+  if (customization) return tip("地图无法以编辑模式保存，请完成编辑后重试", false, "error");
   closeDialogs("#alert");
 
   try {
@@ -13,7 +14,7 @@ async function saveMap(method) {
     if (method === "dropbox") saveToDropbox(mapData, filename);
   } catch (error) {
     ERROR && console.error(error);
-    alertMessage.innerHTML = /* html */ `An error is occured on map saving. If the issue persists, please copy the message below and report it on ${link(
+    alertMessage.innerHTML = /* html */ `在地图保存时发生错误。如果问题仍然存在，请复制下面的消息并到以下网站报告 ${link(
       "https://github.com/Azgaar/Fantasy-Map-Generator/issues",
       "GitHub"
     )}. <p id="errorBox">${parseError(error)}</p>`;
@@ -40,10 +41,10 @@ function prepareMapData() {
   const date = new Date();
   const dateString = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
   const license = "File can be loaded in azgaar.github.io/Fantasy-Map-Generator";
-  const params = [version, license, dateString, seed, graphWidth, graphHeight, mapId].join("|");
+  const params = [VERSION, license, dateString, seed, graphWidth, graphHeight, mapId].join("|");
   const settings = [
     distanceUnitInput.value,
-    distanceScaleInput.value,
+    distanceScale,
     areaUnit.value,
     heightUnit.value,
     heightExponentInput.value,
@@ -58,7 +59,7 @@ function prepareMapData() {
     urbanization,
     mapSizeOutput.value,
     latitudeOutput.value,
-    "",// previously used for temperatureEquatorOutput.value
+    "", // previously used for temperatureEquatorOutput.value
     "", // previously used for tempNorthOutput.value
     precOutput.value,
     JSON.stringify(options),
@@ -66,7 +67,8 @@ function prepareMapData() {
     +hideLabels.checked,
     stylePreset.value,
     +rescaleLabels.checked,
-    urbanDensity
+    urbanDensity,
+    longitudeOutput.value
   ].join("|");
   const coords = JSON.stringify(mapCoordinates);
   const biomes = [biomesData.color, biomesData.habitability, biomesData.name].join("|");
@@ -96,6 +98,9 @@ function prepareMapData() {
   const provinces = JSON.stringify(pack.provinces);
   const rivers = JSON.stringify(pack.rivers);
   const markers = JSON.stringify(pack.markers);
+  const cellRoutes = JSON.stringify(pack.cells.routes);
+  const routes = JSON.stringify(pack.routes);
+  const zones = JSON.stringify(pack.zones);
 
   // store name array only if not the same as default
   const defaultNB = Names.getNameBases();
@@ -134,23 +139,25 @@ function prepareMapData() {
     pack.cells.fl,
     pop,
     pack.cells.r,
-    pack.cells.road,
+    [], // deprecated pack.cells.road
     pack.cells.s,
     pack.cells.state,
     pack.cells.religion,
     pack.cells.province,
-    pack.cells.crossroad,
+    [], // deprecated pack.cells.crossroad
     religions,
     provinces,
     namesData,
     rivers,
     rulersString,
     fonts,
-    markers
+    markers,
+    cellRoutes,
+    routes,
+    zones
   ].join("\r\n");
   return mapData;
 }
-
 
 // save map file to indexedDB
 async function saveToStorage(mapData, showTip = false) {
@@ -158,6 +165,7 @@ async function saveToStorage(mapData, showTip = false) {
   await ldb.set("lastMap", blob);
   showTip && tip("地图已保存至浏览器存储", false, "success");
 }
+
 // download map file
 function saveToMachine(mapData, filename) {
   const blob = new Blob([mapData], {type: "text/plain"});
