@@ -27,7 +27,7 @@ function editRoute(id) {
   }
 
   $("#routeEditor").dialog({
-    title: "编辑路线",
+    title: "路线编辑器",
     resizable: false,
     position: {my: "left top", at: "left+10 top+10", of: "#map"},
     close: closeRouteEditor

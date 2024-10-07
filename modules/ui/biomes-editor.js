@@ -272,7 +272,7 @@ function editBiomes() {
     const b = biomesData,
       i = biomesData.i.length;
     if (i > 254) {
-      tip("最大数量的生物群落达到(255) ，数据清理是必要的", false, "error");
+      tip("生物群落达到最大数量(255) ，需进行数据清理", false, "error");
       return;
     }
 

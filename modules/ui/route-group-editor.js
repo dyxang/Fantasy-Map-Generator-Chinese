@@ -7,7 +7,7 @@ function editRouteGroups() {
   addLines();
 
   $("#routeGroupsEditor").dialog({
-    title: "编辑路线组",
+    title: "路线组编辑器",
     resizable: false,
     position: {my: "left top", at: "left+10 top+140", of: "#map"}
   });

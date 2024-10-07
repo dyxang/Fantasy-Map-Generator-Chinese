@@ -7,7 +7,7 @@ function showElevationProfile(data, routeLen, isRiver) {
   byId("epSave").on("click", downloadCSV);
 
   $("#elevationProfile").dialog({
-    title: "Elevation profile",
+    title: "高程剖面图",
     resizable: false,
     close: closeElevationProfile,
     position: {my: "left top", at: "left+20 bottom-500", of: window, collision: "fit"}

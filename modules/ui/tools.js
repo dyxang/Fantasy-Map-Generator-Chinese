@@ -33,10 +33,10 @@ toolsContent.addEventListener("click", function (event) {
     const dontAsk = sessionStorage.getItem("regenerateFeatureDontAsk");
     if (dontAsk) return processFeatureRegeneration(event, button);
 
-    alertMessage.innerHTML = /* html */ `重新生成将删除元素的所有自定义更改.<br /><br />你确定要继续吗？`;
+    alertMessage.innerHTML = /* html */ `将删除元素的所有自定义更改.<br /><br />你确定要继续吗？`;
     $("#alert").dialog({
       resizable: false,
-      title: "重生成元素",
+      title: "重新生成元素",
       buttons: {
         继续: function () {
           processFeatureRegeneration(event, button);

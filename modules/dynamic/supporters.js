@@ -17,6 +17,7 @@ DCVSMarvel
 神经漫游者nobu
 飞天归来
 Yotta
+怎么回事
 及其他七个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan

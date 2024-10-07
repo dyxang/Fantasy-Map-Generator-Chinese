@@ -15,7 +15,7 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
   modules.overviewBurgs = true;
 
   $("#burgsOverview").dialog({
-    title: "城镇概况",
+    title: "城市概况",
     resizable: false,
     width: fitContent(),
     close: exitAddBurgMode,
@@ -91,7 +91,7 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
         data-population=${population}
         data-features="${features}"
       >
-        <span data-tip="放大到视图" class="icon-dot-circled pointer"></span>
+        <span data-tip="在地图上定位并放大" class="icon-dot-circled pointer"></span>
         <input data-tip="城市名称。点击并键入以更改" class="burgName" value="${
           b.name
         }" autocorrect="off" spellcheck="false" />
@@ -389,7 +389,7 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
 
       burgsInfo.innerHTML = /* html */ `${name}. ${parent}. Population: ${population}`;
       burgHighlightOn(ev);
-      tip("放大到视图");
+      tip("在地图上定位并放大");
     }
 
     function hideInfo(ev) {

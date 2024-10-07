@@ -12,7 +12,7 @@ function editReliefIcon() {
   updateReliefSizeInput();
 
   $("#reliefEditor").dialog({
-    title: "编辑地貌图标",
+    title: "地形符号编辑器",
     resizable: false,
     width: "27em",
     position: {my: "left top", at: "left+10 top+10", of: "#map"},
@@ -104,7 +104,7 @@ function editReliefIcon() {
     }
 
     viewbox.style("cursor", "crosshair").call(d3.drag().on("start", dragToAdd)).on("touchmove mousemove", moveBrush);
-    tip("拖动以放置地貌图标在半径范围内", true);
+    tip("拖动以放置地形符号在半径范围内", true);
   }
 
   function moveBrush() {
@@ -181,7 +181,7 @@ function editReliefIcon() {
     reliefIconsSeletionAny.style.display = "inline-block";
 
     viewbox.style("cursor", "crosshair").call(d3.drag().on("start", dragToRemove)).on("touchmove mousemove", moveBrush);
-    tip("拖动此形状可删除半径内的地貌图标", true);
+    tip("拖动此形状可删除半径内的地形符号", true);
   }
 
   function dragToRemove() {
@@ -265,7 +265,7 @@ function editReliefIcon() {
 
     $("#alert").dialog({
       resizable: false,
-      title: "删除地貌图标",
+      title: "删除地形符号",
       buttons: {
         删除: function () {
           if (selection) selection.remove();

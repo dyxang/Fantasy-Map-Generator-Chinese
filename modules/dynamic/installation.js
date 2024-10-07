@@ -33,8 +33,8 @@ function createButton() {
 }
 
 function openDialog() {
-  alertMessage.innerHTML = /* html */ `你可以安装该工具（注意：离线工作时有一些限制），使其看起来和感觉上都像桌面应用程序:
-  在你的主屏幕上有自己的图标
+  alertMessage.innerHTML = /* html */ `你可以安装该工具（注意：无论是否原版，任何情况下断网使用都有些限制），达到仿佛使用桌面应用程序的效果:
+  并在屏幕上创建快捷方式
   `;
   $("#alert").dialog({
     resizable: false,

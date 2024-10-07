@@ -12,7 +12,7 @@ function editZones() {
   modules.editZones = true;
 
   $("#zonesEditor").dialog({
-    title: "区域编辑",
+    title: "区域编辑器",
     resizable: false,
     close: () => exitZonesManualAssignment("close"),
     position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}
@@ -101,7 +101,7 @@ function editZones() {
         <div data-tip="区域面积" class="biomeArea hide">${si(area) + " " + getAreaUnit()}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="zonePopulation hide pointer">${si(population)}</div>
-        <span data-tip="通过拖动可升高或降低区域" class="icon-resize-vertical hide"></span>
+        <span data-tip="通过拖动可升高或降低顺序" class="icon-resize-vertical hide"></span>
         <span data-tip="切换区域焦点" class="zoneFog icon-pin ${focused ? "" : "inactive"} hide ${
         cells.length ? "" : "placeholder"
       }"></span>

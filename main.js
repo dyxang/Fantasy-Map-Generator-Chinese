@@ -144,7 +144,7 @@ fogging
 // assign events separately as not a viewbox child
 scaleBar.on("mousemove", () => tip("打开单元编辑器")).on("click", () => editUnits());
 legend
-  .on("mousemove", () => tip("拖动可更改位置。单击隐藏图例"))
+  .on("mousemove", () => tip("拖动更改位置。点击隐藏图例"))
   .on("click", () => clearLegend());
 
 // main data variables

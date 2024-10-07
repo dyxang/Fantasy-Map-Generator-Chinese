@@ -11,7 +11,7 @@ function editLabel() {
   viewbox.on("touchmove mousemove", showEditorTips);
 
   $("#labelEditor").dialog({
-    title: "编辑标签",
+    title: "标签编辑器",
     resizable: false,
     width: fitContent(),
     position: {my: "center top+10", at: "bottom", of: text, collision: "fit"},

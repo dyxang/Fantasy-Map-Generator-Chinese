@@ -65,7 +65,7 @@ function editNotes(id, name) {
 
   async function initEditor() {
     if (!window.tinymce) {
-      const url = "https://8desk.top/libs/tinymce/tinymce.min.js";
+      const url = "https://www.8desk.top/libs/tinymce/tinymce.min.js";
       try {
         await import(url);
       } catch (error) {
@@ -80,7 +80,7 @@ function editNotes(id, name) {
     }
 
     if (window.tinymce) {
-      window.tinymce._setBaseUrl("https://8desk.top/libs/tinymce");
+      window.tinymce._setBaseUrl("https://www.8desk.top/libs/tinymce");
       tinymce.init({
         license_key: "gpl",
         selector: "#notesLegend",

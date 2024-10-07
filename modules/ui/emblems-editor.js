@@ -13,7 +13,7 @@ function editEmblem(type, id, el) {
   updateElementSelectors(type, id, el);
 
   $("#emblemEditor").dialog({
-    title: "编辑徽章",
+    title: "徽章编辑器",
     resizable: true,
     width: "18.2em",
     height: "auto",

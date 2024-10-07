@@ -14,7 +14,7 @@ function editRegiment(selector) {
   drawRotationControl();
 
   $("#regimentEditor").dialog({
-    title: "编辑部队",
+    title: "军队编辑器",
     resizable: false,
     close: closeEditor,
     position: {my: "left top", at: "left+10 top+10", of: "#map"}

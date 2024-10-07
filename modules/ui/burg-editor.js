@@ -11,7 +11,7 @@ function editBurg(id) {
   updateBurgValues();
 
   $("#burgEditor").dialog({
-    title: "编辑城市",
+    title: "城市编辑器",
     resizable: false,
     close: closeBurgEditor,
     position: {my: "left top", at: "left+10 top+10", of: "svg", collision: "fit"}

@@ -1180,7 +1180,7 @@ function selectIcon(initial, callback) {
 
   $("#iconSelector").dialog({
     width: fitContent(),
-    title: "选择图标",
+    title: "图标选择器",
     buttons: {
       应用: function () {
         callback(input.value || "⠀");

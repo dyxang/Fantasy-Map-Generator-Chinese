@@ -67,9 +67,9 @@ function showDataTip(event) {
 function showElementLockTip(event) {
   const locked = event?.target?.classList?.contains("icon-lock");
   if (locked) {
-    tip("已解锁，该元素并允许通过重生工具更改该元素");
+    tip("已解锁元素：允许被重生工具更改");
   } else {
-    tip("已锁定，元素并防止重生工具对其进行更改");
+    tip("已锁定元素：防止被重生工具更改");
   }
 }
 
@@ -160,7 +160,7 @@ function showMapTooltip(point, e, i, g) {
     }
   }
 
-  if (group === "terrain") return tip("编辑地貌图标");
+  if (group === "terrain") return tip("编辑地形符号");
 
   if (subgroup === "burgLabels" || subgroup === "burgIcons") {
     const burgId = +path[path.length - 10].dataset.id;
@@ -449,8 +449,8 @@ document.querySelectorAll("[data-locked]").forEach(function (e) {
   e.addEventListener("mouseover", function (e) {
     e.stopPropagation();
     if (this.className === "icon-lock")
-      tip("点击以解锁该选项，使其在生成新地图时改变");
-    else tip("点击以锁定该选项，使其在生成新地图时不变");
+      tip("解锁该选项，使其在生成新地图时可变");
+    else tip("锁定该选项，使其在生成新地图时不变");
   });
 
   e.addEventListener("click", function () {

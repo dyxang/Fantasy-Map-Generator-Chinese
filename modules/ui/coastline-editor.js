@@ -6,7 +6,7 @@ function editCoastline() {
   if (layerIsOn("toggleCells")) toggleCells();
 
   $("#coastlineEditor").dialog({
-    title: "编辑海岸线",
+    title: "海岸线编辑器",
     resizable: false,
     position: {my: "center top+20", at: "top", of: d3.event, collision: "fit"},
     close: closeCoastlineEditor
