@@ -142,7 +142,7 @@ fogging
   .attr("filter", "url(#splotch)");
 
 // assign events separately as not a viewbox child
-scaleBar.on("mousemove", () => tip("打开单元编辑器")).on("click", () => editUnits());
+scaleBar.on("mousemove", () => tip("打开计量单位编辑器")).on("click", () => editUnits());
 legend
   .on("mousemove", () => tip("拖动更改位置。点击隐藏图例"))
   .on("click", () => clearLegend());

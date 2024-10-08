@@ -25,12 +25,12 @@ window.HeightmapGenerator = (function () {
     const templateString = heightmapTemplates[id]?.template || "";
     const steps = templateString.split("\n");
 
-    if (!steps.length) throw new Error(`高度图模板: 没有梯级. 模板: ${id}. 梯级: ${steps}`);
+    if (!steps.length) throw new Error(`高程图模板: 没有梯级. 模板: ${id}. 梯级: ${steps}`);
     setGraph(graph);
 
     for (const step of steps) {
       const elements = step.trim().split(" ");
-      if (elements.length < 2) throw new Error(`高度图模板: 梯级 < 2. 模板: ${id}. 梯级: ${elements}`);
+      if (elements.length < 2) throw new Error(`高程图模板: 梯级 < 2. 模板: ${id}. 梯级: ${elements}`);
       addStep(...elements);
     }
 

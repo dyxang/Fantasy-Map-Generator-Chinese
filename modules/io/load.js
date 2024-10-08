@@ -618,7 +618,7 @@ async function parseLoadedData(data, mapVersion) {
         if (capitalBurgs.length > 1) {
           const message = `数据完整性检查。国家 ${state.i} 有多个指定首都 (${capitalBurgs
             .map(b => b.i)
-            .join(", ")}) 。保留第一个作为首都，并将其他首都移动到城镇`;
+            .join(", ")}) 。保留第一个作为首都，并将其他首都移动到城市`;
           ERROR && console.error(message);
 
           capitalBurgs.forEach((burg, i) => {

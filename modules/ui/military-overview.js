@@ -97,11 +97,11 @@ function overviewMilitary() {
         <fill-box data-tip="${s.fullName}" fill="${s.color}" disabled></fill-box>
         <input data-tip="${s.fullName}" style="width:6em" value="${s.name}" readonly />
         ${lineData}
-        <div data-type="total" data-tip="国家军事人员总数 (考虑到工作人员)" style="font-weight: bold">${si(
+        <div data-type="total" data-tip="国家军职人员总数 (考虑包括后勤及相关人员)" style="font-weight: bold">${si(
           total
           )}</div>
         <div data-type="population" data-tip="国家人口">${si(population)}</div>
-        <div data-type="rate" data-tip="军事人员比率(国家人口的百分比)。取决于战争预警程度">${rn(
+        <div data-type="rate" data-tip="军职人员比率(国家人口的百分比)。取决于战争预警程度">${rn(
           rate, 
           2
         )}%</div>

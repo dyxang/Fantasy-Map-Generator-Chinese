@@ -493,7 +493,7 @@
             </li>
             <li
               id="toggleGrid"
-              data-tip="网格：点击以切换，拖动可升高或降低。按住Ctrl键并点击以编辑图层样式，然后选择“类型”"
+              data-tip="网格：点击切换，拖动可升高或降低。按住Ctrl键并点击以编辑图层样式，然后选择“类型”"
               data-shortcut="G"
               onclick="toggleGrid(event)"
             >
@@ -513,7 +513,7 @@
               data-shortcut="W"
               onclick="toggleCompass(event)"
             >
-              风向玫瑰图(<u>w</u>)
+              风玫瑰图(<u>w</u>)
             </li>
             <li
               id="toggleRivers"
@@ -669,7 +669,7 @@
             </li>
             <li
               id="toggleScaleBar"
-              data-tip="比例尺：点击以切换。按住Ctrl键并点击可编辑样式"
+              data-tip="比例尺：点击切换。按住Ctrl键并点击可编辑样式"
               data-shortcut="/ (slash sign)"
               onclick="toggleScaleBar(event)"
               class="solid"
@@ -686,7 +686,7 @@
             晕影
             </li>
           </ul>
-          <div class="tip">点击切换图层可见，直接拖动按钮以排序</div>
+          <div class="tip">点击切换图层可见，直接拖动按钮排序</div>
           <div class="tip">Ctrl + 点击编辑图层样式</div>
 
           <div id="viewMode" data-tip="设置显示模式">
@@ -734,7 +734,7 @@
 
           <p></p><p data-tip="选择一个元素来编辑其样式" style="display: inline-block">选择元素:</p>
           <select
-            data-tip="Select an element to edit its style (list is ordered alphabetically)"
+            data-tip="选择一个元素来编辑其样式"
             id="styleElementSelect"
             style="width: 42%"
           >
@@ -771,7 +771,7 @@
             <option value="temperature">温度</option>
             <option value="texture">纹理</option>
             <option value="vignette">晕影</option>
-            <option value="compass">风向图</option>
+            <option value="compass">风玫瑰图</option>
             <option value="zones">区域</option>
           </select>
 
@@ -793,10 +793,10 @@
             </tbody>
 
             <tbody id="styleHeightmap">
-              <tr id="styleHeightmapRenderOceanOption" data-tip="选中以渲染海洋高度图">
+              <tr id="styleHeightmapRenderOceanOption" data-tip="选中以渲染海洋高程图">
                 <td colspan="2">
                   <input id="styleHeightmapRenderOcean" class="checkbox" type="checkbox" />
-                  <label for="styleHeightmapRenderOcean" class="checkbox-label">渲染海洋高度图</label>
+                  <label for="styleHeightmapRenderOcean" class="checkbox-label">渲染海洋高程图</label>
                 </td>
               </tr>
 
@@ -808,14 +808,14 @@
               </tr>
 
               <tr data-tip="减少层数，提高性能">
-                <td>减少层</td>
+                <td>层减少</td>
                 <td>
                   <slider-input id="styleHeightmapSkip" min="0" max="10" step="1"></slider-input>
                 </td>
               </tr>
 
-              <tr data-tip="Line simplification rate. Increase to slightly improve performance">
-                <td>简化线</td>
+              <tr data-tip="线条简化率。提高以略微提升性能。">
+                <td>线简化</td>
                 <td>
                   <slider-input id="styleHeightmapSimplification" min="0" max="10" step="1"></slider-input>
                 </td>
@@ -1594,7 +1594,7 @@
                 />
               </td>
               <td>
-                <i id="optionsEraRegenerate" data-tip="重生成时代" class="icon-arrows-cw"></i>
+                <i id="optionsEraRegenerate" data-tip="重新生成时代" class="icon-arrows-cw"></i>
               </td>
             </tr>
 
@@ -1662,7 +1662,7 @@
               </td>
             </tr>
 
-            <tr data-tip="定义国家和文化的大小差异。它定义了扩张主义价值观">
+            <tr data-tip="定义国家和文化的大小差异。它定义了扩张性">
               <td>
                 <i data-locked="0" id="lock_sizeVariety" class="icon-lock-open"></i>
               </td>
@@ -1696,7 +1696,7 @@
             </tr>
 
             <tr
-              data-tip="确定应产生多少有组织的宗教和异教。文化在任何情况下都会有自己的民间宗教"
+              data-tip="确定应产生多少制度性宗教和异教。文化在任何情况下都会有自己的民间宗教"
             >
               <td>
                 <i data-locked="0" id="lock_religionsNumber" class="icon-lock-open"></i>
@@ -1832,7 +1832,7 @@
               </td>
             </tr>
 
-            <tr data-tip="选择徽标形状。可在徽章编辑器中单独更改">
+            <tr data-tip="选择徽标形状。可在徽标编辑器中单独更改">
               <td>
                 <i data-locked="0" id="lock_emblemShape" class="icon-lock"></i>
               </td>
@@ -1995,8 +1995,8 @@
         <div id="toolsContent" class="tabcontent">
           <div class="separator">编辑</div>
           <div class="grid">
-            <button id="editBiomesButton" data-tip="打开生物组编辑器" data-shortcut="Shift + B">
-              生物组
+            <button id="editBiomesButton" data-tip="打开生物群编辑器" data-shortcut="Shift + B">
+              生物群
             </button>
             <button id="overviewBurgsButton" data-tip="打开城市编辑器" data-shortcut="Shift + T">
               城市
@@ -2011,8 +2011,8 @@
             >
             外交
             </button>
-            <button id="editEmblemButton" data-tip="打开徽章编辑器" data-shortcut="Shift + Y">
-              徽章
+            <button id="editEmblemButton" data-tip="打开徽标编辑器" data-shortcut="Shift + Y">
+              徽标
             </button>
             <button
               id="editHeightmapButton"
@@ -2038,7 +2038,7 @@
               笔记
             </button>
             <button id="editProvincesButton" data-tip="打开省编辑器" data-shortcut="Shift + P">
-              省
+              省份
             </button>
             <button id="editReligions" data-tip="打开宗教编辑器" data-shortcut="Shift + R">
               宗教
@@ -2066,7 +2066,7 @@
               id="regenerateBurgs"
               data-tip="点击重新生成所有未锁定的城市和路线。各国将保持现状。注:城市只在人口密集区产生，并被指定文化"
             >
-              城镇
+              城市
             </button>
             <button id="regenerateCultures" data-tip="点击重生未锁定文化">文化</button>
             <button id="regenerateEmblems" data-tip="点击重生所有徽标">徽标</button>
@@ -3419,17 +3419,17 @@
             </div>
           </div>
 
-          <div id="burgPreviewSection" data-tip="城镇地图预览" style="display: flex; flex-direction: column">
+          <div id="burgPreviewSection" data-tip="城市地图预览" style="display: flex; flex-direction: column">
             <div style="display: flex; justify-content: space-between">
-              <span>城镇预览:</span>
+              <span>城市预览:</span>
               <div style="display: flex; gap: 0.5em">
                 <i
                 id="burgLinkEdit"
-                data-tip="提供链接城镇地图的自定义链接"
+                data-tip="提供链接城市地图的自定义链接"
                 class="icon-pencil pointer"
                 style="margin-top: -0.1em"
                 ></i>
-                <i id="burgLinkOpen" data-tip="在新标签页打开城镇图" class="icon-link-ext pointer"></i>
+                <i id="burgLinkOpen" data-tip="在新标签页打开城市图" class="icon-link-ext pointer"></i>
               </div>
             </div>
             <div id="burgPreviewObject" style="pointer-events: none"></div>
@@ -3471,10 +3471,10 @@
             ></button>
           </div>
 
-          <button id="burgEditEmblem" data-tip="编辑徽章" class="icon-shield-alt"></button>
+          <button id="burgEditEmblem" data-tip="编辑徽标" class="icon-shield-alt"></button>
           <button id="burgTogglePreview" data-tip="切换预览" class="icon-map"></button>
           <button id="burgLocate" data-tip="安置城市区" class="icon-target"></button>
-          <button id="burgRelocate" data-tip="安置城市。点击地图移动城镇" class="icon-map-pin"></button>
+          <button id="burgRelocate" data-tip="安置城市。点击地图移动城市" class="icon-map-pin"></button>
           <button id="burglLegend" data-tip="编辑自由的文字说明(图例)为这个城市" class="icon-edit"></button>
           <button id="burgLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
           <button
@@ -3586,7 +3586,7 @@
             ></i>
           </div>
 
-          <div data-tip="军队徽章。粘贴任何Unicode符号或从预定义列表中选择">
+          <div data-tip="军队徽标。粘贴任何Unicode符号或从预定义列表中选择">
             <div class="label italic">徽标：</div>
             <input id="regimentEmblem" style="width: 5em" />
             <button id="regimentEmblemSelect" style="padding: 0; width: 4.5em">选择</button>
@@ -4149,7 +4149,7 @@
           <button data-type="Trough" data-tip="山谷：长条形的凹陷">T</button>
           <button data-type="Strait" data-tip="海峡：位于中心的垂直或水平凹陷">S</button>
           <button data-type="Mask" data-tip="掩模：位于边缘或地图中心的较低单元格">M</button>
-          <button data-type="Invert" data-tip="沿轴翻转高度图">I</button>
+          <button data-type="Invert" data-tip="沿轴翻转高程图">I</button>
           <button data-type="Add" data-tip="向范围内的所有高度值添加或减去值">+</button>
           <button data-type="Multiply" data-tip="将范围内的所有高度值乘以因子">*</button>
           <button
@@ -4281,7 +4281,7 @@
             宜居性&nbsp;
           </div>
           <div
-            data-tip="按生物组单元数进行排序"
+            data-tip="按生物群单元数进行排序"
             class="sortable hide icon-sort-number-down"
             data-sortby="cells"
           >
@@ -4356,7 +4356,7 @@
           <div data-tip="国家名" class="label">简称:</div>
           <input
             id="stateNameEditorShort"
-            data-tip="键入以更改简称"
+            data-tip="更改简称"
             autocorrect="off"
             spellcheck="false"
             style="width: 11em"
@@ -4466,7 +4466,7 @@
           <div data-tip="国家全名" class="label">全名:</div>
           <input
             id="stateNameEditorFull"
-            data-tip="键入以更改全名"
+            data-tip="更改全名"
             autocorrect="off"
             spellcheck="false"
             style="width: 11em"
@@ -4501,7 +4501,7 @@
             从属&nbsp;
           </div>
           <div data-tip="点击此处可按省的城市数排序" class="sortable hide" data-sortby="burgs">
-            城镇&nbsp;
+            城市&nbsp;
           </div>
           <div data-tip="按省区分类" class="sortable hide" data-sortby="area">地区&nbsp;</div>
           <div data-tip="按省份人口点击排序" class="sortable hide" data-sortby="population">
@@ -4516,7 +4516,7 @@
             各省:&nbsp;<span id="provincesFooterNumber">0</span>
           </div>
           <div data-tip="城市总数" style="margin-left: 12px">
-            城镇:&nbsp;<span id="provincesFooterBurgs">0</span>
+            城市:&nbsp;<span id="provincesFooterBurgs">0</span>
           </div>
           <div data-tip="平均面积" style="margin-left: 14px">
             平均面积:&nbsp;<span id="provincesFooterArea">0</span>
@@ -4631,7 +4631,7 @@
           <div data-tip="省简称" class="label">简称:</div>
           <input
             id="provinceNameEditorShort"
-            data-tip="键入以更改短名称"
+            data-tip="更改简称"
             autocorrect="off"
             spellcheck="false"
             style="width: 11em"
@@ -4646,7 +4646,7 @@
         </div>
 
         <div data-tip="选择类型名称">
-          <div data-tip="省类名" class="label">类型名称:</div>
+          <div data-tip="省类名" class="label">类型:</div>
           <select id="provinceNameEditorSelectForm" style="display: inline-block; width: 11em; height: 1.645em">
             <option value="">blank</option>
             <option value="Area">Area</option>
@@ -4949,7 +4949,7 @@
             <select id="emblemBurgs"></select>
           </div>
           <hr />
-          <div data-tip="选择徽章形状">
+          <div data-tip="选择徽标形状">
             <div class="label">形状:</div>
             <select id="emblemShapeSelector">
               <optgroup label="Basic">
@@ -5022,10 +5022,10 @@
           </div>
         </div>
         <div id="emblemsBottom">
-          <button id="emblemsRegenerate" data-tip="重新生成徽章" class="icon-shuffle"></button>
+          <button id="emblemsRegenerate" data-tip="重新生成徽标" class="icon-shuffle"></button>
           <button
             id="emblemsArmoria"
-            data-tip="在 Armoria 编辑徽章-专用纹章编辑器。下载徽章并上传回生成器地图"
+            data-tip="在 Armoria 编辑徽标-专用纹章编辑器。下载徽标并上传回生成器地图"
             class="icon-brush"
           ></button>
           <button
@@ -5292,7 +5292,7 @@
           <button id="addNewBurg" data-tip="添加一个新的城市。按住 Shift 添加多个" class="icon-plus"></button>
           <button
             id="burgsExport"
-            data-tip="把城镇相关的数据保存为CSV文件"
+            data-tip="把城市相关的数据保存为CSV文件"
             class="icon-download"
           ></button>
           <button id="burgNamesImport" data-tip="批量重命名城市" class="icon-upload"></button>
@@ -5361,8 +5361,8 @@
           >
             流量&nbsp;
           </div>
-          <div data-tip="按河流长度排序" class="sortable" data-sortby="length">Length&nbsp;</div>
-          <div data-tip="按河口宽度排序" class="sortable" data-sortby="width">Width&nbsp;</div>
+          <div data-tip="按长度排序" class="sortable" data-sortby="length">长度&nbsp;</div>
+          <div data-tip="按河幅排序" class="sortable" data-sortby="width">宽度&nbsp;</div>
           <div data-tip="按流域排序" class="sortable alphabetically" data-sortby="basin">
             流域&nbsp;
           </div>
@@ -5409,7 +5409,7 @@
             国家&nbsp;
           </div>
           <div
-            data-tip="军事人员总数(考虑工作人员)。点击以进行排序"
+            data-tip="军职人员总数(考虑工作人员)。点击以进行排序"
             id="militaryTotal"
             class="sortable icon-sort-number-down"
             data-sortby="total"
@@ -5420,7 +5420,7 @@
             人口&nbsp;
           </div>
           <div
-            data-tip="军事人员比率(国家人口的百分比)。取决于战争警报。点击进行排序"
+            data-tip="军职人员比率(国家人口的百分比)。取决于战争警报。点击进行排序"
             class="sortable"
             data-sortby="rate"
           >
@@ -5491,7 +5491,7 @@
             名称&nbsp;
           </div>
           <div
-            data-tip="军事人员总数(不包括工作人员)。点击以进行排序"
+            data-tip="军职人员总数(不包括工作人员)。点击以进行排序"
             id="regimentsTotal"
             class="sortable icon-sort-number-down"
             data-sortby="total"
@@ -6087,7 +6087,7 @@
         <p>
           要复制的数据: 高程图，生物群落，宗教，人口，降水，文化，国，省，军事
         </p>
-        <p>待重生成的数据: 区域、道路、河流</p>
+        <p>待重新生成的数据: 区域、道路、河流</p>
         <p>城市可能重新映射错误，需要手动更改</p>
 
         <p>保存数据:</p>

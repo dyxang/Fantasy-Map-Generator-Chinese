@@ -22,15 +22,15 @@ export function open() {
 function insertEditorHtml() {
   const editorHtml = /* html */ `<div id="statesEditor" class="dialog stable">
     <div id="statesHeader" class="header" style="grid-template-columns: 11em 8em 7em 7em 6em 6em 8em 6em 7em 6em">
-      <div data-tip="按国家名进行排序" class="sortable alphabetically" data-sortby="name">国家&nbsp;</div>
+      <div data-tip="按国家名排序" class="sortable alphabetically" data-sortby="name">国家&nbsp;</div>
       <div data-tip="按国家构成排序" class="sortable alphabetically" data-sortby="form">政体&nbsp;</div>
       <div data-tip="按首都排序" class="sortable alphabetically hide" data-sortby="capital">首都&nbsp;</div>
-      <div data-tip="按国家主导文化排序" class="sortable alphabetically hide" data-sortby="culture">文化&nbsp;</div>
+      <div data-tip="按国家主流文化排序" class="sortable alphabetically hide" data-sortby="culture">文化&nbsp;</div>
       <div data-tip="按国家城市数进行排序" class="sortable hide" data-sortby="burgs">城市&nbsp;</div>
       <div data-tip="按国家区域进行排序" class="sortable hide icon-sort-number-down" data-sortby="area">面积&nbsp;</div>
       <div data-tip="按国家人口进行排序" class="sortable hide" data-sortby="population">人口&nbsp;</div>
       <div data-tip="按国家类型排序" class="sortable alphabetically hidden show hide" data-sortby="type">类型&nbsp;</div>
-      <div data-tip="按国家扩张排序" class="sortable hidden show hide" data-sortby="expansionism">扩张&nbsp;</div>
+      <div data-tip="按国家扩张性排序" class="sortable hidden show hide" data-sortby="expansionism">扩张性&nbsp;</div>
       <div data-tip="按国家单元格计数进行排序" class="sortable hidden show hide" data-sortby="cells">单元格&nbsp;</div>
     </div>
 
@@ -54,7 +54,7 @@ function insertEditorHtml() {
       <button id="statesRegenerate" data-tip="显示重生菜单和更多数据" class="icon-cog-alt"></button>
       <div id="statesRegenerateButtons" style="display: none">
         <button id="statesRegenerateBack" data-tip="隐藏重生菜单" class="icon-cog-alt"></button>
-        <button id="statesRandomize" data-tip="随机化国家扩张值并重新统计国家与省" class="icon-shuffle"></button>
+        <button id="statesRandomize" data-tip="随机化国家扩张性并重新统计国家与省" class="icon-shuffle"></button>
         <div data-tip="附加增长率。确定有多少土地将保持中性" style="display: inline-block">
           <slider-input id="statesGrowthRate" min=".1" max="3" step=".05" value="1">增长率:</slider-input>
         </div>
@@ -251,7 +251,7 @@ function statesEditorAddLines() {
       <select data-tip="国家类型。定义增长模型。点击更改" class="cultureType ${hidden} show hide">${getTypeOptions(
       s.type
     )}</select>
-      <span data-tip="国家扩张主义" class="icon-resize-full ${hidden} show hide"></span>
+      <span data-tip="国家扩张性" class="icon-resize-full ${hidden} show hide"></span>
       <input data-tip="扩张主义(定义竞争规模)。更改为基于新值重新计算国家"
         class="statePower ${hidden} show hide" type="number" min="0" max="99" step=".1" value=${s.expansionism} />
       <span data-tip="单元格计数" class="icon-check-empty ${hidden} show hide"></span>

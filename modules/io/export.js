@@ -9,7 +9,7 @@ async function exportToSvg() {
   link.href = url;
   link.click();
 
-  const message = `${link.download} 已保存. 打开 'Downloads' 窗 (ctrl + J) 以检查`;
+  const message = `${link.download} 已保存. 打开 'Downloads' 窗 (ctrl + J) 检查`;
   tip(message, true, "success", 5000);
   TIME && console.timeEnd("exportToSvg");
 }
@@ -35,7 +35,7 @@ async function exportToPng() {
       window.setTimeout(function () {
         canvas.remove();
         window.URL.revokeObjectURL(link.href);
-        const message = `${link.download} 已保存. 打开 'Downloads' 窗口 (ctrl + J) 以检查. 您可以在选项中设置图像比例`;
+        const message = `${link.download} 已保存. 打开 'Downloads' 窗口 (ctrl + J) 检查. 您可以在选项中设置图像比例`;
         tip(message, true, "success", 5000);
       }, 1000);
     });

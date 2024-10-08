@@ -1,5 +1,5 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js");
-//修改过期时间弥补出错
+
 const {Route, registerRoute} = workbox.routing;
 const {CacheFirst, NetworkFirst, StaleWhileRevalidate} = workbox.strategies;
 const {CacheableResponsePlugin} = workbox.cacheableResponse;

@@ -31,13 +31,13 @@ function insertEditorHtml() {
       <div data-tip="按宗教地区分类" class="sortable hide" data-sortby="area">地区&nbsp;</div>
       <div data-tip="按信徒人数(宗教地区人口)排序" class="sortable hide" data-sortby="population">信徒&nbsp;</div>
       <div data-tip="点击可按潜在区段类型排序" class="sortable alphabetically hide" data-sortby="expansion">潜在&nbsp;</div>
-      <div data-tip="按扩张主义排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
+      <div data-tip="按扩张性排序" class="sortable hide" data-sortby="expansionism">扩张性&nbsp;</div>
     </div>
     <div id="religionsBody" class="table" data-type="absolute"></div>
 
     <div id="religionsFooter" class="totalLine">
-      <div data-tip="有组织的宗教总数" style="margin-left: 12px">
-        有组织:&nbsp;<span id="religionsOrganized">0</span>
+      <div data-tip="制度性宗教宗教总数" style="margin-left: 12px">
+        制度性宗教:&nbsp;<span id="religionsOrganized">0</span>
       </div>
       <div data-tip="异教总数" style="margin-left: 12px">
         异教:&nbsp;<span id="religionsHeresies">0</span>
@@ -168,7 +168,7 @@ function religionsEditorAddLines() {
           ${getTypeOptions(r.type)}
         </select>
         <input data-tip="宗教形式" class="religionForm placeholder hide" style="width: 6em" value="" autocorrect="off" spellcheck="false" />
-        <span data-tip="重生成至高神" class="icon-arrows-cw placeholder hide"></span>
+        <span data-tip="重新生成至高神" class="icon-arrows-cw placeholder hide"></span>
         <input data-tip="宗教至高神" class="religionDeity placeholder hide" style="width: 17em" value="" autocorrect="off" spellcheck="false" />
         <span data-tip="宗教地区" style="padding-right: 4px" class="icon-map-o hide"></span>
         <div data-tip="宗教地区" class="religionArea hide" style="width: 6em">${si(area) + unit}</div>

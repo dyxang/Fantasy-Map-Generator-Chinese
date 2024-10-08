@@ -69,7 +69,7 @@ function overviewRegiments(state) {
           <span data-tip="军队徽" style="width:1em">${r.icon}</span>
           <input data-tip="军队名" style="width:13em" value="${r.name}" readonly />
           ${lineData}
-          <div data-type="total" data-tip="军事人员总数(不包括工作人员)" style="font-weight: bold">${r.a}</div>
+          <div data-type="total" data-tip="军职人员总数(不包括工作人员)" style="font-weight: bold">${r.a}</div>
           <span data-tip="编辑军队" onclick="editRegiment('#regiment${s.i}-${r.i}')" class="icon-pencil pointer"></span>
         </div>`;
 

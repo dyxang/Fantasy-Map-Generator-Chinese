@@ -29,10 +29,10 @@ function insertEditorHtml() {
       <div data-tip="按类型排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
       <div data-tip="按文化命名库进行排序" class="sortable" data-sortby="base">名称库&nbsp;</div>
       <div data-tip="按文化单元格计数进行排序" class="sortable hide" data-sortby="cells">单元格&nbsp;</div>
-      <div data-tip="按扩张值排序" class="sortable hide" data-sortby="expansionism">扩张&nbsp;</div>
+      <div data-tip="按扩张值排序" class="sortable hide" data-sortby="expansionism">扩张性&nbsp;</div>
       <div data-tip="按文化面积进行排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
       <div data-tip="按文化人口进行排序" class="sortable hide icon-sort-number-down" data-sortby="population">人口&nbsp;</div>
-      <div data-tip="按文化徽标形状排序" class="sortable alphabetically hide" data-sortby="emblems">徽章&nbsp;</div>
+      <div data-tip="按文化徽标形状排序" class="sortable alphabetically hide" data-sortby="emblems">徽标&nbsp;</div>
     </div>
     <div id="culturesBody" class="table" data-type="absolute"></div>
 
@@ -789,7 +789,7 @@ function enterAddCulturesMode() {
 
   customization = 9;
   this.classList.add("pressed");
-  tip("Click on the map to add a new culture", true);
+  tip("单击地图以添加新文化", true);
   viewbox.style("cursor", "crosshair").on("click", addCulture);
   $body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "none"));
 }

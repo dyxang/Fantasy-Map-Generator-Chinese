@@ -922,7 +922,7 @@ function configMarkersGeneration() {
     title: "标记生成设置",
     position: {my: "left top", at: "left+10 top+10", of: "svg", collision: "fit"},
     buttons: {
-      重生成: () => {
+      重新生成: () => {
         applyChanges();
         regenerateMarkers();
         drawConfigTable();

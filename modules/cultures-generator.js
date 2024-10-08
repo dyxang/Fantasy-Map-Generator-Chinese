@@ -19,7 +19,7 @@ window.Cultures = (function () {
         cells.culture = cultureIds;
 
         alertMessage.innerHTML = /* html */ `气候恶劣，人们无法生活在这个世界上。<br />
-          文化、国家、城镇不会创建。<br />
+          文化、国家、城市不会创建。<br />
           请考虑在世界配置中更改气候设置`;
 
         $("#alert").dialog({

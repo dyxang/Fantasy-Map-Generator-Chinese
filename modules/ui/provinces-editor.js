@@ -834,7 +834,7 @@ function editProvinces() {
     body.querySelectorAll("div > input, select, span, svg").forEach(e => (e.style.pointerEvents = "none"));
     $("#provincesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}});
 
-    tip("Click on a province to select, drag the circle to change province", true);
+    tip("点击选择省份，拖动圆圈更改省份。", true);
     viewbox
       .style("cursor", "crosshair")
       .on("click", selectProvinceOnMapClick)

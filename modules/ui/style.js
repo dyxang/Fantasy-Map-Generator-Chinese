@@ -4,7 +4,7 @@
 // add available filters to lists
 {
   const filters = Array.from(byId("filters").querySelectorAll("filter"));
-  const emptyOption = '<option value="" selected>None</option>';
+  const emptyOption = '<option value="" selected>无</option>';
   const options = filters.map(filter => {
     const id = filter.getAttribute("id");
     const name = filter.getAttribute("name");

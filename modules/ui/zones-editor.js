@@ -181,7 +181,7 @@ function editZones() {
     body.querySelectorAll("div > input, select, svg").forEach(e => (e.style.pointerEvents = "none"));
     $("#zonesEditor").dialog({position: {my: "right top", at: "right-10 top+10", of: "svg", collision: "fit"}});
 
-    tip("点击以选择区域，拖动以绘制区域", true);
+    tip("点击选择区域，拖动绘制区域", true);
     viewbox
       .style("cursor", "crosshair")
       .on("click", selectZoneOnMapClick)

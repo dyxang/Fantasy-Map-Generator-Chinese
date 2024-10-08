@@ -231,7 +231,7 @@ window.Markers = (function () {
     const resources = {salt: 5, gold: 2, silver: 4, copper: 2, iron: 3, lead: 1, tin: 1};
     const resource = rw(resources);
     const burg = pack.burgs[cells.burg[cell]];
-    const name = `${burg.name} — ${resource} 矿业城镇`;
+    const name = `${burg.name} — ${resource} 矿业城市`;
     const population = rn(burg.population * populationRate * urbanization);
     const legend = `${burg.name}是一个有${population}人的矿业小镇，就在${resource}矿附近。`;
     notes.push({id, name, legend});
