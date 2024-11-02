@@ -12,7 +12,7 @@
  *
  * Example: 1.102.2 -> Major version 1, Minor version 102, Patch version 2
  */
-const VERSION = "1.105.10";
+const VERSION = "1.105.21";
 if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format or parsing function");
 
 {
@@ -33,14 +33,16 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
 
     alertMessage.innerHTML = /* html */ `幻想地图生成器更新到版本<strong>${VERSION}</strong>，此版本兼容<a href="${changelog}" target="_blank">这些版本</a>，地图文件将自动更新
       ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
-<p><strong>⚠请汉化版使用者阅读以下内容！</strong></p>
+<p><strong>⚠请必须仔细阅读以下内容！</strong></p>
+<p>❗因代码底层逻辑，推荐电脑访问达到最好体验❗<p>
 <p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://hk.8desk.top" target="_blank">国内节点</a>③<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
 <p>应要求，建了个汉化版交流的群：873020847</p>汉化版完全免费，支持译者:
 <p><a href="https://afdian.net/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>最近更新:</strong>
-        <li>聊天机器人（右下气泡）提供生成器相关帮助，可使用中文</li>
+        <li>AI文本生成服务添加国内可使用的Deepseek</li>
+        <li>聊天机器人（右下气泡）提供生成器相关帮助，可用中文</li>
         <li>标签:可以设置字母间距</li>
         <li>Zone性能改进</li>
         <li>注释编辑器:按需AI文本生成</li>

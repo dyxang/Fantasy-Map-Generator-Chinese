@@ -41,7 +41,7 @@ function editNamesbase() {
 
   $("#namesbaseEditor").dialog({
     title: "名称库编辑器",
-    width: "auto",
+    width: "60vw",
     position: {my: "center", at: "center", of: "svg"}
   });
 
@@ -66,7 +66,7 @@ function editNamesbase() {
   function updateExamples() {
     const base = +document.getElementById("namesbaseSelect").value;
     let examples = "";
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 7; i++) {
       const example = Names.getBase(base);
       if (example === undefined) {
         examples = "无法生成示例。请验证数据";
@@ -248,7 +248,7 @@ function editNamesbase() {
       const [rawName, min, max, d, m, rawNames] = base.split("|");
       const name = rawName.replace(unsafe, "");
       const names = rawNames.replace(unsafe, "");
-      nameBases.push({name, min, max, d, m, b: names});
+      nameBases.push({name, min: +min, max: +max, d, m: +m, b: names});
     });
 
     createBasesList();

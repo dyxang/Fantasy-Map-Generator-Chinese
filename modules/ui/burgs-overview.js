@@ -607,7 +607,7 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
     const activeBurgs = pack.burgs.filter(b => b.i && !b.removed);
     const allLocked = activeBurgs.every(burg => burg.lock);
 
-    pack.burgs.forEach(burg => {
+    activeBurgs.forEach(burg => {
       burg.lock = !allLocked;
     });
 

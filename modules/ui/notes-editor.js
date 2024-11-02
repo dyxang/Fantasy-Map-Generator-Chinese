@@ -147,7 +147,7 @@ function editNotes(id, name) {
   function openAiGenerator() {
     const note = notes.find(note => note.id === notesSelect.value);
 
-    let prompt = `Respond with description. Use simple dry language. Invent facts, names and details. Split to paragraphs and format to HTML. Remove h tags, remove markdown.`;
+    let prompt = `Write in Chinese. Respond with description. Use simple dry language. Invent facts, names and details.  Split to paragraphs and format to HTML. Remove h tags, remove markdown.`;
     if (note?.name) prompt += ` Name: ${note.name}.`;
     if (note?.legend) prompt += ` Data: ${note.legend}`;
 
@@ -160,7 +160,7 @@ function editNotes(id, name) {
       }
     };
 
-    geneateWithAi(prompt, onApply);
+    generateWithAi(prompt, onApply);
   }
 
   function downloadLegends() {

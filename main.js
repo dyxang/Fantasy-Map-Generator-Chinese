@@ -4,7 +4,7 @@
 
 // set debug options
 const PRODUCTION = location.hostname && location.hostname !== "localhost" && location.hostname !== "127.0.0.1";
-const DEBUG = localStorage.getItem("debug");
+const DEBUG = JSON.safeParse(localStorage.getItem("debug")) || {};
 const INFO = true;
 const TIME = true;
 const WARN = true;
@@ -106,10 +106,10 @@ coastline.append("g").attr("id", "lake_island");
 terrs.append("g").attr("id", "oceanHeights");
 terrs.append("g").attr("id", "landHeights");
 
+let burgLabels = labels.append("g").attr("id", "burgLabels");
 labels.append("g").attr("id", "states");
 labels.append("g").attr("id", "addedLabels");
 
-let burgLabels = labels.append("g").attr("id", "burgLabels");
 burgIcons.append("g").attr("id", "cities");
 burgLabels.append("g").attr("id", "cities");
 anchors.append("g").attr("id", "cities");
@@ -922,7 +922,7 @@ function calculateTemperatures() {
     const [, y] = grid.points[rowCellId];
     const rowLatitude = mapCoordinates.latN - (y / graphHeight) * mapCoordinates.latT; // [90; -90]
     const tempSeaLevel = calculateSeaLevelTemp(rowLatitude);
-    DEBUG && console.info(`${rn(rowLatitude)}° sea temperature: ${rn(tempSeaLevel)}°C`);
+    DEBUG.temperature && console.info(`${rn(rowLatitude)}° sea temperature: ${rn(tempSeaLevel)}°C`);
 
     for (let cellId = rowCellId; cellId < rowCellId + grid.cellsX; cellId++) {
       const tempAltitudeDrop = getAltitudeTemperatureDrop(cells.h[cellId]);

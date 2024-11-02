@@ -1615,10 +1615,10 @@
               </td>
               <td>文化数量</td>
               <td>
-                <input id="culturesInput" data-stored="cultures" type="range" min="1" max="32" value="14" />
+                <input id="culturesInput" data-stored="cultures" type="range" min="1" />
               </td>
               <td>
-                <input id="culturesOutput" data-stored="cultures" type="number" min="1" max="32" value="14" />
+                <input id="culturesOutput" data-stored="cultures" type="number" min="1" />
               </td>
             </tr>
 
@@ -2258,32 +2258,33 @@
         <div id="aboutContent" class="tabcontent">
           <p><b>关于个人汉化板的特别说明：</b>
 <p>原版作者:Azgaar
-<p>1.该版本为个人汉化，B站昵称人类制作，QQ交流群873020847
+<p>1.该版本为个人汉化，作者：B站 人类制作，QQ交流群873020847
 <p>2.汉化问题群内提出，官方问题找作者
-<p>3.主站为①<a href="https://www.8desk.top" target="_blank">www.8desk.top</a>②<a href="https://hk.8desk.top" target="_blank">国内节点</a>，子站为<a href="https://zan.8desk.top" target="_blank">zan.8desk.top</a>
-          <p style="color:#d3e8e1;font-size:125%;">感谢所有<a data-tip="点击查看汉化赞赏者" onclick="showBackers()" style="color:#d3e8e1;">汉化赞赏者</a>！
+<p>3.主站为<a href="https://www.8desk.top" target="_blank">www.8desk.top</a>
+<p>4.感谢羊驼哥提供国内节点<a href="https://hk.8desk.top" target="_blank">hk.8desk.top</a>，通知站为<a href="https://zan.8desk.top" target="_blank">zan.8desk.top</a>
+          <p style="color:#d3e8e1;font-size:125%;">感谢所有<a data-tip="点击查看汉化赞赏者" onclick="showBackers()" style="color:#d3e8e1;">汉化支持者</a>！
 <button><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color:#d3e8e1;">支持译者</a></button></p>
             <a href="https://github.com/dyxang/Fantasy-Map-Generator-Chinese/" target="_blank">幻想地图生成器汉化版</a> 是生成幻想地图的
             <a href="https://github.com/dyxang/Fantasy-Map-Generator-Chinese/blob/master/LICENSE" target="_blank">开源工具</a>
-            <p>Azgaar的工具。你可使用生成的地图，编辑或新建地图。查看以下内容
+            <p>你可使用，编辑或新建地图。查看以下内容
             <a href="https://github.com/dyxang/Fantasy-Map-Generator-Chinese/wiki" target="_blank"
               >快速开始</a
             >, <a href="https://github.com/dyxang/Fantasy-Map-Generator-Chinese/wiki/%E9%97%AE%E4%B8%8E%E7%AD%94" target="_blank">问题解答</a>,
             <a href="https://youtube.com/playlist?list=PLtgiuDC8iVR2gIG8zMTRn7T_L0arl9h1C" target="_blank"
               >视频教程</a
             >, 和
-            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys" target="_blank">快捷键</a> 指导自己。
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys" target="_blank">快捷键</a> 指导
           </p>
 
           <p>
-更多关于页面信息请访问官方版<a href="https://azgaar.github.io/Fantasy-Map-Generator/" target="_blank">FMG Official</a>
+更多信息访问<a href="https://azgaar.github.io/Fantasy-Map-Generator/" target="_blank">官方版地图生成器</a>
           </p>
 
           <p>
-            这个项目正在积极开发中。要跟踪开发进度，请参见
+            项目正在积极开发中。要跟踪，请参见
             <a href="https://trello.com/b/7x832DG4/fantasy-map-generator" target="_blank">开发进度板</a>． 有关旧版本，参阅
-            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog" target="_blank">changelog</a>.
-            请<a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">报告Bugs</a>.也可以通过 <a href="mailto:azgaar.fmg@yandex.by" target="_blank">发邮件</a>联系我.
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog" target="_blank">更新日志</a>.
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">报告Bugs</a>.也可通过 <a href="mailto:azgaar.fmg@yandex.by" target="_blank">发邮件</a>联系作者.
           </p>
 
           <div
@@ -2371,7 +2372,7 @@
           <button id="exportButton" data-tip="选择下载图像或导出地图数据的格式">导出</button>
           <button id="saveButton" data-tip="以.map 格式保存全功能地图">保存</button>
           <button id="loadButton" data-tip="加载.map 或 .gz格式全功能地图">载入</button>
-          <button id="zoomReset" data-tip="重置地图放大" data-shortcut="0 (zero)">重设缩放</button>
+          <button id="zoomReset" data-tip="重置地图缩放" data-shortcut="0 (zero)">重置缩放</button>
         </div>
       </div>
     </div>
@@ -4732,7 +4733,7 @@
           <span style="margin-left: 2px">名称数据: </span>
         </div>
 
-        <div id="namesbaseBody" style="margin-block: 2px">
+        <div id="namesbaseBody" style="margin-block: 2px; width: auto">
           <textarea
             id="namesbaseTextarea"
             data-base="0"
@@ -4741,6 +4742,7 @@
             placeholder="提供一个名称数据:一个逗号分隔的源名称列表"
             autocorrect="off"
             spellcheck="false"
+            style="resize: none"
           ></textarea>
 
           <div>
@@ -4908,6 +4910,10 @@
           <textarea id="aiGeneratorResult" placeholder="生成的文本将出现在这里" cols="30" rows="10"></textarea>
           <textarea id="aiGeneratorPrompt" placeholder="在这里输入提示符" cols="30" rows="5"></textarea>
           <div style="display: flex; align-items: center; gap: 1em">
+            <label for="aiGeneratorBaseurl"
+              >模型服务:
+              <select id="aiGeneratorBaseurl"></select>
+            </label>
             <label for="aiGeneratorModel"
               >模型:
               <select id="aiGeneratorModel"></select>
@@ -4915,14 +4921,14 @@
 
             <label for="aiGeneratorKey"
               >Key:
-              <input id="aiGeneratorKey" placeholder="输入 OpenAI API key" class="icon-key" />
+              <input id="aiGeneratorKey" placeholder="输入 API key" class="icon-key" />
               <a
-                href="https://platform.openai.com/account/api-keys"
+                href="https://api-docs.deepseek.com/zh-cn/#%E9%A6%96%E6%AC%A1%E8%B0%83%E7%94%A8%20API"
                 target="_blank"
                 rel="noreferrer"
                 class="icon-help-circled"
                 style="text-decoration: none"
-                data-tip="在OpenAI网站上获取密钥并将存储在浏览器中，并直接发送到OpenAI API。地图生成器不存储Key或任何生成的数据！"
+                data-tip="在OpenAI/Deepseek网站上获取密钥并将存储在浏览器中，并直接发送到OpenAI API。地图生成器不存储Key或任何生成的数据！"
               ></a>
             </label>
           </div>
@@ -7972,7 +7978,6 @@
     <script src="libs/jquery-ui.min.js"></script>
     <script src="versioning.js"></script>
     <script src="libs/d3.min.js"></script>
-    <script src="libs/priority-queue.min.js"></script>
     <script src="libs/flatqueue.js"></script>
     <script src="libs/delaunator.min.js"></script>
     <script src="libs/indexedDB.js?v=1.99.00"></script>
@@ -7987,7 +7992,7 @@
     <script src="utils/numberUtils.js?v=1.99.00"></script>
     <script src="utils/polyfills.js?v=1.99.00"></script>
     <script src="utils/probabilityUtils.js?v=1.99.05"></script>
-    <script src="utils/stringUtils.js?v=1.99.00"></script>
+    <script src="utils/stringUtils.js?v=1.105.19"></script>
     <script src="utils/languageUtils.js?v=1.99.00"></script>
     <script src="utils/unitUtils.js?v=1.99.00"></script>
     <script src="utils/pathUtils.js?v=1.105.8"></script>
@@ -8002,15 +8007,15 @@
     <script src="modules/river-generator.js?v=1.99.05"></script>
     <script src="modules/lakes.js?v=1.99.00"></script>
     <script src="modules/biomes.js?v=1.99.00"></script>
-    <script src="modules/names-generator.js?v=1.87.14"></script>
-    <script src="modules/cultures-generator.js?v=1.99.05"></script>
-    <script src="modules/burgs-and-states.js?v=1.105.7"></script>
-    <script src="modules/provinces-generator.js?v=1.104.0"></script>
+    <script src="modules/names-generator.js?v=1.105.11"></script>
+    <script src="modules/cultures-generator.js?v=1.105.21"></script>
+    <script src="modules/burgs-and-states.js?v=1.105.21"></script>
+    <script src="modules/provinces-generator.js?v=1.105.21"></script>
     <script src="modules/routes-generator.js?v=1.104.10"></script>
-    <script src="modules/religions-generator.js?v=1.99.05"></script>
+    <script src="modules/religions-generator.js?v=1.105.21"></script>
     <script src="modules/military-generator.js?v=1.104.0"></script>
     <script src="modules/markers-generator.js?v=1.104.0"></script>
-    <script src="modules/zones-generator.js?v=1.104.0"></script>
+    <script src="modules/zones-generator.js?v=1.105.21"></script>
     <script src="modules/coa-generator.js?v=1.99.00"></script>
     <script src="modules/submap.js?v=1.104.0"></script>
     <script src="libs/alea.min.js?v1.105.0"></script>
@@ -8022,27 +8027,27 @@
     <script src="modules/ui/measurers.js?v=1.99.00"></script>
     <script src="modules/ui/style-presets.js?v=1.100.00"></script>
     <script src="modules/ui/general.js?v=1.100.00"></script>
-    <script src="modules/ui/options.js?v=1.105.0"></script>
-    <script src="main.js?v=1.105.9"></script>
+    <script src="modules/ui/options.js?v=1.105.12"></script>
+    <script src="main.js?v=1.105.19"></script>
 
     <script defer src="modules/relief-icons.js?v=1.99.05"></script>
     <script defer src="modules/ui/style.js?v=1.104.0"></script>
-    <script defer src="modules/ui/editors.js?v=1.105.2"></script>
-    <script defer src="modules/ui/tools.js?v=1.104.0"></script>
+    <script defer src="modules/ui/editors.js?v=1.105.11"></script>
+    <script defer src="modules/ui/tools.js?v=1.105.12"></script>
     <script defer src="modules/ui/world-configurator.js?v=1.105.4"></script>
     <script defer src="modules/ui/heightmap-editor.js?v=1.105.2"></script>
     <script defer src="modules/ui/provinces-editor.js?v=1.104.0"></script>
     <script defer src="modules/ui/biomes-editor.js?v=1.99.05"></script>
-    <script defer src="modules/ui/namesbase-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/namesbase-editor.js?v=1.105.11"></script>
     <script defer src="modules/ui/elevation-profile.js?v=1.99.00"></script>
     <script defer src="modules/ui/temperature-graph.js?v=1.99.00"></script>
     <script defer src="modules/ui/routes-editor.js?v=1.104.3"></script>
     <script defer src="modules/ui/routes-creator.js?v=1.104.3"></script>
     <script defer src="modules/ui/route-group-editor.js?v=1.103.8"></script>
     <script defer src="modules/ui/ice-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/lakes-editor.js?v=1.99.00"></script>
+    <script defer src="modules/ui/lakes-editor.js?v=1.105.14"></script>
     <script defer src="modules/ui/coastline-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/labels-editor.js?v=1.101.00"></script>
+    <script defer src="modules/ui/labels-editor.js?v=1.105.16"></script>
     <script defer src="modules/ui/rivers-editor.js?v=1.99.00"></script>
     <script defer src="modules/ui/rivers-creator.js?v=1.99.00"></script>
     <script defer src="modules/ui/relief-editor.js?v=1.99.00"></script>
@@ -8051,8 +8056,8 @@
     <script defer src="modules/ui/notes-editor.js?v=1.99.06"></script>
     <script defer src="modules/ui/ai-generator.js?v=1.99.09"></script>
     <script defer src="modules/ui/diplomacy-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/zones-editor.js?v=1.100.00"></script>
-    <script defer src="modules/ui/burgs-overview.js?v=1.105.7"></script>
+    <script defer src="modules/ui/zones-editor.js?v=1.105.20"></script>
+    <script defer src="modules/ui/burgs-overview.js?v=1.105.15"></script>
     <script defer src="modules/ui/routes-overview.js?v=1.104.3"></script>
     <script defer src="modules/ui/rivers-overview.js?v=1.99.00"></script>
     <script defer src="modules/ui/military-overview.js?v=1.99.00"></script>
@@ -8069,11 +8074,11 @@
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
     <script defer src="modules/io/save.js?v=1.100.00"></script>
-    <script defer src="modules/io/load.js?v=1.105.10"></script>
-    <script defer src="modules/io/cloud.js?v=1.99.00"></script>
+    <script defer src="modules/io/load.js?v=1.105.17"></script>
+    <script defer src="modules/io/cloud.js?v=1.105.19"></script>
     <script defer src="modules/io/export.js?v=1.100.00"></script>
 
-    <script defer src="modules/renderers/draw-features.js?v=1.104.15"></script>
+    <script defer src="modules/renderers/draw-features.js?v=1.105.14"></script>
     <script defer src="modules/renderers/draw-borders.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-heightmap.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-markers.js?v=1.104.0"></script>
@@ -8081,7 +8086,7 @@
     <script defer src="modules/renderers/draw-temperature.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-emblems.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-military.js?v=1.104.13"></script>
-    <script defer src="modules/renderers/draw-state-labels.js?v=1.104.0"></script>
+    <script defer src="modules/renderers/draw-state-labels.js?v=1.105.19"></script>
     <script defer src="modules/renderers/draw-burg-labels.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-burg-icons.js?v=1.104.0"></script>
   </body>
