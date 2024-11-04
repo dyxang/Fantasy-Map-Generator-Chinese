@@ -176,7 +176,7 @@ window.Markers = (function () {
     const proper = Names.getCulture(cells.culture[cell]);
     const name = P(0.3) ? "山峰 " + proper : P(0.7) ? proper + " 火山" : proper;
     const status = P(0.6) ? "休眠" : P(0.4) ? "活跃" : "爆发";
-    notes.push({id, name, legend: `${status} volcano. Height: ${getFriendlyHeight(cells.p[cell])}.`});
+    notes.push({id, name, legend: `${status} 火山，高: ${getFriendlyHeight(cells.p[cell])}.`});
   }
 
   function listHotSprings({cells}) {
@@ -188,7 +188,7 @@ window.Markers = (function () {
 
     const proper = Names.getCulture(cells.culture[cell]);
     const temp = convertTemperature(gauss(35, 15, 20, 100));
-    const name = P(0.3) ? "Hot Springs of " + proper : P(0.7) ? proper + " Hot Springs" : proper;
+    const name = P(0.3) ? "Hot Springs of " + proper : P(0.7) ? proper + " 温泉" : proper;
     const legend = `有天然热水的地热温泉，提供放松和药用的好处。平均气温为 ${temp}.`;
 
     notes.push({id, name, legend});
@@ -202,15 +202,15 @@ window.Markers = (function () {
     const {cells} = pack;
 
     const type = rw({
-      "Healing Spring": 5,
-      "Purifying Well": 2,
-      "Enchanted Reservoir": 1,
-      "Creek of Luck": 1,
-      "Fountain of Youth": 1,
-      "Wisdom Spring": 1,
-      "Spring of Life": 1,
-      "Spring of Youth": 1,
-      "Healing Stream": 1
+      "治愈之泉": 5,
+      "净化之井": 2,
+      "魔法水库": 1,
+      "幸运小溪": 1,
+      "青春之泉": 1,
+      "智慧之泉": 1,
+      "生命之泉": 1,
+      "青春之泉": 1,
+      "治愈之溪": 1
     });
 
     const proper = Names.getCulture(cells.culture[cell]);
@@ -287,248 +287,308 @@ window.Markers = (function () {
 
   function addInn(id, cell) {
     const colors = [
-      "Dark",
-      "Light",
-      "Bright",
-      "Golden",
-      "White",
-      "Black",
-      "Red",
-      "Pink",
-      "Purple",
-      "Blue",
-      "Green",
-      "Yellow",
-      "Amber",
-      "Orange",
-      "Brown",
-      "Grey"
+      "黑暗",
+      "光明",
+      "明亮",
+      "金色",
+      "白色",
+      "黑色",
+      "红色",
+      "粉色",
+      "紫色",
+      "蓝色",
+      "绿色",
+      "黄色",
+      "琥珀色",
+      "橙色",
+      "棕色",
+      "灰色"
     ];
     const animals = [
-      "Antelope",
-      "Ape",
-      "Badger",
-      "Bear",
-      "Beaver",
-      "Bison",
-      "Boar",
-      "Buffalo",
-      "Cat",
-      "Crane",
-      "Crocodile",
-      "Crow",
-      "Deer",
-      "Dog",
-      "Eagle",
-      "Elk",
-      "Fox",
-      "Goat",
-      "Goose",
-      "Hare",
-      "Hawk",
-      "Heron",
-      "Horse",
-      "Hyena",
-      "Ibis",
-      "Jackal",
-      "Jaguar",
-      "Lark",
-      "Leopard",
-      "Lion",
-      "Mantis",
-      "Marten",
-      "Moose",
-      "Mule",
-      "Narwhal",
-      "Owl",
-      "Panther",
-      "Rat",
-      "Raven",
-      "Rook",
-      "Scorpion",
-      "Shark",
-      "Sheep",
-      "Snake",
-      "Spider",
-      "Swan",
-      "Tiger",
-      "Turtle",
-      "Wolf",
-      "Wolverine",
-      "Camel",
-      "Falcon",
-      "Hound",
-      "Ox"
+      "羚羊",
+      "猿",
+      "獾",
+      "熊",
+      "海狸",
+      "野牛",
+      "野猪",
+      "水牛",
+      "猫",
+      "鹤",
+      "鳄鱼",
+      "乌鸦",
+      "鹿",
+      "狗",
+      "鹰",
+      "麋鹿",
+      "狐狸",
+      "山羊",
+      "鹅",
+      "野兔",
+      "鹰",
+      "鹭",
+      "马",
+      "鬣狗",
+      "朱鹭",
+      "豺",
+      "美洲虎",
+      "云雀",
+      "豹",
+      "狮子",
+      "螳螂",
+      "貂",
+      "麋鹿",
+      "骡子",
+      "独角鲸",
+      "猫头鹰",
+      "黑豹",
+      "老鼠",
+      "渡鸦",
+      "白嘴鸦",
+      "蝎子",
+      "鲨鱼",
+      "绵羊",
+      "蛇",
+      "蜘蛛",
+      "天鹅",
+      "老虎",
+      "乌龟",
+      "狼",
+      "狼獾",
+      "骆驼",
+      "猎鹰",
+      "猎犬",
+      "牛"
     ];
     const adjectives = [
-      "New",
-      "Good",
-      "High",
-      "Old",
-      "Great",
-      "Big",
-      "Major",
-      "Happy",
-      "Main",
-      "Huge",
-      "Far",
-      "Beautiful",
-      "Fair",
-      "Prime",
-      "Ancient",
-      "Golden",
-      "Proud",
-      "Lucky",
-      "Fat",
-      "Honest",
-      "Giant",
-      "Distant",
-      "Friendly",
-      "Loud",
-      "Hungry",
-      "Magical",
-      "Superior",
-      "Peaceful",
-      "Frozen",
-      "Divine",
-      "Favorable",
-      "Brave",
-      "Sunny",
-      "Flying"
+      "新",
+      "好",
+      "高",
+      "老",
+      "伟大",
+      "大",
+      "主要",
+      "快乐",
+      "主要",
+      "巨大",
+      "远",
+      "美丽",
+      "公平",
+      "主要",
+      "古老",
+      "金色",
+      "骄傲",
+      "幸运",
+      "胖",
+      "诚实",
+      "巨人",
+      "遥远",
+      "友好",
+      "大声",
+      "饥饿",
+      "魔法",
+      "优越",
+      "和平",
+      "冰冻",
+      "神圣",
+      "有利",
+      "勇敢",
+      "阳光",
+      "飞行"
     ];
     const methods = [
-      "Boiled",
-      "Grilled",
-      "Roasted",
-      "Spit-roasted",
-      "Stewed",
-      "Stuffed",
-      "Jugged",
-      "Mashed",
-      "Baked",
-      "Braised",
-      "Poached",
-      "Marinated",
-      "Pickled",
-      "Smoked",
-      "Dried",
-      "Dry-aged",
-      "Corned",
-      "Fried",
-      "Pan-fried",
-      "Deep-fried",
-      "Dressed",
-      "Steamed",
-      "Cured",
-      "Syrupped",
-      "Flame-Broiled"
+"煮",
+      "烤",
+      "炙烤",
+      "串烤",
+      "炖",
+      "填塞",
+      "罐煮",
+      "捣碎",
+      "烘烤",
+      "焖",
+      "炒",
+      "煲",
+      "煮",
+      "酱",
+      "烩",
+      "拌",
+      "熘",
+      "焖",
+      "焯",
+      "汆",
+      "水煮",
+      "腌制",
+      "烧",
+      "熏制",
+      "风干",
+      "熟成",
+      "盐渍",
+      "炸",
+      "煎",
+      "油炸",
+      "卤",
+      "蒸",
+      "腌制",
+      "糖泡",
+      "炙烤"
     ];
     const courses = [
-      "beef",
-      "pork",
-      "bacon",
-      "chicken",
-      "lamb",
-      "chevon",
-      "hare",
-      "rabbit",
-      "hart",
-      "deer",
-      "antlers",
-      "bear",
-      "buffalo",
-      "badger",
-      "beaver",
-      "turkey",
-      "pheasant",
-      "duck",
-      "goose",
-      "teal",
-      "quail",
-      "pigeon",
-      "seal",
-      "carp",
-      "bass",
-      "pike",
-      "catfish",
-      "sturgeon",
-      "escallop",
-      "pie",
-      "cake",
-      "pottage",
-      "pudding",
-      "onions",
-      "carrot",
-      "potato",
-      "beet",
-      "garlic",
-      "cabbage",
-      "eggplant",
-      "eggs",
-      "broccoli",
-      "zucchini",
-      "pepper",
-      "olives",
-      "pumpkin",
-      "spinach",
-      "peas",
-      "chickpea",
-      "beans",
-      "rice",
-      "pasta",
-      "bread",
-      "apples",
-      "peaches",
-      "pears",
-      "melon",
-      "oranges",
-      "mango",
-      "tomatoes",
-      "cheese",
-      "corn",
-      "rat tails",
-      "pig ears"
+      "牛肉",
+      "猪肉",
+      "培根",
+      "鸡肉",
+      "羊肉",
+      "山羊",
+      "野兔",
+      "兔肉",
+      "鹿肉",
+      "鹿角",
+      "熊肉",
+      "水牛",
+      "獾肉",
+      "海狸",
+      "火鸡",
+      "雉鸡",
+      "鸭肉",
+      "鹅肉",
+      "鸭肉",
+      "鹌鹑",
+      "鸽肉",
+      "海豹",
+      "鲤鱼",
+      "鲈鱼",
+      "梭鱼",
+      "鲶鱼",
+      "鲟鱼",
+      "扇贝",
+      "馅饼",
+      "蛋糕",
+      "浓汤",
+      "布丁",
+      "洋葱",
+      "胡萝卜",
+      "土豆",
+      "甜菜",
+      "大蒜",
+      "卷心菜",
+      "茄子",
+      "鸡蛋",
+      "西兰花",
+      "西葫芦",
+      "辣椒",
+      "橄榄",
+      "南瓜",
+      "菠菜",
+      "豌豆",
+      "鹰嘴豆",
+      "豆类",
+      "米饭",
+      "意大利面",
+      "面包",
+      "苹果",
+      "桃子",
+      "梨",
+      "瓜",
+      "橙子",
+      "芒果",
+      "西红柿",
+      "奶酪",
+      "玉米",
+      "老鼠尾巴",
+      "猪耳朵",
+      "豆腐",
+      "海带",
+      "紫菜",
+      "海参",
+      "鲍鱼",
+      "鱼翅",
+      "燕窝",
+      "竹笋",
+      "香菇",
+      "木耳",
+      "银耳",
+      "莲子",
+      "红枣",
+      "枸杞",
+      "桂圆",
+      "生姜",
+      "大蒜",
+      "大葱",
+      "香菜",
+      "茴香"
     ];
     const types = [
-      "hot",
-      "cold",
-      "fire",
-      "ice",
-      "smoky",
-      "misty",
-      "shiny",
-      "sweet",
-      "bitter",
-      "salty",
-      "sour",
-      "sparkling",
-      "smelly"
+      "热",
+      "凉",
+      "火",
+      "冰",
+      "烟熏",
+      "雾蒙蒙",
+      "闪亮",
+      "甜",
+      "苦",
+      "咸",
+      "酸",
+      "闪闪发光",
+      "臭"
     ];
     const drinks = [
-      "wine",
-      "brandy",
-      "gin",
-      "whisky",
-      "rom",
-      "beer",
-      "cider",
-      "mead",
-      "liquor",
-      "spirits",
-      "vodka",
-      "tequila",
-      "absinthe",
-      "nectar",
-      "milk",
-      "kvass",
-      "kumis",
-      "tea",
-      "water",
-      "juice",
-      "sap"
+      "葡萄酒",
+      "白兰地",
+      "杜松子酒",
+      "威士忌",
+      "朗姆酒",
+      "啤酒",
+      "苹果酒",
+      "蜂蜜酒",
+      "烈酒",
+      "伏特加",
+      "龙舌兰酒",
+      "苦艾酒",
+      "花蜜",
+      "牛奶",
+      "克瓦斯",
+      "马奶酒",
+      "茶",
+      "水",
+      "果汁",
+      "树液",
+      "清酒",
+      "烧酒",
+      "烧酎",
+      "白酒",
+      "米酒",
+      "棕榈酒",
+      "椰子水",
+      "杏仁露",
+      "芙蓉花水",
+      "菠萝水",
+      "马黛茶",
+      "奇恰酒",
+      "紫玉米汁",
+      "印度奶茶",
+      "拉西",
+      "酸奶饮料",
+      "布卡酒",
+      "拉克酒",
+      "茴香酒",
+      "齐普罗酒",
+      "桑格利亚",
+      "龙井茶",
+      "铁观音",
+      "普洱茶",
+      "黄酒",
+      "乌龙茶",
+      "茉莉花茶",
+      "绿茶",
+      "梅酒",
+      "抹茶",
+      "玄米茶",
+      "柚子茶"
     ];
 
-    const typeName = P(0.3) ? "inn" : "tavern";
+    const typeName = P(0.3) ? "旅店" : "酒馆";
     const isAnimalThemed = P(0.7);
     const animal = ra(animals);
     const name = isAnimalThemed
@@ -539,7 +599,7 @@ window.Markers = (function () {
     const meal = isAnimalThemed && P(0.3) ? animal : ra(courses);
     const course = `${ra(methods)} ${meal}`.toLowerCase();
     const drink = `${P(0.5) ? ra(types) : ra(colors)} ${ra(drinks)}`.toLowerCase();
-    const legend = `大名鼎鼎的路边 ${typeName}. 这里供应美味 ${course} 和 ${drink} `;
+    const legend = `大名鼎鼎的路边 ${typeName}. 这里供应美味的 ${course} 与 ${drink} `;
     notes.push({id, name: "The " + name, legend});
   }
 
@@ -607,7 +667,7 @@ window.Markers = (function () {
   function addDungeon(id, cell) {
     const dungeonSeed = `${seed}${cell}`;
     const name = "地牢";
-    const legend = `<div>未被发现的地牢.查看: <a href="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" target="_blank">One page dungeon</a></div><iframe style="pointer-events: none;" src="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" sandbox="allow-scripts allow-same-origin"></iframe>`;
+    const legend = `<div>未被发现的地牢.<a href="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" target="_blank">打开地牢地图</a></div><iframe style="pointer-events: none;" src="https://watabou.github.io/one-page-dungeon/?seed=${dungeonSeed}" sandbox="allow-scripts allow-same-origin"></iframe>`;
     notes.push({id, name, legend});
   }
 
@@ -662,69 +722,69 @@ window.Markers = (function () {
     const {cells} = pack;
 
     const adjectives = [
-      "great",
-      "big",
-      "huge",
-      "prime",
-      "golden",
-      "proud",
-      "lucky",
-      "fat",
-      "giant",
-      "hungry",
-      "magical",
-      "superior",
-      "terrifying",
-      "horrifying",
-      "feared"
+      "伟大的",
+      "大的",
+      "巨大的",
+      "最好的",
+      "金色的",
+      "自豪的",
+      "幸运的",
+      "胖的",
+      "巨大的",
+      "饥饿的",
+      "神奇的",
+      "优越的",
+      "可怕的",
+      "恐怖的",
+      "令人畏惧的"
     ];
     const subjects = [
-      "Locals",
-      "Elders",
-      "Inscriptions",
-      "Tipplers",
-      "Legends",
-      "Whispers",
-      "Rumors",
-      "Journeying folk",
-      "Tales"
+      "当地人",
+      "长者",
+      "碑文",
+      "酒徒",
+      "传说",
+      "低语",
+      "谣言",
+      "旅行者",
+      "故事"
     ];
     const species = [
-      "Ogre",
-      "Troll",
-      "Cyclops",
-      "Giant",
-      "Monster",
-      "Beast",
-      "Dragon",
-      "Undead",
-      "Ghoul",
-      "Vampire",
-      "Hag",
-      "Banshee",
-      "Bearded Devil",
-      "Roc",
-      "Hydra",
-      "Warg"
+      "食人魔",
+      "巨魔",
+      "独眼巨人",
+      "巨人",
+      "怪物",
+      "野兽",
+      "龙",
+      "不死生物",
+      "食尸鬼",
+      "吸血鬼",
+      "女巫",
+      "女妖",
+      "胡须魔鬼",
+      "巨鹰",
+      "九头蛇",
+      "座狼"
     ];
     const modusOperandi = [
-      "steals cattle at night",
-      "prefers eating children",
-      "doesn't mind human flesh",
-      "keeps the region at bay",
-      "eats kids whole",
-      "abducts young women",
-      "terrorizes the region",
-      "harasses travelers in the area",
-      "snatches people from homes",
-      "attacks anyone who dares to approach its lair",
-      "attacks unsuspecting victims"
+      "夜晚偷牛",
+      "喜欢吃小孩",
+      "不介意人肉",
+      "让地区保持警惕",
+      "整个吃掉孩子",
+      "绑架年轻女子",
+      "恐吓该地区",
+      "骚扰该地区的旅行者",
+      "从家中抓走人",
+      "攻击任何敢接近其巢穴的人",
+      "攻击毫无防备的受害者"
     ];
 
     const monster = ra(species);
     const toponym = Names.getCulture(cells.culture[cell]);
     const name = `${toponym} ${monster}`;
-    const legend = `${ra(subjects)} speak of a ${ra(adjectives)} ${monster} who inhabits ${toponym} hills and ${ra(
+    const legend = `${ra(subjects)} 讲述了一个 居住在 ${toponym} 山丘的 ${ra(adjectives)} ${monster} ， ${ra(
       modusOperandi
     )}.`;
     notes.push({id, name, legend});
@@ -815,36 +875,36 @@ window.Markers = (function () {
     const {cells} = pack;
 
     const animals = [
-      "Apes",
-      "Badgers",
-      "Bears",
-      "Beavers",
-      "Bisons",
-      "Boars",
-      "Cats",
-      "Crows",
-      "Dogs",
-      "Foxes",
-      "Hares",
-      "Hawks",
-      "Hyenas",
-      "Jackals",
-      "Jaguars",
-      "Leopards",
-      "Lions",
-      "Owls",
-      "Panthers",
-      "Rats",
-      "Ravens",
-      "Rooks",
-      "Scorpions",
-      "Sharks",
-      "Snakes",
-      "Spiders",
-      "Tigers",
-      "Wolfs",
-      "Wolverines",
-      "Falcons"
+      "猿",
+      "獾",
+      "熊",
+      "海狸",
+      "野牛",
+      "野猪",
+      "猫",
+      "乌鸦",
+      "狗",
+      "狐狸",
+      "野兔",
+      "鹰",
+      "鬣狗",
+      "豺",
+      "美洲虎",
+      "猎豹",
+      "狮子",
+      "猫头鹰",
+      "黑豹",
+      "老鼠",
+      "渡鸦",
+      "白嘴鸦",
+      "蝎子",
+      "鲨鱼",
+      "蛇",
+      "蜘蛛",
+      "老虎",
+      "狼",
+      "狼獾",
+      "猎鹰"
     ];
     const types = {brigands: 4, bandits: 3, robbers: 1, highwaymen: 1};
 
@@ -853,12 +913,12 @@ window.Markers = (function () {
     const height = cells.p[cell];
 
     const locality = ((height, biome) => {
-      if (height >= 70) return "highlander";
-      if ([1, 2].includes(biome)) return "desert";
-      if ([3, 4].includes(biome)) return "mounted";
-      if ([5, 6, 7, 8, 9].includes(biome)) return "forest";
-      if (biome === 12) return "swamp";
-      return "angry";
+      if (height >= 70) return "山地人";
+      if ([1, 2].includes(biome)) return "沙漠";
+      if ([3, 4].includes(biome)) return "骑乘";
+      if ([5, 6, 7, 8, 9].includes(biome)) return "森林";
+      if (biome === 12) return "沼泽";
+      return "愤怒";
     })(height, biome);
 
     const name = `${Names.getCulture(culture)} ${ra(animals)}`;
@@ -885,18 +945,18 @@ window.Markers = (function () {
     const {cells} = pack;
 
     const variants = [
-      "Statue",
-      "Obelisk",
-      "Monument",
-      "Column",
-      "Monolith",
-      "Pillar",
-      "Megalith",
-      "Stele",
-      "Runestone",
-      "Sculpture",
-      "Effigy",
-      "Idol"
+    "雕像",
+    "方尖碑",
+    "纪念碑",
+    "石柱",
+    "独石",
+    "柱子",
+    "巨石",
+    "石碑",
+    "符文石",
+    "雕塑",
+    "肖像",
+    "人像"
     ];
     const scripts = {
       cypriot: "𐠁𐠂𐠃𐠄𐠅𐠈𐠊𐠋𐠌𐠍𐠎𐠏𐠐𐠑𐠒𐠓𐠔𐠕𐠖𐠗𐠘𐠙𐠚𐠛𐠜𐠝𐠞𐠟𐠠𐠡𐠢𐠣𐠤𐠥𐠦𐠧𐠨𐠩𐠪𐠫𐠬𐠭𐠮𐠯𐠰𐠱𐠲𐠳𐠴𐠵𐠷𐠸𐠼𐠿      ",
@@ -926,19 +986,19 @@ window.Markers = (function () {
 
   function addRuins(id, cell) {
     const types = [
-      "City",
-      "Town",
-      "Settlement",
-      "Pyramid",
-      "Fort",
-      "Stronghold",
-      "Temple",
-      "Sacred site",
-      "Mausoleum",
-      "Outpost",
-      "Fortification",
-      "Fortress",
-      "Castle"
+      "城市",
+      "城镇",
+      "定居点",
+      "金字塔",
+      "堡垒",
+      "要塞",
+      "寺庙",
+      "圣地",
+      "陵墓",
+      "前哨",
+      "防御工事",
+      "堡垒",
+      "城堡"
     ];
 
     const ruinType = ra(types);
@@ -967,19 +1027,19 @@ window.Markers = (function () {
 
   function addCircuse(id, cell) {
     const adjectives = [
-      "Fantastical",
-      "Wonderous",
-      "Incomprehensible",
-      "Magical",
-      "Extraordinary",
-      "Unmissable",
-      "World-famous",
-      "Breathtaking"
+      "奇幻的",
+      "奇妙的",
+      "难以理解的",
+      "魔法的",
+      "非凡的",
+      "不容错过的",
+      "世界闻名的",
+      "令人叹为观止的"
     ];
 
     const adjective = ra(adjectives);
     const name = `正旅行的 ${adjective} 马戏团`;
-    const legend = `注意了，注意了, 这个 ${adjective.toLowerCase()} 的马戏团只在这里停留一段的时间`;
+    const legend = `注意了！注意了！ 这个 ${adjective.toLowerCase()} 马戏团只在这暂留一段时间`;
     notes.push({id, name, legend});
   }
 
@@ -989,8 +1049,8 @@ window.Markers = (function () {
 
   function addJoust(id, cell) {
     const {cells, burgs} = pack;
-    const types = ["Joust", "Competition", "Melee", "Tournament", "Contest"];
-    const virtues = ["cunning", "might", "speed", "the greats", "acumen", "brutality"];
+    const types = ["骑士格斗", "比赛", "混战", "锦标赛", "竞赛"];
+    const virtues = ["狡猾", "力量", "速度", "伟大", "敏锐", "残忍"];
 
     if (!cells.burg[cell]) return;
     const burgName = burgs[cells.burg[cell]].name;
@@ -1039,57 +1099,57 @@ window.Markers = (function () {
 
   function addMigration(id, cell) {
     const animals = [
-      "Antelopes",
-      "Apes",
-      "Badgers",
-      "Bears",
-      "Beavers",
-      "Bisons",
-      "Boars",
-      "Buffalo",
-      "Cats",
-      "Cranes",
-      "Crocodiles",
-      "Crows",
-      "Deer",
-      "Dogs",
-      "Eagles",
-      "Elk",
-      "Foxes",
-      "Goats",
-      "Geese",
-      "Hares",
-      "Hawks",
-      "Herons",
-      "Horses",
-      "Hyenas",
-      "Ibises",
-      "Jackals",
-      "Jaguars",
-      "Larks",
-      "Leopards",
-      "Lions",
-      "Mantises",
-      "Martens",
-      "Mooses",
-      "Mules",
-      "Owls",
-      "Panthers",
-      "Rats",
-      "Ravens",
-      "Rooks",
-      "Scorpions",
-      "Sharks",
-      "Sheep",
-      "Snakes",
-      "Spiders",
-      "Tigers",
-      "Wolves",
-      "Wolverines",
-      "Camels",
-      "Falcons",
-      "Hounds",
-      "Oxen"
+      "羚羊",
+      "猿",
+      "獾",
+      "熊",
+      "海狸",
+      "野牛",
+      "野猪",
+      "水牛",
+      "猫",
+      "鹤",
+      "鳄鱼",
+      "乌鸦",
+      "鹿",
+      "狗",
+      "鹰",
+      "麋鹿",
+      "狐狸",
+      "山羊",
+      "鹅",
+      "野兔",
+      "鹰",
+      "鹭",
+      "马",
+      "鬣狗",
+      "朱鹭",
+      "豺",
+      "美洲虎",
+      "云雀",
+      "豹",
+      "狮子",
+      "螳螂",
+      "貂",
+      "麋鹿",
+      "骡子",
+      "猫头鹰",
+      "豹",
+      "老鼠",
+      "渡鸦",
+      "白嘴鸦",
+      "蝎子",
+      "鲨鱼",
+      "绵羊",
+      "蛇",
+      "蜘蛛",
+      "老虎",
+      "狼",
+      "狼獾",
+      "骆驼",
+      "猎鹰",
+      "猎犬",
+      "牛"
     ];
     const animalChoice = ra(animals);
 
@@ -1106,27 +1166,27 @@ window.Markers = (function () {
     const {cells, burgs} = pack;
     const burgName = burgs[cells.burg[cell]].name;
     const socialTypes = [
-      "gala",
-      "dance",
-      "performance",
-      "ball",
-      "soiree",
-      "jamboree",
-      "exhibition",
-      "carnival",
-      "festival",
-      "jubilee",
-      "celebration",
-      "gathering",
-      "fete"
+      "盛会",
+      "舞会",
+      "表演",
+      "舞会",
+      "晚会",
+      "狂欢",
+      "展览",
+      "嘉年华",
+      "节日",
+      "庆典",
+      "庆祝",
+      "聚会",
+      "节日"
     ];
     const people = [
-      "great and the good",
-      "nobility",
-      "local elders",
-      "foreign dignitaries",
-      "spiritual leaders",
-      "suspected revolutionaries"
+      "大人物",
+      "贵族",
+      "当地长老",
+      "外国政要",
+      "精神领袖",
+      "可疑革命者"
     ];
     const socialType = ra(socialTypes);
 
@@ -1169,12 +1229,12 @@ window.Markers = (function () {
       Hole: 2
     };
     const status = {
-      "a good spot to hid treasure": 5,
-      "the home of strange monsters": 5,
-      "totally empty": 4,
-      "endlessly deep and unexplored": 4,
-      "completely flooded": 2,
-      "slowly filling with lava": 1
+      "藏宝的好地方": 5,
+      "奇怪怪物的家园": 5,
+      "完全空旷之地": 4,
+      "深不可测且未被探索之地": 4,
+      "完全被淹没之地": 2,
+      "熔岩填满之地": 1
     };
 
     let formation = rw(formations);
@@ -1183,7 +1243,7 @@ window.Markers = (function () {
       formation = "Glacial " + formation;
     }
     const name = `${toponym} ${formation}`;
-    const legend = `The ${name}. Locals claim that it is ${rw(status)}.`;
+    const legend = ` ${name}. 当地人称ta为 ${rw(status)}.`;
     notes.push({id, name, legend});
   }
 
@@ -1201,7 +1261,7 @@ window.Markers = (function () {
     const burgName = burgs[cells.burg[cell]].name;
 
     const name = `${burgName} 之门`;
-    const legend = `连接主要城市的魔法门户系统的一个组成部分.门几个世纪前就造好了，但还能正常工作`;
+    const legend = `作为连接主要城市的魔法门户系统的一部分，这些门虽然几个世纪前就已建成，但至今仍能正常运作。`;
     notes.push({id, name, legend});
   }
 
@@ -1277,7 +1337,7 @@ window.Markers = (function () {
   function addEncounter(id, cell) {
     const name = "偶遇";
     const encounterSeed = cell; // use just cell Id to not overwhelm the Vercel KV database
-    const legend = `<div>你偶遇了一位人物.（以下内容由于被墙无法直接访问）</div><a href="https://deorum.vercel.app/encounter/${encounterSeed}" target="_blank" style="color:#deb640;">官方链接</a><iframe src="https://deorum.vercel.app/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
+    const legend = `<div>你偶遇了一位人.</div><iframe src="https://deorum.8desk.top/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
     notes.push({id, name, legend});
   }
 

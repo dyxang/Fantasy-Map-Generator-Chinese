@@ -4919,6 +4919,18 @@
               <select id="aiGeneratorModel"></select>
             </label>
 
+          <label for="aiGeneratorTemperature"
+          >模型温度:
+          <input id="aiGeneratorTemperature" placeholder="1.2" class="icon-key" />
+          <a
+            href="https://api-docs.deepseek.com/zh-cn/quick_start/parameter_settings"
+            target="_blank"
+            rel="noreferrer"
+            class="icon-help-circled"
+            style="text-decoration: none"
+            data-tip="0到2闭区间的整数。较高的值将使输出更加随机，而较低的值将使其更加集中和确定。"
+          ></a>
+        </label>
             <label for="aiGeneratorKey"
               >Key:
               <input id="aiGeneratorKey" placeholder="输入 API key" class="icon-key" />
@@ -4928,7 +4940,7 @@
                 rel="noreferrer"
                 class="icon-help-circled"
                 style="text-decoration: none"
-                data-tip="在OpenAI/Deepseek网站上获取密钥并将存储在浏览器中，并直接发送到OpenAI API。地图生成器不存储Key或任何生成的数据！"
+                data-tip="在OpenAI/Deepseek网站上获取密钥并将存储在浏览器中，并直接发送到服务器。地图生成器不存储Key或任何生成的数据！"
               ></a>
             </label>
           </div>
@@ -5693,7 +5705,7 @@
         <p><b>河流:</b> <span id="infoRiver">no</span></p>
         <p><b>人口:</b> <span id="infoPopulation">0</span></p>
         <p><b>海拔:</b> <span id="infoElevation">0</span></p>
-        <p><b>深度:</b> <span id="infoDepth">0</span></p>
+        <p><b>水深:</b> <span id="infoDepth">0</span></p>
         <p><b>温度:</b> <span id="infoTemp">0</span></p>
         <p><b>生态:</b> <span id="infoBiome">n/a</span></p>
         <p><b>国家:</b> <span id="infoState">n/a</span></p>

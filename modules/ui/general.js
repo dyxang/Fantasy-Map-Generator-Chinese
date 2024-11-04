@@ -175,7 +175,7 @@ function showMapTooltip(point, e, i, g) {
 
   if (group === "labels") return tip("编辑标签");
 
-  if (group === "markers") return tip("编辑标记,按住Shift关联标记不关闭");
+  if (group === "markers") return tip("编辑标记,按住Shift保持查看的标记描述不关闭");
 
   if (group === "ruler") {
     const tag = e.target.tagName;
