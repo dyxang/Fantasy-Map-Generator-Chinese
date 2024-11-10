@@ -13,7 +13,7 @@
  * Example: 1.102.2 -> Major version 1, Minor version 102, Patch version 2
  */
 
-const VERSION = "1.105.21";
+const VERSION = "1.105.22";
 if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format or parsing function");
 
 {
@@ -23,7 +23,7 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
 
   const storedVersion = localStorage.getItem("version");
   if (compareVersions(storedVersion, VERSION, {major: true, minor: true, patch: false}).isOlder) {
-    setTimeout(showUpdateWindow, 6000);
+    setTimeout(showUpdateWindow, 10000);
   }
 
   function showUpdateWindow() {
