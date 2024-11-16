@@ -4910,39 +4910,22 @@
           <textarea id="aiGeneratorResult" placeholder="生成的文本将出现在这里" cols="30" rows="10"></textarea>
           <textarea id="aiGeneratorPrompt" placeholder="在这里输入提示符" cols="30" rows="5"></textarea>
           <div style="display: flex; align-items: center; gap: 1em">
-            <label for="aiGeneratorBaseurl"
-              >模型服务:
-              <select id="aiGeneratorBaseurl"></select>
-            </label>
             <label for="aiGeneratorModel"
               >模型:
               <select id="aiGeneratorModel"></select>
             </label>
-
-          <label for="aiGeneratorTemperature"
-          >模型温度:
-          	
-          <input id="aiGeneratorTemperature" type="number" min="0" max="2" placeholder="1.2" class="icon-key" />
-          <a
-            href="https://api-docs.deepseek.com/zh-cn/quick_start/parameter_settings"
-            target="_blank"
-            rel="noreferrer"
-            class="icon-help-circled"
-            style="text-decoration: none"
-            data-tip="0到2闭区间的整数。较高的值将使输出更加随机，而较低的值将使其更加集中和确定。"
-          ></a>
-        </label>
+            <label for="aiGeneratorTemperature" data-tip="温度控制响应的随机性；较高的值意味着更多的创造力，较低的值意味着更多的可预测性。">
+              温度:
+              <input id="aiGeneratorTemperature" type="number" min="-1" max="2" step=".1" class="icon-key" />
+            </label>
             <label for="aiGeneratorKey"
               >Key:
               <input id="aiGeneratorKey" placeholder="输入 API key" class="icon-key" />
-              <a
-                href="https://api-docs.deepseek.com/zh-cn/#%E9%A6%96%E6%AC%A1%E8%B0%83%E7%94%A8%20API"
-                target="_blank"
-                rel="noreferrer"
+              <button
+                id="aiGeneratorKeyHelp"
                 class="icon-help-circled"
-                style="text-decoration: none"
-                data-tip="在OpenAI/Deepseek网站上获取密钥并将存储在浏览器中，并直接发送到服务器。地图生成器不存储Key或任何生成的数据！"
-              ></a>
+                data-tip="访问提供商的网站以获取API密钥。请注意：地图生成器不会存储密钥或任何生成的数据。"
+              />
             </label>
           </div>
         </div>

@@ -22,8 +22,8 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
   if (loadingScreenVersion) loadingScreenVersion.innerText = `v${VERSION}`;
 
   const storedVersion = localStorage.getItem("version");
-  if (compareVersions(storedVersion, VERSION, {major: true, minor: true, patch: false}).isOlder) {
-    setTimeout(showUpdateWindow, 10000);
+  if (storedVersion === null || compareVersions(storedVersion, VERSION, {major: true, minor: true, patch: false}).isOlder) {
+    setTimeout(showUpdateWindow, 6000);
   }
 
   function showUpdateWindow() {
@@ -42,7 +42,6 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>最近更新:</strong>
-        <li>AI文本生成服务添加国内可使用的Deepseek</li>
         <li>聊天机器人（右下气泡）提供生成器相关帮助，可用中文</li>
         <li>标签:可以设置字母间距</li>
         <li>Zone性能改进</li>

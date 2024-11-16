@@ -532,7 +532,7 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
       width: "22em",
       position: {my: "center", at: "center", of: "svg"},
       buttons: {
-        Download: function () {
+        下载: function () {
           const data = pack.burgs
             .filter(b => b.i && !b.removed)
             .map(b => b.name)
@@ -540,7 +540,7 @@ function overviewBurgs(settings = {stateId: null, cultureId: null}) {
           const name = getFileName("Burg names") + ".txt";
           downloadFile(data, name);
         },
-        Upload: () => burgsListToLoad.click(),
+        上传: () => burgsListToLoad.click(),
         取消: function () {
           $(this).dialog("close");
         }
