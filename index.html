@@ -121,9 +121,14 @@
       }
     </style>
 
-    <link rel="preload" href="index.css?v=1.105.7" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+    <link rel="preload" href="index.css?v=1.106.3" as="style" onload="this.onload=null; this.rel='stylesheet'" />
     <link rel="preload" href="icons.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
-    <link rel="preload" href="libs/jquery-ui.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+        <link
+      rel="preload"
+      href="libs/jquery-ui.css?v=1.106.5"
+      as="style"
+      onload="this.onload=null; this.rel='stylesheet'"
+    />
   </head>
   <body>
     <svg
@@ -1065,8 +1070,14 @@
                     id="styleGridSizeFriendly"
                     data-tip="栅格单元中心之间的距离（地图比例）"
                   ></output>
-                  <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Scale-and-distance#grids" target="_blank">
-                    <span data-tip="打开wiki文章“scale and distance”，了解网格比例" class="icon-info-circled pointer"></span>
+                  <a
+                    href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Scale-and-distance#grids"
+                    target="_blank"
+                  >
+                    <span
+                      data-tip="打开wiki文章“scale and distance”，了解网格比例"
+                      class="icon-info-circled pointer"
+                    ></span>                  
                   </a>
                 </td>
               </tr>
@@ -1818,6 +1829,7 @@
                 <select id="azgaarAssistant" data-stored="azgaarAssistant">
                   <option value="show" selected>显示</option>
                   <option value="hide">隐藏</option>
+                </select>
               </td>
             </tr>
 
@@ -2169,8 +2181,8 @@
 
           <div class="separator">点击创建</div>
           <div class="grid">
-            <button id="openSubmapMenu" data-tip="点击以从当前视窗生成下位图">下位图</button>
-            <button id="openResampleMenu" data-tip="点击使地图产生变换">变换图</button>
+            <button id="openSubmapTool" data-tip="点击以从当前视窗生成子地图">子地图</button>
+            <button id="openTransformTool" data-tip="点击使地图产生变换">变换图</button>
           </div>
         </div>
 
@@ -3352,15 +3364,20 @@
                 <input id="burgPopulation" type="number" min="0" step="1" style="width: 9em" />
               </div>
 
-              <div data-tip="城市年平均气温与现实世界城市进行比较">
-                <div class="label">温度:</div>
-                <span id="burgTemperature"></span>，与
-                <span id="burgTemperatureLikeIn"></span>类似
-                <i
-                  id="burgTemperatureGraph"
-                  data-tip="显示城市的温度图"
-                  class="icon-chart-area pointer"
-                ></i>
+
+                <div data-tip="城市年均温" style="display: flex; justify-content: space-between">
+                  <div>
+                    <div class="label">温度:</div>
+                    <span id="burgTemperature"></span>
+                  </div>
+                  <div style="display: flex; gap: 0.5em">
+                    <i class="icon-info-circled" id="burgTemperatureLikeIn"></i>
+                    <i
+                      id="burgTemperatureGraph"
+                      data-tip="显示城市温度图"
+                      class="icon-chart-area pointer"
+                    ></i>
+                  </div>
               </div>
 
               <div data-tip="城市高度高于平均海平面">
@@ -3475,8 +3492,12 @@
           <button id="burgEditEmblem" data-tip="编辑徽标" class="icon-shield-alt"></button>
           <button id="burgTogglePreview" data-tip="切换预览" class="icon-map"></button>
           <button id="burgLocate" data-tip="安置城市区" class="icon-target"></button>
-          <button id="burgRelocate" data-tip="安置城市。点击地图移动城市" class="icon-map-pin"></button>
-          <button id="burglLegend" data-tip="编辑自由的文字说明(图例)为这个城市" class="icon-edit"></button>
+          <button
+            id="burgRelocate"
+            data-tip="安置城市。点击地图移动城市"
+            class="icon-map-pin"
+          ></button>
+          <button id="burglLegend" data-tip="为城市编辑文字说明(图例)" class="icon-edit"></button>
           <button id="burgLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
           <button
             id="burgRemove"
@@ -4914,8 +4935,10 @@
               >模型:
               <select id="aiGeneratorModel"></select>
             </label>
-            <label for="aiGeneratorTemperature" data-tip="温度控制响应的随机性；较高的值意味着更多的创造力，较低的值意味着更多的可预测性。">
-              温度:
+            <label
+              for="aiGeneratorTemperature"
+              data-tip="温度控制响应的随机性；较高的值意味着更多的创造力，较低的值意味着更多的可预测性。"
+            >  温度:
               <input id="aiGeneratorTemperature" type="number" min="-1" max="2" step=".1" class="icon-key" />
             </label>
             <label for="aiGeneratorKey"
@@ -5260,7 +5283,9 @@
           >
             人口
           </div>
-          <div data-tip="点击按城市功能排序" class="sortable alphabetically" data-sortby="features">功能&nbsp;</div>
+          <div data-tip="点击按城市功能排序" class="sortable alphabetically" data-sortby="features">
+            功能&nbsp;
+          </div>
         </div>
 
         <div id="burgsBody" class="table"></div>
@@ -5708,6 +5733,82 @@
         </div>
       </div>
 
+      <div id="submapTool" style="display: none" class="dialog">
+        <p style="font-weight: bold">
+          该操作具有破坏性和不可逆性。它将根据当前地图派生一张全新的地图。
+          请记得先将 .map 文件保存到你的设备中！
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 0.5em">
+          <div data-tip="设置子地图的点（单元格）数量" style="display: flex; gap: 1em">
+            <div>点的数量</div>
+            <div>
+              <input id="submapPointsInput" type="range" min="1" max="13" value="4" />
+              <output id="submapPointsFormatted" style="color: #053305">10K</output>
+            </div>
+          </div>
+
+          <div data-tip="勾选以根据子地图比例调整城市样式（图标和标签大小）">
+            <input type="checkbox" class="checkbox" id="submapRescaleBurgStyles" checked />
+            <label for="submapRescaleBurgStyles" class="checkbox-label">调整城市样式比例</label>
+          </div>
+        </div>
+      </div>
+
+      <div id="transformTool" style="display: none" class="dialog">
+        <div style="padding-top: 0.5em; width: 40em; font-weight: bold">
+          该操作具有破坏性和不可逆性。它将根据当前地图衍生一张全新的地图。
+          请记得先将 .map 文件保存到你的设备中！
+        </div>
+
+        <div
+          id="transformToolBody"
+          style="
+            padding: 0.5em 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(5, 1fr);
+            align-items: center;
+          "
+        >
+          <div>点的数量</div>
+          <div>
+            <input id="transformPointsInput" type="range" min="1" max="13" value="4" />
+            <output id="transformPointsFormatted" style="color: #053305">10K</output>
+          </div>
+
+          <div>平移</div>
+          <div>
+            <label>X: <input id="transformShiftX" type="number" size="4" value="0" /></label>
+            <label>Y: <input id="transformShiftY" type="number" size="4" value="0" /></label>
+          </div>
+
+          <div>旋转</div>
+          <div>
+            <input id="transformAngleInput" type="range" min="0" max="359" value="0" />
+            <output id="transformAngleOutput">0</output>°
+          </div>
+
+          <div>缩放</div>
+          <div>
+            <input id="transformScaleInput" type="range" min="-25" max="25" value="0" />
+            <output id="transformScaleResult">1</output>x
+          </div>
+
+          <div>镜像</div>
+          <div style="display: flex; gap: 0.5em">
+            <input type="checkbox" class="checkbox" id="transformMirrorH" />
+            <label for="transformMirrorH" class="checkbox-label">水平</label>
+            <input type="checkbox" class="checkbox" id="transformMirrorV" />
+            <label for="transformMirrorV" class="checkbox-label">垂直</label>
+          </div>
+        </div>
+
+        <div id="transformPreview" style="position: relative; overflow: hidden; outline: 1px solid #666">
+          <canvas id="transformPreviewCanvas" style="position: absolute; transform-origin: center"></canvas>
+        </div>
+      </div>
       <div id="options3d" class="dialog stable" style="display: none">
         <div id="options3dMesh" style="display: none">
           <div data-tip="设置地图旋转速度。设置为0是你想关闭旋转">
@@ -6021,104 +6122,6 @@
           <div id="tileSize" style="display: inline-block">1000 x 1000 px</div>
         </div>
         <div id="tileStatus" style="font-style: italic"></div>
-      </div>
-
-      <div id="resampleDialog" style="display: none" class="dialog">
-        <div style="width: 34em; max-width: 80vw; font-weight: bold; padding: 6px">
-          这个操作具有破坏性和不可逆性，它将在现有地图的基础上创建一个全新的地图。
-不要忘记首先将当前项目保存为一个. map 文件！
-        </div>
-
-        <div
-          style="
-            width: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(5, 1fr);
-            align-items: center;
-            padding: 0.5em;
-          "
-        >
-          <div>点数</div>
-          <div>
-            <input id="submapPointsInput" type="range" min="1" max="13" value="4" />
-            <output id="submapPointsOutputFormatted" style="color: #053305">10K</output>
-          </div>
-
-          <div>偏移</div>
-          <div>
-            <label>X: <input id="submapShiftX" type="number" size="4" value="0" /></label>
-            <label>Y: <input id="submapShiftY" type="number" size="4" value="0" /></label>
-          </div>
-
-          <div>旋转</div>
-          <div>
-            <input id="submapAngleInput" type="range" min="0" max="359" value="0" />
-            <output id="submapAngleOutput">0</output>°
-          </div>
-
-          <div>缩放</div>
-          <div>
-            <input id="submapScaleInput" type="range" min="-25" max="25" value="0" />
-            <output id="submapScaleOutput">1</output>x
-          </div>
-
-          <div>镜像</div>
-          <div>
-            <input type="checkbox" class="checkbox" id="submapMirrorH" />
-            <label for="submapMirrorH" class="checkbox-label">水平</label>
-            &nbsp;
-            <input type="checkbox" class="checkbox" id="submapMirrorV" />
-            <label for="submapMirrorV" class="checkbox-label">垂直</label>
-          </div>
-        </div>
-
-        <div
-          id="submapPreview"
-          style="border: 1px solid #666; margin: 1em auto; overflow: hidden; position: relative"
-        ></div>
-      </div>
-
-      <div id="submapOptionsDialog" style="display: none" class="dialog">
-        <p style="font-weight: bold">
-          这个操作具有破坏性和不可逆性，它将在现有地图的基础上创建一个全新的地图。
-不要忘记首先将当前文件保存到设备上做备份！
-        </p>
-
-        <p>要更改的设置: 填充率、地图像素大小</p>
-        <p>
-          要复制的数据: 高程图，生物群落，宗教，人口，降水，文化，国，省，军事
-        </p>
-        <p>待重新生成的数据: 区域、道路、河流</p>
-        <p>城市可能重新映射错误，需要手动更改</p>
-
-        <p>保存数据:</p>
-        <div data-tip="锁定从原始地图复制的所有标记">
-          <input id="submapLockMarkers" class="checkbox" type="checkbox" checked />
-          <label for="submapLockMarkers" class="checkbox-label">标记</label>
-        </div>
-        <div data-tip="锁定从原始地图复制的所有城市">
-          <input id="submapLockBurgs" class="checkbox" type="checkbox" checked />
-          <label for="submapLockBurgs" class="checkbox-label">城市</label>
-        </div>
-
-        <p>实验特性:</p>
-        <div data-tip="母地图上的河流会侵蚀土地(有助于得到类似的河流网络)">
-          <input id="submapDepressRivers" class="checkbox" type="checkbox" />
-          <label for="submapDepressRivers" class="checkbox-label">侵蚀河床</label>
-        </div>
-        <div data-tip="重新缩放样式(城市标签，徽标大小) ，以匹配新的规模">
-          <input id="submapRescaleStyles" class="checkbox" type="checkbox" checked />
-          <label for="submapRescaleStyles" class="checkbox-label">缩放样式</label>
-        </div>
-        <div data-tip="将所有现有的城市转移到“大都市”">
-          <input id="submapPromoteTowns" class="checkbox" type="checkbox" />
-          <label for="submapPromoteTowns" class="checkbox-label">把城市发展成大城市</label>
-        </div>
-        <div data-tip="在洼地中增加湖泊(在大陆上可能非常缓慢)">
-          <input id="submapAddLakeInDepression" class="checkbox" type="checkbox" />
-          <label for="submapAddLakeInDepression" class="checkbox-label">在低洼地区增加湖泊(缓慢)</label>
-        </div>
       </div>
 
       <div id="alert" style="display: none" class="dialog">
@@ -7789,32 +7792,57 @@
           <pattern id="pattern_square" width="25" height="25" patternUnits="userSpaceOnUse" fill="none">
             <path d="M 25 0 L 0 0 0 25" />
           </pattern>
+
           <pattern id="pattern_pointyHex" width="25" height="43.4" patternUnits="userSpaceOnUse" fill="none">
             <path d="M 0,0 12.5,7.2 25,0 M 12.5,21.7 V 7.2 Z M 0,43.4 V 28.9 L 12.5,21.7 25,28.9 v 14.5" />
           </pattern>
+
           <pattern id="pattern_flatHex" width="43.4" height="25" patternUnits="userSpaceOnUse" fill="none">
             <path d="M 43.4,0 36.2,12.5 43.4,25 M 21.7,12.5 H 36.2 Z M 0,0 H 14.5 L 21.7,12.5 14.5,25 H 0" />
           </pattern>
+
           <pattern id="pattern_square45deg" width="35.355" height="35.355" patternUnits="userSpaceOnUse" fill="none">
             <path d="M 0 0 L 35.355 35.355 M 0 35.355 L 35.355 0" />
           </pattern>
+
           <pattern id="pattern_squareTruncated" width="25" height="25" patternUnits="userSpaceOnUse" fill="none">
-            <path d="M 8.33 25 L 0 16.66 V 8.33 L 8.33 0 16.66 0 25 8.33  M 16.66 25 L 25 16.66 L 25 8.33 M 8.33 25 L 16.66 25" />
+            <path
+              d="M 8.33 25 L 0 16.66 V 8.33 L 8.33 0 16.66 0 25 8.33  M 16.66 25 L 25 16.66 L 25 8.33 M 8.33 25 L 16.66 25"
+            />
           </pattern>
+
           <pattern id="pattern_squareTetrakis" width="25" height="25" patternUnits="userSpaceOnUse" fill="none">
-            <path d="M 25 0 L 0 0 0 25 M 0 0 L 25 25 M 0 25 L 25 0 M 12.5 0 L 12.5 25 M 0 12.5 L 25 12.5 M 0 25 L 25 25 L 25 0" />
+            <path
+              d="M 25 0 L 0 0 0 25 M 0 0 L 25 25 M 0 25 L 25 0 M 12.5 0 L 12.5 25 M 0 12.5 L 25 12.5 M 0 25 L 25 25 L 25 0"
+            />
           </pattern>
-          <pattern id="pattern_triangleHorizontal" width="41.76" height="72.33" patternUnits="userSpaceOnUse" fill="none">
-            <path d="M 41.76 36.165 H 0 L 20.88 0 41.76 36.165 20.88 72.33 0 36.165 M 0 0 H 72.33 M 0 72.33 L 41.76 72.33" />
+
+          <pattern
+            id="pattern_triangleHorizontal"
+            width="41.76"
+            height="72.33"
+            patternUnits="userSpaceOnUse"
+            fill="none"
+          >
+            <path
+              d="M 41.76 36.165 H 0 L 20.88 0 41.76 36.165 20.88 72.33 0 36.165 M 0 0 H 72.33 M 0 72.33 L 41.76 72.33"
+            />
           </pattern>
+
           <pattern id="pattern_triangleVertical" width="72.33" height="41.76" patternUnits="userSpaceOnUse" fill="none">
-            <path d="M 36.165 0 L 0 20.88 36.165 41.76 72.33 20.88 36.165 0 V 41.76 M 0 0 V 72.33 M 72.33 0 L 72.33 41.76">
+            <path
+              d="M 36.165 0 L 0 20.88 36.165 41.76 72.33 20.88 36.165 0 V 41.76 M 0 0 V 72.33 M 72.33 0 L 72.33 41.76"
+            />
           </pattern>
+
           <pattern id="pattern_trihexagonal" width="25" height="43.4" patternUnits="userSpaceOnUse" fill="none">
             <path d="M 25 10.85 H 0 L 18.85 43.4 25 32.55 H 0 L 18.85 0 25 10.85" />
           </pattern>
+
           <pattern id="pattern_rhombille" width="82.5" height="50" patternUnits="userSpaceOnUse" fill="none">
-            <path d="M 13.8 50 L 0 25 13.8 0 H 41.2 L 27.5 25 41.2 50 55 25 41.2 0 68.8 0 82.5 25 68.8 50 M 0 25 H 27.5 M 55 25 H 82.5 M 13.8 50 H 41.2 L 68.8 50" />
+            <path
+              d="M 13.8 50 L 0 25 13.8 0 H 41.2 L 27.5 25 41.2 50 55 25 41.2 0 68.8 0 82.5 25 68.8 50 M 0 25 H 27.5 M 55 25 H 82.5 M 13.8 50 H 41.2 L 68.8 50"
+            />
           </pattern>
         </g>
 
@@ -7978,21 +8006,21 @@
     <script src="libs/delaunator.min.js"></script>
     <script src="libs/indexedDB.js?v=1.99.00"></script>
 
-    <script src="utils/shorthands.js?v=1.99.00"></script>
+    <script src="utils/shorthands.js?v=1.106.0"></script>
     <script src="utils/commonUtils.js?v=1.103.0"></script>
     <script src="utils/arrayUtils.js?v=1.99.00"></script>
     <script src="utils/functionUtils.js?v=1.99.00"></script>
     <script src="utils/colorUtils.js?v=1.99.00"></script>
-    <script src="utils/graphUtils.js?v=1.99.00"></script>
+    <script src="utils/graphUtils.js?v=1.106.0"></script>
     <script src="utils/nodeUtils.js?v=1.99.00"></script>
     <script src="utils/numberUtils.js?v=1.99.00"></script>
     <script src="utils/polyfills.js?v=1.99.00"></script>
     <script src="utils/probabilityUtils.js?v=1.99.05"></script>
-    <script src="utils/stringUtils.js?v=1.105.19"></script>
+    <script src="utils/stringUtils.js?v=1.106.0"></script>
     <script src="utils/languageUtils.js?v=1.99.00"></script>
     <script src="utils/unitUtils.js?v=1.99.00"></script>
-    <script src="utils/pathUtils.js?v=1.105.8"></script>
-    <script defer src="utils/debugUtils.js?v=1.99.00"></script>
+    <script src="utils/pathUtils.js?v=1.106.0"></script>
+    <script defer src="utils/debugUtils.js?v=1.106.0"></script>
 
     <script src="modules/voronoi.js"></script>
     <script src="config/heightmap-templates.js"></script>
@@ -8000,54 +8028,54 @@
     <script src="modules/heightmap-generator.js?v=1.99.00"></script>
     <script src="modules/features.js?v=1.104.0"></script>
     <script src="modules/ocean-layers.js?v=1.104.8"></script>
-    <script src="modules/river-generator.js?v=1.99.05"></script>
+    <script src="modules/river-generator.js?v=1.106.7"></script>
     <script src="modules/lakes.js?v=1.99.00"></script>
     <script src="modules/biomes.js?v=1.99.00"></script>
     <script src="modules/names-generator.js?v=1.105.11"></script>
-    <script src="modules/cultures-generator.js?v=1.105.21"></script>
-    <script src="modules/burgs-and-states.js?v=1.105.21"></script>
-    <script src="modules/provinces-generator.js?v=1.105.21"></script>
-    <script src="modules/routes-generator.js?v=1.104.10"></script>
-    <script src="modules/religions-generator.js?v=1.105.21"></script>
+    <script src="modules/cultures-generator.js?v=1.106.0"></script>
+    <script src="modules/burgs-and-states.js?v=1.106.0"></script>
+    <script src="modules/provinces-generator.js?v=1.106.0"></script>
+    <script src="modules/routes-generator.js?v=1.106.0"></script>
+    <script src="modules/religions-generator.js?v=1.106.0"></script>
     <script src="modules/military-generator.js?v=1.104.0"></script>
     <script src="modules/markers-generator.js?v=1.104.0"></script>
-    <script src="modules/zones-generator.js?v=1.105.21"></script>
+    <script src="modules/zones-generator.js?v=1.106.0"></script>
     <script src="modules/coa-generator.js?v=1.99.00"></script>
-    <script src="modules/submap.js?v=1.104.0"></script>
+    <script src="modules/resample.js?v=1.106.4"></script>
     <script src="libs/alea.min.js?v1.105.0"></script>
     <script src="libs/polylabel.min.js?v1.105.0"></script>
     <script src="libs/lineclip.min.js?v1.105.0"></script>
     <script src="libs/simplify.js?v1.105.6"></script>
     <script src="modules/fonts.js?v=1.99.03"></script>
-    <script src="modules/ui/layers.js?v=1.101.00"></script>
+    <script src="modules/ui/layers.js?v=1.106.0"></script>
     <script src="modules/ui/measurers.js?v=1.99.00"></script>
     <script src="modules/ui/style-presets.js?v=1.100.00"></script>
     <script src="modules/ui/general.js?v=1.100.00"></script>
-    <script src="modules/ui/options.js?v=1.105.12"></script>
-    <script src="main.js?v=1.105.19"></script>
+    <script src="modules/ui/options.js?v=1.106.2"></script>
+    <script src="main.js?v=1.106.0"></script>
 
     <script defer src="modules/relief-icons.js?v=1.99.05"></script>
     <script defer src="modules/ui/style.js?v=1.104.0"></script>
-    <script defer src="modules/ui/editors.js?v=1.105.23"></script>
-    <script defer src="modules/ui/tools.js?v=1.105.12"></script>
+    <script defer src="modules/ui/editors.js?v=1.106.1"></script>
+    <script defer src="modules/ui/tools.js?v=1.106.0"></script>
     <script defer src="modules/ui/world-configurator.js?v=1.105.4"></script>
     <script defer src="modules/ui/heightmap-editor.js?v=1.105.2"></script>
-    <script defer src="modules/ui/provinces-editor.js?v=1.104.0"></script>
+    <script defer src="modules/ui/provinces-editor.js?v=1.106.1"></script>
     <script defer src="modules/ui/biomes-editor.js?v=1.99.05"></script>
     <script defer src="modules/ui/namesbase-editor.js?v=1.105.11"></script>
     <script defer src="modules/ui/elevation-profile.js?v=1.99.00"></script>
-    <script defer src="modules/ui/temperature-graph.js?v=1.99.00"></script>
+    <script defer src="modules/ui/temperature-graph.js?v=1.106.6"></script>
     <script defer src="modules/ui/routes-editor.js?v=1.104.3"></script>
     <script defer src="modules/ui/routes-creator.js?v=1.104.3"></script>
     <script defer src="modules/ui/route-group-editor.js?v=1.103.8"></script>
     <script defer src="modules/ui/ice-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/lakes-editor.js?v=1.105.14"></script>
+    <script defer src="modules/ui/lakes-editor.js?v=1.106.0"></script>
     <script defer src="modules/ui/coastline-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/labels-editor.js?v=1.105.16"></script>
-    <script defer src="modules/ui/rivers-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/rivers-creator.js?v=1.99.00"></script>
+    <script defer src="modules/ui/labels-editor.js?v=1.106.0"></script>
+    <script defer src="modules/ui/rivers-editor.js?v=1.106.0"></script>
+    <script defer src="modules/ui/rivers-creator.js?v=1.106.0"></script>
     <script defer src="modules/ui/relief-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/burg-editor.js?v=1.102.00"></script>
+    <script defer src="modules/ui/burg-editor.js?v=1.106.6"></script>
     <script defer src="modules/ui/units-editor.js?v=1.104.0"></script>
     <script defer src="modules/ui/notes-editor.js?v=1.99.06"></script>
     <script defer src="modules/ui/ai-generator.js?v=1.105.22"></script>
@@ -8064,17 +8092,18 @@
     <script defer src="modules/ui/emblems-editor.js?v=1.99.00"></script>
     <script defer src="modules/ui/markers-editor.js?v=1.99.00"></script>
     <script defer src="modules/ui/3d.js?v=1.99.00"></script>
-    <script defer src="modules/ui/submap.js?v=1.99.10"></script>
+    <script defer src="modules/ui/submap-tool.js?v=1.106.2"></script>
+    <script defer src="modules/ui/transform-tool.js?v=1.106.2"></script>
     <script defer src="modules/ui/hotkeys.js?v=1.104.0"></script>
     <script defer src="modules/coa-renderer.js?v=1.99.00"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
     <script defer src="modules/io/save.js?v=1.100.00"></script>
     <script defer src="modules/io/load.js?v=1.105.24"></script>
-    <script defer src="modules/io/cloud.js?v=1.105.19"></script>
+    <script defer src="modules/io/cloud.js?v=1.106.0"></script>
     <script defer src="modules/io/export.js?v=1.100.00"></script>
 
-    <script defer src="modules/renderers/draw-features.js?v=1.105.14"></script>
+    <script defer src="modules/renderers/draw-features.js?v=1.106.0"></script>
     <script defer src="modules/renderers/draw-borders.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-heightmap.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-markers.js?v=1.104.0"></script>
@@ -8082,7 +8111,7 @@
     <script defer src="modules/renderers/draw-temperature.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-emblems.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-military.js?v=1.104.13"></script>
-    <script defer src="modules/renderers/draw-state-labels.js?v=1.105.19"></script>
+    <script defer src="modules/renderers/draw-state-labels.js?v=1.106.0"></script>
     <script defer src="modules/renderers/draw-burg-labels.js?v=1.104.0"></script>
     <script defer src="modules/renderers/draw-burg-icons.js?v=1.104.0"></script>
   </body>

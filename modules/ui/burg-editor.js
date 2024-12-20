@@ -75,7 +75,8 @@ function editBurg(id) {
 
     const temperature = grid.cells.temp[pack.cells.g[b.cell]];
     byId("burgTemperature").innerHTML = convertTemperature(temperature);
-    byId("burgTemperatureLikeIn").innerHTML = getTemperatureLikeness(temperature);
+    byId("burgTemperatureLikeIn").dataset.tip =
+    "年均温如 " + getTemperatureLikeness(temperature);
     byId("burgElevation").innerHTML = getHeight(pack.cells.h[b.cell]);
 
     // toggle features
@@ -530,46 +531,46 @@ function editBurg(id) {
 }
 
 // in °C, array from -1 °C; source: https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature
+const meanTempCityMap = {
+    "-5": "斯纳格 (育空)",
+    "-4": "耶洛奈夫 (加拿大)",
+    "-3": "奥霍茨克 (俄罗斯)",
+    "-2": "费尔班克斯 (阿拉斯加)",
+    "-1": "努克 (格陵兰)",
+    0: "摩尔曼斯克 (俄罗斯)",
+    1: "阿尔汉格尔斯克 (俄罗斯)",
+    2: "安克雷奇 (阿拉斯加)",
+    3: "特罗姆瑟 (挪威)",
+    4: "雷克雅未克 (冰岛)",
+    5: "哈尔滨 (中国)",
+    6: "斯德哥尔摩 (瑞典)",
+    7: "蒙特利尔 (加拿大)",
+    8: "布拉格 (捷克)",
+    9: "哥本哈根 (丹麦)",
+    10: "伦敦 (英国)",
+    11: "安特卫普 (比利时)",
+    12: "巴黎 (法国)",
+    13: "米兰 (意大利)",
+    14: "华盛顿特区",
+    15: "罗马 (意大利)",
+    16: "杜布罗夫尼克 (克罗地亚)",
+    17: "里斯本 (葡萄牙)",
+    18: "巴塞罗那 (西班牙)",
+    19: "马拉喀什 (摩洛哥)",
+    20: "亚历山大 (埃及)",
+    21: "特古西加尔帕 (洪都拉斯)",
+    22: "广州 (中国)",
+    23: "里约热内卢 (巴西)",
+    24: "达喀尔 (塞内加尔)",
+    25: "迈阿密 (美国)",
+    26: "雅加达 (印度尼西亚)",
+    27: "摩加迪沙 (索马里)",
+    28: "曼谷 (泰国)",
+    29: "尼亚美 (尼日尔)",
+    30: "喀土穆 (苏丹)"
+};
 function getTemperatureLikeness(temperature) {
-  if (temperature < -5) return "Yakutsk";
-  const cities = [
-    "Snag (Yukon)",
-    "Yellowknife (Canada)",
-    "Okhotsk (Russia)",
-    "Fairbanks (Alaska)",
-    "Nuuk (Greenland)",
-    "Murmansk", // -5 - 0
-    "Arkhangelsk",
-    "Anchorage",
-    "Tromsø",
-    "Reykjavik",
-    "Riga",
-    "Stockholm",
-    "Halifax",
-    "Prague",
-    "Copenhagen",
-    "London", // 1 - 10
-    "Antwerp",
-    "Paris",
-    "Milan",
-    "Batumi",
-    "Rome",
-    "Dubrovnik",
-    "Lisbon",
-    "Barcelona",
-    "Marrakesh",
-    "Alexandria", // 11 - 20
-    "Tegucigalpa",
-    "Guangzhou",
-    "Rio de Janeiro",
-    "Dakar",
-    "Miami",
-    "Jakarta",
-    "Mogadishu",
-    "Bangkok",
-    "Aden",
-    "Khartoum"
-  ]; // 21 - 30
-  if (temperature > 30) return "Mecca";
-  return cities[temperature + 5] || null;
+  if (temperature < -5) return "雅库茨克 (俄罗斯)";
+  if (temperature > 30) return "麦加 (沙特阿拉伯)";
+  return meanTempCityMap[temperature] || null;
 }

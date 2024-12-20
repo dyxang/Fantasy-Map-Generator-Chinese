@@ -13,7 +13,7 @@
  * Example: 1.102.2 -> Major version 1, Minor version 102, Patch version 2
  */
 
-const VERSION = "1.105.24";
+const VERSION = "1.106.7";
 if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format or parsing function");
 
 {
@@ -42,6 +42,7 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>最近更新:</strong>
+        <li>下位/变化图重做</li>
         <li>助手（右下气泡）提供生成器相关帮助，可用中文</li>
         <li>标签:可以设置字母间距</li>
         <li>Zone性能改进</li>
@@ -52,7 +53,6 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
         <li>可配置经度</li>
         <li>预览村庄地图</li>
         <li>渲染海洋高程图</li>
-        <li>比例尺样式</li>
       </ul>
 
       <p>加入作者 <a href="${discord}" target="_blank">Discord server</a> 和 <a href="${reddit}" target="_blank">Reddit 社区</a>提出问题，分享地图，讨论生成器和世界构建，报告错误并提出新功能。</p>

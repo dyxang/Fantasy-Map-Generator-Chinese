@@ -224,16 +224,17 @@ function fitMapToScreen() {
   svgHeight = Math.min(+mapHeightInput.value, window.innerHeight);
   svg.attr("width", svgWidth).attr("height", svgHeight);
 
-  const zoomExtent = [
-    [0, 0],
-    [graphWidth, graphHeight]
-  ];
 
   const zoomMin = rn(Math.max(svgWidth / graphWidth, svgHeight / graphHeight), 3);
   zoomExtentMin.value = zoomMin;
   const zoomMax = +zoomExtentMax.value;
 
-  zoom.translateExtent(zoomExtent).scaleExtent([zoomMin, zoomMax]).scaleTo(svg, zoomMin);
+  zoom
+    .translateExtent([
+      [0, 0],
+      [graphWidth, graphHeight]
+    ])
+    .scaleExtent([zoomMin, zoomMax]);
 
   fitScaleBar(scaleBar, svgWidth, svgHeight);
   if (window.fitLegendBox) fitLegendBox();
@@ -346,14 +347,10 @@ const cellsDensityMap = {
 
 function changeCellsDensity(value) {
   pointsInput.value = value;
-  const cells = cellsDensityMap[value] || 1000;
+  const cells = cellsDensityMap[value] || pointsInput.dataset.cells;
   pointsInput.dataset.cells = cells;
-  pointsOutputFormatted.value = getCellsDensityValue(cells);
+  pointsOutputFormatted.value = cells / 1000 + "K";
   pointsOutputFormatted.style.color = getCellsDensityColor(cells);
-}
-
-function getCellsDensityValue(cells) {
-  return cells / 1000 + "K";
 }
 
 function getCellsDensityColor(cells) {

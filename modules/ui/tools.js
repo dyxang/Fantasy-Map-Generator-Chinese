@@ -3,7 +3,7 @@
 // module to control the Tools options (click to edit, to re-geenerate, tp add)
 
 toolsContent.addEventListener("click", function (event) {
-  if (customization) return tip("请先退出自定义模式", false, "warning");
+  if (customization) return tip("请先退出自定义模式", false, "error");
   if (!["BUTTON", "I"].includes(event.target.tagName)) return;
   const button = event.target.id;
 
@@ -70,8 +70,8 @@ toolsContent.addEventListener("click", function (event) {
   else if (button === "addRoute") createRoute();
   else if (button === "addMarker") toggleAddMarker();
   // click to create a new map buttons
-  else if (button === "openSubmapMenu") UISubmap.openSubmapMenu();
-  else if (button === "openResampleMenu") UISubmap.openResampleMenu();
+  else if (button === "openSubmapTool") openSubmapTool();
+  else if (button === "openTransformTool") openTransformTool();
 });
 
 function processFeatureRegeneration(event, button) {
@@ -667,28 +667,15 @@ function addRiverOnClick() {
   if (cells.h[i] < 20) return tip("不能在水单元中创造河流", false, "error");
   if (cells.b[i]) return;
 
-  const {
-    alterHeights,
-    resolveDepressions,
-    addMeandering,
-    getRiverPath,
-    getBasin,
-    getName,
-    getType,
-    getWidth,
-    getOffset,
-    getApproximateLength,
-    getNextId
-  } = Rivers;
   const riverCells = [];
-  let riverId = getNextId(rivers);
+  let riverId = Rivers.getNextId(rivers);
   let parent = riverId;
 
   const initialFlux = grid.cells.prec[cells.g[i]];
   cells.fl[i] = initialFlux;
 
-  const h = alterHeights();
-  resolveDepressions(h);
+  const h = Rivers.alterHeights();
+  Rivers.resolveDepressions(h);
 
   while (i) {
     cells.r[i] = riverId;
@@ -762,11 +749,19 @@ function addRiverOnClick() {
   const defaultWidthFactor = rn(1 / (pointsInput.dataset.cells / 10000) ** 0.25, 2);
   const widthFactor =
     river?.widthFactor || (!parent || parent === riverId ? defaultWidthFactor * 1.2 : defaultWidthFactor);
-  const meanderedPoints = addMeandering(riverCells);
-
-  const discharge = cells.fl[mouth]; // m3 in second
-  const length = getApproximateLength(meanderedPoints);
-  const width = getWidth(getOffset(discharge, meanderedPoints.length, widthFactor));
+    const sourceWidth = river?.sourceWidth || Rivers.getSourceWidth(cells.fl[source]);
+    const meanderedPoints = Rivers.addMeandering(riverCells);
+  
+    const discharge = cells.fl[mouth]; // m3 in second
+    const length = Rivers.getApproximateLength(meanderedPoints);
+    const width = Rivers.getWidth(
+      Rivers.getOffset({
+        flux: discharge,
+        pointIndex: meanderedPoints.length,
+        widthFactor,
+        startingWidth: sourceWidth
+      })
+    );
 
   if (river) {
     river.source = source;
@@ -775,9 +770,9 @@ function addRiverOnClick() {
     river.width = width;
     river.cells = riverCells;
   } else {
-    const basin = getBasin(parent);
-    const name = getName(mouth);
-    const type = getType({i: riverId, length, parent});
+    const basin = Rivers.getBasin(parent);
+    const name = Rivers.getName(mouth);
+    const type = Rivers.getType({i: riverId, length, parent});
 
     rivers.push({
       i: riverId,
@@ -787,7 +782,7 @@ function addRiverOnClick() {
       length,
       width,
       widthFactor,
-      sourceWidth: 0,
+      sourceWidth,
       parent,
       cells: riverCells,
       basin,
@@ -797,8 +792,7 @@ function addRiverOnClick() {
   }
 
   // render river
-  lineGen.curve(d3.curveCatmullRom.alpha(0.1));
-  const path = getRiverPath(meanderedPoints, widthFactor);
+  const path = Rivers.getRiverPath(meanderedPoints, widthFactor, sourceWidth);
   const id = "river" + riverId;
   const riversG = viewbox.select("#rivers");
   riversG.append("path").attr("id", id).attr("d", path);
