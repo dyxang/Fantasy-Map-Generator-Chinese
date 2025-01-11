@@ -38,7 +38,7 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
 <p>❗因代码底层逻辑，推荐电脑访问达到最好体验❗<p>
 <p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://hk.8desk.top" target="_blank">国内节点</a>③<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
 <p>应要求，建了个汉化版交流的群：873020847</p>汉化版完全免费，支持译者:
-<p><a href="https://afdian.net/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
+<p><a href="https://afdian.com/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>最近更新:</strong>
@@ -55,8 +55,8 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
         <li>渲染海洋高程图</li>
       </ul>
 
-      <p>加入作者 <a href="${discord}" target="_blank">Discord server</a> 和 <a href="${reddit}" target="_blank">Reddit 社区</a>提出问题，分享地图，讨论生成器和世界构建，报告错误并提出新功能。</p>
-      <span><i>感谢所有支持，去<a href="${patreon}" target="_blank">Patreon网站</a>上支持原作者!</i></span>`;
+      <p>加入原作者的 <a href="${discord}" target="_blank">Discord 群聊</a>或<a href="${reddit}" target="_blank">Reddit 社区</a>提出问题，分享地图，讨论生成器和世界构建，报告错误并提出新功能。</p>
+      <span><i>感谢所有支持，到<a href="${patreon}" target="_blank">Patreon（赞助网站）</a>上支持原作者!</i></span>`;
 
     $("#alert").dialog({
       resizable: false,
