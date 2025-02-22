@@ -13,7 +13,7 @@
  * Example: 1.102.2 -> Major version 1, Minor version 102, Patch version 2
  */
 
-const VERSION = "1.106.7";
+const VERSION = "1.108.4";
 if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format or parsing function");
 
 {
@@ -42,8 +42,9 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
       <ul>
         <strong>最近更新:</strong>
+        <li>可将自定义图片设置为标记或团徽，支持透明背景与动图</li>
         <li>下位/变化图重做</li>
-        <li>助手（右下气泡）提供生成器相关帮助，可用中文</li>
+        <li>助手（右下气泡）提供相关帮助，可用中文</li>
         <li>标签:可以设置字母间距</li>
         <li>Zone性能改进</li>
         <li>注释编辑器:按需AI文本生成</li>

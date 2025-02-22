@@ -963,7 +963,6 @@ export function resolveVersionConflicts(mapVersion) {
     defs.select("#land").selectAll("path, use").remove();
     defs.select("#water").selectAll("path, use").remove();
     viewbox.select("#coastline").selectAll("path, use").remove();
-    drawFeatures();
 
     // v1.104.0 introduced bugs with state borders
     regions
@@ -976,5 +975,23 @@ export function resolveVersionConflicts(mapVersion) {
     // pole can be missing for some states/provinces
     BurgsAndStates.getPoles();
     Provinces.getPoles();
+  }
+
+  if (isOlderThan("1.107.0")) {
+    // v1.107.0 allowed custom images for markers and regiments
+    if (layerIsOn("toggleMarkers")) drawMarkers();
+    if (layerIsOn("toggleMilitary")) drawMilitary();
+  }
+
+  if (isOlderThan("1.108.0")) {
+    // v1.108.0 changed features rendering method
+    pack.features.forEach(f => {
+      // fix lakes with missing group
+      if (f?.type === "lake" && !f.group) f.group = "freshwater";
+    });
+    drawFeatures();
+
+    // some old maps has incorrect "heights" groups
+    viewbox.selectAll("#heights").remove();
   }
 }

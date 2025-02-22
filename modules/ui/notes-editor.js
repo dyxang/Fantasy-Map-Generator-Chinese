@@ -40,8 +40,8 @@ function editNotes(id, name) {
 
   $("#notesEditor").dialog({
     title: "笔记编辑器",
-    width: window.innerWidth * 0.8,
-    height: window.innerHeight * 0.75,
+    width: svgHeight * 0.8,
+    height: svgHeight * 0.75,
     position: {my: "center", at: "center", of: "svg"},
     close: removeEditor
   });

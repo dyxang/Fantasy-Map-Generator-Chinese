@@ -255,6 +255,7 @@ async function parseLoadedData(data, mapVersion) {
       if (settings[23]) rescaleLabels.checked = +settings[23];
       if (settings[24]) urbanDensity = urbanDensityInput.value = +settings[24];
       if (settings[25]) longitudeInput.value = longitudeOutput.value = minmax(settings[25] || 50, 0, 100);
+      if (settings[26]) growthRate.value = settings[26];
     }
 
     {
@@ -469,7 +470,7 @@ async function parseLoadedData(data, mapVersion) {
 
     {
       // dynamically import and run auto-update script
-      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.105.24");
+      const {resolveVersionConflicts} = await import("../dynamic/auto-update.js?v=1.108.0");
       resolveVersionConflicts(mapVersion);
     }
 
@@ -486,13 +487,16 @@ async function parseLoadedData(data, mapVersion) {
       const textureHref = texture.attr("data-href");
       if (textureHref) updateTextureSelectValue(textureHref);
     }
-
+    // data integrity checks
     {
-      const cells = pack.cells;
+      const {cells, vertices} = pack;
 
-      if (pack.cells.i.length !== pack.cells.state.length) {
-        const message = "数据完整性检查。检测到条带问题。要修复请在清除模式下编辑高程图";
-        ERROR && console.error(message);
+      const cellsMismatch = cells.i.length !== cells.state.length;
+      const featureVerticesMismatch = pack.features.some(f => f?.vertices?.some(vertex => !vertices.p[vertex]));
+
+      if (cellsMismatch || featureVerticesMismatch) {
+        const message = "[数据完整性]检测到条带问题。要修复请在清除模式下编辑高程图";
+        throw new Error(message);
       }
 
       const invalidStates = [...new Set(cells.state)].filter(s => !pack.states[s] || pack.states[s].removed);
@@ -743,7 +747,7 @@ async function parseLoadedData(data, mapVersion) {
     $("#alert").dialog({
       resizable: false,
       title: "加载错误",
-      maxWidth: "50em",
+      maxWidth: "40em",
       buttons: {
         "清除缓存": () => cleanupData(),
         "选择文件": function () {

@@ -284,7 +284,14 @@ function overviewMilitary() {
       if (el.tagName !== "BUTTON") return;
       const type = el.dataset.type;
 
-      if (type === "icon") return selectIcon(el.textContent, v => (el.textContent = v));
+      if (type === "icon") {
+        return selectIcon(el.textContent, function (value) {
+          el.innerHTML = value.startsWith("http")
+            ? `<img src="${value}" style="width:1.2em;height:1.2em;pointer-events:none;">`
+            : value;
+        });
+      }
+      
       if (type === "biomes") {
         const {i, name, color} = biomesData;
         const biomesArray = Array(i.length).fill(null);
@@ -329,9 +336,16 @@ function overviewMilitary() {
           ${getLimitText(unit[attr])}
         </button>`;
 
-      row.innerHTML = /* html */ `<td><button data-type="icon" data-tip="点击选择单位图标">${
-        icon || " "
-      }</button></td>
+
+        row.innerHTML = /* html */ `<td>
+        <button data-type="icon" data-tip="点选单位图标">
+          ${
+            icon.startsWith("http")
+              ? `<img src="${icon}" style="width:1.2em;height:1.2em;pointer-events:none;">`
+              : icon || ""
+          }
+        </button>
+      </td>
         <td><input data-tip="键入单元名称。如果更改现有单元的名称，将替换旧单元" value="${name}" /></td>
         <td>${getLimitButton("biomes")}</td>
         <td>${getLimitButton("states")}</td>
@@ -339,7 +353,7 @@ function overviewMilitary() {
         <td>${getLimitButton("religions")}</td>
         <td><input data-tip="输入农村人口的征兵百分比" type="number" min="0" max="100" step=".01" value="${rural}" /></td>
         <td><input data-tip="输入城市人口的征兵百分比" type="number" min="0" max="100" step=".01" value="${urban}" /></td>
-        <td><input data-tip="输入工作人员的平均人数(用于计算总人数)" type="number" min="1" step="1" value="${crew}" /></td>
+        <td><input data-tip="输入非战斗员的平均人数(用于计算总人数)" type="number" min="1" step="1" value="${crew}" /></td>
         <td><input data-tip="输入军事力量(用于战斗模拟)" type="number" min="0" step=".1" value="${power}" /></td>
         <td>
           <select data-tip="选择单位类型，以适用于力重新计算的特殊规则">
@@ -424,7 +438,11 @@ function overviewMilitary() {
         const [icon, name, biomes, states, cultures, religions, rural, urban, crew, power, type, separate] =
           elements.map(el => {
             const {type, value} = el.dataset || {};
-            if (type === "icon") return el.textContent || "⠀";
+            if (type === "icon") {
+              const value = el.innerHTML.trim();
+              const isImage = value.startsWith("<img");
+              return isImage ? value.match(/src="([^"]*)"/)[1] : value || "⠀";
+            }
             if (type) return value ? value.split(",").map(v => parseInt(v)) : null;
             if (el.type === "number") return +el.value || 0;
             if (el.type === "checkbox") return +el.checked || 0;

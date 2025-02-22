@@ -69,18 +69,24 @@ function overviewMarkers() {
   function addLines() {
     const lines = pack.markers
       .map(({i, type, icon, pinned, lock}) => {
-        return `<div class="states" data-i=${i} data-type="${type}">
-        <div data-tip="标记图标和类型" style="width:12em">${icon} ${type}</div>
-        <span style="padding-right:.1em" data-tip="编辑标记" class="icon-pencil"></span>
-        <span style="padding-right:.1em" data-tip="定位标记位置" class="icon-dot-circled pointer"></span>
-        <span style="padding-right:.1em" data-tip="Pin 标记(只显示被固定标记)" class="icon-pin ${
-          pinned ? "" : "inactive"
-        }" pointer"></span>
-        <span style="padding-right:.1em" class="locks pointer ${
-          lock ? "icon-lock" : "icon-lock-open inactive"
-        }" onmouseover="showElementLockTip(event)"></span>
-        <span data-tip="删除标记" class="icon-trash-empty"></span>
-      </div>`;
+        return /* html */ `
+          <div class="states" data-i=${i} data-type="${type}">
+            ${
+              icon.startsWith("http")
+                ? `<img src="${icon}" data-tip="Marker icon" style="width:1.2em; height:1.2em; vertical-align: middle;">`
+                : `<span data-tip="Marker icon" style="width:1.2em">${icon}</span>`
+            }
+            <div data-tip="标记类型" style="width:10em">${type}</div>
+            <span style="padding-right:.1em" data-tip="编辑标记" class="icon-pencil"></span>
+            <span style="padding-right:.1em" data-tip="定位标记位置" class="icon-dot-circled pointer"></span>
+            <span style="padding-right:.1em" data-tip="Pin 标记(只显示被固定标记)" class="icon-pin ${
+              pinned ? "" : "inactive"
+            }" pointer"></span>
+            <span style="padding-right:.1em" class="locks pointer ${
+              lock ? "icon-lock" : "icon-lock-open inactive"
+            }" onmouseover="showElementLockTip(event)"></span>
+            <span data-tip="移除标记" class="icon-trash-empty"></span>
+          </div>`;
       })
       .join("");
 
