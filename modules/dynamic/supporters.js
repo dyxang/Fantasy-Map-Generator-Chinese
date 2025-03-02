@@ -18,6 +18,7 @@ DCVSMarvel
 飞天归来
 Yotta
 怎么回事
+师维梵
 及其他七个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
