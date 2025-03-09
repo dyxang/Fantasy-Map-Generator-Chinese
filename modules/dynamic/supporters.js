@@ -19,6 +19,7 @@ DCVSMarvel
 Yotta
 怎么回事
 师维梵
+朱■哲
 及其他七个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
