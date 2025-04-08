@@ -995,13 +995,13 @@ function textureProvideURL() {
     title: "加载自定义纹理",
     width: "28em",
     buttons: {
-      Apply: function () {
+      应用: function () {
         if (!textureURL.value) return tip("请提供一个有效的 URL", false, "error");
         changeTexture(textureURL.value);
         updateTextureSelectValue(textureURL.value);
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }

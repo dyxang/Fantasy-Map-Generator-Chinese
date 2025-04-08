@@ -95,7 +95,7 @@ function editMarker(markerI) {
   }
 
   function updateInputs() {
-    byId("markerIcon").innerHTML = marker.icon.startsWith("http")
+    byId("markerIcon").innerHTML = marker.icon.startsWith("http") || marker.icon.startsWith("data:image")
       ? `<img src="${marker.icon}" style="width: 1em; height: 1em;">`
       : marker.icon;
 

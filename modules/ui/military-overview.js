@@ -286,7 +286,7 @@ function overviewMilitary() {
 
       if (type === "icon") {
         return selectIcon(el.textContent, function (value) {
-          el.innerHTML = value.startsWith("http")
+          el.innerHTML = value.startsWith("http") || value.startsWith("data:image")
             ? `<img src="${value}" style="width:1.2em;height:1.2em;pointer-events:none;">`
             : value;
         });
@@ -338,14 +338,14 @@ function overviewMilitary() {
 
 
         row.innerHTML = /* html */ `<td>
-        <button data-type="icon" data-tip="点选单位图标">
-          ${
-            icon.startsWith("http")
-              ? `<img src="${icon}" style="width:1.2em;height:1.2em;pointer-events:none;">`
-              : icon || ""
-          }
-        </button>
-      </td>
+          <button data-type="icon" data-tip="点选单位图标">
+            ${
+              icon.startsWith("http") || icon.startsWith("data:image")
+                ? `<img src="${icon}" style="width:1.2em;height:1.2em;pointer-events:none;">`
+                : icon || ""
+            }
+          </button>
+        </td>
         <td><input data-tip="键入单元名称。如果更改现有单元的名称，将替换旧单元" value="${name}" /></td>
         <td>${getLimitButton("biomes")}</td>
         <td>${getLimitButton("states")}</td>

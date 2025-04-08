@@ -523,6 +523,7 @@ function regenerateCultures() {
   Cultures.expand();
   BurgsAndStates.updateCultures();
   Religions.updateCultures();
+
   layerIsOn("toggleCultures") ? drawCultures() : toggleCultures();
   refreshAllEditors();
 }
@@ -751,19 +752,19 @@ function addRiverOnClick() {
   const defaultWidthFactor = rn(1 / (pointsInput.dataset.cells / 10000) ** 0.25, 2);
   const widthFactor =
     river?.widthFactor || (!parent || parent === riverId ? defaultWidthFactor * 1.2 : defaultWidthFactor);
-    const sourceWidth = river?.sourceWidth || Rivers.getSourceWidth(cells.fl[source]);
-    const meanderedPoints = Rivers.addMeandering(riverCells);
-  
-    const discharge = cells.fl[mouth]; // m3 in second
-    const length = Rivers.getApproximateLength(meanderedPoints);
-    const width = Rivers.getWidth(
-      Rivers.getOffset({
-        flux: discharge,
-        pointIndex: meanderedPoints.length,
-        widthFactor,
-        startingWidth: sourceWidth
-      })
-    );
+  const sourceWidth = river?.sourceWidth || Rivers.getSourceWidth(cells.fl[source]);
+  const meanderedPoints = Rivers.addMeandering(riverCells);
+
+  const discharge = cells.fl[mouth]; // m3 in second
+  const length = Rivers.getApproximateLength(meanderedPoints);
+  const width = Rivers.getWidth(
+    Rivers.getOffset({
+      flux: discharge,
+      pointIndex: meanderedPoints.length,
+      widthFactor,
+      startingWidth: sourceWidth
+    })
+  );
 
   if (river) {
     river.source = source;
@@ -862,6 +863,7 @@ function configMarkersGeneration() {
 
   function drawConfigTable() {
     const config = Markers.getConfig();
+
     const headers = /* html */ `<thead style='font-weight:bold'><tr>
       <td data-tip="标记类型名称">类型</td>
       <td data-tip="标记图标">图标</td>
@@ -870,7 +872,7 @@ function configMarkersGeneration() {
     </tr></thead>`;
 
     const lines = config.map(({type, icon, multiplier}) => {
-      const isExternal = icon.startsWith("http");
+      const isExternal = icon.startsWith("http") || icon.startsWith("data:image");
 
       return /* html */ `<tr>
         <td><input class="type" value="${type}" /></td>
@@ -885,6 +887,7 @@ function configMarkersGeneration() {
         <td style="text-align:center">${pack.markers.filter(marker => marker.type === type).length}</td>
       </tr>`;
     });
+
     const table = `<table class="table">${headers}<tbody>${lines.join("")}</tbody></table>`;
     alertMessage.innerHTML = table;
 
@@ -895,7 +898,7 @@ function configMarkersGeneration() {
         const icon = image.getAttribute("src") || emoji.textContent;
 
         selectIcon(icon, value => {
-          const isExternal = value.startsWith("http");
+          const isExternal = value.startsWith("http") || value.startsWith("data:image");
           image.setAttribute("src", isExternal ? value : "");
           image.hidden = !isExternal;
           emoji.textContent = isExternal ? "" : value;

@@ -1204,14 +1204,14 @@ function selectIcon(initial, callback) {
     const image = document.createElement("div");
     image.style.cssText = `width: 2.2em; height: 2.2em; background-size: cover; background-image: url(${url})`;
     addedIcons.appendChild(image);
-    image.onclick = () => callback(ulr);
+    image.onclick = () => callback(url);
   }
 
   byId("addImage").onclick = function () {
     const input = this.previousElementSibling;
     const ulr = input.value;
     if (!ulr) return tip("添加图像URL链接", false, "error", 4000);
-    if (!ulr.match(/^(http|https):\/\//)) return tip("无效URL链接", false, "error", 4000);
+    if (!ulr.match(/^((http|https):\/\/)|data\:image\//)) return tip("无效URL链接", false, "error", 4000);
     addExternalImage(ulr);
     callback(ulr);
     input.value = "";
