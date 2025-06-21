@@ -20,6 +20,11 @@ Yotta
 怎么回事
 师维梵
 朱■哲
+爱发电用户_eWFG
+了望的猪猪
+JUNJUN
+爱发电用户_YTSe
+爱发电用户_850dc
 及其他七个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan
