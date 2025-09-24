@@ -36,7 +36,7 @@ if (parseMapVersion(VERSION) !== VERSION) alert("versioning.js: Invalid format o
       ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
 <p><strong>⚠请必须仔细阅读以下内容！</strong></p>
 <p>❗因代码底层逻辑，推荐电脑访问达到最好体验❗<p>
-<p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://hk.8desk.top" target="_blank">国内节点</a>③<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
+<p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
 <p>应要求，建了个汉化版交流的群：873020847</p>汉化版完全免费，支持译者:
 <p><a href="https://afdian.com/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
 <p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
