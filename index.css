@@ -173,6 +173,7 @@ t,
 #landmass,
 #vignette,
 #gridOverlay,
+#gridOverlay,
 #fogging {
   pointer-events: none;
 }

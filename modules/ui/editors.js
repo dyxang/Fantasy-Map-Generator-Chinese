@@ -1169,9 +1169,10 @@ function selectIcon(initial, callback) {
       cell.innerHTML = icons[i];
     }
 
+
     // find external images used as icons and show them
     const externalResources = new Set();
-    const isExternal = url => url.startsWith("http");
+    const isExternal = url => url.startsWith("http") || url.startsWith("data:image");
 
     options.military.forEach(unit => {
       if (isExternal(unit.icon)) externalResources.add(unit.icon);
@@ -1210,8 +1211,8 @@ function selectIcon(initial, callback) {
   byId("addImage").onclick = function () {
     const input = this.previousElementSibling;
     const ulr = input.value;
-    if (!ulr) return tip("添加图像URL链接", false, "error", 4000);
-    if (!ulr.match(/^((http|https):\/\/)|data\:image\//)) return tip("无效URL链接", false, "error", 4000);
+    if (!ulr) return tip("输入图片地址添加", false, "error", 4000);
+    if (!ulr.match(/^((http|https):\/\/)|data\:image\//)) return tip("无效地址", false, "error", 4000);
     addExternalImage(ulr);
     callback(ulr);
     input.value = "";

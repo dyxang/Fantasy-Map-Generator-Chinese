@@ -1,5 +1,4 @@
 export const trbackers = `Crisp
-怎么回事
 ■越
 星空下的牧草
 ■■晗
@@ -25,6 +24,8 @@ Yotta
 JUNJUN
 爱发电用户_YTSe
 爱发电用户_850dc
+爱发电用户_66f75
+青莲剑歌
 及其他七个好心人`;
 export const supporters = `ken burgan
 Sera's Nafitlaan

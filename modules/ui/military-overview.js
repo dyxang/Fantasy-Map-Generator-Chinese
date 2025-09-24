@@ -291,7 +291,7 @@ function overviewMilitary() {
             : value;
         });
       }
-      
+
       if (type === "biomes") {
         const {i, name, color} = biomesData;
         const biomesArray = Array(i.length).fill(null);
@@ -336,8 +336,7 @@ function overviewMilitary() {
           ${getLimitText(unit[attr])}
         </button>`;
 
-
-        row.innerHTML = /* html */ `<td>
+      row.innerHTML = /* html */ `<td>
           <button data-type="icon" data-tip="点选单位图标">
             ${
               icon.startsWith("http") || icon.startsWith("data:image")

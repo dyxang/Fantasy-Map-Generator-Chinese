@@ -37,7 +37,9 @@ function overviewRegiments(state) {
     const insert = html => document.getElementById("regimentsTotal").insertAdjacentHTML("beforebegin", html);
     for (const u of options.military) {
       const label = capitalize(u.name.replace(/_/g, " "));
-      insert(`<div data-tip="军队 ${u.name} 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`);
+      insert(
+        `<div data-tip="军队 ${u.name} 单位数量. 点击以进行排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`
+      );
     }
     header.querySelectorAll(".removable").forEach(function (e) {
       e.addEventListener("click", function () {
@@ -60,27 +62,29 @@ function overviewRegiments(state) {
       for (const r of s.military) {
         const sortData = options.military.map(u => `data-${u.name}=${r.u[u.name] || 0}`).join(" ");
         const lineData = options.military
-          .map(u => `<div data-type="${u.name}" data-tip="${capitalize(u.name)} 单位数量">${r.u[u.name] || 0}</div>`)
+          .map(
+            u => `<div data-type="${u.name}" data-tip="${capitalize(u.name)} 单位数量">${r.u[u.name] || 0}</div>`
+          )
           .join(" ");
 
-          lines += /* html */ `<div class="states" data-id="${r.i}" data-s="${s.i}" data-state="${s.name}" data-name="${
-            r.name
-          }" ${sortData} data-total="${r.a}">
-            <fill-box data-tip="${s.fullName}" fill="${s.color}" disabled></fill-box>
-            <input data-tip="${s.fullName}" style="width:6em" value="${s.name}" readonly />
-            ${
-              r.icon.startsWith("http")
-                ? `<img src="${r.icon}" data-tip="Regiment's emblem" style="width:1.2em; height:1.2em; vertical-align: middle;">`
-                : `<span data-tip="团徽" style="width:1em">${r.icon}</span>`
-            }
-            <input data-tip="团名" style="width:13em" value="${r.name}" readonly />
-            ${lineData}
-            <div data-type="total" data-tip="总兵力（除去非战斗员）" style="font-weight: bold">${
-              r.a
-            }</div>
-            <span data-tip="编辑军队" onclick="editRegiment('#regiment${s.i}-${
-            r.i
-          }')" class="icon-pencil pointer"></span>
+        lines += /* html */ `<div class="states" data-id="${r.i}" data-s="${s.i}" data-state="${s.name}" data-name="${
+          r.name
+        }" ${sortData} data-total="${r.a}">
+          <fill-box data-tip="${s.fullName}" fill="${s.color}" disabled></fill-box>
+          <input data-tip="${s.fullName}" style="width:6em" value="${s.name}" readonly />
+          ${
+            r.icon.startsWith("http") || r.icon.startsWith("data:image")
+              ? `<img src="${r.icon}" data-tip="Regiment's emblem" style="width:1.2em; height:1.2em; vertical-align: middle;">`
+              : `<span data-tip="团徽" style="width:1em">${r.icon}</span>`
+          }
+          <input data-tip="团名" style="width:13em" value="${r.name}" readonly />
+          ${lineData}
+          <div data-type="total" data-tip="总兵力（除去非战斗员）" style="font-weight: bold">${
+            r.a
+          }</div>
+          <span data-tip="编辑军队" onclick="editRegiment('#regiment${s.i}-${
+          r.i
+        }')" class="icon-pencil pointer"></span>
         </div>`;
 
         regiments.push(r);
