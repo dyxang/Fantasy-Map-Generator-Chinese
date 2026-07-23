@@ -3,7 +3,7 @@
 // module to control the Tools options (click to edit, to re-geenerate, tp add)
 
 toolsContent.addEventListener("click", function (event) {
-  if (customization) return tip("Please exit the customization mode first", false, "error");
+  if (customization) return tip("请先退出自定义模式", false, "error");
   if (!["BUTTON", "I"].includes(event.target.tagName)) return;
   const button = event.target.id;
 
@@ -42,7 +42,7 @@ toolsContent.addEventListener("click", function (event) {
     alertMessage.innerHTML = /* html */ `Regeneration will remove all the custom changes for the element.<br /><br />Are you sure you want to proceed?`;
     $("#alert").dialog({
       resizable: false,
-      title: "Regenerate element",
+      title: "重新生成元素",
       buttons: {
         Proceed: function () {
           processFeatureRegeneration(event, button);
@@ -123,7 +123,7 @@ async function openEmblemEditor() {
     id = `burgCOA${firstBurg.i}`;
     el = firstBurg;
   } else {
-    tip("No emblems to edit, please generate states and burgs first", false, "error");
+    tip("没有可编辑的纹章，请先生成国家和城镇", false, "error");
     return;
   }
 
@@ -200,13 +200,13 @@ function recreateStates() {
 
   const statesCount = +ensureEl("statesNumber").value;
   if (!statesCount) {
-    tip(`<i>States Number</i> option value is zero. No counties are generated`, false, "error");
+    tip(`<i>States Number</i> 选项值为零。未生成任何国家`, false, "error");
     return null;
   }
 
   const validBurgs = pack.burgs.filter(b => b.i && !b.removed);
   if (!validBurgs.length) {
-    tip("There are no any burgs to generate states. Please create burgs first", false, "error");
+    tip("没有可用来生成国家的城镇。请先创建城镇", false, "error");
     return null;
   }
 
@@ -221,7 +221,7 @@ function recreateStates() {
   const lockedStatesCapitals = lockedStates.map(s => s.capital);
 
   if (validStates.length && lockedStates.length === validStates.length) {
-    tip("Unable to regenerate as all states are locked", false, "error");
+    tip("所有国家已锁定，无法重新生成", false, "error");
     return null;
   }
 
@@ -669,7 +669,7 @@ function toggleAddLabel() {
   addLabel.classList.add("pressed");
   closeDialogs(".stable");
   viewbox.style("cursor", "crosshair").on("click", addLabelOnClick);
-  tip("Click on map to place label. Hold Shift to add multiple", true);
+  tip("点击地图放置标签。按住 Shift 添加多个", true);
   if (!layerIsOn("toggleLabels")) toggleLabels();
 }
 
@@ -749,7 +749,7 @@ function toggleAddRiver() {
   findEl("addNewRiver")?.classList.add("pressed");
   closeDialogs(".stable");
   viewbox.style("cursor", "crosshair").on("click", addRiverOnClick);
-  tip("Click on map to place new river or extend an existing one. Hold Shift to place multiple rivers", true, "warn");
+  tip("点击地图放置新河流或延伸现有河流。按住 Shift 放置多条河流", true, "warn");
   if (!layerIsOn("toggleRivers")) toggleRivers();
 }
 
@@ -757,8 +757,8 @@ function addRiverOnClick() {
   const { cells, rivers } = pack;
   let i = findCell(...d3.mouse(this));
 
-  if (cells.r[i]) return tip("There is already a river here", false, "error");
-  if (cells.h[i] < 20) return tip("Cannot create river in water cell", false, "error");
+  if (cells.r[i]) return tip("此处已有河流", false, "error");
+  if (cells.h[i] < 20) return tip("无法在水域单元格中创建河流", false, "error");
   if (cells.b[i]) return;
 
   const riverCells = [];
@@ -776,7 +776,7 @@ function addRiverOnClick() {
     riverCells.push(i);
 
     const min = cells.c[i].sort((a, b) => h[a] - h[b])[0]; // downhill cell
-    if (h[i] <= h[min]) return tip(`Cell ${i} is depressed, river cannot flow further`, false, "error");
+    if (h[i] <= h[min]) return tip(`单元格 ${i} 处于洼地，河流无法继续流动`, false, "error");
 
     // pour to water body
     if (h[min] < 20) {
@@ -911,7 +911,7 @@ function toggleAddMarker() {
   document.getElementById("markersAddFromOverview")?.classList.add("pressed");
 
   viewbox.style("cursor", "crosshair").on("click", addMarkerOnClick);
-  tip("Click on map to add a marker. Hold Shift to add multiple", true);
+  tip("点击地图添加标记。按住 Shift 添加多个", true);
   if (!layerIsOn("toggleMarkers")) toggleMarkers();
 }
 
@@ -1022,7 +1022,7 @@ function configMarkersGeneration() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Markers generation settings",
+    title: "标记生成设置",
     position: { my: "left top", at: "left+10 top+10", of: "svg", collision: "fit" },
     buttons: {
       Regenerate: () => {
@@ -1036,8 +1036,8 @@ function configMarkersGeneration() {
     },
     open: function () {
       const buttons = $(this).dialog("widget").find(".ui-dialog-buttonset > button");
-      buttons[0].addEventListener("mousemove", () => tip("Apply changes and regenerate markers"));
-      buttons[1].addEventListener("mousemove", () => tip("Close the window"));
+      buttons[0].addEventListener("mousemove", () => tip("应用更改并重新生成标记"));
+      buttons[1].addEventListener("mousemove", () => tip("关闭窗口"));
     },
     close: function () {
       $(this).dialog("destroy");
@@ -1049,7 +1049,7 @@ function viewCellDetails() {
   $("#cellInfo").dialog({
     resizable: false,
     width: "22em",
-    title: "Cell Details",
+    title: "单元格详情",
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" }
   });
 }

@@ -261,7 +261,7 @@ function drawLayers() {
 }
 
 function toggleHeight(event) {
-  if (customization === 1) return tip("You cannot turn off the layer when heightmap is in edit mode", false, "error");
+  if (customization === 1) return tip("高度图处于编辑模式时无法关闭该图层", false, "error");
 
   const children = terrs.selectAll("#oceanHeights > *, #landHeights > *");
   if (!children.size()) {
@@ -816,7 +816,7 @@ function drawRivers() {
 
     if (points && points.length !== cells.length) {
       console.error(
-        `River ${i} has ${cells.length} cells, but only ${points.length} points defined. Resetting points data`
+        `河流 ${i} 有 ${cells.length} 个单元格，但仅定义了 ${points.length} 个点。重置点数据`
       );
       points = undefined;
     }

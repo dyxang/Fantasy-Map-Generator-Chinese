@@ -732,7 +732,7 @@ openCreateHeightmapSchemeButton.on("click", function () {
 
   function handleCreate() {
     const stops = openCreateHeightmapSchemeButton.dataset.stops;
-    if (stops in heightmapColorSchemes) return tip("This scheme already exists", false, "error");
+    if (stops in heightmapColorSchemes) return tip("该配色方案已存在", false, "error");
 
     addCustomColorScheme(stops);
     getEl().attr("scheme", stops);
@@ -747,7 +747,7 @@ openCreateHeightmapSchemeButton.on("click", function () {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Create heightmap color scheme",
+    title: "创建高度图配色方案",
     width: "28em",
     buttons: {
       Create: handleCreate,
@@ -880,7 +880,7 @@ styleFontAdd.on("click", function () {
   addFontURLInput.value = "";
 
   $("#addFontDialog").dialog({
-    title: "Add custom font",
+    title: "添加自定义字体",
     width: "26em",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
@@ -889,13 +889,13 @@ styleFontAdd.on("click", function () {
         const src = addFontURLInput.value;
         const method = addFontMethod.value;
 
-        if (!family) return tip("Please provide a font name", false, "error");
+        if (!family) return tip("请提供字体名称", false, "error");
 
         const existingFont =
           method === "fontURL"
             ? fonts.find(font => font.family === family && font.src === src)
             : fonts.find(font => font.family === family);
-        if (existingFont) return tip("The font is already added", false, "error");
+        if (existingFont) return tip("该字体已添加", false, "error");
 
         if (method === "fontURL") addWebFont(family, src);
         else if (method === "googleFont") addGoogleFont(family);
@@ -1061,11 +1061,11 @@ function textureProvideURL() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Load custom texture",
+    title: "加载自定义纹理",
     width: "28em",
     buttons: {
       Apply: function () {
-        if (!textureURL.value) return tip("Please provide a valid URL", false, "error");
+        if (!textureURL.value) return tip("请提供有效的 URL", false, "error");
         changeTexture(textureURL.value);
         updateTextureSelectValue(textureURL.value);
         $(this).dialog("close");
@@ -1078,7 +1078,7 @@ function textureProvideURL() {
 }
 
 function fetchTextureURL(url) {
-  INFO && console.info("Provided URL is", url);
+  INFO && console.info("提供的 URL 为", url);
   const img = new Image();
   img.onload = function () {
     const canvas = ensureEl("texturePreview");

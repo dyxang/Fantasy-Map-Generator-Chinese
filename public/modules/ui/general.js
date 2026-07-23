@@ -79,9 +79,9 @@ function showDataTip(event) {
 function showElementLockTip(event) {
   const locked = event?.target?.classList?.contains("icon-lock");
   if (locked) {
-    tip("Locked. Click to unlock the element and allow it to be changed by regeneration tools");
+    tip("已锁定。点击解锁元素，允许重新生成工具修改它");
   } else {
-    tip("Unlocked. Click to lock the element and prevent changes to it by regeneration tools");
+    tip("已解锁。点击锁定元素，防止重新生成工具修改它");
   }
 }
 
@@ -151,7 +151,7 @@ function showMapTooltip(point, e, i, g) {
     d3.select(parent).raise();
 
     const name = g[i].fullName || g[i].name;
-    tip(`${name} ${type} emblem. Click to edit. Hold Shift to show associated area or place`);
+    tip(`${name} ${type}纹章。点击编辑。按住 Shift 显示关联区域或地点`);
     return;
   }
 
@@ -169,32 +169,32 @@ function showMapTooltip(point, e, i, g) {
     const routeId = +e.target.id.slice(5);
     const route = pack.routes.find(route => route.i === routeId);
     if (route) {
-      if (route.name) return tip(`${route.name}. Click to edit the Route`);
-      return tip("Click to edit the Route");
+      if (route.name) return tip(`${route.name}。点击编辑道路`);
+      return tip("点击编辑道路");
     }
   }
 
-  if (group === "terrain") return tip("Click to edit the Relief Icon");
+  if (group === "terrain") return tip("点击编辑地形图标");
 
   if (subgroup === "burgLabels" || subgroup === "burgIcons") {
     const burgId = +path[path.length - 10].dataset.id;
     if (burgId) {
       const burg = pack.burgs[burgId];
       const population = si(burg.population * populationRate * urbanization);
-      tip(`${burg.name} ${burg.group}. Population: ${population}. Click to edit`);
+      tip(`${burg.name} ${burg.group}。人口：${population}。点击编辑`);
       const burgsOverviewEl = findEl("burgsOverview");
       if (burgsOverviewEl) highlightEditorLine(burgsOverviewEl, burgId, 5000);
       return;
     }
   }
 
-  if (group === "labels") return tip("Click to edit the Label");
+  if (group === "labels") return tip("点击编辑标签");
 
-  if (group === "markers") return tip("Click to edit the Marker. Hold Shift to not close the assosiated note");
+  if (group === "markers") return tip("点击编辑标记。按住 Shift 不关闭关联笔记");
 
   if (group === "ruler") {
-    if (findEl("measurersEditor")) return tip("Drag the measurer or its points to edit");
-    return tip("Click to open the Measurers Editor");
+    if (findEl("measurersEditor")) return tip("拖动测量器或其控制点进行编辑");
+    return tip("点击打开测量器编辑器");
   }
 
   if (group === "markets") {
@@ -203,7 +203,7 @@ function showMapTooltip(point, e, i, g) {
       const market = Markets.marketById[+marketEl.dataset.id];
       const centerBurg = market && pack.burgs[market.centerBurgId];
       if (!centerBurg) return;
-      return tip(`${centerBurg.name} market. Click to view`);
+      return tip(`${centerBurg.name}市场。点击查看`);
     }
   }
 
@@ -220,7 +220,7 @@ function showMapTooltip(point, e, i, g) {
 
     if (el.closest("#goodsIcons")) {
       const good = Goods.get(+el.closest("[data-i]")?.dataset.i);
-      return tip(`${good?.name} bonus resource. Click to open Goods Editor and select displayed goods`);
+      return tip(`${good?.name}奖励资源。点击打开货物编辑器并选择显示的货物`);
     }
 
     if (el.closest("#goodsCells")) {
@@ -229,7 +229,7 @@ function showMapTooltip(point, e, i, g) {
       const cultureType = pack.cultures[pack.cells.culture[i]]?.type || "Generic";
       const produced = Production.getCellProduction(i, Goods.getBiomesProduction());
       return tip(
-        `Cell rural production: ${formatProduct(produced).join(", ")}. Click to select displayed goods in Goods Editor`
+        `单元格乡村产出：${formatProduct(produced).join(", ")}。点击在货物编辑器中选择显示的货物`
       );
     }
 
@@ -240,7 +240,7 @@ function showMapTooltip(point, e, i, g) {
       if (!burg || burg.removed) return;
       d3.select(burgEl).raise();
       const produced = Production.getBurgProduction(burg);
-      return tip(`${burg.name} urban production: ${formatProduct(produced).join(", ")}. Click to view`);
+      return tip(`${burg.name}城市产出：${formatProduct(produced).join(", ")}。点击查看`);
     }
 
     return;
@@ -250,27 +250,27 @@ function showMapTooltip(point, e, i, g) {
     const tag = e.target.tagName;
     const className = e.target.getAttribute("class");
     if (tag === "circle" && className === "edge")
-      return tip("Drag to adjust. Hold Ctrl and drag to add a point. Click to remove the point");
+      return tip("拖动调整。按住 Ctrl 拖动添加点。点击移除点");
     if (tag === "circle" && className === "control")
-      return tip("Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point");
-    if (tag === "circle") return tip("Drag to adjust the measurer");
-    if (tag === "polyline") return tip("Click on drag to add a control point");
-    if (tag === "path") return tip("Drag to move the measurer");
-    if (tag === "text") return tip("Drag to move, click to remove the measurer");
+      return tip("拖动调整。按住 Shift 拖动保持轴向。点击移除点");
+    if (tag === "circle") return tip("拖动调整测量器");
+    if (tag === "polyline") return tip("点击拖动添加控制点");
+    if (tag === "path") return tip("拖动移动测量器");
+    if (tag === "text") return tip("拖动移动，点击移除测量器");
   }
 
-  if (subgroup === "burgIcons") return tip("Click to edit the Burg");
+  if (subgroup === "burgIcons") return tip("点击编辑城镇");
 
-  if (subgroup === "burgLabels") return tip("Click to edit the Burg");
+  if (subgroup === "burgLabels") return tip("点击编辑城镇");
 
   if (group === "lakes" && !land) {
     const lakeId = +e.target.dataset.f;
     const name = pack.features[lakeId]?.name;
     const fullName = subgroup === "freshwater" ? name : name + " " + subgroup;
-    tip(`${fullName} lake. Click to edit`);
+    tip(`${fullName}湖泊。点击编辑`);
     return;
   }
-  if (group === "coastline") return tip("Click to edit the coastline");
+  if (group === "coastline") return tip("点击编辑海岸线");
 
   if (group === "zones") {
     const element = path[path.length - 8];
@@ -282,15 +282,15 @@ function showMapTooltip(point, e, i, g) {
     return;
   }
 
-  if (group === "ice") return tip("Click to edit the Ice");
+  if (group === "ice") return tip("点击编辑冰");
 
   // covering elements
-  if (layerIsOn("togglePrecipitation") && land) tip("Annual Precipitation: " + getFriendlyPrecipitation(i));
+  if (layerIsOn("togglePrecipitation") && land) tip("年降水量：" + getFriendlyPrecipitation(i));
   else if (layerIsOn("togglePopulation")) tip(getPopulationTip(i));
-  else if (layerIsOn("toggleTemperature")) tip("Temperature: " + convertTemperature(grid.cells.temp[g]));
+  else if (layerIsOn("toggleTemperature")) tip("温度：" + convertTemperature(grid.cells.temp[g]));
   else if (layerIsOn("toggleBiomes") && pack.cells.biome[i]) {
     const biome = pack.cells.biome[i];
-    tip("Biome: " + biomesData.name[biome]);
+    tip("生物群系：" + biomesData.name[biome]);
     const biomesEditorEl = findEl("biomesEditor");
     if (biomesEditorEl) highlightEditorLine(biomesEditorEl, biome);
   } else if (layerIsOn("toggleReligions") && pack.cells.religion[i]) {
@@ -318,10 +318,10 @@ function showMapTooltip(point, e, i, g) {
       highlightEditorLine(ensureEl("mergeStatesForm"), state);
   } else if (layerIsOn("toggleCultures") && pack.cells.culture[i]) {
     const culture = pack.cells.culture[i];
-    tip("Culture: " + pack.cultures[culture].name);
+    tip("文化：" + pack.cultures[culture].name);
     const culturesEditorEl = findEl("culturesEditor");
     if (culturesEditorEl) highlightEditorLine(culturesEditorEl, culture);
-  } else if (layerIsOn("toggleHeight")) tip("Height: " + getFriendlyHeight(point));
+  } else if (layerIsOn("toggleHeight")) tip("高度：" + getFriendlyHeight(point));
 }
 
 function highlightEditorLine(editor, id, timeout = 10000) {
@@ -542,8 +542,8 @@ document.querySelectorAll("[data-locked]").forEach(function (e) {
   e.addEventListener("mouseover", function (e) {
     e.stopPropagation();
     if (this.className === "icon-lock")
-      tip("Click to unlock the option and allow it to be randomized on new map generation");
-    else tip("Click to lock the option and always use the current value on new map generation");
+      tip("点击解锁选项，允许在新地图生成时随机化");
+    else tip("点击锁定选项，新地图生成时始终使用当前值");
   });
 
   e.addEventListener("click", function () {

@@ -37,6 +37,17 @@
     { "en": "Renderer", "zh": "渲染器", "context": "rendering", "do_not_translate": false },
     { "en": "Configurator", "zh": "配置器", "context": "ui", "do_not_translate": false },
     { "en": "Submap", "zh": "子地图", "context": "tool", "do_not_translate": false },
-    { "en": "Azgaar", "zh": "Azgaar", "context": "brand", "do_not_translate": true }
+    { "en": "Azgaar", "zh": "Azgaar", "context": "brand", "do_not_translate": true },
+    { "en": "Picker", "zh": "拾色器", "context": "ui_color", "do_not_translate": false },
+    { "en": "Palette", "zh": "调色板", "context": "ui_color", "do_not_translate": false },
+    { "en": "Hatching", "zh": "阴影线", "context": "rendering", "do_not_translate": false },
+    { "en": "Texture", "zh": "纹理", "context": "rendering", "do_not_translate": false },
+    { "en": "Preset", "zh": "预设", "context": "ui", "do_not_translate": false },
+    { "en": "Style", "zh": "样式", "context": "ui", "do_not_translate": false },
+    { "en": "Tile", "zh": "瓦片", "context": "export", "do_not_translate": false },
+    { "en": "Relief Icon", "zh": "地形图标", "context": "rendering", "do_not_translate": false },
+    { "en": "Label", "zh": "标签", "context": "rendering", "do_not_translate": false },
+    { "en": "Measurers", "zh": "测量器", "context": "tool", "do_not_translate": false },
+    { "en": "Population", "zh": "人口", "context": "demographic", "do_not_translate": false }
   ]
 }

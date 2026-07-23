@@ -46,14 +46,14 @@ async function getStylePreset(desiredPreset) {
   if (isCustom) {
     const storedStyleJSON = localStorage.getItem(desiredPreset);
     if (!storedStyleJSON) {
-      ERROR && console.error(`Custom style ${desiredPreset} in not found in localStorage. Applying default style`);
+      ERROR && console.error(`在 localStorage 中未找到自定义样式 ${desiredPreset}。应用默认样式`);
       presetToLoad = "default";
     } else {
       const isValid = JSON.isValid(storedStyleJSON);
       if (isValid) return [desiredPreset, JSON.parse(storedStyleJSON)];
 
       ERROR &&
-        console.error(`Custom style ${desiredPreset} stored in localStorage is not valid. Applying default style`);
+        console.error(`localStorage 中存储的自定义样式 ${desiredPreset} 无效。应用默认样式`);
       presetToLoad = "default";
     }
   }
@@ -123,8 +123,8 @@ function requestStylePresetChange(preset) {
   if (isConfirmed) return changeStyle(preset);
 
   confirmationDialog({
-    title: "Change style preset",
-    message: "Are you sure you want to change the style preset? All unsaved style changes will be lost",
+    title: "更改样式预设",
+    message: "确定要更改样式预设吗？所有未保存的样式更改都将丢失",
     confirm: "Change",
     onConfirm: () => {
       sessionStorage.setItem("styleChangeConfirmed", true);
@@ -165,7 +165,7 @@ function applyStyleWithUiRefresh(style) {
 }
 
 function addStylePreset() {
-  $("#styleSaver").dialog({ title: "Style Saver", width: "26em", position: { my: "center", at: "center", of: "svg" } });
+  $("#styleSaver").dialog({ title: "样式保存器", width: "26em", position: { my: "center", at: "center", of: "svg" } });
 
   const styleName = stylePreset.value.replace(customPresetPrefix, "");
   document.getElementById("styleSaverName").value = styleName;
@@ -408,11 +408,11 @@ function addStylePreset() {
     const styleJSON = styleSaverJSON.value;
     const desiredName = styleSaverName.value;
 
-    if (!styleJSON) return tip("Please provide a style JSON", false, "error");
-    if (!JSON.isValid(styleJSON)) return tip("JSON string is not valid, please check the format", false, "error");
-    if (!desiredName) return tip("Please provide a preset name", false, "error");
+    if (!styleJSON) return tip("请提供样式 JSON", false, "error");
+    if (!JSON.isValid(styleJSON)) return tip("JSON 字符串无效，请检查格式", false, "error");
+    if (!desiredName) return tip("请提供预设名称", false, "error");
     if (styleSaverTip.innerHTML === "default")
-      return tip("You cannot overwrite default preset, please change the name", false, "error");
+      return tip("无法覆盖默认预设，请更改名称", false, "error");
 
     const presetName = customPresetPrefix + desiredName;
     applyOption(stylePreset, presetName, desiredName + " [custom]");
@@ -420,7 +420,7 @@ function addStylePreset() {
     localStorage.setItem(presetName, styleJSON);
 
     applyStyleWithUiRefresh(JSON.parse(styleJSON));
-    tip("Style preset is saved and applied", false, "success", 4000);
+    tip("样式预设已保存并应用", false, "success", 4000);
     $("#styleSaver").dialog("close");
   }
 
@@ -428,9 +428,9 @@ function addStylePreset() {
     const styleJSON = styleSaverJSON.value;
     const styleName = styleSaverName.value;
 
-    if (!styleJSON) return tip("Please provide a style JSON", false, "error");
-    if (!JSON.isValid(styleJSON)) return tip("JSON string is not valid, please check the format", false, "error");
-    if (!styleName) return tip("Please provide a preset name", false, "error");
+    if (!styleJSON) return tip("请提供样式 JSON", false, "error");
+    if (!JSON.isValid(styleJSON)) return tip("JSON 字符串无效，请检查格式", false, "error");
+    if (!styleName) return tip("请提供预设名称", false, "error");
 
     downloadFile(styleJSON, styleName + ".json", "application/json");
   }
@@ -440,25 +440,25 @@ function addStylePreset() {
     uploadFile(this, styleUpload);
 
     function styleUpload(dataLoaded) {
-      if (!dataLoaded) return tip("Cannot load the file. Please check the data format", false, "error");
+      if (!dataLoaded) return tip("无法加载文件。请检查数据格式", false, "error");
       const isValid = JSON.isValid(dataLoaded);
-      if (!isValid) return tip("Loaded data is not a valid JSON, please check the format", false, "error");
+      if (!isValid) return tip("加载的数据不是有效的 JSON，请检查格式", false, "error");
 
       styleSaverJSON.value = JSON.stringify(JSON.parse(dataLoaded), null, 2);
       styleSaverName.value = fileName;
       checkName();
-      tip("Style preset is uploaded", false, "success", 4000);
+      tip("样式预设已上传", false, "success", 4000);
     }
   }
 }
 
 function requestRemoveStylePreset() {
   const isDefault = systemPresets.includes(stylePreset.value);
-  if (isDefault) return tip("Cannot remove system preset", false, "error");
+  if (isDefault) return tip("无法删除系统预设", false, "error");
 
   confirmationDialog({
-    title: "Remove style preset",
-    message: "Are you sure you want to remove the style preset? This action cannot be undone.",
+    title: "移除样式预设",
+    message: "确定要移除该样式预设吗？此操作无法撤销。",
     confirm: "Remove",
     onConfirm: removeStylePreset
   });

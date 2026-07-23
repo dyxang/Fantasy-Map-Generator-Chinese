@@ -246,8 +246,8 @@ function clearLegend() {
 
 // draw color (fill) picker
 function createPicker() {
-  const pos = () => tip("Drag to change the picker position");
-  const cl = () => tip("Click to close the picker");
+  const pos = () => tip("拖动以改变拾色器位置");
+  const cl = () => tip("点击关闭拾色器");
   const closePicker = () => container.style("display", "none");
 
   const container = d3
@@ -280,19 +280,19 @@ function createPicker() {
   h.append("text").attr("x", 4).attr("y", 14).text("H:");
   h.append("line").attr("x1", 18).attr("y1", 10).attr("x2", 107).attr("y2", 10);
   h.append("circle").attr("cx", 75).attr("cy", 10).attr("r", 5).attr("id", "pickerH");
-  h.on("mousemove", () => tip("Set palette hue"));
+  h.on("mousemove", () => tip("设置调色板色相"));
 
   const s = controls.append("g");
   s.append("text").attr("x", 113).attr("y", 14).text("S:");
   s.append("line").attr("x1", 124).attr("y1", 10).attr("x2", 206).attr("y2", 10);
   s.append("circle").attr("cx", 181.4).attr("cy", 10).attr("r", 5).attr("id", "pickerS");
-  s.on("mousemove", () => tip("Set palette saturation"));
+  s.on("mousemove", () => tip("设置调色板饱和度"));
 
   const l = controls.append("g");
   l.append("text").attr("x", 213).attr("y", 14).text("L:");
   l.append("line").attr("x1", 226).attr("y1", 10).attr("x2", 306).attr("y2", 10);
   l.append("circle").attr("cx", 282).attr("cy", 10).attr("r", 5).attr("id", "pickerL");
-  l.on("mousemove", () => tip("Set palette lightness"));
+  l.on("mousemove", () => tip("设置调色板亮度"));
 
   controls.selectAll("line").on("click", clickPickerControl);
   controls.selectAll("circle").call(d3.drag().on("start", dragPickerControl));
@@ -304,7 +304,7 @@ function createPicker() {
     .attr("y", 20)
     .attr("width", 303)
     .attr("height", 20)
-    .on("mousemove", () => tip("Color value in different color spaces. Edit to change"));
+    .on("mousemove", () => tip("不同色彩空间的颜色值。编辑以修改"));
   const html = /* html */ ` <label style="margin-right: 6px"
       >HSL: <input type="number" id="pickerHSL_H" data-space="hsl" min="0" max="360" value="231" />,
       <input type="number" id="pickerHSL_S" data-space="hsl" min="0" max="100" value="70" />,
@@ -351,12 +351,12 @@ function createPicker() {
   colors
     .selectAll("rect")
     .on("click", pickerFillClicked)
-    .on("mouseover", () => tip("Click to fill with the color"));
+    .on("mouseover", () => tip("点击以该颜色填充"));
   hatches
     .selectAll("rect")
     .on("click", pickerFillClicked)
     .on("mouseover", function () {
-      tip("Click to fill with the hatching " + this.id);
+      tip("点击以填充阴影线 " + this.id);
     });
 
   // append box
@@ -535,7 +535,7 @@ function dragPickerControl() {
 function changePickerSpace() {
   const valid = this.checkValidity();
   if (!valid) {
-    tip("You must provide a correct value", false, "error");
+    tip("请输入正确的值", false, "error");
     return;
   }
 
@@ -550,7 +550,7 @@ function changePickerSpace() {
 
   const hsl = d3.hsl(fill);
   if (isNaN(hsl.l)) {
-    tip("You must provide a correct value", false, "error");
+    tip("请输入正确的值", false, "error");
     return;
   }
   if (!isNaN(hsl.h)) setPickerControl(pickerH, hsl.h, 360);
@@ -895,7 +895,7 @@ function selectIcon(initial, callback) {
   };
 
   table.onmouseover = e => {
-    if (e.target.tagName === "TD") tip(`Click to select ${e.target.textContent} icon`);
+    if (e.target.tagName === "TD") tip(`点击以选择 ${e.target.textContent} 图标`);
   };
 
   function addExternalImage(url) {
@@ -909,8 +909,8 @@ function selectIcon(initial, callback) {
   ensureEl("addImage").onclick = function () {
     const input = this.previousElementSibling;
     const ulr = input.value;
-    if (!ulr) return tip("Enter image URL to add", false, "error", 4000);
-    if (!ulr.match(/^((http|https):\/\/)|data\:image\//)) return tip("Enter valid URL", false, "error", 4000);
+    if (!ulr) return tip("请输入要添加的图片 URL", false, "error", 4000);
+    if (!ulr.match(/^((http|https):\/\/)|data\:image\//)) return tip("请输入有效的 URL", false, "error", 4000);
     addExternalImage(ulr);
     callback(ulr);
     input.value = "";
@@ -924,7 +924,7 @@ function selectIcon(initial, callback) {
 
   $("#iconSelector").dialog({
     width: fitContent(),
-    title: "Select Icon",
+    title: "选择图标",
     buttons: {
       Apply: function () {
         $(this).dialog("close");

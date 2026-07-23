@@ -89,7 +89,7 @@ async function showSupporters() {
     `<ul style='column-count: ${columns}; column-gap: 2em'>` + list.map(n => `<li>${n}</li>`).join("") + "</ul>";
   $("#alert").dialog({
     resizable: false,
-    title: "Patreon Supporters",
+    title: "Patreon 支持者",
     width: "min-width",
     position: { my: "center", at: "center", of: "svg" }
   });
@@ -277,7 +277,7 @@ function testSpeaker() {
 }
 
 function generateMapWithSeed() {
-  if (optionsSeed.value === seed) return tip("The current map already has this seed", false, "error");
+  if (optionsSeed.value === seed) return tip("当前地图已使用该种子", false, "error");
   regeneratePrompt({ seed: optionsSeed.value });
 }
 
@@ -293,7 +293,7 @@ function showSeedHistoryDialog() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Seed history",
+    title: "种子历史",
     position: { my: "center", at: "center", of: "svg" }
   });
 }
@@ -319,10 +319,10 @@ function copyMapURL() {
   navigator.clipboard
     .writeText(location.host + location.pathname + search)
     .then(() => {
-      tip("Map URL is copied to clipboard", false, "success", 3000);
+      tip("地图 URL 已复制到剪贴板", false, "success", 3000);
       //window.history.pushState({}, null, search);
     })
-    .catch(err => tip("Could not copy URL: " + err, false, "error", 5000));
+    .catch(err => tip("无法复制 URL：" + err, false, "error", 5000));
 }
 
 const cellsDensityMap = {
@@ -705,7 +705,7 @@ function regenerateEra() {
 function changeYear() {
   if (!yearInput.value) return;
   if (isNaN(+yearInput.value)) {
-    tip("Current year should be a number", false, "error");
+    tip("当前年份应为数字", false, "error");
     return;
   }
   options.year = +yearInput.value;
@@ -733,7 +733,7 @@ ensureEl("sticked").addEventListener("click", function (event) {
 
 function regeneratePrompt(options) {
   if (customization)
-    return tip("New map cannot be generated when edit mode is active, please exit the mode and retry", false, "error");
+    return tip("编辑模式激活时无法生成新地图，请退出该模式后重试", false, "error");
   const workingTime = (Date.now() - last(mapHistory).created) / 60000; // minutes
   if (workingTime < 1) return regenerateMap(options);
 
@@ -741,7 +741,7 @@ function regeneratePrompt(options) {
     All unsaved changes made to the current map will be lost`;
   $("#alert").dialog({
     resizable: false,
-    title: "Generate new map",
+    title: "生成新地图",
     buttons: {
       Cancel: function () {
         $(this).dialog("close");
@@ -759,7 +759,7 @@ function showSavePane() {
   sharableLinkContainer.style.display = "none";
 
   $("#saveMapData").dialog({
-    title: "Save map",
+    title: "保存地图",
     resizable: false,
     width: "25em",
     position: { my: "center", at: "center", of: "svg" },
@@ -774,14 +774,14 @@ function showSavePane() {
 function copyLinkToClickboard() {
   const shrableLink = ensureEl("sharableLink");
   const link = shrableLink.getAttribute("href");
-  navigator.clipboard.writeText(link).then(() => tip("Link is copied to the clipboard", true, "success", 8000));
+  navigator.clipboard.writeText(link).then(() => tip("链接已复制到剪贴板", true, "success", 8000));
 }
 
 function showExportPane() {
   ensureEl("showLabels").checked = !hideLabels.checked;
 
   $("#exportMapData").dialog({
-    title: "Export map data",
+    title: "导出地图数据",
     resizable: false,
     width: "26em",
     position: { my: "center", at: "center", of: "svg" },
@@ -799,7 +799,7 @@ async function exportToJson(type) {
 
 async function showLoadPane() {
   $("#loadMapData").dialog({
-    title: "Load map",
+    title: "加载地图",
     resizable: false,
     width: "auto",
     position: { my: "center", at: "center", of: "svg" },
@@ -858,13 +858,13 @@ function loadURL() {
   alertMessage.innerHTML = inner;
   $("#alert").dialog({
     resizable: false,
-    title: "Load map from URL",
+    title: "从 URL 加载地图",
     width: "27em",
     buttons: {
       Load: function () {
         const value = mapURL.value;
         if (!pattern.test(value)) {
-          tip("Please provide a valid URL", false, "error");
+          tip("请提供有效的 URL", false, "error");
           return;
         }
         window.Services.Load.loadMapFromURL(value);
@@ -895,7 +895,7 @@ function openExportToPngTiles() {
 
   $("#exportToPngTilesScreen").dialog({
     resizable: false,
-    title: "Download tiles",
+    title: "下载瓦片",
     width: "23em",
     buttons: {
       Download: () => window.Services.ExportMap.exportToPngTiles(),

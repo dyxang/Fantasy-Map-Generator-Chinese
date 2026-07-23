@@ -146,7 +146,7 @@ async function handleStream(response: Response, getContent: (json: StreamChunk) 
       const json = await response.json();
       errorMessage = json.error?.message || json.error || errorMessage;
     } catch (error) {
-      ERROR && console.error("Failed to parse AI provider error response", error);
+      ERROR && console.error("解析 AI 提供商错误响应失败", error);
     }
     throw new Error(errorMessage);
   }
@@ -172,7 +172,7 @@ async function handleStream(response: Response, getContent: (json: StreamChunk) 
         const parsed = line.startsWith("data: ") ? JSON.parse(line.slice(6)) : JSON.parse(line);
         getContent(parsed);
       } catch (error) {
-        ERROR && console.error("Failed to parse line:", line, error);
+        ERROR && console.error("解析行失败：", line, error);
       }
     }
 
@@ -185,7 +185,7 @@ function open(defaultPrompt: string, onApply: (result: string) => void): void {
   setInitialValues(defaultPrompt);
 
   $("#aiGenerator").dialog({
-    title: "AI Text Generator",
+    title: "AI 文本生成器",
     position: { my: "center", at: "center", of: "svg" },
     resizable: false,
     close: () => destroyDialogIfExists("aiGenerator"),
