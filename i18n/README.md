@@ -1,0 +1,103 @@
+# Fantasy Map Generator 汉化工具
+
+本目录包含 Azgaar Fantasy Map Generator 简体中文汉化的基础设施和工具脚本。
+
+## 目录结构
+
+```
+i18n/
+├── CONTEXT.md           # 项目背景与翻译原则（AI 常驻记忆）
+├── glossary.json        # 术语表（英文 → 中文映射）
+├── tm.json              # 翻译记忆库（已翻译条目）
+├── divergence.json      # 定制差异保护清单（不跟随上游的片段）
+├── progress.json        # 跨会话进度追踪
+├── base_commit.txt      # 上游基准 commit SHA
+├── units.json           # 提取的翻译单元清单（extract 生成）
+├── pending.json         # 待同步的变更清单（sync 生成）
+└── scripts/
+    ├── extract.mjs      # 从 HTML/TS/JS 提取可翻译字符串
+    ├── sync.mjs         # 检测上游变更，生成待译清单
+    ├── validate.mjs    # 验证翻译完整性（占位符/HTML/TS/lint）
+    └── package.json     # 脚本依赖
+```
+
+## 快速开始
+
+### 1. 安装脚本依赖
+
+```bash
+cd i18n/scripts && npm install
+```
+
+### 2. 提取翻译单元
+
+```bash
+node i18n/scripts/extract.mjs
+```
+
+输出 `i18n/units.json`，包含所有可翻译的字符串。
+
+### 3. 翻译工作流
+
+在 Trae IDE 中开启新会话，输入：
+
+> 按 .trae/rules/localization.rules.md，从 i18n/units.json 头部开始翻译。
+> 每会话处理 30 个单元，按 Rules 注入上下文。
+
+AI 会自动：
+- 读取进度、术语表、翻译记忆
+- 逐个翻译，修改原文件
+- 更新 tm.json 和 progress.json
+
+### 4. 验证
+
+```bash
+# 完整验证（含 TS 编译和 lint）
+node i18n/scripts/validate.mjs
+
+# 跳过 TS 编译和 lint（快速检查）
+node i18n/scripts/validate.mjs --skip-tsc --skip-lint
+
+# 检查术语表一致性
+node i18n/scripts/validate.mjs --check-consistency
+```
+
+### 5. 上游同步
+
+```bash
+node i18n/scripts/sync.mjs
+```
+
+输出 `i18n/pending.json`，包含需要处理的变更单元。
+
+处理完后运行验证，通过则合并上游：
+
+```bash
+node i18n/scripts/validate.mjs && \
+git merge upstream/master && \
+git rev-parse HEAD > i18n/base_commit.txt
+```
+
+## 翻译单元类型
+
+| type | 说明 | 来源 |
+|------|------|------|
+| `html_text` | HTML 文本节点 | src/index.html |
+| `html_attr` | HTML 属性值 (title, placeholder, aria-label, alt, data-tip, data-info) | src/index.html |
+| `ts_string` | TS/JS 字符串字面量 | src/**/*.ts, src/**/*.js, public/modules/**/*.js |
+
+## 验证检查项
+
+1. **占位符完整性** — `{{xxx}}` `<%xxx%>` `${xxx}` `%s` 数量与基准一致
+2. **HTML 结构完整性** — 标签数量与基准一致
+3. **TS 编译** — `npx tsc --noEmit` 通过
+4. **Biome lint** — `npm run lint` 通过
+5. **TM 一致性** — 同一 source 不应有多个不同 target（除非 context_tag 不同）
+6. **未译检查** — 统计已译/未译比例
+
+## 当前状态
+
+- 基准版本: v1.138.0 (commit 51d8e3e)
+- 翻译单元总数: 2095
+- 已译: 0
+- 进度: 0%

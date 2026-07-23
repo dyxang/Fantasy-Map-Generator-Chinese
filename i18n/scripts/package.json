@@ -1,0 +1,17 @@
+{
+  "name": "fmg-i18n-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Localization tooling for Azgaar Fantasy Map Generator zh-CN",
+  "scripts": {
+    "extract": "node extract.mjs",
+    "sync": "node sync.mjs",
+    "validate": "node validate.mjs"
+  },
+  "dependencies": {
+    "parse5": "^7.2.1",
+    "diff-match-patch": "^1.0.5",
+    "acorn": "^8.14.0"
+  }
+}
