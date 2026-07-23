@@ -61,105 +61,105 @@ class CulturesModule {
     if (culturesSet.value === "european") {
       return [
         {
-          name: "Shwazen",
+          name: "施瓦森",
           base: 0,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 10) / bd(i, [6, 8]),
           shield: "swiss"
         },
         {
-          name: "Angshire",
+          name: "安格夏",
           base: 1,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 10) / sf(i),
           shield: "wedged"
         },
         {
-          name: "Luari",
+          name: "卢阿里",
           base: 2,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 12) / bd(i, [6, 8]),
           shield: "french"
         },
         {
-          name: "Tallian",
+          name: "塔利安",
           base: 3,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 15),
           shield: "horsehead"
         },
         {
-          name: "Astellian",
+          name: "阿斯特利安",
           base: 4,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 16),
           shield: "spanish"
         },
         {
-          name: "Slovan",
+          name: "斯洛凡",
           base: 5,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 6)) * t[i],
           shield: "polish"
         },
         {
-          name: "Norse",
+          name: "诺斯",
           base: 6,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 5),
           shield: "heater"
         },
         {
-          name: "Elladan",
+          name: "艾拉丹",
           base: 7,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 18)) * h[i],
           shield: "boeotian"
         },
         {
-          name: "Romian",
+          name: "罗曼",
           base: 8,
           odd: 0.2,
           sort: (i: number) => n(i) / td(i, 15) / t[i],
           shield: "roman"
         },
         {
-          name: "Soumi",
+          name: "索米",
           base: 9,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 5) / bd(i, [9])) * t[i],
           shield: "pavise"
         },
         {
-          name: "Portuzian",
+          name: "波图齐安",
           base: 13,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 17) / sf(i),
           shield: "renaissance"
         },
         {
-          name: "Vengrian",
+          name: "文格里安",
           base: 15,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 11) / bd(i, [4])) * t[i],
           shield: "horsehead2"
         },
         {
-          name: "Turchian",
+          name: "突厥安",
           base: 16,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 14),
           shield: "round"
         },
         {
-          name: "Euskati",
+          name: "尤斯卡蒂",
           base: 20,
           odd: 0.05,
           sort: (i: number) => (n(i) / td(i, 15)) * h[i],
           shield: "oldFrench"
         },
         {
-          name: "Keltan",
+          name: "凯尔坦",
           base: 22,
           odd: 0.05,
           sort: (i: number) => (n(i) / td(i, 11) / bd(i, [6, 8])) * t[i],
@@ -171,91 +171,91 @@ class CulturesModule {
     if (culturesSet.value === "oriental") {
       return [
         {
-          name: "Koryo",
+          name: "高丽",
           base: 10,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 12) / t[i],
           shield: "round"
         },
         {
-          name: "Hantzu",
+          name: "汉族",
           base: 11,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 13),
           shield: "banner"
         },
         {
-          name: "Yamoto",
+          name: "大和",
           base: 12,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 15) / t[i],
           shield: "round"
         },
         {
-          name: "Turchian",
+          name: "突厥安",
           base: 16,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 12),
           shield: "round"
         },
         {
-          name: "Berberan",
+          name: "柏柏尔安",
           base: 17,
           odd: 0.2,
           sort: (i: number) => (n(i) / td(i, 19) / bd(i, [1, 2, 3], 7)) * t[i],
           shield: "oval"
         },
         {
-          name: "Eurabic",
+          name: "尤拉比",
           base: 18,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 26) / bd(i, [1, 2], 7)) * t[i],
           shield: "oval"
         },
         {
-          name: "Efratic",
+          name: "幼发拉底",
           base: 23,
           odd: 0.1,
           sort: (i: number) => (n(i) / td(i, 22)) * t[i],
           shield: "round"
         },
         {
-          name: "Tehrani",
+          name: "德黑兰",
           base: 24,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 18)) * h[i],
           shield: "round"
         },
         {
-          name: "Maui",
+          name: "毛伊",
           base: 25,
           odd: 0.2,
           sort: (i: number) => n(i) / td(i, 24) / sf(i) / t[i],
           shield: "vesicaPiscis"
         },
         {
-          name: "Carnatic",
+          name: "卡纳蒂克",
           base: 26,
           odd: 0.5,
           sort: (i: number) => n(i) / td(i, 26),
           shield: "round"
         },
         {
-          name: "Vietic",
+          name: "越南",
           base: 29,
           odd: 0.8,
           sort: (i: number) => n(i) / td(i, 25) / bd(i, [7], 7) / t[i],
           shield: "banner"
         },
         {
-          name: "Guantzu",
+          name: "关族",
           base: 30,
           odd: 0.5,
           sort: (i: number) => n(i) / td(i, 17),
           shield: "banner"
         },
         {
-          name: "Ulus",
+          name: "乌鲁斯",
           base: 31,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 5) / bd(i, [2, 4, 10], 7)) * t[i],
@@ -283,112 +283,112 @@ class CulturesModule {
     if (culturesSet.value === "antique") {
       return [
         {
-          name: "Roman",
+          name: "罗马",
           base: 8,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 14) / t[i],
           shield: "roman"
         }, // Roman
         {
-          name: "Roman",
+          name: "罗马",
           base: 8,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 15) / sf(i),
           shield: "roman"
         }, // Roman
         {
-          name: "Roman",
+          name: "罗马",
           base: 8,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 16) / sf(i),
           shield: "roman"
         }, // Roman
         {
-          name: "Roman",
+          name: "罗马",
           base: 8,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 17) / t[i],
           shield: "roman"
         }, // Roman
         {
-          name: "Hellenic",
+          name: "希腊",
           base: 7,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 18) / sf(i)) * h[i],
           shield: "boeotian"
         }, // Greek
         {
-          name: "Hellenic",
+          name: "希腊",
           base: 7,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 19) / sf(i)) * h[i],
           shield: "boeotian"
         }, // Greek
         {
-          name: "Macedonian",
+          name: "马其顿",
           base: 7,
           odd: 0.5,
           sort: (i: number) => (n(i) / td(i, 12)) * h[i],
           shield: "round"
         }, // Greek
         {
-          name: "Celtic",
+          name: "凯尔特",
           base: 22,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 11) ** 0.5 / bd(i, [6, 8]),
           shield: "round"
         },
         {
-          name: "Germanic",
+          name: "日耳曼",
           base: 0,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 10) ** 0.5 / bd(i, [6, 8]),
           shield: "round"
         },
         {
-          name: "Persian",
+          name: "波斯",
           base: 24,
           odd: 0.8,
           sort: (i: number) => (n(i) / td(i, 18)) * h[i],
           shield: "oval"
         }, // Iranian
         {
-          name: "Scythian",
+          name: "斯基泰",
           base: 24,
           odd: 0.5,
           sort: (i: number) => n(i) / td(i, 11) ** 0.5 / bd(i, [4]),
           shield: "round"
         }, // Iranian
         {
-          name: "Cantabrian",
+          name: "坎塔布连",
           base: 20,
           odd: 0.5,
           sort: (i: number) => (n(i) / td(i, 16)) * h[i],
           shield: "oval"
         }, // Basque
         {
-          name: "Estian",
+          name: "埃斯提",
           base: 9,
           odd: 0.2,
           sort: (i: number) => (n(i) / td(i, 5)) * t[i],
           shield: "pavise"
         }, // Finnic
         {
-          name: "Carthaginian",
+          name: "迦太基",
           base: 42,
           odd: 0.3,
           sort: (i: number) => n(i) / td(i, 20) / sf(i),
           shield: "oval"
         }, // Levantine
         {
-          name: "Hebrew",
+          name: "希伯来",
           base: 42,
           odd: 0.2,
           sort: (i: number) => (n(i) / td(i, 19)) * sf(i),
           shield: "oval"
         }, // Levantine
         {
-          name: "Mesopotamian",
+          name: "美索不达米亚",
           base: 23,
           odd: 0.2,
           sort: (i: number) => n(i) / td(i, 22) / bd(i, [1, 2, 3]),
@@ -401,91 +401,91 @@ class CulturesModule {
       return [
         // fantasy races
         {
-          name: "Quenian (Elfish)",
+          name: "昆雅（精灵）",
           base: 33,
           odd: 1,
           sort: (i: number) => (n(i) / bd(i, [6, 7, 8, 9], 10)) * t[i],
           shield: "gondor"
         }, // Elves
         {
-          name: "Eldar (Elfish)",
+          name: "艾尔达（精灵）",
           base: 33,
           odd: 1,
           sort: (i: number) => (n(i) / bd(i, [6, 7, 8, 9], 10)) * t[i],
           shield: "noldor"
         }, // Elves
         {
-          name: "Trow (Dark Elfish)",
+          name: "特罗（暗精灵）",
           base: 34,
           odd: 0.9,
           sort: (i: number) => (n(i) / bd(i, [7, 8, 9, 12], 10)) * t[i],
           shield: "hessen"
         }, // Dark Elves
         {
-          name: "Lothian (Dark Elfish)",
+          name: "洛西安（暗精灵）",
           base: 34,
           odd: 0.3,
           sort: (i: number) => (n(i) / bd(i, [7, 8, 9, 12], 10)) * t[i],
           shield: "wedged"
         }, // Dark Elves
         {
-          name: "Dunirr (Dwarven)",
+          name: "杜尼尔（矮人）",
           base: 35,
           odd: 1,
           sort: (i: number) => n(i) + h[i],
           shield: "ironHills"
         }, // Dwarfs
         {
-          name: "Khazadur (Dwarven)",
+          name: "卡扎杜尔（矮人）",
           base: 35,
           odd: 1,
           sort: (i: number) => n(i) + h[i],
           shield: "erebor"
         }, // Dwarfs
         {
-          name: "Kobold (Goblin)",
+          name: "狗头人（哥布林）",
           base: 36,
           odd: 1,
           sort: (i: number) => t[i] - s[i],
           shield: "moriaOrc"
         }, // Goblin
         {
-          name: "Uruk (Orkish)",
+          name: "乌鲁克（兽人）",
           base: 37,
           odd: 1,
           sort: (i: number) => h[i] * t[i],
           shield: "urukHai"
         }, // Orc
         {
-          name: "Ugluk (Orkish)",
+          name: "乌格卢克（兽人）",
           base: 37,
           odd: 0.5,
           sort: (i: number) => (h[i] * t[i]) / bd(i, [1, 2, 10, 11]),
           shield: "moriaOrc"
         }, // Orc
         {
-          name: "Yotunn (Giants)",
+          name: "尤顿（巨人）",
           base: 38,
           odd: 0.7,
           sort: (i: number) => td(i, -10),
           shield: "pavise"
         }, // Giant
         {
-          name: "Rake (Drakonic)",
+          name: "雷克（龙族）",
           base: 39,
           odd: 0.7,
           sort: (i: number) => -s[i],
           shield: "fantasy2"
         }, // Draconic
         {
-          name: "Arago (Arachnid)",
+          name: "阿拉戈（蛛形）",
           base: 40,
           odd: 0.7,
           sort: (i: number) => t[i] - s[i],
           shield: "horsehead2"
         }, // Arachnid
         {
-          name: "Aj'Snaga (Serpents)",
+          name: "阿杰·斯纳加（蛇人）",
           base: 41,
           odd: 0.7,
           sort: (i: number) => n(i) / bd(i, [12], 10),
@@ -493,28 +493,28 @@ class CulturesModule {
         }, // Serpents
         // fantasy human
         {
-          name: "Anor (Human)",
+          name: "阿诺（人类）",
           base: 32,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 10),
           shield: "fantasy5"
         },
         {
-          name: "Dail (Human)",
+          name: "戴尔（人类）",
           base: 32,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 13),
           shield: "roman"
         },
         {
-          name: "Rohand (Human)",
+          name: "罗罕（人类）",
           base: 16,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 16),
           shield: "round"
         },
         {
-          name: "Dulandir (Human)",
+          name: "杜兰迪尔（人类）",
           base: 31,
           odd: 1,
           sort: (i: number) => (n(i) / td(i, 5) / bd(i, [2, 4, 10], 7)) * t[i],
@@ -527,42 +527,42 @@ class CulturesModule {
       return [
         // common real-world English
         {
-          name: "Angshire",
+          name: "安格夏",
           base: 1,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 10) / sf(i),
           shield: "heater"
         },
         {
-          name: "Enlandic",
+          name: "英格兰",
           base: 1,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 12),
           shield: "heater"
         },
         {
-          name: "Westen",
+          name: "韦斯顿",
           base: 1,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 10),
           shield: "heater"
         },
         {
-          name: "Nortumbic",
+          name: "诺森布里亚",
           base: 1,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 7),
           shield: "heater"
         },
         {
-          name: "Mercian",
+          name: "麦西亚",
           base: 1,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 9),
           shield: "heater"
         },
         {
-          name: "Kentian",
+          name: "肯特",
           base: 1,
           odd: 1,
           sort: (i: number) => n(i) / td(i, 12),
@@ -570,35 +570,35 @@ class CulturesModule {
         },
         // rare real-world western
         {
-          name: "Norse",
+          name: "诺斯",
           base: 6,
           odd: 0.7,
           sort: (i: number) => n(i) / td(i, 5) / sf(i),
           shield: "oldFrench"
         },
         {
-          name: "Schwarzen",
+          name: "施瓦岑",
           base: 0,
           odd: 0.3,
           sort: (i: number) => n(i) / td(i, 10) / bd(i, [6, 8]),
           shield: "gonfalon"
         },
         {
-          name: "Luarian",
+          name: "卢阿里安",
           base: 2,
           odd: 0.3,
           sort: (i: number) => n(i) / td(i, 12) / bd(i, [6, 8]),
           shield: "oldFrench"
         },
         {
-          name: "Hetallian",
+          name: "赫塔利安",
           base: 3,
           odd: 0.3,
           sort: (i: number) => n(i) / td(i, 15),
           shield: "oval"
         },
         {
-          name: "Astellian",
+          name: "阿斯特利安",
           base: 4,
           odd: 0.3,
           sort: (i: number) => n(i) / td(i, 16),
@@ -606,98 +606,98 @@ class CulturesModule {
         },
         // rare real-world exotic
         {
-          name: "Kiswaili",
+          name: "斯瓦希里",
           base: 28,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 29) / bd(i, [1, 3, 5, 7]),
           shield: "vesicaPiscis"
         },
         {
-          name: "Yoruba",
+          name: "约鲁巴",
           base: 21,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 15) / bd(i, [5, 7]),
           shield: "vesicaPiscis"
         },
         {
-          name: "Koryo",
+          name: "高丽",
           base: 10,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 12) / t[i],
           shield: "round"
         },
         {
-          name: "Hantzu",
+          name: "汉族",
           base: 11,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 13),
           shield: "banner"
         },
         {
-          name: "Yamoto",
+          name: "大和",
           base: 12,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 15) / t[i],
           shield: "round"
         },
         {
-          name: "Guantzu",
+          name: "关族",
           base: 30,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 17),
           shield: "banner"
         },
         {
-          name: "Ulus",
+          name: "乌鲁斯",
           base: 31,
           odd: 0.05,
           sort: (i: number) => (n(i) / td(i, 5) / bd(i, [2, 4, 10], 7)) * t[i],
           shield: "banner"
         },
         {
-          name: "Turan",
+          name: "突厥",
           base: 16,
           odd: 0.05,
           sort: (i: number) => n(i) / td(i, 12),
           shield: "round"
         },
         {
-          name: "Berberan",
+          name: "柏柏尔安",
           base: 17,
           odd: 0.05,
           sort: (i: number) => (n(i) / td(i, 19) / bd(i, [1, 2, 3], 7)) * t[i],
           shield: "round"
         },
         {
-          name: "Eurabic",
+          name: "尤拉比",
           base: 18,
           odd: 0.05,
           sort: (i: number) => (n(i) / td(i, 26) / bd(i, [1, 2], 7)) * t[i],
           shield: "round"
         },
         {
-          name: "Slovan",
+          name: "斯洛凡",
           base: 5,
           odd: 0.05,
           sort: (i: number) => (n(i) / td(i, 6)) * t[i],
           shield: "round"
         },
         {
-          name: "Keltan",
+          name: "凯尔坦",
           base: 22,
           odd: 0.1,
           sort: (i: number) => n(i) / td(i, 11) ** 0.5 / bd(i, [6, 8]),
           shield: "vesicaPiscis"
         },
         {
-          name: "Elladan",
+          name: "艾拉丹",
           base: 7,
           odd: 0.2,
           sort: (i: number) => (n(i) / td(i, 18) / sf(i)) * h[i],
           shield: "boeotian"
         },
         {
-          name: "Romian",
+          name: "罗曼",
           base: 8,
           odd: 0.2,
           sort: (i: number) => n(i) / td(i, 14) / t[i],
@@ -705,63 +705,63 @@ class CulturesModule {
         },
         // fantasy races
         {
-          name: "Eldar",
+          name: "艾尔达",
           base: 33,
           odd: 0.5,
           sort: (i: number) => (n(i) / bd(i, [6, 7, 8, 9], 10)) * t[i],
           shield: "fantasy5"
         }, // Elves
         {
-          name: "Trow",
+          name: "特罗",
           base: 34,
           odd: 0.8,
           sort: (i: number) => (n(i) / bd(i, [7, 8, 9, 12], 10)) * t[i],
           shield: "hessen"
         }, // Dark Elves
         {
-          name: "Durinn",
+          name: "杜林",
           base: 35,
           odd: 0.8,
           sort: (i: number) => n(i) + h[i],
           shield: "erebor"
         }, // Dwarven
         {
-          name: "Kobblin",
+          name: "科布林",
           base: 36,
           odd: 0.8,
           sort: (i: number) => t[i] - s[i],
           shield: "moriaOrc"
         }, // Goblin
         {
-          name: "Uruk",
+          name: "乌鲁克",
           base: 37,
           odd: 0.8,
           sort: (i: number) => (h[i] * t[i]) / bd(i, [1, 2, 10, 11]),
           shield: "urukHai"
         }, // Orc
         {
-          name: "Yotunn",
+          name: "尤顿",
           base: 38,
           odd: 0.8,
           sort: (i: number) => td(i, -10),
           shield: "pavise"
         }, // Giant
         {
-          name: "Drake",
+          name: "德雷克",
           base: 39,
           odd: 0.9,
           sort: (i: number) => -s[i],
           shield: "fantasy2"
         }, // Draconic
         {
-          name: "Rakhnid",
+          name: "拉赫尼德",
           base: 40,
           odd: 0.9,
           sort: (i: number) => t[i] - s[i],
           shield: "horsehead2"
         }, // Arachnid
         {
-          name: "Aj'Snaga",
+          name: "阿杰·斯纳加",
           base: 41,
           odd: 0.9,
           sort: (i: number) => n(i) / bd(i, [12], 10),
@@ -781,231 +781,231 @@ class CulturesModule {
     // all-world
     return [
       {
-        name: "Shwazen",
+        name: "施瓦森",
         base: 0,
         odd: 0.7,
         sort: (i: number) => n(i) / td(i, 10) / bd(i, [6, 8]),
         shield: "hessen"
       },
       {
-        name: "Angshire",
+        name: "安格夏",
         base: 1,
         odd: 1,
         sort: (i: number) => n(i) / td(i, 10) / sf(i),
         shield: "heater"
       },
       {
-        name: "Luari",
+        name: "卢阿里",
         base: 2,
         odd: 0.6,
         sort: (i: number) => n(i) / td(i, 12) / bd(i, [6, 8]),
         shield: "oldFrench"
       },
       {
-        name: "Tallian",
+        name: "塔利安",
         base: 3,
         odd: 0.6,
         sort: (i: number) => n(i) / td(i, 15),
         shield: "horsehead2"
       },
       {
-        name: "Astellian",
+        name: "阿斯特利安",
         base: 4,
         odd: 0.6,
         sort: (i: number) => n(i) / td(i, 16),
         shield: "spanish"
       },
       {
-        name: "Slovan",
+        name: "斯洛凡",
         base: 5,
         odd: 0.7,
         sort: (i: number) => (n(i) / td(i, 6)) * t[i],
         shield: "round"
       },
       {
-        name: "Norse",
+        name: "诺斯",
         base: 6,
         odd: 0.7,
         sort: (i: number) => n(i) / td(i, 5),
         shield: "heater"
       },
       {
-        name: "Elladan",
+        name: "艾拉丹",
         base: 7,
         odd: 0.7,
         sort: (i: number) => (n(i) / td(i, 18)) * h[i],
         shield: "boeotian"
       },
       {
-        name: "Romian",
+        name: "罗曼",
         base: 8,
         odd: 0.7,
         sort: (i: number) => n(i) / td(i, 15),
         shield: "roman"
       },
       {
-        name: "Soumi",
+        name: "索米",
         base: 9,
         odd: 0.3,
         sort: (i: number) => (n(i) / td(i, 5) / bd(i, [9])) * t[i],
         shield: "pavise"
       },
       {
-        name: "Koryo",
+        name: "高丽",
         base: 10,
         odd: 0.1,
         sort: (i: number) => n(i) / td(i, 12) / t[i],
         shield: "round"
       },
       {
-        name: "Hantzu",
+        name: "汉族",
         base: 11,
         odd: 0.1,
         sort: (i: number) => n(i) / td(i, 13),
         shield: "banner"
       },
       {
-        name: "Yamoto",
+        name: "大和",
         base: 12,
         odd: 0.1,
         sort: (i: number) => n(i) / td(i, 15) / t[i],
         shield: "round"
       },
       {
-        name: "Portuzian",
+        name: "波图齐安",
         base: 13,
         odd: 0.4,
         sort: (i: number) => n(i) / td(i, 17) / sf(i),
         shield: "spanish"
       },
       {
-        name: "Nawatli",
+        name: "纳瓦特",
         base: 14,
         odd: 0.1,
         sort: (i: number) => h[i] / td(i, 18) / bd(i, [7]),
         shield: "square"
       },
       {
-        name: "Vengrian",
+        name: "文格里安",
         base: 15,
         odd: 0.2,
         sort: (i: number) => (n(i) / td(i, 11) / bd(i, [4])) * t[i],
         shield: "wedged"
       },
       {
-        name: "Turchian",
+        name: "突厥安",
         base: 16,
         odd: 0.2,
         sort: (i: number) => n(i) / td(i, 13),
         shield: "round"
       },
       {
-        name: "Berberan",
+        name: "柏柏尔安",
         base: 17,
         odd: 0.1,
         sort: (i: number) => (n(i) / td(i, 19) / bd(i, [1, 2, 3], 7)) * t[i],
         shield: "round"
       },
       {
-        name: "Eurabic",
+        name: "尤拉比",
         base: 18,
         odd: 0.2,
         sort: (i: number) => (n(i) / td(i, 26) / bd(i, [1, 2], 7)) * t[i],
         shield: "round"
       },
       {
-        name: "Inuk",
+        name: "因纽特",
         base: 19,
         odd: 0.05,
         sort: (i: number) => td(i, -1) / bd(i, [10, 11]) / sf(i),
         shield: "square"
       },
       {
-        name: "Euskati",
+        name: "尤斯卡蒂",
         base: 20,
         odd: 0.05,
         sort: (i: number) => (n(i) / td(i, 15)) * h[i],
         shield: "spanish"
       },
       {
-        name: "Yoruba",
+        name: "约鲁巴",
         base: 21,
         odd: 0.05,
         sort: (i: number) => n(i) / td(i, 15) / bd(i, [5, 7]),
         shield: "vesicaPiscis"
       },
       {
-        name: "Keltan",
+        name: "凯尔坦",
         base: 22,
         odd: 0.05,
         sort: (i: number) => (n(i) / td(i, 11) / bd(i, [6, 8])) * t[i],
         shield: "vesicaPiscis"
       },
       {
-        name: "Efratic",
+        name: "幼发拉底",
         base: 23,
         odd: 0.05,
         sort: (i: number) => (n(i) / td(i, 22)) * t[i],
         shield: "diamond"
       },
       {
-        name: "Tehrani",
+        name: "德黑兰",
         base: 24,
         odd: 0.1,
         sort: (i: number) => (n(i) / td(i, 18)) * h[i],
         shield: "round"
       },
       {
-        name: "Maui",
+        name: "毛伊",
         base: 25,
         odd: 0.05,
         sort: (i: number) => n(i) / td(i, 24) / sf(i) / t[i],
         shield: "round"
       },
       {
-        name: "Carnatic",
+        name: "卡纳蒂克",
         base: 26,
         odd: 0.05,
         sort: (i: number) => n(i) / td(i, 26),
         shield: "round"
       },
       {
-        name: "Inqan",
+        name: "印加",
         base: 27,
         odd: 0.05,
         sort: (i: number) => h[i] / td(i, 13),
         shield: "square"
       },
       {
-        name: "Kiswaili",
+        name: "斯瓦希里",
         base: 28,
         odd: 0.1,
         sort: (i: number) => n(i) / td(i, 29) / bd(i, [1, 3, 5, 7]),
         shield: "vesicaPiscis"
       },
       {
-        name: "Vietic",
+        name: "越南",
         base: 29,
         odd: 0.1,
         sort: (i: number) => n(i) / td(i, 25) / bd(i, [7], 7) / t[i],
         shield: "banner"
       },
       {
-        name: "Guantzu",
+        name: "关族",
         base: 30,
         odd: 0.1,
         sort: (i: number) => n(i) / td(i, 17),
         shield: "banner"
       },
       {
-        name: "Ulus",
+        name: "乌鲁斯",
         base: 31,
         odd: 0.1,
         sort: (i: number) => (n(i) / td(i, 5) / bd(i, [2, 4, 10], 7)) * t[i],
         shield: "banner"
       },
       {
-        name: "Hebrew",
+        name: "希伯来",
         base: 42,
         odd: 0.2,
         sort: (i: number) => (n(i) / td(i, 18)) * sf(i),
@@ -1030,7 +1030,7 @@ class CulturesModule {
         WARN && console.warn(`There are no populated cells. Cannot generate cultures`);
         pack.cultures = [
           {
-            name: "Wildlands",
+            name: "荒野",
             i: 0,
             base: 1,
             shield: "round",
@@ -1045,7 +1045,7 @@ class CulturesModule {
 
         $("#alert").dialog({
           resizable: false,
-          title: "Extreme climate warning",
+          title: "极端气候警告",
           buttons: {
             Ok: function () {
               $(this).dialog("close");
@@ -1060,7 +1060,7 @@ class CulturesModule {
           Please consider changing climate settings in the World Configurator`;
         $("#alert").dialog({
           resizable: false,
-          title: "Extreme climate warning",
+          title: "极端气候警告",
           buttons: {
             Ok: function () {
               $(this).dialog("close");
@@ -1185,7 +1185,7 @@ class CulturesModule {
 
     // the first culture with id 0 is for wildlands
     cultures.unshift({
-      name: "Wildlands",
+      name: "荒野",
       i: 0,
       base: 1,
       origins: [null],
@@ -1195,7 +1195,7 @@ class CulturesModule {
 
     // make sure all bases exist in nameBases
     if (!nameBases.length) {
-      ERROR && console.error("Name base is empty, default nameBases will be applied");
+      ERROR && console.error("名称库为空，将应用默认名称库");
       nameBases = Names.getNameBases();
     }
 

@@ -15,7 +15,7 @@ function open(id: string): void {
   elSelected = select<SVGElement, unknown>(`#${id}`).on("click", addControlPoint);
 
   tip(
-    "Drag control points to change the route. Click on point to remove it. Click on the route to add additional control point. For major changes please create a new route instead",
+    "拖动控制点可改变道路走向。点击控制点可移除。点击道路可添加控制点。如需大幅修改请新建一条道路",
     true
   );
   select("#debug").append("g").attr("id", "controlCells");
@@ -32,7 +32,7 @@ function open(id: string): void {
   }
 
   $("#routeEditor").dialog({
-    title: "Edit Route",
+    title: "编辑道路",
     resizable: false,
     position: { my: "left top", at: "left+10 top+10", of: "#map" },
     close: closeRouteEditor
@@ -200,8 +200,8 @@ function addControlPoint(this: any, event: any): void {
     const prev = route.points[index - 1];
     const next = route.points[index + 1];
 
-    if (!prev) ERROR && console.error("Can't add control point to the start of the route");
-    if (!next) ERROR && console.error("Can't add control point to the end of the route");
+    if (!prev) ERROR && console.error("无法在道路起点添加控制点");
+    if (!next) ERROR && console.error("无法在道路终点添加控制点");
     if (!prev || !next) return;
 
     removeConnection(prev[2], next[2]);
@@ -307,7 +307,7 @@ function openJoinRoutesDialog(): void {
       </div>`;
 
     $("#alert").dialog({
-      title: "Join routes",
+      title: "合并道路",
       width: fitContent(),
       position: { my: "left top", at: "left+10 top+150", of: "#map" },
       buttons: {
@@ -318,13 +318,13 @@ function openJoinRoutesDialog(): void {
           const selectedRouteId = +alertMessage.querySelector("select")!.value;
           const selectedRoute = pack.routes.find((r: Route) => r.i === selectedRouteId) as Route;
           joinRoutes(route, selectedRoute);
-          tip("Routes joined", false, "success", 5000);
+          tip("道路已合并", false, "success", 5000);
           $("#alert").dialog("close");
         }
       }
     });
   } else {
-    tip("No routes to join with. Route must start or end at current route's start or end cell", false, "error", 4000);
+    tip("没有可合并的道路。道路必须起止于当前道路的起止单元格", false, "error", 4000);
   }
 }
 
@@ -435,8 +435,8 @@ function updateLockIcon(): void {
 
 function removeRoute(): void {
   confirmationDialog({
-    title: "Remove route",
-    message: "Are you sure you want to remove the route? <br>This action cannot be reverted",
+    title: "移除道路",
+    message: "确定要移除该道路吗？<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => {
       Routes.remove(getRoute());

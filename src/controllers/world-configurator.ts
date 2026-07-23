@@ -14,7 +14,7 @@ function open(): void {
   updateWindDirections();
 
   $("#worldConfigurator").dialog({
-    title: "Configure World",
+    title: "配置世界",
     resizable: false,
     width: "minmax(40em, 85vw)",
     buttons: { "Update world": updateWorld },
@@ -27,7 +27,7 @@ function open(): void {
       pane?.insertAdjacentHTML("afterbegin", checkbox);
 
       const button = this.parentElement?.querySelector(".ui-dialog-buttonset > button");
-      button?.on("mousemove", () => tip("Apply current settings to the map"));
+      button?.on("mousemove", () => tip("将当前设置应用到地图"));
     },
     close: () => destroyDialogIfExists("worldConfigurator")
   });
@@ -232,8 +232,8 @@ function addListeners(): void {
       el.on("mouseover", (event: Event) => {
         event.stopPropagation();
         if (el.className === "icon-lock")
-          tip("Click to unlock the option and allow it to be randomized on new map generation");
-        else tip("Click to lock the option and always use the current value on new map generation");
+          tip("点击解锁选项，允许在新地图生成时随机化");
+        else tip("点击锁定选项，新地图生成时始终使用当前值");
       });
       el.on("click", () => {
         if (el.className === "icon-lock") unlockOption(id);

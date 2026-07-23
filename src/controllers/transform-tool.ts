@@ -10,7 +10,7 @@ function open(): void {
   void loadPreview();
 
   $("#transformTool").dialog({
-    title: "Transform map",
+    title: "变换地图",
     resizable: false,
     position: { my: "center", at: "center", of: "svg" },
     close: cleanup,

@@ -12,7 +12,7 @@ function open(): void {
   riversOverviewAddLines();
 
   $("#riversOverview").dialog({
-    title: "Rivers Overview",
+    title: "河流总览",
     resizable: false,
     width: fitContent(),
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" },
@@ -217,7 +217,7 @@ function triggerRiverRemove(this: HTMLElement): void {
   $("#alert").dialog({
     resizable: false,
     width: "22em",
-    title: "Remove river",
+    title: "移除河流",
     buttons: {
       Remove: function (this: any) {
         Rivers.remove(river);
@@ -235,7 +235,7 @@ function triggerAllRiversRemove(): void {
   alertMessage.innerHTML = /* html */ `Are you sure you want to remove all rivers?`;
   $("#alert").dialog({
     resizable: false,
-    title: "Remove all rivers",
+    title: "移除所有河流",
     buttons: {
       Remove: function (this: any) {
         $(this).dialog("close");

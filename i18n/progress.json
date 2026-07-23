@@ -1,10 +1,10 @@
 {
   "task": "initial_translation",
   "phase": "translation",
-  "last_processed_id": "sha256:046b2805e3cee10f",
-  "last_file": "src/controllers/production-chains.ts",
-  "last_line": 142,
-  "completed_units": 432,
+  "last_processed_id": "sha256:10996980330f764f",
+  "last_file": "src/generators/goods-generator.test.ts",
+  "last_line": 47,
+  "completed_units": 781,
   "total_units": 1960,
   "session_history": [
     {
@@ -18,6 +18,12 @@
       "units": 312,
       "end_id": "sha256:046b2805e3cee10f",
       "notes": "Collected: 312 translated, 0 skipped, 11 not found. 4 batches."
+    },
+    {
+      "date": "2026-07-23",
+      "units": 349,
+      "end_id": "sha256:10996980330f764f",
+      "notes": "Collected: 349 translated, 0 skipped, 3 not found. 4 batches."
     }
   ]
 }

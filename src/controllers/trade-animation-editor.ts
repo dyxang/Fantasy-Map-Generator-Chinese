@@ -5,8 +5,8 @@ const INPUTS = [
   {
     type: "select",
     id: "tradeAnimDisplayType",
-    label: "Trade type",
-    tip: "Which trade types to display: local (burg-market), global (market-market), or both",
+    label: "贸易类型",
+    tip: "要显示的贸易类型：本地（城镇-市场）、全球（市场-市场）或两者",
     key: "displayType",
     default: DEFAULTS.displayType,
     selectOptions: ["local", "global", "both"]
@@ -14,8 +14,8 @@ const INPUTS = [
   {
     type: "slider",
     id: "tradeAnimConcurrent",
-    label: "Animations",
-    tip: "Target number of trade animations visible at once. New ones spawn as old ones finish. Higher = more simultaneous animations, can cause lag on slower devices",
+    label: "动画",
+    tip: "同时可见的贸易动画目标数量。旧的结束后生成新的。越高 = 同时进行的动画越多，可能在较慢的设备上导致卡顿",
     min: 1,
     max: 500,
     step: 1,
@@ -25,8 +25,8 @@ const INPUTS = [
   {
     type: "slider",
     id: "tradeAnimDuration",
-    label: "Travel duration",
-    tip: "Milliseconds per map unit travelled. Lower = faster animations",
+    label: "行进时长",
+    tip: "每地图单位的行进毫秒数。越低 = 动画越快",
     min: 1,
     max: 1000,
     step: 1,
@@ -36,8 +36,8 @@ const INPUTS = [
   {
     type: "slider",
     id: "tradeAnimLandDurationModifier",
-    label: "Land slowdown",
-    tip: "Multiplier applied to travel duration on land segments. Higher = slower land animations",
+    label: "陆地减速",
+    tip: "应用于陆地段行进时长的乘数。越高 = 陆地动画越慢",
     min: 0.1,
     max: 20,
     step: 0.1,
@@ -47,8 +47,8 @@ const INPUTS = [
   {
     type: "slider",
     id: "tradeAnimSegmentChangePause",
-    label: "Segment pause",
-    tip: "Pause between land and water legs of a trip, in milliseconds. Higher = longer pause",
+    label: "段落暂停",
+    tip: "一次行程中陆地与水域段之间的暂停毫秒数。越高 = 暂停越长",
     min: 0,
     max: 5000,
     step: 100,
@@ -58,8 +58,8 @@ const INPUTS = [
   {
     type: "slider",
     id: "tradeAnimMarkerSize",
-    label: "Marker size",
-    tip: "Marker icon size in map units. Wagons render at half this size. Higher = bigger icons",
+    label: "标记大小",
+    tip: "标记图标大小（地图单位）。马车以该大小的一半渲染。越高 = 图标越大",
     min: 1,
     max: 50,
     step: 0.5,
@@ -74,7 +74,7 @@ function open(): void {
   renderDialog();
 
   $("#tradeAnimationEditor").dialog({
-    title: "Trade Animation Editor",
+    title: "贸易动画编辑器",
     resizable: false,
     position: { my: "right top", at: "right-10 top+10", of: "svg" },
     close: () => {

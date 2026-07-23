@@ -156,20 +156,20 @@ export type HeightmapTemplate = {
 };
 
 export const heightmapTemplates: Record<string, HeightmapTemplate> = {
-  volcano: { id: 0, name: "Volcano", template: volcano, probability: 3 },
-  highIsland: { id: 1, name: "High Island", template: highIsland, probability: 19 },
-  lowIsland: { id: 2, name: "Low Island", template: lowIsland, probability: 9 },
-  continents: { id: 3, name: "Continents", template: continents, probability: 16 },
-  archipelago: { id: 4, name: "Archipelago", template: archipelago, probability: 18 },
-  atoll: { id: 5, name: "Atoll", template: atoll, probability: 1 },
-  mediterranean: { id: 6, name: "Mediterranean", template: mediterranean, probability: 5 },
-  peninsula: { id: 7, name: "Peninsula", template: peninsula, probability: 3 },
-  pangea: { id: 8, name: "Pangea", template: pangea, probability: 5 },
-  isthmus: { id: 9, name: "Isthmus", template: isthmus, probability: 2 },
-  shattered: { id: 10, name: "Shattered", template: shattered, probability: 7 },
-  taklamakan: { id: 11, name: "Taklamakan", template: taklamakan, probability: 1 },
-  oldWorld: { id: 12, name: "Old World", template: oldWorld, probability: 8 },
-  fractious: { id: 13, name: "Fractious", template: fractious, probability: 3 }
+  volcano: { id: 0, name: "火山", template: volcano, probability: 3 },
+  highIsland: { id: 1, name: "高山岛", template: highIsland, probability: 19 },
+  lowIsland: { id: 2, name: "低岛", template: lowIsland, probability: 9 },
+  continents: { id: 3, name: "大陆", template: continents, probability: 16 },
+  archipelago: { id: 4, name: "群岛", template: archipelago, probability: 18 },
+  atoll: { id: 5, name: "环礁", template: atoll, probability: 1 },
+  mediterranean: { id: 6, name: "地中海", template: mediterranean, probability: 5 },
+  peninsula: { id: 7, name: "半岛", template: peninsula, probability: 3 },
+  pangea: { id: 8, name: "盘古大陆", template: pangea, probability: 5 },
+  isthmus: { id: 9, name: "地峡", template: isthmus, probability: 2 },
+  shattered: { id: 10, name: "碎裂", template: shattered, probability: 7 },
+  taklamakan: { id: 11, name: "塔克拉玛干", template: taklamakan, probability: 1 },
+  oldWorld: { id: 12, name: "旧大陆", template: oldWorld, probability: 8 },
+  fractious: { id: 13, name: "分裂", template: fractious, probability: 3 }
 };
 
 declare global {

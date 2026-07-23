@@ -12,7 +12,7 @@ function open(): void {
   routesOverviewAddLines();
 
   $("#routesOverview").dialog({
-    title: "Routes Overview",
+    title: "道路总览",
     resizable: false,
     width: fitContent(),
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" },
@@ -198,8 +198,8 @@ function toggleLockAll(): void {
 function triggerRouteRemove(this: HTMLElement): void {
   const routeId = +(this.parentNode as HTMLElement).dataset.id!;
   confirmationDialog({
-    title: "Remove route",
-    message: "Are you sure you want to remove the route? <br>This action cannot be reverted",
+    title: "移除道路",
+    message: "确定要移除该道路吗？<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => {
       const route = pack.routes.find((r: Route) => r.i === routeId) as Route;
@@ -213,9 +213,9 @@ function triggerAllRoutesRemove(): void {
   const toRemove = pack.routes.filter((route: Route) => !route.lock);
   if (!toRemove.length) {
     if (!pack.routes.length) {
-      tip("There are no routes to remove", false, "error");
+      tip("没有可移除的道路", false, "error");
     } else {
-      tip("All routes are locked. Unlock routes to remove them, or use Lock all to unlock first.", false, "error");
+      tip("所有道路已锁定。请解锁道路以移除，或使用「全部锁定」先解锁。", false, "error");
     }
     return;
   }
@@ -234,9 +234,9 @@ function triggerAllRoutesRemove(): void {
         const routesToRemove = pack.routes.filter((route: Route) => !route.lock);
         if (!routesToRemove.length) {
           if (!pack.routes.length) {
-            tip("There are no routes to remove", false, "error");
+            tip("没有可移除的道路", false, "error");
           } else {
-            tip("All routes are now locked; nothing was removed.", false, "error");
+            tip("所有道路现已锁定；未移除任何内容。", false, "error");
           }
           $(this).dialog("close");
           return;

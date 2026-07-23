@@ -43,7 +43,7 @@ function open(): void {
   refreshProvincesEditor();
 
   $("#provincesEditor").dialog({
-    title: "Provinces Editor",
+    title: "省份编辑器",
     resizable: false,
     width: fitContent(),
     close: closeProvincesEditor,
@@ -399,8 +399,8 @@ function capitalZoomIn(p: number): void {
 
 function triggerIndependencePromps(p: number): void {
   confirmationDialog({
-    title: "Declare independence",
-    message: "Are you sure you want to declare province independence? <br>It will turn province into a new state",
+    title: "宣布独立",
+    message: "确定要宣布省份独立吗？<br>这会将省份变为一个新国家",
     confirm: "Declare",
     onConfirm: () => {
       const result = declareProvinceIndependence(p);
@@ -417,11 +417,11 @@ function declareProvinceIndependence(provinceId: number): [number, number] | und
   const { name, burg: burgId, burgs: provinceBurgs } = province;
 
   if (provinceBurgs!.some(b => burgs[b].capital)) {
-    tip("Cannot declare independence of a province having capital burg. Please change capital first", false, "error");
+    tip("无法宣布拥有首都城镇的省份独立。请先更改首都", false, "error");
     return;
   }
   if (!burgId) {
-    tip("Cannot declare independence of a province without burg", false, "error");
+    tip("无法宣布没有城镇的省份独立", false, "error");
     return;
   }
 
@@ -537,7 +537,7 @@ function changePopulation(province: number): void {
   const p = pack.provinces[province];
   const cells = pack.cells.i.filter(i => pack.cells.province[i] === province);
   if (!cells.length) {
-    tip("Province does not have any cells, cannot change population", false, "error");
+    tip("省份没有任何单元格，无法更改人口", false, "error");
     return;
   }
   const rural = rn(p.rural! * populationRate);
@@ -564,7 +564,7 @@ function changePopulation(province: number): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Change province population",
+    title: "更改省份人口",
     width: "24em",
     buttons: {
       Apply: function (this: HTMLElement) {
@@ -624,7 +624,7 @@ function removeProvince(p: number): void {
   alertMessage.innerHTML = /* html */ `Are you sure you want to remove the province? <br />This action cannot be reverted`;
   $("#alert").dialog({
     resizable: false,
-    title: "Remove province",
+    title: "移除省份",
     buttons: {
       Remove: function (this: HTMLElement) {
         pack.cells.province.forEach((province, i) => {
@@ -669,7 +669,7 @@ function editProvinceName(province: number): void {
 
   $("#provinceNameEditor").dialog({
     resizable: false,
-    title: "Change province name",
+    title: "更改省份名称",
     buttons: {
       Apply: function (this: HTMLElement) {
         applyNameChange(p);
@@ -1031,7 +1031,7 @@ function showChart(): void {
   }
 
   $("#alert").dialog({
-    title: "Provinces chart",
+    title: "省份图表",
     width: fitContent(),
     position: { my: "left bottom", at: "left+10 bottom-10", of: "svg" },
     buttons: {},
@@ -1057,10 +1057,10 @@ function toggleLabels(): void {
 
 function triggerProvincesRelease(): void {
   confirmationDialog({
-    title: "Release provinces",
-    message: `Are you sure you want to release all provinces?
-        </br>It will turn all separable provinces into independent states.
-        </br>Capital province and provinces without any burgs will state as they are`,
+    title: "释放省份",
+    message: `确定要释放所有省份吗？
+        </br>这会将所有可分离的省份变为独立国家。
+        </br>首都省份和没有城镇的省份将保持原状`,
     confirm: "Release",
     onConfirm: () => {
       const oldStateIds: number[] = [];
@@ -1127,7 +1127,7 @@ function enterProvincesManualAssignent(): void {
     });
   $("#provincesEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" } });
 
-  tip("Click on a province to select, drag the circle to change province", true);
+  tip("点击省份以选择，拖动圆形以更改省份", true);
   select<SVGElement, unknown>("#viewbox")
     .style("cursor", "crosshair")
     .on("click", selectProvinceOnMapClick)
@@ -1158,7 +1158,7 @@ function selectProvinceOnMapClick(this: SVGElement, event: any): void {
 
   const editorLine = ensureEl("provincesBodySection").querySelector(`div[data-id='${province}']`);
   if (!editorLine) {
-    tip("You cannot select a province if it is not in the Editor list", false, "error");
+    tip("如果省份不在编辑器列表中，则无法选择", false, "error");
     return;
   }
 
@@ -1205,7 +1205,7 @@ function changeForSelection(selection: number[]): void {
     if (i === pack.provinces[provinceOld].center) {
       const center = centers.select(`polygon[data-center='${i}']`);
       if (!center.size()) centers.append("polygon").attr("data-center", i).attr("points", getPackPolygon(i, pack));
-      tip("Province center cannot be assigned to a different region. Please remove the province first", false, "error");
+      tip("省份中心无法分配到其他区域。请先移除该省份", false, "error");
       return;
     }
 
@@ -1294,7 +1294,7 @@ function enterAddProvinceMode(this: HTMLElement): void {
 
   customization = 12;
   this.classList.add("pressed");
-  tip("Click on the map to place a new province center", true);
+  tip("点击地图以放置新省份中心", true);
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addProvince);
   ensureEl("provincesBodySection")
     .querySelectorAll<HTMLElement>("div > input, select, span, svg")
@@ -1308,19 +1308,19 @@ function addProvince(this: SVGElement, event: any): void {
   const point = getPointer(event, this);
   const center = findCell(point[0], point[1])!;
   if (cells.h[center] < 20) {
-    tip("You cannot place province into the water. Please click on a land cell", false, "error");
+    tip("无法将省份放入水中。请点击陆地单元格", false, "error");
     return;
   }
 
   const oldProvince = cells.province[center];
   if (oldProvince && provinces[oldProvince].center === center) {
-    tip("The cell is already a center of a different province. Select other cell", false, "error");
+    tip("该单元格已是其他省份的中心。请选择其他单元格", false, "error");
     return;
   }
 
   const state = cells.state[center];
   if (!state) {
-    tip("You cannot create a province in neutral lands. Please assign this land to a state first", false, "error");
+    tip("无法在中立领土上创建省份。请先将该领土分配给一个国家", false, "error");
     return;
   }
 
@@ -1421,7 +1421,7 @@ function removeAllProvinces(): void {
   alertMessage.innerHTML = /* html */ `Are you sure you want to remove all provinces? <br />This action cannot be reverted`;
   $("#alert").dialog({
     resizable: false,
-    title: "Remove all provinces",
+    title: "移除所有省份",
     buttons: {
       Remove: function (this: HTMLElement) {
         $(this).dialog("close");
@@ -1479,7 +1479,7 @@ function openProvinceMergeDialog(): void {
   if (selectedState === -1) {
     alertMessage.innerHTML = "Please select a specific state from the filter to merge provinces within that state.";
     $("#alert").dialog({
-      title: "Merge Provinces",
+      title: "合并省份",
       buttons: {
         OK: function (this: HTMLElement) {
           $(this).dialog("close");
@@ -1492,7 +1492,7 @@ function openProvinceMergeDialog(): void {
   if (provincesToMerge.length < 2) {
     alertMessage.innerHTML = "Not enough provinces in the selected state to merge.";
     $("#alert").dialog({
-      title: "Merge Provinces",
+      title: "合并省份",
       buttons: {
         OK: function (this: HTMLElement) {
           $(this).dialog("close");
@@ -1538,14 +1538,14 @@ function openProvinceMergeDialog(): void {
 
   $("#alert").dialog({
     width: 600,
-    title: `Merge provinces`,
+    title: `合并省份`,
     close: provinceHighlightOff,
     buttons: {
       Merge: function (this: HTMLElement) {
         const formData = new FormData(ensureEl<HTMLFormElement>("mergeProvincesForm"));
         const primaryProvinceId = Number(formData.get("rulingProvince"));
         if (!primaryProvinceId) {
-          tip("Please select a province to merge into", false, "error");
+          tip("请选择要合并到的省份", false, "error");
           return;
         }
 
@@ -1554,12 +1554,12 @@ function openProvinceMergeDialog(): void {
           .map(Number)
           .filter(provinceId => provinceId !== primaryProvinceId);
         if (!provincesToMergeIds.length) {
-          tip("Please select several provinces to merge", false, "error");
+          tip("请选择多个要合并的省份", false, "error");
           return;
         }
 
         confirmationDialog({
-          title: "Merge provinces",
+          title: "合并省份",
           message: /* html */ `
             <p>The following provinces will be <strong>removed</strong>: ${provincesToMergeIds
               .map(provinceId => `${emblem(provinceId)}${pack.provinces[provinceId].name}`)

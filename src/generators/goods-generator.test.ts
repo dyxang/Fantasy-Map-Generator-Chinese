@@ -33,7 +33,7 @@ describe("GoodsModule", () => {
       goods: [
         {
           i: 1,
-          name: "Custom A",
+          name: "自定义 A",
           tags: [],
           value: 1,
           unit: "unit",
@@ -44,7 +44,7 @@ describe("GoodsModule", () => {
         },
         {
           i: 2,
-          name: "Custom B",
+          name: "自定义 B",
           tags: [],
           value: 1,
           unit: "unit",

@@ -16,7 +16,7 @@ function open(id: string): void {
   elSelected = select<SVGElement, unknown>(`#${id}`).on("click", addControlPoint);
 
   tip(
-    "Drag control points to change the river course. Click on point to remove it. Click on river to add additional control point. For major changes please create a new river instead",
+    "拖动控制点可改变河流走向。点击控制点可移除。点击河流可添加控制点。如需大幅修改请新建一条河流",
     true
   );
   select("#debug").append("g").attr("id", "controlCells");
@@ -32,7 +32,7 @@ function open(id: string): void {
   drawCells(cells);
 
   $("#riverEditor").dialog({
-    title: "Edit River",
+    title: "编辑河流",
     resizable: false,
     position: { my: "left top", at: "left+10 top+10", of: "#map" },
     close: closeRiverEditor
@@ -316,7 +316,7 @@ function removeRiver(): void {
   $("#alert").dialog({
     resizable: false,
     width: "22em",
-    title: "Remove river and tributaries",
+    title: "移除河流及支流",
     buttons: {
       Remove: function (this: any) {
         $(this).dialog("close");

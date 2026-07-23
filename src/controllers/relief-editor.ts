@@ -18,7 +18,7 @@ function open(element: SVGElement): void {
   updateReliefSizeInput();
 
   $("#reliefEditor").dialog({
-    title: "Edit Relief Icons",
+    title: "编辑地形图标",
     resizable: false,
     width: "27em",
     position: { my: "left top", at: "left+10 top+10", of: "#map" },
@@ -438,7 +438,7 @@ function enterBulkAddMode(): void {
     .style("cursor", "crosshair")
     .call(drag<SVGElement, unknown>().on("start", dragToAdd))
     .on("touchmove mousemove", moveBrush);
-  tip("Drag to place relief icons within radius", true);
+  tip("拖动以在半径内放置地形图标", true);
 }
 
 function moveBrush(this: SVGElement, event: any): void {
@@ -451,7 +451,7 @@ function moveBrush(this: SVGElement, event: any): void {
 function dragToAdd(this: SVGElement, event: any): void {
   const pressed = ensureEl("reliefIconsDiv").querySelector<SVGElement>("svg.pressed");
   if (!pressed) {
-    tip("Please select an icon", false, "error");
+    tip("请选择一个图标", false, "error");
     return;
   }
 
@@ -527,13 +527,13 @@ function enterBulkRemoveMode(): void {
     .style("cursor", "crosshair")
     .call(drag<SVGElement, unknown>().on("start", dragToRemove))
     .on("touchmove mousemove", moveBrush);
-  tip("Drag to remove relief icons in radius", true);
+  tip("拖动以移除半径内的地形图标", true);
 }
 
 function dragToRemove(this: SVGElement, event: any): void {
   const pressed = ensureEl("reliefIconsDiv").querySelector<SVGElement>("svg.pressed");
   if (!pressed) {
-    tip("Please select an icon", false, "error");
+    tip("请选择一个图标", false, "error");
     return;
   }
 
@@ -632,7 +632,7 @@ function removeIcon(): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Remove relief icons",
+    title: "移除地形图标",
     buttons: {
       Remove: function (this: HTMLElement) {
         if (selection) selection.remove();

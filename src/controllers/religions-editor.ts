@@ -28,7 +28,7 @@ function open(): void {
   drawReligionCenters();
 
   $("#religionsEditor").dialog({
-    title: "Religions Editor",
+    title: "宗教编辑器",
     resizable: false,
     close: closeReligionsEditor,
     position: { my: "right top", at: "right-10 top+10", of: "svg" }
@@ -437,7 +437,7 @@ function changePopulation(this: HTMLElement): void {
   const religionId = +(this.parentNode as HTMLElement).dataset.id!;
   const religion = pack.religions[religionId];
   if (!religion.cells) {
-    tip("Religion does not have any cells, cannot change population", false, "error");
+    tip("宗教没有任何单元格，无法更改人口", false, "error");
     return;
   }
 
@@ -476,7 +476,7 @@ function changePopulation(this: HTMLElement): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Change believers number",
+    title: "更改信徒数量",
     width: "24em",
     buttons: {
       Apply: function (this: HTMLElement) {
@@ -545,8 +545,8 @@ function religionRemovePrompt(this: HTMLElement): void {
 
   const religionId = +(this.parentNode as HTMLElement).dataset.id!;
   confirmationDialog({
-    title: "Remove religion",
-    message: "Are you sure you want to remove the religion? <br>This action cannot be reverted",
+    title: "移除宗教",
+    message: "确定要移除该宗教吗？<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => removeReligion(religionId)
   });
@@ -598,7 +598,7 @@ function drawReligionCenters(): void {
     .attr("cx", (d: any) => pack.cells.p[d.center][0])
     .attr("cy", (d: any) => pack.cells.p[d.center][1])
     .on("mouseenter", (event: any, d: any) => {
-      tip(`${d.name}. Drag to move the religion center`, true);
+      tip(`${d.name}。拖动以移动宗教中心`, true);
       religionHighlightOn(event);
     })
     .on("mouseleave", (event: any) => {
@@ -727,7 +727,7 @@ function enterReligionsManualAssignent(): void {
     });
   $("#religionsEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg" } });
 
-  tip("Click on religion to select, drag the circle to change religion", true);
+  tip("点击宗教以选择，拖动圆形以更改宗教", true);
   select<SVGElement, unknown>("#viewbox")
     .style("cursor", "crosshair")
     .on("click", selectReligionOnMapClick)
@@ -856,7 +856,7 @@ function enterAddReligionMode(this: HTMLElement): void {
 
   customization = 8;
   this.classList.add("pressed");
-  tip("Click on the map to add a new religion", true);
+  tip("点击地图以添加新宗教", true);
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addReligion);
   ensureEl("religionsBody")
     .querySelectorAll<HTMLElement>("div > input, select, span, svg")
@@ -882,13 +882,13 @@ function addReligion(this: SVGElement, event: MouseEvent): void {
   const [x, y] = getPointer(event, this);
   const center = findCell(x, y)!;
   if (pack.cells.h[center] < 20) {
-    tip("You cannot place religion center into the water. Please click on a land cell", false, "error");
+    tip("无法将宗教中心放置在水中。请点击陆地单元格", false, "error");
     return;
   }
 
   const occupied = pack.religions.some(r => !r.removed && r.center === center);
   if (occupied) {
-    tip("This cell is already a religion center. Please select a different cell", false, "error");
+    tip("此单元格已是宗教中心。请选择其他单元格", false, "error");
     return;
   }
 

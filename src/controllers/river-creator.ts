@@ -13,7 +13,7 @@ function open(): void {
   ensureEl("toggleCells").dataset.forced = String(+!layerIsOn("toggleCells"));
   if (!layerIsOn("toggleCells")) toggleCells();
 
-  tip("Click to add river point, click again to remove", true);
+  tip("点击添加河流点，再次点击移除", true);
   select("#debug").append("g").attr("id", "controlCells");
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", onCellClick);
 
@@ -21,7 +21,7 @@ function open(): void {
   renderDialog();
 
   $("#riverCreator").dialog({
-    title: "Create River",
+    title: "创建河流",
     resizable: false,
     position: { my: "left top", at: "left+10 top+10", of: "#map" },
     close: closeRiverCreator
@@ -99,7 +99,7 @@ function addRiver(): void {
   const { rivers: packRivers, cells } = pack;
   const riverCells = creatorCells;
   if (riverCells.length < 2) {
-    tip("Add at least 2 cells", false, "error");
+    tip("至少添加 2 个单元格", false, "error");
     return;
   }
 

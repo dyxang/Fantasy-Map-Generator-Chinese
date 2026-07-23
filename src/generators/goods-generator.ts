@@ -61,7 +61,7 @@ export function getDemandTargets(population: number): number[] {
 type GoodData = Omit<Good, "i"> & { recipes?: Record<string, number>[] };
 const GOODS_DATA: GoodData[] = [
   {
-    name: "Wood",
+    name: "木材",
     tags: ["construction", "fuel"],
     icon: "good-wood",
     color: "#966F33",
@@ -74,7 +74,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 5: 0.1, 6: 0.1, 7: 0.1, 8: 0.1, 9: 0.1, 12: 0.05 }
   },
   {
-    name: "Stone",
+    name: "石材",
     tags: ["construction"],
     icon: "good-stone",
     color: "#979EA2",
@@ -87,7 +87,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 1: 0.05, 2: 0.05 }
   },
   {
-    name: "Marble",
+    name: "大理石",
     tags: ["construction", "luxury"],
     icon: "good-marble",
     color: "#d6d0bf",
@@ -99,7 +99,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 1.4 } }
   },
   {
-    name: "Iron",
+    name: "铁",
     tags: ["ore", "military"],
     icon: "good-iron",
     color: "#5D686E",
@@ -111,7 +111,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 12: 0.1 }
   },
   {
-    name: "Copper",
+    name: "铜",
     tags: ["ore"],
     icon: "good-copper",
     color: "#b87333",
@@ -122,7 +122,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 1.4 } }
   },
   {
-    name: "Tin",
+    name: "锡",
     tags: ["ore"],
     icon: "good-tin",
     color: "#454343",
@@ -133,7 +133,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 1.4 } }
   },
   {
-    name: "Silver",
+    name: "银",
     tags: ["ore", "luxury"],
     icon: "good-silver",
     color: "#C0C0C0",
@@ -144,7 +144,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Hunting: 0.5, Highland: 1.4, Nomadic: 0.5 } }
   },
   {
-    name: "Gold",
+    name: "金",
     tags: ["ore", "luxury"],
     icon: "good-gold",
     color: "#ffd700",
@@ -155,7 +155,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 1.4, Nomadic: 0.5 } }
   },
   {
-    name: "Grain",
+    name: "谷物",
     tags: ["food"],
     icon: "good-grain",
     color: "#F5DEB3",
@@ -168,7 +168,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 5: 0.1, 6: 0.1, 7: 0.1, 8: 0.1 }
   },
   {
-    name: "Cattle",
+    name: "牛",
     tags: ["food"],
     icon: "good-cattle",
     color: "#56b000",
@@ -181,7 +181,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 3: 0.1, 4: 0.1 }
   },
   {
-    name: "Fish",
+    name: "鱼",
     tags: ["food", "aquatic"],
     icon: "good-fish",
     color: "#7fcdff",
@@ -193,7 +193,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { River: 1.4, Lake: 1.4, Naval: 1.4, Nomadic: 0.2 } }
   },
   {
-    name: "Game",
+    name: "猎物",
     tags: ["food"],
     icon: "good-game",
     color: "#c38a8a",
@@ -206,7 +206,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 3: 0.01, 4: 0.01, 5: 0.02, 6: 0.02, 7: 0.02, 8: 0.02, 9: 0.05 }
   },
   {
-    name: "Wine",
+    name: "葡萄酒",
     tags: ["food", "luxury"],
     icon: "good-wine",
     color: "#963e48",
@@ -219,7 +219,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 6: 0.1 }
   },
   {
-    name: "Olives",
+    name: "橄榄",
     tags: ["food"],
     icon: "good-olives",
     color: "#BDBD7D",
@@ -232,7 +232,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 3: 0.1 }
   },
   {
-    name: "Honey",
+    name: "蜂蜜",
     tags: ["food", "preservative"],
     icon: "good-honey",
     color: "#DCBC66",
@@ -245,7 +245,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 6: 0.05, 8: 0.03, 9: 0.03 }
   },
   {
-    name: "Salt",
+    name: "盐",
     tags: ["preservative", "mineral"],
     icon: "good-salt",
     color: "#E5E4E5",
@@ -258,7 +258,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 1: 0.1, 2: 0.1 }
   },
   {
-    name: "Dates",
+    name: "椰枣",
     tags: ["food"],
     icon: "good-dates",
     color: "#dbb2a3",
@@ -271,7 +271,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 1: 0.1 }
   },
   {
-    name: "Horses",
+    name: "马",
     tags: ["supply", "military"],
     icon: "good-horses",
     color: "#ba7447",
@@ -284,7 +284,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 4: 0.01 }
   },
   {
-    name: "Elephants",
+    name: "大象",
     tags: ["supply", "military"],
     icon: "good-elephants",
     color: "#C5CACD",
@@ -296,7 +296,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 0.2 } }
   },
   {
-    name: "Camels",
+    name: "骆驼",
     tags: ["supply", "military"],
     icon: "good-camels",
     color: "#C19A6B",
@@ -309,7 +309,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 1: 0.05, 2: 0.05 }
   },
   {
-    name: "Hemp",
+    name: "大麻",
     tags: ["clothing", "naval"],
     icon: "good-hemp",
     color: "#069a06",
@@ -321,7 +321,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 6: 0.1, 7: 0.1, 8: 0.1 }
   },
   {
-    name: "Pearls",
+    name: "珍珠",
     tags: ["luxury", "aquatic"],
     icon: "good-pearls",
     color: "#EAE0C8",
@@ -333,7 +333,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Naval: 1.4 } }
   },
   {
-    name: "Gemstones",
+    name: "宝石",
     tags: ["luxury", "mineral"],
     icon: "good-gemstones",
     color: "#e463e4",
@@ -345,7 +345,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 1.4 } }
   },
   {
-    name: "Dyes",
+    name: "染料",
     tags: ["luxury"],
     icon: "good-dyes",
     color: "#fecdea",
@@ -356,7 +356,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Generic: 1.2 } }
   },
   {
-    name: "Incense",
+    name: "熏香",
     tags: ["luxury", "ritual"],
     icon: "good-incense",
     color: "#ebe5a7",
@@ -367,7 +367,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { luxury: 1 }
   },
   {
-    name: "Silk",
+    name: "丝绸",
     tags: ["luxury", "clothing"],
     icon: "good-silk",
     color: "#e0f0f8",
@@ -379,7 +379,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { River: 1.2, Lake: 1.2 } }
   },
   {
-    name: "Spices",
+    name: "香料",
     tags: ["luxury"],
     icon: "good-spices",
     color: "#e99c75",
@@ -391,7 +391,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Generic: 1.2 } }
   },
   {
-    name: "Amber",
+    name: "琥珀",
     tags: ["luxury"],
     icon: "good-amber",
     color: "#e68200",
@@ -403,7 +403,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Generic: 1.2 } }
   },
   {
-    name: "Furs",
+    name: "毛皮",
     tags: ["clothing", "luxury"],
     icon: "good-furs",
     color: "#8a5e51",
@@ -416,7 +416,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 9: 0.02, 10: 0.02, 6: 0.02, 8: 0.02, 12: 0.02 }
   },
   {
-    name: "Sheep",
+    name: "羊",
     tags: ["clothing"],
     icon: "good-sheep",
     color: "#53b574",
@@ -429,7 +429,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 4: 0.1 }
   },
   {
-    name: "Slaves",
+    name: "奴隶",
     tags: ["supply"],
     icon: "good-slaves",
     color: "#757575",

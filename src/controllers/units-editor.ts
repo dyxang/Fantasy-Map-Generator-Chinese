@@ -16,7 +16,7 @@ function open(): void {
   closeDialogs("#unitsEditor, .stable");
 
   $("#unitsEditor").dialog({
-    title: "Units Editor",
+    title: "单位编辑器",
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" }
   });
 

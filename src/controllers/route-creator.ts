@@ -13,7 +13,7 @@ function open(defaultGroup?: string): void {
   ensureEl("toggleCells").dataset.forced = String(+!layerIsOn("toggleCells"));
   if (!layerIsOn("toggleCells")) toggleCells();
 
-  tip("Click to add route point", true);
+  tip("点击添加道路点", true);
   select("#debug").append("g").attr("id", "controlCells");
   select("#debug").append("g").attr("id", "controlPoints");
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", onClick);
@@ -32,7 +32,7 @@ function open(defaultGroup?: string): void {
     .join("");
 
   $("#routeCreator").dialog({
-    title: "Create Route",
+    title: "创建道路",
     resizable: false,
     position: { my: "left top", at: "left+10 top+10", of: "#map" },
     close: closeRouteCreator
@@ -138,7 +138,7 @@ function drawRoute(points: number[][]): void {
 function completeCreation(): void {
   const points = creatorPoints;
   if (points.length < 2) {
-    tip("Add at least 2 points", false, "error");
+    tip("至少添加 2 个点", false, "error");
     return;
   }
 

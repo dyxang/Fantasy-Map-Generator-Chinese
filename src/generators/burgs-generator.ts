@@ -56,7 +56,7 @@ class BurgModule {
 
     const populatedCells = cells.i.filter(i => cells.s[i] > 0 && cells.culture[i]);
     if (!populatedCells.length) {
-      ERROR && console.error("There is no populated cells with culture assigned. Cannot generate states");
+      ERROR && console.error("没有已分配文化的有人居住单元格，无法生成国家");
       return burgs;
     }
 
@@ -435,7 +435,7 @@ class BurgModule {
         biomes: [1, 2, 3]
       },
       {
-        name: "trading_post",
+        name: "贸易站",
         active: true,
         order: 3,
         features: { plaza: true },
@@ -477,7 +477,7 @@ class BurgModule {
 
     const defaultGroup = options.burgs.groups.find((g: any) => g.isDefault);
     if (!defaultGroup) {
-      ERROR && console.error("No default group defined");
+      ERROR && console.error("未定义默认组");
       return;
     }
     burg.group = defaultGroup.name;
@@ -764,7 +764,7 @@ class BurgModule {
 
   remove(burgId: number) {
     const burg = pack.burgs[burgId];
-    if (!burg) return tip(`Burg ${burgId} not found`, false, "error");
+    if (!burg) return tip(`未找到城镇 ${burgId}`, false, "error");
 
     pack.cells.burg[burg.cell] = 0;
     burg.removed = true;

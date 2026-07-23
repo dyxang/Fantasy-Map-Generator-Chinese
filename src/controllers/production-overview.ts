@@ -319,7 +319,7 @@ function open(burgId: number): void {
       {
         label: "收入",
         align: "right",
-        title: "Money flow for deal rows: negative for BUY, positive for SELL. Pure production rows are blank."
+        title: "交易行的资金流：BUY 为负，SELL 为正。纯生产行为空。"
       }
     ],
     rows: allRows,
@@ -359,7 +359,7 @@ function open(burgId: number): void {
 
   const producedTable = renderTable({
     colWidths: ["80%", "20%"],
-    headers: [{ label: "Good" }, { label: "Units", align: "right" }],
+    headers: [{ label: "货物" }, { label: "Units", align: "right" }],
     rows: producedRows,
     empty: "No goods manufactured"
   });

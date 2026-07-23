@@ -15,7 +15,7 @@ function open(): void {
   addLines();
 
   $("#routeGroupsEditor").dialog({
-    title: "Edit Route groups",
+    title: "编辑道路组",
     resizable: false,
     position: { my: "left top", at: "left+10 top+140", of: "#map" },
     close: closeRouteGroupsEditor
@@ -76,11 +76,11 @@ function addGroup(): void {
       .replace(/ /g, "_")
       .replace(/[^\w\s]/gi, "");
 
-    if (!group) return tip("Invalid group name", false, "error");
+    if (!group) return tip("无效组名", false, "error");
     if (!group.startsWith("route-")) group = `route-${group}`;
     if (document.getElementById(group))
-      return tip("Element with this name already exists. Provide a unique name", false, "error");
-    if (Number.isFinite(+group.charAt(0))) return tip("Group name should start with a letter", false, "error");
+      return tip("具有此名称的元素已存在。请提供唯一的名称", false, "error");
+    if (Number.isFinite(+group.charAt(0))) return tip("组名应以字母开头", false, "error");
 
     select("#routes")
       .append("g")
@@ -98,9 +98,9 @@ function addGroup(): void {
 
 function removeGroup(group: string): void {
   confirmationDialog({
-    title: "Remove route group",
+    title: "移除道路组",
     message:
-      "Are you sure you want to remove the entire route group? All routes in this group will be removed.<br>This action can't be reverted",
+      "确定要移除整个道路组吗？该组中的所有道路都将被移除。<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => {
       pack.routes.filter((r: Route) => r.group === group).forEach(Routes.remove);

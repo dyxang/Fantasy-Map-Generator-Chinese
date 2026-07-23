@@ -148,7 +148,7 @@ function open(id: number): void {
   drawGraph();
 
   $("#alert").dialog({
-    title: `Average temperature in ${b.name}`,
+    title: `${b.name}的平均温度`,
     position: { my: "center", at: "center", of: "svg" }
   });
 
@@ -248,7 +248,7 @@ function open(id: number): void {
       const type = this.getAttribute("data-type");
       const temp = convertTemperature(yscale.invert(y - yOffset));
       const month = MONTHS[rn(((x - xOffset) / chartWidth) * 12)] || MONTHS[0];
-      tip(`Average ${type} temperature in ${month}: ${temp}`);
+      tip(`${month}的${type}平均温度：${temp}`);
     }
   }
 }

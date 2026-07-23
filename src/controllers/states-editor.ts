@@ -36,7 +36,7 @@ function open(): void {
   refreshStatesEditor();
 
   $("#statesEditor").dialog({
-    title: "States Editor",
+    title: "国家编辑器",
     resizable: false,
     close: closeStatesEditor,
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" }
@@ -432,7 +432,7 @@ function editStateName(state: number): void {
 
   $("#stateNameEditor").dialog({
     resizable: false,
-    title: "Change state name",
+    title: "更改国家名称",
     buttons: {
       Apply: function (this: HTMLElement) {
         applyNameChange(s);
@@ -671,7 +671,7 @@ function stateChangeCapitalName(state: number, line: HTMLElement, value: string)
 function changePopulation(stateId: number): void {
   const state = pack.states[stateId];
   if (!state.cells) {
-    tip("State does not have any cells, cannot change population", false, "error");
+    tip("国家没有任何单元格，无法更改人口", false, "error");
     return;
   }
 
@@ -708,7 +708,7 @@ function changePopulation(stateId: number): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Change state population",
+    title: "更改国家人口",
     width: "24em",
     buttons: {
       Apply: function (this: HTMLElement) {
@@ -789,7 +789,7 @@ function openTreasuryDialog(stateId: number): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: `Taxes and Treasury: ${state.name}`,
+    title: `税收与国库：${state.name}`,
     width: "26em",
     buttons: {
       Apply: function (this: HTMLElement) {
@@ -850,8 +850,8 @@ function stateRemovePrompt(state: number): void {
   if (customization) return;
 
   confirmationDialog({
-    title: "Remove state",
-    message: "Are you sure you want to remove the state? <br>This action cannot be reverted",
+    title: "移除国家",
+    message: "确定要移除该国家吗？<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => stateRemove(state)
   });
@@ -966,7 +966,7 @@ function togglePercentageMode(): void {
 function showStatesChart(): void {
   const statesData = pack.states.filter(s => !s.removed);
   if (statesData.length < 2) {
-    tip("There are no states to show", false, "error");
+    tip("没有可显示的国家", false, "error");
     return;
   }
 
@@ -1097,7 +1097,7 @@ function showStatesChart(): void {
   }
 
   $("#alert").dialog({
-    title: "States bubble chart",
+    title: "国家气泡图",
     width: fitContent(),
     position: { my: "left bottom", at: "left+10 bottom-10", of: "svg" },
     buttons: {},
@@ -1189,7 +1189,7 @@ function enterStatesManualAssignent(): void {
     });
   $("#statesEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" } });
 
-  tip("Click on state to select, drag the circle to change state", true);
+  tip("点击国家以选择，拖动圆形以更改国家", true);
   select<SVGElement, unknown>("#viewbox")
     .style("cursor", "crosshair")
     .on("click", selectStateOnMapClick)
@@ -1502,7 +1502,7 @@ function enterAddStateMode(this: HTMLElement): void {
   }
   customization = 3;
   this.classList.add("pressed");
-  tip("Click on the map to create a new capital or promote an existing burg", true);
+  tip("点击地图以创建新首都或提升现有城镇", true);
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addState);
   ensureEl("statesBodySection")
     .querySelectorAll<HTMLElement>("div > input, select, span, svg")
@@ -1516,13 +1516,13 @@ function addState(this: SVGElement, event: MouseEvent): void {
   const point = getPointer(event, this);
   const center = findCell(point[0], point[1])!;
   if (cells.h[center] < 20) {
-    tip("You cannot place state into the water. Please click on a land cell", false, "error");
+    tip("无法将国家放入水中。请点击陆地单元格", false, "error");
     return;
   }
 
   let burgId = cells.burg[center];
   if (burgId && burgs[burgId].capital) {
-    tip("Existing capital cannot be selected as a new state capital! Select other cell", false, "error");
+    tip("现有首都无法选为新国家首都！请选择其他单元格", false, "error");
     return;
   }
 
@@ -1690,7 +1690,7 @@ function openStateMergeDialog(): void {
 
   $("#alert").dialog({
     width: 600,
-    title: `Merge states`,
+    title: `合并国家`,
     close: stateHighlightOff,
     buttons: {
       Merge: function (this: HTMLElement) {
@@ -1698,7 +1698,7 @@ function openStateMergeDialog(): void {
 
         const rulingStateId = Number(formData.get("rulingState"));
         if (!rulingStateId) {
-          tip("Please select a state to merge into", false, "error");
+          tip("请选择要并入的国家", false, "error");
           return;
         }
         const rullingState = pack.states[rulingStateId];
@@ -1708,12 +1708,12 @@ function openStateMergeDialog(): void {
           .map(Number)
           .filter(stateId => stateId !== rulingStateId);
         if (!statesToMerge.length) {
-          tip("Please select several states to merge", false, "error");
+          tip("请选择要合并的多个国家", false, "error");
           return;
         }
 
         confirmationDialog({
-          title: "Merge states",
+          title: "合并国家",
           // prettier-ignore
           message: /* html */ `
             <p>The following states will be <strong>removed</strong>: ${statesToMerge.map(stateId => `${emblem(stateId)}${(pack.states)[stateId].name}`).join(", ")}.</p>

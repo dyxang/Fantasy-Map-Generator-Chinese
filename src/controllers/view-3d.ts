@@ -95,7 +95,7 @@ async function open(type: string): Promise<void> {
     renderPreviewDialog();
     ensureEl("preview3d").appendChild(canvas);
     $("#preview3d").dialog({
-      title: "3D Preview",
+      title: "3D 预览",
       resizable: true,
       position: { my: "left bottom", at: "left+10 bottom-20", of: "svg" },
       resizeStop: resize3d,
@@ -137,7 +137,7 @@ function toggleOptions(): void {
   renderOptionsDialog();
 
   $("#options3d").dialog({
-    title: "3D mode settings",
+    title: "3D 模式设置",
     resizable: false,
     width: fitContent(),
     position: { my: "right top", at: "right-30 top+10", of: "svg", collision: "fit" },
@@ -470,7 +470,7 @@ function onToggleErosion(): void {
   const enabled = !options.threeD.erosion;
   ensureEl("options3dErosionSection").style.display = enabled ? "block" : "none";
   ensureEl<HTMLInputElement>("options3dSubdivide").disabled = enabled; // dense geometry: subdivision ignored
-  if (enabled) tip("Baking eroded terrain...", false, "warn", 4000);
+  if (enabled) tip("正在烘焙侵蚀地形...", false, "warn", 4000);
   void toggleErosion();
 }
 
@@ -491,7 +491,7 @@ function onChangeErosionRiverDepth(this: HTMLInputElement): void {
 }
 
 function onToggleSatellite(): void {
-  if (!options.threeD.satellite) tip("Baking satellite texture...", false, "warn", 4000);
+  if (!options.threeD.satellite) tip("正在烘焙卫星纹理...", false, "warn", 4000);
   void toggleSatellite();
 }
 

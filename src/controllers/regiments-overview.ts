@@ -14,7 +14,7 @@ function open(state = -1): void {
   refreshRegimentsOverview();
 
   $("#regimentsOverview").dialog({
-    title: "Regiments Overview",
+    title: "军团总览",
     resizable: false,
     width: fitContent(),
     close: closeRegimentsOverview,
@@ -237,7 +237,7 @@ function toggleAdd(): void {
   button.classList.toggle("pressed");
   if (button.classList.contains("pressed")) {
     select<SVGGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addRegimentOnClick);
-    tip("Click on map to create new regiment or fleet", true);
+    tip("点击地图以创建新军团或舰队", true);
     findEl("regimentAdd")?.classList.add("pressed");
   } else {
     clearMainTip();
@@ -252,7 +252,7 @@ function toggleAdd(): void {
 function addRegimentOnClick(this: SVGGElement, event: MouseEvent): void {
   const state = +ensureEl<HTMLSelectElement>("regimentsFilter").value;
   if (state === -1) {
-    tip("Please select state from the list", false, "error");
+    tip("请从列表中选择国家", false, "error");
     return;
   }
 

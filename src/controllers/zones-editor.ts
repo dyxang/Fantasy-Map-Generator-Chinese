@@ -17,7 +17,7 @@ function open(): void {
   zonesEditorAddLines();
 
   $("#zonesEditor").dialog({
-    title: "Zones Editor",
+    title: "区域编辑器",
     resizable: false,
     close: closeZonesEditor,
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" }
@@ -275,7 +275,7 @@ function enterZonesManualAssignent(): void {
   });
   $("#zonesEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" } });
 
-  tip("Click to select a zone, drag to paint a zone", true);
+  tip("点击选择区域，拖动绘制区域", true);
   select<SVGElement, unknown>("#viewbox")
     .style("cursor", "crosshair")
     .on("click", selectZoneOnMapClick)
@@ -522,7 +522,7 @@ function changeType(zone: Zone, value: string): void {
 function changePopulation(zone: Zone): void {
   const landCells = zone.cells.filter(i => pack.cells.h[i] >= 20);
   if (!landCells.length) {
-    tip("Zone does not have any land cells, cannot change population", false, "error");
+    tip("区域没有任何陆地单元格，无法更改人口", false, "error");
     return;
   }
 
@@ -553,7 +553,7 @@ function changePopulation(zone: Zone): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Change zone population",
+    title: "更改区域人口",
     width: "24em",
     buttons: {
       Apply: function (this: HTMLElement) {
@@ -603,8 +603,8 @@ function changePopulation(zone: Zone): void {
 
 function zoneRemove(zone: Zone): void {
   confirmationDialog({
-    title: "Remove zone",
-    message: "Are you sure you want to remove the zone? <br>This action cannot be reverted",
+    title: "移除区域",
+    message: "确定要移除该区域吗？<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => {
       pack.zones = pack.zones.filter(z => z.i !== zone.i);

@@ -5,7 +5,7 @@ function open(): void {
   addListeners();
 
   $("#submapTool").dialog({
-    title: "Create a submap",
+    title: "创建子地图",
     resizable: false,
     width: "32em",
     position: { my: "center", at: "center", of: "svg" },
