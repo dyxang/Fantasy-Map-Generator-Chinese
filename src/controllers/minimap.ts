@@ -6,7 +6,7 @@ function open(): void {
   updateMinimap();
 
   $("#minimap").dialog({
-    title: "Minimap",
+    title: "小地图",
     resizable: false,
     width: "auto",
     position: { my: "left bottom", at: "left+10 bottom-25", of: "svg", collision: "fit" },

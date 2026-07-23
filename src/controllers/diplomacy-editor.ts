@@ -11,39 +11,39 @@ const relations: Record<string, Relation> = {
   Ally: {
     inText: "is an ally of",
     color: "#00b300",
-    tip: "Allies formed a defensive pact and protect each other in case of third party aggression"
+    tip: "盟国达成防御协定，在第三方进犯时互相保护"
   },
   Friendly: {
     inText: "is friendly to",
     color: "#d4f8aa",
-    tip: "State is friendly to anouther state when they share some common interests"
+    tip: "当两个国家存在某些共同利益时即为友好关系"
   },
   Neutral: {
     inText: "is neutral to",
     color: "#edeee8",
-    tip: "Neutral means states relations are neither positive nor negative"
+    tip: "中立表示两国关系既非正面也非负面"
   },
   Suspicion: {
     inText: "is suspicious of",
     color: "#eeafaa",
-    tip: "Suspicion means state has a cautious distrust of another state"
+    tip: "怀疑表示国家对另一国持有谨慎的不信任态度"
   },
-  Enemy: { inText: "is at war with", color: "#e64b40", tip: "Enemies are states at war with each other" },
+  Enemy: { inText: "is at war with", color: "#e64b40", tip: "敌对即处于战争状态的国家" },
   Unknown: {
     inText: "does not know about",
     color: "#a9a9a9",
-    tip: "Relations are unknown if states do not have enough information about each other"
+    tip: "当两国彼此情报不足时关系即为未知"
   },
   Rival: {
     inText: "is a rival of",
     color: "#ad5a1f",
-    tip: "Rivalry is a state of competing for dominance in the region"
+    tip: "对手关系即两国争夺该地区的主导权"
   },
-  Vassal: { inText: "is a vassal of", color: "#87CEFA", tip: "Vassal is a state having obligation to its suzerain" },
+  Vassal: { inText: "is a vassal of", color: "#87CEFA", tip: "藩属国是对其宗主国负有义务的国家" },
   Suzerain: {
     inText: "is suzerain to",
     color: "#00008B",
-    tip: "Suzerain is a state having some control over its vassals"
+    tip: "宗主国是对其藩属国拥有一定控制权的国家"
   }
 };
 
@@ -53,7 +53,7 @@ const getChronicle = () => pack.states[0].diplomacy as unknown as string[][];
 function open(): void {
   if (customization) return;
   if (pack.states.filter(s => s.i && !s.removed).length < 2) {
-    tip("There should be at least 2 states to edit the diplomacy", false, "error");
+    tip("至少需要 2 个国家才能编辑外交", false, "error");
     return;
   }
 
@@ -70,7 +70,7 @@ function open(): void {
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", selectStateOnMapClick);
 
   $("#diplomacyEditor").dialog({
-    title: "Diplomacy Editor",
+    title: "外交编辑器",
     resizable: false,
     width: fitContent(),
     close: closeDiplomacyEditor,
@@ -333,7 +333,7 @@ function selectRelation(subjectId: number, objectId: number, currentRelation: st
 
   $("#alert").dialog({
     width: fitContent(),
-    title: `Change relations`,
+    title: `更改关系`,
     buttons: {
       Apply: function (this: HTMLElement) {
         const formData = new FormData(ensureEl<HTMLFormElement>("relationsForm"));
@@ -479,7 +479,7 @@ function showRelationsHistory(): void {
   });
 
   $("#alert").dialog({
-    title: "Relations history",
+    title: "关系历史",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
       Save: function (this: HTMLElement) {
@@ -549,7 +549,7 @@ function showRelationsMatrix(): void {
   });
 
   $("#diplomacyMatrix").dialog({
-    title: "Relations matrix",
+    title: "关系矩阵",
     position: { my: "center", at: "center", of: "svg" },
     close: closeDiplomacyMatrix,
     buttons: {}

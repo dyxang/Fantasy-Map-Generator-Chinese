@@ -56,7 +56,7 @@ function open(props: OpenProps): void {
   dataElements = props.data;
   validElements = cleanupOrigins(dataElements);
   if (validElements.length < 3) {
-    tip(`Not enough ${props.type} to show hierarchy`, false, "error");
+    tip(`${props.type} 不足以显示层级结构`, false, "error");
     return;
   }
 
@@ -228,7 +228,7 @@ function getRoot(): any {
     oldRoot = root;
     return root;
   } catch (error) {
-    tip(`Hierarchy data issue. ${error}`, false, "error", 6000);
+    tip(`层级结构数据问题。${error}`, false, "error", 6000);
     return oldRoot;
   }
 }
@@ -475,7 +475,7 @@ function selectElement(d: any): void {
     `;
 
     $("#hierarchyTree_originSelector").dialog({
-      title: "Select origins",
+      title: "选择起源",
       position: { my: "center", at: "center", of: "svg" },
       buttons: {
         Select: () => {
@@ -515,7 +515,7 @@ function handleNoteEnter(this: SVGGElement, _event: MouseEvent, d: any): void {
   onNodeEnter(d);
 
   ensureEl("hierarchyTree_infoLine").innerText = getDescription(d.data);
-  tip("Drag to other node to add parent, click to edit");
+  tip("拖动到其他节点以添加父级，点击以编辑");
 }
 
 function handleNodeExit(this: SVGGElement, _event: MouseEvent, d: any): void {

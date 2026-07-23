@@ -30,6 +30,7 @@ function isTranslatableText(text) {
   const trimmed = text.trim();
   if (trimmed.length < 2) return false;
   if (!/[a-zA-Z]/.test(trimmed)) return false; // must contain letters
+  if (/[\u4e00-\u9fff]/.test(trimmed)) return false; // already translated (contains Chinese)
   // Skip pure numbers/symbols
   if (/^[\d\s.,;:!?@#$%^&*()+\-=<>/[\]{}|~`"']+$/.test(trimmed)) return false;
   return true;
@@ -47,14 +48,25 @@ function looksLikeCssSelector(text) {
   return /^[.#][\w-]+$/.test(text) || /^@media/.test(text);
 }
 
+function looksLikeCssVariable(text) {
+  // CSS custom properties: --bg-opacity, --bg-main, --header-active
+  return /^--[a-z][\w-]*$/i.test(text.trim());
+}
+
 function looksLikeSvgPath(text) {
   return /^[MLCQAZHVmlcqazhv][\d\s.,-]+$/.test(text.trim()) && text.length > 20;
 }
 
 function looksLikeCode(text) {
-  // Skip strings that look like code (contains semicolons, brackets, etc.)
-  if (/^(function|const|let|var|import|export|class|return|if|else|for|while|switch|case|break|continue)\s/.test(text.trim())) return true;
-  if (/[;{}]/.test(text) && !/\s[a-z]{3,}\s/i.test(text)) return true;
+  const t = text.trim();
+  // Skip JS keywords
+  if (/^(function|const|let|var|import|export|class|return|if|else|for|while|switch|case|break|continue)\s/.test(t)) return true;
+  // Skip pure code (no spaces between words, contains special chars)
+  if (/[;{}]/.test(t) && !/\s[a-z]{3,}\s/i.test(t)) return true;
+  // Skip camelCase identifiers without spaces (likely variable names)
+  if (!/\s/.test(t) && /^[a-z][a-zA-Z0-9]*$/.test(t) && t.length < 30) return true;
+  // Skip kebab-case identifiers without spaces (likely CSS class names or data attributes)
+  if (!/\s/.test(t) && /^[a-z][a-z0-9-]*$/.test(t) && t.length < 40) return true;
   return false;
 }
 
@@ -209,7 +221,9 @@ function extractTsUnits(filePath) {
     const trimmed = value.trim();
     if (!isTranslatableText(trimmed)) return;
     if (looksLikeFilePath(trimmed) || looksLikeUrl(trimmed) || looksLikeCssSelector(trimmed)) return;
+    if (looksLikeCssVariable(trimmed)) return;
     if (looksLikeSvgPath(trimmed)) return;
+    if (looksLikeCode(trimmed)) return;
 
     // Find line number
     const matchIndex = match.index;

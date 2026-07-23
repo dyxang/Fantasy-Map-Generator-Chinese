@@ -499,7 +499,7 @@ function uploadImage(type: "image" | "svg", callback: (type: string, id: string)
 
   if (file.size > 200000) {
     tip(
-      `File is too big, please optimize file size up to 200kB and re-upload. Recommended size is 48x48 px and up to 10kB`,
+      `文件过大，请将文件大小优化至 200kB 以下并重新上传。推荐尺寸为 48x48 像素，大小不超过 10kB`,
       true,
       "error",
       5000
@@ -535,7 +535,7 @@ function uploadImage(type: "image" | "svg", callback: (type: string, id: string)
       const svg = el.querySelector("svg");
       if (!svg)
         return void tip(
-          "The file should be prepared for load to FMG. If you don't know why it's happening, try to upload raster image",
+          "该文件需经过处理才能加载到 FMG。如果不确定原因，请尝试上传位图图像",
           false,
           "error"
         );
@@ -651,7 +651,7 @@ function openDemandCoveragePopup(
   popupEl.innerHTML = `<div style="display:grid;grid-template-columns:1fr 5em;gap:.3em .5em;align-items:center;padding:.2em;">${rows}</div>`;
 
   $(popupEl).dialog({
-    title: "Demand Coverage",
+    title: "需求覆盖",
     width: "18em",
     resizable: false,
     buttons: {
@@ -692,7 +692,7 @@ function openBiomeProductionPopup(
   popupEl.innerHTML = `<div style="max-height:320px;overflow-y:auto;padding:.2em;"><div style="display:grid;grid-template-columns:1fr 5em;gap:.3em .5em;align-items:center;">${rows}</div></div>`;
 
   $(popupEl).dialog({
-    title: "Biome Baseline Production",
+    title: "生物群系基础产量",
     width: "22em",
     resizable: false,
     buttons: {

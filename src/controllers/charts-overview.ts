@@ -81,49 +81,49 @@ interface StackSeries {
 
 const entitiesMap: Record<string, Dimension> = {
   states: {
-    label: "State",
+    label: "国家",
     getId: cellId => pack.cells.state[cellId],
     getName: nameGetter("states"),
     getColors: colorsGetter("states"),
     landOnly: true
   },
   cultures: {
-    label: "Culture",
+    label: "文化",
     getId: cellId => pack.cells.culture[cellId],
     getName: nameGetter("cultures"),
     getColors: colorsGetter("cultures"),
     landOnly: true
   },
   religions: {
-    label: "Religion",
+    label: "宗教",
     getId: cellId => pack.cells.religion[cellId],
     getName: nameGetter("religions"),
     getColors: colorsGetter("religions"),
     landOnly: true
   },
   provinces: {
-    label: "Province",
+    label: "省份",
     getId: cellId => pack.cells.province[cellId],
     getName: nameGetter("provinces"),
     getColors: colorsGetter("provinces"),
     landOnly: true
   },
   biomes: {
-    label: "Biome",
+    label: "生物群系",
     getId: cellId => pack.cells.biome[cellId],
     getName: biomeNameGetter,
     getColors: biomeColorsGetter,
     landOnly: false
   },
   markets: {
-    label: "Market",
+    label: "市场",
     getId: cellId => pack.cells.market[cellId],
     getName: marketNameGetter,
     getColors: marketColorsGetter,
     landOnly: false
   },
   goods: {
-    label: "Good",
+    label: "货物",
     requires: "good",
     getId: (_cellId, contribution) => contribution.good!,
     getName: goodNameGetter,
@@ -134,7 +134,7 @@ const entitiesMap: Record<string, Dimension> = {
 
 const quantizationMap: Record<string, Metric> = {
   total_population: {
-    label: "Total population",
+    label: "总人口",
     quantize: cellId => getUrbanPopulation(cellId) + getRuralPopulation(cellId),
     aggregate: values => rn(sum(values)),
     formatTicks: value => si(value),
@@ -143,7 +143,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   urban_population: {
-    label: "Urban population",
+    label: "城市人口",
     quantize: getUrbanPopulation,
     aggregate: values => rn(sum(values)),
     formatTicks: value => si(value),
@@ -152,7 +152,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   rural_population: {
-    label: "Rural population",
+    label: "农村人口",
     quantize: getRuralPopulation,
     aggregate: values => rn(sum(values)),
     formatTicks: value => si(value),
@@ -161,7 +161,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   area: {
-    label: "Land area",
+    label: "陆地面积",
     quantize: cellId => getArea(pack.cells.area[cellId]),
     aggregate: values => rn(sum(values)),
     formatTicks: value => `${si(value)} ${getAreaUnit()}`,
@@ -170,7 +170,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   cells: {
-    label: "Cells",
+    label: "单元格",
     hint: "Number of land cells",
     quantize: () => 1,
     aggregate: values => sum(values),
@@ -180,7 +180,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   burgs_number: {
-    label: "Burgs",
+    label: "城镇",
     hint: "Number of burgs",
     quantize: cellId => (pack.cells.burg[cellId] ? 1 : 0),
     aggregate: values => sum(values),
@@ -190,7 +190,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   average_elevation: {
-    label: "Average elevation",
+    label: "平均海拔",
     quantize: cellId => pack.cells.h[cellId],
     aggregate: values => mean(values)!,
     formatTicks: value => getHeight(value),
@@ -199,7 +199,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: false
   },
   max_elevation: {
-    label: "Maximum mean elevation",
+    label: "最高平均海拔",
     quantize: cellId => pack.cells.h[cellId],
     aggregate: values => max(values)!,
     formatTicks: value => getHeight(value),
@@ -208,7 +208,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: false
   },
   min_elevation: {
-    label: "Minimum mean elevation",
+    label: "最低平均海拔",
     quantize: cellId => pack.cells.h[cellId],
     aggregate: values => min(values)!,
     formatTicks: value => getHeight(value),
@@ -217,7 +217,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: false
   },
   average_temperature: {
-    label: "Annual mean temperature",
+    label: "年平均温度",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => mean(values)!,
     formatTicks: value => convertTemperature(value),
@@ -226,7 +226,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: false
   },
   max_temperature: {
-    label: "Annual max temperature",
+    label: "年最高温度",
     hint: "Highest mean temperature of the year",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => max(values)!,
@@ -236,7 +236,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: false
   },
   min_temperature: {
-    label: "Annual min temperature",
+    label: "年最低温度",
     hint: "Lowest mean temperature of the year",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => min(values)!,
@@ -246,7 +246,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: false
   },
   average_precipitation: {
-    label: "Annual mean precipitation",
+    label: "年平均降水量",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(mean(values)!),
     formatTicks: value => getPrecipitation(rn(value)),
@@ -255,7 +255,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   max_precipitation: {
-    label: "Annual max precipitation",
+    label: "年最高降水量",
     hint: "Highest mean precipitation of the year",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(max(values)!),
@@ -265,7 +265,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   min_precipitation: {
-    label: "Annual min precipitation",
+    label: "年最低降水量",
     hint: "Lowest mean precipitation of the year",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(min(values)!),
@@ -275,7 +275,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   coastal_cells: {
-    label: "Number of coastal cells",
+    label: "沿海单元格数量",
     quantize: cellId => (pack.cells.t[cellId] === 1 ? 1 : 0),
     aggregate: values => sum(values),
     formatTicks: value => value,
@@ -284,7 +284,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   river_cells: {
-    label: "Number of river cells",
+    label: "河流单元格数量",
     quantize: cellId => (pack.cells.r[cellId] ? 1 : 0),
     aggregate: values => sum(values),
     formatTicks: value => value,
@@ -293,7 +293,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   production_value: {
-    label: "Production value",
+    label: "生产产值",
     hint: "Worth of produced goods",
     provides: ["good"],
     prepare: () => ({ biomeProduction: Goods.getBiomesProduction() }),
@@ -313,7 +313,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   production_units: {
-    label: "Production volume",
+    label: "生产量",
     hint: "Units of goods produced",
     provides: ["good"],
     prepare: () => ({ biomeProduction: Goods.getBiomesProduction() }),
@@ -330,7 +330,7 @@ const quantizationMap: Record<string, Metric> = {
     landOnly: true
   },
   burgs_profit: {
-    label: "Burgs profit",
+    label: "城镇利润",
     hint: "Burgs profit from trade and manufacturing",
     quantize: cellId => {
       const burgId = pack.cells.burg[cellId];
@@ -370,7 +370,7 @@ function open() {
   else for (const chart of charts) renderChart(chart);
 
   $("#chartsOverview").dialog({
-    title: "Data Charts",
+    title: "数据图表",
     width: "60vw",
     height: "auto",
     position: { my: "center", at: "center", of: "svg" },
@@ -558,7 +558,7 @@ function addChart(event?: Event) {
   const incompatible = [entity, groupBy].find(lacksTag);
   if (incompatible) {
     tip(
-      `${plotByLabel} cannot be broken down by ${entitiesMap[incompatible].label.toLowerCase()}`,
+      `${plotByLabel} 无法按 ${entitiesMap[incompatible].label.toLowerCase()} 细分`,
       false,
       "error",
       4000
@@ -567,7 +567,7 @@ function addChart(event?: Event) {
   }
 
   if (!stackable && groupBy !== entity) {
-    tip(`Grouping is not supported for ${plotBy}`, false, "warn", 4000);
+    tip(`${plotBy} 不支持分组`, false, "warn", 4000);
     groupBy = entity;
   }
 

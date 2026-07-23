@@ -48,7 +48,7 @@ function open(id?: string, name?: string): void {
   }
 
   $("#notesEditor").dialog({
-    title: "Notes Editor",
+    title: "笔记编辑器",
     width: svgWidth * 0.8,
     height: svgHeight * 0.75,
     position: { my: "center", at: "center", of: "svg" },
@@ -141,7 +141,7 @@ function updateLegend(): void {
   const notesSelect = ensureEl<HTMLSelectElement>("notesSelect");
   const note = (notes as Note[]).find(note => note.id === notesSelect.value);
   if (!note) {
-    tip("Note element is not found", true, "error", 4000);
+    tip("未找到笔记元素", true, "error", 4000);
     return;
   }
 
@@ -158,7 +158,7 @@ function updateNotesBox(note: Note): void {
 function changeElement(this: HTMLSelectElement): void {
   const note = (notes as Note[]).find(note => note.id === this.value);
   if (!note) {
-    tip("Note element is not found", true, "error", 4000);
+    tip("未找到笔记元素", true, "error", 4000);
     return;
   }
 
@@ -173,7 +173,7 @@ function changeName(this: HTMLInputElement): void {
   const notesSelect = ensureEl<HTMLSelectElement>("notesSelect");
   const note = (notes as Note[]).find(note => note.id === notesSelect.value);
   if (!note) {
-    tip("Note element is not found", true, "error", 4000);
+    tip("未找到笔记元素", true, "error", 4000);
     return;
   }
 
@@ -189,8 +189,8 @@ function validateHighlightElement(): void {
   }
 
   confirmationDialog({
-    title: "Element not found",
-    message: "Note element is not found. Would you like to remove the note?",
+    title: "未找到元素",
+    message: "未找到笔记元素。是否要移除该笔记？",
     confirm: "Remove",
     onConfirm: removeSelectedNote
   });
@@ -245,8 +245,8 @@ function uploadLegends(dataLoaded: string): void {
 
 function triggerNotesRemove(): void {
   confirmationDialog({
-    title: "Remove note",
-    message: "Are you sure you want to remove the selected note? There is no way to undo this action",
+    title: "移除笔记",
+    message: "确定要移除选中的笔记吗？此操作无法撤销",
     confirm: "Remove",
     onConfirm: removeSelectedNote
   });

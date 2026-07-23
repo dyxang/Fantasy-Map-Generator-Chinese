@@ -12,19 +12,19 @@ function open(burgId: number): void {
   if (customization) return;
   const burg = pack.burgs[burgId];
   if (!burg || burg.removed) {
-    tip("Invalid burg. The selected burg does not exist or was removed.", true, "error", 5000);
+    tip("城镇无效。所选城镇不存在或已被移除。", true, "error", 5000);
     return;
   }
 
   const market = Markets.get(burg.market);
   if (!market) {
-    tip("No market. This burg is not connected to any market.", true, "error", 5000);
+    tip("无市场。该城镇未连接到任何市场。", true, "error", 5000);
     return;
   }
 
   const data = burg.production;
   if (!data) {
-    tip("No production data for this burg.", true, "error", 5000);
+    tip("该城镇没有生产数据。", true, "error", 5000);
     return;
   }
 
@@ -313,11 +313,11 @@ function open(burgId: number): void {
   const jobsTable = renderTable({
     colWidths: ["30%", "10%", "45%", "15%"],
     headers: [
-      { label: "Good" },
-      { label: "Units", align: "right" },
-      { label: "Details" },
+      { label: "货物" },
+      { label: "数量", align: "right" },
+      { label: "详情" },
       {
-        label: "Income",
+        label: "收入",
         align: "right",
         title: "Money flow for deal rows: negative for BUY, positive for SELL. Pure production rows are blank."
       }

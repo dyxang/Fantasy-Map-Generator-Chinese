@@ -27,7 +27,7 @@ function open(): void {
   marketsOverviewAddLines();
 
   $("#marketsOverview").dialog({
-    title: "Markets Overview",
+    title: "市场总览",
     resizable: false,
     width: "auto",
     close: closeMarketsOverview,
@@ -225,7 +225,7 @@ function enterMarketsManualAssignment(): void {
       el.classList.add("hidden");
     });
 
-  tip('Click a market row (or "No market") to select it, then drag on the map to repaint territory', true);
+  tip('点击市场行（或"无市场"）以选中，然后在地图上拖动以重绘领地', true);
 
   const firstRow = ensureEl("marketsOverviewBody").querySelector<HTMLElement>('.states.market:not([data-id="0"])');
   if (firstRow) firstRow.classList.add("selected");
@@ -412,7 +412,7 @@ function exitMarketsManualAssignment(apply: boolean): void {
 function enterAddMarketMode(): void {
   customization = 16;
   ensureEl("marketsAdd").classList.add("pressed");
-  tip("Click on a burg on the map to create a new market there. Hold Shift to add multiple", true);
+  tip("点击地图上的城镇以在那里创建新市场。按住 Shift 可添加多个", true);
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addMarketOnClick);
 }
 
@@ -430,7 +430,7 @@ function addMarketOnClick(this: SVGElement, ev: MouseEvent): void {
 
   const burgId = pack.cells.burg[cellId];
   if (!burgId) {
-    tip("Click on a burg to create a new market — no burg found here", false, "error");
+    tip("点击城镇以创建新市场——此处未找到城镇", false, "error");
     return;
   }
 
@@ -449,8 +449,8 @@ function confirmRemoveMarket(marketId: number): void {
   const name = Markets.getName(market);
 
   confirmationDialog({
-    title: "Remove Market",
-    message: `Are you sure you want to remove the market "${name}"?<br>This action cannot be reverted`,
+    title: "移除市场",
+    message: `确定要移除市场"${name}"吗？<br>此操作无法撤销`,
     confirm: "Remove",
     onConfirm: () => {
       Markets.removeMarket(marketId);
@@ -585,7 +585,7 @@ function getOwnerStateName(market: Market): string {
 
 function regenerateMarkets() {
   confirmationDialog({
-    title: "Regenerate markets",
+    title: "重新生成市场",
     message: /* html */ `Are you sure you want to regenerate markets and their territories?
       <label style="display:flex; align-items:center; gap:.4em; margin-top:.6em;">
         <input id="marketsRegenerateProductionToggle" type="checkbox" class="native" checked />
@@ -602,9 +602,9 @@ function regenerateMarkets() {
 
 function regenerateProduction() {
   confirmationDialog({
-    title: "Regenerate production",
+    title: "重新生成生产",
     message:
-      "Are you sure you want to regenerate production and trade for all goods? Generation will be based on the current Goods settings and bonus goods placement",
+      "确定要为所有货物重新生成生产和贸易吗？生成将基于当前的货物设置和奖励货物布局",
     confirm: "Regenerate",
     onConfirm: window.regenerateProduction
   });

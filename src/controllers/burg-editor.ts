@@ -35,7 +35,7 @@ function open(id: number | string): void {
   updateBurgValues();
 
   $("#burgEditor").dialog({
-    title: "Edit Burg",
+    title: "编辑城镇",
     resizable: false,
     close: closeBurgEditor,
     position: { my: "left top", at: "left+10 top+10", of: "svg", collision: "fit" }
@@ -333,7 +333,7 @@ function dragBurgLabel(this: SVGTextElement, event: any): void {
   event.on("drag", function (this: SVGTextElement, dragEvent: any) {
     const { x, y } = dragEvent;
     this.setAttribute("transform", `translate(${dx + x},${dy + y})`);
-    tip('Use dragging for fine-tuning only, to actually move burg use "Relocate" button', false, "warn");
+    tip('拖拽仅用于微调，要实际移动城镇请使用"重新定位"按钮', false, "warn");
   });
 }
 
@@ -423,7 +423,7 @@ function togglePort(burgId: number): void {
     } else {
       portFeatureId = Rivers.resolveDrainFeature(burg.cell);
       if (!portFeatureId) {
-        tip("No navigable water body found downstream, cannot assign port", false, "warn");
+        tip("下游未找到可通航水域，无法分配港口", false, "warn");
         return;
       }
     }
@@ -445,13 +445,13 @@ function toggleCapital(burgId: number): void {
   const { burgs, states } = pack;
 
   if (burgs[burgId].capital) {
-    tip("To change capital please assign a capital status to another burg of this state", false, "error");
+    tip("要更换首都，请将首都地位分配给该国家的另一座城镇", false, "error");
     return;
   }
 
   const stateId = burgs[burgId].state;
   if (!stateId) {
-    tip("Neutral lands cannot have a capital", false, "error");
+    tip("中立领土不能拥有首都", false, "error");
     return;
   }
 
@@ -579,7 +579,7 @@ function toggleRelocateBurg(): void {
   ensureEl("burgRelocate").classList.toggle("pressed");
   if (ensureEl("burgRelocate").classList.contains("pressed")) {
     select<SVGGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", relocateBurgOnClick);
-    tip("Click on map to relocate burg. Hold Shift for continuous move", true);
+    tip("在地图上点击以重新定位城镇。按住 Shift 可连续移动", true);
     if (!layerIsOn("toggleCells")) {
       toggleCells();
       toggler.dataset.forced = "true";
@@ -602,18 +602,18 @@ function relocateBurgOnClick(this: SVGGElement, event: any): void {
   const burg = pack.burgs[id];
 
   if (cells.h[cellId] < 20) {
-    tip("Cannot place burg into the water! Select a land cell", false, "error");
+    tip("无法将城镇放入水中！请选择陆地单元格", false, "error");
     return;
   }
   if (cells.burg[cellId] && cells.burg[cellId] !== id) {
-    tip("There is already a burg in this cell. Please select a free cell", false, "error");
+    tip("此单元格中已存在城镇。请选择空闲单元格", false, "error");
     return;
   }
 
   const newState = cells.state[cellId];
   const oldState = burg.state;
   if (newState !== oldState && burg.capital) {
-    tip("Capital cannot be relocated into another state!", false, "error");
+    tip("首都无法迁移到另一个国家！", false, "error");
     return;
   }
 
@@ -668,7 +668,7 @@ function removeSelectedBurg(): void {
     alertMessage.innerHTML = /* html */ `You cannot remove the capital. You must change the state capital first`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove burg",
+      title: "移除城镇",
       buttons: {
         Ok: function (this: HTMLElement) {
           $(this).dialog("close");
@@ -679,7 +679,7 @@ function removeSelectedBurg(): void {
     alertMessage.innerHTML = /* html */ `You cannot remove a market center burg. Please remove the market first`;
     $("#alert").dialog({
       resizable: false,
-      title: "Remove burg",
+      title: "移除城镇",
       buttons: {
         Ok: function (this: HTMLElement) {
           $(this).dialog("close");
@@ -688,8 +688,8 @@ function removeSelectedBurg(): void {
     });
   } else {
     confirmationDialog({
-      title: "Remove burg",
-      message: "Are you sure you want to remove the burg? <br>This action cannot be reverted",
+      title: "移除城镇",
+      message: "确定要移除该城镇吗？<br>此操作无法撤销",
       confirm: "Remove",
       onConfirm: () => {
         Burgs.remove(burgId);

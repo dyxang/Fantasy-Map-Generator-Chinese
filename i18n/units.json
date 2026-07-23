@@ -2,111 +2,11 @@
   "version": 1,
   "locale": "zh-CN",
   "generated_at": "2026-07-23",
-  "total_units": 2095,
+  "total_units": 1960,
   "units": [
     {
-      "id": "sha256:bb5629f316844ac4",
-      "source": "Drag to change the picker position",
-      "file": "public/modules/ui/editors.js",
-      "line": 249,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n// draw color (fill) picker\nfunction createPicker() {",
-      "context_after": "  const cl = () => tip(\"Click to close the picker\");\n  const closePicker = () => container.style(\"display\", \"none\");\n"
-    },
-    {
-      "id": "sha256:d46eb7528b77ca90",
-      "source": "Click to close the picker",
-      "file": "public/modules/ui/editors.js",
-      "line": 250,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "// draw color (fill) picker\nfunction createPicker() {\n  const pos = () => tip(\"Drag to change the picker position\");",
-      "context_after": "  const closePicker = () => container.style(\"display\", \"none\");\n\n  const container = d3"
-    },
-    {
-      "id": "sha256:3d36cdb64218e8d2",
-      "source": "Set palette hue",
-      "file": "public/modules/ui/editors.js",
-      "line": 283,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  h.append(\"text\").attr(\"x\", 4).attr(\"y\", 14).text(\"H:\");\n  h.append(\"line\").attr(\"x1\", 18).attr(\"y1\", 10).attr(\"x2\", 107).attr(\"y2\", 10);\n  h.append(\"circle\").attr(\"cx\", 75).attr(\"cy\", 10).attr(\"r\", 5).attr(\"id\", \"pickerH\");",
-      "context_after": "\n  const s = controls.append(\"g\");\n  s.append(\"text\").attr(\"x\", 113).attr(\"y\", 14).text(\"S:\");"
-    },
-    {
-      "id": "sha256:b415167f61b18c61",
-      "source": "Set palette saturation",
-      "file": "public/modules/ui/editors.js",
-      "line": 289,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  s.append(\"text\").attr(\"x\", 113).attr(\"y\", 14).text(\"S:\");\n  s.append(\"line\").attr(\"x1\", 124).attr(\"y1\", 10).attr(\"x2\", 206).attr(\"y2\", 10);\n  s.append(\"circle\").attr(\"cx\", 181.4).attr(\"cy\", 10).attr(\"r\", 5).attr(\"id\", \"pickerS\");",
-      "context_after": "\n  const l = controls.append(\"g\");\n  l.append(\"text\").attr(\"x\", 213).attr(\"y\", 14).text(\"L:\");"
-    },
-    {
-      "id": "sha256:ad8a03ebd88872db",
-      "source": "Set palette lightness",
-      "file": "public/modules/ui/editors.js",
-      "line": 295,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  l.append(\"text\").attr(\"x\", 213).attr(\"y\", 14).text(\"L:\");\n  l.append(\"line\").attr(\"x1\", 226).attr(\"y1\", 10).attr(\"x2\", 306).attr(\"y2\", 10);\n  l.append(\"circle\").attr(\"cx\", 282).attr(\"cy\", 10).attr(\"r\", 5).attr(\"id\", \"pickerL\");",
-      "context_after": "\n  controls.selectAll(\"line\").on(\"click\", clickPickerControl);\n  controls.selectAll(\"circle\").call(d3.drag().on(\"start\", dragPickerControl));"
-    },
-    {
-      "id": "sha256:26af47d42cdd5433",
-      "source": "Color value in different color spaces. Edit to change",
-      "file": "public/modules/ui/editors.js",
-      "line": 307,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    .attr(\"y\", 20)\n    .attr(\"width\", 303)\n    .attr(\"height\", 20)",
-      "context_after": "  const html = /* html */ ` <label style=\"margin-right: 6px\"\n      >HSL: <input type=\"number\" id=\"pickerHSL_H\" data-space=\"hsl\" min=\"0\" max=\"360\" value=\"231\" />,\n      <input type=\"number\" id=\"pickerHSL_S\" data-space=\"hsl\" min=\"0\" max=\"100\" value=\"70\" />,"
-    },
-    {
-      "id": "sha256:39cbbcea5648a63c",
-      "source": "Click to fill with the color",
-      "file": "public/modules/ui/editors.js",
-      "line": 354,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  colors\n    .selectAll(\"rect\")\n    .on(\"click\", pickerFillClicked)",
-      "context_after": "  hatches\n    .selectAll(\"rect\")\n    .on(\"click\", pickerFillClicked)"
-    },
-    {
-      "id": "sha256:e8786a79038b84ef",
-      "source": "Click to fill with the hatching",
-      "file": "public/modules/ui/editors.js",
-      "line": 359,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    .selectAll(\"rect\")\n    .on(\"click\", pickerFillClicked)\n    .on(\"mouseover\", function () {",
-      "context_after": "    });\n\n  // append box"
-    },
-    {
-      "id": "sha256:432572a6515ce4a8",
-      "source": "You must provide a correct value",
-      "file": "public/modules/ui/editors.js",
-      "line": 538,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "function changePickerSpace() {\n  const valid = this.checkValidity();\n  if (!valid) {",
-      "context_after": "    return;\n  }\n"
-    },
-    {
-      "id": "sha256:ea7f19ac58c4db3a",
-      "source": "You must provide a correct value",
-      "file": "public/modules/ui/editors.js",
-      "line": 553,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n  const hsl = d3.hsl(fill);\n  if (isNaN(hsl.l)) {",
-      "context_after": "    return;\n  }\n  if (!isNaN(hsl.h)) setPickerControl(pickerH, hsl.h, 360);"
-    },
-    {
-      "id": "sha256:5aa3c565fed9f369",
-      "source": "Click to select ${e.target.textContent} icon",
+      "id": "sha256:d87f2f1d56477578",
+      "source": "点击以选择 ${e.target.textContent} 图标",
       "file": "public/modules/ui/editors.js",
       "line": 898,
       "type": "ts_string",
@@ -115,58 +15,28 @@
       "context_after": "  };\n\n  function addExternalImage(url) {"
     },
     {
-      "id": "sha256:3b87bc0c5846e41d",
-      "source": "Enter image URL to add",
+      "id": "sha256:690ed4b153ae6d7f",
+      "source": "请输入要添加的图片 URL",
       "file": "public/modules/ui/editors.js",
       "line": 912,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "  ensureEl(\"addImage\").onclick = function () {\n    const input = this.previousElementSibling;\n    const ulr = input.value;",
-      "context_after": "    if (!ulr.match(/^((http|https):\\/\\/)|data\\:image\\//)) return tip(\"Enter valid URL\", false, \"error\", 4000);\n    addExternalImage(ulr);\n    callback(ulr);"
+      "context_after": "    if (!ulr.match(/^((http|https):\\/\\/)|data\\:image\\//)) return tip(\"请输入有效的 URL\", false, \"error\", 4000);\n    addExternalImage(ulr);\n    callback(ulr);"
     },
     {
-      "id": "sha256:5ad2a22a7d9d302e",
-      "source": "Enter valid URL",
+      "id": "sha256:d1baf9791f1a2bab",
+      "source": "请输入有效的 URL",
       "file": "public/modules/ui/editors.js",
       "line": 913,
       "type": "ts_string",
       "context_tag": "message",
-      "context_before": "    const input = this.previousElementSibling;\n    const ulr = input.value;\n    if (!ulr) return tip(\"Enter image URL to add\", false, \"error\", 4000);",
+      "context_before": "    const input = this.previousElementSibling;\n    const ulr = input.value;\n    if (!ulr) return tip(\"请输入要添加的图片 URL\", false, \"error\", 4000);",
       "context_after": "    addExternalImage(ulr);\n    callback(ulr);\n    input.value = \"\";"
     },
     {
-      "id": "sha256:a4eb45d043b72fd9",
-      "source": "Select Icon",
-      "file": "public/modules/ui/editors.js",
-      "line": 927,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#iconSelector\").dialog({\n    width: fitContent(),",
-      "context_after": "    buttons: {\n      Apply: function () {\n        $(this).dialog(\"close\");"
-    },
-    {
-      "id": "sha256:d1a32f7e71843c19",
-      "source": "Locked. Click to unlock the element and allow it to be changed by regeneration tools",
-      "file": "public/modules/ui/general.js",
-      "line": 82,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "function showElementLockTip(event) {\n  const locked = event?.target?.classList?.contains(\"icon-lock\");\n  if (locked) {",
-      "context_after": "  } else {\n    tip(\"Unlocked. Click to lock the element and prevent changes to it by regeneration tools\");\n  }"
-    },
-    {
-      "id": "sha256:a8594d4f3b805653",
-      "source": "Unlocked. Click to lock the element and prevent changes to it by regeneration tools",
-      "file": "public/modules/ui/general.js",
-      "line": 84,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  if (locked) {\n    tip(\"Locked. Click to unlock the element and allow it to be changed by regeneration tools\");\n  } else {",
-      "context_after": "  }\n}\n"
-    },
-    {
-      "id": "sha256:f9a4fca7656ffa47",
-      "source": "${name} ${type} emblem. Click to edit. Hold Shift to show associated area or place",
+      "id": "sha256:0f15d54919ffb83d",
+      "source": "${name} ${type}纹章。点击编辑。按住 Shift 显示关联区域或地点",
       "file": "public/modules/ui/general.js",
       "line": 154,
       "type": "ts_string",
@@ -175,38 +45,18 @@
       "context_after": "    return;\n  }\n"
     },
     {
-      "id": "sha256:533669a0996497ff",
-      "source": "${route.name}. Click to edit the Route",
+      "id": "sha256:7fa601170f451c62",
+      "source": "${route.name}。点击编辑道路",
       "file": "public/modules/ui/general.js",
       "line": 172,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "    const routeId = +e.target.id.slice(5);\n    const route = pack.routes.find(route => route.i === routeId);\n    if (route) {",
-      "context_after": "      return tip(\"Click to edit the Route\");\n    }\n  }"
+      "context_after": "      return tip(\"点击编辑道路\");\n    }\n  }"
     },
     {
-      "id": "sha256:5c19e1483099c238",
-      "source": "Click to edit the Route",
-      "file": "public/modules/ui/general.js",
-      "line": 173,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    const route = pack.routes.find(route => route.i === routeId);\n    if (route) {\n      if (route.name) return tip(`${route.name}. Click to edit the Route`);",
-      "context_after": "    }\n  }\n"
-    },
-    {
-      "id": "sha256:fde0803e42c0a70f",
-      "source": "Click to edit the Relief Icon",
-      "file": "public/modules/ui/general.js",
-      "line": 177,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    }\n  }\n",
-      "context_after": "\n  if (subgroup === \"burgLabels\" || subgroup === \"burgIcons\") {\n    const burgId = +path[path.length - 10].dataset.id;"
-    },
-    {
-      "id": "sha256:19310a6125f22ea6",
-      "source": "${burg.name} ${burg.group}. Population: ${population}. Click to edit",
+      "id": "sha256:6929e0fd163fc9fb",
+      "source": "${burg.name} ${burg.group}。人口：${population}。点击编辑",
       "file": "public/modules/ui/general.js",
       "line": 184,
       "type": "ts_string",
@@ -215,48 +65,18 @@
       "context_after": "      const burgsOverviewEl = findEl(\"burgsOverview\");\n      if (burgsOverviewEl) highlightEditorLine(burgsOverviewEl, burgId, 5000);\n      return;"
     },
     {
-      "id": "sha256:a080036f1c2374ad",
-      "source": "Click to edit the Label",
-      "file": "public/modules/ui/general.js",
-      "line": 191,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    }\n  }\n",
-      "context_after": "\n  if (group === \"markers\") return tip(\"Click to edit the Marker. Hold Shift to not close the assosiated note\");\n"
-    },
-    {
-      "id": "sha256:7f4b409fc1686b46",
-      "source": "Click to edit the Marker. Hold Shift to not close the assosiated note",
+      "id": "sha256:25461fcfd079060b",
+      "source": "点击编辑标记。按住 Shift 不关闭关联笔记",
       "file": "public/modules/ui/general.js",
       "line": 193,
       "type": "ts_string",
       "context_tag": "message",
-      "context_before": "\n  if (group === \"labels\") return tip(\"Click to edit the Label\");\n",
-      "context_after": "\n  if (group === \"ruler\") {\n    if (findEl(\"measurersEditor\")) return tip(\"Drag the measurer or its points to edit\");"
+      "context_before": "\n  if (group === \"labels\") return tip(\"点击编辑标签\");\n",
+      "context_after": "\n  if (group === \"ruler\") {\n    if (findEl(\"measurersEditor\")) return tip(\"拖动测量器或其控制点进行编辑\");"
     },
     {
-      "id": "sha256:b209919d5493160f",
-      "source": "Drag the measurer or its points to edit",
-      "file": "public/modules/ui/general.js",
-      "line": 196,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  if (group === \"markers\") return tip(\"Click to edit the Marker. Hold Shift to not close the assosiated note\");\n\n  if (group === \"ruler\") {",
-      "context_after": "    return tip(\"Click to open the Measurers Editor\");\n  }\n"
-    },
-    {
-      "id": "sha256:39078c6533de8ced",
-      "source": "Click to open the Measurers Editor",
-      "file": "public/modules/ui/general.js",
-      "line": 197,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n  if (group === \"ruler\") {\n    if (findEl(\"measurersEditor\")) return tip(\"Drag the measurer or its points to edit\");",
-      "context_after": "  }\n\n  if (group === \"markets\") {"
-    },
-    {
-      "id": "sha256:9e218137f6f782f0",
-      "source": "${centerBurg.name} market. Click to view",
+      "id": "sha256:eac29fb15a550ecd",
+      "source": "${centerBurg.name}市场。点击查看",
       "file": "public/modules/ui/general.js",
       "line": 206,
       "type": "ts_string",
@@ -265,8 +85,8 @@
       "context_after": "    }\n  }\n"
     },
     {
-      "id": "sha256:704c2f2804bd73a5",
-      "source": "${good?.name} bonus resource. Click to open Goods Editor and select displayed goods",
+      "id": "sha256:2b51f62f8db677f2",
+      "source": "${good?.name}奖励资源。点击打开货物编辑器并选择显示的货物",
       "file": "public/modules/ui/general.js",
       "line": 223,
       "type": "ts_string",
@@ -275,18 +95,18 @@
       "context_after": "    }\n\n    if (el.closest(\"#goodsCells\")) {"
     },
     {
-      "id": "sha256:e76dc4fd74662472",
-      "source": "Cell rural production: ${formatProduct(produced).join(\", \")}. Click to select displayed goods in Goods Editor",
+      "id": "sha256:88d1a34c47039a23",
+      "source": "单元格乡村产出：${formatProduct(produced).join(\", \")}。点击在货物编辑器中选择显示的货物",
       "file": "public/modules/ui/general.js",
       "line": 231,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "      const biomeId = pack.cells.biome[i];\n      const cultureType = pack.cultures[pack.cells.culture[i]]?.type || \"Generic\";\n      const produced = Production.getCellProduction(i, Goods.getBiomesProduction());",
-      "context_after": "        `Cell rural production: ${formatProduct(produced).join(\", \")}. Click to select displayed goods in Goods Editor`\n      );\n    }"
+      "context_after": "        `单元格乡村产出：${formatProduct(produced).join(\", \")}。点击在货物编辑器中选择显示的货物`\n      );\n    }"
     },
     {
-      "id": "sha256:ed498db7120527e9",
-      "source": "${burg.name} urban production: ${formatProduct(produced).join(\", \")}. Click to view",
+      "id": "sha256:e10afcd41520f135",
+      "source": "${burg.name}城市产出：${formatProduct(produced).join(\", \")}。点击查看",
       "file": "public/modules/ui/general.js",
       "line": 243,
       "type": "ts_string",
@@ -295,208 +115,48 @@
       "context_after": "    }\n\n    return;"
     },
     {
-      "id": "sha256:3e279ad99c4fe459",
-      "source": "Drag to adjust. Hold Ctrl and drag to add a point. Click to remove the point",
+      "id": "sha256:6a314b0bd49684bb",
+      "source": "拖动调整。按住 Ctrl 拖动添加点。点击移除点",
       "file": "public/modules/ui/general.js",
       "line": 253,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "    const tag = e.target.tagName;\n    const className = e.target.getAttribute(\"class\");\n    if (tag === \"circle\" && className === \"edge\")",
-      "context_after": "    if (tag === \"circle\" && className === \"control\")\n      return tip(\"Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point\");\n    if (tag === \"circle\") return tip(\"Drag to adjust the measurer\");"
+      "context_after": "    if (tag === \"circle\" && className === \"control\")\n      return tip(\"拖动调整。按住 Shift 拖动保持轴向。点击移除点\");\n    if (tag === \"circle\") return tip(\"拖动调整测量器\");"
     },
     {
-      "id": "sha256:d453dfbd52607fb3",
-      "source": "Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point",
+      "id": "sha256:f29c09ec91fe185d",
+      "source": "拖动调整。按住 Shift 拖动保持轴向。点击移除点",
       "file": "public/modules/ui/general.js",
       "line": 255,
       "type": "ts_string",
       "context_tag": "message",
-      "context_before": "    if (tag === \"circle\" && className === \"edge\")\n      return tip(\"Drag to adjust. Hold Ctrl and drag to add a point. Click to remove the point\");\n    if (tag === \"circle\" && className === \"control\")",
-      "context_after": "    if (tag === \"circle\") return tip(\"Drag to adjust the measurer\");\n    if (tag === \"polyline\") return tip(\"Click on drag to add a control point\");\n    if (tag === \"path\") return tip(\"Drag to move the measurer\");"
+      "context_before": "    if (tag === \"circle\" && className === \"edge\")\n      return tip(\"拖动调整。按住 Ctrl 拖动添加点。点击移除点\");\n    if (tag === \"circle\" && className === \"control\")",
+      "context_after": "    if (tag === \"circle\") return tip(\"拖动调整测量器\");\n    if (tag === \"polyline\") return tip(\"点击拖动添加控制点\");\n    if (tag === \"path\") return tip(\"拖动移动测量器\");"
     },
     {
-      "id": "sha256:efa2d2a6712b3b7d",
-      "source": "Drag to adjust the measurer",
-      "file": "public/modules/ui/general.js",
-      "line": 256,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "      return tip(\"Drag to adjust. Hold Ctrl and drag to add a point. Click to remove the point\");\n    if (tag === \"circle\" && className === \"control\")\n      return tip(\"Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point\");",
-      "context_after": "    if (tag === \"polyline\") return tip(\"Click on drag to add a control point\");\n    if (tag === \"path\") return tip(\"Drag to move the measurer\");\n    if (tag === \"text\") return tip(\"Drag to move, click to remove the measurer\");"
-    },
-    {
-      "id": "sha256:2e979eeeffeb6017",
-      "source": "Click on drag to add a control point",
-      "file": "public/modules/ui/general.js",
-      "line": 257,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    if (tag === \"circle\" && className === \"control\")\n      return tip(\"Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point\");\n    if (tag === \"circle\") return tip(\"Drag to adjust the measurer\");",
-      "context_after": "    if (tag === \"path\") return tip(\"Drag to move the measurer\");\n    if (tag === \"text\") return tip(\"Drag to move, click to remove the measurer\");\n  }"
-    },
-    {
-      "id": "sha256:b392b8dfb2459fb1",
-      "source": "Drag to move the measurer",
-      "file": "public/modules/ui/general.js",
-      "line": 258,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "      return tip(\"Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point\");\n    if (tag === \"circle\") return tip(\"Drag to adjust the measurer\");\n    if (tag === \"polyline\") return tip(\"Click on drag to add a control point\");",
-      "context_after": "    if (tag === \"text\") return tip(\"Drag to move, click to remove the measurer\");\n  }\n"
-    },
-    {
-      "id": "sha256:2f1d6641f6b9f1b6",
-      "source": "Drag to move, click to remove the measurer",
-      "file": "public/modules/ui/general.js",
-      "line": 259,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    if (tag === \"circle\") return tip(\"Drag to adjust the measurer\");\n    if (tag === \"polyline\") return tip(\"Click on drag to add a control point\");\n    if (tag === \"path\") return tip(\"Drag to move the measurer\");",
-      "context_after": "  }\n\n  if (subgroup === \"burgIcons\") return tip(\"Click to edit the Burg\");"
-    },
-    {
-      "id": "sha256:76ee1a7e26f4d773",
-      "source": "Click to edit the Burg",
-      "file": "public/modules/ui/general.js",
-      "line": 262,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    if (tag === \"text\") return tip(\"Drag to move, click to remove the measurer\");\n  }\n",
-      "context_after": "\n  if (subgroup === \"burgLabels\") return tip(\"Click to edit the Burg\");\n"
-    },
-    {
-      "id": "sha256:751e0e15351dc519",
-      "source": "Click to edit the Burg",
-      "file": "public/modules/ui/general.js",
-      "line": 264,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n  if (subgroup === \"burgIcons\") return tip(\"Click to edit the Burg\");\n",
-      "context_after": "\n  if (group === \"lakes\" && !land) {\n    const lakeId = +e.target.dataset.f;"
-    },
-    {
-      "id": "sha256:46872b2cad98dd74",
-      "source": "${fullName} lake. Click to edit",
+      "id": "sha256:35994bd78df27d1e",
+      "source": "${fullName}湖泊。点击编辑",
       "file": "public/modules/ui/general.js",
       "line": 270,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "    const lakeId = +e.target.dataset.f;\n    const name = pack.features[lakeId]?.name;\n    const fullName = subgroup === \"freshwater\" ? name : name + \" \" + subgroup;",
-      "context_after": "    return;\n  }\n  if (group === \"coastline\") return tip(\"Click to edit the coastline\");"
+      "context_after": "    return;\n  }\n  if (group === \"coastline\") return tip(\"点击编辑海岸线\");"
     },
     {
-      "id": "sha256:294cf9ce8a7586a0",
-      "source": "Click to edit the coastline",
-      "file": "public/modules/ui/general.js",
-      "line": 273,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    tip(`${fullName} lake. Click to edit`);\n    return;\n  }",
-      "context_after": "\n  if (group === \"zones\") {\n    const element = path[path.length - 8];"
-    },
-    {
-      "id": "sha256:d95fc482ff4c5c5e",
-      "source": "Click to edit the Ice",
-      "file": "public/modules/ui/general.js",
-      "line": 285,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    return;\n  }\n",
-      "context_after": "\n  // covering elements\n  if (layerIsOn(\"togglePrecipitation\") && land) tip(\"Annual Precipitation: \" + getFriendlyPrecipitation(i));"
-    },
-    {
-      "id": "sha256:eb90c182033e2800",
-      "source": "Annual Precipitation:",
-      "file": "public/modules/ui/general.js",
-      "line": 288,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  if (group === \"ice\") return tip(\"Click to edit the Ice\");\n\n  // covering elements",
-      "context_after": "  else if (layerIsOn(\"togglePopulation\")) tip(getPopulationTip(i));\n  else if (layerIsOn(\"toggleTemperature\")) tip(\"Temperature: \" + convertTemperature(grid.cells.temp[g]));\n  else if (layerIsOn(\"toggleBiomes\") && pack.cells.biome[i]) {"
-    },
-    {
-      "id": "sha256:1bc3fe69e5ddd1db",
-      "source": "Temperature:",
-      "file": "public/modules/ui/general.js",
-      "line": 290,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  // covering elements\n  if (layerIsOn(\"togglePrecipitation\") && land) tip(\"Annual Precipitation: \" + getFriendlyPrecipitation(i));\n  else if (layerIsOn(\"togglePopulation\")) tip(getPopulationTip(i));",
-      "context_after": "  else if (layerIsOn(\"toggleBiomes\") && pack.cells.biome[i]) {\n    const biome = pack.cells.biome[i];\n    tip(\"Biome: \" + biomesData.name[biome]);"
-    },
-    {
-      "id": "sha256:fa95eb87f8689d20",
-      "source": "Biome:",
-      "file": "public/modules/ui/general.js",
-      "line": 293,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  else if (layerIsOn(\"toggleTemperature\")) tip(\"Temperature: \" + convertTemperature(grid.cells.temp[g]));\n  else if (layerIsOn(\"toggleBiomes\") && pack.cells.biome[i]) {\n    const biome = pack.cells.biome[i];",
-      "context_after": "    const biomesEditorEl = findEl(\"biomesEditor\");\n    if (biomesEditorEl) highlightEditorLine(biomesEditorEl, biome);\n  } else if (layerIsOn(\"toggleReligions\") && pack.cells.religion[i]) {"
-    },
-    {
-      "id": "sha256:f9e80cb80eafeba7",
-      "source": "Culture:",
-      "file": "public/modules/ui/general.js",
-      "line": 321,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "      highlightEditorLine(ensureEl(\"mergeStatesForm\"), state);\n  } else if (layerIsOn(\"toggleCultures\") && pack.cells.culture[i]) {\n    const culture = pack.cells.culture[i];",
-      "context_after": "    const culturesEditorEl = findEl(\"culturesEditor\");\n    if (culturesEditorEl) highlightEditorLine(culturesEditorEl, culture);\n  } else if (layerIsOn(\"toggleHeight\")) tip(\"Height: \" + getFriendlyHeight(point));"
-    },
-    {
-      "id": "sha256:503cde4f74880697",
-      "source": "Height:",
-      "file": "public/modules/ui/general.js",
-      "line": 324,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    tip(\"Culture: \" + pack.cultures[culture].name);\n    const culturesEditorEl = findEl(\"culturesEditor\");\n    if (culturesEditorEl) highlightEditorLine(culturesEditorEl, culture);",
-      "context_after": "}\n\nfunction highlightEditorLine(editor, id, timeout = 10000) {"
-    },
-    {
-      "id": "sha256:019af741122ec06b",
-      "source": "Click to unlock the option and allow it to be randomized on new map generation",
-      "file": "public/modules/ui/general.js",
-      "line": 545,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  e.addEventListener(\"mouseover\", function (e) {\n    e.stopPropagation();\n    if (this.className === \"icon-lock\")",
-      "context_after": "    else tip(\"Click to lock the option and always use the current value on new map generation\");\n  });\n"
-    },
-    {
-      "id": "sha256:75beebc4822b59ca",
-      "source": "Click to lock the option and always use the current value on new map generation",
-      "file": "public/modules/ui/general.js",
-      "line": 546,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    e.stopPropagation();\n    if (this.className === \"icon-lock\")\n      tip(\"Click to unlock the option and allow it to be randomized on new map generation\");",
-      "context_after": "  });\n\n  e.addEventListener(\"click\", function () {"
-    },
-    {
-      "id": "sha256:4fa994781f8c8e12",
-      "source": "You cannot turn off the layer when heightmap is in edit mode",
-      "file": "public/modules/ui/layers.js",
-      "line": 264,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "}\n\nfunction toggleHeight(event) {",
-      "context_after": "\n  const children = terrs.selectAll(\"#oceanHeights > *, #landHeights > *\");\n  if (!children.size()) {"
-    },
-    {
-      "id": "sha256:599e9335edd405c5",
-      "source": "River ${i} has ${cells.length} cells, but only ${points.length} points defined. Resetting points data",
+      "id": "sha256:91cf2ebf46561dd3",
+      "source": "河流 ${i} 有 ${cells.length} 个单元格，但仅定义了 ${points.length} 个点。重置点数据",
       "file": "public/modules/ui/layers.js",
       "line": 818,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "    if (!cells || cells.length < 2) return;\n\n    if (points && points.length !== cells.length) {",
-      "context_after": "        `River ${i} has ${cells.length} cells, but only ${points.length} points defined. Resetting points data`\n      );\n      points = undefined;"
+      "context_after": "        `河流 ${i} 有 ${cells.length} 个单元格，但仅定义了 ${points.length} 个点。重置点数据`\n      );\n      points = undefined;"
     },
     {
-      "id": "sha256:beac8571703ab0db",
-      "source": "Patreon Supporters",
+      "id": "sha256:4c045a0dff2f014d",
+      "source": "Patreon 支持者",
       "file": "public/modules/ui/options.js",
       "line": 92,
       "type": "ts_string",
@@ -505,218 +165,28 @@
       "context_after": "    width: \"min-width\",\n    position: { my: \"center\", at: \"center\", of: \"svg\" }\n  });"
     },
     {
-      "id": "sha256:6eb9db6584a5b62b",
-      "source": "The current map already has this seed",
-      "file": "public/modules/ui/options.js",
-      "line": 280,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "}\n\nfunction generateMapWithSeed() {",
-      "context_after": "  regeneratePrompt({ seed: optionsSeed.value });\n}\n"
-    },
-    {
-      "id": "sha256:d9c24c9cbd861716",
-      "source": "Seed history",
-      "file": "public/modules/ui/options.js",
-      "line": 296,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    position: { my: \"center\", at: \"center\", of: \"svg\" }\n  });\n}"
-    },
-    {
-      "id": "sha256:79a86824a8175932",
-      "source": "Map URL is copied to clipboard",
+      "id": "sha256:ecc71d511031e117",
+      "source": "地图 URL 已复制到剪贴板",
       "file": "public/modules/ui/options.js",
       "line": 322,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "  navigator.clipboard\n    .writeText(location.host + location.pathname + search)\n    .then(() => {",
-      "context_after": "      //window.history.pushState({}, null, search);\n    })\n    .catch(err => tip(\"Could not copy URL: \" + err, false, \"error\", 5000));"
+      "context_after": "      //window.history.pushState({}, null, search);\n    })\n    .catch(err => tip(\"无法复制 URL：\" + err, false, \"error\", 5000));"
     },
     {
-      "id": "sha256:94333b67164d4a71",
-      "source": "Could not copy URL:",
+      "id": "sha256:26591f1bc54b5056",
+      "source": "无法复制 URL：",
       "file": "public/modules/ui/options.js",
       "line": 325,
       "type": "ts_string",
       "context_tag": "message",
-      "context_before": "      tip(\"Map URL is copied to clipboard\", false, \"success\", 3000);\n      //window.history.pushState({}, null, search);\n    })",
+      "context_before": "      tip(\"地图 URL 已复制到剪贴板\", false, \"success\", 3000);\n      //window.history.pushState({}, null, search);\n    })",
       "context_after": "}\n\nconst cellsDensityMap = {"
     },
     {
-      "id": "sha256:d423cd9c144bcef3",
-      "source": "--bg-opacity",
-      "file": "public/modules/ui/options.js",
-      "line": 457,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  };\n\n  const theme = [",
-      "context_after": "    { name: \"--bg-main\", h, s, l, alpha },\n    { name: \"--bg-lighter\", h, s, l: l + 0.02, alpha },\n    { name: \"--bg-light\", h, s: s - 0.02, l: l + 0.06, alpha },"
-    },
-    {
-      "id": "sha256:b19cbb4c69bfe92e",
-      "source": "--bg-main",
-      "file": "public/modules/ui/options.js",
-      "line": 458,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  const theme = [\n    { name: \"--bg-opacity\", value: alpha },",
-      "context_after": "    { name: \"--bg-lighter\", h, s, l: l + 0.02, alpha },\n    { name: \"--bg-light\", h, s: s - 0.02, l: l + 0.06, alpha },\n    { name: \"--light-solid\", h, s: s + 0.01, l: l + 0.05, alpha: 1 },"
-    },
-    {
-      "id": "sha256:8ddf74a96184a479",
-      "source": "--bg-lighter",
-      "file": "public/modules/ui/options.js",
-      "line": 459,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  const theme = [\n    { name: \"--bg-opacity\", value: alpha },\n    { name: \"--bg-main\", h, s, l, alpha },",
-      "context_after": "    { name: \"--bg-light\", h, s: s - 0.02, l: l + 0.06, alpha },\n    { name: \"--light-solid\", h, s: s + 0.01, l: l + 0.05, alpha: 1 },\n    { name: \"--dark-solid\", h, s, l: l - 0.2, alpha: 1 },"
-    },
-    {
-      "id": "sha256:bf7f7b5e0d467530",
-      "source": "--bg-light",
-      "file": "public/modules/ui/options.js",
-      "line": 460,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"--bg-opacity\", value: alpha },\n    { name: \"--bg-main\", h, s, l, alpha },\n    { name: \"--bg-lighter\", h, s, l: l + 0.02, alpha },",
-      "context_after": "    { name: \"--light-solid\", h, s: s + 0.01, l: l + 0.05, alpha: 1 },\n    { name: \"--dark-solid\", h, s, l: l - 0.2, alpha: 1 },\n    { name: \"--header\", h, s: s, l: l - 0.03, alpha: alphaReduced },"
-    },
-    {
-      "id": "sha256:40a4464427b20cc5",
-      "source": "--light-solid",
-      "file": "public/modules/ui/options.js",
-      "line": 461,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"--bg-main\", h, s, l, alpha },\n    { name: \"--bg-lighter\", h, s, l: l + 0.02, alpha },\n    { name: \"--bg-light\", h, s: s - 0.02, l: l + 0.06, alpha },",
-      "context_after": "    { name: \"--dark-solid\", h, s, l: l - 0.2, alpha: 1 },\n    { name: \"--header\", h, s: s, l: l - 0.03, alpha: alphaReduced },\n    { name: \"--header-active\", h, s: s, l: l - 0.09, alpha: alphaReduced },"
-    },
-    {
-      "id": "sha256:943d466ad934906d",
-      "source": "--dark-solid",
-      "file": "public/modules/ui/options.js",
-      "line": 462,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"--bg-lighter\", h, s, l: l + 0.02, alpha },\n    { name: \"--bg-light\", h, s: s - 0.02, l: l + 0.06, alpha },\n    { name: \"--light-solid\", h, s: s + 0.01, l: l + 0.05, alpha: 1 },",
-      "context_after": "    { name: \"--header\", h, s: s, l: l - 0.03, alpha: alphaReduced },\n    { name: \"--header-active\", h, s: s, l: l - 0.09, alpha: alphaReduced },\n    { name: \"--bg-disabled\", h, s: s - 0.04, l: l + 0.09, alphaReduced },"
-    },
-    {
-      "id": "sha256:78bbee4e9fc7f61d",
-      "source": "--header",
-      "file": "public/modules/ui/options.js",
-      "line": 463,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"--bg-light\", h, s: s - 0.02, l: l + 0.06, alpha },\n    { name: \"--light-solid\", h, s: s + 0.01, l: l + 0.05, alpha: 1 },\n    { name: \"--dark-solid\", h, s, l: l - 0.2, alpha: 1 },",
-      "context_after": "    { name: \"--header-active\", h, s: s, l: l - 0.09, alpha: alphaReduced },\n    { name: \"--bg-disabled\", h, s: s - 0.04, l: l + 0.09, alphaReduced },\n    { name: \"--bg-dialogs\", h: 0, s: 0, l: 0.98, alpha }"
-    },
-    {
-      "id": "sha256:5af6e023ecc8ef96",
-      "source": "--header-active",
-      "file": "public/modules/ui/options.js",
-      "line": 464,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"--light-solid\", h, s: s + 0.01, l: l + 0.05, alpha: 1 },\n    { name: \"--dark-solid\", h, s, l: l - 0.2, alpha: 1 },\n    { name: \"--header\", h, s: s, l: l - 0.03, alpha: alphaReduced },",
-      "context_after": "    { name: \"--bg-disabled\", h, s: s - 0.04, l: l + 0.09, alphaReduced },\n    { name: \"--bg-dialogs\", h: 0, s: 0, l: 0.98, alpha }\n  ];"
-    },
-    {
-      "id": "sha256:e107bc06b902c895",
-      "source": "--bg-disabled",
-      "file": "public/modules/ui/options.js",
-      "line": 465,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"--dark-solid\", h, s, l: l - 0.2, alpha: 1 },\n    { name: \"--header\", h, s: s, l: l - 0.03, alpha: alphaReduced },\n    { name: \"--header-active\", h, s: s, l: l - 0.09, alpha: alphaReduced },",
-      "context_after": "    { name: \"--bg-dialogs\", h: 0, s: 0, l: 0.98, alpha }\n  ];\n"
-    },
-    {
-      "id": "sha256:7af6ef0dc128411f",
-      "source": "--bg-dialogs",
-      "file": "public/modules/ui/options.js",
-      "line": 466,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"--header\", h, s: s, l: l - 0.03, alpha: alphaReduced },\n    { name: \"--header-active\", h, s: s, l: l - 0.09, alpha: alphaReduced },\n    { name: \"--bg-disabled\", h, s: s - 0.04, l: l + 0.09, alphaReduced },",
-      "context_after": "  ];\n\n  const sx = document.documentElement.style;"
-    },
-    {
-      "id": "sha256:8415b67a2da70ba5",
-      "source": "Current year should be a number",
-      "file": "public/modules/ui/options.js",
-      "line": 708,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "function changeYear() {\n  if (!yearInput.value) return;\n  if (isNaN(+yearInput.value)) {",
-      "context_after": "    return;\n  }\n  options.year = +yearInput.value;"
-    },
-    {
-      "id": "sha256:514e8e166926b470",
-      "source": "New map cannot be generated when edit mode is active, please exit the mode and retry",
-      "file": "public/modules/ui/options.js",
-      "line": 736,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\nfunction regeneratePrompt(options) {\n  if (customization)",
-      "context_after": "  const workingTime = (Date.now() - last(mapHistory).created) / 60000; // minutes\n  if (workingTime < 1) return regenerateMap(options);\n"
-    },
-    {
-      "id": "sha256:0c72df7055956738",
-      "source": "Generate new map",
-      "file": "public/modules/ui/options.js",
-      "line": 744,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    All unsaved changes made to the current map will be lost`;\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    buttons: {\n      Cancel: function () {\n        $(this).dialog(\"close\");"
-    },
-    {
-      "id": "sha256:f62bc92fdba009b9",
-      "source": "Save map",
-      "file": "public/modules/ui/options.js",
-      "line": 762,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  sharableLinkContainer.style.display = \"none\";\n\n  $(\"#saveMapData\").dialog({",
-      "context_after": "    resizable: false,\n    width: \"25em\",\n    position: { my: \"center\", at: \"center\", of: \"svg\" },"
-    },
-    {
-      "id": "sha256:988973dc0ca56c4c",
-      "source": "Link is copied to the clipboard",
-      "file": "public/modules/ui/options.js",
-      "line": 777,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "function copyLinkToClickboard() {\n  const shrableLink = ensureEl(\"sharableLink\");\n  const link = shrableLink.getAttribute(\"href\");",
-      "context_after": "}\n\nfunction showExportPane() {"
-    },
-    {
-      "id": "sha256:350aafa3f927358e",
-      "source": "Export map data",
-      "file": "public/modules/ui/options.js",
-      "line": 784,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  ensureEl(\"showLabels\").checked = !hideLabels.checked;\n\n  $(\"#exportMapData\").dialog({",
-      "context_after": "    resizable: false,\n    width: \"26em\",\n    position: { my: \"center\", at: \"center\", of: \"svg\" },"
-    },
-    {
-      "id": "sha256:8b117cf6e96b9d17",
-      "source": "Load map",
-      "file": "public/modules/ui/options.js",
-      "line": 802,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\nasync function showLoadPane() {\n  $(\"#loadMapData\").dialog({",
-      "context_after": "    resizable: false,\n    width: \"auto\",\n    position: { my: \"center\", at: \"center\", of: \"svg\" },"
-    },
-    {
-      "id": "sha256:e0e2e31280a79715",
-      "source": "Load map from URL",
+      "id": "sha256:afc759d666553c80",
+      "source": "从 URL 加载地图",
       "file": "public/modules/ui/options.js",
       "line": 861,
       "type": "ts_string",
@@ -725,8 +195,8 @@
       "context_after": "    width: \"27em\",\n    buttons: {\n      Load: function () {"
     },
     {
-      "id": "sha256:97c0045c007b58ae",
-      "source": "Please provide a valid URL",
+      "id": "sha256:fb2337c8a8dad3e7",
+      "source": "请提供有效的 URL",
       "file": "public/modules/ui/options.js",
       "line": 867,
       "type": "ts_string",
@@ -735,18 +205,8 @@
       "context_after": "          return;\n        }\n        window.Services.Load.loadMapFromURL(value);"
     },
     {
-      "id": "sha256:13457f647eb6b390",
-      "source": "Download tiles",
-      "file": "public/modules/ui/options.js",
-      "line": 898,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#exportToPngTilesScreen\").dialog({\n    resizable: false,",
-      "context_after": "    width: \"23em\",\n    buttons: {\n      Download: () => window.Services.ExportMap.exportToPngTiles(),"
-    },
-    {
-      "id": "sha256:8dffc85a49ed0f8e",
-      "source": "Custom style ${desiredPreset} in not found in localStorage. Applying default style",
+      "id": "sha256:574350cec4b15a87",
+      "source": "在 localStorage 中未找到自定义样式 ${desiredPreset}。应用默认样式",
       "file": "public/modules/ui/style-presets.js",
       "line": 49,
       "type": "ts_string",
@@ -755,8 +215,8 @@
       "context_after": "      presetToLoad = \"default\";\n    } else {\n      const isValid = JSON.isValid(storedStyleJSON);"
     },
     {
-      "id": "sha256:38f30146571972d4",
-      "source": "Custom style ${desiredPreset} stored in localStorage is not valid. Applying default style",
+      "id": "sha256:7e107779ab962b97",
+      "source": "localStorage 中存储的自定义样式 ${desiredPreset} 无效。应用默认样式",
       "file": "public/modules/ui/style-presets.js",
       "line": 56,
       "type": "ts_string",
@@ -765,238 +225,58 @@
       "context_after": "      presetToLoad = \"default\";\n    }\n  }"
     },
     {
-      "id": "sha256:f05afd1e06bf155d",
-      "source": "Change style preset",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 126,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  if (isConfirmed) return changeStyle(preset);\n\n  confirmationDialog({",
-      "context_after": "    message: \"Are you sure you want to change the style preset? All unsaved style changes will be lost\",\n    confirm: \"Change\",\n    onConfirm: () => {"
-    },
-    {
-      "id": "sha256:6f90fa12a336778e",
-      "source": "Are you sure you want to change the style preset? All unsaved style changes will be lost",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 127,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  confirmationDialog({\n    title: \"Change style preset\",",
-      "context_after": "    confirm: \"Change\",\n    onConfirm: () => {\n      sessionStorage.setItem(\"styleChangeConfirmed\", true);"
-    },
-    {
-      "id": "sha256:09d1bd81309246ff",
-      "source": "Style Saver",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 168,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "}\n\nfunction addStylePreset() {",
-      "context_after": "\n  const styleName = stylePreset.value.replace(customPresetPrefix, \"\");\n  document.getElementById(\"styleSaverName\").value = styleName;"
-    },
-    {
-      "id": "sha256:44df4ba9671dadfa",
-      "source": "Please provide a style JSON",
+      "id": "sha256:ed92f97c05def19b",
+      "source": "请提供样式 JSON",
       "file": "public/modules/ui/style-presets.js",
       "line": 411,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "    const styleJSON = styleSaverJSON.value;\n    const desiredName = styleSaverName.value;\n",
-      "context_after": "    if (!JSON.isValid(styleJSON)) return tip(\"JSON string is not valid, please check the format\", false, \"error\");\n    if (!desiredName) return tip(\"Please provide a preset name\", false, \"error\");\n    if (styleSaverTip.innerHTML === \"default\")"
+      "context_after": "    if (!JSON.isValid(styleJSON)) return tip(\"JSON 字符串无效，请检查格式\", false, \"error\");\n    if (!desiredName) return tip(\"请提供预设名称\", false, \"error\");\n    if (styleSaverTip.innerHTML === \"default\")"
     },
     {
-      "id": "sha256:68578391d06564d4",
-      "source": "JSON string is not valid, please check the format",
+      "id": "sha256:904565a24c56a136",
+      "source": "JSON 字符串无效，请检查格式",
       "file": "public/modules/ui/style-presets.js",
       "line": 412,
       "type": "ts_string",
       "context_tag": "message",
-      "context_before": "    const desiredName = styleSaverName.value;\n\n    if (!styleJSON) return tip(\"Please provide a style JSON\", false, \"error\");",
-      "context_after": "    if (!desiredName) return tip(\"Please provide a preset name\", false, \"error\");\n    if (styleSaverTip.innerHTML === \"default\")\n      return tip(\"You cannot overwrite default preset, please change the name\", false, \"error\");"
+      "context_before": "    const desiredName = styleSaverName.value;\n\n    if (!styleJSON) return tip(\"请提供样式 JSON\", false, \"error\");",
+      "context_after": "    if (!desiredName) return tip(\"请提供预设名称\", false, \"error\");\n    if (styleSaverTip.innerHTML === \"default\")\n      return tip(\"无法覆盖默认预设，请更改名称\", false, \"error\");"
     },
     {
-      "id": "sha256:bca0dde603401d6f",
-      "source": "Please provide a preset name",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 413,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n    if (!styleJSON) return tip(\"Please provide a style JSON\", false, \"error\");\n    if (!JSON.isValid(styleJSON)) return tip(\"JSON string is not valid, please check the format\", false, \"error\");",
-      "context_after": "    if (styleSaverTip.innerHTML === \"default\")\n      return tip(\"You cannot overwrite default preset, please change the name\", false, \"error\");\n"
-    },
-    {
-      "id": "sha256:926888aadef256c8",
-      "source": "You cannot overwrite default preset, please change the name",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 415,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    if (!JSON.isValid(styleJSON)) return tip(\"JSON string is not valid, please check the format\", false, \"error\");\n    if (!desiredName) return tip(\"Please provide a preset name\", false, \"error\");\n    if (styleSaverTip.innerHTML === \"default\")",
-      "context_after": "\n    const presetName = customPresetPrefix + desiredName;\n    applyOption(stylePreset, presetName, desiredName + \" [custom]\");"
-    },
-    {
-      "id": "sha256:88fca950b0393b49",
-      "source": "Style preset is saved and applied",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 423,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    localStorage.setItem(presetName, styleJSON);\n\n    applyStyleWithUiRefresh(JSON.parse(styleJSON));",
-      "context_after": "    $(\"#styleSaver\").dialog(\"close\");\n  }\n"
-    },
-    {
-      "id": "sha256:a3137c4c2871661b",
-      "source": "Please provide a style JSON",
+      "id": "sha256:ecc955f11543595a",
+      "source": "请提供样式 JSON",
       "file": "public/modules/ui/style-presets.js",
       "line": 431,
       "type": "ts_string",
       "context_tag": "message",
       "context_before": "    const styleJSON = styleSaverJSON.value;\n    const styleName = styleSaverName.value;\n",
-      "context_after": "    if (!JSON.isValid(styleJSON)) return tip(\"JSON string is not valid, please check the format\", false, \"error\");\n    if (!styleName) return tip(\"Please provide a preset name\", false, \"error\");\n"
+      "context_after": "    if (!JSON.isValid(styleJSON)) return tip(\"JSON 字符串无效，请检查格式\", false, \"error\");\n    if (!styleName) return tip(\"请提供预设名称\", false, \"error\");\n"
     },
     {
-      "id": "sha256:a5c9a6ce44abd468",
-      "source": "JSON string is not valid, please check the format",
+      "id": "sha256:95e1bdbbe5001665",
+      "source": "JSON 字符串无效，请检查格式",
       "file": "public/modules/ui/style-presets.js",
       "line": 432,
       "type": "ts_string",
       "context_tag": "message",
-      "context_before": "    const styleName = styleSaverName.value;\n\n    if (!styleJSON) return tip(\"Please provide a style JSON\", false, \"error\");",
-      "context_after": "    if (!styleName) return tip(\"Please provide a preset name\", false, \"error\");\n\n    downloadFile(styleJSON, styleName + \".json\", \"application/json\");"
+      "context_before": "    const styleName = styleSaverName.value;\n\n    if (!styleJSON) return tip(\"请提供样式 JSON\", false, \"error\");",
+      "context_after": "    if (!styleName) return tip(\"请提供预设名称\", false, \"error\");\n\n    downloadFile(styleJSON, styleName + \".json\", \"application/json\");"
     },
     {
-      "id": "sha256:bca0dde603401d6f",
-      "source": "Please provide a preset name",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 433,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n    if (!styleJSON) return tip(\"Please provide a style JSON\", false, \"error\");\n    if (!JSON.isValid(styleJSON)) return tip(\"JSON string is not valid, please check the format\", false, \"error\");",
-      "context_after": "\n    downloadFile(styleJSON, styleName + \".json\", \"application/json\");\n  }"
-    },
-    {
-      "id": "sha256:d22ab84cf99aed31",
-      "source": "Cannot load the file. Please check the data format",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 443,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    uploadFile(this, styleUpload);\n\n    function styleUpload(dataLoaded) {",
-      "context_after": "      const isValid = JSON.isValid(dataLoaded);\n      if (!isValid) return tip(\"Loaded data is not a valid JSON, please check the format\", false, \"error\");\n"
-    },
-    {
-      "id": "sha256:9f9453a0706a25d8",
-      "source": "Loaded data is not a valid JSON, please check the format",
+      "id": "sha256:9207a46b5410a8f0",
+      "source": "加载的数据不是有效的 JSON，请检查格式",
       "file": "public/modules/ui/style-presets.js",
       "line": 445,
       "type": "ts_string",
       "context_tag": "message",
-      "context_before": "    function styleUpload(dataLoaded) {\n      if (!dataLoaded) return tip(\"Cannot load the file. Please check the data format\", false, \"error\");\n      const isValid = JSON.isValid(dataLoaded);",
+      "context_before": "    function styleUpload(dataLoaded) {\n      if (!dataLoaded) return tip(\"无法加载文件。请检查数据格式\", false, \"error\");\n      const isValid = JSON.isValid(dataLoaded);",
       "context_after": "\n      styleSaverJSON.value = JSON.stringify(JSON.parse(dataLoaded), null, 2);\n      styleSaverName.value = fileName;"
     },
     {
-      "id": "sha256:e871452fd3657508",
-      "source": "Style preset is uploaded",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 450,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "      styleSaverJSON.value = JSON.stringify(JSON.parse(dataLoaded), null, 2);\n      styleSaverName.value = fileName;\n      checkName();",
-      "context_after": "    }\n  }\n}"
-    },
-    {
-      "id": "sha256:3f00d58a86585a5a",
-      "source": "Cannot remove system preset",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 457,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\nfunction requestRemoveStylePreset() {\n  const isDefault = systemPresets.includes(stylePreset.value);",
-      "context_after": "\n  confirmationDialog({\n    title: \"Remove style preset\","
-    },
-    {
-      "id": "sha256:f47d1f127d2ba2ca",
-      "source": "Remove style preset",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 460,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  if (isDefault) return tip(\"Cannot remove system preset\", false, \"error\");\n\n  confirmationDialog({",
-      "context_after": "    message: \"Are you sure you want to remove the style preset? This action cannot be undone.\",\n    confirm: \"Remove\",\n    onConfirm: removeStylePreset"
-    },
-    {
-      "id": "sha256:c2494dbe576b6f2f",
-      "source": "Are you sure you want to remove the style preset? This action cannot be undone.",
-      "file": "public/modules/ui/style-presets.js",
-      "line": 461,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  confirmationDialog({\n    title: \"Remove style preset\",",
-      "context_after": "    confirm: \"Remove\",\n    onConfirm: removeStylePreset\n  });"
-    },
-    {
-      "id": "sha256:b7ce8f1e58f5ebba",
-      "source": "This scheme already exists",
-      "file": "public/modules/ui/style.js",
-      "line": 735,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n  function handleCreate() {\n    const stops = openCreateHeightmapSchemeButton.dataset.stops;",
-      "context_after": "\n    addCustomColorScheme(stops);\n    getEl().attr(\"scheme\", stops);"
-    },
-    {
-      "id": "sha256:59df4fa7916ae2a1",
-      "source": "Create heightmap color scheme",
-      "file": "public/modules/ui/style.js",
-      "line": 750,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    width: \"28em\",\n    buttons: {\n      Create: handleCreate,"
-    },
-    {
-      "id": "sha256:1fad3c33b3a7edd8",
-      "source": "Add custom font",
-      "file": "public/modules/ui/style.js",
-      "line": 883,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  addFontURLInput.value = \"\";\n\n  $(\"#addFontDialog\").dialog({",
-      "context_after": "    width: \"26em\",\n    position: { my: \"center\", at: \"center\", of: \"svg\" },\n    buttons: {"
-    },
-    {
-      "id": "sha256:32375b8a30b0112d",
-      "source": "Please provide a font name",
-      "file": "public/modules/ui/style.js",
-      "line": 892,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "        const src = addFontURLInput.value;\n        const method = addFontMethod.value;\n",
-      "context_after": "\n        const existingFont =\n          method === \"fontURL\""
-    },
-    {
-      "id": "sha256:6a652c6bbdec34f4",
-      "source": "The font is already added",
-      "file": "public/modules/ui/style.js",
-      "line": 898,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "          method === \"fontURL\"\n            ? fonts.find(font => font.family === family && font.src === src)\n            : fonts.find(font => font.family === family);",
-      "context_after": "\n        if (method === \"fontURL\") addWebFont(family, src);\n        else if (method === \"googleFont\") addGoogleFont(family);"
-    },
-    {
-      "id": "sha256:e6643689f79eb9e7",
-      "source": "Load custom texture",
-      "file": "public/modules/ui/style.js",
-      "line": 1064,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    width: \"28em\",\n    buttons: {\n      Apply: function () {"
-    },
-    {
-      "id": "sha256:75cffb2c04e1a86b",
-      "source": "Please provide a valid URL",
+      "id": "sha256:e1eef2c0d9b7a8ee",
+      "source": "请提供有效的 URL",
       "file": "public/modules/ui/style.js",
       "line": 1068,
       "type": "ts_string",
@@ -1005,8 +285,8 @@
       "context_after": "        changeTexture(textureURL.value);\n        updateTextureSelectValue(textureURL.value);\n        $(this).dialog(\"close\");"
     },
     {
-      "id": "sha256:ee0b218ebc55eca5",
-      "source": "Provided URL is",
+      "id": "sha256:6db4a1f04b3ca6e6",
+      "source": "提供的 URL 为",
       "file": "public/modules/ui/style.js",
       "line": 1081,
       "type": "ts_string",
@@ -1015,38 +295,8 @@
       "context_after": "  const img = new Image();\n  img.onload = function () {\n    const canvas = ensureEl(\"texturePreview\");"
     },
     {
-      "id": "sha256:8cd1077a0ab63bd8",
-      "source": "Please exit the customization mode first",
-      "file": "public/modules/ui/tools.js",
-      "line": 6,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "// module to control the Tools options (click to edit, to re-geenerate, tp add)\n\ntoolsContent.addEventListener(\"click\", function (event) {",
-      "context_after": "  if (![\"BUTTON\", \"I\"].includes(event.target.tagName)) return;\n  const button = event.target.id;\n"
-    },
-    {
-      "id": "sha256:1827d651c9c45f89",
-      "source": "Regenerate element",
-      "file": "public/modules/ui/tools.js",
-      "line": 45,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    alertMessage.innerHTML = /* html */ `Regeneration will remove all the custom changes for the element.<br /><br />Are you sure you want to proceed?`;\n    $(\"#alert\").dialog({\n      resizable: false,",
-      "context_after": "      buttons: {\n        Proceed: function () {\n          processFeatureRegeneration(event, button);"
-    },
-    {
-      "id": "sha256:75affbc2f5b26cf7",
-      "source": "No emblems to edit, please generate states and burgs first",
-      "file": "public/modules/ui/tools.js",
-      "line": 126,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    id = `burgCOA${firstBurg.i}`;\n    el = firstBurg;\n  } else {",
-      "context_after": "    return;\n  }\n"
-    },
-    {
-      "id": "sha256:fed9a3c0057da197",
-      "source": "<i>States Number</i> option value is zero. No counties are generated",
+      "id": "sha256:8af3477d044cb18a",
+      "source": "<i>States Number</i> 选项值为零。未生成任何国家",
       "file": "public/modules/ui/tools.js",
       "line": 203,
       "type": "ts_string",
@@ -1055,28 +305,8 @@
       "context_after": "    return null;\n  }\n"
     },
     {
-      "id": "sha256:a207f60320156b7f",
-      "source": "There are no any burgs to generate states. Please create burgs first",
-      "file": "public/modules/ui/tools.js",
-      "line": 209,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n  const validBurgs = pack.burgs.filter(b => b.i && !b.removed);\n  if (!validBurgs.length) {",
-      "context_after": "    return null;\n  }\n"
-    },
-    {
-      "id": "sha256:aed397df98848641",
-      "source": "Unable to regenerate as all states are locked",
-      "file": "public/modules/ui/tools.js",
-      "line": 224,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  const lockedStatesCapitals = lockedStates.map(s => s.capital);\n\n  if (validStates.length && lockedStates.length === validStates.length) {",
-      "context_after": "    return null;\n  }\n"
-    },
-    {
-      "id": "sha256:258b0c313add6a24",
-      "source": "Click on map to place label. Hold Shift to add multiple",
+      "id": "sha256:dff00535057517b6",
+      "source": "点击地图放置标签。按住 Shift 添加多个",
       "file": "public/modules/ui/tools.js",
       "line": 672,
       "type": "ts_string",
@@ -1085,8 +315,8 @@
       "context_after": "  if (!layerIsOn(\"toggleLabels\")) toggleLabels();\n}\n"
     },
     {
-      "id": "sha256:f4aa583104129ba0",
-      "source": "Click on map to place new river or extend an existing one. Hold Shift to place multiple rivers",
+      "id": "sha256:03d3be270ec0968c",
+      "source": "点击地图放置新河流或延伸现有河流。按住 Shift 放置多条河流",
       "file": "public/modules/ui/tools.js",
       "line": 752,
       "type": "ts_string",
@@ -1095,28 +325,8 @@
       "context_after": "  if (!layerIsOn(\"toggleRivers\")) toggleRivers();\n}\n"
     },
     {
-      "id": "sha256:43e174505518d317",
-      "source": "There is already a river here",
-      "file": "public/modules/ui/tools.js",
-      "line": 760,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  const { cells, rivers } = pack;\n  let i = findCell(...d3.mouse(this));\n",
-      "context_after": "  if (cells.h[i] < 20) return tip(\"Cannot create river in water cell\", false, \"error\");\n  if (cells.b[i]) return;\n"
-    },
-    {
-      "id": "sha256:b4f96d59dffa5460",
-      "source": "Cannot create river in water cell",
-      "file": "public/modules/ui/tools.js",
-      "line": 761,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  let i = findCell(...d3.mouse(this));\n\n  if (cells.r[i]) return tip(\"There is already a river here\", false, \"error\");",
-      "context_after": "  if (cells.b[i]) return;\n\n  const riverCells = [];"
-    },
-    {
-      "id": "sha256:2b83d3b3e800664b",
-      "source": "Cell ${i} is depressed, river cannot flow further",
+      "id": "sha256:239fbd580a40eeee",
+      "source": "单元格 ${i} 处于洼地，河流无法继续流动",
       "file": "public/modules/ui/tools.js",
       "line": 779,
       "type": "ts_string",
@@ -1125,8 +335,8 @@
       "context_after": "\n    // pour to water body\n    if (h[min] < 20) {"
     },
     {
-      "id": "sha256:79d87666b9fba1eb",
-      "source": "Click on map to add a marker. Hold Shift to add multiple",
+      "id": "sha256:daa19acc609b8bd1",
+      "source": "点击地图添加标记。按住 Shift 添加多个",
       "file": "public/modules/ui/tools.js",
       "line": 914,
       "type": "ts_string",
@@ -1135,48 +345,8 @@
       "context_after": "  if (!layerIsOn(\"toggleMarkers\")) toggleMarkers();\n}\n"
     },
     {
-      "id": "sha256:df11cfe5a43cd5b4",
-      "source": "Markers generation settings",
-      "file": "public/modules/ui/tools.js",
-      "line": 1025,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    position: { my: \"left top\", at: \"left+10 top+10\", of: \"svg\", collision: \"fit\" },\n    buttons: {\n      Regenerate: () => {"
-    },
-    {
-      "id": "sha256:d8b40c1934828583",
-      "source": "Apply changes and regenerate markers",
-      "file": "public/modules/ui/tools.js",
-      "line": 1039,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    },\n    open: function () {\n      const buttons = $(this).dialog(\"widget\").find(\".ui-dialog-buttonset > button\");",
-      "context_after": "      buttons[1].addEventListener(\"mousemove\", () => tip(\"Close the window\"));\n    },\n    close: function () {"
-    },
-    {
-      "id": "sha256:44fb914e4bd079b3",
-      "source": "Close the window",
-      "file": "public/modules/ui/tools.js",
-      "line": 1040,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    open: function () {\n      const buttons = $(this).dialog(\"widget\").find(\".ui-dialog-buttonset > button\");\n      buttons[0].addEventListener(\"mousemove\", () => tip(\"Apply changes and regenerate markers\"));",
-      "context_after": "    },\n    close: function () {\n      $(this).dialog(\"destroy\");"
-    },
-    {
-      "id": "sha256:ce8ded46920cd73e",
-      "source": "Cell Details",
-      "file": "public/modules/ui/tools.js",
-      "line": 1052,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  $(\"#cellInfo\").dialog({\n    resizable: false,\n    width: \"22em\",",
-      "context_after": "    position: { my: \"right top\", at: \"right-10 top+10\", of: \"svg\", collision: \"fit\" }\n  });\n}"
-    },
-    {
-      "id": "sha256:ee36fc7d7138c8ac",
-      "source": "Failed to parse AI provider error response",
+      "id": "sha256:4c198c10ce75f72b",
+      "source": "解析 AI 提供商错误响应失败",
       "file": "src/controllers/ai-generator.ts",
       "line": 149,
       "type": "ts_string",
@@ -1185,18 +355,8 @@
       "context_after": "    }\n    throw new Error(errorMessage);\n  }"
     },
     {
-      "id": "sha256:927bdac53035b8de",
-      "source": "Failed to parse line:",
-      "file": "src/controllers/ai-generator.ts",
-      "line": 175,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "        const parsed = line.startsWith(\"data: \") ? JSON.parse(line.slice(6)) : JSON.parse(line);\n        getContent(parsed);\n      } catch (error) {",
-      "context_after": "      }\n    }\n"
-    },
-    {
-      "id": "sha256:bb6772baaacb8c07",
-      "source": "AI Text Generator",
+      "id": "sha256:bddbe102d3d77444",
+      "source": "AI 文本生成器",
       "file": "src/controllers/ai-generator.ts",
       "line": 188,
       "type": "ts_string",
@@ -1535,76 +695,6 @@
       "context_after": "\n        const allAreSelected = selected.length === inputs.length;\n        (el.previousElementSibling as HTMLInputElement).value = allAreSelected ? \"\" : selected.join(\",\");"
     },
     {
-      "id": "sha256:b8bd568d6dc716c8",
-      "source": "capital",
-      "file": "src/controllers/burg-group-editor.ts",
-      "line": 217,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  const initial: Record<string, boolean> = value ? JSON.parse(value) : {};\n\n  const features = [",
-      "context_after": "    { name: \"port\", icon: \"icon-anchor\" },\n    { name: \"citadel\", icon: \"icon-chess-rook\" },\n    { name: \"walls\", icon: \"icon-fort-awesome\" },"
-    },
-    {
-      "id": "sha256:62a1d7fb49aae49e",
-      "source": "port",
-      "file": "src/controllers/burg-group-editor.ts",
-      "line": 218,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  const features = [\n    { name: \"capital\", icon: \"icon-star\" },",
-      "context_after": "    { name: \"citadel\", icon: \"icon-chess-rook\" },\n    { name: \"walls\", icon: \"icon-fort-awesome\" },\n    { name: \"plaza\", icon: \"icon-store\" },"
-    },
-    {
-      "id": "sha256:28b3d0fe85718b0b",
-      "source": "citadel",
-      "file": "src/controllers/burg-group-editor.ts",
-      "line": 219,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  const features = [\n    { name: \"capital\", icon: \"icon-star\" },\n    { name: \"port\", icon: \"icon-anchor\" },",
-      "context_after": "    { name: \"walls\", icon: \"icon-fort-awesome\" },\n    { name: \"plaza\", icon: \"icon-store\" },\n    { name: \"temple\", icon: \"icon-chess-bishop\" },"
-    },
-    {
-      "id": "sha256:a22bbe3bdc4ff2e5",
-      "source": "walls",
-      "file": "src/controllers/burg-group-editor.ts",
-      "line": 220,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"capital\", icon: \"icon-star\" },\n    { name: \"port\", icon: \"icon-anchor\" },\n    { name: \"citadel\", icon: \"icon-chess-rook\" },",
-      "context_after": "    { name: \"plaza\", icon: \"icon-store\" },\n    { name: \"temple\", icon: \"icon-chess-bishop\" },\n    { name: \"shanty\", icon: \"icon-campground\" }"
-    },
-    {
-      "id": "sha256:842bee0cba6960e3",
-      "source": "plaza",
-      "file": "src/controllers/burg-group-editor.ts",
-      "line": 221,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"port\", icon: \"icon-anchor\" },\n    { name: \"citadel\", icon: \"icon-chess-rook\" },\n    { name: \"walls\", icon: \"icon-fort-awesome\" },",
-      "context_after": "    { name: \"temple\", icon: \"icon-chess-bishop\" },\n    { name: \"shanty\", icon: \"icon-campground\" }\n  ];"
-    },
-    {
-      "id": "sha256:6cc0967ae0f5677f",
-      "source": "temple",
-      "file": "src/controllers/burg-group-editor.ts",
-      "line": 222,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"citadel\", icon: \"icon-chess-rook\" },\n    { name: \"walls\", icon: \"icon-fort-awesome\" },\n    { name: \"plaza\", icon: \"icon-store\" },",
-      "context_after": "    { name: \"shanty\", icon: \"icon-campground\" }\n  ];\n"
-    },
-    {
-      "id": "sha256:f6853d2da3f183c8",
-      "source": "shanty",
-      "file": "src/controllers/burg-group-editor.ts",
-      "line": 223,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    { name: \"walls\", icon: \"icon-fort-awesome\" },\n    { name: \"plaza\", icon: \"icon-store\" },\n    { name: \"temple\", icon: \"icon-chess-bishop\" },",
-      "context_after": "  ];\n\n  const lines = features.map("
-    },
-    {
       "id": "sha256:efdeb89c670ca311",
       "source": "Limit group by features",
       "file": "src/controllers/burg-group-editor.ts",
@@ -1793,16 +883,6 @@
       "context_tag": "label",
       "context_before": "  };\n\n  confirmationDialog({",
       "context_after": "    message,\n    confirm: \"Rename\",\n    onConfirm"
-    },
-    {
-      "id": "sha256:1ff2d624b19aa051",
-      "source": "Remove ${number} burgs",
-      "file": "src/controllers/burgs-overview.ts",
-      "line": 705,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "function triggerAllBurgsRemove(): void {\n  const number = pack.burgs.filter(b => b.i && !b.removed && !b.capital && !b.lock).length;\n  confirmationDialog({",
-      "context_after": "    message: `\n        Are you sure you want to remove all <i>unlocked</i> burgs except for capitals?\n        <br><i>To remove a capital you have to remove its state first</i>`,"
     },
     {
       "id": "sha256:77233d192bae8a91",
@@ -2695,16 +1775,6 @@
       "context_after": "          \"The file should be prepared for load to FMG. If you don't know why it's happening, try to upload raster image\",\n          false,\n          \"error\""
     },
     {
-      "id": "sha256:f1254a09e5a013e7",
-      "source": "${label} multipliers",
-      "file": "src/controllers/good-editor.ts",
-      "line": 614,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  popupEl.innerHTML = `<div style=\"max-height:320px; overflow-y:auto; padding:.2em;\">${body}</div>`;\n\n  $(popupEl).dialog({",
-      "context_after": "    width: \"22em\",\n    resizable: false,\n    buttons: {"
-    },
-    {
       "id": "sha256:9bf0743497426fec",
       "source": "Demand Coverage",
       "file": "src/controllers/good-editor.ts",
@@ -3145,26 +2215,6 @@
       "context_after": "    close: closeGoodsEditor,\n    position: { my: \"right top\", at: \"right-10 top+10\", of: \"svg\" }\n  });"
     },
     {
-      "id": "sha256:0ed912618b923174",
-      "source": "${good.name} producers",
-      "file": "src/controllers/goods-editor.ts",
-      "line": 248,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    buttons: {\n      Close: function () {\n        $(this).dialog(\"close\");"
-    },
-    {
-      "id": "sha256:fd4ba51c0bd093ff",
-      "source": "${good.name} stock",
-      "file": "src/controllers/goods-editor.ts",
-      "line": 361,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    buttons: {\n      Close: function () {\n        $(this).dialog(\"close\");"
-    },
-    {
       "id": "sha256:627657b444ef5565",
       "source": "Filter goods by tags",
       "file": "src/controllers/goods-editor.ts",
@@ -3575,16 +2625,6 @@
       "context_after": "    return;\n  }\n"
     },
     {
-      "id": "sha256:85d3f7fca21feb7a",
-      "source": "${capitalize(props.type)} tree",
-      "file": "src/controllers/hierarchy-tree.ts",
-      "line": 88,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  svg.attr(\"viewBox\", `0, 0, ${width}, ${height}`);\n\n  $(\"#hierarchyTree\").dialog({",
-      "context_after": "    position: { my: \"left center\", at: \"left+10 center\", of: \"svg\" },\n    width\n  });"
-    },
-    {
       "id": "sha256:da181b71515cc7b8",
       "source": "Hierarchy data issue. ${error}",
       "file": "src/controllers/hierarchy-tree.ts",
@@ -3635,16 +2675,6 @@
       "context_after": "}\n\nfunction handleNodeExit(this: SVGGElement, _event: MouseEvent, d: any): void {"
     },
     {
-      "id": "sha256:df2e48ce25fc6c83",
-      "source": "Edit ${type}",
-      "file": "src/controllers/ice-editor.ts",
-      "line": 31,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    .call(drag<SVGElement, unknown>().on(\"drag\", dragElement));\n\n  $(\"#iceEditor\").dialog({",
-      "context_after": "    resizable: false,\n    position: { my: \"center top+60\", at: \"top\", of: \"svg\", collision: \"fit\" },\n    close: closeEditor"
-    },
-    {
       "id": "sha256:0a29a11651b6090b",
       "source": "Click on map to create an iceberg. Hold Shift to add multiple",
       "file": "src/controllers/ice-editor.ts",
@@ -3653,16 +2683,6 @@
       "context_tag": "message",
       "context_before": "  iceNewBtn.classList.toggle(\"pressed\");\n  if (iceNewBtn.classList.contains(\"pressed\")) {\n    select<SVGElement, unknown>(\"#viewbox\").style(\"cursor\", \"crosshair\").on(\"click\", addIcebergOnClick);",
       "context_after": "  } else {\n    clearMainTip();\n    select<SVGElement, unknown>(\"#viewbox\").on(\"click\", clicked).style(\"cursor\", \"default\");"
-    },
-    {
-      "id": "sha256:6584cf90aa6649f2",
-      "source": "Remove ${type}",
-      "file": "src/controllers/ice-editor.ts",
-      "line": 98,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  alertMessage.innerHTML = /* html */ `Are you sure you want to remove the ${type}?`;\n  $(\"#alert\").dialog({\n    resizable: false,",
-      "context_after": "    buttons: {\n      Remove: function (this: HTMLElement) {\n        $(this).dialog(\"close\");"
     },
     {
       "id": "sha256:4beba410f9a60a6c",
@@ -3813,16 +2833,6 @@
       "context_tag": "label",
       "context_before": "  select<SVGElement, unknown>(\"#viewbox\").on(\"touchmove mousemove\", null);\n\n  $(\"#lakeEditor\").dialog({",
       "context_after": "    resizable: false,\n    position: { my: \"center top+20\", at: \"top\", of: \"svg\", collision: \"fit\" },\n    close: closeLakesEditor"
-    },
-    {
-      "id": "sha256:bd6cec20d205dba1",
-      "source": "no",
-      "file": "src/controllers/lakes-editor.ts",
-      "line": 131,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  ensureEl<HTMLInputElement>(\"lakeEvaporation\").value = String(l.evaporation);\n\n  const inlets = l.inlets?.map(inlet => rivers.find(river => river.i === inlet)?.name);",
-      "context_after": "  const inletsInput = ensureEl<HTMLInputElement>(\"lakeInlets\");\n  inletsInput.value = inlets ? String(inlets.length) : \"no\";\n  inletsInput.title = inlets ? inlets.join(\", \") : \"\";"
     },
     {
       "id": "sha256:aaca14e9a7ab2826",
@@ -4003,16 +3013,6 @@
       "context_tag": "message",
       "context_before": "\n  const market = Markets.get(marketId);\n  if (!market) {",
       "context_after": "    return;\n  }\n  activeMarketId = marketId;"
-    },
-    {
-      "id": "sha256:77b65d128e4745e3",
-      "source": "Market Stock: ${Markets.getName(market)}",
-      "file": "src/controllers/market-overview.ts",
-      "line": 26,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  refreshNameInput(market);\n\n  $(\"#marketOverview\").dialog({",
-      "context_after": "    width: \"auto\",\n    close: closeMarketOverview,\n    position: { my: \"right top\", at: \"right-10 top+10\", of: \"svg\", collision: \"fit\" }"
     },
     {
       "id": "sha256:d0a719516f0d423c",
@@ -4215,16 +3215,6 @@
       "context_after": "    resizable: false,\n    width: fitContent(),\n    position: { my: \"center\", at: \"center\", of: \"svg\" },"
     },
     {
-      "id": "sha256:75ea0c86be688400",
-      "source": "custom${ensureEl<HTMLTableElement>(\"militaryOptionsTable\").rows.length}",
-      "file": "src/controllers/military-overview.ts",
-      "line": 357,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      Add: () =>\n        addUnitLine({\n          icon: \"🛡️\",",
-      "context_after": "          rural: 0.2,\n          urban: 0.5,\n          crew: 1,"
-    },
-    {
       "id": "sha256:7d2d3b4bbf9ce531",
       "source": "Apply military units settings. <span style='color:#cb5858'>All forces will be recalculated!</span>",
       "file": "src/controllers/military-overview.ts",
@@ -4383,16 +3373,6 @@
       "context_tag": "label",
       "context_before": "\n  $(\"#alert\").dialog({\n    resizable: false,",
       "context_after": "    width: \"auto\",\n    position: { my: \"left top-30\", at: \"right+10 top\", of: \"#namesbaseEditor\" },\n    buttons: {"
-    },
-    {
-      "id": "sha256:c2aae76ed491029c",
-      "source": "Base${baseId}",
-      "file": "src/controllers/namesbase-editor.ts",
-      "line": 304,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  const b =\n    \"This,is,an,example,of,name,base,showing,correct,format,It,should,have,at,least,one,hundred,names,separated,with,comma\";\n  nameBases.push({",
-      "context_after": "    i: baseId,\n    min: 5,\n    max: 12,"
     },
     {
       "id": "sha256:6fadea3d04a914ef",
@@ -4653,16 +3633,6 @@
       "context_tag": "label",
       "context_before": "\n  const producedTable = renderTable({\n    colWidths: [\"80%\", \"20%\"],",
       "context_after": "    rows: producedRows,\n    empty: \"No goods manufactured\"\n  });"
-    },
-    {
-      "id": "sha256:95889c915218ace0",
-      "source": "Production Overview: ${burg.name}",
-      "file": "src/controllers/production-overview.ts",
-      "line": 395,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  $(\"#alert\").dialog({\n    width: \"48em\",\n    resizable: true,",
-      "context_after": "    position: {\n      my: \"right top\",\n      at: \"right-10 top+10\","
     },
     {
       "id": "sha256:331a1b2a0d79b56f",
@@ -5925,16 +4895,6 @@
       "context_after": "    resizable: false,\n    position: { my: \"right top\", at: \"right-10 top+10\", of: \"svg\" },\n    close: () => {"
     },
     {
-      "id": "sha256:607a6483df5a4edf",
-      "source": "Trade: ${pack.burgs[batch.startBurgId]?.name} to ${pack.burgs[batch.endBurgId]?.name}",
-      "file": "src/controllers/trade-details.ts",
-      "line": 26,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  highlight(path.points);\n\n  $(\"#tradeDetails\").dialog({",
-      "context_after": "    resizable: false,\n    position: { my: \"right top\", at: \"right-10 top+10\", of: \"svg\" },\n    close: closeTradeDetails"
-    },
-    {
       "id": "sha256:ca9f02923a93e911",
       "source": "Transform map",
       "file": "src/controllers/transform-tool.ts",
@@ -6475,56 +5435,6 @@
       "context_after": "      return burgs;\n    }\n"
     },
     {
-      "id": "sha256:dfc7583747cbf96e",
-      "source": "capital",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 401,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "  getDefaultGroups() {\n    return [\n      {",
-      "context_after": "        active: true,\n        order: 9,\n        features: { capital: true },"
-    },
-    {
-      "id": "sha256:f28d7cafd9e02a9d",
-      "source": "city",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 408,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        preview: \"watabou-city\"\n      },\n      {",
-      "context_after": "        active: true,\n        order: 8,\n        percentile: 90,"
-    },
-    {
-      "id": "sha256:049baad533569e44",
-      "source": "fort",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 416,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        preview: \"watabou-city\"\n      },\n      {",
-      "context_after": "        active: true,\n        features: { citadel: true, walls: false, plaza: false, port: false },\n        order: 6,"
-    },
-    {
-      "id": "sha256:224e61b2827373b6",
-      "source": "monastery",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 423,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        max: 1\n      },\n      {",
-      "context_after": "        active: true,\n        features: { temple: true, walls: false, plaza: false, port: false },\n        order: 5,"
-    },
-    {
-      "id": "sha256:3f03af44cbcd476b",
-      "source": "caravanserai",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 430,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        max: 0.8\n      },\n      {",
-      "context_after": "        active: true,\n        features: { port: false, plaza: true },\n        order: 4,"
-    },
-    {
       "id": "sha256:2e1898e73f975c18",
       "source": "trading_post",
       "file": "src/generators/burgs-generator.ts",
@@ -6533,36 +5443,6 @@
       "context_tag": "label",
       "context_before": "        biomes: [1, 2, 3]\n      },\n      {",
       "context_after": "        active: true,\n        order: 3,\n        features: { plaza: true },"
-    },
-    {
-      "id": "sha256:f38d2bb97f7065bf",
-      "source": "village",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 446,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        biomes: [5, 6, 7, 8, 9, 10, 11, 12]\n      },\n      {",
-      "context_after": "        active: true,\n        order: 2,\n        min: 0.1,"
-    },
-    {
-      "id": "sha256:11e761cd397cffdc",
-      "source": "hamlet",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 454,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        preview: \"watabou-village\"\n      },\n      {",
-      "context_after": "        active: true,\n        order: 1,\n        features: { plaza: false },"
-    },
-    {
-      "id": "sha256:0cd9f3078b1dbc4a",
-      "source": "town",
-      "file": "src/generators/burgs-generator.ts",
-      "line": 462,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        preview: \"watabou-village\"\n      },\n      {",
-      "context_after": "        active: true,\n        order: 7,\n        isDefault: true,"
     },
     {
       "id": "sha256:ae4233b5ddd2ad93",
@@ -8675,36 +7555,6 @@
       "context_after": "\n      while (quantity && candidates.length) {\n        const [cell] = this.extractAnyElement(candidates);"
     },
     {
-      "id": "sha256:fcb7b5864d4a7c37",
-      "source": "The ${name}",
-      "file": "src/generators/markers-generator.ts",
-      "line": 905,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    const course = `${ra(methods)} ${meal}`.toLowerCase();\n    const drink = `${P(0.5) ? ra(types) : ra(colors)} ${ra(drinks)}`.toLowerCase();\n    const legend = `A big and famous roadside ${typeName}. Delicious ${course} with ${drink} is served here.`;",
-      "context_after": "  }\n\n  private listLighthouses({ cells }: PackedGraph) {"
-    },
-    {
-      "id": "sha256:8c578be5d3ca96f8",
-      "source": "${getAdjective(proper)} Lighthouse",
-      "file": "src/generators/markers-generator.ts",
-      "line": 920,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    const proper = cells.burg[cell] ? pack.burgs[cells.burg[cell]].name! : Names.getCulture(cells.culture[cell]);\n    notes.push({\n      id,",
-      "context_after": "      legend: `A lighthouse to serve as a beacon for ships in the open sea.`\n    });\n  }"
-    },
-    {
-      "id": "sha256:462e7fb172ae409f",
-      "source": "${getAdjective(proper)} Waterfall",
-      "file": "src/generators/markers-generator.ts",
-      "line": 946,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    const proper = cells.burg[cell] ? pack.burgs[cells.burg[cell]].name! : Names.getCulture(cells.culture[cell]);\n    notes.push({\n      id,",
-      "context_after": "      legend: `${ra(descriptions)}`\n    });\n  }"
-    },
-    {
       "id": "sha256:c099b774c2c23198",
       "source": "Wheat",
       "file": "src/generators/markets-generator.test.ts",
@@ -8743,56 +7593,6 @@
       "context_tag": "message",
       "context_before": "    if (!burg || burg.removed) return null;\n\n    if (pack.markets.some(m => m.centerBurgId === burgId)) {",
       "context_after": "      return null;\n    }\n"
-    },
-    {
-      "id": "sha256:d44c1c49b778d4fd",
-      "source": "infantry",
-      "file": "src/generators/military-generator.ts",
-      "line": 465,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "    return [\n      {\n        icon: \"⚔️\",",
-      "context_after": "        rural: 0.25,\n        urban: 0.2,\n        crew: 1,"
-    },
-    {
-      "id": "sha256:2a8cf477adcb6dd7",
-      "source": "archers",
-      "file": "src/generators/military-generator.ts",
-      "line": 475,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      },\n      {\n        icon: \"🏹\",",
-      "context_after": "        rural: 0.12,\n        urban: 0.2,\n        crew: 1,"
-    },
-    {
-      "id": "sha256:5e37bc75d4e30740",
-      "source": "cavalry",
-      "file": "src/generators/military-generator.ts",
-      "line": 485,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      },\n      {\n        icon: \"🐴\",",
-      "context_after": "        rural: 0.12,\n        urban: 0.03,\n        crew: 2,"
-    },
-    {
-      "id": "sha256:a909397711881d93",
-      "source": "artillery",
-      "file": "src/generators/military-generator.ts",
-      "line": 495,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      },\n      {\n        icon: \"💣\",",
-      "context_after": "        rural: 0,\n        urban: 0.03,\n        crew: 8,"
-    },
-    {
-      "id": "sha256:05f51629fc4ece79",
-      "source": "fleet",
-      "file": "src/generators/military-generator.ts",
-      "line": 505,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      },\n      {\n        icon: \"🌊\",",
-      "context_after": "        rural: 0,\n        urban: 0.015,\n        crew: 100,"
     },
     {
       "id": "sha256:d4d806736dc5792e",
@@ -8883,16 +7683,6 @@
       "context_tag": "message",
       "context_before": "      return \"ERROR\";\n    }\n    if (culture === undefined && base === undefined) {",
       "context_after": "      return \"ERROR\";\n    }\n    if (base === undefined) base = pack.cultures[culture].base;"
-    },
-    {
-      "id": "sha256:10f9bffdbafebe5c",
-      "source": "${name}u",
-      "file": "src/generators/names-generator.ts",
-      "line": 221,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "\n    if (base === 5 && [\"sk\", \"ev\", \"ov\"].includes(name.slice(-2))) name = name.slice(0, -2);\n    // remove -sk/-ev/-ov for Ruthenian",
-      "context_after": "    // Japanese ends on any vowel or -u\n    else if (base === 18 && P(0.4))\n      name = isVowel(name.slice(0, 1).toLowerCase()) ? `Al${name.toLowerCase()}` : `Al ${name}`; // Arabic starts with -Al"
     },
     {
       "id": "sha256:6746e76a91375cb2",
@@ -9403,16 +8193,6 @@
       "context_tag": "label",
       "context_before": "\nclass StatesModule {\n  private createStates() {",
       "context_after": "    const each5th = each(5);\n    const sizeVariety = (ensureEl(\"sizeVariety\") as HTMLInputElement).valueAsNumber;\n"
-    },
-    {
-      "id": "sha256:f966f6e11ab074b1",
-      "source": "${getAdjective(name)} ${rw(wars)}",
-      "file": "src/generators/states-generator.ts",
-      "line": 351,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "        const name = i && P(0.8) ? pack.states[i].name : Names.getCultureShort(state.culture);\n        const start = gauss(options.year - 100, 150, 1, options.year - 6);\n        const end = start + gauss(4, 5, 1, options.year - start - 1);",
-      "context_after": "      })\n      .sort((a, b) => a.start - b.start);\n  }"
     },
     {
       "id": "sha256:ffc0f511942e6040",
@@ -19765,16 +18545,6 @@
       "context_after": "          continue;\n        }\n"
     },
     {
-      "id": "sha256:d6cad45045df6610",
-      "source": "dropbox",
-      "file": "src/services/io/cloud.ts",
-      "line": 62,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "}\n\nconst dropbox: DropboxProvider = {",
-      "context_after": "  clientId: \"pdr9ae64ip0qno4\",\n  authWindow: null,\n  token: null,"
-    },
-    {
       "id": "sha256:a70f8246372461c0",
       "source": "Dropbox response:",
       "file": "src/services/io/cloud.ts",
@@ -20753,126 +19523,6 @@
       "context_tag": "message",
       "context_before": "    callback?: (value: number | string) => void\n  ) => {\n    if (options.default === undefined)",
       "context_after": "\n    const input = prompt.querySelector(\"#promptInput\") as HTMLInputElement;\n    const promptTextElement = prompt.querySelector(\"#promptText\") as HTMLElement;"
-    },
-    {
-      "id": "sha256:4f3c406e69972dc0",
-      "source": "guo",
-      "file": "src/utils/languageUtils.ts",
-      "line": 35,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "export const getAdjective = (nounToBeAdjective: string) => {\n  const adjectivizationRules = [\n    {",
-      "context_after": "      probability: 1,\n      condition: / Guo$/,\n      action: (noun: string) => noun.slice(0, -4)"
-    },
-    {
-      "id": "sha256:53e26138804e90b0",
-      "source": "orszag",
-      "file": "src/utils/languageUtils.ts",
-      "line": 41,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => noun.slice(0, -4)\n    },\n    {",
-      "context_after": "      probability: 1,\n      condition: /orszag$/,\n      action: (noun: string) => (noun.length < 9 ? `${noun}ian` : noun.slice(0, -6))"
-    },
-    {
-      "id": "sha256:4f112426b9290a8e",
-      "source": "stan",
-      "file": "src/utils/languageUtils.ts",
-      "line": 47,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => (noun.length < 9 ? `${noun}ian` : noun.slice(0, -6))\n    },\n    {",
-      "context_after": "      probability: 1,\n      condition: /stan$/,\n      action: (noun: string) => (noun.length < 9 ? `${noun}i` : trimVowels(noun.slice(0, -4)))"
-    },
-    {
-      "id": "sha256:df342d51d54e3e23",
-      "source": "land",
-      "file": "src/utils/languageUtils.ts",
-      "line": 53,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => (noun.length < 9 ? `${noun}i` : trimVowels(noun.slice(0, -4)))\n    },\n    {",
-      "context_after": "      probability: 1,\n      condition: /land$/,\n      action: (noun: string) => {"
-    },
-    {
-      "id": "sha256:a34f8a7096fbeddd",
-      "source": "que",
-      "file": "src/utils/languageUtils.ts",
-      "line": 65,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      }\n    },\n    {",
-      "context_after": "      probability: 1,\n      condition: /que$/,\n      action: (noun: string) => noun.replace(/que$/, \"can\")"
-    },
-    {
-      "id": "sha256:287f81f3d237f4cd",
-      "source": "ay",
-      "file": "src/utils/languageUtils.ts",
-      "line": 101,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => `${noun}an`\n    },\n    {",
-      "context_after": "      probability: 1,\n      condition: /ay$/,\n      action: (noun: string) => `${noun}an`"
-    },
-    {
-      "id": "sha256:249997f018392dbf",
-      "source": "os",
-      "file": "src/utils/languageUtils.ts",
-      "line": 107,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => `${noun}an`\n    },\n    {",
-      "context_after": "      probability: 1,\n      condition: /os$/,\n      action: (noun: string) => {"
-    },
-    {
-      "id": "sha256:05c9b110413e7bf6",
-      "source": "es",
-      "file": "src/utils/languageUtils.ts",
-      "line": 117,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      }\n    },\n    {",
-      "context_after": "      probability: 1,\n      condition: /es$/,\n      action: (noun: string) => {"
-    },
-    {
-      "id": "sha256:81729199041a8296",
-      "source": "ad",
-      "file": "src/utils/languageUtils.ts",
-      "line": 139,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => `${noun}ese`\n    },\n    {",
-      "context_after": "      probability: 0.8,\n      condition: /ad$/,\n      action: (noun: string) => `${noun}ian`"
-    },
-    {
-      "id": "sha256:ecc30e281f59d671",
-      "source": "an",
-      "file": "src/utils/languageUtils.ts",
-      "line": 145,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => `${noun}ian`\n    },\n    {",
-      "context_after": "      probability: 0.8,\n      condition: /an$/,\n      action: (noun: string) => `${noun}ian`"
-    },
-    {
-      "id": "sha256:2ef89ef67b116246",
-      "source": "ish",
-      "file": "src/utils/languageUtils.ts",
-      "line": 151,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => `${noun}ian`\n    },\n    {",
-      "context_after": "      probability: 0.25,\n      condition: /^[a-zA-Z]{6}$/,\n      action: (noun: string) => `${trimVowels(noun.slice(0, -1))}ish`"
-    },
-    {
-      "id": "sha256:6f9dce0a0c1bff7f",
-      "source": "an",
-      "file": "src/utils/languageUtils.ts",
-      "line": 157,
-      "type": "ts_string",
-      "context_tag": "label",
-      "context_before": "      action: (noun: string) => `${trimVowels(noun.slice(0, -1))}ish`\n    },\n    {",
-      "context_after": "      probability: 0.5,\n      condition: /^[a-zA-Z]{0,7}$/,\n      action: (noun: string) => `${trimVowels(noun)}an`"
     },
     {
       "id": "sha256:ad3b7d811bbb401f",

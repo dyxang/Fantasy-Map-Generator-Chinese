@@ -8,7 +8,7 @@ let activeFilter: "all" | "local" | "global" = "all";
 function open(marketId: number): void {
   const market = Markets.get(marketId);
   if (!market) {
-    tip("Invalid market. The selected market does not exist", true, "error", 5000);
+    tip("无效市场。所选市场不存在", true, "error", 5000);
     return;
   }
 
@@ -20,7 +20,7 @@ function open(marketId: number): void {
   marketDealsAddLines();
 
   $("#marketDeals").dialog({
-    title: `${Markets.getName(market)} Market Deals`,
+    title: `${Markets.getName(market)} 市场交易`,
     position: { my: "right top", at: "right bottom+10", of: "#marketOverview", collision: "fit" },
     close: closeMarketDeals
   });
@@ -84,7 +84,7 @@ function closeMarketDeals(): void {
 function marketDealsAddLines(): void {
   const market = Markets.get(activeMarketId);
   if (!market) {
-    tip("Invalid market. The selected market does not exist", true, "error", 5000);
+    tip("无效市场。所选市场不存在", true, "error", 5000);
     return;
   }
 

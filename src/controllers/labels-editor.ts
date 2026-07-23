@@ -22,7 +22,7 @@ function open(tspan: SVGTSpanElement): void {
   renderDialog();
 
   $("#labelEditor").dialog({
-    title: "Edit Label",
+    title: "编辑标签",
     resizable: false,
     width: fitContent(),
     position: { my: "center top+10", at: "bottom", of: text, collision: "fit" },
@@ -180,10 +180,10 @@ function showEditorTips(event: MouseEvent): void {
   const parent = target.parentNode as Element | null;
   const grandParent = parent?.parentNode as Element | null;
   if (grandParent?.id === elSelected.attr("id")) {
-    tip("Drag to shift the label");
+    tip("拖动以移动标签");
   } else if (parent?.id === "controlPoints") {
-    if (target.tagName === "circle") tip("Drag to move, click to delete the control point");
-    if (target.tagName === "path") tip("Click to add a control point");
+    if (target.tagName === "circle") tip("拖动以移动，点击以删除控制点");
+    if (target.tagName === "path") tip("点击以添加控制点");
   }
 }
 
@@ -358,7 +358,7 @@ function toggleNewGroupInput(): void {
 
 function createNewGroup(this: HTMLInputElement): void {
   if (!this.value) {
-    tip("Please provide a valid group name");
+    tip("请提供有效的组名");
     return;
   }
   const group = this.value
@@ -367,12 +367,12 @@ function createNewGroup(this: HTMLInputElement): void {
     .replace(/[^\w\s]/gi, "");
 
   if (findEl(group)) {
-    tip("Element with this id already exists. Please provide a unique name", false, "error");
+    tip("具有此 id 的元素已存在。请提供唯一的名称", false, "error");
     return;
   }
 
   if (Number.isFinite(+group.charAt(0))) {
-    tip("Group name should start with a letter", false, "error");
+    tip("组名应以字母开头", false, "error");
     return;
   }
 
@@ -409,7 +409,7 @@ function removeLabelsGroup(): void {
     removed: ${count}`;
   $("#alert").dialog({
     resizable: false,
-    title: "Remove route group",
+    title: "移除道路组",
     buttons: {
       Remove: function (this: HTMLElement) {
         $(this).dialog("close");
@@ -452,7 +452,7 @@ function changeText(): void {
   } else el.innerHTML = `<tspan x="0">${lines}</tspan>`;
 
   if (elSelected.attr("id").slice(0, 10) === "stateLabel")
-    tip("Use States Editor to change an actual state name, not just a label", false, "warn");
+    tip("请使用国家编辑器更改实际国家名称，而不仅仅是标签", false, "warn");
 }
 
 function generateRandomName(): void {
@@ -510,7 +510,7 @@ function changeStartOffset(this: HTMLInputElement): void {
   const value = this.value;
   ensureEl<HTMLInputElement>("labelStartOffsetValue").value = value;
   elSelected.select("textPath").attr("startOffset", `${value}%`);
-  tip(`Label offset: ${value}%`);
+  tip(`标签偏移：${value}%`);
 }
 
 function changeStartOffsetFromValue(this: HTMLInputElement): void {
@@ -518,18 +518,18 @@ function changeStartOffsetFromValue(this: HTMLInputElement): void {
   ensureEl<HTMLInputElement>("labelStartOffset").value = String(value);
   this.value = String(value);
   elSelected.select("textPath").attr("startOffset", `${value}%`);
-  tip(`Label offset: ${value}%`);
+  tip(`标签偏移：${value}%`);
 }
 
 function changeRelativeSize(this: HTMLInputElement): void {
   elSelected.select("textPath").attr("font-size", `${this.value}%`);
-  tip(`Label relative size: ${this.value}%`);
+  tip(`标签相对大小：${this.value}%`);
   changeText();
 }
 
 function changeLetterSpacingSize(this: HTMLInputElement): void {
   elSelected.select("textPath").attr("letter-spacing", `${this.value}px`);
-  tip(`Label letter-spacing size: ${this.value}px`);
+  tip(`标签字间距大小：${this.value}px`);
   changeText();
 }
 
@@ -551,7 +551,7 @@ function removeLabel(): void {
   alertMessage.innerHTML = "Are you sure you want to remove the label?";
   $("#alert").dialog({
     resizable: false,
-    title: "Remove label",
+    title: "移除标签",
     buttons: {
       Remove: function (this: HTMLElement) {
         $(this).dialog("close");

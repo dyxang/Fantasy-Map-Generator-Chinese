@@ -30,7 +30,7 @@ function open(cells: number[], routeLen: number, isRiver: boolean): void {
   const firstCell = cells[0];
   const lastCell = cells.at(-1);
   if (firstCell === undefined || lastCell === undefined) {
-    tip("Elevation profile: no data", true, "error");
+    tip("海拔剖面图：无数据", true, "error");
     return;
   }
 
@@ -129,7 +129,7 @@ function open(cells: number[], routeLen: number, isRiver: boolean): void {
   draw();
 
   $("#elevationProfile").dialog({
-    title: "Elevation profile",
+    title: "海拔剖面图",
     resizable: false,
     close: closeElevationProfile,
     position: {

@@ -14,7 +14,7 @@ function open(): void {
   refreshMilitaryOverview();
 
   $("#militaryOverview").dialog({
-    title: "Military Overview",
+    title: "军事总览",
     resizable: false,
     width: fitContent(),
     close: closeMilitaryOverview,
@@ -344,7 +344,7 @@ function militaryCustomize(): void {
   options.military.map(unit => addUnitLine(unit));
 
   $("#militaryOptions").dialog({
-    title: "Edit Military Units",
+    title: "编辑军事单位",
     resizable: false,
     width: fitContent(),
     position: { my: "center", at: "center", of: "svg" },
@@ -370,11 +370,11 @@ function militaryCustomize(): void {
     open: function () {
       const buttons = $(this).dialog("widget").find(".ui-dialog-buttonset > button");
       buttons[0].addEventListener("mousemove", () =>
-        tip("Apply military units settings. <span style='color:#cb5858'>All forces will be recalculated!</span>")
+        tip("应用军事单位设置。<span style='color:#cb5858'>所有兵力将被重新计算！</span>")
       );
-      buttons[1].addEventListener("mousemove", () => tip("Add new military unit to the table"));
-      buttons[2].addEventListener("mousemove", () => tip("Restore default military units and settings"));
-      buttons[3].addEventListener("mousemove", () => tip("Close the window without saving the changes"));
+      buttons[1].addEventListener("mousemove", () => tip("向表格添加新的军事单位"));
+      buttons[2].addEventListener("mousemove", () => tip("恢复默认军事单位和设置"));
+      buttons[3].addEventListener("mousemove", () => tip("关闭窗口且不保存更改"));
     }
   });
 
@@ -512,7 +512,7 @@ function militaryCustomize(): void {
 
     $("#alert").dialog({
       width: fitContent(),
-      title: "Limit unit",
+      title: "限制单位",
       buttons: {
         Invert: () => {
           alertMessage.querySelectorAll<HTMLInputElement>("input").forEach(el => {
@@ -527,7 +527,7 @@ function militaryCustomize(): void {
           }, []);
 
           if (!selected.length) {
-            tip("Select at least one element", false, "error");
+            tip("至少选择一个元素", false, "error");
             return;
           }
 
@@ -548,7 +548,7 @@ function militaryCustomize(): void {
     const unitLines = Array.from(tableBody.querySelectorAll("tr"));
     const names = unitLines.map(r => sanitizeId(r.querySelector("input")!.value));
     if (new Set(names).size !== names.length) {
-      tip("All units should have unique names", false, "error");
+      tip("所有单位必须具有唯一名称", false, "error");
       return;
     }
 
@@ -648,7 +648,7 @@ function militaryRecalculate(): void {
     "Are you sure you want to recalculate military forces for all states?<br>Regiments for all states will be regenerated";
   $("#alert").dialog({
     resizable: false,
-    title: "Recalculate military",
+    title: "重新计算军事",
     buttons: {
       Recalculate: function () {
         $(this).dialog("close");

@@ -1,17 +1,23 @@
 {
   "task": "initial_translation",
   "phase": "translation",
-  "last_processed_id": "sha256:bb6772baaacb8c07",
-  "last_file": "src/controllers/ai-generator.ts",
-  "last_line": 188,
-  "completed_units": 120,
-  "total_units": 2095,
+  "last_processed_id": "sha256:046b2805e3cee10f",
+  "last_file": "src/controllers/production-chains.ts",
+  "last_line": 142,
+  "completed_units": 432,
+  "total_units": 1960,
   "session_history": [
     {
       "date": "2026-07-23",
       "units": 120,
       "end_id": "sha256:bb6772baaacb8c07",
       "notes": "首批翻译：editors.js, general.js, layers.js, options.js, style.js, style-presets.js, tools.js, ai-generator.ts。110个翻译+10个CSS变量名跳过。4个subagent并行。"
+    },
+    {
+      "date": "2026-07-23",
+      "units": 312,
+      "end_id": "sha256:046b2805e3cee10f",
+      "notes": "Collected: 312 translated, 0 skipped, 11 not found. 4 batches."
     }
   ]
 }

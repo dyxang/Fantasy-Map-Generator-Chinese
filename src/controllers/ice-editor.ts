@@ -73,7 +73,7 @@ function toggleAdd(): void {
   iceNewBtn.classList.toggle("pressed");
   if (iceNewBtn.classList.contains("pressed")) {
     select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addIcebergOnClick);
-    tip("Click on map to create an iceberg. Hold Shift to add multiple", true);
+    tip("点击地图以创建冰山。按住 Shift 可添加多个", true);
   } else {
     clearMainTip();
     select<SVGElement, unknown>("#viewbox").on("click", clicked).style("cursor", "default");

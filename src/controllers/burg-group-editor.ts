@@ -8,7 +8,7 @@ function editBurgGroups(): void {
   addLines();
 
   $("#burgGroupsEditor").dialog({
-    title: "Configure Burg groups",
+    title: "配置城镇分组",
     resizable: false,
     position: { my: "center", at: "center", of: "svg" },
     close: closeBurgGroupsEditor,
@@ -181,7 +181,7 @@ function selectLimitation(
 
   $("#alert").dialog({
     width: fitContent(),
-    title: "Limit group",
+    title: "限制分组",
     buttons: {
       Invert: () => {
         alertMessage.querySelectorAll<HTMLInputElement>("input").forEach(input => {
@@ -195,7 +195,7 @@ function selectLimitation(
           return acc;
         }, []);
 
-        if (!selected.length) return tip("Select at least one element", false, "error");
+        if (!selected.length) return tip("至少选择一个元素", false, "error");
 
         const allAreSelected = selected.length === inputs.length;
         (el.previousElementSibling as HTMLInputElement).value = allAreSelected ? "" : selected.join(",");
@@ -260,7 +260,7 @@ function selectFeaturesLimitation(el: HTMLElement): void {
 
   $("#alert").dialog({
     width: fitContent(),
-    title: "Limit group by features",
+    title: "按特征限制分组",
     buttons: {
       Apply: function (this: HTMLElement) {
         const form = ensureEl<HTMLFormElement>("featuresLimitationForm");
@@ -285,14 +285,14 @@ function selectFeaturesLimitation(el: HTMLElement): void {
 function removeLine(line: HTMLElement): void {
   const lines = ensureEl("burgGroupsBody").children;
   if (lines.length < 2) {
-    tip("At least one group should be defined", false, "error");
+    tip("至少需要定义一个分组", false, "error");
     return;
   }
 
   confirmationDialog({
-    title: "Remove group",
+    title: "移除分组",
     message:
-      "Are you sure you want to remove the group? <br>This WON'T change the burgs unless the changes are applied",
+      "确定要移除该分组吗？<br>除非应用更改，否则不会影响城镇",
     confirm: "Remove",
     onConfirm: () => {
       line.remove();
@@ -358,7 +358,7 @@ function submitForm(event: Event): void {
 
   const lines = Array.from(ensureEl("burgGroupsBody").children);
   if (!lines.length) {
-    tip("At least one group should be defined", false, "error");
+    tip("至少需要定义一个分组", false, "error");
     return;
   }
 

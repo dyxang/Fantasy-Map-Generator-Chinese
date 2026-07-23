@@ -292,7 +292,7 @@ function showModeDialog(tool?: string): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Edit Heightmap",
+    title: "编辑高度图",
     width: "28em",
     buttons: {
       Erase: () => enterHeightmapEditMode("erase", tool),
@@ -315,7 +315,7 @@ function enterHeightmapEditMode(mode: string, tool?: string): void {
 
   customization = 1;
   closeDialogs();
-  tip('Heightmap edit mode is active. Click on "Exit Customization" to finalize the heightmap', true);
+  tip('高度图编辑模式已激活。点击"退出自定义"以完成高度图', true);
 
   ensureEl("options")
     .querySelectorAll<HTMLElement>(".tabcontent")
@@ -429,11 +429,11 @@ function getFriendlyHeight(h: number): string {
 // Exit customization mode
 function finalizeHeightmap(): void {
   if (select<SVGElement, unknown>("#viewbox").select("#heights").selectAll("*").size() < 200) {
-    tip("Insufficient land area. There should be at least 200 land cells!", false, "error");
+    tip("陆地面积不足。至少需要 200 个陆地单元格！", false, "error");
     return;
   }
   if (findEl("imageConverter")) {
-    tip("Please exit the Image Conversion mode first", false, "error");
+    tip("请先退出图像转换模式", false, "error");
     return;
   }
 
@@ -775,7 +775,7 @@ function restoreRiskedData(): void {
 function updateHeightmap(): void {
   const prev = last(edits) as number[];
   const changed = grid.cells.h.reduce((s: number, h: number, i: number) => (h !== prev[i] ? s + 1 : s), 0);
-  tip(`Cells changed: ${changed}`);
+  tip(`已更改的单元格：${changed}`);
   if (!changed) return;
 
   const cellTypeFilter = findEl<HTMLSelectElement>("cellTypeFilter")?.value ?? defaultCellTypeFilter;
@@ -897,7 +897,7 @@ function openBrushesPanel(): void {
   renderBrushesPanel();
 
   $("#brushesPanel").dialog({
-    title: "Paint Brushes",
+    title: "画笔",
     resizable: false,
     position: { my: "right top", at: "right-10 top+10", of: "svg" },
     close: closeBrushesPanel
@@ -1128,7 +1128,7 @@ function placeLinearFeature(this: SVGElement, event: any): void {
 
   const power = ensureEl<HTMLInputElement>("heightmapLinePower").valueAsNumber;
   if (power === 0) {
-    tip("Power should not be zero", false, "error");
+    tip("Power 不能为零", false, "error");
     return;
   }
 
@@ -1167,21 +1167,21 @@ function applyFillBrush(this: SVGElement, event: any): void {
 
   const cellTypeFilter = ensureEl<HTMLSelectElement>("cellTypeFilter").value;
   if (cellTypeFilter === "water") {
-    tip("Fill brush is not available with 'only water cells' filter", false, "error");
+    tip("在'仅水域单元格'过滤器下填充画笔不可用", false, "error");
     return;
   }
   if (cellTypeFilter === "land" && isWaterFill) {
-    tip("Land filter is active, water areas cannot be filled", false, "error");
+    tip("陆地过滤器已激活，无法填充水域", false, "error");
     return;
   }
 
   const { selection, reachedBorder } = collectFillSelection(start, isWaterFill, startHeight);
   if (selection.length < MIN_FILL_CELLS) {
-    tip("No enclosed area found to fill", false, "error");
+    tip("未找到可填充的封闭区域", false, "error");
     return;
   }
   if (isWaterFill && reachedBorder) {
-    tip("Selected water area is open to map border and is not enclosed", false, "error");
+    tip("所选水域与地图边界相连，并非封闭区域", false, "error");
     return;
   }
 
@@ -1346,7 +1346,7 @@ function changeHeightForSelection(selection: number[], start: number): void {
 function cellTypeFilterChange(): void {
   const cellTypeFilter = ensureEl<HTMLSelectElement>("cellTypeFilter");
   if (cellTypeFilter.value === "land" && ensureEl("heightmapEditMode").innerHTML === "keep") {
-    tip("You cannot change the coastline in 'Keep' edit mode", false, "error");
+    tip("在'保留'编辑模式下无法更改海岸线", false, "error");
     cellTypeFilter.value = "all";
   }
 }
@@ -1369,11 +1369,11 @@ function rescaleWithCondition(): void {
   const operator = ensureEl<HTMLSelectElement>("conditionSign").value;
   const operand = ensureEl<HTMLInputElement>("rescaleModifier").valueAsNumber;
   if (Number.isNaN(operand)) {
-    tip("Operand should be a number", false, "error");
+    tip("操作数必须是数字", false, "error");
     return;
   }
   if ((operator === "add" || operator === "subtract") && !Number.isInteger(operand)) {
-    tip("Operand should be an integer", false, "error");
+    tip("操作数必须是整数", false, "error");
     return;
   }
 
@@ -1404,16 +1404,16 @@ function disruptAllHeights(): void {
 function startFromScratch(): void {
   const cellTypeFilter = ensureEl<HTMLSelectElement>("cellTypeFilter").value;
   if (cellTypeFilter === "land") {
-    tip("Not allowed when 'only land cells' filter is set", false, "error");
+    tip("在'仅陆地单元格'过滤器下不允许此操作", false, "error");
     return;
   }
   if (cellTypeFilter === "water") {
-    tip("Not allowed when 'only water cells' filter is set", false, "error");
+    tip("在'仅水域单元格'过滤器下不允许此操作", false, "error");
     return;
   }
   const someHeights = grid.cells.h.some((h: number) => h);
   if (!someHeights) {
-    tip("Heightmap is already cleared, please do not click twice if not required", false, "error");
+    tip("高度图已清空，如非必要请勿点击两次", false, "error");
     return;
   }
 
@@ -1427,7 +1427,7 @@ function openTemplateEditor(): void {
   renderTemplateEditor();
 
   $("#templateEditor").dialog({
-    title: "Template Editor",
+    title: "模板编辑器",
     minHeight: "auto",
     width: "fit-content",
     resizable: false,
@@ -1596,7 +1596,7 @@ function selectTemplate(e: Event): void {
   alertMessage.innerHTML = "Are you sure you want to select a different template? All changes will be lost.";
   $("#alert").dialog({
     resizable: false,
-    title: "Change Template",
+    title: "更改模板",
     buttons: {
       Change: function (this: HTMLElement) {
         changeTemplate(template);
@@ -1619,7 +1619,7 @@ function changeTemplate(template: string): void {
 
   const steps = templateString.split("\n");
   if (!steps.length) {
-    tip(`Heightmap template: no steps defined`, false, "error");
+    tip(`高度图模板：未定义任何步骤`, false, "error");
     return;
   }
 
@@ -1700,7 +1700,7 @@ function downloadTemplate(): void {
 function uploadTemplate(dataLoaded: string): void {
   const steps = dataLoaded.split("\r\n");
   if (!steps.length) {
-    tip("Cannot parse the template, please check the file", false, "error");
+    tip("无法解析模板，请检查文件", false, "error");
     return;
   }
   ensureEl("templateBody").innerHTML = "";
@@ -1708,7 +1708,7 @@ function uploadTemplate(dataLoaded: string): void {
   for (const s of steps) {
     const step = s.split(" ");
     if (step.length !== 5) {
-      ERROR && console.error("Cannot parse step, wrong arguments count", s);
+      ERROR && console.error("无法解析步骤，参数数量错误", s);
       continue;
     }
     addStep(step[0], step[1], step[2], step[3], step[4]);
@@ -1723,7 +1723,7 @@ function openImageConverter(): void {
   renderImageConverter();
 
   $("#imageConverter").dialog({
-    title: "Image Converter",
+    title: "图像转换器",
     maxHeight: svgHeight * 0.8,
     minHeight: "auto",
     width: "20em",
@@ -1740,7 +1740,7 @@ function openImageConverter(): void {
 
   setOverlayOpacity(0);
   clearMainTip();
-  tip("Image Converter is opened. Upload image and assign height value for each color", false, "warn"); // main tip
+  tip("图像转换器已打开。请上传图像并为每种颜色分配高度值", false, "warn"); // main tip
 
   // remove all heights
   grid.cells.h = new Uint8Array(grid.cells.i.length);
@@ -1893,7 +1893,7 @@ function autoAssing(type: string): void {
     heightsFromImage(+ensureEl<HTMLInputElement>("convertColors").value);
     unassigned = colorsUnassignedContainer.querySelectorAll<HTMLElement>("div");
     if (!unassigned.length) {
-      tip("No unassigned colors. Please load an image and click the button again", false, "error");
+      tip("没有未分配的颜色。请加载图像后再次点击该按钮", false, "error");
       return;
     }
   }
@@ -1974,7 +1974,7 @@ function setOverlayOpacity(v: number): void {
 
 function applyConversion(): void {
   if (ensureEl("colorsAssignedContainer").childElementCount < 3) {
-    tip("Please assign colors to heights first", false, "error");
+    tip("请先为高度分配颜色", false, "error");
     return;
   }
 
@@ -2007,7 +2007,7 @@ function restoreImageConverterState(): void {
   ensureEl("colorsUnassigned").style.display = "none";
   ensureEl("colorsSelectValue").innerHTML = ensureEl("colorsSelectFriendly").innerHTML = "0";
   select<SVGElement, unknown>("#viewbox").style("cursor", "default").on(".drag", null);
-  tip('Heightmap edit mode is active. Click on "Exit Customization" to finalize the heightmap', true);
+  tip('高度图编辑模式已激活。点击"退出自定义"以完成高度图', true);
   $("#imageConverter").dialog("destroy");
   ensureEl("imageConverter").remove();
   openBrushesPanel();
@@ -2021,7 +2021,7 @@ function closeImageConverter(event: Event): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Close Image Converter",
+    title: "关闭图像转换器",
     buttons: {
       Cancel: function (this: HTMLElement) {
         $(this).dialog("close");
@@ -2051,7 +2051,7 @@ function toggleHeightmapPreview(): void {
   preview.width = grid.cellsX;
   preview.height = grid.cellsY;
   document.body.insertBefore(preview, ensureEl("optionsContainer"));
-  preview.on("mouseover", () => tip("Heightmap preview. Click to download a screen-sized image"));
+  preview.on("mouseover", () => tip("高度图预览。点击下载屏幕大小的图像"));
   preview.on("click", downloadPreview);
   drawHeightmapPreview();
 }

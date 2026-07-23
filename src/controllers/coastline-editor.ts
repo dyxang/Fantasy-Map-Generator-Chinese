@@ -22,8 +22,8 @@ interface SliderDef {
 const SLIDER_DEFS: SliderDef[] = [
   {
     id: "coastMaxDepth",
-    label: "Detail depth",
-    tip: "Maximum recursion levels per edge. Each +1 can double point count in rough zones.",
+    label: "细节深度",
+    tip: "每条边的最大递归层级。每+1在崎岖区域可能使点数翻倍。",
     min: 1,
     max: 5,
     step: 1,
@@ -31,8 +31,8 @@ const SLIDER_DEFS: SliderDef[] = [
   },
   {
     id: "coastBaseAmplitude",
-    label: "Roughness amplitude",
-    tip: "Peak perpendicular displacement. Scales with √(edge length) so large edges stay proportional.",
+    label: "粗糙度振幅",
+    tip: "峰值垂直位移。按 √(边长) 缩放以保持大边比例协调。",
     min: 0.2,
     max: 4,
     step: 0.1,
@@ -40,8 +40,8 @@ const SLIDER_DEFS: SliderDef[] = [
   },
   {
     id: "coastAmplitudeDecay",
-    label: "Amplitude decay",
-    tip: "Amplitude multiplier per recursion level (Hurst exponent). Lower = more jagged finer detail.",
+    label: "振幅衰减",
+    tip: "每级递归的振幅乘数（Hurst 指数）。越低 = 更锯齿状的精细细节。",
     min: 0.01,
     max: 0.99,
     step: 0.01,
@@ -49,8 +49,8 @@ const SLIDER_DEFS: SliderDef[] = [
   },
   {
     id: "coastMinEdge",
-    label: "Minimum edge",
-    tip: "Edges shorter than this (map units) are never subdivided regardless of roughness.",
+    label: "最小边长",
+    tip: "短于此值（地图单位）的边无论粗糙度如何都不会被细分。",
     min: 0.1,
     max: 10,
     step: 0.1,
@@ -58,8 +58,8 @@ const SLIDER_DEFS: SliderDef[] = [
   },
   {
     id: "coastSmoothThreshold",
-    label: "Smooth threshold",
-    tip: "Profile values below this receive zero displacement → glassy arc. Controls calm-coast coverage.",
+    label: "平滑阈值",
+    tip: "低于此值的轮廓值不产生位移 → 玻璃般弧线。控制平静海岸的覆盖范围。",
     min: 0.01,
     max: 0.5,
     step: 0.01,
@@ -67,8 +67,8 @@ const SLIDER_DEFS: SliderDef[] = [
   },
   {
     id: "coastRoughnessContrast",
-    label: "Roughness contrast",
-    tip: "Power applied to the roughness profile. Higher = sharper calm/rough transition.",
+    label: "粗糙度对比",
+    tip: "应用于粗糙度轮廓的幂次。越高 = 平静/崎岖过渡越锐利。",
     min: 0.5,
     max: 10,
     step: 0.1,
@@ -76,8 +76,8 @@ const SLIDER_DEFS: SliderDef[] = [
   },
   {
     id: "coastProfileHarmonics",
-    label: "Roughness zones",
-    tip: "Number of cosine harmonics shaping the roughness envelope. 1 = one large concentrated patch; 8 = many small scattered zones.",
+    label: "粗糙度区域",
+    tip: "塑造粗糙度包络的余弦谐波数。1 = 一个大的集中区块；8 = 多个分散的小区域。",
     min: 1,
     max: 8,
     step: 1,
@@ -85,8 +85,8 @@ const SLIDER_DEFS: SliderDef[] = [
   },
   {
     id: "coastLakeSmoothThreshMult",
-    label: "Lake smooth multiplier",
-    tip: "Smooth-threshold multiplier for lake shores. 1 = same roughness as ocean.",
+    label: "湖泊平滑乘数",
+    tip: "湖岸的平滑阈值乘数。1 = 与海洋粗糙度相同。",
     min: 0.1,
     max: 5,
     step: 0.1,
@@ -149,7 +149,7 @@ function open(): void {
   updatePreviews();
 
   $("#coastlineSettingsDialog").dialog({
-    title: "Coastline Settings Editor",
+    title: "海岸线设置编辑器",
     resizable: false,
     width: "auto",
     position: { my: "right top", at: "right-10 top+10", of: "svg" },

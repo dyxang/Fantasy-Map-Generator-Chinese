@@ -14,7 +14,7 @@ function open(): void {
   refreshBiomesEditor();
 
   $("#biomesEditor").dialog({
-    title: "Biomes Editor",
+    title: "生物群系编辑器",
     resizable: false,
     close: closeBiomesEditor,
     position: { my: "right top", at: "right-10 top+10", of: "svg" }
@@ -260,7 +260,7 @@ function biomeChangeHabitability(el: HTMLInputElement): void {
   const failed = Number.isNaN(+el.value) || +el.value < 0 || +el.value > 9999;
   if (failed) {
     el.value = String(biomesData.habitability[biome]);
-    tip("Please provide a valid number in range 0-9999", false, "error");
+    tip("请提供 0-9999 范围内的有效数字", false, "error");
     return;
   }
   biomesData.habitability[biome] = +el.value;
@@ -272,7 +272,7 @@ function biomeChangeHabitability(el: HTMLInputElement): void {
 function openWiki(el: HTMLElement): void {
   const biomeName = (el.parentNode as HTMLElement).dataset.name;
   if (biomeName === "Custom" || !biomeName) {
-    tip("Please fill in the biome name", false, "error");
+    tip("请填写生物群系名称", false, "error");
     return;
   }
 
@@ -337,7 +337,7 @@ function addCustomBiome(): void {
   const b = biomesData;
   const i = biomesData.i.length;
   if (i > 254) {
-    tip("Maximum number of biomes reached (255), data cleansing is required", false, "error");
+    tip("生物群系数量已达上限 (255)，需要进行数据清理", false, "error");
     return;
   }
 
@@ -428,7 +428,7 @@ function enterBiomesCustomizationMode(): void {
   ensureEl("biomesFooter").style.display = "none";
   $("#biomesEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg" } });
 
-  tip("Click on biome to select, drag the circle to change biome", true);
+  tip("点击生物群系以选中，拖动圆圈以更改生物群系", true);
   select<SVGElement, unknown>("#viewbox")
     .style("cursor", "crosshair")
     .on("click", selectBiomeOnMapClick)
@@ -446,7 +446,7 @@ function selectBiomeOnMapClick(this: SVGElement, event: any): void {
   const point = getPointer(event, this);
   const i = findCell(point[0], point[1])!;
   if (pack.cells.h[i] < 20) {
-    tip("You cannot reassign water via biomes. Please edit the Heightmap to change water", false, "error");
+    tip("无法通过生物群系重新分配水域。请编辑高度图以更改水域", false, "error");
     return;
   }
 

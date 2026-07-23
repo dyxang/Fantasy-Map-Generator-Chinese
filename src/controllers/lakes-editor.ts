@@ -19,7 +19,7 @@ function open(element: SVGElement): void {
   select<SVGElement, unknown>("#viewbox").on("touchmove mousemove", null);
 
   $("#lakeEditor").dialog({
-    title: "Edit Lake",
+    title: "编辑湖泊",
     resizable: false,
     position: { my: "center top+20", at: "top", of: "svg", collision: "fit" },
     close: closeLakesEditor
@@ -160,7 +160,7 @@ function drawLakeVertices(): void {
     .attr("data-v", (d: number) => d)
     .call(drag<SVGCircleElement, number>().on("drag", handleVertexDrag).on("end", handleVertexDragEnd))
     .on("mousemove", () =>
-      tip("Drag to move the vertex. Please use for fine-tuning only! Edit heightmap to change actual cell heights")
+      tip("拖动以移动顶点。请仅用于微调！编辑高度图以更改实际单元格高度")
     );
 }
 
@@ -246,7 +246,7 @@ function toggleNewGroupInput(): void {
 
 function createNewGroup(this: HTMLInputElement): void {
   if (!this.value) {
-    tip("Please provide a valid group name");
+    tip("请提供有效的组名");
     return;
   }
   const group = this.value
@@ -255,12 +255,12 @@ function createNewGroup(this: HTMLInputElement): void {
     .replace(/[^\w\s]/gi, "");
 
   if (findEl(group)) {
-    tip("Element with this id already exists. Please provide a unique name", false, "error");
+    tip("具有此 id 的元素已存在。请提供唯一的名称", false, "error");
     return;
   }
 
   if (Number.isFinite(+group.charAt(0))) {
-    tip("Group name should start with a letter", false, "error");
+    tip("组名应以字母开头", false, "error");
     return;
   }
 
@@ -290,7 +290,7 @@ function createNewGroup(this: HTMLInputElement): void {
 function removeLakeGroup(): void {
   const group = (elSelected.node()!.parentNode as SVGGElement).id;
   if (["freshwater", "salt", "sinkhole", "frozen", "lava", "dry"].includes(group)) {
-    tip("This is one of the default groups, it cannot be removed", false, "error");
+    tip("这是默认组之一，无法移除", false, "error");
     return;
   }
 
@@ -298,7 +298,7 @@ function removeLakeGroup(): void {
   alertMessage.innerHTML = /* html */ `Are you sure you want to remove the group? All lakes of the group (${count}) will be turned into Freshwater`;
   $("#alert").dialog({
     resizable: false,
-    title: "Remove lake group",
+    title: "移除湖泊组",
     width: "26em",
     buttons: {
       Remove: function (this: HTMLElement) {

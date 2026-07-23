@@ -10,7 +10,7 @@ function open(): void {
   updateInputs();
 
   $("#namesbaseEditor").dialog({
-    title: "Namesbase Editor",
+    title: "名称库编辑器",
     width: "60vw",
     position: { my: "center", at: "center", of: "svg" },
     close: closeNamesbaseEditor
@@ -147,7 +147,7 @@ function createBasesList(): void {
 function updateInputs(): void {
   const base = +ensureEl<HTMLSelectElement>("namesbaseSelect").value;
   if (!nameBases[base]) {
-    tip(`Namesbase ${base} is not defined`, false, "error");
+    tip(`名称库 ${base} 未定义`, false, "error");
     return;
   }
   (ensureEl("namesbaseTextarea") as HTMLTextAreaElement).value = nameBases[base].b;
@@ -177,7 +177,7 @@ function updateNamesData(): void {
   const base = +ensureEl<HTMLSelectElement>("namesbaseSelect").value;
   const input = ensureEl<HTMLTextAreaElement>("namesbaseTextarea");
   if (input.value.split(",").length < 3) {
-    tip("The names data provided is too short or incorrect", false, "error");
+    tip("提供的名称数据过短或不正确", false, "error");
     return;
   }
   const securedNamesData = input.value.replace(/[/|]/g, "");
@@ -197,7 +197,7 @@ function updateBaseName(rawName: string): void {
 function updateBaseMin(value: string): void {
   const base = +ensureEl<HTMLSelectElement>("namesbaseSelect").value;
   if (+value > nameBases[base].max) {
-    tip("Minimal length cannot be greater than maximal", false, "error");
+    tip("最小长度不能大于最大长度", false, "error");
     return;
   }
   nameBases[base].min = +value;
@@ -206,7 +206,7 @@ function updateBaseMin(value: string): void {
 function updateBaseMax(value: string): void {
   const base = +ensureEl<HTMLSelectElement>("namesbaseSelect").value;
   if (+value < nameBases[base].min) {
-    tip("Maximal length should be greater than minimal", false, "error");
+    tip("最大长度应大于最小长度", false, "error");
     return;
   }
   nameBases[base].max = +value;
@@ -222,7 +222,7 @@ function analyzeNamesbase(): void {
   const namesArray = namesSourceString.toLowerCase().split(",");
   const length = namesArray.length;
   if (!namesSourceString || !length) {
-    tip("Names data should not be empty", false, "error");
+    tip("名称数据不能为空", false, "error");
     return;
   }
 
@@ -285,7 +285,7 @@ function analyzeNamesbase(): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Data Analysis",
+    title: "数据分析",
     width: "auto",
     position: { my: "left top-30", at: "right+10 top", of: "#namesbaseEditor" },
     buttons: {
@@ -323,7 +323,7 @@ function namesbaseRestoreDefault(): void {
   alertMessage.innerHTML = /* html */ `Are you sure you want to restore default namesbase?`;
   $("#alert").dialog({
     resizable: false,
-    title: "Restore default data",
+    title: "恢复默认数据",
     buttons: {
       Restore: function () {
         $(this).dialog("close");
@@ -351,7 +351,7 @@ function namesbaseUpload(dataLoaded: string, override = true): void {
     .split("\n")
     .filter(Boolean);
   if (!lines.length) {
-    tip("Cannot load a namesbase. Please check the data format", false, "error");
+    tip("无法加载名称库。请检查数据格式", false, "error");
     return;
   }
 
@@ -382,7 +382,7 @@ function namesbaseUpload(dataLoaded: string, override = true): void {
   });
 
   if (errors.length > 0) {
-    ERROR && console.error("Namesbase upload errors", errors);
+    ERROR && console.error("名称库上传错误", errors);
     const errorItems = errors
       .map(
         ({ id, line, error }) => /* html */ `<li style="padding:0.6em 0;border-top:1px solid #ddd;">
@@ -419,7 +419,7 @@ function namesbaseUpload(dataLoaded: string, override = true): void {
 
     $("#alert").dialog({
       resizable: false,
-      title: "Parsing error",
+      title: "解析错误",
       width: "min(72vw, 68em)",
       position: { my: "center center-4em", at: "center", of: "svg" },
       buttons: {

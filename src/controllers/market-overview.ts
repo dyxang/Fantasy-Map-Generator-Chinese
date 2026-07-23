@@ -11,7 +11,7 @@ function open(marketId: number): void {
 
   const market = Markets.get(marketId);
   if (!market) {
-    tip("Invalid market. The selected market does not exist", true, "error", 5000);
+    tip("无效市场。所选市场不存在", true, "error", 5000);
     return;
   }
   activeMarketId = marketId;
@@ -106,13 +106,13 @@ function resetMarketName(): void {
 function marketOverviewAddLines() {
   const market = Markets.get(activeMarketId);
   if (!market) {
-    tip("Invalid market. The selected market does not exist", true, "error", 5000);
+    tip("无效市场。所选市场不存在", true, "error", 5000);
     return;
   }
 
   const centerBurg = pack.burgs[market.centerBurgId] as Burg | undefined;
   if (!centerBurg || centerBurg.removed) {
-    tip("Invalid market. The selected market has no center burg", true, "error", 5000);
+    tip("无效市场。所选市场没有中心城镇", true, "error", 5000);
     return;
   }
 
@@ -161,7 +161,7 @@ function toggleRelocateMarket(): void {
   button.classList.toggle("pressed");
   if (button.classList.contains("pressed")) {
     select<SVGGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", relocateMarketOnClick);
-    tip("Click on a burg on the map to relocate the market center", true);
+    tip("点击地图上的城镇以重新定位市场中心", true);
   } else {
     clearMainTip();
     restoreDefaultEvents();
@@ -179,17 +179,17 @@ function relocateMarketOnClick(this: SVGGElement, event: MouseEvent): void {
   const burgId = pack.cells.burg[cellId];
   const burg = pack.burgs[burgId] as Burg | undefined;
   if (!burgId || !burg || burg.removed) {
-    tip("No valid burg in this cell. Click on a cell with a burg", false, "error");
+    tip("此单元格中没有有效的城镇。请点击包含城镇的单元格", false, "error");
     return;
   }
 
   if (burgId === market.centerBurgId) {
-    tip("This burg is already the center of this market", false, "error");
+    tip("此城镇已是该市场的中心", false, "error");
     return;
   }
 
   if (pack.markets.some(m => m.centerBurgId === burgId)) {
-    tip("This burg is already a center of another market", false, "error");
+    tip("此城镇已是另一个市场的中心", false, "error");
     return;
   }
 

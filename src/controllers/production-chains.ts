@@ -116,13 +116,13 @@ const FLOW_OPACITY_MAX = 0.92;
 function open() {
   const goods = [...(pack.goods as Good[])];
   if (!goods.length) {
-    tip("No goods data available.", true, "warn");
+    tip("无可用货物数据。", true, "warn");
     return;
   }
 
   const layout = buildLayout(goods);
   if (!layout.nodes.length) {
-    tip("No production chains found: add manufactured goods with recipes first.", true, "warn");
+    tip("未找到生产链：请先添加带配方的制造货物。", true, "warn");
     return;
   }
 
@@ -139,7 +139,7 @@ function open() {
   if (svgEl) attachGraphInteractions(svgEl, layout);
 
   $("#productionChainsDialog").dialog({
-    title: "Production Chains",
+    title: "生产链",
     resizable: true,
     width: dialogSize.width,
     height: dialogSize.height,

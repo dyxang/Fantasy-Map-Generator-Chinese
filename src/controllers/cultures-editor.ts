@@ -32,7 +32,7 @@ function open(): void {
   refreshCulturesEditor();
 
   $("#culturesEditor").dialog({
-    title: "Cultures Editor",
+    title: "文化编辑器",
     resizable: false,
     close: closeCulturesEditor,
     position: { my: "right top", at: "right-10 top+10", of: "svg" }
@@ -391,7 +391,7 @@ function cultureRegenerateName(this: HTMLElement): void {
   const cultureId = +(this.parentNode as HTMLElement).dataset.id!;
   const base = pack.cultures[cultureId].base;
   if (!nameBases[base]) {
-    tip("Namesbase is not defined, please select a valid namesbase", false, "error", 5000);
+    tip("名称库未定义，请选择有效的名称库", false, "error", 5000);
     return;
   }
 
@@ -467,7 +467,7 @@ function changePopulation(this: HTMLElement): void {
   const cultureId = +(this.parentNode as HTMLElement).dataset.id!;
   const culture = pack.cultures[cultureId];
   if (!culture.cells) {
-    tip("Culture does not have any cells, cannot change population", false, "error");
+    tip("文化没有任何单元格，无法更改人口", false, "error");
     return;
   }
 
@@ -506,7 +506,7 @@ function changePopulation(this: HTMLElement): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Change culture population",
+    title: "更改文化人口",
     width: "24em",
     buttons: {
       Apply: function (this: HTMLElement) {
@@ -569,7 +569,7 @@ function cultureRegenerateBurgs(this: HTMLElement): void {
   const cultureId = +(this.parentNode as HTMLElement).dataset.id!;
   const base = pack.cultures[cultureId].base;
   if (!nameBases[base]) {
-    tip("Namesbase is not defined, please select a valid namesbase", false, "error", 5000);
+    tip("名称库未定义，请选择有效的名称库", false, "error", 5000);
     return;
   }
 
@@ -578,7 +578,7 @@ function cultureRegenerateBurgs(this: HTMLElement): void {
     b.name = Names.getCulture(cultureId);
     select("#labels").select(`[data-id='${b.i}']`).text(b.name);
   });
-  tip(`Names for ${cultureBurgs.length} burgs are regenerated`, false, "success");
+  tip(`已为 ${cultureBurgs.length} 个城镇重新生成名称`, false, "success");
 }
 
 function removeCulture(cultureId: number): void {
@@ -619,8 +619,8 @@ function cultureRemovePrompt(this: HTMLElement): void {
 
   const cultureId = +(this.parentNode as HTMLElement).dataset.id!;
   confirmationDialog({
-    title: "Remove culture",
-    message: "Are you sure you want to remove the culture? <br>This action cannot be reverted",
+    title: "移除文化",
+    message: "确定要移除该文化吗？<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => removeCulture(cultureId)
   });
@@ -783,7 +783,7 @@ function enterCultureManualAssignent(): void {
     });
   $("#culturesEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg" } });
 
-  tip("Click on culture to select, drag the circle to change culture", true);
+  tip("点击文化以选择，拖动圆形以更改文化", true);
   select<SVGElement, unknown>("#viewbox")
     .style("cursor", "crosshair")
     .on("click", selectCultureOnMapClick)
@@ -929,7 +929,7 @@ function enterAddCulturesMode(this: HTMLElement): void {
 
   customization = 9;
   this.classList.add("pressed");
-  tip("Click on the map to add a new culture", true);
+  tip("点击地图以添加新文化", true);
   select<SVGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addCulture);
   ensureEl("culturesBody")
     .querySelectorAll<HTMLElement>("div > input, select, span, svg")
@@ -956,13 +956,13 @@ function addCulture(this: SVGElement, event: MouseEvent): void {
   const center = findCell(point[0], point[1])!;
 
   if (pack.cells.h[center] < 20) {
-    tip("You cannot place culture center into the water. Please click on a land cell", false, "error");
+    tip("无法将文化中心放置在水中。请点击陆地单元格", false, "error");
     return;
   }
 
   const occupied = pack.cultures.some(c => !c.removed && c.center === center);
   if (occupied) {
-    tip("This cell is already a culture center. Please select a different cell", false, "error");
+    tip("此单元格已是文化中心。请选择其他单元格", false, "error");
     return;
   }
 

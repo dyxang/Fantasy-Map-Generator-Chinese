@@ -16,7 +16,7 @@ function open(filters: Filters = { stateId: null, cultureId: null }): void {
   burgsOverviewAddLines();
 
   $("#burgsOverview").dialog({
-    title: "Burgs Overview",
+    title: "城镇总览",
     resizable: false,
     close: closeBurgsOverview,
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" }
@@ -330,13 +330,13 @@ function openBurgEditor(this: HTMLElement): void {
 function triggerBurgRemove(this: HTMLElement): void {
   const burgId = +(this.parentNode as HTMLElement).dataset.id!;
   if (pack.burgs[burgId].capital) {
-    tip("You cannot remove the capital. Please change the state capital first", false, "error");
+    tip("无法移除首都。请先更改国家首都", false, "error");
     return;
   }
 
   confirmationDialog({
-    title: "Remove burg",
-    message: "Are you sure you want to remove the burg? <br>This action cannot be reverted",
+    title: "移除城镇",
+    message: "确定要移除该城镇吗？<br>此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => {
       Burgs.remove(burgId);
@@ -368,7 +368,7 @@ function enterAddBurgMode(this: HTMLElement): void {
   }
   customization = 3;
   this.classList.add("pressed");
-  tip("Click on the map to create a new burg. Hold Shift to add multiple", true, "warn");
+  tip("在地图上点击以创建新城镇。按住 Shift 可添加多个", true, "warn");
   select<SVGGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addBurgOnClick);
 }
 
@@ -377,11 +377,11 @@ function addBurgOnClick(this: SVGGElement, event: any): void {
   const cell = findCell(point[0], point[1])!;
 
   if (pack.cells.h[cell] < 20) {
-    tip("You cannot place state into the water. Please click on a land cell", false, "error");
+    tip("无法将国家放入水中。请点击陆地单元格", false, "error");
     return;
   }
   if (pack.cells.burg[cell]) {
-    tip("There is already a burg in this cell. Please select a free cell", false, "error");
+    tip("此单元格中已存在城镇。请选择空闲单元格", false, "error");
     return;
   }
 
@@ -433,7 +433,7 @@ function showBurgsChart(): void {
     });
   const data: any[] = (states as any[]).concat(burgs);
   if (data.length < 2) {
-    tip("No burgs to show", false, "error");
+    tip("没有可显示的城镇", false, "error");
     return;
   }
 
@@ -490,7 +490,7 @@ function showBurgsChart(): void {
 
     ensureEl("burgsInfo").innerHTML = /* html */ `${name}. ${parent}. Population: ${population}`;
     burgHighlightOn(ev);
-    tip("Click to zoom into view");
+    tip("点击以缩放查看");
   }
 
   function hideInfo(ev: any): void {
@@ -574,7 +574,7 @@ function showBurgsChart(): void {
   }
 
   $("#alert").dialog({
-    title: "Burgs bubble chart",
+    title: "城镇气泡图",
     width: fitContent(),
     position: { my: "left bottom", at: "left+10 bottom-10", of: "svg" },
     buttons: {},
@@ -632,7 +632,7 @@ function renameBurgsInBulk(): void {
     name on its own line (the dilimiter is CRLF). If you do not want to change the name, just leave it as is`;
 
   $("#alert").dialog({
-    title: "Burgs bulk renaming",
+    title: "城镇批量重命名",
     width: "22em",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
@@ -654,7 +654,7 @@ function renameBurgsInBulk(): void {
 
 function importBurgNames(dataLoaded: string): void {
   if (!dataLoaded) {
-    tip("Cannot load the file, please check the format", false, "error");
+    tip("无法加载文件，请检查格式", false, "error");
     return;
   }
   const data = dataLoaded
@@ -662,7 +662,7 @@ function importBurgNames(dataLoaded: string): void {
     .split("\n")
     .filter(Boolean);
   if (!data.length) {
-    tip("Cannot parse the list, please check the file format", false, "error");
+    tip("无法解析列表，请检查文件格式", false, "error");
     return;
   }
 
@@ -692,7 +692,7 @@ function importBurgNames(dataLoaded: string): void {
   };
 
   confirmationDialog({
-    title: "Burgs bulk renaming",
+    title: "城镇批量重命名",
     message,
     confirm: "Rename",
     onConfirm
@@ -704,8 +704,8 @@ function triggerAllBurgsRemove(): void {
   confirmationDialog({
     title: `Remove ${number} burgs`,
     message: `
-        Are you sure you want to remove all <i>unlocked</i> burgs except for capitals?
-        <br><i>To remove a capital you have to remove its state first</i>`,
+        确定要移除除首都外的所有<i>未锁定</i>城镇吗？
+        <br><i>要移除首都，必须先移除其所属国家</i>`,
     confirm: "Remove",
     onConfirm: () => {
       pack.burgs.filter(b => b.i && !(b.capital || b.lock)).forEach(b => void Burgs.remove(b.i));

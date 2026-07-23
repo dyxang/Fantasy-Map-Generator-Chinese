@@ -28,7 +28,7 @@ function open(type?: string, id?: string, el?: EmblemEl, target?: SVGElement): v
   updateElementSelectors();
 
   $("#emblemEditor").dialog({
-    title: "Edit Emblem",
+    title: "编辑纹章",
     resizable: true,
     width: "18.2em",
     height: "auto",
@@ -472,7 +472,7 @@ function upload(type: "image" | "svg"): void {
 
       const svgEl = wrapper.querySelector("svg");
       if (!svgEl) {
-        tip("The file is not a valid SVG. Please use Armoria or other relevant tools", false, "error");
+        tip("该文件不是有效的 SVG。请使用 Armoria 或其他相关工具", false, "error");
         return;
       }
 
@@ -662,7 +662,7 @@ async function downloadGallery(): Promise<void> {
 }
 
 async function renderAllEmblems(states: EmblemEl[], provinces: EmblemEl[], burgs: EmblemEl[]): Promise<void> {
-  tip("Preparing for download...", true, "warn");
+  tip("正在准备下载...", true, "warn");
 
   const statePromises = states.map(state => COArenderer.trigger(`stateCOA${state.i}`, state.coa));
   const provincePromises = provinces.map(province => COArenderer.trigger(`provinceCOA${province.i}`, province.coa));

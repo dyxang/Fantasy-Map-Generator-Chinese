@@ -23,7 +23,7 @@ function open(): void {
   redraw();
 
   $("#measurersEditor").dialog({
-    title: "Measurers Editor",
+    title: "测量器编辑器",
     resizable: false,
     position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" },
     close: onClose
@@ -109,7 +109,7 @@ function removeAllMeasurers(): void {
     <br />If you just want to hide them, toggle the Rulers layer off in Menu`;
   $("#alert").dialog({
     resizable: false,
-    title: "Remove all measurers",
+    title: "移除所有测量器",
     buttons: {
       Remove: function (this: HTMLElement) {
         $(this).dialog("close");
@@ -171,7 +171,7 @@ function toggleRouteOpisometerMode(this: HTMLElement): void {
     const cell = findCell(event.x, event.y)!;
     if (!Routes.isConnected(cell) && !event.sourceEvent.shiftKey) {
       exitDrawingMode();
-      tip("Must start in a cell with a route in it", false, "error");
+      tip("必须从包含道路的单元格开始", false, "error");
       return;
     }
 

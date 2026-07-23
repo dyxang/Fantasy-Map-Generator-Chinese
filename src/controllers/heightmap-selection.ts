@@ -17,7 +17,7 @@ function open(): void {
   graph = getGraph(graph);
 
   $("#heightmapSelection").dialog({
-    title: "Select Heightmap",
+    title: "选择高度图",
     resizable: false,
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
@@ -321,7 +321,7 @@ function confirmHeightmapEdit(el: HTMLElement): void {
 
   confirmationDialog({
     title: el.dataset.tip ?? "",
-    message: "Opening the tool will erase the current map. Are you sure you want to proceed?",
+    message: "打开该工具将清除当前地图。确定要继续吗？",
     confirm: "Continue",
     onConfirm: () => window.Controllers.HeightmapEditor.open({ mode: "erase", tool })
   });

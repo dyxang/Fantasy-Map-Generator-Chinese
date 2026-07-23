@@ -24,122 +24,122 @@ interface DistCondition {
 const FN_DEFS: FnDef[] = [
   {
     id: "biome",
-    label: "Biome",
+    label: "生物群系",
     paramType: "biomes",
-    description: "Cells in specific biomes"
+    description: "特定生物群系中的单元格"
   },
   {
     id: "minHeight",
-    label: "Min Height",
+    label: "最小高度",
     paramType: "number",
     paramLabel: "Height (0–100)",
     defaultVal: "40",
-    description: "Cells at or above a height",
+    description: "高度大于等于指定值的单元格",
     note: "20: sea level, 50: highlands, 70: mountains."
   },
   {
     id: "maxHeight",
-    label: "Max Height",
+    label: "最大高度",
     paramType: "number",
     paramLabel: "Height (0–100)",
     defaultVal: "40",
-    description: "Cells at or below a height",
+    description: "高度小于等于指定值的单元格",
     note: "20: sea level, 50: highlands, 70: mountains."
   },
   {
     id: "minTemp",
-    label: "Min Temperature",
+    label: "最低温度",
     paramType: "number",
     paramLabel: "Temp (°C)",
     defaultVal: "10",
-    description: "Cells with average temperature at or above a value",
+    description: "平均温度大于等于指定值的单元格",
     note: "-18°C: polar, 18°C: tropical."
   },
   {
     id: "maxTemp",
-    label: "Max Temperature",
+    label: "最高温度",
     paramType: "number",
     paramLabel: "Temp (°C)",
     defaultVal: "5",
-    description: "Cells with average temperature at or below a value",
+    description: "平均温度小于等于指定值的单元格",
     note: "-18°C: polar, 18°C: tropical."
   },
   {
     id: "shore",
-    label: "Shore Proximity",
+    label: "海岸邻近度",
     paramType: "shore",
-    description: "Cells by proximity to water",
+    description: "按与水域的邻近度划分的单元格",
     note: "-1: shallow ocean, -2: deep ocean, 1: coastal land, 2: near coast land."
   },
   {
     id: "type",
-    label: "Waterbody Type",
+    label: "水体类型",
     paramType: "featureType",
-    description: "Cells by waterbody type"
+    description: "按水体类型划分的单元格"
   },
   {
     id: "river",
-    label: "River",
+    label: "河流",
     paramType: "none",
-    description: "Cells that have a river flowing"
+    description: "有河流流经的单元格"
   },
   {
     id: "minHabitability",
-    label: "Min Habitability",
+    label: "最低宜居性",
     paramType: "number",
     paramLabel: "Habitability (0–100)",
     defaultVal: "20",
-    description: "Cells where biome habitability is at or above a value"
+    description: "生物群系宜居性大于等于指定值的单元格"
   },
   {
     id: "habitability",
-    label: "Habitability",
+    label: "宜居性",
     paramType: "none",
-    description: "Favors more habitable cells",
+    description: "偏向更宜居的单元格",
     note: "Higher chance in habitable biomes."
   },
   {
     id: "elevation",
-    label: "Elevation",
+    label: "海拔",
     paramType: "none",
-    description: "Favors higher elevated cells",
+    description: "偏向海拔更高的单元格",
     note: "Higher chance at higher altitudes."
   },
   {
     id: "random",
-    label: "Random Chance",
+    label: "随机概率",
     paramType: "number",
     paramLabel: "Chance (%)",
     defaultVal: "50",
-    description: "Probability to receive the good",
+    description: "获得该货物的概率",
     note: "random(50): 50% chance per cell."
   },
   {
     id: "nth",
-    label: "Every Nth Cell",
+    label: "每第 N 个单元格",
     paramType: "number",
     paramLabel: "N",
     defaultVal: "5",
-    description: "Regular distribution pattern",
+    description: "规则分布模式",
     note: "nth(5): 1 in 5 eligible cells."
   }
 ];
 
 const SHORE_OPTIONS = [
-  { value: "-2", label: "Deep Ocean" },
-  { value: "-1", label: "Shallow Ocean (adjacent to land)" },
-  { value: "1", label: "Coastal Land (adjacent to water)" },
-  { value: "2", label: "Near Coast Land" }
+  { value: "-2", label: "深海" },
+  { value: "-1", label: "浅海（邻近陆地）" },
+  { value: "1", label: "沿海陆地（邻近水域）" },
+  { value: "2", label: "近海陆地" }
 ];
 
 const FEATURE_TYPE_OPTIONS = [
-  { value: "ocean", label: "Ocean / Sea" },
-  { value: "freshwater", label: "Freshwater Lake" },
-  { value: "salt", label: "Salt Lake" },
-  { value: "dry", label: "Dry Lake" },
-  { value: "lava", label: "Lava Lake" },
-  { value: "frozen", label: "Frozen Lake" },
-  { value: "sinkhole", label: "Sinkhole" }
+  { value: "ocean", label: "海洋 / 海" },
+  { value: "freshwater", label: "淡水湖" },
+  { value: "salt", label: "咸水湖" },
+  { value: "dry", label: "干涸湖" },
+  { value: "lava", label: "熔岩湖" },
+  { value: "frozen", label: "冰冻湖" },
+  { value: "sinkhole", label: "天坑" }
 ];
 
 function createDefaultCondition(): DistCondition {
@@ -230,7 +230,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
     pickerEl.appendChild(grid);
 
     $(pickerEl).dialog({
-      title: "Select Biomes",
+      title: "选择生物群系",
       width: "34em",
       resizable: false,
       buttons: {
@@ -273,7 +273,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
     pickerEl.appendChild(list);
 
     $(pickerEl).dialog({
-      title: "Select Feature Types",
+      title: "选择地貌类型",
       width: "18em",
       resizable: false,
       buttons: {
@@ -316,7 +316,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
     pickerEl.appendChild(list);
 
     $(pickerEl).dialog({
-      title: "Select Shore Proximity",
+      title: "选择海岸邻近度",
       width: "18em",
       resizable: false,
       buttons: {
@@ -660,7 +660,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
   });
 
   $(popupEl).dialog({
-    title: "Distribution Editor",
+    title: "分布编辑器",
     width: "60em",
     resizable: true,
     buttons: {

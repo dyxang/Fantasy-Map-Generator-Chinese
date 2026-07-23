@@ -10,7 +10,7 @@ function open(goodId?: number, anchor = "#marketsOverview"): void {
   addLines();
 
   $("#marketsGoodCompare").dialog({
-    title: "Compare Prices",
+    title: "比较价格",
     position: { my: "right top", at: "left-10 top", of: anchor, collision: "fit" },
     close: closeComparePrices
   });

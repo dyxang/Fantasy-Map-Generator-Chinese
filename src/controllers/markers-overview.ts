@@ -11,7 +11,7 @@ function open(): void {
   addLines();
 
   $("#markersOverview").dialog({
-    title: "Markers Overview",
+    title: "标记总览",
     resizable: false,
     width: fitContent(),
     close: closeMarkersOverview,
@@ -233,8 +233,8 @@ function toggleLockStatus(el: HTMLElement, i: number): void {
 
 function triggerRemove(i: number): void {
   confirmationDialog({
-    title: "Remove marker",
-    message: "Are you sure you want to remove this marker? The action cannot be reverted",
+    title: "移除标记",
+    message: "确定要移除该标记吗？此操作无法撤销",
     confirm: "Remove",
     onConfirm: () => removeMarker(i)
   });
@@ -262,8 +262,8 @@ function removeMarker(i: number): void {
 
 function triggerRemoveAll(): void {
   confirmationDialog({
-    title: "Remove all markers",
-    message: "Are you sure you want to remove all non-locked markers? The action cannot be reverted",
+    title: "移除所有标记",
+    message: "确定要移除所有未锁定的标记吗？此操作无法撤销",
     confirm: "Remove all",
     onConfirm: removeAllMarkers
   });

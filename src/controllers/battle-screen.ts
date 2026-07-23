@@ -611,7 +611,7 @@ function addSide(): void {
   $("#regimentSelectorScreen").dialog({
     resizable: false,
     width: fitContent(),
-    title: "Add regiment to the battle",
+    title: "添加军团到战斗",
     position: { my: "left center", at: "right+10 center", of: "#battleScreen" },
     close: addSideClosed,
     buttons: {
@@ -636,7 +636,7 @@ function addSide(): void {
   function addSideClicked(side: Side): void {
     const selected = body.querySelectorAll<HTMLElement>(".selected");
     if (!selected.length) {
-      tip("Please select a regiment first", false, "error");
+      tip("请先选择一个军团", false, "error");
       return;
     }
 
@@ -1080,11 +1080,11 @@ function runBattle(): void {
   const b = battle!;
   // validations
   if (!b.attackers.power) {
-    tip("Attackers army destroyed", false, "warn");
+    tip("攻方军队已被消灭", false, "warn");
     return;
   }
   if (!b.defenders.power) {
-    tip("Defenders army destroyed", false, "warn");
+    tip("守方军队已被消灭", false, "warn");
     return;
   }
 
@@ -1352,7 +1352,7 @@ function applyResults(): void {
 
   notes.push({ id: `marker${i}`, name: b.name, legend });
 
-  tip(`${b.name} is over. ${result}`, true, "success", 4000);
+  tip(`${b.name} 已结束。${result}`, true, "success", 4000);
 
   closeBattleScreen();
   cleanData();

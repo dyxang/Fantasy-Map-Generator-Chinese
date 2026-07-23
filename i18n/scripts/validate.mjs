@@ -276,6 +276,67 @@ function checkGlossaryConsistency() {
   }
 }
 
+// --- Residual English check ---
+
+function checkResidualEnglish() {
+  console.log("\n[7/7] Residual English in translated files...");
+  const tm = readJson(join(I18N, "tm.json"));
+  if (tm.entries.length === 0) {
+    console.log("  SKIP — No TM entries yet");
+    return true;
+  }
+
+  // Whitelist: brand names, technical terms that should stay English
+  const whitelist = new Set([
+    "Azgaar", "URL", "JSON", "CSS", "HTML", "SVG", "API", "AI",
+    "Patreon", "localStorage", "Shift", "Ctrl", "DnD", "PDF",
+  ]);
+
+  const issues = [];
+  const checkedFiles = new Set();
+
+  for (const entry of tm.entries) {
+    if (!entry.target || entry.skipped) continue;
+    if (checkedFiles.has(entry.file + ":" + entry.line)) continue;
+    checkedFiles.add(entry.file + ":" + entry.line);
+
+    // Read the actual file line to verify translation was applied
+    const filePath = join(ROOT, entry.file);
+    if (!existsSync(filePath)) continue;
+    const content = readFileSync(filePath, "utf8");
+    const lines = content.split("\n");
+    const line = lines[entry.line - 1] || "";
+
+    // Check if the line still contains the original English source text
+    // (only for non-template strings to avoid false positives with ${...})
+    if (!entry.source.includes("${") && !entry.source.includes("<%")) {
+      // For simple strings, check if the original source still appears on this line.
+      // Use case-sensitive matching: source "Sinkhole" (label) should not match
+      // "sinkhole" (lowercase enum value on the same line).
+      const sourceEscaped = entry.source.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const sourceRegex = new RegExp(sourceEscaped.replace(/\s+/g, "\\s+"));
+
+      // If the line has Chinese characters but still contains the full English source
+      if (/[\u4e00-\u9fff]/.test(line) && sourceRegex.test(line)) {
+        // Double-check: is the English text inside a ${...} placeholder?
+        // If not, it's likely a residual untranslated string
+        const withoutPlaceholders = line.replace(/\$\{[^}]+\}/g, "");
+        if (sourceRegex.test(withoutPlaceholders)) {
+          issues.push(`  ${entry.file}:${entry.line} — possible residual English: "${entry.source.slice(0, 40)}"`);
+        }
+      }
+    }
+  }
+
+  if (issues.length === 0) {
+    console.log("  PASS — No residual English detected in translated lines");
+  } else {
+    console.log(`  WARN — ${issues.length} possible residuals:`);
+    issues.slice(0, 15).forEach((i) => console.log(i));
+  }
+  return true;
+}
+
 // --- Main ---
 
 function main() {
@@ -299,6 +360,7 @@ function main() {
   results.push(checkLint(skipLint));
   results.push(checkTmConsistency());
   results.push(checkUntranslatedEntries());
+  results.push(checkResidualEnglish());
 
   // Optional glossary check
   if (checkConsistency) {

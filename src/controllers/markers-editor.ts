@@ -27,7 +27,7 @@ function open(markerI?: number, target?: Element): void {
   updateInputs();
 
   $("#markerEditor").dialog({
-    title: "Edit Marker",
+    title: "编辑标记",
     resizable: false,
     position: { my: "left top", at: "left+10 top+10", of: "svg", collision: "fit" },
     close: closeMarkerEditor
@@ -295,8 +295,8 @@ function toggleAddMarker(): void {
 
 function confirmMarkerDeletion(): void {
   confirmationDialog({
-    title: "Remove marker",
-    message: "Are you sure you want to remove this marker? The action cannot be reverted",
+    title: "移除标记",
+    message: "确定要移除该标记吗？此操作无法撤销",
     confirm: "Remove",
     onConfirm: deleteMarker
   });

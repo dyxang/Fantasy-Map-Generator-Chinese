@@ -18,7 +18,7 @@ function open() {
   goodsEditorAddLines();
 
   $("#goodsEditor").dialog({
-    title: "Goods Editor",
+    title: "货物编辑器",
     close: closeGoodsEditor,
     position: { my: "right top", at: "right-10 top+10", of: "svg" }
   });
@@ -407,7 +407,7 @@ function openTagsVisibilityDialog() {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Filter goods by tags",
+    title: "按标签筛选货物",
     buttons: {
       Cancel: function () {
         $(this).dialog("close");
@@ -444,8 +444,8 @@ function applyTagVisibilityFilter() {
 
 function goodsRestoreDefaults() {
   confirmationDialog({
-    title: "Restore default goods",
-    message: "Are you sure you want to restore default goods? <br>This action cannot be reverted",
+    title: "恢复默认货物",
+    message: "确定要恢复默认货物吗？<br>此操作无法撤销",
     confirm: "Restore",
     onConfirm: () => {
       Goods.restoreDefaults();
@@ -504,7 +504,7 @@ function enterResourceAssignMode(this: HTMLElement) {
 
   $("#goodsEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg", collision: "fit" } });
 
-  tip("Select good line in editor, click on cells to remove or add a bonus resource", true);
+  tip("在编辑器中选择货物行，点击单元格以移除或添加奖励资源", true);
   select<SVGElement, unknown>("#viewbox").on("click", changeResourceOnCellClick);
 }
 
@@ -621,9 +621,9 @@ function updateDisplayAllCheckbox() {
 
 function requestGoodsRegeneration() {
   confirmationDialog({
-    title: "Regenerate bonus goods",
+    title: "重新生成奖励货物",
     message:
-      "Are you sure you want to regenerate bonus goods placement? Generation will be based on the current Goods settings and won't affect production or trade",
+      "确定要重新生成奖励货物分布吗？生成将基于当前货物设置，不会影响生产或贸易",
     confirm: "Regenerate",
     onConfirm: window.regenerateGoods
   });
@@ -631,9 +631,9 @@ function requestGoodsRegeneration() {
 
 function requestProductionRegeneration() {
   confirmationDialog({
-    title: "Regenerate production",
+    title: "重新生成生产",
     message:
-      "Are you sure you want to regenerate production and trade for all goods? Generation will be based on the current Goods settings and bonus goods placement",
+      "确定要为所有货物重新生成生产和贸易吗？生成将基于当前货物设置和奖励货物分布",
     confirm: "Regenerate",
     onConfirm: window.regenerateProduction
   });
@@ -656,7 +656,7 @@ function removeGood(good: Good, line: HTMLElement) {
     updateDisplayAllCheckbox();
     drawGoods();
   };
-  confirmationDialog({ title: "Remove resource", message, confirm: "Remove", onConfirm });
+  confirmationDialog({ title: "移除资源", message, confirm: "Remove", onConfirm });
 }
 
 function closeGoodsEditor() {

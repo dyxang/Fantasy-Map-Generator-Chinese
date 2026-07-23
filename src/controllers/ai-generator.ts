@@ -195,7 +195,7 @@ function open(defaultPrompt: string, onApply: (result: string) => void): void {
       },
       Apply: function (this: HTMLElement) {
         const result = ensureEl<HTMLTextAreaElement>("aiGeneratorResult").value;
-        if (!result) return tip("No result to apply", true, "error", 4000);
+        if (!result) return tip("无可应用的结果", true, "error", 4000);
         onApply(result);
         $(this).dialog("close");
       },
@@ -270,20 +270,20 @@ function setInitialValues(defaultPrompt: string): void {
 
 async function generate(button: HTMLButtonElement): Promise<void> {
   const key = ensureEl<HTMLInputElement>("aiGeneratorKey").value;
-  if (!key) return tip("Please enter an API key", true, "error", 4000);
+  if (!key) return tip("请输入 API 密钥", true, "error", 4000);
 
   const model = ensureEl<HTMLSelectElement>("aiGeneratorModel").value;
-  if (!model) return tip("Please select a model", true, "error", 4000);
+  if (!model) return tip("请选择一个模型", true, "error", 4000);
   localStorage.setItem("fmg-ai-model", model);
 
   const provider = MODELS[model];
   localStorage.setItem(`fmg-ai-kl-${provider}`, key);
 
   const prompt = ensureEl<HTMLTextAreaElement>("aiGeneratorPrompt").value;
-  if (!prompt) return tip("Please enter a prompt", true, "error", 4000);
+  if (!prompt) return tip("请输入提示词", true, "error", 4000);
 
   const temperature = ensureEl<HTMLInputElement>("aiGeneratorTemperature").valueAsNumber;
-  if (Number.isNaN(temperature)) return tip("Temperature must be a number", true, "error", 4000);
+  if (Number.isNaN(temperature)) return tip("温度必须是数字", true, "error", 4000);
   localStorage.setItem("fmg-ai-temperature", String(temperature));
 
   try {
