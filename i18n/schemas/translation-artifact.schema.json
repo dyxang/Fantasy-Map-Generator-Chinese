@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://azgaar-fmg.local/schemas/translation-artifact.schema.json",
+  "title": "TranslationArtifact",
+  "description": "subagent 翻译完每个 unit 后产出的结构化记录，是标准化层与自适应层之间的 seam。sidecar 文件位于 i18n/artifacts/batch_<N>.json，collect 合并后清理。完整契约见 .trae/specs/introduce-pipeline-layering/spec.md。",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "target",
+    "file",
+    "line_before",
+    "type",
+    "context_tag",
+    "model",
+    "confidence",
+    "applied"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "description": "来自 units.json 的 unit id（当前实现为 sha256: 前缀，不强制稳定）。",
+      "type": "string"
+    },
+    "source": {
+      "description": "英文源文本，来自 units.json 的 source 字段。",
+      "type": "string"
+    },
+    "target": {
+      "description": "中文译文，subagent 通过 Edit 应用到源文件后的最终文本。",
+      "type": "string"
+    },
+    "file": {
+      "description": "相对仓库根的源文件路径，如 src/index.html。",
+      "type": "string"
+    },
+    "line_before": {
+      "description": "翻译前源文件行号，来自 units.json，作为 collect 去重的稳定锚点。",
+      "type": "integer",
+      "minimum": 1
+    },
+    "line_after": {
+      "description": "翻译后源文件实际行号（subagent 自报，可能因行宽变化而漂移）。非必需：legacy 模式下可缺省。",
+      "type": "integer",
+      "minimum": 1
+    },
+    "type": {
+      "description": "文本类型：html_text 为 HTML 文本节点，html_attr 为可译属性值，ts_string 为 TS/JS 字符串字面量。",
+      "type": "string",
+      "enum": ["html_text", "html_attr", "ts_string"]
+    },
+    "context_tag": {
+      "description": "上下文标签，区分同一英文在不同 UI 场景下的译法。",
+      "type": "string"
+    },
+    "model": {
+      "description": "subagent 实际使用的模型标识，如 glm-5.2。legacy collect 模式下 tm entry 的 model 设为 null。",
+      "type": "string"
+    },
+    "confidence": {
+      "description": "subagent 自评置信度，0-1 浮点数。",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "applied": {
+      "description": "是否已通过 Edit 应用到源文件。true 表示源文件已包含 target；false 表示仅产出译文未落盘。",
+      "type": "boolean"
+    },
+    "context_used": {
+      "description": "subagent 决策时参考的上下文，用于审计与可追溯。非必需。",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tm_hints": {
+          "description": "命中的 tm_hints source 列表（TM 中相似条目的 source 文本）。",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "glossary_terms": {
+          "description": "命中的 glossary 术语 en 列表。",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cross_file": {
+          "description": "是否在 cross_file_duplicates 协调范围内（同一 source 出现在多个文件）。",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
