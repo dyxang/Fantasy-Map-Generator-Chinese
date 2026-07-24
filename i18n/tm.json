@@ -12605,6 +12605,1215 @@
       "type": "html_text",
       "context_tag": "table_cell",
       "skipped": false
+    },
+    {
+      "id": "sha256:186670a1620f6b53",
+      "source": "Fill opacity",
+      "target": "填充不透明度",
+      "file": "src/index.html",
+      "line": 1284,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:015f9bd5a227cb39",
+      "source": "Fill opacity",
+      "target": "填充不透明度",
+      "file": "src/index.html",
+      "line": 1340,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:a750bdb40c2dab47",
+      "source": "Marker size",
+      "target": "标记大小",
+      "file": "src/index.html",
+      "line": 1380,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:967d4789fbbf0508",
+      "source": "Fill opacity",
+      "target": "填充不透明度",
+      "file": "src/index.html",
+      "line": 1402,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:fe0a82c3c21b4eff",
+      "source": "Marker size",
+      "target": "标记大小",
+      "file": "src/index.html",
+      "line": 1408,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:c18b280e77742476",
+      "source": "Icon size",
+      "target": "图标大小",
+      "file": "src/index.html",
+      "line": 1414,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:f2e264204f7ca069",
+      "source": "Size",
+      "target": "大小",
+      "file": "src/index.html",
+      "line": 1475,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:044f1360e769b0b4",
+      "source": "Position",
+      "target": "位置",
+      "file": "src/index.html",
+      "line": 1484,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:4fa19ee0b8dd9b03",
+      "source": "Heightmap",
+      "target": "高度图",
+      "file": "src/index.html",
+      "line": 1665,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:a42198b6601806f1",
+      "source": "Select font",
+      "target": "选择字体",
+      "file": "src/index.html",
+      "line": 1233,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ee092055340da318",
+      "source": "Font",
+      "target": "字体",
+      "file": "src/index.html",
+      "line": 1234,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f08dc6022de5a5d3",
+      "source": "Add a font",
+      "target": "添加字体",
+      "file": "src/index.html",
+      "line": 1237,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:18de75c557e65c0d",
+      "source": "Set font size",
+      "target": "设置字体大小",
+      "file": "src/index.html",
+      "line": 1242,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3e259b13b7223333",
+      "source": "Font size",
+      "target": "字体大小",
+      "file": "src/index.html",
+      "line": 1243,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:127a308beec318e7",
+      "source": "Increase font",
+      "target": "增大字体",
+      "file": "src/index.html",
+      "line": 1245,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f051434ac917fc62",
+      "source": "Descrease font",
+      "target": "减小字体",
+      "file": "src/index.html",
+      "line": 1246,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8b5bdf419e2e2d19",
+      "source": "Set label shift along X and Y axes",
+      "target": "设置标签沿 X 和 Y 轴的偏移",
+      "file": "src/index.html",
+      "line": 1252,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d50ee25fd7d92376",
+      "source": "Label shift",
+      "target": "标签偏移",
+      "file": "src/index.html",
+      "line": 1253,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:665a47bc416af22f",
+      "source": "Set label shift along Y axis",
+      "target": "设置标签沿 Y 轴的偏移",
+      "file": "src/index.html",
+      "line": 1255,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad5578b0226be17f",
+      "source": "Set label shift along Y axis",
+      "target": "设置标签沿 Y 轴的偏移",
+      "file": "src/index.html",
+      "line": 1263,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4c2ecc2b910c1271",
+      "source": "Allow system to apply filter automatically based on zoom level",
+      "target": "允许系统根据缩放级别自动应用滤镜",
+      "file": "src/index.html",
+      "line": 1275,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:394cf8891ec9be96",
+      "source": "Automatically change filter on zoom",
+      "target": "缩放时自动更改滤镜",
+      "file": "src/index.html",
+      "line": 1278,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:afdfca883cd2e615",
+      "source": "Define transparency of temperature leyer. Set to 0 to make it fully transparent",
+      "target": "定义温度层透明度。设为 0 使其完全透明",
+      "file": "src/index.html",
+      "line": 1283,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cf3d7d3559a08ed8",
+      "source": "Set labels size",
+      "target": "设置标签大小",
+      "file": "src/index.html",
+      "line": 1289,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:603c7c1933474dfd",
+      "source": "Labels size",
+      "target": "标签大小",
+      "file": "src/index.html",
+      "line": 1290,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:90f095c3dc7d4802",
+      "source": "Set labels color",
+      "target": "设置标签颜色",
+      "file": "src/index.html",
+      "line": 1295,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:24a82ca013fc19ee",
+      "source": "Labels color",
+      "target": "标签颜色",
+      "file": "src/index.html",
+      "line": 1296,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7c278ce4a00a62c7",
+      "source": "Set states fill opacity. 0: invisible, 1: solid",
+      "target": "设置国家填充不透明度。0：不可见，1：完全不透明",
+      "file": "src/index.html",
+      "line": 1304,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:58d53b055ab493ce",
+      "source": "Body opacity",
+      "target": "主体不透明度",
+      "file": "src/index.html",
+      "line": 1305,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f850c6367f5abb97",
+      "source": "Select filter for states fill. Please note filters may cause performance issues!",
+      "target": "选择国家填充滤镜。请注意滤镜可能导致性能问题！",
+      "file": "src/index.html",
+      "line": 1310,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9e7a04cda64d7649",
+      "source": "Body filter",
+      "target": "主体滤镜",
+      "file": "src/index.html",
+      "line": 1311,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:14425cfefd6c24da",
+      "source": "Halo is only rendered if \"Rendering\" option is set to \"Best quality\"!",
+      "target": "仅在\"渲染\"选项设为\"最高质量\"时才渲染光晕！",
+      "file": "src/index.html",
+      "line": 1315,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d7439521a14496b7",
+      "source": "Set states halo effect width",
+      "target": "设置国家光晕效果宽度",
+      "file": "src/index.html",
+      "line": 1319,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0fe2aa74fd635cf3",
+      "source": "Halo width",
+      "target": "光晕宽度",
+      "file": "src/index.html",
+      "line": 1320,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0c6e01e3f6388cf6",
+      "source": "Set states halo effect opacity. 0: invisible, 1: solid",
+      "target": "设置国家光晕效果不透明度。0：不可见，1：完全不透明",
+      "file": "src/index.html",
+      "line": 1325,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:38e2a8a4709d7541",
+      "source": "Halo opacity",
+      "target": "光晕不透明度",
+      "file": "src/index.html",
+      "line": 1326,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:abaa96688a13c491",
+      "source": "Select halo effect power (blur). Set to 0 to make it solid line",
+      "target": "选择光晕效果强度（模糊）。设为 0 使其成为实线",
+      "file": "src/index.html",
+      "line": 1331,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fb0b8ccbca32dc20",
+      "source": "Halo blur",
+      "target": "光晕模糊",
+      "file": "src/index.html",
+      "line": 1332,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e61a98c0fae00734",
+      "source": "Set fill transparency. Set to 0 to make it fully transparent",
+      "target": "设置填充透明度。设为 0 使其完全透明",
+      "file": "src/index.html",
+      "line": 1339,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d206644fd3cc81e7",
+      "source": "Set regiment box size. All regiments will be redrawn on change (position will defaulted)",
+      "target": "设置军团方框大小。更改时所有军团将重绘（位置将重置为默认）",
+      "file": "src/index.html",
+      "line": 1345,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0095d612ae1ad2dd",
+      "source": "Box Size",
+      "target": "方框大小",
+      "file": "src/index.html",
+      "line": 1346,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:caa91cc05bf1b226",
+      "source": "Set state emblems size multiplier",
+      "target": "设置国家纹章大小倍率",
+      "file": "src/index.html",
+      "line": 1353,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6ac916d97dfd844b",
+      "source": "State size",
+      "target": "国家大小",
+      "file": "src/index.html",
+      "line": 1354,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ba55fd34c5e6ab77",
+      "source": "Set province emblems size multiplier",
+      "target": "设置省份纹章大小倍率",
+      "file": "src/index.html",
+      "line": 1359,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:826f865cb40d0802",
+      "source": "Province size",
+      "target": "省份大小",
+      "file": "src/index.html",
+      "line": 1360,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b304c535d215aea3",
+      "source": "Set burg emblems size multiplier",
+      "target": "设置城镇纹章大小倍率",
+      "file": "src/index.html",
+      "line": 1365,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a8106ef0ec704723",
+      "source": "Burg size",
+      "target": "城镇大小",
+      "file": "src/index.html",
+      "line": 1366,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:199a29f1eb263021",
+      "source": "Allow system to hide emblem groups if their size in too small or too big on that scale",
+      "target": "允许系统在该比例尺下纹章组过小或过大时自动隐藏",
+      "file": "src/index.html",
+      "line": 1371,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7e58632f77b9cdc1",
+      "source": "Toggle visibility automatically",
+      "target": "自动切换可见性",
+      "file": "src/index.html",
+      "line": 1374,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d6f93752c7bbd62d",
+      "source": "Set good marker (icon and circle) size in pixels",
+      "target": "设置货物标记（图标和圆圈）大小（像素）",
+      "file": "src/index.html",
+      "line": 1379,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3c609330b6d2c59c",
+      "source": "Show or hide circle around good icons",
+      "target": "显示或隐藏货物图标周围的圆圈",
+      "file": "src/index.html",
+      "line": 1385,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d0e54ff60bc8619c",
+      "source": "Show circle",
+      "target": "显示圆圈",
+      "file": "src/index.html",
+      "line": 1388,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:944951204e7b7620",
+      "source": "Set burg production plate icon size in pixels. Plate and font scale together with it",
+      "target": "设置城镇生产铭牌图标大小（像素）。铭牌和字体随之缩放",
+      "file": "src/index.html",
+      "line": 1393,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4dd26ef14f124f21",
+      "source": "Plate size",
+      "target": "铭牌大小",
+      "file": "src/index.html",
+      "line": 1394,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d331cac52bf55853",
+      "source": "Set market territory zone fill transparency. Defaults to transparent",
+      "target": "设置市场领土区域填充透明度。默认为透明",
+      "file": "src/index.html",
+      "line": 1401,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:47e6d2d389515353",
+      "source": "Set market marker (circle) size in pixels",
+      "target": "设置市场标记（圆圈）大小（像素）",
+      "file": "src/index.html",
+      "line": 1407,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:009d09288633ba09",
+      "source": "Set market marker emoji icon size in pixels",
+      "target": "设置市场标记 emoji 图标大小（像素）",
+      "file": "src/index.html",
+      "line": 1413,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d9653b782b01676f",
+      "source": "Set the emoji icon shown inside the market marker",
+      "target": "设置市场标记内显示的 emoji 图标",
+      "file": "src/index.html",
+      "line": 1419,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d5884cb9c597e2e9",
+      "source": "Marker icon",
+      "target": "标记图标",
+      "file": "src/index.html",
+      "line": 1420,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f6b37b2a15dce049",
+      "source": "Select filter for element. Please note filters may cause performance issues!",
+      "target": "选择元素滤镜。请注意滤镜可能导致性能问题！",
+      "file": "src/index.html",
+      "line": 1427,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7de859b71e78337f",
+      "source": "Filter",
+      "target": "滤镜",
+      "file": "src/index.html",
+      "line": 1428,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:616e9eec418625d3",
+      "source": "Set clipping. Only non-clipped part will be visible",
+      "target": "设置裁剪。仅未裁剪部分可见",
+      "file": "src/index.html",
+      "line": 1433,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1056576f17e4ccf3",
+      "source": "Clipping",
+      "target": "裁剪",
+      "file": "src/index.html",
+      "line": 1434,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a13c3d16c9820fb5",
+      "source": "No clipping",
+      "target": "不裁剪",
+      "file": "src/index.html",
+      "line": 1437,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:072d6fd6ab181757",
+      "source": "Clip water",
+      "target": "裁剪水域",
+      "file": "src/index.html",
+      "line": 1438,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:904f666fa608269e",
+      "source": "Clip land",
+      "target": "裁剪陆地",
+      "file": "src/index.html",
+      "line": 1439,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:df1dc88ed41e3bdb",
+      "source": "Try to keep the same size on any map scale, turn off to get size change depending on scale",
+      "target": "尽量在任意地图比例尺下保持相同大小，关闭则大小随比例尺变化",
+      "file": "src/index.html",
+      "line": 1445,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a2beae8792d68084",
+      "source": "Keep initial size on zoom change",
+      "target": "缩放时保持初始大小",
+      "file": "src/index.html",
+      "line": 1448,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:699407d474d5c743",
+      "source": "Completely hide the selected labels group using display:none",
+      "target": "使用 display:none 完全隐藏所选标签组",
+      "file": "src/index.html",
+      "line": 1453,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:34166756a735b325",
+      "source": "Hide selected group",
+      "target": "隐藏所选组",
+      "file": "src/index.html",
+      "line": 1456,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e4ed550156629762",
+      "source": "Allow system to hide labels if their size in too small or too big on that scale",
+      "target": "允许系统在该比例尺下标签过小或过大时自动隐藏",
+      "file": "src/index.html",
+      "line": 1460,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:39de102fd7c8c38d",
+      "source": "Toggle visibility automatically",
+      "target": "自动切换可见性",
+      "file": "src/index.html",
+      "line": 1463,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:aa1c297259b602d3",
+      "source": "Allow system to rescale labels on zoom",
+      "target": "允许系统在缩放时重新缩放标签",
+      "file": "src/index.html",
+      "line": 1466,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f7e23bda995c5522",
+      "source": "Rescale on zoom",
+      "target": "缩放时重新缩放",
+      "file": "src/index.html",
+      "line": 1469,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:03e5277945be698d",
+      "source": "Set bar and font size",
+      "target": "设置比例条和字体大小",
+      "file": "src/index.html",
+      "line": 1474,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4aa4074835709c58",
+      "source": "Bar",
+      "target": "比例条",
+      "file": "src/index.html",
+      "line": 1477,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:55e071af29630d96",
+      "source": "Font",
+      "target": "字体",
+      "file": "src/index.html",
+      "line": 1479,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d76c6afa2acbd8e0",
+      "source": "Set position of the Scale bar bottom right corner (in percents)",
+      "target": "设置比例条右下角位置（百分比）",
+      "file": "src/index.html",
+      "line": 1483,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b95782c6753ef8a6",
+      "source": "Type scale bar label, leave blank to hide label",
+      "target": "输入比例条标签，留空则隐藏标签",
+      "file": "src/index.html",
+      "line": 1492,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e03c59c799276197",
+      "source": "Label",
+      "target": "标签",
+      "file": "src/index.html",
+      "line": 1493,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d8c951d39292fa65",
+      "source": "Set background opacity. 0: transparent, 1: solid",
+      "target": "设置背景不透明度。0：透明，1：完全不透明",
+      "file": "src/index.html",
+      "line": 1498,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c6b6eb4ab0fac2c0",
+      "source": "Back opacity",
+      "target": "背景不透明度",
+      "file": "src/index.html",
+      "line": 1499,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c5307fa044c3497a",
+      "source": "Set background fill color",
+      "target": "设置背景填充颜色",
+      "file": "src/index.html",
+      "line": 1504,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cddf1a1dc240a4a3",
+      "source": "Back fill",
+      "target": "背景填充",
+      "file": "src/index.html",
+      "line": 1505,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4df1f276a95d5115",
+      "source": "Set background stroke color and width",
+      "target": "设置背景描边颜色和宽度",
+      "file": "src/index.html",
+      "line": 1511,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9633ef3c402c6450",
+      "source": "Back stroke",
+      "target": "背景描边",
+      "file": "src/index.html",
+      "line": 1512,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:07e0b331c043ad5f",
+      "source": "Width",
+      "target": "宽度",
+      "file": "src/index.html",
+      "line": 1516,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8cd32bce74be8c56",
+      "source": "Set background element padding: top, right, bottom, left (in pixels)",
+      "target": "设置背景元素内边距：上、右、下、左（像素）",
+      "file": "src/index.html",
+      "line": 1527,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:88d61f8220016b33",
+      "source": "Back padding",
+      "target": "背景内边距",
+      "file": "src/index.html",
+      "line": 1528,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d827ca58c94aa5d5",
+      "source": "Select background filter",
+      "target": "选择背景滤镜",
+      "file": "src/index.html",
+      "line": 1536,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a9cdd5958116073c",
+      "source": "Back filter",
+      "target": "背景滤镜",
+      "file": "src/index.html",
+      "line": 1537,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bfeecc18dd54edc8",
+      "source": "Set a filter to be applied to the map in general",
+      "target": "设置应用于整个地图的滤镜",
+      "file": "src/index.html",
+      "line": 1542,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:46eb013e480aa7ca",
+      "source": "Toggle global filters:",
+      "target": "切换全局滤镜：",
+      "file": "src/index.html",
+      "line": 1543,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c06a98376dc03b9e",
+      "source": "Grayscale",
+      "target": "灰度",
+      "file": "src/index.html",
+      "line": 1544,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:70c468914675ee72",
+      "source": "Sepia",
+      "target": "棕褐色",
+      "file": "src/index.html",
+      "line": 1545,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:29b5e6d76d244117",
+      "source": "Dingy",
+      "target": "昏暗",
+      "file": "src/index.html",
+      "line": 1546,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ce46b05b7e31bd59",
+      "source": "Tint",
+      "target": "着色",
+      "file": "src/index.html",
+      "line": 1547,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8a15d94fd321592c",
+      "source": "Map generation settings. Generate a new map to apply the settings",
+      "target": "地图生成设置。生成新地图以应用设置",
+      "file": "src/index.html",
+      "line": 1551,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:be3d82cb6c09b871",
+      "source": "Map settings (new map to apply):",
+      "target": "地图设置（需生成新地图以应用）：",
+      "file": "src/index.html",
+      "line": 1551,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:088622d6513ae24e",
+      "source": "Set original map size on generation. It cannot be changed later. Always keep canvas size equal to your screen size or less. The best option is to use the default value. For full-globe maps use aspect ratio 2:1",
+      "target": "设置生成时的原始地图大小。之后无法更改。请始终保持画布大小等于或小于屏幕大小。最佳做法是使用默认值。完整全球地图请使用 2:1 宽高比",
+      "file": "src/index.html",
+      "line": 1555,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ccc1f5a293315274",
+      "source": "Restore default canvas size",
+      "target": "恢复默认画布大小",
+      "file": "src/index.html",
+      "line": 1559,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c1d7b9fdbba37a0",
+      "source": "Canvas size",
+      "target": "画布大小",
+      "file": "src/index.html",
+      "line": 1561,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:083a5494dfe65485",
+      "source": "px",
+      "target": "px",
+      "file": "src/index.html",
+      "line": 1566,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ab977388d714fd21",
+      "source": "Map seed number. Press 'Enter' to apply. Seed produces the same map only if canvas size and options are the same",
+      "target": "地图种子编号。按 'Enter' 应用。仅当画布大小和选项相同时，种子才会生成相同地图",
+      "file": "src/index.html",
+      "line": 1570,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e1de873e93b5acb4",
+      "source": "Show seed history to apply a previous seed",
+      "target": "显示种子历史以应用之前的种子",
+      "file": "src/index.html",
+      "line": 1574,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e8bea6f06d4bd9e1",
+      "source": "Map seed",
+      "target": "地图种子",
+      "file": "src/index.html",
+      "line": 1580,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:369453c382ed0f78",
+      "source": "Copy map seed as URL. It will produce the same map only if options are default or the same",
+      "target": "将地图种子复制为 URL。仅当选项为默认或相同时，才会生成相同地图",
+      "file": "src/index.html",
+      "line": 1585,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c1077f6d2f8b6659",
+      "source": "Set number of points to be used for graph generation. Highly affects performance. 10K is the only recommended value",
+      "target": "设置用于图形生成的点数。严重影响性能。10K 是唯一推荐值",
+      "file": "src/index.html",
+      "line": 1592,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e7ea194b9dc56129",
+      "source": "Points number",
+      "target": "点数",
+      "file": "src/index.html",
+      "line": 1598,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:92bd889c24cd3e27",
+      "source": "10K",
+      "target": "10K",
+      "file": "src/index.html",
+      "line": 1611,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:be26019f201cf861",
+      "source": "Define map name (will be used to name downloaded files)",
+      "target": "定义地图名称（将用于命名下载文件）",
+      "file": "src/index.html",
+      "line": 1614,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e386ad8d0fe193bf",
+      "source": "Map name",
+      "target": "地图名称",
+      "file": "src/index.html",
+      "line": 1618,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5fee5c5a9de5bf6c",
+      "source": "Regenerate map name",
+      "target": "重新生成地图名称",
+      "file": "src/index.html",
+      "line": 1630,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:93c001e35dff83fc",
+      "source": "Define current year and era name",
+      "target": "定义当前年份和纪元名称",
+      "file": "src/index.html",
+      "line": 1633,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:254fee1c755d0975",
+      "source": "Year and era",
+      "target": "年份和纪元",
+      "file": "src/index.html",
+      "line": 1637,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0849c6d7ff886851",
+      "source": "Regenerate era",
+      "target": "重新生成纪元",
+      "file": "src/index.html",
+      "line": 1658,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f22b4565012e4175",
+      "source": "Select template or precreated heightmap to be used on generation",
+      "target": "选择生成时使用的模板或预设高度图",
+      "file": "src/index.html",
+      "line": 1661,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:66667ab53a7a4e69",
+      "source": "Define how many Cultures should be generated",
+      "target": "定义要生成的文化数量",
+      "file": "src/index.html",
+      "line": 1671,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b9955429a80e83d2",
+      "source": "Cultures number",
+      "target": "文化数量",
+      "file": "src/index.html",
+      "line": 1675,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a6170939acc0e1fb",
+      "source": "Select a set of cultures to be used for names and cultures generation",
+      "target": "选择用于名称和文化生成的一组文化",
+      "file": "src/index.html",
+      "line": 1683,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
     }
   ]
 }
