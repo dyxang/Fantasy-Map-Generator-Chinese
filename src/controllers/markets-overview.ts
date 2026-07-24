@@ -604,7 +604,7 @@ function regenerateProduction() {
   confirmationDialog({
     title: "重新生成生产",
     message:
-      "确定要为所有货物重新生成生产和贸易吗？生成将基于当前的货物设置和奖励货物布局",
+      "确定要为所有货物重新生成生产和贸易吗？生成将基于当前货物设置和奖励货物分布",
     confirm: "Regenerate",
     onConfirm: window.regenerateProduction
   });

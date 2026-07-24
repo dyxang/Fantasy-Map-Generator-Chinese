@@ -627,7 +627,7 @@ function addSide(): void {
   function selectLine(event: Event): void {
     const target = event.target as HTMLElement;
     if (target.className === "inactive") {
-      tip("Regiment is already in the battle", false, "error");
+      tip("军团已加入战斗", false, "error");
       return;
     }
     target.classList.toggle("selected");

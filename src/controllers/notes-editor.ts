@@ -236,7 +236,7 @@ function downloadLegends(): void {
 
 function uploadLegends(dataLoaded: string): void {
   if (!dataLoaded) {
-    tip("Cannot load the file. Please check the data format", false, "error");
+    tip("无法加载文件。请检查数据格式", false, "error");
     return;
   }
   notes = JSON.parse(dataLoaded);

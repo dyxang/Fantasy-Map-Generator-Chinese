@@ -359,7 +359,7 @@ function open(burgId: number): void {
 
   const producedTable = renderTable({
     colWidths: ["80%", "20%"],
-    headers: [{ label: "货物" }, { label: "Units", align: "right" }],
+    headers: [{ label: "货物" }, { label: "数量", align: "right" }],
     rows: producedRows,
     empty: "No goods manufactured"
   });

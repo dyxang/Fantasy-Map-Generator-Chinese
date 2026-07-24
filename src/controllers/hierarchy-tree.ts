@@ -406,8 +406,8 @@ function selectElement(d: any): void {
 
   ensureEl<HTMLInputElement>("hierarchyTree_selectedCode").onchange = function () {
     const input = this as HTMLInputElement;
-    if (input.value.length > 3) return tip("Abbreviation must be 3 characters or less", false, "error", 3000);
-    if (!input.value.length) return tip("Abbreviation cannot be empty", false, "error", 3000);
+    if (input.value.length > 3) return tip("缩写不能超过 3 个字符", false, "error", 3000);
+    if (!input.value.length) return tip("缩写不能为空", false, "error", 3000);
 
     node.select("text").text(input.value);
     dataElement.code = input.value;
