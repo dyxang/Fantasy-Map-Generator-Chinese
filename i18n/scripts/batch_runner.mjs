@@ -129,25 +129,27 @@ function prepare(count) {
   // a word that also appears in any of this batch's units' sources.
   // This gives subagents context on how similar phrases were translated before.
   function buildTmHints(batchUnits) {
-    const hints = {};
-    // Collect words from this batch's sources (length >= 4 to skip stopwords)
     const batchWords = new Set();
     for (const u of batchUnits) {
       for (const w of u.source.toLowerCase().split(/[^a-z]+/)) {
         if (w.length >= 4) batchWords.add(w);
       }
     }
-    // Find TM entries whose source shares any of these words
+    // 按 word overlap 总分排序后截断 top-50，避免整桶注入低质量命中
+    // （大部分单 word 命中如 "zone" 是噪声，subagent 不需读）
+    const scored = [];
     for (const [src, tgt] of Object.entries(tmBySource)) {
-      const srcWords = src.toLowerCase().split(/[^a-z]+/);
+      const srcWords = src.toLowerCase().split(/[^a-z]+/).filter(w => w.length >= 4);
+      let overlap = 0;
       for (const w of srcWords) {
-        if (w.length >= 4 && batchWords.has(w)) {
-          hints[src] = tgt;
-          break;
-        }
+        if (batchWords.has(w)) overlap++;
+      }
+      if (overlap > 0) {
+        scored.push({ source: src, target: tgt, overlap });
       }
     }
-    return hints;
+    scored.sort((a, b) => b.overlap - a.overlap);
+    return scored.slice(0, 50);
   }
 
   // 确保 artifacts 目录存在（sidecar 文件的存放位置）
@@ -191,7 +193,7 @@ function prepare(count) {
     const fileCount = {};
     for (const u of batchUnits) fileCount[u.file] = (fileCount[u.file] || 0) + 1;
 
-    console.log(`Batch ${i + 1}: ${batchUnits.length} units, ${Object.keys(tmHints).length} TM hints, files: ${Object.entries(fileCount).map(([f, c]) => `${f.split("/").pop()}(${c})`).join(", ")}`);
+    console.log(`Batch ${i + 1}: ${batchUnits.length} units, ${tmHints.length} TM hints (top-50), files: ${Object.entries(fileCount).map(([f, c]) => `${f.split("/").pop()}(${c})`).join(", ")}`);
     totalUnits += batchUnits.length;
   }
 
