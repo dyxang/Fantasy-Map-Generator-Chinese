@@ -4,7 +4,7 @@ For deeper knowledge, consult the `docs/` directory, especially `docs/domain/glo
 
 ## 翻译工作流
 
-zh-CN 是独立翻译分支，不 PR 不 merge 出去。开始任何翻译或上游同步任务前，**必须先读**以下文档：
+zh_CN 是独立翻译分支，不 PR 不 merge 出去。开始任何翻译或上游同步任务前，**必须先读**以下文档：
 
 - `i18n/CONTEXT.md` — 翻译工作流上下文
 - `i18n/README.md` — 工具脚本使用说明

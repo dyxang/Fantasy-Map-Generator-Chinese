@@ -70,7 +70,7 @@ node i18n/scripts/validate.mjs --check-consistency
 ```bash
 # 1. 更新本仓库的 master 分支
 git fetch upstream
-git checkout master && git merge upstream/master && git checkout zh-CN
+git checkout master && git merge upstream/master && git checkout zh_CN
 
 # 2. 分析改动（按 80 行阈值分 lane，输出 sync-report.json）
 node i18n/scripts/sync-analyze.mjs

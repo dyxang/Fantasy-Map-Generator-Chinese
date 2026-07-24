@@ -68,7 +68,7 @@
 2. clone fork 到 `/workspace/Fantasy-Map-Generator`
 3. 添加 upstream 远程：`git remote add upstream https://github.com/Azgaar/Fantasy-Map-Generator.git`
 4. 记录当前 base commit：`git rev-parse HEAD > i18n/base_commit.txt`
-5. 创建汉化工作分支：`git checkout -b zh-CN`
+5. 创建汉化工作分支：`git checkout -b zh_CN`
 
 **目的**：建立可追溯的版本基线，base commit 是三方对齐的锚点。
 
@@ -469,7 +469,7 @@ writeFileSync('i18n/units.json', JSON.stringify({units}, null, 2));
 9. **首次会话试翻译 30 个单元**（验证 Rules + TM 流程闭环）（30 分钟）
 10. **跑 validate.mjs 校验**（5 分钟）
 11. **写 README 简要说明工作流**（10 分钟，可选）
-12. **commit 基础设施到 zh-CN 分支**（5 分钟）
+12. **commit 基础设施到 zh_CN 分支**（5 分钟）
 
 后续按"翻译 30 → 校验 → 提交"循环，直到全量完成。
 

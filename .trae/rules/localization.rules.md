@@ -47,7 +47,7 @@
 
 ## 上游同步
 
-- zh-CN 是独立翻译分支，不 PR 不 merge 出去
+- zh_CN 是独立翻译分支，不 PR 不 merge 出去
 - 上游更新时走 reset+replay 流程，**AI 为主、脚本为辅**
 - 执行同步任务前，读 `i18n/CONTEXT.md` 的「上游同步工具链」章节
 - 完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`

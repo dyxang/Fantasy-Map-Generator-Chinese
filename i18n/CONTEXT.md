@@ -203,11 +203,11 @@ subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i
 
 ## 上游同步工具链（Sync Pipeline）
 
-zh-CN 是独立翻译分支，不 PR 不 merge 出去。上游（master）更新时，通过 **AI 为主、脚本为辅** 的流程吸收上游变化。完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`。
+zh_CN 是独立翻译分支，不 PR 不 merge 出去。上游（master）更新时，通过 **AI 为主、脚本为辅** 的流程吸收上游变化。完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`。
 
 ### 核心策略：Reset + Replay
 
-zh-CN 源码相对 master 的差异**应只有字符串翻译**（1:1 替换）。同步时：
+zh_CN 源码相对 master 的差异**应只有字符串翻译**（1:1 替换）。同步时：
 - **Lane-A**（改动 ≤80 行的文件）：`git merge master` + AI 解冲突 + 严格 `(file, source)` 查 tm.json 复用
 - **Lane-B**（改动 >80 行的文件）：`git checkout master -- <file>` + TM Replay（脚本把 tm.json 的翻译覆盖回去）
 
