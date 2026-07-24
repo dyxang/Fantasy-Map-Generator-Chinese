@@ -1,10 +1,10 @@
 {
   "task": "initial_translation",
   "phase": "translation",
-  "last_processed_id": "sha256:62e42d1782ff9b34",
-  "last_file": "src/index.html",
-  "last_line": 2770,
-  "completed_units": 1678,
+  "last_processed_id": "sha256:83c0cdccfe2f6380",
+  "last_file": "src/services/io/export-json.ts",
+  "last_line": 14,
+  "completed_units": 1757,
   "total_units": 1960,
   "session_history": [
     {
@@ -90,6 +90,12 @@
       "units": 76,
       "end_id": "sha256:62e42d1782ff9b34",
       "notes": "Collected from artifacts: 76 translated, 0 skipped, 0 pre-translated. 4 sidecar files."
+    },
+    {
+      "date": "2026-07-24",
+      "units": 79,
+      "end_id": "sha256:83c0cdccfe2f6380",
+      "notes": "Collected from artifacts: 79 translated, 0 skipped, 0 pre-translated. 4 sidecar files."
     }
   ]
 }

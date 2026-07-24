@@ -2771,75 +2771,74 @@
       </div>
       <div id="saveMapData" style="display: none" class="dialog">
         <div style="margin-top: 0.3em">
-          <strong>Save map to</strong>
+          <strong>保存地图到</strong>
           <button
             onclick="window.Services.Save.saveMap('machine')"
-            data-tip="Download map file to your local disk"
+            data-tip="下载地图文件到本地磁盘"
             data-shortcut="Ctrl + S"
             style="font-weight: 600"
           >
-            machine
+            本地
           </button>
-          <button onclick="window.Services.Save.saveMap('dropbox')" data-tip="Save map file to your Dropbox" data-shortcut="Ctrl + C">
-            dropbox
+          <button onclick="window.Services.Save.saveMap('dropbox')" data-tip="保存地图文件到你的 Dropbox" data-shortcut="Ctrl + C">
+            Dropbox
           </button>
-          <button onclick="window.Services.Save.saveMap('storage')" data-tip="Save the project to browser storage only" data-shortcut="F6">
-            browser
+          <button onclick="window.Services.Save.saveMap('storage')" data-tip="仅将项目保存到浏览器存储" data-shortcut="F6">
+            浏览器
           </button>
         </div>
         <p>
-          Maps are saved in <i>.map</i> format, that can be loaded back via the <i>Load</i> in menu. There is no way to
-          restore the progress if file is lost. Please keep old save files on your machine or cloud storage as backups.
+          地图保存为 <i>.map</i> 格式，可通过菜单中的 <i>Load</i> 重新加载。若文件丢失则无法恢复进度。请将旧存档文件保留在本地或云存储中作为备份。
         </p>
       </div>
       <div id="loadMapData" style="display: none" class="dialog">
         <div>
-          <strong>Load map from</strong>
-          <button onclick="mapToLoad.click()" data-tip="Load map file (.map or .gz) from your local disk">
-            machine
+          <strong>加载地图自</strong>
+          <button onclick="mapToLoad.click()" data-tip="从本地磁盘加载地图文件（.map 或 .gz）">
+            本地
           </button>
           <button
             onclick="loadURL()"
-            data-tip="Load map file (.map or .gz) file from URL. Note that the server should allow CORS"
+            data-tip="从 URL 加载地图文件（.map 或 .gz）。注意服务器需允许 CORS"
           >
             URL
           </button>
-          <button onclick="window.Services.Load.quickLoad()" data-tip="Load map from browser storage (if saved before)">storage</button>
+          <button onclick="window.Services.Load.quickLoad()" data-tip="从浏览器存储加载地图（若之前保存过）">存储</button>
         </div>
-        <p>Click on <i>storage</i> to open the last saved map.</p>
+        <p>点击 <i>存储</i> 以打开上次保存的地图。</p>
         <div id="loadFromDropbox">
           <p style="margin-bottom: 0.3em">
-            Or load from your Dropbox account
+            或从你的 Dropbox 账户加载
             <button
               id="dropboxConnectButton"
               onclick="connectToDropbox()"
-              data-tip="Connect your Dropbox account to be able to load maps from it"
+              data-tip="连接你的 Dropbox 账户以便从中加载地图"
             >
-              Connect
+              连接
             </button>
           </p>
           <select id="loadFromDropboxSelect" style="width: 22em"></select>
           <div id="loadFromDropboxButtons" style="margin-bottom: 0.6em">
-            <button onclick="window.Services.Load.loadFromDropbox()" data-tip="Load map file (.map or .gz) from your Dropbox">Load</button>
+            <button onclick="window.Services.Load.loadFromDropbox()" data-tip="从你的 Dropbox 加载地图文件（.map 或 .gz）">Load</button>
             <button
               onclick="window.Services.Load.createSharableDropboxLink()"
-              data-tip="Select file and create a link to share with your friends"
+              data-tip="选择文件并创建链接以分享给好友"
             >
-              Share
+              分享
             </button>
           </div>
           <div style="margin-top: 0.3em">
             <div id="sharableLinkContainer" style="display: none">
               <a id="sharableLink" target="_blank"></a>
-              <i data-tip="Copy link to the clipboard" onclick="copyLinkToClickboard()" class="icon-clone pointer"></i>
+              <i data-tip="复制链接到剪贴板" onclick="copyLinkToClickboard()" class="icon-clone pointer"></i>
             </div>
           </div>
         </div>
       </div>
       <div id="exportToPngTilesScreen" style="display: none" class="dialog">
-        <p>Map will be split into tiles and downloaded as a single zip file. Avoid saving too large images</p>
-        <div data-tip="Number of columns" style="margin-bottom: 0.3em">
-          <div class="label">Columns:</div>
+        <p>地图将被分割为瓦片并下载为单个 zip 文件。请避免保存过大的图片</p>
+        <div data-tip="列数" style="margin-bottom: 0.3em">
+          <div class="label">列数：</div>
           <input
             id="tileColsInput"
             data-stored="tileCols"
@@ -2851,8 +2850,8 @@
           />
           <input id="tileColsOutput" data-stored="tileCols" type="number" min="2" value="8" />
         </div>
-        <div data-tip="Number of rows" style="margin-bottom: 0.3em">
-          <div class="label">Rows:</div>
+        <div data-tip="行数" style="margin-bottom: 0.3em">
+          <div class="label">行数：</div>
           <input
             id="tileRowsInput"
             data-stored="tileRows"
@@ -2864,8 +2863,8 @@
           />
           <input id="tileRowsOutput" data-stored="tileRows" type="number" min="2" value="8" />
         </div>
-        <div data-tip="Image scale relative to image size (e.g. 5x)" style="margin-bottom: 0.3em">
-          <div class="label">Scale:</div>
+        <div data-tip="图片相对于图像大小的缩放比例（如 5x）" style="margin-bottom: 0.3em">
+          <div class="label">缩放：</div>
           <input
             id="tileScaleInput"
             data-stored="tileScale"
@@ -2877,21 +2876,21 @@
           />
           <input id="tileScaleOutput" data-stored="tileScale" type="number" min="1" value="1" />
         </div>
-        <div data-tip="Calculated size of image if combined" style="margin-bottom: 0.3em">
-          <div class="label">Total size:</div>
+        <div data-tip="合并后图像的计算大小" style="margin-bottom: 0.3em">
+          <div class="label">总大小：</div>
           <div id="tileSize" style="display: inline-block">1000 x 1000 px</div>
         </div>
         <div id="tileStatus" style="font-style: italic"></div>
       </div>
       <div id="alert" style="display: none" class="dialog">
-        <p id="alertMessage">Warning!</p>
+        <p id="alertMessage">警告！</p>
       </div>
       <div id="prompt" style="display: none" class="dialog">
         <form id="promptForm">
           <div id="promptText"></div>
-          <input id="promptInput" type="number" step=".01" placeholder="type value" autocomplete="off" />
-          <button type="submit">Confirm</button>
-          <button type="button" id="promptCancel" formnovalidate>Cancel</button>
+          <input id="promptInput" type="number" step=".01" placeholder="输入数值" autocomplete="off" />
+          <button type="submit">确认</button>
+          <button type="button" id="promptCancel" formnovalidate>取消</button>
         </form>
       </div>
     </div>
@@ -2904,7 +2903,7 @@
       style="opacity: 0"
       data-main="Сlick the arrow button for options. Zoom in to see the map in details"
     ></div>
-    <div id="mapOverlay" style="display: none">Drop a map file to open</div>
+    <div id="mapOverlay" style="display: none">拖放地图文件以打开</div>
     <div id="fileInputs" style="display: none">
       <input type="file" accept=".map,.gz" id="mapToLoad" />
       <input type="file" accept=".txt,.csv" id="burgsListToLoad" />
@@ -2919,7 +2918,7 @@
       <input type="file" accept=".csv" id="culturesCSVToLoad" />
     </div>
     <div id="tourPromptButton" style="display: none" data-tip="Take an interactive tour of the map generator">
-      <button type="button" aria-label="Launch UI Tour">
+      <button type="button" aria-label="启动界面导览">
         <svg preserveAspectRatio="xMidYMid" viewBox="0 0 58 52" height="30px" width="30px">
           <path d="M20 10 L20 42 L42 26 Z" />
         </svg>

@@ -18243,6 +18243,798 @@
       "type": "html_text",
       "context_tag": "section",
       "skipped": false
+    },
+    {
+      "id": "sha256:066f0a5f2a3208dd",
+      "source": "Load",
+      "target": "加载",
+      "file": "src/index.html",
+      "line": 2828,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:419697632f7ada7c",
+      "source": "Take an interactive tour of the map generator",
+      "target": "参与地图生成器的交互式导览",
+      "file": "src/index.html",
+      "line": 2926,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:48197fcc9887a61d",
+      "source": "Save map to",
+      "target": "保存地图到",
+      "file": "src/index.html",
+      "line": 2774,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bf879c7ff8ba631e",
+      "source": "Download map file to your local disk",
+      "target": "下载地图文件到本地磁盘",
+      "file": "src/index.html",
+      "line": 2777,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fafecbdca84a4080",
+      "source": "machine",
+      "target": "本地",
+      "file": "src/index.html",
+      "line": 2781,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a2ce732fe673e64c",
+      "source": "Save map file to your Dropbox",
+      "target": "保存地图文件到你的 Dropbox",
+      "file": "src/index.html",
+      "line": 2783,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8fa97f61e73ec202",
+      "source": "dropbox",
+      "target": "Dropbox",
+      "file": "src/index.html",
+      "line": 2784,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d9c4b7b15e81511f",
+      "source": "Save the project to browser storage only",
+      "target": "仅将项目保存到浏览器存储",
+      "file": "src/index.html",
+      "line": 2786,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3d9c214bc0ac10aa",
+      "source": "browser",
+      "target": "浏览器",
+      "file": "src/index.html",
+      "line": 2787,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bd06ad5d9d8f513d",
+      "source": "Maps are saved in",
+      "target": "地图保存为",
+      "file": "src/index.html",
+      "line": 2791,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b9e7b92452d7ae62",
+      "source": ".map",
+      "target": ".map",
+      "file": "src/index.html",
+      "line": 2791,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:92d1157c0cc3b7d2",
+      "source": "format, that can be loaded back via the",
+      "target": "格式，可通过菜单中的",
+      "file": "src/index.html",
+      "line": 2791,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4678d7e2206a8fa0",
+      "source": "in menu. There is no way to\n          restore the progress if file is lost. Please keep old save files on your machine or cloud storage as backups.",
+      "target": "重新加载。若文件丢失则无法恢复进度。请将旧存档文件保留在本地或云存储中作为备份。",
+      "file": "src/index.html",
+      "line": 2791,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d64d03ae397df845",
+      "source": "Load map from",
+      "target": "加载地图自",
+      "file": "src/index.html",
+      "line": 2796,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:788364d246d9a77e",
+      "source": "Load map file (.map or .gz) from your local disk",
+      "target": "从本地磁盘加载地图文件（.map 或 .gz）",
+      "file": "src/index.html",
+      "line": 2797,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:61b5cac2978b9c31",
+      "source": "machine",
+      "target": "本地",
+      "file": "src/index.html",
+      "line": 2798,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1a5e5f754764808c",
+      "source": "Load map file (.map or .gz) file from URL. Note that the server should allow CORS",
+      "target": "从 URL 加载地图文件（.map 或 .gz）。注意服务器需允许 CORS",
+      "file": "src/index.html",
+      "line": 2802,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f8a52c1b8f14011a",
+      "source": "URL",
+      "target": "URL",
+      "file": "src/index.html",
+      "line": 2804,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:23c925040a5c0c07",
+      "source": "Load map from browser storage (if saved before)",
+      "target": "从浏览器存储加载地图（若之前保存过）",
+      "file": "src/index.html",
+      "line": 2806,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:34dc434806839fbc",
+      "source": "storage",
+      "target": "存储",
+      "file": "src/index.html",
+      "line": 2806,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9610fe0bdcc7478e",
+      "source": "Click on",
+      "target": "点击",
+      "file": "src/index.html",
+      "line": 2808,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6b112f038bf0ab62",
+      "source": "storage",
+      "target": "存储",
+      "file": "src/index.html",
+      "line": 2808,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eaaaf397d44468f4",
+      "source": "to open the last saved map.",
+      "target": "以打开上次保存的地图。",
+      "file": "src/index.html",
+      "line": 2808,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:263d17d63f27a070",
+      "source": "Or load from your Dropbox account",
+      "target": "或从你的 Dropbox 账户加载",
+      "file": "src/index.html",
+      "line": 2811,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:384507256a3e1e6f",
+      "source": "Connect your Dropbox account to be able to load maps from it",
+      "target": "连接你的 Dropbox 账户以便从中加载地图",
+      "file": "src/index.html",
+      "line": 2815,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:984edb6caf58478f",
+      "source": "Connect",
+      "target": "连接",
+      "file": "src/index.html",
+      "line": 2817,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fd697f22d4fa3c06",
+      "source": "Load map file (.map or .gz) from your Dropbox",
+      "target": "从你的 Dropbox 加载地图文件（.map 或 .gz）",
+      "file": "src/index.html",
+      "line": 2822,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5e347bf10f39360",
+      "source": "Select file and create a link to share with your friends",
+      "target": "选择文件并创建链接以分享给好友",
+      "file": "src/index.html",
+      "line": 2825,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e2a60952c1dd5f90",
+      "source": "Share",
+      "target": "分享",
+      "file": "src/index.html",
+      "line": 2827,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6957ac9b38a991ad",
+      "source": "Copy link to the clipboard",
+      "target": "复制链接到剪贴板",
+      "file": "src/index.html",
+      "line": 2833,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:647fd09fe3e2b5cf",
+      "source": "Map will be split into tiles and downloaded as a single zip file. Avoid saving too large images",
+      "target": "地图将被分割为瓦片并下载为单个 zip 文件。请避免保存过大的图片",
+      "file": "src/index.html",
+      "line": 2839,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6cccf85969c74aaa",
+      "source": "Number of columns",
+      "target": "列数",
+      "file": "src/index.html",
+      "line": 2840,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:39cdf58d79cb999b",
+      "source": "Columns:",
+      "target": "列数：",
+      "file": "src/index.html",
+      "line": 2841,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c4439f110380a290",
+      "source": "Number of rows",
+      "target": "行数",
+      "file": "src/index.html",
+      "line": 2853,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5436ffbf77f8613",
+      "source": "Rows:",
+      "target": "行数：",
+      "file": "src/index.html",
+      "line": 2854,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9999935d4bdf592d",
+      "source": "Image scale relative to image size (e.g. 5x)",
+      "target": "图片相对于图像大小的缩放比例（如 5x）",
+      "file": "src/index.html",
+      "line": 2866,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:83129ee6304beed7",
+      "source": "Scale:",
+      "target": "缩放：",
+      "file": "src/index.html",
+      "line": 2867,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:76eff95d7cb91aa9",
+      "source": "Calculated size of image if combined",
+      "target": "合并后图像的计算大小",
+      "file": "src/index.html",
+      "line": 2879,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ac0a0bd874e60465",
+      "source": "Total size:",
+      "target": "总大小：",
+      "file": "src/index.html",
+      "line": 2880,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:94f0cfb57211e91f",
+      "source": "1000 x 1000 px",
+      "target": "1000 x 1000 px",
+      "file": "src/index.html",
+      "line": 2881,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1cc477b3dbfea549",
+      "source": "Warning!",
+      "target": "警告！",
+      "file": "src/index.html",
+      "line": 2886,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ce3b93dcca1ba79d",
+      "source": "type value",
+      "target": "输入数值",
+      "file": "src/index.html",
+      "line": 2891,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "skipped": false
+    },
+    {
+      "id": "sha256:64f68948e68df738",
+      "source": "Confirm",
+      "target": "确认",
+      "file": "src/index.html",
+      "line": 2892,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:37fd3615453a3748",
+      "source": "Cancel",
+      "target": "取消",
+      "file": "src/index.html",
+      "line": 2893,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:887720b7882294d1",
+      "source": "Drop a map file to open",
+      "target": "拖放地图文件以打开",
+      "file": "src/index.html",
+      "line": 2906,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:930aff8284372b80",
+      "source": "Launch UI Tour",
+      "target": "启动界面导览",
+      "file": "src/index.html",
+      "line": 2921,
+      "type": "html_attr",
+      "context_tag": "aria-label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8180eb56f1701ee5",
+      "source": "Next vertex is not found",
+      "target": "未找到下一个顶点",
+      "file": "src/renderers/draw-heightmap.ts",
+      "line": 182,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bcd19e8f69e52ebb",
+      "source": "3D erosion bake failed:",
+      "target": "3D 侵蚀烘焙失败：",
+      "file": "src/renderers/erosion-bake.ts",
+      "line": 901,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3eb2912413e829f5",
+      "source": "Autosave: map cannot be saved in edit mode",
+      "target": "自动保存：地图在编辑模式下无法保存",
+      "file": "src/services/autosave.ts",
+      "line": 16,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9c34c9fe048753d0",
+      "source": "Autosave: saving map...",
+      "target": "自动保存：正在保存地图...",
+      "file": "src/services/autosave.ts",
+      "line": 19,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b5db77558f73c327",
+      "source": "Autosave: map is saved",
+      "target": "自动保存：地图已保存",
+      "file": "src/services/autosave.ts",
+      "line": 21,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:27c259f3e531e56b",
+      "source": "Autosave failed: ${(error as Error)?.message || \"Unknown error\"}",
+      "target": "自动保存失败：${(error as Error)?.message || \"Unknown error\"}",
+      "file": "src/services/autosave.ts",
+      "line": 26,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f8817ba8c228e9df",
+      "source": "Save reminder is turned off. Press CTRL+Q again to re-initiate",
+      "target": "保存提醒已关闭。再次按 CTRL+Q 重新启动",
+      "file": "src/services/autosave.ts",
+      "line": 60,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad4838ae719ea0f5",
+      "source": "Save reminder is turned on. Press CTRL+Q to turn off",
+      "target": "保存提醒已开启。按 CTRL+Q 关闭",
+      "file": "src/services/autosave.ts",
+      "line": 65,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a70f8246372461c0",
+      "source": "Dropbox response:",
+      "target": "Dropbox 响应：",
+      "file": "src/services/io/cloud.ts",
+      "line": 99,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9ff8741013f3d6bf",
+      "source": "Access token:",
+      "target": "访问令牌：",
+      "file": "src/services/io/cloud.ts",
+      "line": 162,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a02b38215affbf1c",
+      "source": "Dropbox link object:",
+      "target": "Dropbox 链接对象：",
+      "file": "src/services/io/cloud.ts",
+      "line": 188,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3a1f6f4e6b03961f",
+      "source": "Undefined point in getFeaturePath",
+      "target": "getFeaturePath 中存在未定义的点",
+      "file": "src/renderers/draw-features.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:53874884a7a972de",
+      "source": "Satellite texture generation failed:",
+      "target": "卫星纹理生成失败：",
+      "file": "src/renderers/draw-satellite-texture.ts",
+      "line": 569,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:53199559b1a6663a",
+      "source": "Next vertex is not found",
+      "target": "未找到下一个顶点",
+      "file": "src/renderers/ocean-layers.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cdc343d00a40e49c",
+      "source": "Alpha",
+      "target": "Alpha",
+      "file": "src/renderers/trade-animation.test.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2e0d47c0a4f53559",
+      "source": "Beta",
+      "target": "Beta",
+      "file": "src/renderers/trade-animation.test.ts",
+      "line": 36,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5f7bb7bd0bd4a896",
+      "source": "Cannot fetch Google font for this value",
+      "target": "无法为此值获取 Google 字体",
+      "file": "src/services/fonts.ts",
+      "line": 369,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:be83a96564577649",
+      "source": "Google font ${family} is loading...",
+      "target": "Google 字体 ${family} 加载中...",
+      "file": "src/services/fonts.ts",
+      "line": 370,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c95f226b7f46a669",
+      "source": "Google font ${family} is added to the list",
+      "target": "Google 字体 ${family} 已添加到列表",
+      "file": "src/services/fonts.ts",
+      "line": 387,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:98d90ab2e63a1dcf",
+      "source": "Failed to load Google font ${family}",
+      "target": "加载 Google 字体 ${family} 失败",
+      "file": "src/services/fonts.ts",
+      "line": 394,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a55c166eb924c35e",
+      "source": "Local font ${family} is added to the fonts list",
+      "target": "本地字体 ${family} 已添加到字体列表",
+      "file": "src/services/fonts.ts",
+      "line": 406,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4e829ef1d3c48949",
+      "source": "Font ${family} is added to the list",
+      "target": "字体 ${family} 已添加到列表",
+      "file": "src/services/fonts.ts",
+      "line": 419,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8509d51c73fb5b03",
+      "source": "<path d=\"m 46,54.8 6.6,-15.6 95.1,0 5.9,15.5 -16.8,0.1 4.5,-11.8 L 104,43 l 4.3,11.9 -16.8,0 4.3,-11.8 -37.2,0 4.5,11.8 -16.9,0 z\"/>",
+      "target": "<path d=\"m 46,54.8 6.6,-15.6 95.1,0 5.9,15.5 -16.8,0.1 4.5,-11.8 L 104,43 l 4.3,11.9 -16.8,0 4.3,-11.8 -37.2,0 4.5,11.8 -16.9,0 z\"/>",
+      "file": "src/renderers/emblems/templates.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:441170e24363f2c9",
+      "source": "Screenshot is saved. Open \"Downloads\" screen (CTRL + J) to check",
+      "target": "截图已保存。打开\"下载\"页面（CTRL + J）查看",
+      "file": "src/renderers/view-3d-renderer.ts",
+      "line": 315,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5aef52c6340b6ad6",
+      "source": "Cannot load 3d library",
+      "target": "无法加载 3D 库",
+      "file": "src/renderers/view-3d-renderer.ts",
+      "line": 329,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:209a3f69729ca5e8",
+      "source": "Eroded terrain is not supported on this device",
+      "target": "此设备不支持侵蚀地形",
+      "file": "src/renderers/view-3d-renderer.ts",
+      "line": 703,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5f828d7e057dd5cb",
+      "source": "Cannot load 3d library",
+      "target": "无法加载 3D 库",
+      "file": "src/renderers/view-3d-renderer.ts",
+      "line": 858,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2e49464c952103aa",
+      "source": "Application is installed",
+      "target": "应用已安装",
+      "file": "src/services/installation.ts",
+      "line": 12,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9c2f3d586417fe63",
+      "source": "Install the Application",
+      "target": "安装应用",
+      "file": "src/services/installation.ts",
+      "line": 29,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:084b5d08d5bb8ea6",
+      "source": "Install the Application",
+      "target": "安装应用",
+      "file": "src/services/installation.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fed0b67dfc7772b2",
+      "source": "Route path has zero length",
+      "target": "道路路径长度为零",
+      "file": "src/services/io/auto-update.ts",
+      "line": 904,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3d8ca023bfe64b9f",
+      "source": "Route path has less than 2 points",
+      "target": "道路路径少于 2 个点",
+      "file": "src/services/io/auto-update.ts",
+      "line": 920,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:83c0cdccfe2f6380",
+      "source": "Data cannot be exported when edit mode is active, please exit the mode and retry",
+      "target": "编辑模式激活时无法导出数据，请退出该模式后重试",
+      "file": "src/services/io/export-json.ts",
+      "line": 14,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
     }
   ]
 }
