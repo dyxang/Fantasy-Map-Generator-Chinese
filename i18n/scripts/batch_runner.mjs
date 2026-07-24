@@ -214,7 +214,6 @@ function prepare(count) {
 function collectFromArtifacts() {
   const tm = readJson(join(I18N, "tm.json"));
   const progress = readJson(join(I18N, "progress.json"));
-  const baseCommit = readFileSync(join(I18N, "base_commit.txt"), "utf8").trim();
 
   // 读取所有 artifact sidecar 文件（由 subagent 翻译时追加产出）
   const artifactsDir = join(I18N, "artifacts");
@@ -317,11 +316,6 @@ function collectFromArtifacts() {
       line: unit.line,
       type: unit.type,
       context_tag: unit.context_tag,
-      reviewed: false,
-      reviewed_by: null,
-      model: "tm-reuse",
-      upstream_commit: baseCommit,
-      confidence: 1.0,
       skipped: false,
       reuse_from_tm: true
     });
@@ -354,14 +348,9 @@ function collectFromArtifacts() {
       source: artifact.source,
       target: artifact.target,
       file: artifact.file,
-      line: artifact.line_after,
+      line: artifact.line_after || artifact.line_before,
       type: artifact.type,
       context_tag: artifact.context_tag,
-      reviewed: false,
-      reviewed_by: null,
-      model: artifact.model,
-      upstream_commit: baseCommit,
-      confidence: artifact.confidence,
       skipped: false
     });
     collected++;
@@ -430,7 +419,6 @@ function collectFromArtifacts() {
 function collectLegacy() {
   const tm = readJson(join(I18N, "tm.json"));
   const progress = readJson(join(I18N, "progress.json"));
-  const baseCommit = readFileSync(join(I18N, "base_commit.txt"), "utf8").trim();
 
   // Read all batch files
   const batchFiles = readdirSync(I18N).filter(f => f.match(/^batch_\d+\.json$/));
@@ -523,11 +511,6 @@ function collectLegacy() {
       line: unit.line,
       type: unit.type,
       context_tag: unit.context_tag,
-      reviewed: false,
-      reviewed_by: null,
-      model: "tm-reuse",
-      upstream_commit: baseCommit,
-      confidence: 1.0,
       skipped: false,
       reuse_from_tm: true
     });
@@ -576,11 +559,6 @@ function collectLegacy() {
         line: unit.line,
         type: unit.type,
         context_tag: unit.context_tag,
-        reviewed: false,
-        reviewed_by: null,
-        model: null,
-        upstream_commit: baseCommit,
-        confidence: null,
         skipped: false
       });
       collected++;
@@ -595,11 +573,6 @@ function collectLegacy() {
           line: unit.line,
           type: unit.type,
           context_tag: unit.context_tag,
-          reviewed: false,
-          reviewed_by: null,
-          model: null,
-          upstream_commit: baseCommit,
-          confidence: 1.0,
           skipped: true,
           skip_reason: "Code identifier or CSS variable"
         });
