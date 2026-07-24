@@ -2523,10 +2523,10 @@
               <option value="°F">华氏度 (°F)</option>
               <option value="K">开尔文 (K)</option>
               <option value="°R">兰氏度 (°R)</option>
-              <option value="°De">德利尔度 (°De)</option>
+              <option value="°De">德氏度 (°De)</option>
               <option value="°N">牛顿度 (°N)</option>
               <option value="°Ré">列氏度 (°Ré)</option>
-              <option value="°Rø">罗默度 (°Rø)</option>
+              <option value="°Rø">罗氏度 (°Rø)</option>
             </select>
           </div>
           <div class="unitsHeader">
@@ -2557,87 +2557,86 @@
           </div>
         </div>
         <div id="unitsBottom">
-          <button id="unitsRestore" data-tip="Restore default units settings" class="icon-ccw"></button>
+          <button id="unitsRestore" data-tip="恢复默认单位设置" class="icon-ccw"></button>
         </div>
       </div>
       <div id="styleSaver" class="dialog stable textual" style="display: none">
         <div id="styleSaverHeader" style="padding: 2px 0">
-          <span>Preset name:</span>
+          <span>预设名称：</span>
           <input
             id="styleSaverName"
-            data-tip="Enter style preset name"
-            placeholder="Preset name"
+            data-tip="输入样式预设名称"
+            placeholder="预设名称"
             style="width: 12em"
             required
           />
           <span
             id="styleSaverTip"
-            data-tip="Shows whether there is already a preset with this name"
+            data-tip="显示是否已存在同名预设"
             class="italic"
           ></span>
         </div>
         <div id="styleSaverBody" style="padding: 2px 0; width: 100%">
-          <span>Style JSON:</span>
+          <span>样式 JSON：</span>
           <textarea
             id="styleSaverJSON"
             rows="18"
-            data-tip="Style JSON is getting formed based the current settings, but can be entered manually"
-            placeholder="Paste any valid style data in JSON format"
+            data-tip="样式 JSON 会基于当前设置生成，也可手动输入"
+            placeholder="粘贴任意有效的 JSON 格式样式数据"
             autocorrect="off"
             spellcheck="false"
           ></textarea>
         </div>
         <div id="styleSaverBottom">
-          <button id="styleSaverSave" data-tip="Save current JSON as a new style preset" class="icon-check"></button>
+          <button id="styleSaverSave" data-tip="将当前 JSON 保存为新样式预设" class="icon-check"></button>
           <button
             id="styleSaverDownload"
-            data-tip="Download the style as a .json file (can be opened in any text editor)"
+            data-tip="将样式下载为 .json 文件（可在任意文本编辑器中打开）"
             class="icon-download"
           ></button>
-          <button id="styleSaverLoad" data-tip="Open previously downloaded style file" class="icon-upload"></button>
+          <button id="styleSaverLoad" data-tip="打开之前下载的样式文件" class="icon-upload"></button>
           <button
             id="styleSaverCA"
-            data-tip="Find or share custom style preset on Cartography Assets portal"
+            data-tip="在 Cartography Assets 门户查找或分享自定义样式预设"
             class="icon-drafting-compass"
             onclick="openURL('https://cartographyassets.com/asset-category/specific-assets/azgaars-generator/styles/')"
           ></button>
         </div>
       </div>
       <div id="addFontDialog" style="display: none" class="dialog">
-        <span>There are 3 ways to add a custom font:</span>
+        <span>添加自定义字体有 3 种方式：</span>
         <p>
-          <strong>Google font</strong>. Open <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, find
-          a font you like and enter its name to the field below.
+          <strong>Google 字体</strong>。打开 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>，找到
+          你喜欢的字体并将其名称输入到下方字段中。
         </p>
         <p>
-          <strong>Local font</strong>. If you have a font
+          <strong>本地字体</strong>。如果你有字体
           <a
             href="https://faqs.skillcrush.com/article/275-downloading-installing-a-font-on-your-computer"
             target="_blank"
-            >installed on your computer</a
-          >, just provide the font name. Make sure the browser is reloaded after the installation. The font won't work
-          on machines not having it installed. Good source of fonts are
-          <a href="https://fontesk.com" target="_blank">Fontdesk</a> and
-          <a href="https://www.dafont.com" target="_blank">DaFont</a>.
+            >已安装到电脑上</a
+          >，只需提供字体名称。确保安装后重新加载浏览器。该字体在未安装的机器上无法使用。优质的字体来源有
+          <a href="https://fontesk.com" target="_blank">Fontdesk</a> 和
+          <a href="https://www.dafont.com" target="_blank">DaFont</a>。
         </p>
         <p>
-          <strong>Font URL</strong>. Provide font name and link to the font file hosted online. The best free font
-          hostings are <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> and
-          <a target="_blank" href="https://www.cdnfonts.com">CDN Fonts</a>. To get font file open the link to css
-          provided by these services and manually copy the link to <code>woff2</code> of desired variant. To add another
-          variant (e.g. Cyrillic), add the font one more time under the same name, but with another URL
+          <strong>字体 URL</strong>。提供字体名称和在线托管的字体文件链接。最佳的免费字体
+          托管站点是 <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> 和
+          <a target="_blank" href="https://www.cdnfonts.com">CDN Fonts</a>。要获取字体文件，请打开这些服务提供的 css
+          链接，并手动复制所需变体的 <code>woff2</code> 链接。要添加其他
+          变体（如西里尔字母），请使用相同名称再次添加该字体，但使用不同的 URL
         </p>
-        <div style="margin-top: 0.3em" data-tip="Select font adding method">
+        <div style="margin-top: 0.3em" data-tip="选择字体添加方式">
           <select id="addFontMethod">
-            <option value="googleFont" selected>Google font</option>
-            <option value="localFont">Local font</option>
-            <option value="fontURL">Font URL</option>
+            <option value="googleFont" selected>Google 字体</option>
+            <option value="localFont">本地字体</option>
+            <option value="fontURL">字体 URL</option>
           </select>
-          <input id="addFontNameInput" placeholder="font family" style="width: 15em" />
+          <input id="addFontNameInput" placeholder="字体族" style="width: 15em" />
           <div>
             <input
               id="addFontURLInput"
-              placeholder="font file URL"
+              placeholder="字体文件 URL"
               style="width: 22.6em; margin-top: 0.1em; display: none"
             />
           </div>
@@ -2645,7 +2644,7 @@
       </div>
       <div id="cellInfo" style="display: none" class="dialog stable">
         <p>
-          <b>Cell:</b> <span id="infoCell"></span> <b>X:</b> <span id="infoX"></span> <b>Y:</b> <span id="infoY"></span>
+          <b>Cell:</b> <span id="infoCell"></span> <b>X：</b> <span id="infoX"></span> <b>Y:</b> <span id="infoY"></span>
         </p>
         <p><b>Latitude:</b> <span id="infoLat"></span></p>
         <p><b>Longitude:</b> <span id="infoLon"></span></p>

@@ -16700,6 +16700,788 @@
       "type": "html_text",
       "context_tag": "label",
       "skipped": false
+    },
+    {
+      "id": "sha256:acf38b982fed5261",
+      "source": "Temperature:",
+      "target": "温度：",
+      "file": "src/index.html",
+      "line": 2521,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:490b52b120f3668c",
+      "source": "Cell:",
+      "target": "单元格：",
+      "file": "src/index.html",
+      "line": 2652,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:4b498f7fdfdf01b7",
+      "source": "Select a distance unit or provide a custom name",
+      "target": "选择距离单位或提供自定义名称",
+      "file": "src/index.html",
+      "line": 2466,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:25efb54b7cd2134d",
+      "source": "Distance unit:",
+      "target": "距离单位：",
+      "file": "src/index.html",
+      "line": 2467,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:45b5a3a92213cb0a",
+      "source": "Mile (mi)",
+      "target": "英里 (mi)",
+      "file": "src/index.html",
+      "line": 2469,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d36754a58c2194cb",
+      "source": "Kilometer (km)",
+      "target": "千米 (km)",
+      "file": "src/index.html",
+      "line": 2470,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b9728e20c5f6aee5",
+      "source": "League (lg)",
+      "target": "里格 (lg)",
+      "file": "src/index.html",
+      "line": 2471,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eb08d295d04f9723",
+      "source": "Versta (vr)",
+      "target": "俄里 (vr)",
+      "file": "src/index.html",
+      "line": 2472,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ed8f88a7e8c87869",
+      "source": "Nautical mile (nmi)",
+      "target": "海里 (nmi)",
+      "file": "src/index.html",
+      "line": 2473,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:56346f2ef2058094",
+      "source": "Nautical league (nlg)",
+      "target": "海里格 (nlg)",
+      "file": "src/index.html",
+      "line": 2474,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f654416cdd17f4e2",
+      "source": "Custom name",
+      "target": "自定义名称",
+      "file": "src/index.html",
+      "line": 2475,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6d280c7d12b3fe56",
+      "source": "Select how many distance units are in one pixel",
+      "target": "选择一个像素包含多少距离单位",
+      "file": "src/index.html",
+      "line": 2478,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c5a861b2b3a140fd",
+      "source": "1 map pixel:",
+      "target": "1 个地图像素：",
+      "file": "src/index.html",
+      "line": 2481,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:83544cd0b8f55981",
+      "source": "Area unit name, type \"square\" to add ² to the distance unit",
+      "target": "面积单位名称，输入 \"square\" 可在距离单位后添加 ²",
+      "file": "src/index.html",
+      "line": 2484,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a9f0ca4953a23129",
+      "source": "Area unit:",
+      "target": "面积单位：",
+      "file": "src/index.html",
+      "line": 2485,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1c234bb4b068797c",
+      "source": "Altitude:",
+      "target": "海拔：",
+      "file": "src/index.html",
+      "line": 2490,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4d32cf35279f747c",
+      "source": "Select an altitude unit or provide a custom name",
+      "target": "选择海拔单位或提供自定义名称",
+      "file": "src/index.html",
+      "line": 2492,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:297fe7a1725cb093",
+      "source": "Height unit:",
+      "target": "高度单位：",
+      "file": "src/index.html",
+      "line": 2493,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7050efa62f3dc26b",
+      "source": "Feet (ft)",
+      "target": "英尺 (ft)",
+      "file": "src/index.html",
+      "line": 2495,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2ce8a33dbfe1d419",
+      "source": "Meters (m)",
+      "target": "米 (m)",
+      "file": "src/index.html",
+      "line": 2496,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:de13dd8d281099cc",
+      "source": "Fathoms (f)",
+      "target": "英寻 (f)",
+      "file": "src/index.html",
+      "line": 2497,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:055e9a8bcf92b54b",
+      "source": "Custom name",
+      "target": "自定义名称",
+      "file": "src/index.html",
+      "line": 2498,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:151bc2672dd53b77",
+      "source": "Set height exponent, i.e. a value for altitude change sharpness. Altitude affects temperature and hence biomes",
+      "target": "设置高度指数，即海拔变化陡峭程度的值。海拔影响温度，进而影响生物群系",
+      "file": "src/index.html",
+      "line": 2502,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c09e41d23490f8b7",
+      "source": "Exponent:",
+      "target": "指数：",
+      "file": "src/index.html",
+      "line": 2512,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:67e235dec6d67220",
+      "source": "Select Temperature scale",
+      "target": "选择温标",
+      "file": "src/index.html",
+      "line": 2515,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f1a1335880c892dc",
+      "source": "Temperature scale:",
+      "target": "温标：",
+      "file": "src/index.html",
+      "line": 2520,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:435928187b47a8dc",
+      "source": "degree Celsius (°C)",
+      "target": "摄氏度 (°C)",
+      "file": "src/index.html",
+      "line": 2522,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:175f2e3a7c9eb3f2",
+      "source": "degree Fahrenheit (°F)",
+      "target": "华氏度 (°F)",
+      "file": "src/index.html",
+      "line": 2523,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:95aacb26d125bca8",
+      "source": "Kelvin (K)",
+      "target": "开尔文 (K)",
+      "file": "src/index.html",
+      "line": 2524,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ee66dc2b67ba3682",
+      "source": "degree Rankine (°R)",
+      "target": "兰氏度 (°R)",
+      "file": "src/index.html",
+      "line": 2525,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:10a24b79f2ebdbcd",
+      "source": "degree Delisle (°De)",
+      "target": "德氏度 (°De)",
+      "file": "src/index.html",
+      "line": 2526,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7749a6243955ce1d",
+      "source": "degree Newton (°N)",
+      "target": "牛顿度 (°N)",
+      "file": "src/index.html",
+      "line": 2527,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fd64701bb7225ae1",
+      "source": "degree Réaumur (°Ré)",
+      "target": "列氏度 (°Ré)",
+      "file": "src/index.html",
+      "line": 2528,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:925eec72a09f23da",
+      "source": "degree Rømer (°Rø)",
+      "target": "罗氏度 (°Rø)",
+      "file": "src/index.html",
+      "line": 2529,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:afcf158c7d50440c",
+      "source": "Population:",
+      "target": "人口：",
+      "file": "src/index.html",
+      "line": 2534,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:09fa320ab82fb690",
+      "source": "Set how many people are in one population point",
+      "target": "设置一个人口点代表多少人",
+      "file": "src/index.html",
+      "line": 2536,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bbc42e4c5d414ea7",
+      "source": "1 population point:",
+      "target": "1 个人口点：",
+      "file": "src/index.html",
+      "line": 2545,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bf99b0c617bfa797",
+      "source": "Set urban population modifier. Change to increase or descrese burgs population",
+      "target": "设置城市人口修正值。调整以增加或减少城镇人口",
+      "file": "src/index.html",
+      "line": 2548,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:db028c7e2b14a2f8",
+      "source": "Urbanization rate:",
+      "target": "城市化率：",
+      "file": "src/index.html",
+      "line": 2550,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c3bb9c43eea01f21",
+      "source": "Set urban density: average population per building in Medieval Fantasy City Generator",
+      "target": "设置城市密度：Medieval Fantasy City Generator 中每栋建筑的平均人口",
+      "file": "src/index.html",
+      "line": 2553,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1958ee6cfb3131a6",
+      "source": "Urban density:",
+      "target": "城市密度：",
+      "file": "src/index.html",
+      "line": 2555,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b89c52fbae1fe696",
+      "source": "Restore default units settings",
+      "target": "恢复默认单位设置",
+      "file": "src/index.html",
+      "line": 2560,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:069fd487c8d99902",
+      "source": "Preset name:",
+      "target": "预设名称：",
+      "file": "src/index.html",
+      "line": 2565,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ed6998f7a91486ff",
+      "source": "Enter style preset name",
+      "target": "输入样式预设名称",
+      "file": "src/index.html",
+      "line": 2568,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fed7c74d80eed043",
+      "source": "Preset name",
+      "target": "预设名称",
+      "file": "src/index.html",
+      "line": 2569,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7a91ed0a32b4d750",
+      "source": "Shows whether there is already a preset with this name",
+      "target": "显示是否已存在同名预设",
+      "file": "src/index.html",
+      "line": 2575,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a56d08700368e027",
+      "source": "Style JSON:",
+      "target": "样式 JSON：",
+      "file": "src/index.html",
+      "line": 2580,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:91ecbfd193f6ff76",
+      "source": "Style JSON is getting formed based the current settings, but can be entered manually",
+      "target": "样式 JSON 会基于当前设置生成，也可手动输入",
+      "file": "src/index.html",
+      "line": 2584,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:018618c6fd14d8c3",
+      "source": "Paste any valid style data in JSON format",
+      "target": "粘贴任意有效的 JSON 格式样式数据",
+      "file": "src/index.html",
+      "line": 2585,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "skipped": false
+    },
+    {
+      "id": "sha256:96737992fc824b82",
+      "source": "Save current JSON as a new style preset",
+      "target": "将当前 JSON 保存为新样式预设",
+      "file": "src/index.html",
+      "line": 2591,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d9b0036ce8352f10",
+      "source": "Download the style as a .json file (can be opened in any text editor)",
+      "target": "将样式下载为 .json 文件（可在任意文本编辑器中打开）",
+      "file": "src/index.html",
+      "line": 2594,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2c2d9490869baa3c",
+      "source": "Open previously downloaded style file",
+      "target": "打开之前下载的样式文件",
+      "file": "src/index.html",
+      "line": 2597,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7c99fb0f9bd6fdd2",
+      "source": "Find or share custom style preset on Cartography Assets portal",
+      "target": "在 Cartography Assets 门户查找或分享自定义样式预设",
+      "file": "src/index.html",
+      "line": 2600,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f0a522e99c111797",
+      "source": "There are 3 ways to add a custom font:",
+      "target": "添加自定义字体有 3 种方式：",
+      "file": "src/index.html",
+      "line": 2607,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d8c98cda78518272",
+      "source": "Google font",
+      "target": "Google 字体",
+      "file": "src/index.html",
+      "line": 2609,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ba6aa804c134aa45",
+      "source": ". Open",
+      "target": "。打开",
+      "file": "src/index.html",
+      "line": 2609,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:453b827325c9c8dd",
+      "source": "Google Fonts",
+      "target": "Google Fonts",
+      "file": "src/index.html",
+      "line": 2609,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bc88463ae28cb1de",
+      "source": ", find\n          a font you like and enter its name to the field below.",
+      "target": "，找到\n          你喜欢的字体并将其名称输入到下方字段中。",
+      "file": "src/index.html",
+      "line": 2609,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4c545292e31a8d34",
+      "source": "Local font",
+      "target": "本地字体",
+      "file": "src/index.html",
+      "line": 2613,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5fad1731409de563",
+      "source": ". If you have a font",
+      "target": "。如果你有字体",
+      "file": "src/index.html",
+      "line": 2613,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:05b93173b02185d9",
+      "source": "installed on your computer",
+      "target": "已安装到电脑上",
+      "file": "src/index.html",
+      "line": 2617,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9afb93330666438b",
+      "source": ", just provide the font name. Make sure the browser is reloaded after the installation. The font won't work\n          on machines not having it installed. Good source of fonts are",
+      "target": "，只需提供字体名称。确保安装后重新加载浏览器。该字体在未安装的机器上无法使用。优质的字体来源有",
+      "file": "src/index.html",
+      "line": 2618,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:606fedb0868d663d",
+      "source": "Fontdesk",
+      "target": "Fontdesk",
+      "file": "src/index.html",
+      "line": 2619,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cabe3e5a5ad44bd5",
+      "source": "DaFont",
+      "target": "DaFont",
+      "file": "src/index.html",
+      "line": 2620,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:31b956c347c45967",
+      "source": "Font URL",
+      "target": "字体 URL",
+      "file": "src/index.html",
+      "line": 2623,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a150abb31c05c97",
+      "source": ". Provide font name and link to the font file hosted online. The best free font\n          hostings are",
+      "target": "。提供字体名称和在线托管的字体文件链接。最佳的免费字体\n          托管站点是",
+      "file": "src/index.html",
+      "line": 2623,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9008d2ca56459e3a",
+      "source": "Google Fonts",
+      "target": "Google Fonts",
+      "file": "src/index.html",
+      "line": 2624,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a370cb51b0deecb",
+      "source": "CDN Fonts",
+      "target": "CDN Fonts",
+      "file": "src/index.html",
+      "line": 2625,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ec5f56d964d996d0",
+      "source": ". To get font file open the link to css\n          provided by these services and manually copy the link to",
+      "target": "。要获取字体文件，请打开这些服务提供的 css\n          链接，并手动复制所需变体的 ",
+      "file": "src/index.html",
+      "line": 2625,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:552a6992aa324fb4",
+      "source": "woff2",
+      "target": "woff2",
+      "file": "src/index.html",
+      "line": 2626,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c3d4de694449e5b1",
+      "source": "of desired variant. To add another\n          variant (e.g. Cyrillic), add the font one more time under the same name, but with another URL",
+      "target": " 链接。要添加其他\n          变体（如西里尔字母），请使用相同名称再次添加该字体，但使用不同的 URL",
+      "file": "src/index.html",
+      "line": 2626,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:403bf7812ea1e51f",
+      "source": "Select font adding method",
+      "target": "选择字体添加方式",
+      "file": "src/index.html",
+      "line": 2629,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:624b5e7b1a09aa87",
+      "source": "Google font",
+      "target": "Google 字体",
+      "file": "src/index.html",
+      "line": 2631,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:404acb2d717cdc5d",
+      "source": "Local font",
+      "target": "本地字体",
+      "file": "src/index.html",
+      "line": 2632,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:178b77153275a9e0",
+      "source": "Font URL",
+      "target": "字体 URL",
+      "file": "src/index.html",
+      "line": 2633,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3dc2c80a3cad9118",
+      "source": "font family",
+      "target": "字体族",
+      "file": "src/index.html",
+      "line": 2635,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b4e795c04f9ee68e",
+      "source": "font file URL",
+      "target": "字体文件 URL",
+      "file": "src/index.html",
+      "line": 2639,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9fafc58e08754a88",
+      "source": "X:",
+      "target": "X：",
+      "file": "src/index.html",
+      "line": 2647,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
     }
   ]
 }
