@@ -15909,6 +15909,797 @@
       "type": "html_attr",
       "context_tag": "data-tip",
       "skipped": false
+    },
+    {
+      "id": "sha256:5de77175c306d2c7",
+      "source": "Height:",
+      "target": "高度：",
+      "file": "src/index.html",
+      "line": 2316,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:placeholder_patreon_supporters_1",
+      "source": "SUPPORT ON PATREON",
+      "target": "SUPPORT ON PATREON",
+      "file": "src/index.html",
+      "line": 2380,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:placeholder_patreon_supporters_2",
+      "source": "Special thanks to",
+      "target": "Special thanks to",
+      "file": "src/index.html",
+      "line": 2385,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:placeholder_patreon_supporters_3",
+      "source": "Click to see list of supporters",
+      "target": "Click to see list of supporters",
+      "file": "src/index.html",
+      "line": 2387,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:placeholder_patreon_supporters_4",
+      "source": "all supporters",
+      "target": "all supporters",
+      "file": "src/index.html",
+      "line": 2387,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:placeholder_patreon_supporters_5",
+      "source": "on Patreon!",
+      "target": "on Patreon!",
+      "file": "src/index.html",
+      "line": 2387,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:placeholder_ukraine_1",
+      "source": "Support Ukraine",
+      "target": "Support Ukraine",
+      "file": "src/index.html",
+      "line": 2390,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:placeholder_ukraine_2",
+      "source": "Support Ukraine",
+      "target": "Support Ukraine",
+      "file": "src/index.html",
+      "line": 2394,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:placeholder_ukraine_3",
+      "source": "u24.gov.ua",
+      "target": "u24.gov.ua",
+      "file": "src/index.html",
+      "line": 2395,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9afa91ea21205ec6",
+      "source": "Edit mode:",
+      "target": "编辑模式：",
+      "file": "src/index.html",
+      "line": 2254,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8c755db918e89a25",
+      "source": "Render cells below the sea level (with height less than 20)",
+      "target": "渲染海平面以下（高度小于 20）的单元格",
+      "file": "src/index.html",
+      "line": 2255,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:087d7cf32163510f",
+      "source": "Render ocean cells",
+      "target": "渲染海洋单元格",
+      "file": "src/index.html",
+      "line": 2257,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6717950c02d468a7",
+      "source": "Regenerate rivers and allow water flow to change heights and form new lakes. Better to keep checked",
+      "target": "重新生成河流，允许水流改变高度并形成新的湖泊。建议保持勾选",
+      "file": "src/index.html",
+      "line": 2261,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ec92c91303f3b722",
+      "source": "Allow water erosion",
+      "target": "允许水流侵蚀",
+      "file": "src/index.html",
+      "line": 2264,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bef97a3e4eb3a078",
+      "source": "Maximum number of iterations taken to resolve depressions. Increase if you have rivers ending nowhere",
+      "target": "解决洼地所需的最大迭代次数。如果河流无终可达，请增大此值",
+      "file": "src/index.html",
+      "line": 2267,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bb5b5771e1f95180",
+      "source": "Depressions filling max iterations:",
+      "target": "洼地填充最大迭代次数：",
+      "file": "src/index.html",
+      "line": 2269,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:942bbecf51dec9bb",
+      "source": "Depression depth to form a new lake. Increase to reduce number of lakes added by system",
+      "target": "形成新湖泊所需的洼地深度。增大此值可减少系统添加的湖泊数量",
+      "file": "src/index.html",
+      "line": 2287,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ae9e7ed3dfbf9306",
+      "source": "Depression depth threshold:",
+      "target": "洼地深度阈值：",
+      "file": "src/index.html",
+      "line": 2288,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5b18d71c9e10862",
+      "source": "Statistics:",
+      "target": "统计：",
+      "file": "src/index.html",
+      "line": 2307,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bcc5fd5db7c4dcb5",
+      "source": "Land cells:",
+      "target": "陆地单元格：",
+      "file": "src/index.html",
+      "line": 2309,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ab353dd7d57f336a",
+      "source": "Mean height:",
+      "target": "平均高度：",
+      "file": "src/index.html",
+      "line": 2310,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b6abbf1becef7d70",
+      "source": "Cell info:",
+      "target": "单元格信息：",
+      "file": "src/index.html",
+      "line": 2312,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eae0b16c4ceb1cc2",
+      "source": "Coord:",
+      "target": "坐标：",
+      "file": "src/index.html",
+      "line": 2314,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:94da6074538743a0",
+      "source": "Cell:",
+      "target": "单元格：",
+      "file": "src/index.html",
+      "line": 2315,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ef19f9bc9eeeb775",
+      "source": "Take an interactive tour of the map generator",
+      "target": "参与地图生成器的交互式导览",
+      "file": "src/index.html",
+      "line": 2324,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:19fe57258595c70e",
+      "source": "▶ Take an Interactive Tour",
+      "target": "▶ 参与交互式导览",
+      "file": "src/index.html",
+      "line": 2326,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:12569a07cd554875",
+      "source": "is an",
+      "target": "是一款",
+      "file": "src/index.html",
+      "line": 2330,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dfca11295675c98d",
+      "source": "open source",
+      "target": "开源",
+      "file": "src/index.html",
+      "line": 2332,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:da1fe58677dfafee",
+      "source": "tool by Azgaar. You may use auto-generated maps as they are, edit them or even create a new map from\n            scratch. Check out the",
+      "target": "工具，由 Azgaar 开发。你可以直接使用自动生成的地图，也可以编辑它们，甚至从零开始创建新地图。请查看",
+      "file": "src/index.html",
+      "line": 2334,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cc708700e9776aaf",
+      "source": "Quick start",
+      "target": "快速入门",
+      "file": "src/index.html",
+      "line": 2336,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d6e050dbff43067d",
+      "source": "Q&A",
+      "target": "Q&A",
+      "file": "src/index.html",
+      "line": 2337,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:77cf20fc5f821375",
+      "source": "Video tutorial",
+      "target": "视频教程",
+      "file": "src/index.html",
+      "line": 2339,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cef9890f9a9d481b",
+      "source": ", and",
+      "target": "和",
+      "file": "src/index.html",
+      "line": 2340,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f7d025dbe5636a91",
+      "source": "hotkeys",
+      "target": "快捷键",
+      "file": "src/index.html",
+      "line": 2341,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f965f32aed9581ec",
+      "source": "for\n            guidance.",
+      "target": "以获取指导。",
+      "file": "src/index.html",
+      "line": 2341,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8624ff8e420f8da3",
+      "source": "Join our",
+      "target": "加入我们的",
+      "file": "src/index.html",
+      "line": 2344,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f3971937da184d39",
+      "source": "Discord server",
+      "target": "Discord 服务器",
+      "file": "src/index.html",
+      "line": 2344,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:310ba7262f8be94b",
+      "source": "and",
+      "target": "和",
+      "file": "src/index.html",
+      "line": 2345,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2eb64d03948b7618",
+      "source": "Reddit community",
+      "target": "Reddit 社区",
+      "file": "src/index.html",
+      "line": 2345,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:27509ba52848efe2",
+      "source": "to ask\n            questions, get help and share maps. The created maps can be used for free, even for commercial purposes.",
+      "target": "来提问、获取帮助并分享地图。所创建的地图可免费使用，甚至用于商业用途。",
+      "file": "src/index.html",
+      "line": 2346,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ed3452c34e29699c",
+      "source": "The project is under active development. Creator and main maintainer: Azgaar. To track the development\n            progress see the",
+      "target": "本项目正在积极开发中。创建者和主要维护者：Azgaar。要跟踪开发进度，请查看",
+      "file": "src/index.html",
+      "line": 2349,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:038cda033f7c3f7d",
+      "source": "devboard",
+      "target": "开发看板",
+      "file": "src/index.html",
+      "line": 2350,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a1bc5459e6416e07",
+      "source": ". For older\n            versions see the",
+      "target": "。如需旧版本，请查看",
+      "file": "src/index.html",
+      "line": 2350,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2b50bc8ba7abdbf5",
+      "source": "changelog",
+      "target": "更新日志",
+      "file": "src/index.html",
+      "line": 2351,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3148f7410b7c6280",
+      "source": ".\n            Please report bugs",
+      "target": "。请报告 Bug",
+      "file": "src/index.html",
+      "line": 2352,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1ae695b455619239",
+      "source": "here",
+      "target": "此处",
+      "file": "src/index.html",
+      "line": 2353,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ae7869c63135d14b",
+      "source": ". You can also\n            contact me directly via",
+      "target": "。你也可以通过",
+      "file": "src/index.html",
+      "line": 2353,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dbaaec9231f6a68d",
+      "source": "email",
+      "target": "电子邮件",
+      "file": "src/index.html",
+      "line": 2354,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:73e53bcbc48393be",
+      "source": "Check out our other projects:",
+      "target": "查看我们的其他项目：",
+      "file": "src/index.html",
+      "line": 2396,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3b72173accbd5710",
+      "source": "Armoria",
+      "target": "Armoria",
+      "file": "src/index.html",
+      "line": 2397,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bafe033076619234",
+      "source": ": a tool for creating coats of arms",
+      "target": "：纹章创建工具",
+      "file": "src/index.html",
+      "line": 2397,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c1ea0f9246e04305",
+      "source": "Deorum",
+      "target": "Deorum",
+      "file": "src/index.html",
+      "line": 2398,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8fa8ebafff59e687",
+      "source": ": gallery of fantasy characters",
+      "target": "：奇幻角色画廊",
+      "file": "src/index.html",
+      "line": 2398,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e072c7fdb70e956f",
+      "source": "Chinese localization:",
+      "target": "中文本地化：",
+      "file": "src/index.html",
+      "line": 2401,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b33f7d7bbdeff09",
+      "source": "8desk.top",
+      "target": "8desk.top",
+      "file": "src/index.html",
+      "line": 2401,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:824848c5c9d90241",
+      "source": "Share on Facebook",
+      "target": "在 Facebook 上分享",
+      "file": "src/index.html",
+      "line": 2407,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6387d9fbc1fd6b04",
+      "source": "Share on Facebook",
+      "target": "在 Facebook 上分享",
+      "file": "src/index.html",
+      "line": 2409,
+      "type": "html_attr",
+      "context_tag": "alt",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a580280f1996ee9",
+      "source": "Tweet",
+      "target": "发推",
+      "file": "src/index.html",
+      "line": 2416,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:aab951d129a92825",
+      "source": "Tweet",
+      "target": "发推",
+      "file": "src/index.html",
+      "line": 2417,
+      "type": "html_attr",
+      "context_tag": "alt",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1be992756e0e67ba",
+      "source": "Pin it",
+      "target": "收藏到 Pinterest",
+      "file": "src/index.html",
+      "line": 2424,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:344572cd2ebfc3cb",
+      "source": "Pin it",
+      "target": "收藏到 Pinterest",
+      "file": "src/index.html",
+      "line": 2425,
+      "type": "html_attr",
+      "context_tag": "alt",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4757c434d249e666",
+      "source": "Submit to Reddit",
+      "target": "提交到 Reddit",
+      "file": "src/index.html",
+      "line": 2432,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dda469db681c55cf",
+      "source": "Submit to Reddit",
+      "target": "提交到 Reddit",
+      "file": "src/index.html",
+      "line": 2433,
+      "type": "html_attr",
+      "context_tag": "alt",
+      "skipped": false
+    },
+    {
+      "id": "sha256:059e04261fc06101",
+      "source": "Join Discord server",
+      "target": "加入 Discord 服务器",
+      "file": "src/index.html",
+      "line": 2437,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5d820721bee5849b",
+      "source": "Join Discord server",
+      "target": "加入 Discord 服务器",
+      "file": "src/index.html",
+      "line": 2438,
+      "type": "html_attr",
+      "context_tag": "alt",
+      "skipped": false
+    },
+    {
+      "id": "sha256:df378e3f500f844f",
+      "source": "Generate a new map based on options",
+      "target": "根据选项生成新地图",
+      "file": "src/index.html",
+      "line": 2444,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:81744a6051691f2a",
+      "source": "New Map",
+      "target": "新地图",
+      "file": "src/index.html",
+      "line": 2444,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:caa0078db6b88471",
+      "source": "Select format to download image or export map data",
+      "target": "选择格式以下载图片或导出地图数据",
+      "file": "src/index.html",
+      "line": 2445,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:953df1aad1fda2b6",
+      "source": "Export",
+      "target": "导出",
+      "file": "src/index.html",
+      "line": 2445,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:04420e0c4630b428",
+      "source": "Save fully-functional map file",
+      "target": "保存功能完整的地图文件",
+      "file": "src/index.html",
+      "line": 2446,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:90a43e1ecb78a4c5",
+      "source": "Save",
+      "target": "保存",
+      "file": "src/index.html",
+      "line": 2446,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6175d6c01a4258ef",
+      "source": "Load fully-functional map (.map or .gz formats)",
+      "target": "加载功能完整的地图（.map 或 .gz 格式）",
+      "file": "src/index.html",
+      "line": 2447,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:58067ed652c71637",
+      "source": "Load",
+      "target": "加载",
+      "file": "src/index.html",
+      "line": 2447,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e853138ef49fcd6f",
+      "source": "Reset map zoom",
+      "target": "重置地图缩放",
+      "file": "src/index.html",
+      "line": 2448,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:34f843870c33eb2f",
+      "source": "Reset Zoom",
+      "target": "重置缩放",
+      "file": "src/index.html",
+      "line": 2448,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a9d26ac9c0df8a11",
+      "source": "Drag to move the pane",
+      "target": "拖动以移动面板",
+      "file": "src/index.html",
+      "line": 2453,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d16d36148fc73905",
+      "source": "Finalize the heightmap and exit the edit mode",
+      "target": "完成高度图并退出编辑模式",
+      "file": "src/index.html",
+      "line": 2454,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:42a8d092f26321f8",
+      "source": "Exit Customization",
+      "target": "退出自定义",
+      "file": "src/index.html",
+      "line": 2455,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:afc4eedccda7d6db",
+      "source": "Distance:",
+      "target": "距离：",
+      "file": "src/index.html",
+      "line": 2464,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
     }
   ]
 }
