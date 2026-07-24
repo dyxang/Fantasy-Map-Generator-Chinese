@@ -2251,22 +2251,22 @@
           </div>
           <p>选项：</p>
           <div id="customizeOptions">
-            <div data-tip="高度图编辑模式">Edit mode: <span id="heightmapEditMode"></span></div>
-            <div data-tip="Render cells below the sea level (with height less than 20)">
+            <div data-tip="高度图编辑模式">编辑模式：<span id="heightmapEditMode"></span></div>
+            <div data-tip="渲染海平面以下（高度小于 20）的单元格">
               <input id="renderOcean" class="checkbox" type="checkbox" />
-              <label for="renderOcean" class="checkbox-label">Render ocean cells</label>
+              <label for="renderOcean" class="checkbox-label">渲染海洋单元格</label>
             </div>
             <div
               id="allowErosionBox"
-              data-tip="Regenerate rivers and allow water flow to change heights and form new lakes. Better to keep checked"
+              data-tip="重新生成河流，允许水流改变高度并形成新的湖泊。建议保持勾选"
             >
               <input id="allowErosion" class="checkbox" type="checkbox" checked />
-              <label for="allowErosion" class="checkbox-label">Allow water erosion</label>
+              <label for="allowErosion" class="checkbox-label">允许水流侵蚀</label>
             </div>
             <div
-              data-tip="Maximum number of iterations taken to resolve depressions. Increase if you have rivers ending nowhere"
+              data-tip="解决洼地所需的最大迭代次数。如果河流无终可达，请增大此值"
             >
-              <div>Depressions filling max iterations:</div>
+              <div>洼地填充最大迭代次数：</div>
               <input
                 id="resolveDepressionsStepsInput"
                 data-stored="resolveDepressionsSteps"
@@ -2284,8 +2284,8 @@
                 value="250"
               />
             </div>
-            <div data-tip="Depression depth to form a new lake. Increase to reduce number of lakes added by system">
-              <div>Depression depth threshold:</div>
+            <div data-tip="形成新湖泊所需的洼地深度。增大此值可减少系统添加的湖泊数量">
+              <div>洼地深度阈值：</div>
               <input
                 id="lakeElevationLimitInput"
                 data-stored="lakeElevationLimit"
@@ -2304,15 +2304,15 @@
               />
             </div>
           </div>
-          <p>Statistics:</p>
+          <p>统计：</p>
           <div>
-            <span>Land cells: </span><span id="landmassCounter">0</span>
-            <span style="margin-left: 0.9em">Mean height: </span><span id="landmassAverage">0</span>
+            <span>陆地单元格： </span><span id="landmassCounter">0</span>
+            <span style="margin-left: 0.9em">平均高度： </span><span id="landmassAverage">0</span>
           </div>
-          <p>Cell info:</p>
+          <p>单元格信息：</p>
           <div>
-            <span>Coord: </span><span id="heightmapInfoX"></span>/<span id="heightmapInfoY"></span><br />
-            <span>Cell: </span><span id="heightmapInfoCell"></span><br />
+            <span>坐标： </span><span id="heightmapInfoX"></span>/<span id="heightmapInfoY"></span><br />
+            <span>单元格： </span><span id="heightmapInfoCell"></span><br />
             <span>Height: </span><span id="heightmapInfoHeight"></span>
           </div>
         </div>
@@ -2321,41 +2321,37 @@
             <button
               id="startTourButton"
               onclick="window.Services.UiTour.start()"
-              data-tip="Take an interactive tour of the map generator"
+              data-tip="参与地图生成器的交互式导览"
             >
-              &#9654; Take an Interactive Tour
+              &#9654; 参与交互式导览
             </button>
           </p>
           <p>
-            <a href="https://github.com/Azgaar/Fantasy-Map-Generator" target="_blank">Fantasy Map Generator</a> is an
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator" target="_blank">Fantasy Map Generator</a> 是一款
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/blob/master/LICENSE" target="_blank"
-              >open source</a
+              >开源</a
             >
-            tool by Azgaar. You may use auto-generated maps as they are, edit them or even create a new map from
-            scratch. Check out the
+            工具，由 Azgaar 开发。你可以直接使用自动生成的地图，也可以编辑它们，甚至从零开始创建新地图。请查看
             <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Quick-Start-Tutorial" target="_blank"
-              >Quick start</a
-            >, <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A" target="_blank">Q&A</a>,
+              >快速入门</a
+            >、 <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A" target="_blank">Q&A</a>、
             <a href="https://youtube.com/playlist?list=PLtgiuDC8iVR2gIG8zMTRn7T_L0arl9h1C" target="_blank"
-              >Video tutorial</a
-            >, and
-            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys" target="_blank">hotkeys</a> for
-            guidance.
+              >视频教程</a
+            >和
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys" target="_blank">快捷键</a>以获取指导。
           </p>
           <p>
-            Join our <a href="https://discordapp.com/invite/X7E84HU" target="_blank">Discord server</a> and
-            <a href="https://www.reddit.com/r/FantasyMapGenerator/" target="_blank">Reddit community</a> to ask
-            questions, get help and share maps. The created maps can be used for free, even for commercial purposes.
+            加入我们的 <a href="https://discordapp.com/invite/X7E84HU" target="_blank">Discord 服务器</a> 和
+            <a href="https://www.reddit.com/r/FantasyMapGenerator/" target="_blank">Reddit 社区</a>
+            来提问、获取帮助并分享地图。所创建的地图可免费使用，甚至用于商业用途。
           </p>
           <p>
-            The project is under active development. Creator and main maintainer: Azgaar. To track the development
-            progress see the
-            <a href="https://trello.com/b/7x832DG4/fantasy-map-generator" target="_blank">devboard</a>. For older
-            versions see the
-            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog" target="_blank">changelog</a>.
-            Please report bugs
-            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">here</a>. You can also
-            contact me directly via <a href="mailto:azgaar.fmg@yandex.by" target="_blank">email</a>.
+            本项目正在积极开发中。创建者和主要维护者：Azgaar。要跟踪开发进度，请查看
+            <a href="https://trello.com/b/7x832DG4/fantasy-map-generator" target="_blank">开发看板</a>。如需旧版本，请查看
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog" target="_blank">更新日志</a>。
+            请报告 Bug
+            <a href="https://github.com/Azgaar/Fantasy-Map-Generator/issues" target="_blank">此处</a>。你也可以通过
+            <a href="mailto:azgaar.fmg@yandex.by" target="_blank">电子邮件</a>直接联系我。
           </p>
           <div
             style="
@@ -2378,85 +2374,85 @@
                     <rect data-fill="2" height="545.799988" id="Rectangle" width="100" x="0" y="0" />
                   </svg>
                 </div>
-                SUPPORT ON PATREON
+                在 PATREON 上支持
               </div>
             </a>
           </div>
           <p>
-            Special thanks to
-            <a data-tip="Click to see list of supporters" onclick="showSupporters()">all supporters</a> on Patreon!
+            特别感谢 Patreon 上的
+            <a data-tip="点击查看支持者列表" onclick="showSupporters()">所有支持者</a>！
           </p>
           <div style="display: flex; justify-content: center; padding: 0.8em 0.4em 0.4em; font-family: cursive">
-            <a href="https://u24.gov.ua/" style="width: 80%" data-tip="Support Ukraine" target="_blank">
+            <a href="https://u24.gov.ua/" style="width: 80%" data-tip="支持乌克兰" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350">
                 <rect width="100%" height="100%" fill="#005bbb"></rect>
                 <rect y="50%" width="100%" height="50%" fill="#ffd500"></rect>
-                <text x="50%" text-anchor="middle" font-size="8em" y="32%" fill="#f5f5f5">Support Ukraine</text>
+                <text x="50%" text-anchor="middle" font-size="8em" y="32%" fill="#f5f5f5">支持乌克兰</text>
                 <text x="50%" text-anchor="middle" font-size="4em" y="78%" fill="#005bdd">u24.gov.ua</text>
               </svg>
             </a>
           </div>
           <div style="text-align: left">
-            <p>Check out our other projects:</p>
-            <div>• <a href="https://azgaar.github.io/Armoria" target="_blank">Armoria</a>: a tool for creating coats of arms</div>
-            <div>• <a href="https://deorum.vercel.app" target="_blank">Deorum</a>: gallery of fantasy characters</div>
+            <p>查看我们的其他项目：</p>
+            <div>• <a href="https://azgaar.github.io/Armoria" target="_blank">Armoria</a>：纹章创建工具</div>
+            <div>• <a href="https://deorum.vercel.app" target="_blank">Deorum</a>：奇幻角色画廊</div>
           </div>
           <div style="text-align: left; margin-top: 0.5em">
-            Chinese localization: <a href="https://www.8desk.top" target="_blank">8desk.top</a>
+            中文本地化：<a href="https://www.8desk.top" target="_blank">8desk.top</a>
           </div>
           <ul class="share-buttons">
             <li>
               <a
                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazgaar.github.io%2FFantasy-Map-Generator%2F&quote="
-                data-tip="Share on Facebook"
+                data-tip="在 Facebook 上分享"
                 target="_blank"
-                ><img alt="Share on Facebook" src="images/Facebook.png" loading="lazy"
+                ><img alt="在 Facebook 上分享" src="images/Facebook.png" loading="lazy"
               /></a>
             </li>
             <li>
               <a
                 href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fazgaar.github.io%2FFantasy-Map-Generator&text=%23FantasyMapGenerator%0A%0Ahttps%3A//azgaar.github.io/Fantasy-Map-Generator"
                 target="_blank"
-                data-tip="Tweet"
-                ><img alt="Tweet" src="images/Twitter.png" loading="lazy"
+                data-tip="发推"
+                ><img alt="发推" src="images/Twitter.png" loading="lazy"
               /></a>
             </li>
             <li>
               <a
                 href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fazgaar.github.io%2FFantasy-Map-Generator"
                 target="_blank"
-                data-tip="Pin it"
-                ><img alt="Pin it" src="images/Pinterest.png" loading="lazy"
+                data-tip="收藏到 Pinterest"
+                ><img alt="收藏到 Pinterest" src="images/Pinterest.png" loading="lazy"
               /></a>
             </li>
             <li>
               <a
                 href="http://www.reddit.com/submit?url=https%3A%2F%2Fazgaar.github.io%2FFantasy-Map-Generator"
                 target="_blank"
-                data-tip="Submit to Reddit"
-                ><img alt="Submit to Reddit" src="images/Reddit.png" loading="lazy"
+                data-tip="提交到 Reddit"
+                ><img alt="提交到 Reddit" src="images/Reddit.png" loading="lazy"
               /></a>
             </li>
             <li>
-              <a href="https://discord.gg/X7E84HU" target="_blank" data-tip="Join Discord server"
-                ><img alt="Join Discord server" src="images/Discord.png" loading="lazy"
+              <a href="https://discord.gg/X7E84HU" target="_blank" data-tip="加入 Discord 服务器"
+                ><img alt="加入 Discord 服务器" src="images/Discord.png" loading="lazy"
               /></a>
             </li>
           </ul>
         </div>
         <div id="sticked">
-          <button id="newMapButton" data-tip="Generate a new map based on options" data-shortcut="F2">New Map</button>
-          <button id="exportButton" data-tip="Select format to download image or export map data">Export</button>
-          <button id="saveButton" data-tip="Save fully-functional map file">Save</button>
-          <button id="loadButton" data-tip="Load fully-functional map (.map or .gz formats)">Load</button>
-          <button id="zoomReset" data-tip="Reset map zoom" data-shortcut="0 (zero)">Reset Zoom</button>
+          <button id="newMapButton" data-tip="根据选项生成新地图" data-shortcut="F2">新地图</button>
+          <button id="exportButton" data-tip="选择格式以下载图片或导出地图数据">导出</button>
+          <button id="saveButton" data-tip="保存功能完整的地图文件">保存</button>
+          <button id="loadButton" data-tip="加载功能完整的地图（.map 或 .gz 格式）">加载</button>
+          <button id="zoomReset" data-tip="重置地图缩放" data-shortcut="0 (zero)">重置缩放</button>
         </div>
       </div>
     </div>
     <div id="exitCustomization">
-      <div data-tip="Drag to move the pane">
-        <button data-tip="Finalize the heightmap and exit the edit mode" id="finalizeHeightmap">
-          Exit Customization
+      <div data-tip="拖动以移动面板">
+        <button data-tip="完成高度图并退出编辑模式" id="finalizeHeightmap">
+          退出自定义
         </button>
       </div>
     </div>
@@ -2465,41 +2461,41 @@
         <div id="unitsBody" style="margin-left: 1.1em">
           <div class="unitsHeader" style="margin-top: 0.4em">
             <span class="icon-map-signs"></span>
-            <label>Distance:</label>
+            <label>距离：</label>
           </div>
-          <div data-tip="Select a distance unit or provide a custom name">
-            <label>Distance unit:</label>
+          <div data-tip="选择距离单位或提供自定义名称">
+            <label>距离单位：</label>
             <select id="distanceUnitInput" data-stored="distanceUnit">
-              <option value="mi" selected>Mile (mi)</option>
-              <option value="km">Kilometer (km)</option>
-              <option value="lg">League (lg)</option>
-              <option value="vr">Versta (vr)</option>
-              <option value="nmi">Nautical mile (nmi)</option>
-              <option value="nlg">Nautical league (nlg)</option>
-              <option value="custom_name">Custom name</option>
+              <option value="mi" selected>英里 (mi)</option>
+              <option value="km">千米 (km)</option>
+              <option value="lg">里格 (lg)</option>
+              <option value="vr">维尔斯塔 (vr)</option>
+              <option value="nmi">海里 (nmi)</option>
+              <option value="nlg">海里格 (nlg)</option>
+              <option value="custom_name">自定义名称</option>
             </select>
           </div>
-          <div data-tip="Select how many distance units are in one pixel">
+          <div data-tip="选择一个像素包含多少距离单位">
             <i data-locked="0" id="lock_distanceScale" class="icon-lock-open"></i>
             <slider-input id="distanceScaleInput" data-stored="distanceScale" min=".01" max="20" step=".1" value="3">
-              <label>1 map pixel:</label>
+              <label>1 个地图像素：</label>
             </slider-input>
           </div>
-          <div data-tip='Area unit name, type "square" to add ² to the distance unit'>
-            <label>Area unit:</label>
+          <div data-tip='面积单位名称，输入 "square" 可在距离单位后添加 ²'>
+            <label>面积单位：</label>
             <input id="areaUnit" data-stored="areaUnit" type="text" value="square" />
           </div>
           <div class="unitsHeader">
             <span class="icon-signal"></span>
-            <label>Altitude:</label>
+            <label>海拔：</label>
           </div>
-          <div data-tip="Select an altitude unit or provide a custom name">
-            <label>Height unit:</label>
+          <div data-tip="选择海拔单位或提供自定义名称">
+            <label>高度单位：</label>
             <select id="heightUnit" data-stored="heightUnit">
-              <option value="ft" selected>Feet (ft)</option>
-              <option value="m">Meters (m)</option>
-              <option value="f">Fathoms (f)</option>
-              <option value="custom_name">Custom name</option>
+              <option value="ft" selected>英尺 (ft)</option>
+              <option value="m">米 (m)</option>
+              <option value="f">英寻 (f)</option>
+              <option value="custom_name">自定义名称</option>
             </select>
           </div>
           <div
