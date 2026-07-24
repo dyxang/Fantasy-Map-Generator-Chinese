@@ -9812,6 +9812,792 @@
       "type": "html_attr",
       "context_tag": "data-tip",
       "skipped": false
+    },
+    {
+      "id": "sha256:048c0de61da7e472",
+      "source": "Emblems",
+      "target": "纹章",
+      "file": "src/index.html",
+      "line": 636,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:0554bc3195c0aa40",
+      "source": "Cells",
+      "target": "单元格",
+      "file": "src/index.html",
+      "line": 751,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:9819985443f9cac2",
+      "source": "Emblems",
+      "target": "纹章",
+      "file": "src/index.html",
+      "line": 755,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:d255db7aba15c574",
+      "source": "Grid",
+      "target": "网格",
+      "file": "src/index.html",
+      "line": 760,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:9575ef43893c8d33",
+      "source": "Heightmap",
+      "target": "高度图",
+      "file": "src/index.html",
+      "line": 761,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:f2cbc161dc429661",
+      "source": "Lakes",
+      "target": "湖泊",
+      "file": "src/index.html",
+      "line": 764,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:a59349955aa04101",
+      "source": "Ice",
+      "target": "冰川",
+      "file": "src/index.html",
+      "line": 589,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ee40866c6d94bc57",
+      "source": "oods",
+      "target": "货物",
+      "file": "src/index.html",
+      "line": 598,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fff996cc025e243d",
+      "source": "Markets",
+      "target": "市场",
+      "file": "src/index.html",
+      "line": 606,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f1e0aa89254acfd5",
+      "source": "Trade",
+      "target": "贸易",
+      "file": "src/index.html",
+      "line": 615,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:73bc8b9c4eb58cf8",
+      "source": "Precipit",
+      "target": "降水量",
+      "file": "src/index.html",
+      "line": 622,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c56e08f99aa68600",
+      "source": "tion",
+      "target": "降水量",
+      "file": "src/index.html",
+      "line": 622,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:15731d540d15d2a8",
+      "source": "Populatio",
+      "target": "人口",
+      "file": "src/index.html",
+      "line": 629,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f01c892962e84e8f",
+      "source": "cons",
+      "target": "图标",
+      "file": "src/index.html",
+      "line": 645,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0e8b6ec99058636f",
+      "source": "abels",
+      "target": "标签",
+      "file": "src/index.html",
+      "line": 653,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6ae60b8fcd7249aa",
+      "source": "ilitary",
+      "target": "军事",
+      "file": "src/index.html",
+      "line": 661,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fdfb3b781d583979",
+      "source": "Mar",
+      "target": "标记",
+      "file": "src/index.html",
+      "line": 669,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d8a7329d49f1015d",
+      "source": "Rulers",
+      "target": "标尺",
+      "file": "src/index.html",
+      "line": 677,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6dce1e84d355df31",
+      "source": "Scale Bar",
+      "target": "比例尺",
+      "file": "src/index.html",
+      "line": 686,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d9b45ee9eb753ae9",
+      "source": "Vignette",
+      "target": "暗角",
+      "file": "src/index.html",
+      "line": 695,
+      "type": "html_text",
+      "context_tag": "list_item",
+      "skipped": false
+    },
+    {
+      "id": "sha256:41757b8059151629",
+      "source": "Icebergs and glaciers: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "冰山与冰川：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 585,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a7672522e21517de",
+      "source": "Goods and Production: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "货物与产出：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 593,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bd0a2d4c3d787bc6",
+      "source": "Markets: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "市场：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 602,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0bd03acea788f85f",
+      "source": "Trade: animated trade deal flows. Click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "贸易：动画展示贸易交易流。点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 610,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7a3a84ba0ae47a01",
+      "source": "Precipitation map: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "降水量地图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 618,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:85f7d97afe757e92",
+      "source": "Population map: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "人口地图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 625,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:17d486d9fce5c13b",
+      "source": "Emblems: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "纹章：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 633,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:db0f824c2ee1868d",
+      "source": "Burg icons: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "城镇图标：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 641,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a4218ec3713eda8",
+      "source": "Labels: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "标签：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 649,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c9a4d11b8a6b27ce",
+      "source": "Military forces: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "军事部队：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 657,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fef763b4580b2423",
+      "source": "Markers: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "标记：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 665,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f3d384642cde5ba1",
+      "source": "Rulers: click to toggle, drag to move, click on label to delete. Ctrl + click to edit layer style",
+      "target": "标尺：点击切换，拖动以移动，点击标签以删除。按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 673,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3450e13d1870aeec",
+      "source": "Scale Bar: click to toggle. Ctrl + click to edit style",
+      "target": "比例尺：点击切换。按 Ctrl + 点击编辑样式",
+      "file": "src/index.html",
+      "line": 681,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b16ec802baa145e5",
+      "source": "Vignette (border fading): click to toggle. Ctrl + click to edit style",
+      "target": "暗角（边缘渐隐）：点击切换。按 Ctrl + 点击编辑样式",
+      "file": "src/index.html",
+      "line": 690,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a6e234123318921f",
+      "source": "Click to toggle, drag to raise or lower the layer",
+      "target": "点击切换，拖动以升高或降低图层",
+      "file": "src/index.html",
+      "line": 698,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7e97eeb359df7f4a",
+      "source": "Ctrl + click to edit layer style",
+      "target": "按 Ctrl + 点击编辑图层样式",
+      "file": "src/index.html",
+      "line": 699,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:81011a47e157ee5f",
+      "source": "Set view node",
+      "target": "设置视图模式",
+      "file": "src/index.html",
+      "line": 700,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1e3c7a7181b7442d",
+      "source": "View mode:",
+      "target": "视图模式：",
+      "file": "src/index.html",
+      "line": 701,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b0d83975e463b9a9",
+      "source": "Standard view mode that allows to edit the map",
+      "target": "允许编辑地图的标准视图模式",
+      "file": "src/index.html",
+      "line": 702,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dc37de0f97fcdcae",
+      "source": "Standard",
+      "target": "标准",
+      "file": "src/index.html",
+      "line": 703,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e041b1b6a7662247",
+      "source": "Map presentation in 3D scene. Works best for heightmap. Cannot be used for editing",
+      "target": "在 3D 场景中展示地图。最适合高度图。无法用于编辑",
+      "file": "src/index.html",
+      "line": 706,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0995b6f07ebe2ca0",
+      "source": "3D scene",
+      "target": "3D 场景",
+      "file": "src/index.html",
+      "line": 709,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa3d6f825e6f472d",
+      "source": "Project map on globe. Cannot be used for editing",
+      "target": "将地图投影到地球仪上。无法用于编辑",
+      "file": "src/index.html",
+      "line": 711,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:39089496892ee326",
+      "source": "Globe",
+      "target": "地球仪",
+      "file": "src/index.html",
+      "line": 711,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e115ff24aa0d23fa",
+      "source": "Select a style preset. State labels may required regeneration if font is changed",
+      "target": "选择样式预设。更改字体后可能需要重新生成国家标签",
+      "file": "src/index.html",
+      "line": 716,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cf83072c9af64d90",
+      "source": "Style preset:",
+      "target": "样式预设：",
+      "file": "src/index.html",
+      "line": 719,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c8ab9ffa4a09336c",
+      "source": "Select a style preset",
+      "target": "选择样式预设",
+      "file": "src/index.html",
+      "line": 722,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:822f32a6f2cce47d",
+      "source": "Click to save current style as a new preset",
+      "target": "点击将当前样式保存为新预设",
+      "file": "src/index.html",
+      "line": 729,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5b43f877ccbf2b3",
+      "source": "Click to remove current custom style preset",
+      "target": "点击移除当前自定义样式预设",
+      "file": "src/index.html",
+      "line": 736,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6f6d235302b19e07",
+      "source": "Select an element to edit its style",
+      "target": "选择元素以编辑其样式",
+      "file": "src/index.html",
+      "line": 741,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:21e99ebeea9ddb6c",
+      "source": "Select element:",
+      "target": "选择元素：",
+      "file": "src/index.html",
+      "line": 741,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9bfdaac9949b8fec",
+      "source": "Select an element to edit its style (list is ordered alphabetically)",
+      "target": "选择元素以编辑其样式（列表按字母顺序排列）",
+      "file": "src/index.html",
+      "line": 743,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad2f447be122a589",
+      "source": "Anchor Icons",
+      "target": "锚定图标",
+      "file": "src/index.html",
+      "line": 747,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b12455c56f56b39",
+      "source": "Biomes",
+      "target": "生物群系",
+      "file": "src/index.html",
+      "line": 748,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eeea5e047fcf9484",
+      "source": "Borders",
+      "target": "边界",
+      "file": "src/index.html",
+      "line": 749,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:05ad906c76f5ada7",
+      "source": "Burg Icons",
+      "target": "城镇图标",
+      "file": "src/index.html",
+      "line": 750,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:38bbbc99248ca773",
+      "source": "Coastline",
+      "target": "海岸线",
+      "file": "src/index.html",
+      "line": 752,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c6589eb3c78f65d2",
+      "source": "Coordinates",
+      "target": "坐标",
+      "file": "src/index.html",
+      "line": 753,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b6d81ced12ace12c",
+      "source": "Cultures",
+      "target": "文化",
+      "file": "src/index.html",
+      "line": 754,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e94e144486c51ebe",
+      "source": "Fogging",
+      "target": "雾化",
+      "file": "src/index.html",
+      "line": 756,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c3096e268af1928b",
+      "source": "Goods: production",
+      "target": "货物：产出",
+      "file": "src/index.html",
+      "line": 757,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:da1c8e72a844bebc",
+      "source": "Goods: resources",
+      "target": "货物：资源",
+      "file": "src/index.html",
+      "line": 758,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ba3feab18f787406",
+      "source": "Goods: burg plates",
+      "target": "货物：城镇牌",
+      "file": "src/index.html",
+      "line": 759,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3139ad1b1f61e172",
+      "source": "Ice",
+      "target": "冰川",
+      "file": "src/index.html",
+      "line": 762,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:20eeba7dd1921e54",
+      "source": "Labels",
+      "target": "标签",
+      "file": "src/index.html",
+      "line": 763,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:963642aeddb66156",
+      "source": "Landmass",
+      "target": "陆地",
+      "file": "src/index.html",
+      "line": 765,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:65146d30f1118bcd",
+      "source": "Legend",
+      "target": "图例",
+      "file": "src/index.html",
+      "line": 766,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fc1642a48648f574",
+      "source": "Markers",
+      "target": "标记",
+      "file": "src/index.html",
+      "line": 767,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5daba7661575467",
+      "source": "Markets",
+      "target": "市场",
+      "file": "src/index.html",
+      "line": 768,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0c543b1d8ebb72d7",
+      "source": "Military",
+      "target": "军事",
+      "file": "src/index.html",
+      "line": 769,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0beb22c0b2cbc1ea",
+      "source": "Ocean",
+      "target": "海洋",
+      "file": "src/index.html",
+      "line": 770,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:11004a146ee1aa0a",
+      "source": "Population",
+      "target": "人口",
+      "file": "src/index.html",
+      "line": 771,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e8d23e54c5af564b",
+      "source": "Precipitation",
+      "target": "降水量",
+      "file": "src/index.html",
+      "line": 772,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7034833a2c4ceac3",
+      "source": "Provinces",
+      "target": "省份",
+      "file": "src/index.html",
+      "line": 773,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6c94b8cdc54a6d31",
+      "source": "Relief Icons",
+      "target": "地形图标",
+      "file": "src/index.html",
+      "line": 774,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:23600fc6a545cf6f",
+      "source": "Religions",
+      "target": "宗教",
+      "file": "src/index.html",
+      "line": 775,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:902191f73ee7ac2f",
+      "source": "Rivers",
+      "target": "河流",
+      "file": "src/index.html",
+      "line": 776,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c988fdc12380019e",
+      "source": "Routes",
+      "target": "道路",
+      "file": "src/index.html",
+      "line": 777,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
     }
   ]
 }
