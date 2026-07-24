@@ -194,13 +194,12 @@
    - 多个 → 加入 ambiguous 警告
 4. 仍未命中 → 进 unmatched
 
-**替换策略**（按文件类型）:
+**替换策略**（TS/JS 用 AST，其他按之前方案不变）:
 
-| 文件类型 | 解析器 | 替换方式 | 理由 |
-|---|---|---|---|
-| `.ts` / `.js` | TypeScript AST（`typescript` 包） | 遍历 StringLiteral 节点，按位置精确替换 | 正则会漏字符串（extract.mjs 现状），AST 完整覆盖 |
-| `.html` | `parse5`（已有依赖） | 遍历 text 节点 + 属性节点，按 sourceCodeLocation 精确替换 | parse5 已在 extract.mjs 验证可用 |
-| 其他 | 不处理 | - | 图片/字体等已在 sync-analyze 过滤 |
+| 文件类型 | 替换方式 | 理由 |
+|---|---|---|
+| `.ts` / `.js` | TypeScript AST（`typescript` 包），遍历 StringLiteral 节点按位置精确替换 | 正则会漏字符串（extract.mjs 现状），AST 完整覆盖 |
+| `.html` 及其他 | `String.split(source).join(target)` 字符串替换（之前方案） | 之前讨论的方案，保持不变 |
 
 **TS/JS AST 替换实现**:
 
@@ -217,7 +216,6 @@ function replayTsFile(content, tm_index, file) {
       const key = file + "::" + node.text;
       if (tm_index.has(key)) {
         const target = tm_index.get(key);
-        // 注意：node.text 是去引号的内容，替换时要保留原引号
         replacements.push({
           start: node.getStart(sourceFile) + 1,  // +1 跳过开引号
           end: node.getEnd() - 1,                  // -1 跳过闭引号
@@ -251,76 +249,27 @@ function replayTsFile(content, tm_index, file) {
 }
 ```
 
-**HTML 替换实现**（基于 parse5）:
+**HTML 及其他文件替换**（之前方案，不变）:
 
 ```javascript
-import { parse } from "parse5";
-
-function replayHtmlFile(content, tm_index, file) {
-  const document = parse(content, { sourceCodeLocationInfo: true });
-  const replacements = []; // { startOffset, endOffset, text }
-  const TRANSLATABLE_ATTRS = new Set(["title", "placeholder", "aria-label", "alt", "data-tip", "data-info"]);
-
-  function walk(node) {
-    if (node.nodeName === "#text") {
-      const trimmed = node.value.trim();
-      if (trimmed.length >= 2) {
-        const key = file + "::" + trimmed;
-        if (tm_index.has(key)) {
-          const target = tm_index.get(key);
-          const loc = node.sourceCodeLocation;
-          // 注意：保留前后空白，只替换 trim 后的内容
-          // parse5 的 startOffset/endOffset 包含空白，需要精细处理
-          replacements.push({
-            startOffset: loc.startOffset,
-            endOffset: loc.endOffset,
-            text: preserveWhitespace(node.value, target),
-          });
-        }
-      }
-    }
-    if (node.attrs) {
-      for (const attr of node.attrs) {
-        if (TRANSLATABLE_ATTRS.has(attr.name)) {
-          const val = (attr.value || "").trim();
-          if (val.length >= 2) {
-            const key = file + "::" + val;
-            if (tm_index.has(key)) {
-              const target = tm_index.get(key);
-              const loc = attr.sourceCodeLocation;
-              // 属性值的 sourceCodeLocation 需要跳过引号
-              replacements.push({
-                startOffset: loc.value.startOffset + 1,  // 跳过开引号
-                endOffset: loc.value.endOffset - 1,        // 跳过闭引号
-                text: target,
-              });
-            }
-          }
-        }
-      }
-    }
-    if (node.childNodes) {
-      for (const child of node.childNodes) walk(child);
-    }
-  }
-  walk(document);
-
-  replacements.sort((a, b) => b.startOffset - a.startOffset);
+function replayGenericFile(content, tm_index, file) {
   let result = content;
-  for (const r of replacements) {
-    result = result.slice(0, r.startOffset) + r.text + result.slice(r.endOffset);
+  for (const [key, target] of tm_index) {
+    if (!key.startsWith(file + "::")) continue;
+    const source = key.slice(file.length + 2);
+    // String.split/join 替换所有出现位置
+    result = result.split(source).join(target);
   }
   return result;
 }
 ```
 
 **fallback 机制**:
-- AST 解析失败 → 报错并跳过该文件（不降级到字符串替换，避免误伤）
+- TS/JS AST 解析失败 → 报错并跳过该文件（不降级到字符串替换，避免误伤）
 - 输出到 `sync-replay-report.json` 的 `parse_errors[]`
 
 **依赖变更**:
 - 新增 `typescript` 到 `i18n/scripts/package.json`（主项目已有，但 i18n/scripts 独立）
-- 复用已有 `parse5`
 
 ### sync-collect.mjs
 
