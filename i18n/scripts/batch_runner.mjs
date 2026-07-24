@@ -138,15 +138,21 @@ function prepare(count) {
   // 根据批次内待翻译单元的源文本，动态筛选相关的术语条目
   function filterGlossary(batchUnits) {
     const glossary = readJson(join(I18N, "glossary.json"));
-    
-    // 收集批次内所有单元的源文本
-    const allSourceText = batchUnits.map(u => u.source).join(" ").toLowerCase();
-    
-    // 筛选出文本里用到的术语（支持大小写不敏感、词干匹配）
+
+    // 收集批次内所有单元的源文本，分词后用 Set 做单词级匹配，避免子串误匹配
+    // （如 "iron" 裸 includes 会匹配 "environment"）
+    const batchWords = new Set();
+    for (const u of batchUnits) {
+      for (const w of u.source.toLowerCase().split(/[^a-z0-9]+/)) {
+        if (w.length >= 2) batchWords.add(w);
+      }
+    }
+
+    // 筛选出文本里用到的术语（单词级匹配，支持去复数后缀的词干匹配）
     const relevantTerms = glossary.terms.filter(term => {
       const termLower = term.en.toLowerCase();
       const termStem = termLower.replace(/s$/, ""); // 去除复数后缀
-      return allSourceText.includes(termLower) || allSourceText.includes(termStem);
+      return batchWords.has(termLower) || batchWords.has(termStem);
     });
     
     // 兜底机制：如果筛选后太少（< 5 条），返回完整术语表
@@ -256,7 +262,7 @@ function prepare(count) {
     const fileCount = {};
     for (const u of batchUnits) fileCount[u.file] = (fileCount[u.file] || 0) + 1;
 
-    console.log(`Batch ${i + 1}: ${batchUnits.length} units, ${tmHints.length} TM hints (top-50), files: ${Object.entries(fileCount).map(([f, c]) => `${f.split("/").pop()}(${c})`).join(", ")}`);
+    console.log(`Batch ${i + 1}: ${batchUnits.length} units, ${tmHints.length} TM hints (top-20), files: ${Object.entries(fileCount).map(([f, c]) => `${f.split("/").pop()}(${c})`).join(", ")}`);
     totalUnits += batchUnits.length;
   }
 

@@ -303,15 +303,18 @@ function extractTsUnits(filePath) {
     
     const trimmed = value.trim();
     if (!isTranslatableText(trimmed)) continue;
-    if (looksLikeFilePath(trimmed) || looksLikeUrl(trimmed)) continue;
-    
+    if (looksLikeFilePath(trimmed) || looksLikeUrl(trimmed) || looksLikeCssSelector(trimmed)) continue;
+    if (looksLikeCssVariable(trimmed)) continue;
+    if (looksLikeSvgPath(trimmed)) continue;
+    if (looksLikeCode(trimmed)) continue;
+
     const lineNum = content.slice(0, match.index).split("\n").length;
     const ctxBefore = lines.slice(Math.max(0, lineNum - 4), Math.max(0, lineNum - 1)).join("\n");
     const ctxAfter = lines.slice(lineNum, Math.min(lines.length, lineNum + 3)).join("\n");
     const id = sha256(trimmed + ctxBefore);
     if (seenIds.has(id + ":" + lineNum)) continue;
     seenIds.add(id + ":" + lineNum);
-    
+
     units.push({
       id,
       source: trimmed,
