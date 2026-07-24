@@ -947,37 +947,37 @@
               <tr data-tip="按轴向偏移纹理">
                 <td>轴向偏移</td>
                 <td>
-                  <input id="styleTextureShiftX" type="number" value="0" data-tip="Shift texture by x axis in pixels" />
-                  <input id="styleTextureShiftY" type="number" value="0" data-tip="Shift texture by y axis in pixels" />
+                  <input id="styleTextureShiftX" type="number" value="0" data-tip="按 x 轴偏移纹理（像素）" />
+                  <input id="styleTextureShiftY" type="number" value="0" data-tip="按 y 轴偏移纹理（像素）" />
                 </td>
               </tr>
             </tbody>
             <tbody id="styleVignette">
-              <tr data-tip="Select precreated vignette">
-                <td>Preset</td>
+              <tr data-tip="选择预设晕影">
+                <td>预设</td>
                 <td>
                   <select id="styleVignettePreset"></select>
                 </td>
               </tr>
-              <tr data-tip="Vignette rectangle position (in percents)">
-                <td>Position</td>
+              <tr data-tip="晕影矩形位置（百分比）">
+                <td>位置</td>
                 <td style="display: flex; flex-direction: column; gap: 2px">
                   <div>
                     <span>x </span>
                     <input id="styleVignetteX" type="number" min="0" max="100" step="0.1" style="width: 5em" />
-                    <span>width&nbsp; </span>
+                    <span>宽度&nbsp; </span>
                     <input id="styleVignetteWidth" type="number" min="0" max="100" step="0.1" style="width: 5em" />
                   </div>
                   <div>
                     <span>y </span>
                     <input id="styleVignetteY" type="number" min="0" max="100" step="0.1" style="width: 5em" />
-                    <span>height </span>
+                    <span>高度 </span>
                     <input id="styleVignetteHeight" type="number" min="0" max="100" step="0.1" style="width: 5em" />
                   </div>
                 </td>
               </tr>
-              <tr data-tip="Set vignette X and Y radius (in percents)">
-                <td>Radius</td>
+              <tr data-tip="设置晕影 X 和 Y 半径（百分比）">
+                <td>半径</td>
                 <td>
                   <span>x </span>
                   <input id="styleVignetteRx" type="number" min="0" max="50" style="width: 5em" />
@@ -985,51 +985,51 @@
                   <input id="styleVignetteRy" type="number" min="0" max="50" style="width: 5em" />
                 </td>
               </tr>
-              <tr data-tip="Set vignette blue propagation (in pixels)">
-                <td>Blur</td>
+              <tr data-tip="设置晕影模糊扩散（像素）">
+                <td>模糊</td>
                 <td>
                   <slider-input id="styleVignetteBlur" min="0" max="400" step="1"></slider-input>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleOcean">
-              <tr data-tip="Select ocean pattern">
-                <td>Pattern</td>
+              <tr data-tip="选择海洋图案">
+                <td>图案</td>
                 <td>
                   <select id="styleOceanPattern">
-                    <option value="">No pattern</option>
-                    <option value="./images/pattern1.png">Pattern 1</option>
-                    <option value="./images/pattern2.png">Pattern 2</option>
-                    <option value="./images/pattern3.png">Pattern 3</option>
-                    <option value="./images/pattern4.png">Pattern 4</option>
-                    <option value="./images/pattern5.png">Pattern 5</option>
-                    <option value="./images/pattern6.png">Pattern 6</option>
+                    <option value="">无图案</option>
+                    <option value="./images/pattern1.png">图案 1</option>
+                    <option value="./images/pattern2.png">图案 2</option>
+                    <option value="./images/pattern3.png">图案 3</option>
+                    <option value="./images/pattern4.png">图案 4</option>
+                    <option value="./images/pattern5.png">图案 5</option>
+                    <option value="./images/pattern6.png">图案 6</option>
                     <option value="./images/kiwiroo.png">Kiwiroo</option>
                   </select>
                 </td>
               </tr>
-              <tr data-tip="Set ocean pattern opacity">
-                <td>Pattern opacity</td>
+              <tr data-tip="设置海洋图案不透明度">
+                <td>图案不透明度</td>
                 <td>
                   <slider-input id="styleOceanPatternOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
-              <tr data-tip="Define the coast outline contours scheme">
-                <td>Ocean layers</td>
+              <tr data-tip="定义海岸轮廓线方案">
+                <td>海洋层</td>
                 <td>
                   <select id="outlineLayers">
-                    <option value="none">No outline</option>
-                    <option value="random">Random</option>
-                    <option value="-6,-3,-1" selected>Standard 3</option>
-                    <option value="-6,-4,-2">Indented 3</option>
-                    <option value="-9,-6,-3,-1">Standard 4</option>
-                    <option value="-6,-5,-4,-3,-2,-1">Smooth 6</option>
-                    <option value="-9,-8,-7,-6,-5,-4,-3,-2,-1">Smooth 9</option>
+                    <option value="none">无轮廓</option>
+                    <option value="random">随机</option>
+                    <option value="-6,-3,-1" selected>标准 3</option>
+                    <option value="-6,-4,-2">锯齿状 3</option>
+                    <option value="-9,-6,-3,-1">标准 4</option>
+                    <option value="-6,-5,-4,-3,-2,-1">平滑 6</option>
+                    <option value="-9,-8,-7,-6,-5,-4,-3,-2,-1">平滑 9</option>
                   </select>
                 </td>
               </tr>
-              <tr data-tip="Set ocean color">
-                <td>Color</td>
+              <tr data-tip="设置海洋颜色">
+                <td>颜色</td>
                 <td>
                   <input id="styleOceanFill" type="color" value="#466eab" />
                   <output id="styleOceanFillOutput">#466eab</output>
@@ -1037,145 +1037,145 @@
               </tr>
             </tbody>
             <tbody id="styleBurgIcons">
-              <tr data-tip="Select group icon">
-                <td>Icon</td>
+              <tr data-tip="选择组图标">
+                <td>图标</td>
                 <td>
                   <select id="styleBurgIconsIcon">
-                    <option value="#icon-circle">Circle</option>
-                    <option value="#icon-square">Square</option>
-                    <option value="#icon-triangle">Triangle</option>
-                    <option value="#icon-cross">Cross</option>
-                    <option value="#icon-star">Star</option>
-                    <option value="#icon-circled">Circled</option>
-                    <option value="#icon-squared">Squared</option>
-                    <option value="#icon-star-circled">Star circled</option>
-                    <option value="#icon-star-circled-empty">Star circled empty</option>
-                    <option value="#icon-star-squared">Star squared</option>
-                    <option value="#icon-watabou-capital">Watabou capital</option>
-                    <option value="#icon-watabou-city">Watabou city</option>
-                    <option value="#icon-watabou-town">Watabou town</option>
-                    <option value="#icon-watabou-village">Watabou village</option>
-                    <option value="#icon-watabou-hamlet">Watabou hamlet</option>
-                    <option value="#icon-watabou-fort">Watabou fort</option>
-                    <option value="#icon-watabou-monastery">Watabou monastery</option>
-                    <option value="#icon-watabou-caravanserai">Watabou caravanserai</option>
-                    <option value="#icon-watabou-post">Watabou trade post</option>
+                    <option value="#icon-circle">圆形</option>
+                    <option value="#icon-square">方形</option>
+                    <option value="#icon-triangle">三角形</option>
+                    <option value="#icon-cross">十字</option>
+                    <option value="#icon-star">星形</option>
+                    <option value="#icon-circled">圆圈</option>
+                    <option value="#icon-squared">方框</option>
+                    <option value="#icon-star-circled">圆圈星形</option>
+                    <option value="#icon-star-circled-empty">圆圈空心星形</option>
+                    <option value="#icon-star-squared">方框星形</option>
+                    <option value="#icon-watabou-capital">Watabou 首都</option>
+                    <option value="#icon-watabou-city">Watabou 城市</option>
+                    <option value="#icon-watabou-town">Watabou 城镇</option>
+                    <option value="#icon-watabou-village">Watabou 村庄</option>
+                    <option value="#icon-watabou-hamlet">Watabou 小村</option>
+                    <option value="#icon-watabou-fort">Watabou 要塞</option>
+                    <option value="#icon-watabou-monastery">Watabou 修道院</option>
+                    <option value="#icon-watabou-caravanserai">Watabou 商队驿站</option>
+                    <option value="#icon-watabou-post">Watabou 贸易站</option>
                   </select>
                 </td>
               </tr>
-              <tr data-tip="Set icon size">
-                <td>Icon size</td>
+              <tr data-tip="设置图标大小">
+                <td>图标大小</td>
                 <td>
                   <slider-input id="styleBurgIconsIconSize" min="0.01" max="20" step=".01"></slider-input>
                 </td>
               </tr>
-              <tr data-tip="Set icon stroke linejoin">
-                <td>Stroke linejoin</td>
+              <tr data-tip="设置图标描边连接">
+                <td>描边连接</td>
                 <td>
                   <select id="styleBurgIconsStrokeLinejoin">
-                    <option value="inherit" selected>Inherit</option>
-                    <option value="butt">Butt</option>
-                    <option value="round">Round</option>
-                    <option value="square">Square</option>
+                    <option value="inherit" selected>继承</option>
+                    <option value="butt">平角</option>
+                    <option value="round">圆角</option>
+                    <option value="square">方角</option>
                   </select>
                 </td>
               </tr>
-              <tr data-tip="Define transparency of fill color">
-                <td>Fill opacity</td>
+              <tr data-tip="定义填充颜色的透明度">
+                <td>填充不透明度</td>
                 <td>
                   <slider-input id="styleBurgIconsFillOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleGrid">
-              <tr data-tip="Select grid overlay type">
-                <td>Type</td>
+              <tr data-tip="选择网格叠加类型">
+                <td>类型</td>
                 <td>
                   <select id="styleGridType">
-                    <option value="pointyHex">Hex grid (pointy)</option>
-                    <option value="flatHex">Hex grid (flat)</option>
-                    <option value="square">Square grid</option>
-                    <option value="square45deg">Square 45 degrees grid</option>
-                    <option value="squareTruncated">Truncated square grid</option>
-                    <option value="squareTetrakis">Tetrakis square grid</option>
-                    <option value="triangleHorizontal">Triangle grid (horizontal)</option>
-                    <option value="triangleVertical">Triangle grid (vertical)</option>
-                    <option value="trihexagonal">Trihexagonal grid</option>
-                    <option value="rhombille">Rhombille grid</option>
+                    <option value="pointyHex">六边形网格（尖顶）</option>
+                    <option value="flatHex">六边形网格（平顶）</option>
+                    <option value="square">方形网格</option>
+                    <option value="square45deg">方形 45 度网格</option>
+                    <option value="squareTruncated">截角方形网格</option>
+                    <option value="squareTetrakis">四分方形网格</option>
+                    <option value="triangleHorizontal">三角形网格（水平）</option>
+                    <option value="triangleVertical">三角形网格（垂直）</option>
+                    <option value="trihexagonal">三六边形网格</option>
+                    <option value="rhombille">菱形网格</option>
                   </select>
                 </td>
               </tr>
-              <tr data-tip="Set grid cells scale multiplier">
-                <td>Scale</td>
+              <tr data-tip="设置网格单元缩放倍数">
+                <td>缩放</td>
                 <td>
                   <input id="styleGridScale" type="number" min=".1" max="10" step=".01" />
                   <output
                     id="styleGridSizeFriendly"
-                    data-tip="Distance between grid cell centers (in map scale)"
+                    data-tip="网格单元中心之间的距离（地图比例）"
                   ></output>
                   <a
                     href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Scale-and-distance#grids"
                     target="_blank"
                   >
                     <span
-                      data-tip="Open wiki article scale and distance to know about grid scale"
+                      data-tip="打开 wiki 文章《比例与距离》以了解网格比例"
                       class="icon-info-circled pointer"
                     ></span>
                   </a>
                 </td>
               </tr>
-              <tr data-tip="Shift the element by axes">
+              <tr data-tip="按轴向偏移元素">
                 <td>Shift by axes</td>
                 <td>
-                  <input id="styleGridShiftX" type="number" data-tip="Shift by x axis in pixels" />
-                  <input id="styleGridShiftY" type="number" data-tip="Shift by y axis in pixels" />
+                  <input id="styleGridShiftX" type="number" data-tip="按 x 轴偏移（像素）" />
+                  <input id="styleGridShiftY" type="number" data-tip="按 y 轴偏移（像素）" />
                 </td>
               </tr>
             </tbody>
             <tbody id="styleCompass">
-              <tr data-tip="Set wind (compass) rose size">
-                <td>Size</td>
+              <tr data-tip="设置风向玫瑰大小">
+                <td>大小</td>
                 <td>
                   <slider-input id="styleCompassSizeInput" min=".02" max="1" step=".01"></slider-input>
                 </td>
               </tr>
-              <tr data-tip="Shift wind (compass) rose by axes">
+              <tr data-tip="按轴向偏移风向玫瑰">
                 <td>Shift by axes</td>
                 <td>
-                  <input id="styleCompassShiftX" type="number" value="80" data-tip="Shift by x axis in pixels" />
-                  <input id="styleCompassShiftY" type="number" value="80" data-tip="Shift by y axis in pixels" />
+                  <input id="styleCompassShiftX" type="number" value="80" data-tip="按 x 轴偏移（像素）" />
+                  <input id="styleCompassShiftY" type="number" value="80" data-tip="按 y 轴偏移（像素）" />
                 </td>
               </tr>
             </tbody>
             <tbody id="styleRelief">
-              <tr data-tip="Select set of relief icons. All relief icons will be regenerated">
+              <tr data-tip="选择地形图标集。所有地形图标将被重新生成">
                 <td>Style</td>
                 <td>
                   <select id="styleReliefSet">
-                    <option value="simple" selected>Simple</option>
-                    <option value="gray">Gray</option>
-                    <option value="colored">Colored</option>
+                    <option value="simple" selected>简洁</option>
+                    <option value="gray">灰色</option>
+                    <option value="colored">彩色</option>
                   </select>
                 </td>
               </tr>
-              <tr data-tip="Define the size of relief icons. All relief icons will be regenerated">
-                <td>Size</td>
+              <tr data-tip="定义地形图标大小。所有地形图标将被重新生成">
+                <td>大小</td>
                 <td>
                   <slider-input id="styleReliefSize" min=".2" max="4" step=".01"></slider-input>
                 </td>
               </tr>
               <tr
-                data-tip="Define the density of relief icons. All relief icons will be regenerated. Highly affects performance!"
+                data-tip="定义地形图标密度。所有地形图标将被重新生成。严重影响性能！"
               >
-                <td>Density</td>
+                <td>密度</td>
                 <td>
                   <slider-input id="styleReliefDensity" min=".3" max=".8" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleFill">
-              <tr data-tip="Set fill color">
-                <td>Fill color</td>
+              <tr data-tip="设置填充颜色">
+                <td>填充颜色</td>
                 <td>
                   <input id="styleFillInput" type="color" value="#5E4FA2" />
                   <output id="styleFillOutput">#5E4FA2</output>
@@ -1183,8 +1183,8 @@
               </tr>
             </tbody>
             <tbody id="styleStroke">
-              <tr data-tip="Set stroke color">
-                <td>Stroke color</td>
+              <tr data-tip="设置描边颜色">
+                <td>描边颜色</td>
                 <td>
                   <input id="styleStrokeInput" type="color" value="#5E4FA2" />
                   <output id="styleStrokeOutput">#5E4FA2</output>
@@ -1192,38 +1192,38 @@
               </tr>
             </tbody>
             <tbody id="styleStrokeWidth">
-              <tr data-tip="Set stroke width">
-                <td>Stroke width</td>
+              <tr data-tip="设置描边宽度">
+                <td>描边宽度</td>
                 <td>
                   <slider-input id="styleStrokeWidthInput" min="0" max="10" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleLetterSpacing">
-              <tr data-tip="Set letter spacing">
-                <td>Letter spacing</td>
+              <tr data-tip="设置字间距">
+                <td>字间距</td>
                 <td>
                   <slider-input id="styleLetterSpacingInput" min="-1" max="10" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleStrokeDash">
-              <tr data-tip="Set stroke dash array (e.g. 5 2) and linecap">
-                <td>Stroke dash</td>
+              <tr data-tip="设置描边虚线数组（如 5 2）和线帽">
+                <td>描边虚线</td>
                 <td>
                   <input id="styleStrokeDasharrayInput" type="text" value="1 2" style="width: 26%" />
                   <select id="styleStrokeLinecapInput" style="width: 32%">
-                    <option value="inherit" selected>Inherit</option>
-                    <option value="butt">Butt</option>
-                    <option value="round">Round</option>
-                    <option value="square">Square</option>
+                    <option value="inherit" selected>继承</option>
+                    <option value="butt">平角</option>
+                    <option value="round">圆角</option>
+                    <option value="square">方角</option>
                   </select>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleShadow">
-              <tr data-tip="Set text shadow">
-                <td>Text shadow</td>
+              <tr data-tip="设置文字阴影">
+                <td>文字阴影</td>
                 <td>
                   <input id="styleShadowInput" type="text" />
                 </td>
@@ -1925,10 +1925,10 @@
                     <option value="pennant">Pennant</option>
                   </optgroup>
                   <optgroup label="Simple">
-                    <option value="round">Round</option>
+                    <option value="round">圆角</option>
                     <option value="oval">Oval</option>
                     <option value="vesicaPiscis">Vesica Piscis</option>
-                    <option value="square">Square</option>
+                    <option value="square">方角</option>
                     <option value="diamond">Diamond</option>
                   </optgroup>
                   <optgroup label="Fantasy">

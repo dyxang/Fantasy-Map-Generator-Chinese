@@ -11402,6 +11402,1209 @@
       "type": "html_text",
       "context_tag": "table_cell",
       "skipped": false
+    },
+    {
+      "id": "sha256:a905f1542df5a282",
+      "source": "Shift by axes",
+      "target": "轴向偏移",
+      "file": "src/index.html",
+      "line": 1128,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:b4a181c4a497fcdb",
+      "source": "Shift by axes",
+      "target": "轴向偏移",
+      "file": "src/index.html",
+      "line": 1143,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:08ed9cdf78b0298d",
+      "source": "Style",
+      "target": "样式",
+      "file": "src/index.html",
+      "line": 1152,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:87ffaafc5f3f3fc6",
+      "source": "Shift texture by x axis in pixels",
+      "target": "按 x 轴偏移纹理（像素）",
+      "file": "src/index.html",
+      "line": 950,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:79d47f6f1bf08c1f",
+      "source": "Shift texture by y axis in pixels",
+      "target": "按 y 轴偏移纹理（像素）",
+      "file": "src/index.html",
+      "line": 951,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1579f92c8c890cfe",
+      "source": "Select precreated vignette",
+      "target": "选择预设晕影",
+      "file": "src/index.html",
+      "line": 956,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:976aeb874d3415ec",
+      "source": "Preset",
+      "target": "预设",
+      "file": "src/index.html",
+      "line": 957,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:40e64014a27e29b7",
+      "source": "Vignette rectangle position (in percents)",
+      "target": "晕影矩形位置（百分比）",
+      "file": "src/index.html",
+      "line": 962,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d3e0356c94ed9e0d",
+      "source": "Position",
+      "target": "位置",
+      "file": "src/index.html",
+      "line": 963,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:14a2a1c158a1b2f1",
+      "source": "width",
+      "target": "宽度",
+      "file": "src/index.html",
+      "line": 968,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6827589c6936aa95",
+      "source": "height",
+      "target": "高度",
+      "file": "src/index.html",
+      "line": 974,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e6a71b1c37a3d9a8",
+      "source": "Set vignette X and Y radius (in percents)",
+      "target": "设置晕影 X 和 Y 半径（百分比）",
+      "file": "src/index.html",
+      "line": 979,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:60d1b9f1524ad767",
+      "source": "Radius",
+      "target": "半径",
+      "file": "src/index.html",
+      "line": 980,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f17780d0eeaf47cf",
+      "source": "Set vignette blue propagation (in pixels)",
+      "target": "设置晕影模糊扩散（像素）",
+      "file": "src/index.html",
+      "line": 988,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e50d6827a74bb549",
+      "source": "Blur",
+      "target": "模糊",
+      "file": "src/index.html",
+      "line": 989,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bbb4e6ed05baeb15",
+      "source": "Select ocean pattern",
+      "target": "选择海洋图案",
+      "file": "src/index.html",
+      "line": 996,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:02c7a3418ee246f2",
+      "source": "Pattern",
+      "target": "图案",
+      "file": "src/index.html",
+      "line": 997,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1d1b459a0b7f13b1",
+      "source": "No pattern",
+      "target": "无图案",
+      "file": "src/index.html",
+      "line": 1000,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3fc0a43b406d0ec2",
+      "source": "Pattern 1",
+      "target": "图案 1",
+      "file": "src/index.html",
+      "line": 1001,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:34fa1436d5fb3c70",
+      "source": "Pattern 2",
+      "target": "图案 2",
+      "file": "src/index.html",
+      "line": 1002,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ada715812beb1dc8",
+      "source": "Pattern 3",
+      "target": "图案 3",
+      "file": "src/index.html",
+      "line": 1003,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b307b61fc72cdfa0",
+      "source": "Pattern 4",
+      "target": "图案 4",
+      "file": "src/index.html",
+      "line": 1004,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4dde7f5e0315a2dd",
+      "source": "Pattern 5",
+      "target": "图案 5",
+      "file": "src/index.html",
+      "line": 1005,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1928562b956f2775",
+      "source": "Pattern 6",
+      "target": "图案 6",
+      "file": "src/index.html",
+      "line": 1006,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:805d34fea5b24b0b",
+      "source": "Kiwiroo",
+      "target": "Kiwiroo",
+      "file": "src/index.html",
+      "line": 1007,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b705d23cb39a01de",
+      "source": "Set ocean pattern opacity",
+      "target": "设置海洋图案不透明度",
+      "file": "src/index.html",
+      "line": 1011,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ba8b375f89963894",
+      "source": "Pattern opacity",
+      "target": "图案不透明度",
+      "file": "src/index.html",
+      "line": 1012,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:27e43671b6ee96d3",
+      "source": "Define the coast outline contours scheme",
+      "target": "定义海岸轮廓线方案",
+      "file": "src/index.html",
+      "line": 1017,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e46f9ce93d299ad9",
+      "source": "Ocean layers",
+      "target": "海洋层",
+      "file": "src/index.html",
+      "line": 1018,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7d76b57c34d56ce3",
+      "source": "No outline",
+      "target": "无轮廓",
+      "file": "src/index.html",
+      "line": 1021,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:516727de177dfee0",
+      "source": "Random",
+      "target": "随机",
+      "file": "src/index.html",
+      "line": 1022,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:aa1b7bc65c55453b",
+      "source": "Standard 3",
+      "target": "标准 3",
+      "file": "src/index.html",
+      "line": 1023,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7eeddf366e744df7",
+      "source": "Indented 3",
+      "target": "锯齿状 3",
+      "file": "src/index.html",
+      "line": 1024,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0beb59385c7fa454",
+      "source": "Standard 4",
+      "target": "标准 4",
+      "file": "src/index.html",
+      "line": 1025,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c5da15acd5c57b22",
+      "source": "Smooth 6",
+      "target": "平滑 6",
+      "file": "src/index.html",
+      "line": 1026,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8f5fba36b6bb9dfb",
+      "source": "Smooth 9",
+      "target": "平滑 9",
+      "file": "src/index.html",
+      "line": 1027,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:689f7423c67a2d23",
+      "source": "Set ocean color",
+      "target": "设置海洋颜色",
+      "file": "src/index.html",
+      "line": 1031,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2cdda47804645a89",
+      "source": "Color",
+      "target": "颜色",
+      "file": "src/index.html",
+      "line": 1032,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:01e82d8242698f7a",
+      "source": "#466eab",
+      "target": "#466eab",
+      "file": "src/index.html",
+      "line": 1035,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6f25fb332d8b710c",
+      "source": "Select group icon",
+      "target": "选择组图标",
+      "file": "src/index.html",
+      "line": 1040,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c45d58e20498c727",
+      "source": "Icon",
+      "target": "图标",
+      "file": "src/index.html",
+      "line": 1041,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7409480d2e7246ac",
+      "source": "Circle",
+      "target": "圆形",
+      "file": "src/index.html",
+      "line": 1044,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:31e0e47933690fba",
+      "source": "Square",
+      "target": "方形",
+      "file": "src/index.html",
+      "line": 1045,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:26075b7f6ac62b2e",
+      "source": "Triangle",
+      "target": "三角形",
+      "file": "src/index.html",
+      "line": 1046,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f704d30d60af92ee",
+      "source": "Cross",
+      "target": "十字",
+      "file": "src/index.html",
+      "line": 1047,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1a535ba3317d9e4f",
+      "source": "Star",
+      "target": "星形",
+      "file": "src/index.html",
+      "line": 1048,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e2616d1f705d0542",
+      "source": "Circled",
+      "target": "圆圈",
+      "file": "src/index.html",
+      "line": 1049,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cb3da6ef7dfae0d4",
+      "source": "Squared",
+      "target": "方框",
+      "file": "src/index.html",
+      "line": 1050,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a7a619e67fc273b5",
+      "source": "Star circled",
+      "target": "圆圈星形",
+      "file": "src/index.html",
+      "line": 1051,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e91952f7d6efa87e",
+      "source": "Star circled empty",
+      "target": "圆圈空心星形",
+      "file": "src/index.html",
+      "line": 1052,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6cf7145b9277ad44",
+      "source": "Star squared",
+      "target": "方框星形",
+      "file": "src/index.html",
+      "line": 1053,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:82cdb0d2459ae523",
+      "source": "Watabou capital",
+      "target": "Watabou 首都",
+      "file": "src/index.html",
+      "line": 1054,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:39690dc97e241eda",
+      "source": "Watabou city",
+      "target": "Watabou 城市",
+      "file": "src/index.html",
+      "line": 1055,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8ff31078cd7a9704",
+      "source": "Watabou town",
+      "target": "Watabou 城镇",
+      "file": "src/index.html",
+      "line": 1056,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ed16ab8095bf45ce",
+      "source": "Watabou village",
+      "target": "Watabou 村庄",
+      "file": "src/index.html",
+      "line": 1057,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:812be5a352169147",
+      "source": "Watabou hamlet",
+      "target": "Watabou 小村",
+      "file": "src/index.html",
+      "line": 1058,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a7da84ebf1b3266",
+      "source": "Watabou fort",
+      "target": "Watabou 要塞",
+      "file": "src/index.html",
+      "line": 1059,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ae485deffe1edbaf",
+      "source": "Watabou monastery",
+      "target": "Watabou 修道院",
+      "file": "src/index.html",
+      "line": 1060,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:204bbae434f25786",
+      "source": "Watabou caravanserai",
+      "target": "Watabou 商队驿站",
+      "file": "src/index.html",
+      "line": 1061,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:32470340baecceab",
+      "source": "Watabou trade post",
+      "target": "Watabou 贸易站",
+      "file": "src/index.html",
+      "line": 1062,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:33dd3985e95b97ef",
+      "source": "Set icon size",
+      "target": "设置图标大小",
+      "file": "src/index.html",
+      "line": 1066,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:df89cdeddf077284",
+      "source": "Icon size",
+      "target": "图标大小",
+      "file": "src/index.html",
+      "line": 1067,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ffff45dbd8fbc54d",
+      "source": "Set icon stroke linejoin",
+      "target": "设置图标描边连接",
+      "file": "src/index.html",
+      "line": 1072,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3fdcf14e171e12a2",
+      "source": "Stroke linejoin",
+      "target": "描边连接",
+      "file": "src/index.html",
+      "line": 1073,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1f8e7001f63d84dc",
+      "source": "Inherit",
+      "target": "继承",
+      "file": "src/index.html",
+      "line": 1076,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b0b529a292d763a6",
+      "source": "Butt",
+      "target": "平角",
+      "file": "src/index.html",
+      "line": 1077,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2153d9ff0e1b31f3",
+      "source": "Round",
+      "target": "圆角",
+      "file": "src/index.html",
+      "line": 1078,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a2d1f3c6d6eff00b",
+      "source": "Square",
+      "target": "方角",
+      "file": "src/index.html",
+      "line": 1079,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cbcbc0138d43648f",
+      "source": "Define transparency of fill color",
+      "target": "定义填充颜色的透明度",
+      "file": "src/index.html",
+      "line": 1083,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cd011cc50fab5ad7",
+      "source": "Fill opacity",
+      "target": "填充不透明度",
+      "file": "src/index.html",
+      "line": 1084,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4c6c355a4a85637e",
+      "source": "Select grid overlay type",
+      "target": "选择网格叠加类型",
+      "file": "src/index.html",
+      "line": 1091,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:68db81d788c5bbdf",
+      "source": "Type",
+      "target": "类型",
+      "file": "src/index.html",
+      "line": 1092,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0ab15d69024ef344",
+      "source": "Hex grid (pointy)",
+      "target": "六边形网格（尖顶）",
+      "file": "src/index.html",
+      "line": 1095,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:47932ecb83542f24",
+      "source": "Hex grid (flat)",
+      "target": "六边形网格（平顶）",
+      "file": "src/index.html",
+      "line": 1096,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9bc52c2eb9fe04c1",
+      "source": "Square grid",
+      "target": "方形网格",
+      "file": "src/index.html",
+      "line": 1097,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4f64272be443970a",
+      "source": "Square 45 degrees grid",
+      "target": "方形 45 度网格",
+      "file": "src/index.html",
+      "line": 1098,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:61eb2dfd1759bf7e",
+      "source": "Truncated square grid",
+      "target": "截角方形网格",
+      "file": "src/index.html",
+      "line": 1099,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a94715c4e21e2f5a",
+      "source": "Tetrakis square grid",
+      "target": "四分方形网格",
+      "file": "src/index.html",
+      "line": 1100,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:061b157549f06be8",
+      "source": "Triangle grid (horizontal)",
+      "target": "三角形网格（水平）",
+      "file": "src/index.html",
+      "line": 1101,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fdd74b3a866ed0c3",
+      "source": "Triangle grid (vertical)",
+      "target": "三角形网格（垂直）",
+      "file": "src/index.html",
+      "line": 1102,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:13202ffe031102a5",
+      "source": "Trihexagonal grid",
+      "target": "三六边形网格",
+      "file": "src/index.html",
+      "line": 1103,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9e1f4a556c82ae49",
+      "source": "Rhombille grid",
+      "target": "菱形网格",
+      "file": "src/index.html",
+      "line": 1104,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bbc8a3c645668349",
+      "source": "Set grid cells scale multiplier",
+      "target": "设置网格单元缩放倍数",
+      "file": "src/index.html",
+      "line": 1108,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6a105b7995ff2127",
+      "source": "Scale",
+      "target": "缩放",
+      "file": "src/index.html",
+      "line": 1109,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9ef3e8390f521f8f",
+      "source": "Distance between grid cell centers (in map scale)",
+      "target": "网格单元中心之间的距离（地图比例）",
+      "file": "src/index.html",
+      "line": 1114,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:573d39b37fbf368e",
+      "source": "Open wiki article scale and distance to know about grid scale",
+      "target": "打开 wiki 文章《比例与距离》以了解网格比例",
+      "file": "src/index.html",
+      "line": 1121,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8788cca446f479c1",
+      "source": "Shift the element by axes",
+      "target": "按轴向偏移元素",
+      "file": "src/index.html",
+      "line": 1127,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2201dbdf6ebc1078",
+      "source": "Shift by x axis in pixels",
+      "target": "按 x 轴偏移（像素）",
+      "file": "src/index.html",
+      "line": 1130,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:aaaf3ae3f999bb4e",
+      "source": "Shift by y axis in pixels",
+      "target": "按 y 轴偏移（像素）",
+      "file": "src/index.html",
+      "line": 1131,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:20a61a87553325b3",
+      "source": "Set wind (compass) rose size",
+      "target": "设置风向玫瑰大小",
+      "file": "src/index.html",
+      "line": 1136,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1335f8654e8eb59b",
+      "source": "Size",
+      "target": "大小",
+      "file": "src/index.html",
+      "line": 1137,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5e4fa87dbb256f64",
+      "source": "Shift wind (compass) rose by axes",
+      "target": "按轴向偏移风向玫瑰",
+      "file": "src/index.html",
+      "line": 1142,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3545b8cc385fa40b",
+      "source": "Shift by x axis in pixels",
+      "target": "按 x 轴偏移（像素）",
+      "file": "src/index.html",
+      "line": 1145,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1f5ac48c068af7c8",
+      "source": "Shift by y axis in pixels",
+      "target": "按 y 轴偏移（像素）",
+      "file": "src/index.html",
+      "line": 1146,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1bc2f775abb75c40",
+      "source": "Select set of relief icons. All relief icons will be regenerated",
+      "target": "选择地形图标集。所有地形图标将被重新生成",
+      "file": "src/index.html",
+      "line": 1151,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6a18dd45297c85e5",
+      "source": "Simple",
+      "target": "简洁",
+      "file": "src/index.html",
+      "line": 1155,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:afff8dac14ae7a28",
+      "source": "Gray",
+      "target": "灰色",
+      "file": "src/index.html",
+      "line": 1156,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a64852513600614a",
+      "source": "Colored",
+      "target": "彩色",
+      "file": "src/index.html",
+      "line": 1157,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ede885f5442a7844",
+      "source": "Define the size of relief icons. All relief icons will be regenerated",
+      "target": "定义地形图标大小。所有地形图标将被重新生成",
+      "file": "src/index.html",
+      "line": 1161,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3b0f279d582d31ca",
+      "source": "Size",
+      "target": "大小",
+      "file": "src/index.html",
+      "line": 1162,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d7e44717aaceebf8",
+      "source": "Define the density of relief icons. All relief icons will be regenerated. Highly affects performance!",
+      "target": "定义地形图标密度。所有地形图标将被重新生成。严重影响性能！",
+      "file": "src/index.html",
+      "line": 1168,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b0189c61b927d79b",
+      "source": "Density",
+      "target": "密度",
+      "file": "src/index.html",
+      "line": 1170,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7049e568f3b36cd9",
+      "source": "Set fill color",
+      "target": "设置填充颜色",
+      "file": "src/index.html",
+      "line": 1177,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5bab3c3bcf9997c4",
+      "source": "Fill color",
+      "target": "填充颜色",
+      "file": "src/index.html",
+      "line": 1178,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:93ceb8867d7dd044",
+      "source": "#5E4FA2",
+      "target": "#5E4FA2",
+      "file": "src/index.html",
+      "line": 1181,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f08bc9ba8dca65e0",
+      "source": "Set stroke color",
+      "target": "设置描边颜色",
+      "file": "src/index.html",
+      "line": 1186,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2a52d851f0fdd044",
+      "source": "Stroke color",
+      "target": "描边颜色",
+      "file": "src/index.html",
+      "line": 1187,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e74f62ec73bf9de4",
+      "source": "#5E4FA2",
+      "target": "#5E4FA2",
+      "file": "src/index.html",
+      "line": 1190,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9d7c4623a1bbf1aa",
+      "source": "Set stroke width",
+      "target": "设置描边宽度",
+      "file": "src/index.html",
+      "line": 1195,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:849c5914207450c8",
+      "source": "Stroke width",
+      "target": "描边宽度",
+      "file": "src/index.html",
+      "line": 1196,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4208c35c52da62f4",
+      "source": "Set letter spacing",
+      "target": "设置字间距",
+      "file": "src/index.html",
+      "line": 1203,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:11f285a1481e430c",
+      "source": "Letter spacing",
+      "target": "字间距",
+      "file": "src/index.html",
+      "line": 1204,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:84f2d234dc544334",
+      "source": "Set stroke dash array (e.g. 5 2) and linecap",
+      "target": "设置描边虚线数组（如 5 2）和线帽",
+      "file": "src/index.html",
+      "line": 1211,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a22cf2ba4d9fc178",
+      "source": "Stroke dash",
+      "target": "描边虚线",
+      "file": "src/index.html",
+      "line": 1212,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:91465da3def36ea2",
+      "source": "Inherit",
+      "target": "继承",
+      "file": "src/index.html",
+      "line": 1216,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0c65f1088b42004d",
+      "source": "Butt",
+      "target": "平角",
+      "file": "src/index.html",
+      "line": 1217,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:69c23aaf316de55d",
+      "source": "Round",
+      "target": "圆角",
+      "file": "src/index.html",
+      "line": 1218,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a2d1f3c6d6eff00b",
+      "source": "Square",
+      "target": "方角",
+      "file": "src/index.html",
+      "line": 1219,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:084e808b94e208b0",
+      "source": "Set text shadow",
+      "target": "设置文字阴影",
+      "file": "src/index.html",
+      "line": 1225,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c4f57bb19da27132",
+      "source": "Text shadow",
+      "target": "文字阴影",
+      "file": "src/index.html",
+      "line": 1226,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
     }
   ]
 }
