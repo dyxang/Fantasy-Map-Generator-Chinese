@@ -2469,7 +2469,7 @@
               <option value="mi" selected>英里 (mi)</option>
               <option value="km">千米 (km)</option>
               <option value="lg">里格 (lg)</option>
-              <option value="vr">维尔斯塔 (vr)</option>
+              <option value="vr">俄里 (vr)</option>
               <option value="nmi">海里 (nmi)</option>
               <option value="nlg">海里格 (nlg)</option>
               <option value="custom_name">自定义名称</option>
@@ -2499,7 +2499,7 @@
             </select>
           </div>
           <div
-            data-tip="Set height exponent, i.e. a value for altitude change sharpness. Altitude affects temperature and hence biomes"
+            data-tip="设置高度指数，即海拔变化陡峭程度的值。海拔影响温度，进而影响生物群系"
           >
             <slider-input
               id="heightExponentInput"
@@ -2509,31 +2509,31 @@
               step=".01"
               value="2"
             >
-              <label>Exponent:</label>
+              <label>指数：</label>
             </slider-input>
           </div>
-          <div class="unitsHeader" data-tip="Select Temperature scale">
+          <div class="unitsHeader" data-tip="选择温标">
             <span class="icon-temperature-high"></span>
             <label>Temperature:</label>
           </div>
           <div>
-            <label>Temperature scale:</label>
+            <label>温标：</label>
             <select id="temperatureScale" data-stored="temperatureScale">
-              <option value="°C" selected>degree Celsius (°C)</option>
-              <option value="°F">degree Fahrenheit (°F)</option>
-              <option value="K">Kelvin (K)</option>
-              <option value="°R">degree Rankine (°R)</option>
-              <option value="°De">degree Delisle (°De)</option>
-              <option value="°N">degree Newton (°N)</option>
-              <option value="°Ré">degree Réaumur (°Ré)</option>
-              <option value="°Rø">degree Rømer (°Rø)</option>
+              <option value="°C" selected>摄氏度 (°C)</option>
+              <option value="°F">华氏度 (°F)</option>
+              <option value="K">开尔文 (K)</option>
+              <option value="°R">兰氏度 (°R)</option>
+              <option value="°De">德利尔度 (°De)</option>
+              <option value="°N">牛顿度 (°N)</option>
+              <option value="°Ré">列氏度 (°Ré)</option>
+              <option value="°Rø">罗默度 (°Rø)</option>
             </select>
           </div>
           <div class="unitsHeader">
             <span class="icon-male"></span>
-            <label>Population:</label>
+            <label>人口：</label>
           </div>
-          <div data-tip="Set how many people are in one population point">
+          <div data-tip="设置一个人口点代表多少人">
             <slider-input
               id="populationRateInput"
               data-stored="populationRate"
@@ -2542,17 +2542,17 @@
               step="10"
               value="1000"
             >
-              <label>1 population point:</label>
+              <label>1 个人口点：</label>
             </slider-input>
           </div>
-          <div data-tip="Set urban population modifier. Change to increase or descrese burgs population">
+          <div data-tip="设置城市人口修正值。调整以增加或减少城镇人口">
             <slider-input id="urbanizationInput" data-stored="urbanization" min=".01" max="5" step=".01" value="1">
-              <label>Urbanization rate:</label>
+              <label>城市化率：</label>
             </slider-input>
           </div>
-          <div data-tip="Set urban density: average population per building in Medieval Fantasy City Generator">
+          <div data-tip="设置城市密度：Medieval Fantasy City Generator 中每栋建筑的平均人口">
             <slider-input id="urbanDensityInput" data-stored="urbanDensity" min="1" max="200" step="1" value="10">
-              <label>Urban density:</label>
+              <label>城市密度：</label>
             </slider-input>
           </div>
         </div>
