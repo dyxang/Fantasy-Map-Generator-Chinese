@@ -390,195 +390,195 @@
           </button>
           <button id="layersTab" data-tip="点击更改地图图层" class="options active">图层</button>
           <button id="styleTab" data-tip="点击打开样式编辑器" class="options">样式</button>
-          <button id="optionsTab" data-tip="Click to change generation and UI options" class="options">Options</button>
-          <button id="toolsTab" data-tip="Click to open tools menu" class="options">Tools</button>
-          <button id="aboutTab" data-tip="Click to see Generator info" class="options">About</button>
+          <button id="optionsTab" data-tip="点击更改生成和 UI 选项" class="options">选项</button>
+          <button id="toolsTab" data-tip="点击打开工具菜单" class="options">Tools</button>
+          <button id="aboutTab" data-tip="点击查看生成器信息" class="options">关于</button>
         </div>
         <div id="layersContent" class="tabcontent" style="display: block">
-          <p data-tip="Select a map layers preset" style="display: inline-block">Layers preset:</p>
+          <p data-tip="选择地图图层预设" style="display: inline-block">图层预设：</p>
           <select
-            data-tip="Select a map layers preset"
+            data-tip="选择地图图层预设"
             id="layersPreset"
             onchange="handleLayersPresetChange(this.value)"
             style="width: 45%"
           >
-            <option value="political" selected>Political map</option>
-            <option value="cultural">Cultural map</option>
-            <option value="religions">Religions map</option>
-            <option value="provinces">Provinces map</option>
-            <option value="biomes">Biomes map</option>
-            <option value="heightmap">Heightmap</option>
-            <option value="physical">Physical map</option>
-            <option value="poi">Places of interest</option>
-            <option value="goods">Goods map</option>
-            <option value="trade">Trade animation</option>
-            <option value="military">Military map</option>
-            <option value="emblems">Emblems</option>
-            <option value="landmass">Pure landmass</option>
-            <option hidden value="custom">Custom (not saved)</option>
+            <option value="political" selected>政治地图</option>
+            <option value="cultural">文化地图</option>
+            <option value="religions">宗教地图</option>
+            <option value="provinces">省份地图</option>
+            <option value="biomes">生物群系地图</option>
+            <option value="heightmap">高度图</option>
+            <option value="physical">自然地图</option>
+            <option value="poi">名胜地点</option>
+            <option value="goods">货物地图</option>
+            <option value="trade">贸易动画</option>
+            <option value="military">军事地图</option>
+            <option value="emblems">纹章</option>
+            <option value="landmass">纯陆块</option>
+            <option hidden value="custom">自定义（未保存）</option>
           </select>
           <button
             id="savePresetButton"
-            data-tip="Click to save displayed layers as a new preset"
+            data-tip="点击将显示的图层保存为新预设"
             class="icon-plus sideButton"
             style="display: none"
             onclick="savePreset()"
           ></button>
           <button
             id="removePresetButton"
-            data-tip="Click to remove current custom preset"
+            data-tip="点击移除当前自定义预设"
             class="icon-minus sideButton"
             style="display: none"
             onclick="removePreset()"
           ></button>
-          <p>Displayed layers and layers order:</p>
+          <p>显示的图层及图层顺序：</p>
           <ul
-            data-tip="Click to toggle a layer, drag to raise or lower a layer. Ctrl + click to edit layer style"
+            data-tip="点击切换图层，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
             id="mapLayers"
           >
             <li
               id="toggleTexture"
-              data-tip="Texture overlay: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="纹理叠加层：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="X"
               onclick="toggleTexture(event)"
             >
-              Te<u>x</u>ture
+              <u>纹</u>理
             </li>
             <li
               id="toggleHeight"
-              data-tip="Heightmap: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="高度图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="H"
               onclick="toggleHeight(event)"
             >
-              <u>H</u>eightmap
+              <u>高</u>度图
             </li>
             <li
               id="toggleLakes"
-              data-tip="Lakes: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="湖泊：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="Q"
               onclick="toggleLakes(event)"
             >
-              Lakes
+              湖泊
             </li>
             <li
               id="toggleBiomes"
-              data-tip="Biomes: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="生物群系：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="B"
               onclick="toggleBiomes(event)"
             >
-              <u>B</u>iomes
+              <u>生</u>物群系
             </li>
             <li
               id="toggleCells"
-              data-tip="Cells structure: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="单元格结构：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="E"
               onclick="toggleCells(event)"
             >
-              C<u>e</u>lls
+              <u>单</u>元格
             </li>
             <li
               id="toggleGrid"
-              data-tip="Grid: click to toggle, drag to raise or lower. Ctrl + click to edit layer style and select type"
+              data-tip="网格：点击切换，拖动以升高或降低。按 Ctrl + 点击编辑图层样式并选择类型"
               data-shortcut="; (semicolon)"
               onclick="toggleGrid(event)"
             >
-              Grid
+              网格
             </li>
             <li
               id="toggleCoordinates"
-              data-tip="Coordinate grid: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="坐标网格：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="O"
               onclick="toggleCoordinates(event)"
             >
-              C<u>o</u>ordinates
+              <u>坐</u>标
             </li>
             <li
               id="toggleCompass"
-              data-tip="Wind (Compass) Rose: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="风向玫瑰：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="W"
               onclick="toggleCompass(event)"
             >
-              <u>W</u>ind Rose
+              <u>风</u>向玫瑰
             </li>
             <li
               id="toggleRivers"
-              data-tip="Rivers: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="河流：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="V"
               onclick="toggleRivers(event)"
             >
-              Ri<u>v</u>ers
+              <u>河</u>流
             </li>
             <li
               id="toggleRelief"
-              data-tip="Relief and biome icons: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="地形与生物群系图标：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="F"
               onclick="toggleRelief(event)"
             >
-              Relie<u>f</u>
+              <u>地</u>形
             </li>
             <li
               id="toggleReligions"
-              data-tip="Religions: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="宗教：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="R"
               onclick="toggleReligions(event)"
             >
-              <u>R</u>eligions
+              <u>宗</u>教
             </li>
             <li
               id="toggleCultures"
-              data-tip="Cultures: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="文化：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="C"
               onclick="toggleCultures(event)"
             >
-              <u>C</u>ultures
+              <u>文</u>化
             </li>
             <li
               id="toggleStates"
-              data-tip="States: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="国家：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="S"
               onclick="toggleStates(event)"
             >
-              <u>S</u>tates
+              <u>国</u>家
             </li>
             <li
               id="toggleProvinces"
-              data-tip="Provinces: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="省份：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="P"
               onclick="toggleProvinces(event)"
             >
-              <u>P</u>rovinces
+              <u>省</u>份
             </li>
             <li
               id="toggleZones"
-              data-tip="Zones: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="区域：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="Z"
               onclick="toggleZones(event)"
             >
-              <u>Z</u>ones
+              <u>区</u>域
             </li>
             <li
               id="toggleBorders"
-              data-tip="State borders: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="国家边界：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="D"
               onclick="toggleBorders(event)"
             >
-              Bor<u>d</u>ers
+              <u>边</u>界
             </li>
             <li
               id="toggleRoutes"
-              data-tip="Trade routes: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="贸易道路：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="U"
               onclick="toggleRoutes(event)"
             >
-              Ro<u>u</u>tes
+              <u>道</u>路
             </li>
             <li
               id="toggleTemperature"
-              data-tip="Temperature map: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style"
+              data-tip="温度地图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式"
               data-shortcut="T"
               onclick="toggleTemperature(event)"
             >
-              <u>T</u>emperature
+              <u>温</u>度
             </li>
             <li
               id="toggleIce"
