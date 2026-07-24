@@ -96,7 +96,7 @@ const dropbox: DropboxProvider = {
 
   async save(fileName, contents) {
     const resp = await this.call("filesUpload", { path: `/${fileName}`, contents });
-    DEBUG.cloud && console.info("Dropbox response:", resp);
+    DEBUG.cloud && console.info("Dropbox 响应：", resp);
     return true;
   },
 
@@ -159,7 +159,7 @@ const dropbox: DropboxProvider = {
   },
 
   async setDropBoxToken({ token, refreshToken, expiresAt }) {
-    DEBUG.cloud && console.info("Access token:", token, "refresh token:", refreshToken);
+    DEBUG.cloud && console.info("访问令牌：", token, "refresh token:", refreshToken);
     setToken(this.name, token);
     if (refreshToken) setRefreshToken(this.name, refreshToken);
     if (expiresAt) setTokenExpiry(this.name, expiresAt);
@@ -185,7 +185,7 @@ const dropbox: DropboxProvider = {
       allow_download: true
     };
     const resp = await this.call("sharingCreateSharedLinkWithSettings", { path, settings });
-    DEBUG.cloud && console.info("Dropbox link object:", resp.result);
+    DEBUG.cloud && console.info("Dropbox 链接对象：", resp.result);
     return resp.result.url;
   }
 };

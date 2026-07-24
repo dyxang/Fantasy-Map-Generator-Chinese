@@ -13,17 +13,17 @@ export function initiateAutosave(): void {
 
     const diffInMinutes = (Date.now() - lastSavedAt) / MINUTE;
     if (diffInMinutes < timeoutMinutes) return;
-    if (customization) return tip("Autosave: map cannot be saved in edit mode", false, "warn", 2000);
+    if (customization) return tip("自动保存：地图在编辑模式下无法保存", false, "warn", 2000);
 
     try {
-      tip("Autosave: saving map...", false, "warn", 3000);
+      tip("自动保存：正在保存地图...", false, "warn", 3000);
       await Services.Save.saveToStorage(await Services.Save.prepareMapData());
-      tip("Autosave: map is saved", false, "success", 2000);
+      tip("自动保存：地图已保存", false, "success", 2000);
 
       lastSavedAt = Date.now();
     } catch (error) {
       ERROR && console.error(error);
-      tip(`Autosave failed: ${(error as Error)?.message || "Unknown error"}`, true, "error", 4000);
+      tip(`自动保存失败：${(error as Error)?.message || "Unknown error"}`, true, "error", 4000);
     }
   }
 
@@ -57,12 +57,12 @@ function startSaveReminder(): void {
 
 export function toggleSaveReminder(): void {
   if (reminderActive) {
-    tip("Save reminder is turned off. Press CTRL+Q again to re-initiate", true, "warn", 2000);
+    tip("保存提醒已关闭。再次按 CTRL+Q 重新启动", true, "warn", 2000);
     clearInterval(reminderInterval);
     localStorage.setItem("noReminder", "true");
     reminderActive = false;
   } else {
-    tip("Save reminder is turned on. Press CTRL+Q to turn off", true, "warn", 2000);
+    tip("保存提醒已开启。按 CTRL+Q 关闭", true, "warn", 2000);
     localStorage.removeItem("noReminder");
     startSaveReminder();
   }

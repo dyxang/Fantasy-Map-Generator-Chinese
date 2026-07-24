@@ -366,8 +366,8 @@ window.getUsedFonts = (svg: SVGSVGElement) => {
 
 window.addGoogleFont = async (family: string) => {
   const fontRanges = await fetchGoogleFont(family);
-  if (!fontRanges) return tip("Cannot fetch Google font for this value", true, "error", 4000);
-  tip(`Google font ${family} is loading...`, true, "warn", 4000);
+  if (!fontRanges) return tip("无法为此值获取 Google 字体", true, "error", 4000);
+  tip(`Google 字体 ${family} 加载中...`, true, "warn", 4000);
 
   const promises = fontRanges.map(range => {
     const { src, unicodeRange } = range;
@@ -384,14 +384,14 @@ window.addGoogleFont = async (family: string) => {
         document.fonts.add(fontFace);
       });
       fonts.push(...fontRanges);
-      tip(`Google font ${family} is added to the list`, true, "success", 4000);
+      tip(`Google 字体 ${family} 已添加到列表`, true, "success", 4000);
       addFontOption(family);
       const select = ensureEl<HTMLSelectElement>("styleSelectFont");
       if (select) select.value = family;
       changeFont();
     })
     .catch(err => {
-      tip(`Failed to load Google font ${family}`, true, "error", 4000);
+      tip(`加载 Google 字体 ${family} 失败`, true, "error", 4000);
       ERROR && console.error(err);
     });
 };
@@ -403,7 +403,7 @@ window.addLocalFont = (family: string) => {
     display: "block"
   });
   document.fonts.add(fontFace);
-  tip(`Local font ${family} is added to the fonts list`, true, "success", 4000);
+  tip(`本地字体 ${family} 已添加到字体列表`, true, "success", 4000);
   addFontOption(family);
   const select = ensureEl<HTMLSelectElement>("styleSelectFont");
   if (select) select.value = family;
@@ -416,7 +416,7 @@ window.addWebFont = (family: string, url: string) => {
 
   const fontFace = new FontFace(family, src, { display: "block" });
   document.fonts.add(fontFace);
-  tip(`Font ${family} is added to the list`, true, "success", 4000);
+  tip(`字体 ${family} 已添加到列表`, true, "success", 4000);
   addFontOption(family);
   const select = ensureEl<HTMLSelectElement>("styleSelectFont");
   if (select) select.value = family;

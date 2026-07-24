@@ -901,7 +901,7 @@ export function resolveVersionConflicts(mapVersion: string, data: string[]): voi
       for (const node of g.querySelectorAll<SVGPathElement>("path")) {
         const totalLength = node.getTotalLength();
         if (!totalLength) {
-          ERROR && console.error("Route path has zero length", node);
+          ERROR && console.error("道路路径长度为零", node);
           continue;
         }
 
@@ -917,7 +917,7 @@ export function resolveVersionConflicts(mapVersion: string, data: string[]): voi
         }
 
         if (points.length < 2) {
-          ERROR && console.error("Route path has less than 2 points", node);
+          ERROR && console.error("道路路径少于 2 个点", node);
           continue;
         }
 

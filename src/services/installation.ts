@@ -9,7 +9,7 @@ function init(event: Event & { prompt: () => void }): void {
   deferredPrompt = event;
 
   window.addEventListener("appinstalled", () => {
-    tip("Application is installed", false, "success", 8000);
+    tip("应用已安装", false, "success", 8000);
     cleanup();
   });
 }
@@ -26,7 +26,7 @@ function createButton(): HTMLButtonElement {
   button.className = "options glow";
   button.innerHTML = "Install";
   button.onclick = openDialog;
-  button.onmouseenter = () => tip("Install the Application");
+  button.onmouseenter = () => tip("安装应用");
   document.getElementById("optionsContainer")!.appendChild(button);
   return button;
 }
@@ -37,7 +37,7 @@ function openDialog(): void {
   `;
   $("#alert").dialog({
     resizable: false,
-    title: "Install the Application",
+    title: "安装应用",
     width: "38em",
     buttons: {
       Install: function (this: HTMLElement) {

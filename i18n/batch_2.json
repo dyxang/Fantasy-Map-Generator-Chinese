@@ -1,0 +1,380 @@
+{
+  "batch": 2,
+  "start_index": 1778,
+  "units": [
+    {
+      "id": "sha256:8180eb56f1701ee5",
+      "source": "Next vertex is not found",
+      "file": "src/renderers/draw-heightmap.ts",
+      "line": 182,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "      else if (v[1] !== prev && c1 !== c2) current = v[1];\n      else if (v[2] !== prev && c0 !== c2) current = v[2];\n      if (current === chain[chain.length - 1]) {",
+      "context_after": "        break;\n      }\n    }"
+    },
+    {
+      "id": "sha256:bcd19e8f69e52ebb",
+      "source": "3D erosion bake failed:",
+      "file": "src/renderers/erosion-bake.ts",
+      "line": 901,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "    TIME && console.timeEnd(\"erosionBake\");\n    return cached;\n  } catch (error) {",
+      "context_after": "    cached = null;\n    return null;\n  }"
+    },
+    {
+      "id": "sha256:3eb2912413e829f5",
+      "source": "Autosave: map cannot be saved in edit mode",
+      "file": "src/services/autosave.ts",
+      "line": 16,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "\n    const diffInMinutes = (Date.now() - lastSavedAt) / MINUTE;\n    if (diffInMinutes < timeoutMinutes) return;",
+      "context_after": "\n    try {\n      tip(\"Autosave: saving map...\", false, \"warn\", 3000);"
+    },
+    {
+      "id": "sha256:9c34c9fe048753d0",
+      "source": "Autosave: saving map...",
+      "file": "src/services/autosave.ts",
+      "line": 19,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "    if (customization) return tip(\"Autosave: map cannot be saved in edit mode\", false, \"warn\", 2000);\n\n    try {",
+      "context_after": "      await Services.Save.saveToStorage(await Services.Save.prepareMapData());\n      tip(\"Autosave: map is saved\", false, \"success\", 2000);\n"
+    },
+    {
+      "id": "sha256:b5db77558f73c327",
+      "source": "Autosave: map is saved",
+      "file": "src/services/autosave.ts",
+      "line": 21,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "    try {\n      tip(\"Autosave: saving map...\", false, \"warn\", 3000);\n      await Services.Save.saveToStorage(await Services.Save.prepareMapData());",
+      "context_after": "\n      lastSavedAt = Date.now();\n    } catch (error) {"
+    },
+    {
+      "id": "sha256:27c259f3e531e56b",
+      "source": "Autosave failed: ${(error as Error)?.message || \"Unknown error\"}",
+      "file": "src/services/autosave.ts",
+      "line": 26,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "      lastSavedAt = Date.now();\n    } catch (error) {\n      ERROR && console.error(error);",
+      "context_after": "    }\n  }\n"
+    },
+    {
+      "id": "sha256:f8817ba8c228e9df",
+      "source": "Save reminder is turned off. Press CTRL+Q again to re-initiate",
+      "file": "src/services/autosave.ts",
+      "line": 60,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "\nexport function toggleSaveReminder(): void {\n  if (reminderActive) {",
+      "context_after": "    clearInterval(reminderInterval);\n    localStorage.setItem(\"noReminder\", \"true\");\n    reminderActive = false;"
+    },
+    {
+      "id": "sha256:ad4838ae719ea0f5",
+      "source": "Save reminder is turned on. Press CTRL+Q to turn off",
+      "file": "src/services/autosave.ts",
+      "line": 65,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "    localStorage.setItem(\"noReminder\", \"true\");\n    reminderActive = false;\n  } else {",
+      "context_after": "    localStorage.removeItem(\"noReminder\");\n    startSaveReminder();\n  }"
+    },
+    {
+      "id": "sha256:a70f8246372461c0",
+      "source": "Dropbox response:",
+      "file": "src/services/io/cloud.ts",
+      "line": 99,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "\n  async save(fileName, contents) {\n    const resp = await this.call(\"filesUpload\", { path: `/${fileName}`, contents });",
+      "context_after": "    return true;\n  },\n"
+    },
+    {
+      "id": "sha256:9ff8741013f3d6bf",
+      "source": "Access token:",
+      "file": "src/services/io/cloud.ts",
+      "line": 162,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "  },\n\n  async setDropBoxToken({ token, refreshToken, expiresAt }) {",
+      "context_after": "    setToken(this.name, token);\n    if (refreshToken) setRefreshToken(this.name, refreshToken);\n    if (expiresAt) setTokenExpiry(this.name, expiresAt);"
+    },
+    {
+      "id": "sha256:a02b38215affbf1c",
+      "source": "Dropbox link object:",
+      "file": "src/services/io/cloud.ts",
+      "line": 188,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "      allow_download: true\n    };\n    const resp = await this.call(\"sharingCreateSharedLinkWithSettings\", { path, settings });",
+      "context_after": "    return resp.result.url;\n  }\n};"
+    }
+  ],
+  "tm_hints": [
+    {
+      "source": "You cannot turn off the layer when heightmap is in edit mode",
+      "target": "高度图处于编辑模式时无法关闭该图层",
+      "overlap": 4
+    },
+    {
+      "source": "New map cannot be generated when edit mode is active, please exit the mode and retry",
+      "target": "编辑模式激活时无法生成新地图，请退出该模式后重试",
+      "overlap": 4
+    },
+    {
+      "source": "Failed to parse AI provider error response",
+      "target": "解析 AI 提供商错误响应失败",
+      "overlap": 3
+    },
+    {
+      "source": "You cannot change the coastline in 'Keep' edit mode",
+      "target": "在",
+      "overlap": 3
+    },
+    {
+      "source": "Set autosave interval in minutes. Set 0 to disable autosave. Map is saved to browser memory",
+      "target": "设置自动保存间隔（分钟）。设为 0 可禁用自动保存。地图会保存到浏览器内存",
+      "overlap": 3
+    },
+    {
+      "source": "You cannot reassign water via biomes. Please edit the Heightmap to change water",
+      "target": "无法通过生物群系重新分配水域。请编辑高度图以更改水域",
+      "overlap": 2
+    },
+    {
+      "source": "Drag to move the vertex. Please use for fine-tuning only! Edit heightmap to change actual cell heights",
+      "target": "拖动以移动顶点。请仅用于微调！编辑高度图以更改实际单元格高度",
+      "overlap": 2
+    },
+    {
+      "source": "Heightmap edit mode is active. Click on \"Exit Customization\" to finalize the heightmap",
+      "target": "高度图编辑模式已激活。点击",
+      "overlap": 2
+    },
+    {
+      "source": "No navigable water body found downstream, cannot assign port",
+      "target": "下游未找到可通航水域，无法分配港口",
+      "overlap": 2
+    },
+    {
+      "source": "Drag to move the vertex. Please use for fine-tuning only. Edit heightmap to change actual cell heights!",
+      "target": "拖动以移动顶点。请仅用于微调。要更改实际单元格高度请编辑高度图！",
+      "overlap": 2
+    },
+    {
+      "source": "Click to toggle a layer, drag to raise or lower a layer. Ctrl + click to edit layer style",
+      "target": "点击切换图层，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Texture overlay: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "纹理叠加层：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Heightmap: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "高度图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Lakes: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "湖泊：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Biomes: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "生物群系：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Cells structure: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "单元格结构：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Grid: click to toggle, drag to raise or lower. Ctrl + click to edit layer style and select type",
+      "target": "网格：点击切换，拖动以升高或降低。按 Ctrl + 点击编辑图层样式并选择类型",
+      "overlap": 2
+    },
+    {
+      "source": "Coordinate grid: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "坐标网格：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Wind (Compass) Rose: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "风向玫瑰：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Rivers: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "河流：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Relief and biome icons: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "地形与生物群系图标：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Religions: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "宗教：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Cultures: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "文化：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "States: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "国家：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Provinces: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "省份：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Zones: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "区域：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "State borders: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "国家边界：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Trade routes: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "贸易道路：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Temperature map: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "温度地图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Icebergs and glaciers: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "冰山与冰川：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Goods and Production: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "货物与产出：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Markets: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "市场：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Trade: animated trade deal flows. Click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "贸易：动画展示贸易交易流。点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Precipitation map: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "降水量地图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Population map: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "人口地图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Emblems: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "纹章：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Burg icons: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "城镇图标：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Labels: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "标签：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Military forces: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "军事部队：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Markers: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "标记：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Rulers: click to toggle, drag to move, click on label to delete. Ctrl + click to edit layer style",
+      "target": "标尺：点击切换，拖动以移动，点击标签以删除。按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Scale Bar: click to toggle. Ctrl + click to edit style",
+      "target": "比例尺：点击切换。按 Ctrl + 点击编辑样式",
+      "overlap": 2
+    },
+    {
+      "source": "Vignette (border fading): click to toggle. Ctrl + click to edit style",
+      "target": "暗角（边缘渐隐）：点击切换。按 Ctrl + 点击编辑样式",
+      "overlap": 2
+    },
+    {
+      "source": "Ctrl + click to edit layer style",
+      "target": "按 Ctrl + 点击编辑图层样式",
+      "overlap": 2
+    },
+    {
+      "source": "Standard view mode that allows to edit the map",
+      "target": "允许编辑地图的标准视图模式",
+      "overlap": 2
+    },
+    {
+      "source": "Set user interface size. Please note browser zoom also affects interface size (Ctrl + or Ctrl - to change)",
+      "target": "设置用户界面大小。请注意浏览器缩放也会影响界面大小（按 Ctrl + 或 Ctrl - 调整）",
+      "overlap": 2
+    },
+    {
+      "source": "Heightmap edit mode",
+      "target": "高度图编辑模式",
+      "overlap": 2
+    },
+    {
+      "source": "Edit mode:",
+      "target": "编辑模式：",
+      "overlap": 2
+    },
+    {
+      "source": "Finalize the heightmap and exit the edit mode",
+      "target": "完成高度图并退出编辑模式",
+      "overlap": 2
+    },
+    {
+      "source": ". To get font file open the link to css\n          provided by these services and manually copy the link to",
+      "target": "。要获取字体文件，请打开这些服务提供的 css\n          链接，并手动复制所需变体的 ",
+      "overlap": 2
+    }
+  ],
+  "cross_file_duplicates": [
+    "Next vertex is not found"
+  ],
+  "instructions": [
+    "If a unit's source exactly matches a key in tm_hints, REUSE that target verbatim.",
+    "If a unit's source is in cross_file_duplicates, it appears in other batches too — choose a concise translation that other batches are likely to also pick.",
+    "For similar phrases (e.g. 'Group name should start with a letter' vs 'Name should start with a letter'), prefer consistency with tm_hints over novel phrasing.",
+    "每翻译完一个 unit（用 Edit 修改源文件后），向 i18n/artifacts/batch_2.json 的 artifacts 数组追加一条记录",
+    "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied}",
+    "line_before 用 unit.line；line_after 是翻译后该 unit 在源文件中的实际行号（如果上方有行增减会漂移）",
+    "model 填你实际使用的模型标识；confidence 填 0-1 自评；applied 填 true（已 Edit 应用）"
+  ]
+}

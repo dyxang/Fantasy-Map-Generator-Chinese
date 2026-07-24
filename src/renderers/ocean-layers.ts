@@ -49,7 +49,7 @@ class OceanModule {
       else if (v[1] !== undefined && v[1] !== prev && c1 !== c2) current = v[1];
       else if (v[2] !== undefined && v[2] !== prev && c0 !== c2) current = v[2];
       if (current === chain[chain.length - 1]) {
-        ERROR && console.error("Next vertex is not found");
+        ERROR && console.error("未找到下一个顶点");
         break;
       }
     }

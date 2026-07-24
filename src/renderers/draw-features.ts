@@ -76,7 +76,7 @@ const featuresRenderer = (): void => {
 function featurePathRenderer(feature: Feature): string {
   const points = feature.vertices.map(vertex => pack.vertices.p[vertex]);
   if (points.some(point => point === undefined)) {
-    ERROR && console.error("Undefined point in getFeaturePath");
+    ERROR && console.error("getFeaturePath 中存在未定义的点");
     return "";
   }
 

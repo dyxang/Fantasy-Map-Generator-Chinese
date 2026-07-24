@@ -11,7 +11,7 @@ const typeMap = {
 
 function exportToJson(type: ExportJsonType): void {
   if (customization) {
-    tip("Data cannot be exported when edit mode is active, please exit the mode and retry", false, "error");
+    tip("编辑模式激活时无法导出数据，请退出该模式后重试", false, "error");
     return;
   }
   closeDialogs("#alert");

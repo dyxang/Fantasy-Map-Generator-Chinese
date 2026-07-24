@@ -566,7 +566,7 @@ export function generateSatelliteTexture(
 
     return target.texture;
   } catch (error) {
-    console.error("Satellite texture generation failed:", error);
+    console.error("卫星纹理生成失败：", error);
     disposeSatelliteTexture();
     return null;
   } finally {

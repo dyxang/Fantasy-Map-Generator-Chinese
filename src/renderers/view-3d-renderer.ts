@@ -312,7 +312,7 @@ const saveScreenshot = async () => {
   link.download = `${getFileName()}.jpeg`;
   link.href = URL;
   link.click();
-  tip(`Screenshot is saved. Open "Downloads" screen (CTRL + J) to check`, true, "success", 7000);
+  tip(`截图已保存。打开"下载"页面（CTRL + J）查看`, true, "success", 7000);
   window.setTimeout(() => window.URL.revokeObjectURL(URL), 5000);
 };
 
@@ -326,7 +326,7 @@ const saveOBJ = async () => {
 // start 3d view and heightmap edit preview
 async function newMesh(canvas: HTMLCanvasElement) {
   const loaded = await loadTHREE();
-  if (!loaded) return tip("Cannot load 3d library", false, "error", 4000);
+  if (!loaded) return tip("无法加载 3D 库", false, "error", 4000);
   scene = new Three.Scene();
 
   // light
@@ -700,7 +700,7 @@ async function createMesh(width: number, height: number, segmentsX: number, segm
     });
     if (!bakeResult && options.threeD.erosion) {
       console.warn("3D erosion bake failed, falling back to standard mesh");
-      tip("Eroded terrain is not supported on this device", false, "warn", 4000);
+      tip("此设备不支持侵蚀地形", false, "warn", 4000);
       options.threeD.erosion = false;
       syncErosionUI();
     }
@@ -855,7 +855,7 @@ async function update3dTexture() {
 async function newGlobe(canvas: HTMLCanvasElement) {
   const loaded = await loadTHREE();
   if (!loaded) {
-    tip("Cannot load 3d library", false, "error", 4000);
+    tip("无法加载 3D 库", false, "error", 4000);
     return false;
   }
 
