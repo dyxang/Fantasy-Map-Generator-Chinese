@@ -66,31 +66,6 @@
     "applied": {
       "description": "是否已通过 Edit 应用到源文件。true 表示源文件已包含 target；false 表示仅产出译文未落盘。",
       "type": "boolean"
-    },
-    "context_used": {
-      "description": "subagent 决策时参考的上下文，用于审计与可追溯。非必需。",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "tm_hints": {
-          "description": "命中的 tm_hints source 列表（TM 中相似条目的 source 文本）。",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "glossary_terms": {
-          "description": "命中的 glossary 术语 en 列表。",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "cross_file": {
-          "description": "是否在 cross_file_duplicates 协调范围内（同一 source 出现在多个文件）。",
-          "type": "boolean"
-        }
-      }
     }
   }
 }

@@ -175,7 +175,7 @@ function prepare(count) {
         "If a unit's source is in cross_file_duplicates, it appears in other batches too — choose a concise translation that other batches are likely to also pick.",
         "For similar phrases (e.g. 'Group name should start with a letter' vs 'Name should start with a letter'), prefer consistency with tm_hints over novel phrasing.",
         `每翻译完一个 unit（用 Edit 修改源文件后），向 i18n/artifacts/batch_${i + 1}.json 的 artifacts 数组追加一条记录`,
-        "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied, context_used}",
+        "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied}",
         "line_before 用 unit.line；line_after 是翻译后该 unit 在源文件中的实际行号（如果上方有行增减会漂移）",
         "model 填你实际使用的模型标识；confidence 填 0-1 自评；applied 填 true（已 Edit 应用）"
       ]

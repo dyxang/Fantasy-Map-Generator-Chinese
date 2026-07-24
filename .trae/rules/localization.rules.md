@@ -75,10 +75,6 @@ subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i
 ### 推荐字段
 
 - `line_after`：翻译后源文件实际行号——可能与 `line_before` 不同（如 HTML 文本节点换行被压缩/展开），subagent 用 Edit 后的实际行号自报
-- `context_used`：subagent 决策时参考的上下文，用于审计
-  - `tm_hints`：命中的 TM 相似条目 source 列表
-  - `glossary_terms`：命中的 glossary 术语 en 列表
-  - `cross_file`：是否在 `cross_file_duplicates` 协调范围内
 
 ### 流程约束
 
