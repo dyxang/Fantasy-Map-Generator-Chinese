@@ -49,7 +49,7 @@ Azgaar's Fantasy Map Generator 是一个程序化生成、编辑和可视化奇�
 
 - `src/index.html` 是 ~9000 行的巨型 UI 文件，按 section（对话框/选项卡）切片处理
 - 项目处于 vanilla JS → TS + Vite 迁移期，文件结构会变动
-- TM（翻译记忆）按内容 SHA-256 索引，不按文件路径，以应对文件移动
+- TM（翻译记忆）的 `id` 字段是 source+file 的 SHA-256 短哈希，但**匹配以 `(file, source)` 二元组为准**——sync 时严格匹配不开全局降级
 - Biome lint 强制双引号、无尾逗号、120 行宽
 
 ## 与原版的故意差异
@@ -99,3 +99,44 @@ sidecar 文件位置：`i18n/artifacts/batch_<N>.json`（每批一个文件）�
 - `prepare()` 只写 `batch_<N>.json`（输入文件）和 `artifacts/batch_<N>.json`（sidecar 占位）
 - 自适应层（subagent / 手工 AI 流）只写 `artifacts/batch_<N>.json`
 - 禁止在 subagent 指令中要求「直接追加 tm.json」或「直接更新 progress.json」
+
+## 上游同步工具链（Sync Pipeline）
+
+zh-CN 是独立翻译分支，不 PR 不 merge 出去。上游（master）更新时，通过 **AI 为主、脚本为辅** 的流程吸收上游变化。完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`。
+
+### 核心策略：Reset + Replay
+
+zh-CN 源码相对 master 的差异**应只有字符串翻译**（1:1 替换）。同步时：
+- **Lane-A**（改动 ≤80 行的文件）：`git merge master` + AI 解冲突 + 严格 `(file, source)` 查 tm.json 复用
+- **Lane-B**（改动 >80 行的文件）：`git checkout master -- <file>` + TM Replay（脚本把 tm.json 的翻译覆盖回去）
+
+### 替换实现（AST 精确替换，一步到位）
+
+- `.ts` / `.js`：TypeScript AST 遍历 StringLiteral 节点，按位置精确替换
+- `.html`：parse5 AST 遍历文本节点 + 属性节点，按 sourceCodeLocation 精确替换
+- 默认**严格匹配** `(file, source)`，不开全局降级（避免 `type === "River"` 被误翻成 `type === "河流"`）
+- `--allow-global-fallback` 仅在人工复核后启用，输出 AMBIGUOUS 警告
+
+### manual-marks.json（AI 外化记忆）
+
+脚本提取字符串的盲区（动态拼接、跨标签 HTML 文本、看起来像代码的字符串）由兜底 subagent 扫描，记录到 `manual-marks.json`：
+- 结构化字段：`id` / `file` / `source` / `category` / `location_hint` / `note` / `base_commit` / `added_at`
+- `category` 取值：`dynamic-concat | template-nested | code-like | complex-encoding | html-cross-tag | other`
+- 下次同步时兜底 subagent 优先读这份清单，定位每个 mark 并翻译
+- sync-finalize 会归档 obsolete 的 mark（source 已不在 master 文件中）
+
+### pending.json（中转区）
+
+上游删除的字符串进入 pending，不立即从 tm.json 删除——防止"移到别处"误删。sync-finalize 整次同步完成后检查 pending，确实没回来的才清理。
+
+### 同步工具职责
+
+| 工具 | 类型 | 职责 |
+|---|---|---|
+| `sync-analyze.mjs` | 脚本 | 差异分析 + lane 分类（80 行阈值） |
+| `replay-apply.mjs` | 脚本 | TM Replay（TS/JS AST + HTML AST） |
+| `sync-collect.mjs` | 脚本 | 合并翻译产出到 tm.json |
+| `sync-finalize.mjs` | 脚本 | 清理 pending + 归档 marks + 更新 base_commit |
+| 兜底 subagent | AI | 扫描残留 + 维护 manual-marks |
+
+复用：`batch_runner.mjs`（prepare/collect）、`validate.mjs`

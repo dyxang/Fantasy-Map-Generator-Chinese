@@ -13,11 +13,16 @@ i18n/
 ├── progress.json        # 跨会话进度追踪
 ├── base_commit.txt      # 上游基准 commit SHA
 ├── units.json           # 提取的翻译单元清单（extract 生成）
-├── pending.json         # 待同步的变更清单（sync 生成）
+├── pending.json         # 上游删除字符串的中转区（sync-finalize 维护）
+├── manual-marks.json    # AI 标注的脚本提取盲区（兜底 subagent 维护）
 └── scripts/
     ├── extract.mjs      # 从 HTML/TS/JS 提取可翻译字符串
-    ├── sync.mjs         # 检测上游变更，生成待译清单
-    ├── validate.mjs    # 验证翻译完整性（占位符/HTML/TS/lint）
+    ├── batch_runner.mjs # 批量翻译 prepare/collect 流程
+    ├── replay-apply.mjs # TM Replay：用 tm.json 把翻译覆盖到 master 文件
+    ├── sync-analyze.mjs # 分析上游改动，按 80 行阈值分 lane
+    ├── sync-collect.mjs # 合并同步期间的翻译产出到 tm.json
+    ├── sync-finalize.mjs # 同步收尾：清理 pending、更新 base_commit
+    ├── validate.mjs     # 验证翻译完整性（占位符/HTML/TS/lint）
     └── package.json     # 脚本依赖
 ```
 
@@ -62,21 +67,38 @@ node i18n/scripts/validate.mjs --skip-tsc --skip-lint
 node i18n/scripts/validate.mjs --check-consistency
 ```
 
-### 5. 上游同步
+### 5. 上游同步（master 更新后）
+
+完整流程见 `.claude/artifacts/designs/sync-tools-design.md`，简要步骤：
 
 ```bash
-node i18n/scripts/sync.mjs
+# 1. 更新本仓库的 master 分支
+git fetch upstream
+git checkout master && git merge upstream/master && git checkout zh-CN
+
+# 2. 分析改动（按 80 行阈值分 lane，输出 sync-report.json）
+node i18n/scripts/sync-analyze.mjs
+
+# 3. 代码同步阶段
+#    Lane-A（≤80 行改动）：git merge master，AI 解冲突
+#    Lane-B（>80 行改动）：git checkout master -- <files> && node i18n/scripts/replay-apply.mjs --files <...>
+
+# 4. 翻译未命中的字符串（AI/subagent）
+
+# 5. 合并翻译产出
+node i18n/scripts/sync-collect.mjs
+
+# 6. 收尾：清理 pending、更新 base_commit
+node i18n/scripts/sync-finalize.mjs
 ```
 
-输出 `i18n/pending.json`，包含需要处理的变更单元。
+工具职责：
+- `sync-analyze.mjs`：差异分析 + lane 分类（≤80 行 Lane-A / >80 行 Lane-B）
+- `replay-apply.mjs`：TM Replay（TS/JS 用 TypeScript AST，HTML 用 parse5 AST，默认严格匹配）
+- `sync-collect.mjs`：合并 sync-translations.json + AMBIGUOUS 决策到 tm.json
+- `sync-finalize.mjs`：清理 pending 中转区、归档 obsolete marks、更新 base_commit
 
-处理完后运行验证，通过则合并上游：
-
-```bash
-node i18n/scripts/validate.mjs && \
-git merge upstream/master && \
-git rev-parse HEAD > i18n/base_commit.txt
-```
+完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`。
 
 ## 翻译单元类型
 
@@ -98,6 +120,6 @@ git rev-parse HEAD > i18n/base_commit.txt
 ## 当前状态
 
 - 基准版本: v1.138.0 (commit 51d8e3e)
-- 翻译单元总数: 2095
-- 已译: 0
-- 进度: 0%
+- TM 条目数: 898
+- 翻译单元总数: ~1960（units.json）
+- 详细进度见 `i18n/progress.json`

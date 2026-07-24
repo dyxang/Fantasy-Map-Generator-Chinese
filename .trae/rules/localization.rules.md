@@ -158,8 +158,31 @@ subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i
 
 ## 增量同步流程（上游更新时）
 
-1. 用户运行 `node i18n/scripts/sync.mjs`
-2. 读 `i18n/pending.json`，处理待译单元
-3. 每个单元的 action：`translate`（新文本）/ `retranslate`（语义变更）/ `skip`（非语义变更或 divergence 命中）/ `delete`（已删除）
-4. 处理完后运行 `node i18n/scripts/validate.mjs`
-5. 验证通过后 `git merge upstream/master` + 更新 `i18n/base_commit.txt`
+zh-CN 是独立翻译分支，不 PR 不 merge 出去。上游（master）更新时，通过 **AI 为主、脚本为辅** 的流程吸收上游变化。完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`，工具职责见 `i18n/CONTEXT.md` 的「上游同步工具链」章节。
+
+### 工作流
+
+1. `git fetch upstream` 更新本仓库的 master 分支
+2. `node i18n/scripts/sync-analyze.mjs` 分析改动，按 80 行阈值分 lane，输出 `i18n/sync-report.json`
+3. 代码同步阶段：
+   - **Lane-A**（≤80 行）：`git merge master`，AI 解冲突 + 翻译新增字符串，严格 `(file, source)` 查 tm.json 复用
+   - **Lane-B**（>80 行）：`git checkout master -- <file>` + `node i18n/scripts/replay-apply.mjs --files <...>`，未命中的字符串进翻译队列
+4. AI subagent 翻译未命中的字符串
+5. 派独立兜底 subagent 扫描脚本漏提取的英文残留，记录到 `i18n/manual-marks.json`
+6. `node i18n/scripts/sync-collect.mjs` 合并翻译产出到 tm.json
+7. `node i18n/scripts/sync-finalize.mjs` 清理 pending 中转区、归档 obsolete marks、更新 base_commit
+8. `node i18n/scripts/validate.mjs` 验证翻译完整性
+
+### 替换策略（AST 精确替换）
+
+- `.ts` / `.js`：TypeScript AST 遍历 StringLiteral 节点，按位置精确替换
+- `.html`：parse5 AST 遍历文本节点 + 属性节点，按 sourceCodeLocation 精确替换
+- 默认**严格匹配** `(file, source)`，不开全局降级（避免 `type === "River"` 被误翻成 `type === "河流"`）
+
+### manual-marks.json（AI 外化记忆）
+
+脚本提取字符串的盲区由兜底 subagent 扫描并记录到 `i18n/manual-marks.json`。下次同步时优先读这份清单。字段：`id` / `file` / `source` / `category` / `location_hint` / `note` / `base_commit` / `added_at`。
+
+### pending.json（中转区）
+
+上游删除的字符串进入 pending，不立即从 tm.json 删除——防止"移到别处"误删。sync-finalize 整次同步完成后检查 pending，确实没回来的才清理。
