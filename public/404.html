@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<!--汉化版特有的404页面-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - 页面不存在</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: 'Noto Sans SC', Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .error-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1000px;
+    }
+    .error-page > div {
+      text-align: center;
+    }
+    h1 {
+      font-size: 10em;
+      margin: 0;
+      letter-spacing: 0.1em;
+      position: relative;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    h1::before,
+    h1::after {
+      content: attr(data-h1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    h1::before {
+      color: #ff0050;
+      animation: glitch1 2s infinite linear alternate-reverse;
+    }
+    h1::after {
+      color: #00ffff;
+      animation: glitch2 2s infinite linear alternate-reverse;
+    }
+    p {
+      font-size: 1.5em;
+      margin: 0.5em 0 1.5em;
+      letter-spacing: 0.3em;
+    }
+    p::before,
+    p::after {
+      content: attr(data-p);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .back {
+      display: inline-block;
+      padding: 0.8em 2em;
+      margin-top: 1em;
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      letter-spacing: 0.2em;
+      transition: all 0.3s ease;
+    }
+    .back:hover {
+      background-color: #fff;
+      color: #1a1a1a;
+    }
+    @keyframes glitch1 {
+      0% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); }
+      20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 0); }
+      40% { clip-path: inset(40% 0 50% 0); transform: translate(-1px, 0); }
+      60% { clip-path: inset(10% 0 70% 0); transform: translate(1px, 0); }
+      80% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 0); }
+      100% { clip-path: inset(30% 0 40% 0); transform: translate(2px, 0); }
+    }
+    @keyframes glitch2 {
+      0% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 0); }
+      20% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); }
+      40% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 0); }
+      60% { clip-path: inset(70% 0 10% 0); transform: translate(-1px, 0); }
+      80% { clip-path: inset(5% 0 80% 0); transform: translate(2px, 0); }
+      100% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <div>
+      <h1 data-h1="404">404</h1>
+      <p data-p="NOT FOUND">页面不存在</p>
+    </div>
+  </div>
+  <a href="https://8desk.top" class="back">返回首页</a>
+</body>
+</html>

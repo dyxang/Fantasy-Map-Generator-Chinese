@@ -636,6 +636,58 @@ FlightlessDutchman`;
 // temp legacy compatibility
 window.Supporters = supporters;
 
+export const trbackers = `匿名1
+匿名2
+行
+爱发电用户_8a1a9
+匿名3
+匿名4
+匿名5
+匿名6
+匿名7
+susu_WHAT
+firecracker
+咳哎
+爱发电用户_66f75
+青莲剑歌
+爱发电用户_eWFG
+了望的猪猪
+朱■哲
+师维梵
+JUNJUN
+爱发电用户_YTSe
+怎么回事
+Yotta
+爱发电用户_850dc
+飞天归来
+神经漫游者nobu
+爱发电用户_HEeR
+匿名8
+DCVSMarvel
+■兵
+米卡柳丁
+路旁的菜叶
+爱之梦
+居高声自远
+小光
+Crisp
+匿名9
+■越
+匿名10
+星空下的牧草
+匿名11
+■■晗
+长江长
+匿名12
+wx
+匿名13
+匿名14
+及其他七个好心人`;
+
+// temp legacy compatibility（与原版 window.Supporters 模式一致）
+window.trbackers = trbackers;
+
 declare global {
   var Supporters: typeof supporters;
+  var trbackers: string;
 }

@@ -18,20 +18,20 @@
 export const VERSION = "1.138.0";
 
 const latestPublicChanges = [
-  "Economic simulation",
-  "Trade animation",
-  "Navigable rivers",
-  "3D view: eroded terrain",
-  "3D view: satellite texture",
-  "Jagged coastlines",
-  "Heightmap Editor: Fill brush",
-  "Editors: undo button",
-  "Minimap",
-  "Search input in Overview dialogs",
-  "Custom burg grouping and icon selection",
-  "Ability to set custom image as Marker or Regiment icon",
-  "Submap and Transform tools rework",
-  "Azgaar Bot to answer questions and provide help"
+  "经济模拟",
+  "贸易动画",
+  "通航河流",
+  "3D视图：侵蚀地形",
+  "3D视图：卫星纹理",
+  "锯齿状海岸线",
+  "高度图编辑器：填充画笔",
+  "编辑器：撤销按钮",
+  "小地图",
+  "概览对话框中的搜索输入",
+  "自定义城镇分组和图标选择",
+  "可以设置自定义图像作为标记或军团图标",
+  "子地图和变换工具重做",
+  "Azgaar机器人回答问题和提供帮助"
 ];
 
 export function parseMapVersion(version: string): string {
@@ -100,25 +100,30 @@ function showUpdateWindow(storedVersion: string | null): void {
   const discord = "https://discordapp.com/invite/X7E84HU";
   const patreon = "https://www.patreon.com/azgaar";
 
-  alertMessage.innerHTML = /* html */ `The Fantasy Map Generator is updated up to version <strong>${VERSION}</strong>. This version is compatible with <a href="${changelog}" target="_blank">previous versions</a>, loaded save files will be auto-updated.
-    ${storedVersion ? "<span>In case of errors reload the page to update the code.</span>" : ""}
-
+  alertMessage.innerHTML = /* html */ `幻想地图生成器更新到版本<strong>${VERSION}</strong>，此版本兼容<a href="${changelog}" target="_blank">这些版本</a>，地图文件将自动更新
+    ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
+<p><strong>⚠请必须仔细阅读以下内容！</strong></p>
+<p>❗因代码底层逻辑，推荐电脑访问达到最好体验❗<p>
+<p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
+<p>应要求，建了个汉化版交流的群：873020847</p>汉化版完全免费，支持译者:
+<p><a href="https://afdian.com/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
+<p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
     <ul>
-      <strong>Latest changes:</strong>
+      <strong>最近更新:</strong>
       ${latestPublicChanges.map(change => `<li>${change}</li>`).join("")}
     </ul>
 
-    <p>Join our <a href="${discord}" target="_blank">Discord server</a> and <a href="${reddit}" target="_blank">Reddit community</a> to ask questions, share maps, discuss the Generator and Worldbuilding, report bugs and propose new features.</p>
-    <span><i>Thanks for all supporters on <a href="${patreon}" target="_blank">Patreon</a>!</i></span>`;
+    <p>加入原作者的 <a href="${discord}" target="_blank">Discord 群聊</a>或<a href="${reddit}" target="_blank">Reddit 社区</a>提出问题，分享地图，讨论生成器和世界构建，报告错误并提出新功能。</p>
+    <span><i>感谢所有支持，到<a href="${patreon}" target="_blank">Patreon（赞助网站）</a>上支持原作者!</i></span>`;
 
   $("#alert").dialog({
     resizable: false,
-    title: "Fantasy Map Generator 更新",
+    title: "幻想地图生成器更新",
     width: "28em",
     position: { my: "center center-4em", at: "center", of: "svg" },
     buttons: {
-      "Clear cache": () => cleanupData(),
-      "Don't show again": function (this: HTMLElement) {
+      清空缓存: () => cleanupData(),
+      不再显示: function (this: HTMLElement) {
         $(this).dialog("close");
         localStorage.setItem("version", VERSION);
       }

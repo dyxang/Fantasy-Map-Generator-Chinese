@@ -10,4 +10,3 @@ zh-CN 是独立翻译分支，不 PR 不 merge 出去。开始任何翻译或上
 - `i18n/README.md` — 工具脚本使用说明
 - `.trae/rules/localization.rules.md` — 翻译会话常驻规则
 - `.claude/artifacts/designs/sync-tools-design.md` — 上游同步工具链的完整设计与决策记录
--  任何大任务完成后，并评估是否需要改进翻译工作流并告诉用户

@@ -1,41 +1,20 @@
-# Fantasy Map Generator
+## 介绍
 
-Azgaar's _Fantasy Map Generator_ is a free web application that helps fantasy writers, game masters, and cartographers create and edit fantasy maps.
+此为幻想地图生成器的中文个人汉化版本
 
-Link: [azgaar.github.io/Fantasy-Map-Generator](https://azgaar.github.io/Fantasy-Map-Generator).
+- [官方仓库](https://github.com/Azgaar/Fantasy-Map-Generator)＆[官方网站](https://azgaar.github.io/Fantasy-Map-Generator)
+- 中文翻译[https://8desk.top](https://8desk.top)
 
-Refer to the [project wiki](https://github.com/Azgaar/Fantasy-Map-Generator/wiki) for guidance. The current progress is tracked in [Trello](https://trello.com/b/7x832DG4/fantasy-map-generator). Some details are covered in my old blog [_Fantasy Maps for fun and glory_](https://azgaar.wordpress.com).
+有问题可以先看看[问与答](https://github.com/dyxang/Fantasy-Map-Generator-Chinese/wiki/%E9%97%AE%E4%B8%8E%E7%AD%94)然后再在 Github Discussion 提出，谢谢。
+Issue 不适合仅做翻译的项目，故关闭。另外，由于刚刚公开仓库，所以Wiki和公告正在施工。
 
-[![preview](https://github.com/Azgaar/Fantasy-Map-Generator/assets/26469650/9502eae9-92e0-4d0d-9f17-a2ba4a565c01)](https://github.com/Azgaar/Fantasy-Map-Generator/assets/26469650/11a42446-4bd5-4526-9cb1-3ef97c868992)
+## 许可
+本汉化使用[GNU AGPLv3](./LICENSE)作为许可
 
-[![preview](https://github.com/Azgaar/Fantasy-Map-Generator/assets/26469650/e751a9e5-7986-4638-b8a9-362395ef7583)](https://github.com/Azgaar/Fantasy-Map-Generator/assets/26469650/e751a9e5-7986-4638-b8a9-362395ef7583)
+## 注释
+1.Gitee同步镜像不再更新
+2.目前仓库使用AI进行硬编码文本提取翻译，人工进行校对，如果有网站报错&翻译问题请提交 issue
+[在 Patron 上支持原作者](https://www.patreon.com/azgaar)
 
-[![preview](https://github.com/Azgaar/Fantasy-Map-Generator/assets/26469650/b0d0efde-a0d1-4e80-8818-ea3dd83c2323)](https://github.com/Azgaar/Fantasy-Map-Generator/assets/26469650/b0d0efde-a0d1-4e80-8818-ea3dd83c2323)
-
-Join our [Discord server](https://discordapp.com/invite/X7E84HU) and [Reddit community](https://www.reddit.com/r/FantasyMapGenerator) to share your creations, discuss the Generator, suggest ideas and get the most recent updates.
-
-Contact me via [email](mailto:azgaar.fmg@yandex.com) if you have non-public suggestions. For bug reports please use [GitHub issues](https://github.com/Azgaar/Fantasy-Map-Generator/issues) or _#fmg-bugs_ channel on Discord. If you are facing performance issues, please read [the tips](https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Tips#performance-tips).
-
-You can support the project on [Patreon](https://www.patreon.com/azgaar).
-
-_Inspiration:_
-
-- Martin O'Leary's [_Generating fantasy maps_](https://mewo2.com/notes/terrain)
-
-- Amit Patel's [_Polygonal Map Generation for Games_](http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation)
-
-- Scott Turner's [_Here Dragons Abound_](https://heredragonsabound.blogspot.com)
-
-## Contribution
-
-Pull requests are highly welcomed. The codebase is messy and I will appreciate if you start with minor changes. Check out the [data model](https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Data-model) before contributing.
-
-The codebase is gradually transitioning from **vanilla JavaScript to TypeScript** while maintaining compatibility with the existing generation pipeline and old `.map` user files.
-
-The expected **future** architecture is based on a separation between **world data**, **procedural generation**, **interactive editing**, and **rendering**. The application is conceptually divided into four main layers: world data and styles (state), generators (model), editors (controllers), renderers (view).
-
-Flow:
-settings → generators → world data → renderer
-UI → editors → world data → renderer.
-
-The data layer must contain no logic and no rendering code. Generators implement the procedural world simulation. Editors implement interactive editing tools used by the user. They perform controlled mutations of the world state. Editors can be viewed as interactive generators. The renderer converts the world state into SVG or WebGl graphics. Renderer must be pure visualization step and not modify world data.
+## 其他
+关于作品被倒卖的事网站负责人已找到并联系我，删除了没有标明出处的原作者Azgaar的作品。此事暂告一段落，仅保留历史证据。

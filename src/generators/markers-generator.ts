@@ -1650,7 +1650,7 @@ class MarkersModule {
   private addEncounter(id: string, cell: number) {
     const name = "Random encounter";
     const encounterSeed = cell; // use just cell Id to not overwhelm the Vercel KV database
-    const legend = `<div>You have encountered a character.</div><iframe src="https://deorum.vercel.app/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
+    const legend = `<div>你偶遇了一位人.</div><iframe src="https://deorum.8desk.top/encounter/${encounterSeed}" width="375" height="600" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
     notes.push({ id, name, legend });
   }
 }

@@ -102,7 +102,7 @@ function closeNotesEditor(): void {
 
 async function initEditor(): Promise<void> {
   if (!window.tinymce) {
-    const url = "https://azgaar.github.io/Fantasy-Map-Generator/libs/tinymce/tinymce.min.js";
+    const url = "https://www.8desk.top/libs/tinymce/tinymce.min.js";
     try {
       await import(/* @vite-ignore */ url);
     } catch {
@@ -119,7 +119,7 @@ async function initEditor(): Promise<void> {
   const tinymce = window.tinymce;
   if (!tinymce) return;
 
-  tinymce._setBaseUrl("https://azgaar.github.io/Fantasy-Map-Generator/libs/tinymce");
+  tinymce._setBaseUrl("https://www.8desk.top/libs/tinymce");
   tinymce.init({
     license_key: "gpl",
     selector: "#notesLegend",

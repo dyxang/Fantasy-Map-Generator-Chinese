@@ -1,7 +1,13 @@
 :root {
-  --monospace: Consolas, monospace;
+  --monospace: 'HarmonyOS Sans SC', Consolas, monospace;
   --serif: Georgia, serif;
-  --sans-serif: Helvetica, Arial, sans-serif;
+  --sans-serif: 'Noto Sans SC', Helvetica, Arial, sans-serif;
+}
+
+/*使用中文字体美化尝试*/
+@font-face {
+  font-family: "HarmonyOS Sans SC";
+  src: url("https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/HarmonyOS_Sans_SC_Regular.ttf");
 }
 
 /* hide Google translate header */

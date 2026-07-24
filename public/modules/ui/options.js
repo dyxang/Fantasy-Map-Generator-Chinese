@@ -95,6 +95,21 @@ async function showSupporters() {
   });
 }
 
+// show popup with a list of Chinese localization supporters
+async function showTrbackers() {
+  const list = window.trbackers.split("\n").sort();
+  const columns = window.innerWidth < 800 ? 2 : 5;
+
+  alertMessage.innerHTML =
+    `<ul style='column-count: ${columns}; column-gap: 2em'>` + list.map(n => `<li>${n}</li>`).join("") + "</ul>";
+  $("#alert").dialog({
+    resizable: false,
+    title: "汉化版赞赏者 - 真名已打码",
+    width: "min-width",
+    position: {my: "center", at: "center", of: "svg"}
+  });
+}
+
 // on any option or dialog change
 ensureEl("options").addEventListener("change", storeValueIfRequired);
 ensureEl("dialogs").addEventListener("change", storeValueIfRequired);

@@ -631,7 +631,7 @@ async function downloadGallery(): Promise<void> {
         .join("")}</div>`
     : "";
 
-  const FMG = `<a href="https://azgaar.github.io/Fantasy-Map-Generator" target="_blank">Azgaar's Fantasy Map Generator</a>`;
+  const FMG = `<a href="https://8desk.top" target="_blank">Azgaar's Fantasy Map Generator</a>`;
   const license = `<a target="_blank" href="https://github.com/Azgaar/Armoria#license">许可证</a>`;
   const html = /* html */ `<!DOCTYPE html>
     <html>
