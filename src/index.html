@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azgaar's Fantasy Map Generator</title>
+    <title>Azgaar 奇幻地图生成器</title>
     <meta name="application-name" content="Azgaar's Fantasy Map Generator" />
     <meta name="author" content="Azgaar" />
     <meta
@@ -349,16 +349,16 @@
       </svg>
       <div id="loading-typography">
         <div id="titleName">Azgaar's</div>
-        <div id="title">Fantasy Map Generator</div>
+        <div id="title">奇幻地图生成器</div>
         <div id="versionText">‎ ‎</div>
-        <p id="loading-text">LOADING<span>.</span><span>.</span><span>.</span></p>
+        <p id="loading-text">加载中<span>.</span><span>.</span><span>.</span></p>
       </div>
     </div>
     <div id="optionsContainer" style="opacity: 0">
       <div id="collapsible">
         <button
           id="optionsTrigger"
-          data-tip="Click to show the Menu"
+          data-tip="点击显示菜单"
           data-shortcut="Tab"
           class="options glow"
           onclick="showOptions(event)"
@@ -367,29 +367,29 @@
         </button>
         <button
           id="regenerate"
-          data-tip="Click to generate a new map"
+          data-tip="点击生成新地图"
           data-shortcut="F2"
           onclick="regeneratePrompt()"
           class="options"
           style="display: none"
         >
-          New Map!
+          新地图！
         </button>
       </div>
       <div id="options" style="display: none">
-        <div class="drag-trigger" data-tip="Drag to move the Menu"></div>
+        <div class="drag-trigger" data-tip="拖动以移动菜单"></div>
         <div class="tab">
           <button
             id="optionsHide"
-            data-tip="Click to hide the Menu"
+            data-tip="点击隐藏菜单"
             data-shortcut="Tab or Esc"
             class="options"
             onclick="hideOptions(event)"
           >
             ◄
           </button>
-          <button id="layersTab" data-tip="Click to change map layers" class="options active">Layers</button>
-          <button id="styleTab" data-tip="Click to open style editor" class="options">Style</button>
+          <button id="layersTab" data-tip="点击更改地图图层" class="options active">图层</button>
+          <button id="styleTab" data-tip="点击打开样式编辑器" class="options">样式</button>
           <button id="optionsTab" data-tip="Click to change generation and UI options" class="options">Options</button>
           <button id="toolsTab" data-tip="Click to open tools menu" class="options">Tools</button>
           <button id="aboutTab" data-tip="Click to see Generator info" class="options">About</button>

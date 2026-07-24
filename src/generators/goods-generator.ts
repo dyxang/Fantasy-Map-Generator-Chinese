@@ -441,7 +441,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Naval: 1.4, Nomadic: 2, Hunting: 0.6, Highland: 0.4 } }
   },
   {
-    name: "Tar",
+    name: "焦油",
     tags: ["naval"],
     icon: "good-tar",
     color: "#727272",
@@ -453,7 +453,7 @@ const GOODS_DATA: GoodData[] = [
     recipes: [{ Wood: 1 }]
   },
   {
-    name: "Saltpeter",
+    name: "硝石",
     tags: ["military", "mineral"],
     icon: "good-saltpeter",
     color: "#e6e3e3",
@@ -464,7 +464,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: {}
   },
   {
-    name: "Coal",
+    name: "煤",
     tags: ["fuel"],
     icon: "good-coal",
     color: "#5a6a75",
@@ -473,10 +473,10 @@ const GOODS_DATA: GoodData[] = [
     distribution: "minHeight(40) || (minHeight(20) && elevation(25))",
     unit: "wain",
     demandCoverage: { utilities: 0.5 },
-    recipes: [{ Wood: 1.5 }]
+    recipes: [{ 木材: 1.5 }]
   },
   {
-    name: "Oil",
+    name: "油",
     tags: ["fuel"],
     icon: "good-oil",
     color: "#565656",
@@ -485,10 +485,10 @@ const GOODS_DATA: GoodData[] = [
     distribution: "biome(1, 2, 10) || (shore(-1) && minTemp(18) && random(15))",
     unit: "barrel",
     demandCoverage: { utilities: 1 },
-    recipes: [{ Olives: 1 }, { Whales: 1 }]
+    recipes: [{ 橄榄: 1 }, { 鲸: 1 }]
   },
   {
-    name: "Mahogany",
+    name: "桃花心木",
     tags: ["luxury"],
     icon: "good-tropicalTimber",
     color: "#a45a52",
@@ -499,7 +499,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { luxury: 1 }
   },
   {
-    name: "Whales",
+    name: "鲸",
     tags: ["food", "aquatic", "fuel"],
     icon: "good-whales",
     color: "#7fcdff",
@@ -511,7 +511,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Naval: 1.4, Nomadic: 0.5 } }
   },
   {
-    name: "Sugarcane",
+    name: "甘蔗",
     tags: ["preservative", "food"],
     icon: "good-sugar",
     color: "#7abf87",
@@ -522,7 +522,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { food: 0.6, luxury: 0.4 }
   },
   {
-    name: "Tea",
+    name: "茶",
     tags: ["luxury"],
     icon: "good-tea",
     color: "#d0f0c0",
@@ -534,7 +534,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 1.2 } }
   },
   {
-    name: "Tobacco",
+    name: "烟草",
     tags: ["luxury"],
     icon: "good-tobacco",
     color: "#6D5843",
@@ -545,7 +545,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { luxury: 1 }
   },
   {
-    name: "Clay",
+    name: "黏土",
     tags: ["mineral", "construction"],
     icon: "good-clay",
     color: "#b07c60",
@@ -557,7 +557,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { River: 1.4, Lake: 1.4 } }
   },
   {
-    name: "White sand",
+    name: "白砂",
     tags: ["mineral"],
     icon: "good-sand",
     color: "#e6d69c",
@@ -568,29 +568,29 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { River: 1.4, Lake: 1.4 } }
   },
   {
-    name: "Leather",
+    name: "皮革",
     tags: ["clothing", "military"],
     icon: "good-leather",
     color: "#8b5a2b",
     value: 4,
     chance: 0,
-    recipes: [{ Cattle: 1 }, { Game: 1 }, { Horses: 1 }, { Camels: 1 }],
+    recipes: [{ 牛: 1 }, { 猎物: 1 }, { 马: 1 }, { 骆驼: 1 }],
     unit: "roll",
     multipliers: { cultureType: { Naval: 0.6 } }
   },
   {
-    name: "Cloth",
+    name: "布匹",
     tags: ["clothing"],
     icon: "good-cloth",
     color: "#e8e69c",
     value: 4,
     chance: 0,
-    recipes: [{ Sheep: 1 }, { Hemp: 1 }, { Silk: 0.5 }],
+    recipes: [{ 羊: 1 }, { 大麻: 1 }, { 丝绸: 0.5 }],
     unit: "bolt",
     demandCoverage: { utilities: 0.2 }
   },
   {
-    name: "Garments",
+    name: "服装",
     tags: ["clothing"],
     icon: "good-garments",
     color: "#bd21ec",
@@ -604,30 +604,30 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { utilities: 1 }
   },
   {
-    name: "Ceramics",
+    name: "陶瓷",
     tags: ["storage", "construction"],
     icon: "good-ceramics",
     color: "#c1440e",
     value: 6,
     chance: 0,
-    recipes: [{ Clay: 1 }],
+    recipes: [{ 黏土: 1 }],
     unit: "wain",
     demandCoverage: { utilities: 1 }
   },
   {
-    name: "Glass",
+    name: "玻璃",
     tags: ["storage", "construction"],
     icon: "good-glass",
     color: "#a0c8e8",
     value: 7,
     chance: 0,
-    recipes: [{ "White sand": 1 }],
+    recipes: [{ "白砂": 1 }],
     unit: "wain",
     demandCoverage: { luxury: 1 },
     multipliers: { cultureType: { Nomadic: 0.2 } }
   },
   {
-    name: "Ropes",
+    name: "绳索",
     tags: ["naval", "construction"],
     icon: "good-ropes",
     color: "#ba9773",
@@ -638,7 +638,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { utilities: 1 }
   },
   {
-    name: "Paper",
+    name: "纸张",
     tags: ["ritual", "educational"],
     icon: "good-paper",
     color: "#f5f5dc",
@@ -649,18 +649,18 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: {}
   },
   {
-    name: "Ink",
+    name: "墨水",
     tags: ["ritual", "educational"],
     icon: "good-ink",
     color: "#000000",
     value: 5,
     chance: 0,
-    recipes: [{ Oil: 1 }, { Dyes: 0.5 }],
+    recipes: [{ 油: 1 }, { 染料: 0.5 }],
     unit: "bottle",
     demandCoverage: {}
   },
   {
-    name: "Books",
+    name: "书籍",
     tags: ["ritual", "educational"],
     icon: "good-books",
     color: "#deb887",
@@ -675,41 +675,41 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Nomadic: 0.2, Hunting: 0.5 } }
   },
   {
-    name: "Sails",
+    name: "船帆",
     tags: ["naval"],
     icon: "good-sails",
     color: "#ffffff",
     value: 7,
     chance: 0,
-    recipes: [{ Cloth: 1 }],
+    recipes: [{ 布匹: 1 }],
     unit: "set",
     demandCoverage: { military: 1 }
   },
   {
-    name: "Ships",
+    name: "船只",
     tags: ["naval"],
     icon: "good-ships",
     color: "#654321",
     value: 50,
     chance: 0,
-    recipes: [{ Wood: 4, Sails: 4, Ropes: 4, Tar: 2 }],
+    recipes: [{ 木材: 4, 船帆: 4, 绳索: 4, 焦油: 2 }],
     unit: "ship",
     demandCoverage: { military: 0.5 },
     multipliers: { cultureType: { Naval: 2 } }
   },
   {
-    name: "Boots",
+    name: "靴子",
     tags: ["clothing", "military"],
     icon: "good-boots",
     color: "#654321",
     value: 6,
     chance: 0,
-    recipes: [{ Leather: 1 }, { Furs: 0.5 }],
+    recipes: [{ 皮革: 1 }, { 毛皮: 0.5 }],
     unit: "pair",
     demandCoverage: { utilities: 1 }
   },
   {
-    name: "Harnesses",
+    name: "马具",
     tags: ["military"],
     icon: "good-harnesses",
     color: "#a0522d",
@@ -725,7 +725,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Nomadic: 1.2 } }
   },
   {
-    name: "Barrels",
+    name: "木桶",
     tags: ["naval", "storage"],
     icon: "good-barrels",
     color: "#b46e3b",
@@ -736,7 +736,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { utilities: 1 }
   },
   {
-    name: "Bronze",
+    name: "青铜",
     tags: ["military"],
     icon: "good-bronze",
     color: "#e46f21",
@@ -750,7 +750,7 @@ const GOODS_DATA: GoodData[] = [
     multipliers: { cultureType: { Highland: 1.2 } }
   },
   {
-    name: "Tools",
+    name: "工具",
     tags: ["construction", "military"],
     icon: "good-tools",
     color: "#808080",
@@ -764,7 +764,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { utilities: 1 }
   },
   {
-    name: "Arms",
+    name: "兵器",
     tags: ["military"],
     icon: "good-arms",
     color: "#333333",
@@ -778,18 +778,18 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { military: 1 }
   },
   {
-    name: "Gunpowder",
+    name: "火药",
     tags: ["military"],
     icon: "good-gunpowder",
     color: "#b0c4de",
     value: 10,
     chance: 0,
-    recipes: [{ Saltpeter: 0.5, Coal: 0.5 }],
+    recipes: [{ 硝石: 0.5, 煤: 0.5 }],
     unit: "barrel",
     demandCoverage: { military: 2 }
   },
   {
-    name: "Artillery",
+    name: "火炮",
     tags: ["military"],
     icon: "good-artillery",
     color: "#cd7f32",
@@ -803,7 +803,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { military: 1 }
   },
   {
-    name: "Coins",
+    name: "钱币",
     tags: ["currency"],
     icon: "good-coins",
     color: "#ffd700",
@@ -817,7 +817,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { luxury: 1 }
   },
   {
-    name: "Jewelry",
+    name: "珠宝",
     tags: ["luxury"],
     icon: "good-jewelry",
     color: "#34861b",
@@ -835,7 +835,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { luxury: 1 }
   },
   {
-    name: "Preserved food",
+    name: "腌制食品",
     tags: ["food"],
     icon: "good-salted-fish",
     color: "#c2b280",
@@ -856,18 +856,18 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { food: 1 }
   },
   {
-    name: "Vinegar",
+    name: "醋",
     tags: ["food", "preservative"],
     icon: "good-vinegar",
     color: "#9b111e",
     value: 2,
     chance: 0,
-    recipes: [{ Wine: 1 }, { Honey: 1 }],
+    recipes: [{ 葡萄酒: 1 }, { 蜂蜜: 1 }],
     unit: "barrel",
     demandCoverage: { utilities: 0.5 }
   },
   {
-    name: "Cheese",
+    name: "奶酪",
     tags: ["food"],
     icon: "good-cheese",
     color: "#f5e1a4",
@@ -883,7 +883,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { food: 1 }
   },
   {
-    name: "Beer",
+    name: "啤酒",
     tags: ["food"],
     icon: "good-beer",
     color: "#fbb117",
@@ -897,7 +897,7 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { food: 1 }
   },
   {
-    name: "Liquor",
+    name: "烈酒",
     tags: ["food", "luxury"],
     icon: "good-liquor",
     color: "#8a0303",
@@ -915,29 +915,29 @@ const GOODS_DATA: GoodData[] = [
     demandCoverage: { luxury: 1 }
   },
   {
-    name: "Candles",
+    name: "蜡烛",
     tags: ["luxury", "ritual"],
     icon: "good-candles",
     color: "#fffacd",
     value: 8,
     chance: 0,
-    recipes: [{ Honey: 2 }, { Oil: 1 }],
+    recipes: [{ 蜂蜜: 2 }, { 油: 1 }],
     unit: "block",
     demandCoverage: { utilities: 0.5, luxury: 0.5 }
   },
   {
-    name: "Soap",
+    name: "肥皂",
     tags: ["luxury", "ritual"],
     icon: "good-soap",
     color: "#e0e4cc",
     value: 5,
     chance: 0,
-    recipes: [{ Olives: 1 }, { Cattle: 1 }],
+    recipes: [{ 橄榄: 1 }, { 牛: 1 }],
     unit: "barrel",
     demandCoverage: { utilities: 0.4, luxury: 0.6 }
   },
   {
-    name: "Perfume",
+    name: "香水",
     tags: ["luxury", "ritual"],
     icon: "good-perfume",
     color: "#ff69b4",

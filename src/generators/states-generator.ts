@@ -75,7 +75,7 @@ const DEFAULT_TAX: TaxBases = DEFAULT_TAX_BY_FORM.Monarchy;
 
 class StatesModule {
   private createStates() {
-    const states: State[] = [{ i: 0, name: "Neutrals", salesTax: 0, pollTax: 0, treasury: 0 } as State];
+    const states: State[] = [{ i: 0, name: "中立", salesTax: 0, pollTax: 0, treasury: 0 } as State];
     const each5th = each(5);
     const sizeVariety = (ensureEl("sizeVariety") as HTMLInputElement).valueAsNumber;
 

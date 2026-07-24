@@ -43,7 +43,7 @@ describe("StatesModule.collectTaxes", () => {
 
   it("credits sales-tax deal.tax to the seller's state and adds poll tax", () => {
     globalThis.pack.states = [
-      { i: 0, name: "Neutrals", salesTax: 0, pollTax: 0, treasury: 0 },
+      { i: 0, name: "中立", salesTax: 0, pollTax: 0, treasury: 0 },
       {
         i: 1,
         name: "A",
@@ -130,7 +130,7 @@ describe("StatesModule.collectTaxes", () => {
 
   it("leaves neutrals at zero even with deals from neutral burgs", () => {
     globalThis.pack.states = [
-      { i: 0, name: "Neutrals", salesTax: 0, pollTax: 0, treasury: 0 },
+      { i: 0, name: "中立", salesTax: 0, pollTax: 0, treasury: 0 },
       { i: 1, name: "A", salesTax: 0.1, pollTax: 0, treasury: 0, rural: 10, urban: 0 }
     ] as any;
     globalThis.pack.burgs = [

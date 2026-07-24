@@ -61,7 +61,7 @@ class HeightmapModule {
 
   private getPointInRange(range: string, length: number): number | undefined {
     if (typeof range !== "string") {
-      window.ERROR && console.error("Range should be a string");
+      window.ERROR && console.error("范围应为字符串");
       return;
     }
 

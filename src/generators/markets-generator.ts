@@ -256,7 +256,7 @@ export class MarketsModule {
     if (!burg || burg.removed) return null;
 
     if (pack.markets.some(m => m.centerBurgId === burgId)) {
-      tip("This burg is already a market center", false, "error");
+      tip("此城镇已是一个市场中心", false, "error");
       return null;
     }
 

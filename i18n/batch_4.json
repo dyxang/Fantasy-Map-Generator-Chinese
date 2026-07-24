@@ -1,0 +1,401 @@
+{
+  "batch": 4,
+  "start_index": 682,
+  "units": [
+    {
+      "id": "sha256:fa8c961877942ead",
+      "source": "Range should be a string",
+      "file": "src/generators/heightmap-generator.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "\n  private getPointInRange(range: string, length: number): number | undefined {\n    if (typeof range !== \"string\") {",
+      "context_after": "      return;\n    }\n"
+    },
+    {
+      "id": "sha256:0fc7caae37b9b6b5",
+      "source": "${icon} ${type}: each ${each} of ${candidates.length}, min ${min} candidates. Got ${quantity}",
+      "file": "src/generators/markers-generator.ts",
+      "line": 472,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "      const candidates = Array.from(list(pack));\n      let quantity = this.getQuantity(candidates, min, each, multiplier);\n      // uncomment for debugging:",
+      "context_after": "\n      while (quantity && candidates.length) {\n        const [cell] = this.extractAnyElement(candidates);"
+    },
+    {
+      "id": "sha256:c099b774c2c23198",
+      "source": "Wheat",
+      "file": "src/generators/markets-generator.test.ts",
+      "line": 27,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "        goods: [\n          {\n            i: 0,",
+      "context_after": "            value: 10,\n            tags: [\"food\"],\n            unit: \"unit\","
+    },
+    {
+      "id": "sha256:3c4ac0d3f4650e9d",
+      "source": "Riverton",
+      "file": "src/generators/markets-generator.test.ts",
+      "line": 236,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "    });\n\n    it(\"getName() should prefer a custom name, fall back to the center burg, then to a generic label\", () => {",
+      "context_after": "\n      const named: Market = { i: 1, centerBurgId: 1, color: \"#fff\", goods: {}, name: \"Grand Bazaar\" };\n      expect(marketsModule.getName(named)).toBe(\"Grand Bazaar\");"
+    },
+    {
+      "id": "sha256:8809926eeaa15f37",
+      "source": "Grand Bazaar",
+      "file": "src/generators/markets-generator.test.ts",
+      "line": 238,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "    it(\"getName() should prefer a custom name, fall back to the center burg, then to a generic label\", () => {\n      globalThis.pack.burgs = [{ i: 0 } as any, { i: 1, name: \"Riverton\" } as any];\n",
+      "context_after": "      expect(marketsModule.getName(named)).toBe(\"Grand Bazaar\");\n\n      const derived: Market = { i: 1, centerBurgId: 1, color: \"#fff\", goods: {} };"
+    },
+    {
+      "id": "sha256:a01e35093a9998c6",
+      "source": "This burg is already a market center",
+      "file": "src/generators/markets-generator.ts",
+      "line": 259,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "    if (!burg || burg.removed) return null;\n\n    if (pack.markets.some(m => m.centerBurgId === burgId)) {",
+      "context_after": "      return null;\n    }\n"
+    },
+    {
+      "id": "sha256:fa761395475103e5",
+      "source": "No religion",
+      "file": "src/generators/religions-generator.ts",
+      "line": 754,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "\n  // indexes, conditionally renames, and abbreviates religions\n  private combineReligions(namedReligions: NamedReligion[], lockedReligions: Religion[]): Religion[] {",
+      "context_after": "\n    const { lockedReligionQueue, highestLockedIndex, codes, numberLockedFolk } = parseLockedReligions();\n    const maxIndex = Math.max("
+    },
+    {
+      "id": "sha256:b2ab3d6dc08469f7",
+      "source": "Removed religion",
+      "file": "src/generators/religions-generator.ts",
+      "line": 797,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "        i: index,\n        type: \"Folk\",\n        culture: 0,",
+      "context_after": "        removed: true\n      } as Religion);\n    }"
+    },
+    {
+      "id": "sha256:fd8e0870b80afcf6",
+      "source": "Please define a culture",
+      "file": "src/generators/religions-generator.ts",
+      "line": 1066,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "  // get supreme deity name\n  getDeityName(culture: number): string | undefined {\n    if (culture === undefined) {",
+      "context_after": "      return;\n    }\n    const meaning = this.generateMeaning();"
+    },
+    {
+      "id": "sha256:f676c0e13bff4d19",
+      "source": "Unknown generation approach",
+      "file": "src/generators/religions-generator.ts",
+      "line": 1126,
+      "type": "ts_string",
+      "context_tag": "message",
+      "context_before": "    if (a === \"Adjective + Animal + of + Genitive\")\n      return `${ra(base.adjective)} ${ra(base.animal)} of ${ra(base.genitive)}`;\n",
+      "context_after": "    return ra(base.being);\n  }\n}"
+    },
+    {
+      "id": "sha256:eeac5f49692a97d0",
+      "source": "Neutrals",
+      "file": "src/generators/states-generator.test.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "\n  it(\"credits sales-tax deal.tax to the seller's state and adds poll tax\", () => {\n    globalThis.pack.states = [",
+      "context_after": "      {\n        i: 1,\n        name: \"A\","
+    },
+    {
+      "id": "sha256:09d3126d930b2c62",
+      "source": "Neutrals",
+      "file": "src/generators/states-generator.test.ts",
+      "line": 133,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "\n  it(\"leaves neutrals at zero even with deals from neutral burgs\", () => {\n    globalThis.pack.states = [",
+      "context_after": "      { i: 1, name: \"A\", salesTax: 0.1, pollTax: 0, treasury: 0, rural: 10, urban: 0 }\n    ] as any;\n    globalThis.pack.burgs = ["
+    },
+    {
+      "id": "sha256:e744c8cdeadaa833",
+      "source": "Neutrals",
+      "file": "src/generators/states-generator.ts",
+      "line": 78,
+      "type": "ts_string",
+      "context_tag": "label",
+      "context_before": "\nclass StatesModule {\n  private createStates() {",
+      "context_after": "    const each5th = each(5);\n    const sizeVariety = (ensureEl(\"sizeVariety\") as HTMLInputElement).valueAsNumber;\n"
+    }
+  ],
+  "tm_hints": [
+    {
+      "source": "This burg is already the center of this market",
+      "target": "此城镇已是该市场的中心",
+      "overlap": 6
+    },
+    {
+      "source": "This cell is already a culture center. Please select a different cell",
+      "target": "此单元格已是文化中心。请选择其他单元格",
+      "overlap": 5
+    },
+    {
+      "source": "This burg is already a center of another market",
+      "target": "此城镇已是另一个市场的中心",
+      "overlap": 5
+    },
+    {
+      "source": "This cell is already a religion center. Please select a different cell",
+      "target": "此单元格已是宗教中心。请选择其他单元格",
+      "overlap": 5
+    },
+    {
+      "source": "Invalid market. The selected market has no center burg",
+      "target": "无效市场。所选市场没有中心城镇",
+      "overlap": 4
+    },
+    {
+      "source": "No market. This burg is not connected to any market.",
+      "target": "无市场。该城镇未连接到任何市场。",
+      "overlap": 4
+    },
+    {
+      "source": "There is already a burg in this cell. Please select a free cell",
+      "target": "此单元格中已存在城镇。请选择空闲单元格",
+      "overlap": 4
+    },
+    {
+      "source": "Which trade types to display: local (burg-market), global (market-market), or both",
+      "target": "要显示的贸易类型：本地（城镇-市场）、全球（市场-市场）或两者",
+      "overlap": 4
+    },
+    {
+      "source": "You cannot place culture center into the water. Please click on a land cell",
+      "target": "无法将文化中心放置在水中。请点击陆地单元格",
+      "overlap": 3
+    },
+    {
+      "source": "Click on a burg on the map to relocate the market center",
+      "target": "点击地图上的城镇以重新定位市场中心",
+      "overlap": 3
+    },
+    {
+      "source": "No valid burg in this cell. Click on a cell with a burg",
+      "target": "此单元格中没有有效的城镇。请点击包含城镇的单元格",
+      "overlap": 3
+    },
+    {
+      "source": "Element with this id already exists. Please provide a unique name",
+      "target": "具有此 id 的元素已存在。请提供唯一的名称",
+      "overlap": 3
+    },
+    {
+      "source": "Click on a burg to create a new market — no burg found here",
+      "target": "点击城镇以创建新市场——此处未找到城镇",
+      "overlap": 3
+    },
+    {
+      "source": "Invalid burg. The selected burg does not exist or was removed.",
+      "target": "城镇无效。所选城镇不存在或已被移除。",
+      "overlap": 3
+    },
+    {
+      "source": "To change capital please assign a capital status to another burg of this state",
+      "target": "要更换首都，请将首都地位分配给该国家的另一座城镇",
+      "overlap": 3
+    },
+    {
+      "source": "You cannot place religion center into the water. Please click on a land cell",
+      "target": "无法将宗教中心放置在水中。请点击陆地单元格",
+      "overlap": 3
+    },
+    {
+      "source": "River ${i} has ${cells.length} cells, but only ${points.length} points defined. Resetting points data",
+      "target": "河流 ${i} 有 ${cells.length} 个单元格，但仅定义了 ${points.length} 个点。重置点数据",
+      "overlap": 2
+    },
+    {
+      "source": "The current map already has this seed",
+      "target": "当前地图已使用该种子",
+      "overlap": 2
+    },
+    {
+      "source": "This scheme already exists",
+      "target": "该配色方案已存在",
+      "overlap": 2
+    },
+    {
+      "source": "JSON string is not valid, please check the format",
+      "target": "JSON 字符串无效，请检查格式",
+      "overlap": 2
+    },
+    {
+      "source": "${burg.name} ${burg.group}. Population: ${population}. Click to edit",
+      "target": "${burg.name} ${burg.group}。人口：${population}。点击编辑",
+      "overlap": 2
+    },
+    {
+      "source": "Are you sure you want to remove the culture? <br>This action cannot be reverted",
+      "target": "确定要移除该文化吗？<br>此操作无法撤销",
+      "overlap": 2
+    },
+    {
+      "source": "Click on culture to select, drag the circle to change culture",
+      "target": "点击文化以选择，拖动圆形以更改文化",
+      "overlap": 2
+    },
+    {
+      "source": "Invalid market. The selected market does not exist",
+      "target": "无效市场。所选市场不存在",
+      "overlap": 2
+    },
+    {
+      "source": "Please provide a valid number in range 0-9999",
+      "target": "请提供 0-9999 范围内的有效数字",
+      "overlap": 2
+    },
+    {
+      "source": "This is one of the default groups, it cannot be removed",
+      "target": "这是默认组之一，无法移除",
+      "overlap": 2
+    },
+    {
+      "source": "${Markets.getName(market)} Market Deals",
+      "target": "${Markets.getName(market)} 市场交易",
+      "overlap": 2
+    },
+    {
+      "source": "Maximal length should be greater than minimal",
+      "target": "最大长度应大于最小长度",
+      "overlap": 2
+    },
+    {
+      "source": "Relations are unknown if states do not have enough information about each other",
+      "target": "当两国彼此情报不足时关系即为未知",
+      "overlap": 2
+    },
+    {
+      "source": "Heightmap is already cleared, please do not click twice if not required",
+      "target": "高度图已清空，如非必要请勿点击两次",
+      "overlap": 2
+    },
+    {
+      "source": "Click a market row (or \"No market\") to select it, then drag on the map to repaint territory",
+      "target": "点击市场行（或",
+      "overlap": 2
+    },
+    {
+      "source": "Click on a burg on the map to create a new market there. Hold Shift to add multiple",
+      "target": "点击地图上的城镇以在那里创建新市场。按住 Shift 可添加多个",
+      "overlap": 2
+    },
+    {
+      "source": "Are you sure you want to remove the market \"${name}\"?<br>This action cannot be reverted",
+      "target": "确定要移除市场\"${name}\"吗？<br>此操作无法撤销",
+      "overlap": 2
+    },
+    {
+      "source": "No production data for this burg.",
+      "target": "该城镇没有生产数据。",
+      "overlap": 2
+    },
+    {
+      "source": "Are you sure you want to remove the burg? <br>This action cannot be reverted",
+      "target": "确定要移除该城镇吗？<br>此操作无法撤销",
+      "overlap": 2
+    },
+    {
+      "source": "Cannot declare independence of a province having capital burg. Please change capital first",
+      "target": "无法宣布拥有首都城镇的省份独立。请先更改首都",
+      "overlap": 2
+    },
+    {
+      "source": "Province center cannot be assigned to a different region. Please remove the province first",
+      "target": "省份中心无法分配到其他区域。请先移除该省份",
+      "overlap": 2
+    },
+    {
+      "source": "The cell is already a center of a different province. Select other cell",
+      "target": "该单元格已是其他省份的中心。请选择其他单元格",
+      "overlap": 2
+    },
+    {
+      "source": "You cannot create a province in neutral lands. Please assign this land to a state first",
+      "target": "无法在中立领土上创建省份。请先将该领土分配给一个国家",
+      "overlap": 2
+    },
+    {
+      "source": "Are you sure you want to remove the religion? <br>This action cannot be reverted",
+      "target": "确定要移除该宗教吗？<br>此操作无法撤销",
+      "overlap": 2
+    },
+    {
+      "source": "${d.name}. Drag to move the religion center",
+      "target": "${d.name}。拖动以移动宗教中心",
+      "overlap": 2
+    },
+    {
+      "source": "Click on religion to select, drag the circle to change religion",
+      "target": "点击宗教以选择，拖动圆形以更改宗教",
+      "overlap": 2
+    },
+    {
+      "source": "Element with this name already exists. Provide a unique name",
+      "target": "具有此名称的元素已存在。请提供唯一的名称",
+      "overlap": 2
+    },
+    {
+      "source": "Please select an icon",
+      "target": "请选择一个图标",
+      "overlap": 2
+    },
+    {
+      "source": "Marker icon size in map units. Wagons render at half this size. Higher = bigger icons",
+      "target": "标记图标大小（地图单位）。马车以该大小的一半渲染。越高 = 图标越大",
+      "overlap": 2
+    },
+    {
+      "source": "Click to select ${e.target.textContent} icon",
+      "target": "点击以选择 ${e.target.textContent} 图标",
+      "overlap": 1
+    },
+    {
+      "source": "Select Icon",
+      "target": "选择图标",
+      "overlap": 1
+    },
+    {
+      "source": "Current year should be a number",
+      "target": "当前年份应为数字",
+      "overlap": 1
+    },
+    {
+      "source": "New map cannot be generated when edit mode is active, please exit the mode and retry",
+      "target": "编辑模式激活时无法生成新地图，请退出该模式后重试",
+      "overlap": 1
+    },
+    {
+      "source": "Please provide a valid URL",
+      "target": "请提供有效的 URL",
+      "overlap": 1
+    }
+  ],
+  "cross_file_duplicates": [
+    "Please define a culture",
+    "Neutrals"
+  ],
+  "instructions": [
+    "If a unit's source exactly matches a key in tm_hints, REUSE that target verbatim.",
+    "If a unit's source is in cross_file_duplicates, it appears in other batches too — choose a concise translation that other batches are likely to also pick.",
+    "For similar phrases (e.g. 'Group name should start with a letter' vs 'Name should start with a letter'), prefer consistency with tm_hints over novel phrasing.",
+    "每翻译完一个 unit（用 Edit 修改源文件后），向 i18n/artifacts/batch_4.json 的 artifacts 数组追加一条记录",
+    "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied}",
+    "line_before 用 unit.line；line_after 是翻译后该 unit 在源文件中的实际行号（如果上方有行增减会漂移）",
+    "model 填你实际使用的模型标识；confidence 填 0-1 自评；applied 填 true（已 Edit 应用）"
+  ]
+}

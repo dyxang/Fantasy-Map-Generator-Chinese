@@ -24,7 +24,7 @@ describe("MarketsModule", () => {
         goods: [
           {
             i: 0,
-            name: "Wheat",
+            name: "小麦",
             value: 10,
             tags: ["food"],
             unit: "unit",

@@ -751,7 +751,7 @@ class ReligionsModule {
 
   // indexes, conditionally renames, and abbreviates religions
   private combineReligions(namedReligions: NamedReligion[], lockedReligions: Religion[]): Religion[] {
-    const indexedReligions: Religion[] = [{ name: "No religion", i: 0 } as Religion];
+    const indexedReligions: Religion[] = [{ name: "无宗教", i: 0 } as Religion];
 
     const { lockedReligionQueue, highestLockedIndex, codes, numberLockedFolk } = parseLockedReligions();
     const maxIndex = Math.max(
@@ -794,7 +794,7 @@ class ReligionsModule {
         i: index,
         type: "Folk",
         culture: 0,
-        name: "Removed religion",
+        name: "已移除宗教",
         removed: true
       } as Religion);
     }
@@ -1063,7 +1063,7 @@ class ReligionsModule {
   // get supreme deity name
   getDeityName(culture: number): string | undefined {
     if (culture === undefined) {
-      ERROR && console.error("Please define a culture");
+      ERROR && console.error("请定义文化");
       return;
     }
     const meaning = this.generateMeaning();
@@ -1123,7 +1123,7 @@ class ReligionsModule {
     if (a === "Adjective + Animal + of + Genitive")
       return `${ra(base.adjective)} ${ra(base.animal)} of ${ra(base.genitive)}`;
 
-    ERROR && console.error("Unknown generation approach");
+    ERROR && console.error("未知的生成方式");
     return ra(base.being);
   }
 }

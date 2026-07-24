@@ -469,7 +469,7 @@ class MarkersModule {
       const candidates = Array.from(list(pack));
       let quantity = this.getQuantity(candidates, min, each, multiplier);
       // uncomment for debugging:
-      // console.info(`${icon} ${type}: each ${each} of ${candidates.length}, min ${min} candidates. Got ${quantity}`);
+      // console.info(`${icon} ${type}: 每 ${each} 个共 ${candidates.length} 个，最少 ${min} 个候选。实际 ${quantity}`);
 
       while (quantity && candidates.length) {
         const [cell] = this.extractAnyElement(candidates);
