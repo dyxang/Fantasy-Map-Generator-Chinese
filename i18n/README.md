@@ -1,12 +1,10 @@
 # Fantasy Map Generator 汉化工具
 
-本目录包含 Azgaar Fantasy Map Generator 简体中文汉化的基础设施和工具脚本。
-
 ## 目录结构
 
 ```
 i18n/
-├── CONTEXT.md           # 项目背景与翻译原则（AI 常驻记忆）
+├── CONTEXT.md           # 项目背景与翻译原则
 ├── glossary.json        # 术语表（英文 → 中文映射）
 ├── tm.json              # 翻译记忆库（已翻译条目）
 ├── divergence.json      # 定制差异保护清单（不跟随上游的片段）
@@ -44,15 +42,13 @@ node i18n/scripts/extract.mjs
 
 ### 3. 翻译工作流
 
-在 Trae IDE 中开启新会话，输入：
+按 `.trae/rules/localization.rules.md` 执行。批量化流程用 `batch_runner.mjs`：
 
-> 按 .trae/rules/localization.rules.md，从 i18n/units.json 头部开始翻译。
-> 每会话处理 30 个单元，按 Rules 注入上下文。
-
-AI 会自动：
-- 读取进度、术语表、翻译记忆
-- 逐个翻译，修改原文件
-- 更新 tm.json 和 progress.json
+```bash
+node i18n/scripts/batch_runner.mjs prepare <N>   # 生成 batch_N.json + artifacts 占位
+# 派 subagent 翻译 batch_N.json，产出 i18n/artifacts/batch_N.json sidecar
+node i18n/scripts/batch_runner.mjs collect       # 合并 sidecar 到 tm.json/progress.json
+```
 
 ### 4. 验证
 
@@ -92,13 +88,7 @@ node i18n/scripts/sync-collect.mjs
 node i18n/scripts/sync-finalize.mjs
 ```
 
-工具职责：
-- `sync-analyze.mjs`：差异分析 + lane 分类（≤80 行 Lane-A / >80 行 Lane-B）
-- `replay-apply.mjs`：TM Replay（TS/JS 用 TypeScript AST，HTML 用 parse5 AST，默认严格匹配）
-- `sync-collect.mjs`：合并 sync-translations.json + AMBIGUOUS 决策到 tm.json
-- `sync-finalize.mjs`：清理 pending 中转区、归档 obsolete marks、更新 base_commit
-
-完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`。
+工具职责见 `.claude/artifacts/designs/sync-tools-design.md`。
 
 ## 翻译单元类型
 
@@ -117,9 +107,4 @@ node i18n/scripts/sync-finalize.mjs
 5. **TM 一致性** — 同一 source 不应有多个不同 target（除非 context_tag 不同）
 6. **未译检查** — 统计已译/未译比例
 
-## 当前状态
-
-- 基准版本: v1.138.0 (commit 51d8e3e)
-- TM 条目数: 898
-- 翻译单元总数: ~1960（units.json）
-- 详细进度见 `i18n/progress.json`
+进度与 TM 状态以 `i18n/progress.json` 和 `i18n/tm.json` 为准。

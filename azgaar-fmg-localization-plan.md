@@ -1,5 +1,7 @@
 # Azgaar Fantasy Map Generator 单人 AI 汉化方案
 
+> ⚠️ **本文档为初始规划，已过期，仅供参考。** 当前生效的实现以 `.trae/rules/localization.rules.md`、`i18n/CONTEXT.md`、`.trae/specs/`、`.claude/artifacts/designs/` 中的细粒度文档为准。本文档中的方案细节、文件结构、流程描述可能与实际实现不符。
+
 ## Summary
 
 为 [Azgaar/Fantasy-Map-Generator](https://github.com/Azgaar/Fantasy-Map-Generator) 建立可持续的单人 AI 汉化工作流。核心痛点：硬编码字符散落在 638KB 巨型 HTML 和 TS 数据文件中；项目处于 vanilla JS → TS + Vite 迁移期；需要让 AI 跨会话维持上下文持续翻译；要持续跟随上游版本演进。
