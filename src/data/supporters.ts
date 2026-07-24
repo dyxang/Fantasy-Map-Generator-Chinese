@@ -688,6 +688,8 @@ wx
 window.trbackers = trbackers;
 
 declare global {
-  var Supporters: typeof supporters;
-  var trbackers: string;
+  interface Window {
+    Supporters: typeof supporters;
+    trbackers: string;
+  }
 }
