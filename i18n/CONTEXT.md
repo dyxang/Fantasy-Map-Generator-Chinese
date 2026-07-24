@@ -89,9 +89,22 @@ subagent 翻译完每个 unit 后产出的结构化记录，是两层之间的�
 - `file` / `line_before` / `line_after`：源文件路径与翻译前后行号（行号可能因翻译后行宽变化而漂移）
 - `type` / `context_tag`：文本类型与上下文标签
 - `model` / `confidence` / `applied`：subagent 实际使用的模型标识、0-1 自评置信度、是否已通过 Edit 应用到源文件
-- `context_used`：subagent 决策时参考的上下文（tm_hints / glossary_terms / cross_file），用于审计
 
 sidecar 文件位置：`i18n/artifacts/batch_<N>.json`（每批一个文件），`collect` 合并后清理。完整 JSON Schema 见 `i18n/schemas/translation-artifact.schema.json`。
+
+### subagent 翻译产出契约
+
+subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i18n/artifacts/batch_<N>.json` 的 `artifacts` 数组追加一条 TranslationArtifact 记录。
+
+**必填字段**：`id`（来自 units.json）/ `source` / `target` / `file` / `line_before` / `type`（`html_text` / `html_attr` / `ts_string`）/ `context_tag`（`button` / `label` / `tooltip` / `heading` / `option` / `description` 等）/ `model` / `confidence`（0-1）/ `applied`（通常 `true`）
+
+**推荐字段**：`line_after`（翻译后源文件实际行号）
+
+**流程约束**：
+- subagent **只**写 `i18n/artifacts/batch_<N>.json`，不写 `tm.json`、不写 `progress.json`
+- sidecar 由 `prepare()` 预先创建为空 `{"artifacts": []}`，subagent 追加
+- 批次完成后由 `collect`（标准化层）合并 sidecar 到 `tm.json`/`progress.json` 并清理 sidecar 文件
+- 若 sidecar 缺失，`collect` 降级到 legacy 模式（从源文件反推），并打印警告
 
 ### 状态文件写入所有权
 
@@ -99,6 +112,60 @@ sidecar 文件位置：`i18n/artifacts/batch_<N>.json`（每批一个文件）�
 - `prepare()` 只写 `batch_<N>.json`（输入文件）和 `artifacts/batch_<N>.json`（sidecar 占位）
 - 自适应层（subagent / 手工 AI 流）只写 `artifacts/batch_<N>.json`
 - 禁止在 subagent 指令中要求「直接追加 tm.json」或「直接更新 progress.json」
+
+## 翻译单元处理流程
+
+### 批量大小
+- 每会话处理 30-50 个单元（从 progress.json 的 last_processed_id 之后）
+- 单次 Read 不超过 2000 行
+
+### 上下文注入（每个单元）
+- source 文本
+- 前后各 3 个翻译单元（提供上下文连贯性）
+- TM 中相似条目 top-5（source 相似度匹配）
+- glossary.json 中相关术语
+
+### 输出格式
+- 直接用 Edit 工具修改原文件（文本节点 / 属性值）
+- 向 `i18n/artifacts/batch_<N>.json` 追加 TranslationArtifact 记录（不直写 tm.json/progress.json）
+
+### HTML 切片策略
+
+`src/index.html` 是 ~9000 行巨型文件，按 section 切片处理：
+- 每个对话框（dialog）一个 section
+- 每个选项卡（tab）一个 section
+- 处理时用 `Read` 的 offset/limit 参数读取对应行范围
+- 处理完一个 section 再移到下一个
+
+### 上下文窗口策略
+
+- 单元平均 ~50 tokens × 30 = 1500 tokens
+- 加注入（上下文 + glossary + TM）约 5K tokens
+- 若上下文接近上限，主动结束会话前 flush progress
+- 不要一次读取整个 index.html，按 section 切片
+
+### 会话结束前（必做）
+
+1. 确认所有 artifact 已写入 sidecar（`i18n/artifacts/batch_<N>.json`）
+2. 运行 `node i18n/scripts/batch_runner.mjs collect` 合并 sidecar 到 tm.json/progress.json
+3. 若发现新术语，追加到 `i18n/glossary.json` 的 `terms` 数组
+4. 输出状态摘要："本次翻译 N 个单元，累计 M / Total，剩余 K 个单元，建议下次开新会话"
+
+## 翻译单元结构（tm.json entry）
+
+```json
+{
+  "id": "sha256:abc123...",
+  "source": "Generate new map",
+  "target": "生成新地图",
+  "file": "src/index.html",
+  "line": 1234,
+  "type": "html_text | html_attr | ts_string",
+  "context_tag": "button | label | tooltip | heading | option | description",
+  "skipped": false,
+  "skip_reason": null
+}
+```
 
 ## 上游同步工具链（Sync Pipeline）
 
@@ -109,6 +176,19 @@ zh-CN 是独立翻译分支，不 PR 不 merge 出去。上游（master）更新
 zh-CN 源码相对 master 的差异**应只有字符串翻译**（1:1 替换）。同步时：
 - **Lane-A**（改动 ≤80 行的文件）：`git merge master` + AI 解冲突 + 严格 `(file, source)` 查 tm.json 复用
 - **Lane-B**（改动 >80 行的文件）：`git checkout master -- <file>` + TM Replay（脚本把 tm.json 的翻译覆盖回去）
+
+### 同步工作流
+
+1. `git fetch upstream` 更新本仓库的 master 分支
+2. `node i18n/scripts/sync-analyze.mjs` 分析改动，按 80 行阈值分 lane，输出 `i18n/sync-report.json`
+3. 代码同步阶段：
+   - **Lane-A**（≤80 行）：`git merge master`，AI 解冲突 + 翻译新增字符串，严格 `(file, source)` 查 tm.json 复用
+   - **Lane-B**（>80 行）：`git checkout master -- <file>` + `node i18n/scripts/replay-apply.mjs --files <...>`，未命中的字符串进翻译队列
+4. AI subagent 翻译未命中的字符串
+5. 派独立兜底 subagent 扫描脚本漏提取的英文残留，记录到 `i18n/manual-marks.json`
+6. `node i18n/scripts/sync-collect.mjs` 合并翻译产出到 tm.json
+7. `node i18n/scripts/sync-finalize.mjs` 清理 pending 中转区、归档 obsolete marks、更新 base_commit
+8. `node i18n/scripts/validate.mjs` 验证翻译完整性
 
 ### 替换实现（AST 精确替换，一步到位）
 
