@@ -55,91 +55,91 @@ function renderDialog(): void {
   destroyDialogIfExists("provincesEditor");
   const editorHtml = /* html */ `<div id="provincesEditor" class="dialog stable">
       <div id="provincesHeader" class="header" style="grid-template-columns: 11em 8em 8em 6em 6em 6em 8em">
-        <div data-tip="Click to sort by province name" class="sortable alphabetically" data-sortby="name">
-          Province&nbsp;
+        <div data-tip="点击按省份名称排序" class="sortable alphabetically" data-sortby="name">
+          省份&nbsp;
         </div>
-        <div data-tip="Click to sort by province form name" class="sortable alphabetically hide" data-sortby="form">
-          Form&nbsp;
+        <div data-tip="点击按省份政体名称排序" class="sortable alphabetically hide" data-sortby="form">
+          政体&nbsp;
         </div>
-        <div data-tip="Click to sort by province capital" class="sortable alphabetically hide" data-sortby="capital">
-          Capital&nbsp;
+        <div data-tip="点击按省份首府排序" class="sortable alphabetically hide" data-sortby="capital">
+          首府&nbsp;
         </div>
-        <div data-tip="Click to sort by province owner" class="sortable alphabetically" data-sortby="state">
-          State&nbsp;
+        <div data-tip="点击按省份归属国家排序" class="sortable alphabetically" data-sortby="state">
+          国家&nbsp;
         </div>
-        <div data-tip="Click to sort by province burgs count" class="sortable hide" data-sortby="burgs">
-          Burgs&nbsp;
+        <div data-tip="点击按省份城镇数排序" class="sortable hide" data-sortby="burgs">
+          城镇&nbsp;
         </div>
-        <div data-tip="Click to sort by province area" class="sortable hide" data-sortby="area">Area&nbsp;</div>
-        <div data-tip="Click to sort by province population" class="sortable hide" data-sortby="population">
-          Population&nbsp;
+        <div data-tip="点击按省份面积排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
+        <div data-tip="点击按省份人口排序" class="sortable hide" data-sortby="population">
+          人口&nbsp;
         </div>
       </div>
       <div id="provincesBodySection" class="table" data-type="absolute"></div>
       <div id="provincesFooter" class="totalLine">
-        <div data-tip="Provinces displayed" style="margin-left: 4px">
-          Provinces:&nbsp;<span id="provincesFooterNumber">0</span>
+        <div data-tip="显示的省份数" style="margin-left: 4px">
+          省份:&nbsp;<span id="provincesFooterNumber">0</span>
         </div>
-        <div data-tip="Total burgs number" style="margin-left: 12px">
-          Burgs:&nbsp;<span id="provincesFooterBurgs">0</span>
+        <div data-tip="城镇总数" style="margin-left: 12px">
+          城镇:&nbsp;<span id="provincesFooterBurgs">0</span>
         </div>
-        <div data-tip="Average area" style="margin-left: 14px">
-          Mean area:&nbsp;<span id="provincesFooterArea">0</span>
+        <div data-tip="平均面积" style="margin-left: 14px">
+          平均面积:&nbsp;<span id="provincesFooterArea">0</span>
         </div>
-        <div data-tip="Average population" style="margin-left: 14px">
-          Mean population:&nbsp;<span id="provincesFooterPopulation">0</span>
+        <div data-tip="平均人口" style="margin-left: 14px">
+          平均人口:&nbsp;<span id="provincesFooterPopulation">0</span>
         </div>
       </div>
       <div id="provincesBottom">
-        <button id="provincesEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-        <button id="provincesEditStyle" data-tip="Edit provinces style in Style Editor" class="icon-adjust"></button>
+        <button id="provincesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+        <button id="provincesEditStyle" data-tip="在样式编辑器中编辑省份样式" class="icon-adjust"></button>
         <button
           id="provincesRecolor"
-          data-tip="Recolor listed provinces based on state color"
+          data-tip="基于国家颜色重新着色已列出的省份"
           class="icon-paint-roller"
         ></button>
         <button
           id="provincesPercentage"
-          data-tip="Toggle percentage / absolute values views"
+          data-tip="切换百分比/绝对值视图"
           class="icon-percent"
         ></button>
-        <button id="provincesChart" data-tip="Show provinces chart" class="icon-chart-area"></button>
+        <button id="provincesChart" data-tip="显示省份图表" class="icon-chart-area"></button>
         <button
           id="provincesToggleLabels"
-          data-tip="Toggle province labels. Change size in Menu ⭢ Style ⭢ Provinces"
+          data-tip="切换省份标签。在菜单 ⭢ 样式 ⭢ 省份中更改大小"
           class="icon-font"
         ></button>
         <button
           id="provincesExport"
-          data-tip="Save provinces-related data as a text file (.csv)"
+          data-tip="将省份相关数据保存为文本文件 (.csv)"
           class="icon-download"
         ></button>
-        <button id="provincesManually" data-tip="Manually re-assign provinces" class="icon-brush"></button>
+        <button id="provincesManually" data-tip="手动重新分配省份" class="icon-brush"></button>
         <div id="provincesManuallyButtons" style="display: none">
-          <div data-tip="Change brush size. Shortcut: + to increase; – to decrease" style="margin-block: 0.3em">
-            Brush size:
+          <div data-tip="更改笔刷大小。快捷键：+ 增大；– 减小" style="margin-block: 0.3em">
+            笔刷大小：
             <slider-input id="provincesBrush" min="1" max="100" value="8"></slider-input>
           </div>
-          <button id="provincesManuallyApply" data-tip="Apply assignment" class="icon-check"></button>
-          <button id="provincesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
+          <button id="provincesManuallyApply" data-tip="应用分配" class="icon-check"></button>
+          <button id="provincesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
         </div>
         <button
           id="provincesRelease"
-          data-tip="Release all provinces. It will make all provinces with burgs independent"
+          data-tip="释放所有省份。将使所有含城镇的省份独立"
           class="icon-flag"
         ></button>
         <button
           id="provincesAdd"
-          data-tip="Add a new province. Hold Shift to add multiple"
+          data-tip="添加新省份。按住 Shift 添加多个"
           class="icon-plus"
         ></button>
-        <button id="provincesMerge" data-tip="Merge several provinces into one" class="icon-layer-group"></button>
+        <button id="provincesMerge" data-tip="合并多个省份为一个" class="icon-layer-group"></button>
         <button
           id="provincesRemoveAll"
-          data-tip="Remove all provinces. States will remain as they are"
+          data-tip="移除所有省份。国家保持不变"
           class="icon-trash"
         ></button>
-        <span>State: </span>
+        <span>国家： </span>
         <select id="provincesFilterState"></select>
       </div>
     </div>`;
@@ -258,7 +258,7 @@ function provincesEditorAddLines(): void {
     const rural = p.rural! * populationRate;
     const urban = p.urban! * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(urban)}`;
+    const populationTip = `总人口：${si(population)}；农村人口：${si(rural)}；城镇人口：${si(urban)}`;
     totalPopulation += population;
     totalBurgs += p.burgs!.length;
 
@@ -280,31 +280,31 @@ function provincesEditorAddLines(): void {
       data-burgs=${p.burgs!.length}
     >
       <fill-box fill="${p.color}"></fill-box>
-      <input data-tip="Province name. Click to change" class="name pointer" value="${p.name}" readonly />
-      <svg data-tip="Click to show and edit province emblem" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
-      <input data-tip="Province form name. Click to change" class="name pointer hide" value="${p.formName}" readonly />
-      <span data-tip="Province capital. Click to zoom into view" class="icon-star-empty pointer hide ${p.burg ? "" : "placeholder"}"></span>
+      <input data-tip="省份名称。点击更改" class="name pointer" value="${p.name}" readonly />
+      <svg data-tip="点击查看和编辑省份纹章" class="coaIcon pointer hide" viewBox="0 0 200 200"><use href="#provinceCOA${p.i}"></use></svg>
+      <input data-tip="省份政体名称。点击更改" class="name pointer hide" value="${p.formName}" readonly />
+      <span data-tip="省份首府。点击放大查看" class="icon-star-empty pointer hide ${p.burg ? "" : "placeholder"}"></span>
       <select
-        data-tip="Province capital. Click to select from burgs within the state. No capital means the province is governed from the state capital"
+        data-tip="省份首府。点击从国家内的城镇中选择。无首府表示该省份由国家首都管辖"
         class="cultureBase hide ${p.burgs!.length ? "" : "placeholder"}"
       >
         ${p.burgs!.length ? getCapitalOptions(p.burgs!, p.burg) : ""}
       </select>
-      <input data-tip="Province owner" class="provinceOwner" value="${stateName}" disabled">
-      <span data-tip="Click to overview province burgs" style="padding-right: 1px" class="icon-dot-circled pointer hide"></span>
-      <div data-tip="Burgs count" class="provinceBurgs hide">${p.burgs!.length}</div>
-      <span data-tip="Province area" style="padding-right: 4px" class="icon-map-o hide"></span>
-      <div data-tip="Province area" class="biomeArea hide">${si(area) + unit}</div>
+      <input data-tip="省份所属国家" class="provinceOwner" value="${stateName}" disabled">
+      <span data-tip="点击查看省份城镇概览" style="padding-right: 1px" class="icon-dot-circled pointer hide"></span>
+      <div data-tip="城镇数" class="provinceBurgs hide">${p.burgs!.length}</div>
+      <span data-tip="省份面积" style="padding-right: 4px" class="icon-map-o hide"></span>
+      <div data-tip="省份面积" class="biomeArea hide">${si(area) + unit}</div>
       <span data-tip="${populationTip}" class="icon-male hide"></span>
       <div data-tip="${populationTip}" class="culturePopulation hide">${si(population)}</div>
       <span
-        data-tip="Declare province independence (turn non-capital province with burgs into a new state)"
+        data-tip="宣布省份独立（将含城镇的非首府省份变为新国家）"
         class="icon-flag-empty ${separable ? "" : "placeholder"} hide"
       ></span>
-      <span data-tip="Locate the province" class="icon-target hide"></span>
-      <span data-tip="Toggle province focus" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
-      <span data-tip="Lock the province" class="icon-lock${p.lock ? "" : "-open"} hide"></span>
-      <span data-tip="Remove the province" class="icon-trash-empty hide"></span>
+      <span data-tip="定位该省份" class="icon-target hide"></span>
+      <span data-tip="切换省份聚焦" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
+      <span data-tip="锁定该省份" class="icon-lock${p.lock ? "" : "-open"} hide"></span>
+      <span data-tip="移除该省份" class="icon-trash-empty hide"></span>
     </div>`;
   }
   body.innerHTML = lines;
@@ -401,7 +401,7 @@ function triggerIndependencePromps(p: number): void {
   confirmationDialog({
     title: "宣布独立",
     message: "确定要宣布省份独立吗？<br>这会将省份变为一个新国家",
-    confirm: "Declare",
+    confirm: "宣布独立",
     onConfirm: () => {
       const result = declareProvinceIndependence(p);
       if (!result) return;
@@ -545,9 +545,9 @@ function changePopulation(province: number): void {
   const total = rural + urban;
   const l = (n: number): string => Number(n).toLocaleString();
 
-  alertMessage.innerHTML = /* html */ ` Rural: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> Urban:
+  alertMessage.innerHTML = /* html */ ` 农村： <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> 城镇：
     <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" ${p.burgs!.length ? "" : "disabled"} />
-    <p>Total population: ${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
+    <p>总人口：${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
 
   const ruralPop = ensureEl<HTMLInputElement>("ruralPop");
   const urbanPop = ensureEl<HTMLInputElement>("urbanPop");
@@ -567,11 +567,11 @@ function changePopulation(province: number): void {
     title: "更改省份人口",
     width: "24em",
     buttons: {
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         applyPopulationChange();
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     },
@@ -621,12 +621,12 @@ function toggleFog(p: number, cl: DOMTokenList): void {
 }
 
 function removeProvince(p: number): void {
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove the province? <br />This action cannot be reverted`;
+  alertMessage.innerHTML = /* html */ `确定要移除该省份吗？<br />此操作无法撤销`;
   $("#alert").dialog({
     resizable: false,
     title: "移除省份",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         pack.cells.province.forEach((province, i) => {
           if (province === p) pack.cells.province[i] = 0;
         });
@@ -649,7 +649,7 @@ function removeProvince(p: number): void {
         refreshProvincesEditor();
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -671,11 +671,11 @@ function editProvinceName(province: number): void {
     resizable: false,
     title: "更改省份名称",
     buttons: {
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         applyNameChange(p);
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     },
@@ -688,26 +688,26 @@ function renderNameEditor(): void {
   destroyDialogIfExists("provinceNameEditor");
   const nameEditorHtml = /* html */ `<div id="provinceNameEditor" class="dialog" data-province="0">
       <div>
-        <div data-tip="Province short name" class="label">Short name:</div>
+        <div data-tip="省份简称" class="label">简称：</div>
         <input
           id="provinceNameEditorShort"
-          data-tip="Type to change the short name"
+          data-tip="输入以更改简称"
           autocorrect="off"
           spellcheck="false"
           style="width: 11em"
         />
-        <span id="provinceNameEditorShortSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+        <span id="provinceNameEditorShortSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
         <span
           id="provinceNameEditorShortCulture"
-          data-tip="Generate culture-specific name for the province"
+          data-tip="生成特定文化的省份名称"
           class="icon-book pointer"
         ></span>
-        <span id="provinceNameEditorShortRandom" data-tip="Generate random name" class="icon-globe pointer"></span>
+        <span id="provinceNameEditorShortRandom" data-tip="生成随机名称" class="icon-globe pointer"></span>
       </div>
-      <div data-tip="Select form name">
-        <div data-tip="Province form name" class="label">Form name:</div>
+      <div data-tip="选择政体名称">
+        <div data-tip="省份政体名称" class="label">政体名称：</div>
         <select id="provinceNameEditorSelectForm" style="display: inline-block; width: 11em; height: 1.645em">
-          <option value="">blank</option>
+          <option value="">留空</option>
           <option value="Area">Area</option>
           <option value="Autonomy">Autonomy</option>
           <option value="Barony">Barony</option>
@@ -747,38 +747,38 @@ function renderNameEditor(): void {
         </select>
         <input
           id="provinceNameEditorCustomForm"
-          placeholder="type form name"
-          data-tip="Create custom province form name"
+          placeholder="输入政体名称"
+          data-tip="创建自定义省份政体名称"
           style="display: none; width: 11em"
         />
         <span
           id="provinceNameEditorAddForm"
-          data-tip="Click to add custom province form name to the list"
+          data-tip="点击将自定义省份政体名称添加到列表"
           class="icon-plus pointer"
         ></span>
       </div>
       <div>
-        <div data-tip="Province full name" class="label">Full name:</div>
+        <div data-tip="省份全称" class="label">全称：</div>
         <input
           id="provinceNameEditorFull"
-          data-tip="Type to change the full name"
+          data-tip="输入以更改全称"
           autocorrect="off"
           spellcheck="false"
           style="width: 11em"
         />
-        <span id="provinceNameEditorFullSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+        <span id="provinceNameEditorFullSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
         <span
           id="provinceNameEditorFullRegenerate"
-          data-tip="Click to re-generate full name"
+          data-tip="点击重新生成全称"
           class="icon-arrows-cw pointer"
         ></span>
       </div>
       <div
         id="provinceCultureName"
-        data-tip="Dominant culture in the province. This defines culture-based naming. Can be changed via the Cultures Editor"
+        data-tip="省份主导文化。这决定了基于文化的命名。可通过文化编辑器更改"
         style="margin-top: 0.2em"
       >
-        Dominant culture:&nbsp;<span id="provinceCultureDisplay"></span>
+        主导文化：&nbsp;<span id="provinceCultureDisplay"></span>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", nameEditorHtml);
@@ -903,10 +903,10 @@ function showChart(): void {
 
   // prepare svg
   alertMessage.innerHTML = /* html */ `<select id="provincesTreeType" style="display:block; margin-left:13px; font-size:11px">
-    <option value="area" selected>Area</option>
-    <option value="population">Total population</option>
-    <option value="rural">Rural population</option>
-    <option value="urban">Urban population</option>
+    <option value="area" selected>面积</option>
+    <option value="population">总人口</option>
+    <option value="rural">农村人口</option>
+    <option value="urban">城镇人口</option>
   </select>`;
   alertMessage.innerHTML += `<div id='provinceInfo' class='chartInfo'>&#8205;</div>`;
   const svg = select("#alertMessage")
@@ -943,12 +943,12 @@ function showChart(): void {
     const typeValue = ensureEl<HTMLSelectElement>("provincesTreeType").value;
     const value =
       typeValue === "area"
-        ? `Area: ${area}`
+        ? `面积：${area}`
         : typeValue === "rural"
-          ? `Rural population: ${si(rural)}`
+          ? `农村人口：${si(rural)}`
           : typeValue === "urban"
-            ? `Urban population: ${si(urban)}`
-            : `Population: ${si(rural + urban)}`;
+            ? `城镇人口：${si(urban)}`
+            : `人口：${si(rural + urban)}`;
 
     ensureEl("provinceInfo").innerHTML = /* html */ `${name}. ${state}. ${value}`;
     provinceHighlightOn(ev);
@@ -1061,7 +1061,7 @@ function triggerProvincesRelease(): void {
     message: `确定要释放所有省份吗？
         </br>这会将所有可分离的省份变为独立国家。
         </br>首都省份和没有城镇的省份将保持原状`,
-    confirm: "Release",
+    confirm: "释放",
     onConfirm: () => {
       const oldStateIds: number[] = [];
       const newStateIds: number[] = [];
@@ -1418,12 +1418,12 @@ function downloadProvincesData(): void {
 }
 
 function removeAllProvinces(): void {
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove all provinces? <br />This action cannot be reverted`;
+  alertMessage.innerHTML = /* html */ `确定要移除所有省份吗？<br />此操作无法撤销`;
   $("#alert").dialog({
     resizable: false,
     title: "移除所有省份",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         $(this).dialog("close");
 
         // remove emblems
@@ -1446,7 +1446,7 @@ function removeAllProvinces(): void {
 
         provincesEditorAddLines();
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -1477,11 +1477,11 @@ function closeProvincesEditor(): void {
 function openProvinceMergeDialog(): void {
   const selectedState = +ensureEl<HTMLSelectElement>("provincesFilterState").value;
   if (selectedState === -1) {
-    alertMessage.innerHTML = "Please select a specific state from the filter to merge provinces within that state.";
+    alertMessage.innerHTML = "请从过滤器中选择特定国家以在该国家内合并省份。";
     $("#alert").dialog({
       title: "合并省份",
       buttons: {
-        OK: function (this: HTMLElement) {
+        确定: function (this: HTMLElement) {
           $(this).dialog("close");
         }
       }
@@ -1490,11 +1490,11 @@ function openProvinceMergeDialog(): void {
   }
   const provincesToMerge = pack.provinces.filter(p => p.i && !p.removed && p.state === selectedState);
   if (provincesToMerge.length < 2) {
-    alertMessage.innerHTML = "Not enough provinces in the selected state to merge.";
+    alertMessage.innerHTML = "所选国家中没有足够的省份可合并。";
     $("#alert").dialog({
       title: "合并省份",
       buttons: {
-        OK: function (this: HTMLElement) {
+        确定: function (this: HTMLElement) {
           $(this).dialog("close");
         }
       }
@@ -1519,9 +1519,9 @@ function openProvinceMergeDialog(): void {
   alertMessage.innerHTML = /* html */ `
     <form id='mergeProvincesForm' style="overflow: hidden; display: flex; flex-direction: column; gap: 1em;">
       <p style="margin:0">
-        Check the <b>checkbox</b> next to each province you want to merge.
-        Use the <b>radio button</b> to pick the <em>primary province</em> that will absorb all others.
-        Hover over a row to highlight the province on the map.
+        勾选每个要合并的省份旁边的<b>复选框</b>。
+        使用<b>单选按钮</b>选择将吸收其他所有省份的<em>主要省份</em>。
+        将鼠标悬停在行上可在地图上高亮显示该省份。
       </p>
       <main style='display: grid; grid-template-columns: 1fr 1fr; gap: .3em;'>
         ${provincesSelector}
@@ -1541,7 +1541,7 @@ function openProvinceMergeDialog(): void {
     title: `合并省份`,
     close: provinceHighlightOff,
     buttons: {
-      Merge: function (this: HTMLElement) {
+      合并: function (this: HTMLElement) {
         const formData = new FormData(ensureEl<HTMLFormElement>("mergeProvincesForm"));
         const primaryProvinceId = Number(formData.get("rulingProvince"));
         if (!primaryProvinceId) {
@@ -1561,19 +1561,19 @@ function openProvinceMergeDialog(): void {
         confirmationDialog({
           title: "合并省份",
           message: /* html */ `
-            <p>The following provinces will be <strong>removed</strong>: ${provincesToMergeIds
+            <p>以下省份将被<strong>移除</strong>：${provincesToMergeIds
               .map(provinceId => `${emblem(provinceId)}${pack.provinces[provinceId].name}`)
-              .join(", ")}.</p>
-            <p>Removed provinces data (burgs and cells) will be assigned to ${emblem(primaryProvinceId)}${pack.provinces[primaryProvinceId].name}.</p>
-            <p>Are you sure you want to merge provinces? This action cannot be reverted.</p>`,
-          confirm: "Merge",
+              .join(", ")}。</p>
+            <p>被移除省份的数据（城镇和单元格）将分配给 ${emblem(primaryProvinceId)}${pack.provinces[primaryProvinceId].name}。</p>
+            <p>确定要合并省份吗？此操作无法撤销。</p>`,
+          confirm: "合并",
           onConfirm: () => {
             mergeProvinces(provincesToMergeIds, primaryProvinceId);
             $(this).dialog("close");
           }
         });
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

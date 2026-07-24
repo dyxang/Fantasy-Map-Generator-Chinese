@@ -82,37 +82,37 @@ function renderDialog(): void {
   destroyDialogIfExists("diplomacyEditor");
   const editorHtml = /* html */ `<div id="diplomacyEditor" class="dialog stable">
       <div id="diplomacyHeader" class="header" style="grid-template-columns: 15em 6em">
-        <div data-tip="Click to sort by state name" class="sortable alphabetically" data-sortby="name">
-          State&nbsp;
+        <div data-tip="点击按国家名称排序" class="sortable alphabetically" data-sortby="name">
+          国家&nbsp;
         </div>
         <div
-          data-tip="Click to sort by diplomatical relations"
+          data-tip="点击按外交关系排序"
           class="sortable alphabetically"
           data-sortby="relations"
         >
-          Relations&nbsp;
+          关系&nbsp;
         </div>
       </div>
       <div id="diplomacyBodySection" class="table"></div>
       <div class="info-line">Click on state name to see relations.<br />Click on relations name to change it</div>
       <div id="diplomacyBottom" style="margin-top: 0.1em">
-        <button id="diplomacyEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
+        <button id="diplomacyEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
         <button
           id="diplomacyEditStyle"
-          data-tip="Edit states (including diplomacy view) style in Style Editor"
+          data-tip="在样式编辑器中编辑国家（含外交视图）样式"
           class="icon-adjust"
         ></button>
-        <button id="diplomacyRegenerate" data-tip="Regenerate diplomatical relations" class="icon-retweet"></button>
+        <button id="diplomacyRegenerate" data-tip="重新生成外交关系" class="icon-retweet"></button>
         <button
           id="diplomacyReset"
-          data-tip="Reset diplomatical relations of selected state to Neutral"
+          data-tip="将所选国家的外交关系重置为中立"
           class="icon-eraser"
         ></button>
-        <button id="diplomacyHistory" data-tip="Show relations history" class="icon-hourglass-1"></button>
-        <button id="diplomacyShowMatrix" data-tip="Show relations matrix" class="icon-list-bullet"></button>
+        <button id="diplomacyHistory" data-tip="显示关系历史" class="icon-hourglass-1"></button>
+        <button id="diplomacyShowMatrix" data-tip="显示关系矩阵" class="icon-list-bullet"></button>
         <button
           id="diplomacyExport"
-          data-tip="Save state relations matrix as a text file (.csv)"
+          data-tip="将国家关系矩阵保存为文本文件 (.csv)"
           class="icon-download"
         ></button>
       </div>
@@ -323,7 +323,7 @@ function selectRelation(subjectId: number, objectId: number, currentRelation: st
         <section style="display: flex; flex-direction: column; gap: .3em;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3em;">
             <label style="font-weight: 500; font-size: 0.95em;">States:</label>
-            <button id="selectAllNoneBtn" type="button" style="padding: 0.3em 0.8em; cursor: pointer; font-size: 0.9em;" data-tip="Toggle selection of all states. Also supports Ctrl+A.">Select All / None</button>
+            <button id="selectAllNoneBtn" type="button" style="padding: 0.3em 0.8em; cursor: pointer; font-size: 0.9em;" data-tip="切换全选/取消全选国家。也支持 Ctrl+A。">Select All / None</button>
           </div>
           <div id="stateSelectionContainer" style="display: flex; flex-direction: column; gap: .3em;">${objectsSelector}</div>
         </section>

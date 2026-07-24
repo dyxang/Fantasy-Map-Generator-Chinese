@@ -126,7 +126,7 @@ function buildDialogHTML(): string {
         <td style="padding: 0">${label}</td>
         <td style="padding: 0">${input}</td>
         <td style="padding: 0">
-          <button id="${id}Reset" data-tip="Reset to default"
+          <button id="${id}Reset" data-tip="重置为默认值"
             style="font-size:.85em; padding:1px 5px; margin-left: 0.3em">↺</button>
         </td>
       </tr>`;

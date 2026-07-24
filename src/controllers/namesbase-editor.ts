@@ -21,80 +21,80 @@ function renderDialog(): void {
   destroyDialogIfExists("namesbaseEditor");
   const editorHtml = /* html */ `<div id="namesbaseEditor" class="dialog stable textual">
       <div id="namesbaseBasesTop">
-        <span>Select base: </span>
-        <select id="namesbaseSelect" data-tip="Select base to edit" style="width: 12em" value="0"></select>
-        <span style="margin-left: 2px">Names data: </span>
+        <span>选择命名库：</span>
+        <select id="namesbaseSelect" data-tip="选择要编辑的命名库" style="width: 12em" value="0"></select>
+        <span style="margin-left: 2px">名称数据：</span>
       </div>
       <div id="namesbaseBody" style="margin-block: 2px; width: auto">
         <textarea
           id="namesbaseTextarea"
           data-base="0"
           rows="13"
-          data-tip="Names data: a comma separated list of source names used for names generation"
-          placeholder="Provide a names data: a comma separated list of source names"
+          data-tip="名称数据：用于名称生成的逗号分隔的源名称列表"
+          placeholder="提供名称数据：逗号分隔的源名称列表"
           autocorrect="off"
           spellcheck="false"
           style="resize: none"
         ></textarea>
         <div>
-          <span>Name: </span>
+          <span>名称：</span>
           <input
             id="namesbaseName"
-            data-tip="Type to change a base name"
-            placeholder="Base name"
+            data-tip="输入以更改命名库名称"
+            placeholder="命名库名称"
             autocorrect="off"
             spellcheck="false"
             style="width: 12em"
           />
-          <span>Length: </span>
-          <input id="namesbaseMin" data-tip="Recommended minimum name length" type="number" min="2" max="100" />
-          <input id="namesbaseMax" data-tip="Recommended maximum name length" type="number" min="2" value="10" />
-          <span>Doubled: </span>
+          <span>长度：</span>
+          <input id="namesbaseMin" data-tip="推荐的最小名称长度" type="number" min="2" max="100" />
+          <input id="namesbaseMax" data-tip="推荐的最大名称长度" type="number" min="2" value="10" />
+          <span>双写：</span>
           <input
             id="namesbaseDouble"
-            data-tip="Populate with letters that can be used twice in a row (geminates)"
+            data-tip="填写可连续使用两次的字母（叠音字母）"
             autocorrect="off"
             spellcheck="false"
             style="width: 10em"
           />
         </div>
         <fieldset>
-          <legend>Generated examples:</legend>
-          <div id="namesbaseExamples" data-tip="Examples. Click to re-generate"></div>
+          <legend>生成示例：</legend>
+          <div id="namesbaseExamples" data-tip="示例。点击重新生成"></div>
         </fieldset>
       </div>
       <div id="namesbaseBottom">
         <button
           id="namesbaseUpdateExamples"
-          data-tip="Re-generate examples based on provided data"
+          data-tip="基于提供的数据重新生成示例"
           class="icon-arrows-cw"
         ></button>
-        <button id="namesbaseAdd" data-tip="Add new namesbase" class="icon-plus"></button>
-        <button id="namesbaseDefault" data-tip="Restore default namesbase" class="icon-cancel"></button>
-        <button id="namesbaseDownload" data-tip="Download namesbase to PC" class="icon-download"></button>
+        <button id="namesbaseAdd" data-tip="添加新名称库" class="icon-plus"></button>
+        <button id="namesbaseDefault" data-tip="恢复默认名称库" class="icon-cancel"></button>
+        <button id="namesbaseDownload" data-tip="下载名称库到电脑" class="icon-download"></button>
         <button
           id="namesbaseUpload"
-          data-tip="Upload a namesbase from PC, replacing the current set"
+          data-tip="从电脑上传名称库，替换当前集合"
           class="icon-upload"
         ></button>
         <button
           id="namesbaseUploadExtend"
-          data-tip="Upload a namesbase from PC, extending the current set"
+          data-tip="从电脑上传名称库，扩展当前集合"
           class="icon-up-circled2"
         ></button>
         <button
           id="namesbaseCA"
-          data-tip="Find or share custom namesbase on Cartography Assets portal"
+          data-tip="在 Cartography Assets 门户查找或分享自定义名称库"
           class="icon-drafting-compass"
         ></button>
         <button
           id="namesbaseAnalyze"
-          data-tip="Analyze namesbase to get a validity and quality overview"
+          data-tip="分析名称库以获取有效性和质量总览"
           class="icon-flask"
         ></button>
         <button
           id="namesbaseSpeak"
-          data-tip="Speak the examples. You can change voice and language in options"
+          data-tip="朗读示例。可在选项中更改语音和语言"
           class="icon-voice"
         ></button>
       </div>
@@ -164,7 +164,7 @@ function updateExamples(): void {
   for (let i = 0; i < 7; i++) {
     const example = Names.getBase(base);
     if (example === undefined) {
-      examples = "Cannot generate examples. Please verify the data";
+      examples = "无法生成示例。请检查数据";
       break;
     }
     if (i) examples += ", ";
@@ -241,46 +241,45 @@ function analyzeNamesbase(): void {
           .toLowerCase()
           .split("")
       ).join("")
-    : "none";
+    : "无";
 
   const geminate = namesArray.flatMap(name => name.match(/[^\w\s]|(.)(?=\1)/g) ?? []);
   const doubled = unique(geminate).filter(char => geminate.filter(d => d === char).length > 3);
-  const doubledStr = doubled.length ? doubled.join("") : "none";
+  const doubledStr = doubled.length ? doubled.join("") : "无";
 
-  const duplicates = unique(namesArray.filter((e, i, a) => a.indexOf(e) !== i)).join(", ") || "none";
+  const duplicates = unique(namesArray.filter((e, i, a) => a.indexOf(e) !== i)).join(", ") || "无";
   const multiwordRate = mean(namesArray.map(n => +n.includes(" "))) ?? 0;
 
   const getLengthQuality = (): string => {
     if (length < 30)
-      return "<span data-tip='Namesbase contains < 30 names - not enough to generate reasonable data' style='color:red'>[not enough]</span>";
+      return "<span data-tip='命名库包含少于 30 个名称——不足以生成合理数据' style='color:red'>[不足]</span>";
     if (length < 100)
-      return "<span data-tip='Namesbase contains < 100 names - not enough to generate good names' style='color:darkred'>[low]</span>";
-    if (length <= 400)
-      return "<span data-tip='Namesbase contains a reasonable number of samples' style='color:green'>[good]</span>";
-    return "<span data-tip='Namesbase contains > 400 names. That is too much, try to reduce it to ~300 names' style='color:darkred'>[overmuch]</span>";
+      return "<span data-tip='命名库包含少于 100 个名称——不足以生成优质名称' style='color:darkred'>[偏低]</span>";
+    if (length <= 400) return "<span data-tip='命名库包含合理数量的样本' style='color:green'>[良好]</span>";
+    return "<span data-tip='命名库包含超过 400 个名称。数量过多，建议精简至约 300 个名称' style='color:darkred'>[过多]</span>";
   };
 
   const getVarietyLevel = (): string => {
     if (variety < 15)
-      return "<span data-tip='Namesbase average variety < 15 - generated names will be too repetitive' style='color:red'>[low]</span>";
+      return "<span data-tip='命名库平均多样性 < 15——生成的名称将过于重复' style='color:red'>[偏低]</span>";
     if (variety < 30)
-      return "<span data-tip='Namesbase average variety < 30 - names can be too repetitive' style='color:orange'>[mean]</span>";
-    return "<span data-tip='Namesbase variety is good' style='color:green'>[good]</span>";
+      return "<span data-tip='命名库平均多样性 < 30——名称可能过于重复' style='color:orange'>[中等]</span>";
+    return "<span data-tip='命名库多样性良好' style='color:green'>[良好]</span>";
   };
 
   alertMessage.innerHTML = /* html */ `<div style="line-height: 1.6em; max-width: 20em">
-      <div data-tip="Number of names provided">Namesbase length: ${length} ${getLengthQuality()}</div>
-      <div data-tip="Average number of generation variants for each key in the chain">Namesbase variety: ${variety} ${getVarietyLevel()}</div>
+      <div data-tip="提供的名称数量">命名库长度：${length} ${getLengthQuality()}</div>
+      <div data-tip="链中每个键的平均生成变体数">命名库多样性：${variety} ${getVarietyLevel()}</div>
       <hr />
-      <div data-tip="The shortest name length">Min name length: ${d3min(wordsLength)}</div>
-      <div data-tip="The longest name length">Max name length: ${d3max(wordsLength)}</div>
-      <div data-tip="Average name length">Mean name length: ${rn(mean(wordsLength) ?? 0, 1)}</div>
-      <div data-tip="Common name length">Median name length: ${median(wordsLength)}</div>
+      <div data-tip="最短名称长度">最小名称长度：${d3min(wordsLength)}</div>
+      <div data-tip="最长名称长度">最大名称长度：${d3max(wordsLength)}</div>
+      <div data-tip="平均名称长度">平均名称长度：${rn(mean(wordsLength) ?? 0, 1)}</div>
+      <div data-tip="常见名称长度">中位名称长度：${median(wordsLength)}</div>
       <hr />
-      <div data-tip="Characters outside of Basic Latin have bad font support">Non-basic chars: ${nonBasicLatinChars}</div>
-      <div data-tip="Characters that are frequently (more than 3 times) doubled">Doubled chars: ${doubledStr}</div>
-      <div data-tip="Names used more than one time">Duplicates: ${duplicates}</div>
-      <div data-tip="Percentage of names containing space character">Multi-word names: ${rn(multiwordRate * 100, 2)}%</div>
+      <div data-tip="基本拉丁字母之外的字符字体支持较差">非基本字符：${nonBasicLatinChars}</div>
+      <div data-tip="频繁（超过 3 次）双写的字符">双写字符：${doubledStr}</div>
+      <div data-tip="使用超过一次的名称">重复项：${duplicates}</div>
+      <div data-tip="包含空格字符的名称百分比">多词名称：${rn(multiwordRate * 100, 2)}%</div>
     </div>`;
 
   $("#alert").dialog({
@@ -316,23 +315,23 @@ function namesbaseAdd(): void {
   (ensureEl("namesbaseMin") as HTMLInputElement).value = "5";
   (ensureEl("namesbaseMax") as HTMLInputElement).value = "12";
   (ensureEl("namesbaseDouble") as HTMLInputElement).value = "";
-  ensureEl("namesbaseExamples").innerHTML = "Please provide names data";
+  ensureEl("namesbaseExamples").innerHTML = "请提供名称数据";
 }
 
 function namesbaseRestoreDefault(): void {
-  alertMessage.innerHTML = /* html */ `Are you sure you want to restore default namesbase?`;
+  alertMessage.innerHTML = /* html */ `确定要恢复默认命名库吗？`;
   $("#alert").dialog({
     resizable: false,
     title: "恢复默认数据",
     buttons: {
-      Restore: function () {
+      恢复: function () {
         $(this).dialog("close");
         Names.clearChains();
         nameBases = Names.getNameBases();
         createBasesList();
         updateInputs();
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }
@@ -363,9 +362,9 @@ function namesbaseUpload(dataLoaded: string, override = true): void {
     try {
       const [rawName, min, max, d, m, rawNames] = line.split("|");
       const name = rawName?.replace(unsafe, "");
-      if (!name) throw new Error("Name is missing");
+      if (!name) throw new Error("名称缺失");
       const names = rawNames?.replace(unsafe, "");
-      if (!names) throw new Error("Names are missing");
+      if (!names) throw new Error("名称数据缺失");
       nameBases.push({
         name,
         i: nameBases.length,
@@ -387,11 +386,11 @@ function namesbaseUpload(dataLoaded: string, override = true): void {
       .map(
         ({ id, line, error }) => /* html */ `<li style="padding:0.6em 0;border-top:1px solid #ddd;">
             <div>
-              Line ${id}:
-              <span style="color:#8b0000">${escapeHtml(error)}.</span> Data:
+              第 ${id} 行：
+              <span style="color:#8b0000">${escapeHtml(error)}。</span> 数据：
             </div>
             <div style="margin-top:0.35em;font-family:var(--font-monospace,monospace);font-size:0.95em;line-height:1.4;word-break:break-word;color:#333;">
-              ${escapeHtml(line) || "<empty line>"}
+              ${escapeHtml(line) || "<空行>"}
             </div>
           </li>`
       )
@@ -399,15 +398,15 @@ function namesbaseUpload(dataLoaded: string, override = true): void {
 
     alertMessage.innerHTML = /* html */ `<div>
         <p style="margin:0.75em;">
-          <strong>File parsing error. Only ${lines.length - errors.length} out of ${lines.length} namebases added.</strong>
-          Each namebase should be on its own line and follow the format: <code>name|min|max|duplication|m|names</code>. Parameters should be separated with the <code>|</code> character, and this character should not be used within the parameters. Another prohibited character is <code>/</code>. The most common issue is names and other parameters being on two separate lines.
+          <strong>文件解析错误。仅添加了 ${lines.length} 个命名库中的 ${lines.length - errors.length} 个。</strong>
+          每个命名库应单独占一行并遵循格式：<code>name|min|max|duplication|m|names</code>。参数应使用 <code>|</code> 字符分隔，且该字符不应在参数内部使用。另一个禁止的字符是 <code>/</code>。最常见的问题是名称和其他参数位于两个独立的行上。
           <ul style="margin:0.5em;">
-            <li><code>name</code>: name of the base.</li>
-            <li><code>min</code>: minimal recommended length of generated names. It should be a number.</li>
-            <li><code>max</code>: maximal recommended length of generated names. It should be a number greater than minimal length.</li>
-            <li><code>duplication</code>: characters that can be duplicated in generated names. For example <code>lkd</code> means names like "Kalla", "Mikkor", "Dalddur" are possible. This parameter can be empty.</li>
-            <li><code>m</code>: unused parameter, populate with <code>0</code>.</li>
-            <li><code>names</code>: names data, separated with commas. It should contain at least 3 names to be valid.</li>
+            <li><code>name</code>：命名库的名称。</li>
+            <li><code>min</code>：生成名称的推荐最小长度。应为数字。</li>
+            <li><code>max</code>：生成名称的推荐最大长度。应为大于最小长度的数字。</li>
+            <li><code>duplication</code>：生成名称中可以双写的字符。例如 <code>lkd</code> 表示可以生成类似 "Kalla"、"Mikkor"、"Dalddur" 的名称。此参数可以为空。</li>
+            <li><code>m</code>：未使用的参数，请填写 <code>0</code>。</li>
+            <li><code>names</code>：名称数据，以逗号分隔。应至少包含 3 个名称才有效。</li>
           </ul>
         </p>
         <div>
@@ -423,7 +422,7 @@ function namesbaseUpload(dataLoaded: string, override = true): void {
       width: "min(72vw, 68em)",
       position: { my: "center center-4em", at: "center", of: "svg" },
       buttons: {
-        Continue: function () {
+        继续: function () {
           $(this).dialog("close");
         }
       }

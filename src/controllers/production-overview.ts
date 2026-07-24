@@ -77,15 +77,15 @@ function open(burgId: number): void {
     const commonStyles =
       "display:inline-block;border-radius:3px;padding:0 .4em;font-size:0.8em;font-weight:bold;line-height:1.35";
     if (type === "BUY")
-      return `<span style="${commonStyles};background:#f5d9d6;color:#a33" data-tip="Local market purchase">BUY</span>`;
+      return `<span style="${commonStyles};background:#f5d9d6;color:#a33" data-tip="本地市场购买">BUY</span>`;
     if (type === "SELL")
-      return `<span style="${commonStyles};background:#dff0e2;color:#2f8a46" data-tip="Sale to local market">SELL</span>`;
+      return `<span style="${commonStyles};background:#dff0e2;color:#2f8a46" data-tip="出售到本地市场">SELL</span>`;
     if (type === "LOCAL")
-      return `<span style="${commonStyles};background:#d9e7f5;color:#346" data-tip="Local production">LOCAL</span>`;
-    return `<span style="${commonStyles};background:#f8e7bf;color:#b67a00" data-tip="Manufacturing step">MFG</span>`;
+      return `<span style="${commonStyles};background:#d9e7f5;color:#346" data-tip="本地产物">LOCAL</span>`;
+    return `<span style="${commonStyles};background:#f8e7bf;color:#b67a00" data-tip="制造步骤">MFG</span>`;
   };
   const modifierBadge = (modifier: number) =>
-    `<span style="display:inline-block;margin-left:4px;border-radius:3px;padding:0 .4em;font-size:0.8em;font-weight:bold;line-height:1.35;background:#edf1f4;color:#5f6f7a" data-tip="Culture type production modifier. Produced units are multiplied by this value.">x${rn(modifier, 2)}</span>`;
+    `<span style="display:inline-block;margin-left:4px;border-radius:3px;padding:0 .4em;font-size:0.8em;font-weight:bold;line-height:1.35;background:#edf1f4;color:#5f6f7a" data-tip="文化类型产物修正系数。产物数量会乘以此值。">x${rn(modifier, 2)}</span>`;
 
   const renderGoodLabel = (id: number, suffix = "") => `${goodDot(id)}${goodName(id)}${suffix}`;
   const renderDataCell = (content: string | number, align: "left" | "right" = "left", extra = "") =>
@@ -158,16 +158,16 @@ function open(burgId: number): void {
 
     return totals;
   };
-  const renderCandidateScore = (score: number) => `<b style="${styles.positive}">score ${rn(score, 2)}</b>`;
+  const renderCandidateScore = (score: number) => `<b style="${styles.positive}">分数 ${rn(score, 2)}</b>`;
   const renderDecisionCandidate = (candidate: ProductionCandidate) => {
     const ingredients = candidate.ingredients
       .map(ing => `${rn(ing.amount * candidate.units, 2)} ${goodDot(ing.goodId)}`)
       .join(", ");
 
-    const prep = candidate.isPreparation ? ` (prep for ${goodDot(candidate.goalGoodId || -1)})` : "";
+    const prep = candidate.isPreparation ? `（为 ${goodDot(candidate.goalGoodId || -1)} 做准备）` : "";
     const demand =
       candidate.demandCategory && candidate.demandMultiplier !== 1
-        ? `x demand ${DEMAND_CATEGORY_ICONS[candidate.demandCategory]} ${rn(candidate.demandMultiplier, 2)}`
+        ? `x 需求 ${DEMAND_CATEGORY_ICONS[candidate.demandCategory]} ${rn(candidate.demandMultiplier, 2)}`
         : "";
     const culture = candidate.cultureModifier !== 1 ? ` ${modifierBadge(candidate.cultureModifier)}` : "";
 
@@ -175,11 +175,11 @@ function open(burgId: number): void {
     if (candidate.isPreparation) {
       const workers = rn(candidate.workersNeeded || 1, 2);
       const gain = ((candidate.gainPerWorker || 0) / candidate.demandMultiplier) * workers;
-      formula = `goal sell ${formatPrice(gain)}${culture} ÷ ${workers} workers ${demand} × units ${rn(candidate.units, 2)} = ${renderCandidateScore(candidate.score)}`;
+      formula = `目标销售 ${formatPrice(gain)}${culture} ÷ ${workers} 名工人 ${demand} × 单位数 ${rn(candidate.units, 2)} = ${renderCandidateScore(candidate.score)}`;
     } else {
-      formula = `sell ${formatPrice(candidate.sellPrice)}${culture} - cost ${formatPrice(candidate.ingredientCost)} = ${renderCandidateScore(candidate.score)}`;
+      formula = `销售 ${formatPrice(candidate.sellPrice)}${culture} - 成本 ${formatPrice(candidate.ingredientCost)} = ${renderCandidateScore(candidate.score)}`;
     }
-    return `<div>${typeBadge("MFG")} <b>${goodName(candidate.goodId)}</b>${prep}: ${formula}. <span style="${styles.muted}">Ingredients: ${ingredients}</span></div>`;
+    return `<div>${typeBadge("MFG")} <b>${goodName(candidate.goodId)}</b>${prep}：${formula}。<span style="${styles.muted}">原料：${ingredients}</span></div>`;
   };
   const renderDecisionDetails = (candidates?: readonly ProductionCandidate[]) => {
     if (!candidates || candidates.length === 0) return "";
@@ -189,17 +189,17 @@ function open(burgId: number): void {
         (candidate: ProductionCandidate) => `<li style="margin-top:.25em">${renderDecisionCandidate(candidate)}</li>`
       )
       .join("")}</ul>`;
-    return /*html*/ `<div><b>Decision basis:</b> highest score among ${candidates.length} feasible options:</div>${candidatesHtml}`;
+    return /*html*/ `<div><b>决策依据：</b>${candidates.length} 个可行选项中的最高分：</div>${candidatesHtml}`;
   };
   const renderCalculationDetails = (expression: string, value: number, label: string) =>
-    /*html*/ `<div><b>Deal calculation:</b> ${expression} = <b>${formatPrice(value)}</b> ${label}</div>`;
+    /*html*/ `<div><b>交易计算：</b> ${expression} = <b>${formatPrice(value)}</b> ${label}</div>`;
   const renderBuyDetails = (units: number, unitPrice: number, totalCost: number) =>
-    renderCalculationDetails(`unit ${rn(units, 2)} × buy price ${rn(unitPrice, 2)}`, -totalCost, "spent");
+    renderCalculationDetails(`数量 ${rn(units, 2)} × 购买价 ${rn(unitPrice, 2)}`, -totalCost, "支出");
   const renderSaleDetails = (deal: Deal) =>
     renderCalculationDetails(
-      `unit ${rn(deal.units, 2)} × sell price ${rn(deal.price, 2)} - sales tax ${rn(getDealTax(deal), 2)}`,
+      `数量 ${rn(deal.units, 2)} × 销售价 ${rn(deal.price, 2)} - 销售税 ${rn(getDealTax(deal), 2)}`,
       getDealNetRevenue(deal),
-      "income"
+      "收入"
     );
   const renderExpandableDealRow = (params: {
     targetId: string;
@@ -212,7 +212,7 @@ function open(burgId: number): void {
   }) => {
     const { targetId, goodId, type, units, details, income, detailsHtml } = params;
     return [
-      /*html*/ `<tr data-target="${targetId}" style="${styles.bodyRow};cursor:pointer" data-tip="Click to expand deal details">
+      /*html*/ `<tr data-target="${targetId}" style="${styles.bodyRow};cursor:pointer" data-tip="点击展开交易详情">
         ${renderDataCell(renderTaggedGood(goodId, type))}
         ${renderDataCell(rn(units, 2), "right")}
         <td style="${styles.cell}">${details}</td>
@@ -250,17 +250,17 @@ function open(burgId: number): void {
       const candidatesId = `candidates${stepIndex++}`;
       const candidatesHtml = renderDecisionDetails(mfg.candidates);
       const rowAttrs = candidatesHtml
-        ? ` data-target="${candidatesId}" style="${styles.bodyRow};cursor:pointer" data-tip="Click to expand decision details"`
+        ? ` data-target="${candidatesId}" style="${styles.bodyRow};cursor:pointer" data-tip="点击展开决策详情"`
         : ` style="${styles.bodyRow}"`;
       const cultureModifier = mfg.cultureModifier ?? 1;
       const cultureSuffix = cultureModifier !== 1 ? ` ${modifierBadge(cultureModifier)}` : "";
-      const allInputs = mfg.recipe.map(item => `${rn(item.units, 2)} ${goodDot(item.goodId)}`).join(` and `);
+      const allInputs = mfg.recipe.map(item => `${rn(item.units, 2)} ${goodDot(item.goodId)}`).join(` 和 `);
 
       return [
         /*html*/ `<tr${rowAttrs}>
            ${renderDataCell(renderTaggedGood(mfg.goodId, "MFG", cultureSuffix))}
            ${renderDataCell(rn(mfg.units, 2), "right")}
-           <td style="${styles.cell}">Manufacturing from ${allInputs}</td>
+           <td style="${styles.cell}">从 ${allInputs} 制造</td>
            ${renderDataCell("", "right", styles.subtle)}
          </tr>`,
         renderLogRow(candidatesId, candidatesHtml)
@@ -276,7 +276,7 @@ function open(burgId: number): void {
           goodId: deal.good,
           type: "BUY",
           units: deal.units,
-          details: "Market purchase",
+          details: "市场购买",
           income: -getDealSpent(deal),
           detailsHtml: renderBuyDetails(deal.units, deal.price, getDealSpent(deal))
         });
@@ -289,7 +289,7 @@ function open(burgId: number): void {
           goodId: deal.good,
           type: "SELL",
           units: deal.units,
-          details: "Sale to local market",
+          details: "出售到本地市场",
           income: getDealNetRevenue(deal),
           detailsHtml: renderSaleDetails(deal)
         });
@@ -300,7 +300,7 @@ function open(burgId: number): void {
       return /*html*/ `<tr style="${styles.bodyRow}">
            ${renderDataCell(renderTaggedGood(entry.goodId, "LOCAL"))}
            ${renderDataCell(entry.units, "right")}
-           <td style="${styles.cell}">Local bonus resource</td>
+           <td style="${styles.cell}">本地额外资源</td>
            ${renderDataCell("", "right", styles.subtle)}
          </tr>`;
     }
@@ -323,7 +323,7 @@ function open(burgId: number): void {
       }
     ],
     rows: allRows,
-    empty: "No production actions recorded"
+    empty: "无生产操作记录"
   });
 
   const finalDemandCoverage = calculateDemandCoverageTotals(netInventory);
@@ -332,17 +332,17 @@ function open(burgId: number): void {
   const statsHtml = /*html*/ `
     <div style="${styles.topBar}">
       <div>
-        <span><b>Population:</b> ${population}</span>
-        <span><b>Order:</b> ${processRank} of ${totalBurgs}</span>
-        <span><b>Market:</b> ${market ? Markets.getName(market) : "unknown"} (${market?.i})</span>
+        <span><b>人口：</b> ${population}</span>
+        <span><b>顺序：</b> 第 ${processRank} / 共 ${totalBurgs}</span>
+        <span><b>市场：</b> ${market ? Markets.getName(market) : "未知"} (${market?.i})</span>
       </div>
-      <div><b>Initial Demand:</b> ${renderDemand(initialDemand)}</div>
-      <div><b>Uncovered Demand:</b> ${renderDemand(uncoveredDemand, true) || "none"}</div>
+      <div><b>初始需求：</b> ${renderDemand(initialDemand)}</div>
+      <div><b>未满足需求：</b> ${renderDemand(uncoveredDemand, true) || "无"}</div>
       <div>
-        <span data-tip="Gross Product is local sale revenue minus purchased ingredient costs during the production."><b>Product:</b> <span style="${styles.positive}">${formatPrice(grossProduct)}</span></span>
-        <span data-tip="Product per capita: gross product divided by population."><b>Wealth:</b> <span style="${productPerCapita >= 0 ? styles.positive : styles.negative}">${formatPrice(productPerCapita)}</span></span>
-        <span data-tip="Sales Tax is paid by the seller on local sale deals. It is deducted from gross sale value and transferred to the state treasury."><b>Total Tax:</b> <span style="${totalTax >= 0 ? styles.warning : styles.subtle}">${formatPrice(totalTax)}</span></span>
-        <span data-tip="Net burg treasury after local buying, local sales, and final local demand fill."><b>Treasury:</b> <span style="${treasuryAfter >= 0 ? styles.positive : styles.negative}">${formatPrice(treasuryAfter)}</span></span>
+        <span data-tip="总产物是生产过程中的本地销售收入减去购买的原料成本。"><b>产物：</b> <span style="${styles.positive}">${formatPrice(grossProduct)}</span></span>
+        <span data-tip="人均产物：总产物除以人口。"><b>财富：</b> <span style="${productPerCapita >= 0 ? styles.positive : styles.negative}">${formatPrice(productPerCapita)}</span></span>
+        <span data-tip="销售税由卖方在本地销售交易中支付。从销售总额中扣除并转入国家国库。"><b>总税额：</b> <span style="${totalTax >= 0 ? styles.warning : styles.subtle}">${formatPrice(totalTax)}</span></span>
+        <span data-tip="本地购买、本地销售和最终本地需求满足后的城镇国库净值。"><b>国库：</b> <span style="${treasuryAfter >= 0 ? styles.positive : styles.negative}">${formatPrice(treasuryAfter)}</span></span>
       </div>
     </div>`;
 
@@ -361,14 +361,14 @@ function open(burgId: number): void {
     colWidths: ["80%", "20%"],
     headers: [{ label: "货物" }, { label: "数量", align: "right" }],
     rows: producedRows,
-    empty: "No goods manufactured"
+    empty: "无制造产物"
   });
 
   alertMessage.innerHTML = /*html*/ `
     <div id="productionOverviewContent">
       ${statsHtml}
-      ${renderSection("Manufactured Goods", producedTable, "Goods manufactured by this burg in this production cycle.")}
-      ${renderSection("Production and Trade history", jobsTable, "Chronological local production, market purchases, sales, and demand-fill operations for this burg.")}
+      ${renderSection("已制造的货物", producedTable, "本城镇在此生产周期中制造的货物。")}
+      ${renderSection("生产和交易历史", jobsTable, "本城镇按时间顺序排列的本地生产、市场购买、销售和需求满足操作。")}
     </div>
   `;
 
@@ -392,7 +392,7 @@ function open(burgId: number): void {
   $("#alert").dialog({
     width: "48em",
     resizable: true,
-    title: `Production Overview: ${burg.name}`,
+    title: `产物总览：${burg.name}`,
     position: {
       my: "right top",
       at: "right-10 top+10",

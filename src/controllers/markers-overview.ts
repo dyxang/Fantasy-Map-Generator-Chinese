@@ -25,44 +25,44 @@ function renderDialog(): void {
   const html = /* html */ `
     <div id="markersOverview" class="dialog stable">
       <div id="markersHeader" class="header" style="grid-template-columns: 15em 1em 3em">
-        <div data-tip="Click to sort by marker type" class="sortable alphabetically" data-sortby="type">Type&nbsp;</div>
+        <div data-tip="点击按标记类型排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
         <div
           id="markersInverPin"
           style="color: #6e5e66"
-          data-tip="Click to invert pin state for all markers"
+          data-tip="点击反转所有标记的固定状态"
           class="icon-pin pointer"
         ></div>
         <div
           id="markersInverLock"
           style="color: #6e5e66"
-          data-tip="Click to invert lock state for all markers"
+          data-tip="点击反转所有标记的锁定状态"
           class="icon-lock pointer"
         ></div>
       </div>
       <div id="markersBody" class="table"></div>
       <div>
-        <label for="markersSearch" data-tip="Filter by type">Search: <input id="markersSearch" type="search" /></label>
+        <label for="markersSearch" data-tip="按类型筛选">搜索：<input id="markersSearch" type="search" /></label>
       </div>
       <div id="markersFooter" class="totalLine">
-        <div data-tip="Markers number">
-          Markers: <span id="markersFooterNumber">0</span> of <span id="markersFooterTotal">0</span>
+        <div data-tip="标记数量">
+          标记：<span id="markersFooterNumber">0</span> / <span id="markersFooterTotal">0</span>
         </div>
       </div>
       <div id="markersBottom">
-        <button id="markersOverviewRefresh" data-tip="Refresh the Overview screen" class="icon-cw"></button>
-        <button id="markersRegenerate" data-tip="Regenerate unlocked markers" class="icon-shuffle"></button>
+        <button id="markersOverviewRefresh" data-tip="刷新总览界面" class="icon-cw"></button>
+        <button id="markersRegenerate" data-tip="重新生成未锁定的标记" class="icon-shuffle"></button>
         <span id="markerTypeSelectorWrapper">
-          <button id="markerTypeSelector" data-tip="Select marker type for newly added markers.">❓</button>
+          <button id="markerTypeSelector" data-tip="选择新添加标记的标记类型。">❓</button>
           <div id="markerTypeSelectMenu"></div>
         </span>
         <button
           id="markersAddFromOverview"
-          data-tip="Add a new marker. Hold Shift to add multiple"
+          data-tip="添加新标记。按住 Shift 添加多个"
           class="icon-plus"
         ></button>
-        <button id="markersGenerationConfig" data-tip="Config markers generation options" class="icon-cog"></button>
-        <button id="markersRemoveAll" data-tip="Remove all unlocked markers" class="icon-trash"></button>
-        <button id="markersExport" data-tip="Save markers data as a text file (.csv)" class="icon-download"></button>
+        <button id="markersGenerationConfig" data-tip="配置标记生成选项" class="icon-cog"></button>
+        <button id="markersRemoveAll" data-tip="移除所有未锁定的标记" class="icon-trash"></button>
+        <button id="markersExport" data-tip="将标记数据保存为文本文件 (.csv)" class="icon-download"></button>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -140,19 +140,19 @@ function addLines(): void {
         <div class="states" data-id=${i} data-type="${type}">
           ${
             icon.startsWith("http") || icon.startsWith("data:image")
-              ? `<img src="${icon}" data-tip="Marker icon" style="width:1.2em; height:1.2em; vertical-align: middle;">`
-              : `<span data-tip="Marker icon" style="width:1.2em">${icon}</span>`
+              ? `<img src="${icon}" data-tip="标记图标" style="width:1.2em; height:1.2em; vertical-align: middle;">`
+              : `<span data-tip="标记图标" style="width:1.2em">${icon}</span>`
           }
-          <div data-tip="Marker type" style="width:10em">${type}</div>
-          <span style="padding-right:.1em" data-tip="Edit marker" class="icon-pencil"></span>
-          <span style="padding-right:.1em" data-tip="Locate the marker" class="icon-target"></span>
-          <span style="padding-right:.1em" data-tip="Pin marker (display only pinned markers)" class="icon-pin ${
+          <div data-tip="标记类型" style="width:10em">${type}</div>
+          <span style="padding-right:.1em" data-tip="编辑标记" class="icon-pencil"></span>
+          <span style="padding-right:.1em" data-tip="定位该标记" class="icon-target"></span>
+          <span style="padding-right:.1em" data-tip="固定标记（仅显示已固定的标记）" class="icon-pin ${
             pinned ? "" : "inactive"
           }" pointer"></span>
           <span style="padding-right:.1em" class="locks pointer ${
             lock ? "icon-lock" : "icon-lock-open inactive"
           }" onmouseover="showElementLockTip(event)"></span>
-          <span data-tip="Remove marker" class="icon-trash-empty"></span>
+          <span data-tip="移除标记" class="icon-trash-empty"></span>
         </div>`;
     })
     .join("");
@@ -235,7 +235,7 @@ function triggerRemove(i: number): void {
   confirmationDialog({
     title: "移除标记",
     message: "确定要移除该标记吗？此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => removeMarker(i)
   });
 }
@@ -264,7 +264,7 @@ function triggerRemoveAll(): void {
   confirmationDialog({
     title: "移除所有标记",
     message: "确定要移除所有未锁定的标记吗？此操作无法撤销",
-    confirm: "Remove all",
+    confirm: "全部移除",
     onConfirm: removeAllMarkers
   });
 }

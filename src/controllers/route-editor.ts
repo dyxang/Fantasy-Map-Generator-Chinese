@@ -14,10 +14,7 @@ function open(id: string): void {
 
   elSelected = select<SVGElement, unknown>(`#${id}`).on("click", addControlPoint);
 
-  tip(
-    "拖动控制点可改变道路走向。点击控制点可移除。点击道路可添加控制点。如需大幅修改请新建一条道路",
-    true
-  );
+  tip("拖动控制点可改变道路走向。点击控制点可移除。点击道路可添加控制点。如需大幅修改请新建一条道路", true);
   select("#debug").append("g").attr("id", "controlCells");
   select("#debug").append("g").attr("id", "controlPoints");
 
@@ -45,30 +42,30 @@ function renderDialog(): void {
   const html = /* html */ `<div id="routeEditor" class="dialog">
     <div id="routeBody" style="padding-bottom: 0.3em">
       <div>
-        <div class="label">Name:</div>
-        <input id="routeName" data-tip="Type to rename the route" autocorrect="off" spellcheck="false" />
-        <span id="routeNameSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
-        <span id="routeGenerateName" data-tip="Generate route name" class="icon-globe pointer"></span>
+        <div class="label">名称：</div>
+        <input id="routeName" data-tip="输入以重命名道路" autocorrect="off" spellcheck="false" />
+        <span id="routeNameSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
+        <span id="routeGenerateName" data-tip="生成道路名称" class="icon-globe pointer"></span>
       </div>
-      <div data-tip="Select route group">
-        <div class="label">Group:</div>
+      <div data-tip="选择道路分组">
+        <div class="label">分组：</div>
         <select id="routeGroup"></select>
-        <span id="routeGroupEdit" data-tip="Edit route groups" class="icon-pencil pointer"></span>
-        <span id="routeEditStyle" data-tip="Edit style for the route group" class="icon-brush pointer"></span>
+        <span id="routeGroupEdit" data-tip="编辑道路分组" class="icon-pencil pointer"></span>
+        <span id="routeEditStyle" data-tip="编辑道路分组样式" class="icon-brush pointer"></span>
       </div>
-      <div data-tip="Route length in selected units">
-        <div class="label">Length:</div>
+      <div data-tip="道路长度（所选单位）">
+        <div class="label">长度：</div>
         <input id="routeLength" disabled />
       </div>
     </div>
     <div id="routeBottom">
-      <button id="routeCreateSelectingCells" data-tip="Create a new route selecting route cells" class="icon-map-pin"></button>
-      <button id="routeJoin" data-tip="Click to join the route to another route that starts or ends at the same cell" class="icon-link"></button>
-      <button id="routeSplit" data-tip="Click on a control point to split the route there" class="icon-unlink"></button>
-      <button id="routeElevationProfile" data-tip="Show the elevation profile for the route" class="icon-chart-area"></button>
-      <button id="routeLegend" data-tip="Edit free text notes (legend) for the route" class="icon-edit"></button>
+      <button id="routeCreateSelectingCells" data-tip="通过选择道路单元格创建新道路" class="icon-map-pin"></button>
+      <button id="routeJoin" data-tip="点击将道路连接到另一条起止于同一单元格的道路" class="icon-link"></button>
+      <button id="routeSplit" data-tip="点击控制点在此处拆分道路" class="icon-unlink"></button>
+      <button id="routeElevationProfile" data-tip="显示道路的高程剖面" class="icon-chart-area"></button>
+      <button id="routeLegend" data-tip="编辑道路的自由文本注释（图例）" class="icon-edit"></button>
       <button id="routeLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
-      <button id="routeRemove" data-tip="Remove route" data-shortcut="Delete" class="icon-trash fastDelete"></button>
+      <button id="routeRemove" data-tip="移除道路" data-shortcut="Delete" class="icon-trash fastDelete"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -302,7 +299,7 @@ function openJoinRoutesDialog(): void {
       const length = `${rn(r.length * distanceScale)} ${distanceUnitInput.value}`;
       return `<option value="${r.i}">${r.name} (${length})</option>`;
     });
-    alertMessage.innerHTML = /* html */ `<div>Route to join with:
+    alertMessage.innerHTML = /* html */ `<div>要合并的道路：
         <select>${options.join("")}</select>
       </div>`;
 
@@ -311,10 +308,10 @@ function openJoinRoutesDialog(): void {
       width: fitContent(),
       position: { my: "left top", at: "left+10 top+150", of: "#map" },
       buttons: {
-        Cancel: () => {
+        取消: () => {
           $("#alert").dialog("close");
         },
-        Join: () => {
+        合并: () => {
           const selectedRouteId = +alertMessage.querySelector("select")!.value;
           const selectedRoute = pack.routes.find((r: Route) => r.i === selectedRouteId) as Route;
           joinRoutes(route, selectedRoute);
@@ -437,7 +434,7 @@ function removeRoute(): void {
   confirmationDialog({
     title: "移除道路",
     message: "确定要移除该道路吗？<br>此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => {
       Routes.remove(getRoute());
       $("#routeEditor").dialog("close");

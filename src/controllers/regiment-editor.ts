@@ -37,43 +37,43 @@ function renderDialog(): void {
   const editorHtml = /* html */ `<div id="regimentEditor" class="dialog">
     <div id="regimentBody" style="padding-bottom: 0.3em">
       <div style="padding-bottom: 0.2em">
-        <button id="regimentType" data-tip="Regiment type (land or naval). Click to change"></button>
+        <button id="regimentType" data-tip="军团类型（陆上或海上）。点击更改"></button>
         <input
           id="regimentName"
-          data-tip="Type to rename the regiment"
+          data-tip="输入以重命名军团"
           autocorrect="off"
           spellcheck="false"
           style="width: 13em"
         />
         <span
           id="regimentNameSpeak"
-          data-tip="Speak the name. You can change voice and language in options"
+          data-tip="朗读名称。可在选项中更改语音和语言"
           class="speaker"
           >🔊</span
         >
-        <i id="regimentNameRestore" data-tip="Click to restore regiment's default name" class="icon-ccw pointer"></i>
+        <i id="regimentNameRestore" data-tip="点击恢复军团默认名称" class="icon-ccw pointer"></i>
       </div>
-      <div data-tip="Regiment emblem" style="display: flex; align-items: center">
-        <div class="label">Emblem:</div>
+      <div data-tip="军团纹章" style="display: flex; align-items: center">
+        <div class="label">纹章：</div>
         <div id="regimentEmblem" style="font-size: 1.5em; width: 3.7em"></div>
-        <button id="regimentEmblemChange" style="padding: 0; width: 4.5em">change</button>
+        <button id="regimentEmblemChange" style="padding: 0; width: 4.5em">更改</button>
       </div>
       <div id="regimentComposition" class="table"></div>
     </div>
     <div id="regimentBottom">
-      <button id="regimentAttack" data-tip="Attack foreign regiment" class="icon-target"></button>
-      <button id="regimentAdd" data-tip="Create a new regiment or fleet" class="icon-user-plus"></button>
-      <button id="regimentSplit" data-tip="Split regiment into 2 separate ones" class="icon-half"></button>
+      <button id="regimentAttack" data-tip="攻击外国军团" class="icon-target"></button>
+      <button id="regimentAdd" data-tip="创建新军团或舰队" class="icon-user-plus"></button>
+      <button id="regimentSplit" data-tip="将军团拆分为 2 个独立的军团" class="icon-half"></button>
       <button
         id="regimentAttach"
-        data-tip="Attach regiment to another one (include this regiment to another one)"
+        data-tip="将军团附加到另一个军团（将此军团并入另一个军团）"
         class="icon-attach"
       ></button>
-      <button id="regimentRegenerateLegend" data-tip="Regenerate legend for this regiment" class="icon-retweet"></button>
-      <button id="regimentLegend" data-tip="Edit free text notes (legend) for this regiment" class="icon-edit"></button>
+      <button id="regimentRegenerateLegend" data-tip="重新生成本军团的图例" class="icon-retweet"></button>
+      <button id="regimentLegend" data-tip="编辑本军团的自由文本注释（图例）" class="icon-edit"></button>
       <button
         id="regimentRemove"
-        data-tip="Remove regiment"
+        data-tip="移除军团"
         data-shortcut="Delete"
         class="icon-trash fastDelete"
       ></button>
@@ -114,8 +114,8 @@ function updateRegimentData(regiment: Regiment): void {
   const composition = ensureEl("regimentComposition");
   composition.innerHTML = options.military
     .map(u => {
-      return `<div data-tip="${capitalize(u.name)} number. Input to change">
-        <div class="label">${capitalize(u.name)}:</div>
+      return `<div data-tip="${capitalize(u.name)} 数量。输入以更改">
+        <div class="label">${capitalize(u.name)}：</div>
         <input data-u="${u.name}" type="number" min=0 step=1 value="${regiment.u[u.name] || 0}">
         <i>${u.type}</i></div>`;
     })
@@ -511,12 +511,12 @@ function editLegend(): void {
 }
 
 function removeRegiment(): void {
-  ensureEl("alertMessage").innerHTML = "Are you sure you want to remove the regiment?";
+  ensureEl("alertMessage").innerHTML = "确定要移除该军团吗？";
   $("#alert").dialog({
     resizable: false,
     title: "移除军团",
     buttons: {
-      Remove: function () {
+      移除: function () {
         $(this).dialog("close");
         if (!selectedRegiment) return;
         const military = pack.states[+selectedRegiment.dataset.state!].military!;
@@ -533,7 +533,7 @@ function removeRegiment(): void {
         refreshRegimentsOverviewIfOpen();
         $("#regimentEditor").dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }

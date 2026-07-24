@@ -43,15 +43,15 @@ function renderDialog(): void {
   destroyDialogIfExists("routeCreator");
 
   const html = /* html */ `<div id="routeCreator" class="dialog">
-    <div>Click on map to add/remove route points</div>
+    <div>点击地图以添加/移除道路点</div>
     <div id="routeCreatorBody" class="table" style="margin: 0.3em 0"></div>
     <div id="routeCreatorBottom">
-      <button id="routeCreatorComplete" data-tip="Complete route creation" class="icon-check"></button>
-      <button id="routeCreatorCancel" data-tip="Cancel the creation" class="icon-cancel"></button>
+      <button id="routeCreatorComplete" data-tip="完成道路创建" class="icon-check"></button>
+      <button id="routeCreatorCancel" data-tip="取消创建" class="icon-cancel"></button>
       <div style="display: inline-block">
-        Group:
+        分组：
         <select id="routeCreatorGroupSelect"></select>
-        <span id="routeCreatorGroupEdit" data-tip="Edit route groups" class="icon-pencil pointer"></span>
+        <span id="routeCreatorGroupEdit" data-tip="编辑道路分组" class="icon-pencil pointer"></span>
       </div>
     </div>
   </div>`;
@@ -94,10 +94,10 @@ function onClick(this: any, event: any): void {
     `<div class="editorLine" style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 1em;" data-point="${point.join(
       "-"
     )}">
-      <span><b>Cell</b>: ${cellId}</span>
-      <span><b>X</b>: ${point[0]}</span>
-      <span><b>Y</b>: ${point[1]}</span>
-      <span data-tip="Remove the point" class="icon-trash-empty pointer"></span>
+      <span><b>单元格</b>：${cellId}</span>
+      <span><b>X</b>：${point[0]}</span>
+      <span><b>Y</b>：${point[1]}</span>
+      <span data-tip="移除该点" class="icon-trash-empty pointer"></span>
     </div>`;
 }
 

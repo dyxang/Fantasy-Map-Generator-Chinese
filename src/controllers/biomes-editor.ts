@@ -25,70 +25,70 @@ function renderDialog(): void {
   destroyDialogIfExists("biomesEditor");
   const html = /* html */ `<div id="biomesEditor" class="dialog stable">
       <div id="biomesHeader" class="header" style="grid-template-columns: 12em 10em 5em 6em 7em">
-        <div data-tip="Click to sort by biome name" class="sortable alphabetically" data-sortby="name">
-          Biome&nbsp;
+        <div data-tip="点击按生物群系名称排序" class="sortable alphabetically" data-sortby="name">
+          生物群系&nbsp;
         </div>
-        <div data-tip="Click to sort by biome habitability" class="sortable hide" data-sortby="habitability">
-          Habitability&nbsp;
+        <div data-tip="点击按生物群系宜居度排序" class="sortable hide" data-sortby="habitability">
+          宜居度&nbsp;
         </div>
         <div
-          data-tip="Click to sort by biome cells number"
+          data-tip="点击按生物群系单元格数排序"
           class="sortable hide icon-sort-number-down"
           data-sortby="cells"
         >
-          Cells&nbsp;
+          单元格&nbsp;
         </div>
-        <div data-tip="Click to sort by biome area" class="sortable hide" data-sortby="area">Area&nbsp;</div>
-        <div data-tip="Click to sort by biome population" class="sortable hide" data-sortby="population">
-          Population&nbsp;
+        <div data-tip="点击按生物群系面积排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
+        <div data-tip="点击按生物群系人口排序" class="sortable hide" data-sortby="population">
+          人口&nbsp;
         </div>
       </div>
       <div id="biomesBody" class="table" data-type="absolute"></div>
       <div id="biomesFooter" class="totalLine">
-        <div data-tip="Number of land biomes" style="margin-left: 12px">
-          Biomes:&nbsp;<span id="biomesFooterBiomes">0</span>
+        <div data-tip="陆地生物群系数" style="margin-left: 12px">
+          生物群系:&nbsp;<span id="biomesFooterBiomes">0</span>
         </div>
-        <div data-tip="Total land cells number" style="margin-left: 12px">
-          Cells:&nbsp;<span id="biomesFooterCells">0</span>
+        <div data-tip="陆地单元格总数" style="margin-left: 12px">
+          单元格:&nbsp;<span id="biomesFooterCells">0</span>
         </div>
-        <div data-tip="Total land area" style="margin-left: 12px">
-          Land Area:&nbsp;<span id="biomesFooterArea">0</span>
+        <div data-tip="陆地总面积" style="margin-left: 12px">
+          陆地面积:&nbsp;<span id="biomesFooterArea">0</span>
         </div>
-        <div data-tip="Total population" style="margin-left: 12px">
-          Population:&nbsp;<span id="biomesFooterPopulation">0</span>
+        <div data-tip="总人口" style="margin-left: 12px">
+          人口:&nbsp;<span id="biomesFooterPopulation">0</span>
         </div>
       </div>
       <div id="biomesBottom">
-        <button id="biomesEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-        <button id="biomesEditStyle" data-tip="Edit biomes style in Style Editor" class="icon-adjust"></button>
-        <button id="biomesLegend" data-tip="Toggle Legend box" class="icon-list-bullet"></button>
+        <button id="biomesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+        <button id="biomesEditStyle" data-tip="在样式编辑器中编辑生物群系样式" class="icon-adjust"></button>
+        <button id="biomesLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
         <button
           id="biomesPercentage"
-          data-tip="Toggle percentage / absolute values views"
+          data-tip="切换百分比/绝对值视图"
           class="icon-percent"
         ></button>
         <button
           id="biomesManually"
-          data-tip="Manually re-assign biomes to not follow the default moisture/temperature pattern"
+          data-tip="手动重新分配生物群系，不遵循默认的湿度/温度模式"
           class="icon-brush"
         ></button>
         <div id="biomesManuallyButtons" style="display: none">
-          <div data-tip="Change brush size. Shortcut: + to increase; – to decrease" style="margin-block: 0.3em">
-            Brush size:
+          <div data-tip="更改笔刷大小。快捷键：+ 增大；– 减小" style="margin-block: 0.3em">
+            笔刷大小：
             <slider-input id="biomesBrush" min="1" max="100" value="15"></slider-input>
           </div>
-          <button id="biomesManuallyApply" data-tip="Apply current assignment" class="icon-check"></button>
-          <button id="biomesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
+          <button id="biomesManuallyApply" data-tip="应用当前分配" class="icon-check"></button>
+          <button id="biomesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
         </div>
-        <button id="biomesAdd" data-tip="Add a custom biome" class="icon-plus"></button>
+        <button id="biomesAdd" data-tip="添加自定义生物群系" class="icon-plus"></button>
         <button
           id="biomesRestore"
-          data-tip="Restore the defaults and re-define biomes based on current moisture and temperature"
+          data-tip="恢复默认设置，并基于当前湿度和温度重新定义生物群系"
           class="icon-history"
         ></button>
         <button
           id="biomesExport"
-          data-tip="Save biomes-related data as a text file (.csv)"
+          data-tip="将生物群系相关数据保存为文本文件 (.csv)"
           class="icon-download"
         ></button>
       </div>
@@ -162,7 +162,7 @@ function biomesEditorAddLines(): void {
     const rural = b.rural![i] * populationRate;
     const urban = b.urban![i] * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(urban)}`;
+    const populationTip = `总人口：${si(population)}；农村人口：${si(rural)}；城镇人口：${si(urban)}`;
     totalArea += area;
     totalPopulation += population;
 
@@ -178,17 +178,17 @@ function biomesEditorAddLines(): void {
         data-color=${b.color[i]}
       >
         <fill-box fill="${b.color[i]}"></fill-box>
-        <input data-tip="Biome name. Click and type to change" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
-        <span data-tip="Biome habitability percent" class="hide">%</span>
-        <input data-tip="Biome habitability percent. Click and set new value to change" type="number" min="0" max="9999" class="biomeHabitability hide" value=${b.habitability[i]} />
-        <span data-tip="Cells count" class="icon-check-empty hide"></span>
-        <div data-tip="Cells count" class="biomeCells hide">${b.cells![i]}</div>
-        <span data-tip="Biome area" style="padding-right: 4px" class="icon-map-o hide"></span>
-        <div data-tip="Biome area" class="biomeArea hide">${si(area) + unit}</div>
+        <input data-tip="生物群系名称。点击并输入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
+        <span data-tip="生物群系宜居百分比" class="hide">%</span>
+        <input data-tip="生物群系宜居百分比。点击并设置新值以更改" type="number" min="0" max="9999" class="biomeHabitability hide" value=${b.habitability[i]} />
+        <span data-tip="单元格数" class="icon-check-empty hide"></span>
+        <div data-tip="单元格数" class="biomeCells hide">${b.cells![i]}</div>
+        <span data-tip="生物群系面积" style="padding-right: 4px" class="icon-map-o hide"></span>
+        <div data-tip="生物群系面积" class="biomeArea hide">${si(area) + unit}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="biomePopulation hide">${si(population)}</div>
-        <span data-tip="Open Wikipedia article about the biome" class="icon-info-circled pointer hide"></span>
-        ${i > 12 && !b.cells![i] ? '<span data-tip="Remove the custom biome" class="icon-trash-empty hide"></span>' : ""}
+        <span data-tip="打开关于该生物群系的维基百科文章" class="icon-info-circled pointer hide"></span>
+        ${i > 12 && !b.cells![i] ? '<span data-tip="移除自定义生物群系" class="icon-trash-empty hide"></span>' : ""}
       </div>
     `;
   }
@@ -357,16 +357,16 @@ function addCustomBiome(): void {
   const unit = getAreaUnit();
   const line = /* html */ `<div class="states biomes" data-id="${i}" data-name="${b.name[i]}" data-habitability=${b.habitability[i]} data-cells=0 data-area=0 data-population=0 data-color=${b.color[i]}>
     <fill-box fill="${b.color[i]}"></fill-box>
-    <input data-tip="Biome name. Click and type to change" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false">
-    <span data-tip="Biome habitability percent" class="hide">%</span>
-    <input data-tip="Biome habitability percent. Click and set new value to change" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${b.habitability[i]}>
-    <span data-tip="Cells count" class="icon-check-empty hide"></span>
-    <div data-tip="Cells count" class="biomeCells hide">${b.cells![i]}</div>
-    <span data-tip="Biome area" style="padding-right: 4px" class="icon-map-o hide"></span>
-    <div data-tip="Biome area" class="biomeArea hide">0 ${unit}</div>
+    <input data-tip="生物群系名称。点击并输入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false">
+    <span data-tip="生物群系宜居百分比" class="hide">%</span>
+    <input data-tip="生物群系宜居百分比。点击并设置新值以更改" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${b.habitability[i]}>
+    <span data-tip="单元格数" class="icon-check-empty hide"></span>
+    <div data-tip="单元格数" class="biomeCells hide">${b.cells![i]}</div>
+    <span data-tip="生物群系面积" style="padding-right: 4px" class="icon-map-o hide"></span>
+    <div data-tip="生物群系面积" class="biomeArea hide">0 ${unit}</div>
     <span data-tip="Total population: 0" class="icon-male hide"></span>
     <div data-tip="Total population: 0" class="biomePopulation hide">0</div>
-    <span data-tip="Remove the custom biome" class="icon-trash-empty hide"></span>
+    <span data-tip="移除自定义生物群系" class="icon-trash-empty hide"></span>
   </div>`;
 
   const body = ensureEl("biomesBody");

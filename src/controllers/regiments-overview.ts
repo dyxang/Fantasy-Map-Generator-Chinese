@@ -26,41 +26,41 @@ function renderDialog(): void {
   document.getElementById("regimentsOverview")?.remove();
   const editorHtml = /* html */ `<div id="regimentsOverview" class="dialog stable">
       <div id="regimentsHeader" class="header">
-        <div data-tip="State name. Click to sort" class="sortable alphabetically" data-sortby="state">
-          State&nbsp;
+        <div data-tip="国家名称。点击排序" class="sortable alphabetically" data-sortby="state">
+          国家&nbsp;
         </div>
         <div
-          data-tip="Regiment emblem and name. Click to sort by name"
+          data-tip="军团纹章和名称。点击按名称排序"
           class="sortable alphabetically"
           data-sortby="name"
         >
-          Name&nbsp;
+          名称&nbsp;
         </div>
         <div
-          data-tip="Total military personnel (not considering crew). Click to sort"
+          data-tip="总军事人员（不含船员）。点击排序"
           id="regimentsTotal"
           class="sortable icon-sort-number-down"
           data-sortby="total"
         >
-          Total&nbsp;
+          总数&nbsp;
         </div>
       </div>
       <div id="regimentsBody" class="table" data-type="absolute"></div>
       <div id="regimentsBottom">
-        <button id="regimentsOverviewRefresh" data-tip="Refresh the overview screen" class="icon-cw"></button>
+        <button id="regimentsOverviewRefresh" data-tip="刷新总览界面" class="icon-cw"></button>
         <button
           id="regimentsPercentage"
-          data-tip="Toggle percentage / absolute values views"
+          data-tip="切换百分比/绝对值视图"
           class="icon-percent"
         ></button>
-        <button id="regimentsAddNew" data-tip="Add new Regiment" class="icon-user-plus"></button>
-        <div data-tip="Select state" style="display: inline-block">
-          <span>State: </span
+        <button id="regimentsAddNew" data-tip="添加新军团" class="icon-user-plus"></button>
+        <div data-tip="选择国家" style="display: inline-block">
+          <span>国家：</span
           ><select id="regimentsFilter"></select>
         </div>
         <button
           id="regimentsExport"
-          data-tip="Save military-related data as a text file (.csv)"
+          data-tip="保存军事相关数据为文本文件（.csv）"
           class="icon-download"
         ></button>
       </div>
@@ -101,7 +101,7 @@ function updateHeaders(): void {
   for (const u of options.military) {
     const label = capitalize(u.name.replace(/_/g, " "));
     insert(
-      `<div data-tip="Regiment ${u.name} units number. Click to sort" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`
+      `<div data-tip="军团 ${u.name} 单位数。点击排序" class="sortable removable" data-sortby="${u.name}">${label}&nbsp;</div>`
     );
   }
   header.querySelectorAll<HTMLElement>(".removable").forEach(el => {
@@ -124,7 +124,7 @@ function refreshRegimentsOverview(): void {
     for (const r of s.military) {
       const sortData = options.military.map(u => `data-${u.name}=${r.u[u.name] || 0}`).join(" ");
       const lineData = options.military
-        .map(u => `<div data-type="${u.name}" data-tip="${capitalize(u.name)} units number">${r.u[u.name] || 0}</div>`)
+        .map(u => `<div data-type="${u.name}" data-tip="${capitalize(u.name)} 单位数">${r.u[u.name] || 0}</div>`)
         .join(" ");
 
       lines += /* html */ `<div class="states" data-id="${r.i}" data-s="${s.i}" data-state="${s.name}" data-name="${
@@ -134,23 +134,21 @@ function refreshRegimentsOverview(): void {
           <input data-tip="${s.fullName}" style="width:6em" value="${s.name}" readonly />
           ${
             r.icon!.startsWith("http") || r.icon!.startsWith("data:image")
-              ? `<img src="${r.icon}" data-tip="Regiment's emblem" style="width:1.2em; height:1.2em; vertical-align: middle;">`
-              : `<span data-tip="Regiment's emblem" style="width:1em">${r.icon}</span>`
+              ? `<img src="${r.icon}" data-tip="军团纹章" style="width:1.2em; height:1.2em; vertical-align: middle;">`
+              : `<span data-tip="军团纹章" style="width:1em">${r.icon}</span>`
           }
-          <input data-tip="Regiment's name" style="width:13em" value="${r.name}" readonly />
+          <input data-tip="军团名称" style="width:13em" value="${r.name}" readonly />
           ${lineData}
-          <div data-type="total" data-tip="Total military personnel (not considering crew)" style="font-weight: bold">${
-            r.a
-          }</div>
-          <span data-tip="Edit regiment" data-edit-regiment="regiment${s.i}-${r.i}" class="icon-pencil pointer"></span>
+          <div data-type="total" data-tip="总军事人员（不含船员）" style="font-weight: bold">${r.a}</div>
+          <span data-tip="编辑军团" data-edit-regiment="regiment${s.i}-${r.i}" class="icon-pencil pointer"></span>
         </div>`;
 
       regiments.push(r);
     }
   }
 
-  lines += /* html */ `<div id="regimentsTotalLine" class="totalLine" data-tip="Total of all displayed regiments">
-      <div style="width: 21em; margin-left: 1em">Regiments: ${regiments.length}</div>
+  lines += /* html */ `<div id="regimentsTotalLine" class="totalLine" data-tip="所有显示军团的总数">
+      <div style="width: 21em; margin-left: 1em">军团: ${regiments.length}</div>
       ${options.military
         .map(u => `<div style="width:5em">${si(sum(regiments.map(r => r.u[u.name] || 0)))}</div>`)
         .join(" ")}
@@ -176,7 +174,7 @@ function refreshRegimentsOverview(): void {
 function updateFilter(state: number): void {
   const filter = ensureEl<HTMLSelectElement>("regimentsFilter");
   filter.options.length = 0; // remove all options
-  filter.options.add(new Option("all", "-1", false, state === -1));
+  filter.options.add(new Option("全部", "-1", false, state === -1));
   const statesSorted = pack.states.filter(s => s.i && !s.removed).sort((a, b) => (a.name! > b.name! ? 1 : -1));
   statesSorted.forEach(s => {
     filter.options.add(new Option(s.name, String(s.i), false, s.i === state));

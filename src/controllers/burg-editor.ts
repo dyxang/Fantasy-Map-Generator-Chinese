@@ -47,34 +47,34 @@ function renderDialog(): void {
   const editorHtml = /* html */ `<div id="burgEditor" class="dialog">
       <div id="burgBody" style="padding-bottom: 0.3em">
         <div style="display: flex; align-items: center">
-          <svg data-tip="Burg emblem. Click to edit" class="pointer" viewBox="0 0 200 200" width="13em" height="13em">
+          <svg data-tip="城镇纹章。点击编辑" class="pointer" viewBox="0 0 200 200" width="13em" height="13em">
             <use id="burgEmblem"></use>
           </svg>
           <div style="display: grid; grid-auto-rows: minmax(1.6em, auto)">
             <div id="burgProvinceAndState" style="font-weight: bold; max-width: 16em"></div>
             <div>
-              <div class="label">Name:</div>
+              <div class="label">名称：</div>
               <input
                 id="burgName"
-                data-tip="Type to rename the burg"
+                data-tip="输入以重命名该城镇"
                 autocorrect="off"
                 spellcheck="false"
                 style="width: 9em"
               />
-              <span id="burgNameSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+              <span id="burgNameSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
               <span
                 id="burgNameReRandom"
-                data-tip="Generate random name for the burg"
+                data-tip="为该城镇生成随机名称"
                 class="icon-globe pointer"
               ></span>
             </div>
-            <div data-tip="Select burg group. Groups defines burg icon, label size and style">
-              <div class="label">Group:</div>
+            <div data-tip="选择城镇分组。分组决定城镇图标、标签大小和样式">
+              <div class="label">分组：</div>
               <select id="burgGroup" style="width: 9em"></select>
-              <span id="burgGroupConfigure" data-tip="Configure burg groups" class="icon-cog pointer"></span>
+              <span id="burgGroupConfigure" data-tip="配置城镇分组" class="icon-cog pointer"></span>
             </div>
-            <div data-tip="Select burg type. Type slightly affects emblem generation">
-              <div class="label">Type:</div>
+            <div data-tip="选择城镇类型。类型对纹章生成有轻微影响">
+              <div class="label">类型：</div>
               <select id="burgType" style="width: 9em">
                 <option value="Generic">Generic</option>
                 <option value="River">River</option>
@@ -85,148 +85,148 @@ function renderDialog(): void {
                 <option value="Highland">Highland</option>
               </select>
             </div>
-            <div data-tip="Select dominant culture">
-              <div class="label">Culture:</div>
+            <div data-tip="选择主导文化">
+              <div class="label">文化：</div>
               <select id="burgCulture" style="width: 9em"></select>
               <span
                 id="burgNameReCulture"
-                data-tip="Generate culture-specific name for the burg"
+                data-tip="为该城镇生成特定文化的名称"
                 class="icon-book pointer"
               ></span>
             </div>
-            <div data-tip="Set burg population">
-              <div class="label">Population:</div>
+            <div data-tip="设置城镇人口">
+              <div class="label">人口：</div>
               <input id="burgPopulation" type="number" min="0" step="1" style="width: 9em" />
             </div>
-            <div data-tip="Burg average yearly temperature" style="display: flex; justify-content: space-between">
+            <div data-tip="城镇年平均气温" style="display: flex; justify-content: space-between">
               <div>
-                <div class="label">Temperature:</div>
+                <div class="label">气温：</div>
                 <span id="burgTemperature"></span>
               </div>
               <div style="display: flex; gap: 0.5em">
                 <i class="icon-info-circled" id="burgTemperatureLikeIn"></i>
                 <i
                   id="burgTemperatureGraph"
-                  data-tip="Show temperature graph for the burg"
+                  data-tip="显示该城镇的气温图表"
                   class="icon-chart-area pointer"
                 ></i>
               </div>
             </div>
-            <div data-tip="Burg height above mean sea level">
-              <div class="label">Elevation:</div>
-              <span id="burgElevation"></span> above sea level
+            <div data-tip="城镇高于平均海平面的高度">
+              <div class="label">海拔：</div>
+              <span id="burgElevation"></span> 高于海平面
             </div>
             <div>
-              <div class="label">Features:</div>
+              <div class="label">特征：</div>
               <span
                 id="burgCapital"
-                data-tip="Shows whether the burg is a state capital. Click to toggle"
+                data-tip="显示该城镇是否为国家首都。点击切换"
                 data-feature="capital"
                 class="burgFeature icon-star"
               ></span>
               <span
                 id="burgPort"
-                data-tip="Shows whether the burg is a port. Click to toggle"
+                data-tip="显示该城镇是否为港口。点击切换"
                 data-feature="port"
                 class="burgFeature icon-anchor"
               ></span>
               <span
                 id="burgCitadel"
-                data-tip="Shows whether the burg has a citadel (castle). Click to toggle"
+                data-tip="显示该城镇是否有城堡（要塞）。点击切换"
                 data-feature="citadel"
                 class="burgFeature icon-chess-rook"
                 style="font-size: 1.1em"
               ></span>
               <span
                 id="burgWalls"
-                data-tip="Shows whether the burg is walled. Click to toggle"
+                data-tip="显示该城镇是否有城墙。点击切换"
                 data-feature="walls"
                 class="burgFeature icon-fort-awesome"
               ></span>
               <span
                 id="burgPlaza"
-                data-tip="Shows whether the burg is a trade center (market center). Click to toggle"
+                data-tip="显示该城镇是否为贸易中心（市场中心）。点击切换"
                 data-feature="plaza"
                 class="burgFeature icon-store"
                 style="font-size: 1em"
               ></span>
               <span
                 id="burgTemple"
-                data-tip="Shows whether the burg is a religious center. Click to toggle"
+                data-tip="显示该城镇是否为宗教中心。点击切换"
                 data-feature="temple"
                 class="burgFeature icon-chess-bishop"
                 style="font-size: 1.1em; margin-left: 3px"
               ></span>
               <span
                 id="burgShanty"
-                data-tip="Shows whether the burg has a shanty town. Click to toggle"
+                data-tip="显示该城镇是否有贫民窟。点击切换"
                 data-feature="shanty"
                 class="burgFeature icon-campground"
                 style="font-size: 1em"
               ></span>
             </div>
-            <div data-tip="Burg average daily production">
-              <div class="label">Production:</div>
+            <div data-tip="城镇日均产量">
+              <div class="label">产量：</div>
               <span id="burgProduction" style="display: inline-flex; flex-wrap: wrap; column-gap: 0.3em; max-width: 110px;"></span>
             </div>
-            <div data-tip="Gross product per population point, daily average">
-              <div class="label">Wealth</div>
+            <div data-tip="每人口点的总产值，日均">
+              <div class="label">财富</div>
               <span id="burgWealth"></span>
             </div>
-            <div data-tip="Treasury balance after production, purchases, and sales">
-              <div class="label">Treasury</div>
+            <div data-tip="生产、购买和销售后的国库余额">
+              <div class="label">国库</div>
               <span id="burgTreasury"></span>
             </div>
           </div>
         </div>
-        <div id="burgPreviewSection" data-tip="Burg map preview" style="display: flex; flex-direction: column">
+        <div id="burgPreviewSection" data-tip="城镇地图预览" style="display: flex; flex-direction: column">
           <div style="display: flex; justify-content: space-between">
-            <span>Burg preview:</span>
+            <span>城镇预览：</span>
             <div style="display: flex; gap: 0.5em">
-              <i id="burgLinkOpen" data-tip="Open burg map in a new tab" class="icon-link-ext pointer"></i>
+              <i id="burgLinkOpen" data-tip="在新标签页中打开城镇地图" class="icon-link-ext pointer"></i>
             </div>
           </div>
           <div id="burgPreviewObject" style="pointer-events: none"></div>
         </div>
       </div>
       <div id="burgBottom">
-        <button id="burgStyleShow" data-tip="Show style edit section" class="icon-brush"></button>
+        <button id="burgStyleShow" data-tip="显示样式编辑区域" class="icon-brush"></button>
         <div id="burgStyleSection" style="display: none">
-          <button id="burgStyleHide" data-tip="Hide style edit section" class="icon-brush"></button>
+          <button id="burgStyleHide" data-tip="隐藏样式编辑区域" class="icon-brush"></button>
           <button
             id="burgEditLabelStyle"
-            data-tip="Edit label style for burg group in Style Editor"
+            data-tip="在样式编辑器中编辑城镇组标签样式"
             class="icon-font"
           ></button>
           <button
             id="burgEditIconStyle"
-            data-tip="Edit icon style for burg group in Style Editor"
+            data-tip="在样式编辑器中编辑城镇组图标样式"
             class="icon-dot-circled"
           ></button>
           <button
             id="burgEditAnchorStyle"
-            data-tip="Edit port icon (anchor) style for burg group in Style Editor"
+            data-tip="在样式编辑器中编辑城镇组港口图标（锚）样式"
             class="icon-anchor"
           ></button>
         </div>
-        <button id="burgEditEmblem" data-tip="Edit emblem" class="icon-shield-alt"></button>
-        <button id="burgSetPreviewLink" data-tip="Set custom burg map URL" class="icon-map-o"></button>
-        <button id="burgLocate" data-tip="Zoom map and center view in the burg" class="icon-target"></button>
+        <button id="burgEditEmblem" data-tip="编辑纹章" class="icon-shield-alt"></button>
+        <button id="burgSetPreviewLink" data-tip="设置自定义城镇地图 URL" class="icon-map-o"></button>
+        <button id="burgLocate" data-tip="缩放地图并居中视图到城镇" class="icon-target"></button>
         <button
           id="burgProductionOverview"
-          data-tip="Show production overview for this burg"
+          data-tip="显示此城镇的产能总览"
           class="icon-chart-bar"
         ></button>
         <button
           id="burgRelocate"
-          data-tip="Relocate burg. Click on map to move the burg"
+          data-tip="重新定位城镇。点击地图移动城镇"
           class="icon-map-pin"
         ></button>
-        <button id="burglLegend" data-tip="Edit free text notes (legend) for this burg" class="icon-edit"></button>
+        <button id="burglLegend" data-tip="编辑此城镇的自由文本笔记（图例）" class="icon-edit"></button>
         <button id="burgLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
         <button
           id="burgRemove"
-          data-tip="Remove non-capital burg"
+          data-tip="移除非首都城镇"
           data-shortcut="Delete"
           class="icon-trash fastDelete"
         ></button>
@@ -302,8 +302,7 @@ function updateBurgValues(): void {
 
   const temperature = grid.cells.temp[pack.cells.g[b.cell]];
   ensureEl("burgTemperature").innerHTML = convertTemperature(temperature);
-  ensureEl("burgTemperatureLikeIn").dataset.tip =
-    `Average yearly temperature is like in ${getTemperatureLikeness(temperature)}`;
+  ensureEl("burgTemperatureLikeIn").dataset.tip = `年平均气温类似于${getTemperatureLikeness(temperature)}`;
   ensureEl("burgElevation").innerHTML = getHeight(pack.cells.h[b.cell]);
 
   ensureEl("burgCapital").classList.toggle("inactive", !b.capital);
@@ -552,7 +551,7 @@ function setCustomPreview(): void {
   const burg = pack.burgs[id];
 
   prompt(
-    "Provide custom URL to the burg map. It can be a link to a generator or just an image. Leave empty to use the default map preview",
+    "提供城镇地图的自定义 URL。可以是生成器的链接或仅是图片。留空则使用默认地图预览",
     { default: Burgs.getPreview(burg).link || "", required: false },
     link => {
       if (link) burg.link = String(link);
@@ -665,23 +664,23 @@ function removeSelectedBurg(): void {
   const burg = pack.burgs[burgId];
 
   if (burg.capital) {
-    alertMessage.innerHTML = /* html */ `You cannot remove the capital. You must change the state capital first`;
+    alertMessage.innerHTML = /* html */ `无法移除首都。必须先更改国家首都`;
     $("#alert").dialog({
       resizable: false,
       title: "移除城镇",
       buttons: {
-        Ok: function (this: HTMLElement) {
+        确定: function (this: HTMLElement) {
           $(this).dialog("close");
         }
       }
     });
   } else if (pack.markets?.some(m => m.centerBurgId === burgId)) {
-    alertMessage.innerHTML = /* html */ `You cannot remove a market center burg. Please remove the market first`;
+    alertMessage.innerHTML = /* html */ `无法移除市场中心城镇。请先移除市场`;
     $("#alert").dialog({
       resizable: false,
       title: "移除城镇",
       buttons: {
-        Ok: function (this: HTMLElement) {
+        确定: function (this: HTMLElement) {
           $(this).dialog("close");
         }
       }
@@ -690,7 +689,7 @@ function removeSelectedBurg(): void {
     confirmationDialog({
       title: "移除城镇",
       message: "确定要移除该城镇吗？<br>此操作无法撤销",
-      confirm: "Remove",
+      confirm: "移除",
       onConfirm: () => {
         Burgs.remove(burgId);
         $("#burgEditor").dialog("close");

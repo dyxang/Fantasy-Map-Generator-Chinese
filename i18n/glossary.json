@@ -78,6 +78,7 @@
     { "en": "Cultures", "zh": "文化", "context": "demographic", "do_not_translate": false },
     { "en": "Religions", "zh": "宗教", "context": "demographic", "do_not_translate": false },
     { "en": "Rivers", "zh": "河流", "context": "water", "do_not_translate": false },
-    { "en": "Lakes", "zh": "湖泊", "context": "water", "do_not_translate": false }
+    { "en": "Lakes", "zh": "湖泊", "context": "water", "do_not_translate": false },
+    { "en": "Hemp", "zh": "火麻", "context": "economy", "do_not_translate": false, "note": "use 火麻 (flax/linen), not 大麻 (cannabis/marijuana)" }
   ]
 }

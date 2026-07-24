@@ -25,22 +25,22 @@ function renderDialog(): void {
 
   const html = /* html */ `<div id="routesOverview" class="dialog stable">
     <div id="routesHeader" class="header" style="grid-template-columns: 17em 8em 8em">
-      <div data-tip="Click to sort by route name" class="sortable alphabetically" data-sortby="name">Route&nbsp;</div>
-      <div data-tip="Click to sort by route group" class="sortable alphabetically" data-sortby="group">Group&nbsp;</div>
-      <div data-tip="Click to sort by route length" class="sortable icon-sort-number-down" data-sortby="length">Length&nbsp;</div>
+      <div data-tip="点击按道路名称排序" class="sortable alphabetically" data-sortby="name">道路&nbsp;</div>
+      <div data-tip="点击按道路组排序" class="sortable alphabetically" data-sortby="group">组&nbsp;</div>
+      <div data-tip="点击按道路长度排序" class="sortable icon-sort-number-down" data-sortby="length">长度&nbsp;</div>
     </div>
     <div id="routesBody" class="table"></div>
     <div id="routesFooter" class="totalLine">
-      <div data-tip="Routes number" style="margin-left: 4px">Routes:&nbsp;<span id="routesFooterNumber">0</span></div>
-      <div data-tip="Average length" style="margin-left: 12px">Average length:&nbsp;<span id="routesFooterLength">0</span></div>
+      <div data-tip="道路数量" style="margin-left: 4px">道路:&nbsp;<span id="routesFooterNumber">0</span></div>
+      <div data-tip="平均长度" style="margin-left: 12px">平均长度:&nbsp;<span id="routesFooterLength">0</span></div>
     </div>
     <div id="routesBottom">
-      <button id="routesOverviewRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-      <button id="routesCreateNew" data-tip="Create a new route selecting route cells" class="icon-map-pin"></button>
-      <button id="routesExport" data-tip="Save routes-related data as a text file (.csv)" class="icon-download"></button>
-      <button id="routesLockAll" data-tip="Lock or unlock all routes" class="icon-lock"></button>
-      <button id="routesRemoveAll" data-tip="Remove all unlocked routes (locked routes are kept)" class="icon-trash"></button>
-      <label for="routesSearch" data-tip="Filter by name or group" style="margin-left: 0.2em">Search: <input id="routesSearch" type="search" /></label>
+      <button id="routesOverviewRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+      <button id="routesCreateNew" data-tip="通过选择道路单元格创建新道路" class="icon-map-pin"></button>
+      <button id="routesExport" data-tip="将道路相关数据保存为文本文件 (.csv)" class="icon-download"></button>
+      <button id="routesLockAll" data-tip="锁定或解锁所有道路" class="icon-lock"></button>
+      <button id="routesRemoveAll" data-tip="移除所有未锁定的道路（已锁定的道路保留）" class="icon-trash"></button>
+      <label for="routesSearch" data-tip="按名称或分组筛选" style="margin-left: 0.2em">搜索：<input id="routesSearch" type="search" /></label>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -93,21 +93,21 @@ function routesOverviewAddLines(): void {
         data-group="${route.group}"
         data-length="${route.length}"
       >
-        <span data-tip="Locate the route" class="icon-target"></span>
-        <div data-tip="Route name" style="width: 15em; margin-left: 0.4em;">${route.name}</div>
-        <div data-tip="Route group" style="width: 8em;">${route.group}</div>
-        <div data-tip="Route length" style="width: 6em;">${length}</div>
-        <span data-tip="Edit route" class="icon-pencil"></span>
+        <span data-tip="定位该道路" class="icon-target"></span>
+        <div data-tip="道路名称" style="width: 15em; margin-left: 0.4em;">${route.name}</div>
+        <div data-tip="道路分组" style="width: 8em;">${route.group}</div>
+        <div data-tip="道路长度" style="width: 6em;">${length}</div>
+        <span data-tip="编辑道路" class="icon-pencil"></span>
         <span class="locks pointer ${
           route.lock ? "icon-lock" : "icon-lock-open inactive"
         }" onmouseover="showElementLockTip(event)"></span>
-        <span data-tip="Remove route" class="icon-trash-empty"></span>
+        <span data-tip="移除道路" class="icon-trash-empty"></span>
       </div>`;
   }
   body.insertAdjacentHTML("beforeend", lines);
 
   // update footer
-  ensureEl("routesFooterNumber").innerHTML = `${filteredRoutes.length} of ${pack.routes.length}`;
+  ensureEl("routesFooterNumber").innerHTML = `${filteredRoutes.length} / ${pack.routes.length}`;
   const averageLength = rn(mean(filteredRoutes.map(r => r.length)) || 0) || 0;
   ensureEl("routesFooterLength").innerHTML = `${averageLength * distanceScale} ${distanceUnitInput.value}`;
 
@@ -200,7 +200,7 @@ function triggerRouteRemove(this: HTMLElement): void {
   confirmationDialog({
     title: "移除道路",
     message: "确定要移除该道路吗？<br>此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => {
       const route = pack.routes.find((r: Route) => r.i === routeId) as Route;
       Routes.remove(route);
@@ -223,14 +223,14 @@ function triggerAllRoutesRemove(): void {
   const lockedCount = pack.routes.length - toRemove.length;
   alertMessage.innerHTML =
     lockedCount > 0
-      ? /* html */ `Remove all <b>unlocked</b> routes (${toRemove.length})? <b>${lockedCount}</b> locked route(s) will be kept. This cannot be undone.`
-      : /* html */ `Are you sure you want to remove all routes? This action can't be undone`;
+      ? /* html */ `移除所有<b>未锁定</b>的道路（${toRemove.length} 条）？<b>${lockedCount}</b> 条已锁定的道路将被保留。此操作无法撤销。`
+      : /* html */ `确定要移除所有道路吗？此操作无法撤销`;
 
   $("#alert").dialog({
     resizable: false,
-    title: lockedCount > 0 ? "Remove unlocked routes" : "Remove all routes",
+    title: lockedCount > 0 ? "移除未锁定道路" : "移除所有道路",
     buttons: {
-      Remove: function (this: any) {
+      移除: function (this: any) {
         const routesToRemove = pack.routes.filter((route: Route) => !route.lock);
         if (!routesToRemove.length) {
           if (!pack.routes.length) {
@@ -248,7 +248,7 @@ function triggerAllRoutesRemove(): void {
         routesOverviewAddLines();
         $(this).dialog("close");
       },
-      Cancel: function (this: any) {
+      取消: function (this: any) {
         $(this).dialog("close");
       }
     }

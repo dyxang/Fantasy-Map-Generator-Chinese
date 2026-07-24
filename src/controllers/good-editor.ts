@@ -11,13 +11,13 @@ function open(editedGood?: Good, onUpdate?: () => void) {
 
   const demandCoverageSummary = (): string => {
     const entries = DEMAND_PRIORITY.map(cat => [cat, demandCoverageState[cat] ?? 0] as const).filter(([, v]) => v > 0);
-    if (!entries.length) return "none";
+    if (!entries.length) return "无";
     return entries.map(([cat, v]) => `${DEMAND_CATEGORY_ICONS[cat]} ${capitalize(cat)}: ${v}`).join(", ");
   };
 
   const biomeOutputSummary = (): string => {
     const entries = Object.entries(biomeOutputState).filter(([, v]) => (v ?? 0) > 0);
-    if (!entries.length) return "none";
+    if (!entries.length) return "无";
     return entries.map(([id, v]) => `${biomesData.name[Number(id)]}: ${v}`).join(", ");
   };
 
@@ -33,15 +33,15 @@ function open(editedGood?: Good, onUpdate?: () => void) {
   const multiplierSummary = (dim: MultiplierDimKey): string => {
     const vals = multipliers[dim] ?? {};
     const entries = Object.entries(vals).filter(([, v]) => v !== 1);
-    if (!entries.length) return "none";
+    if (!entries.length) return "无";
     return entries.map(([id, v]) => `${getMultiplierEntityName(dim, id)} ×${rn(v!, 2)}`).join(", ");
   };
 
   const renderMultiplierRow = (dim: MultiplierDimKey, label: string) => /*html*/ `
-      <label data-tip="Production multiplier by ${label.toLowerCase()}. 1 = no effect, 0 = fully suppressed.">${label}</label>
+      <label data-tip="按${label}的生产乘数。1 = 无影响，0 = 完全抑制。">${label}</label>
       <div class="ge-edit-row">
         <span id="mSummary_${dim}">${multiplierSummary(dim)}</span>
-        <button class="mEdit icon-pencil ge-edit" data-dim="${dim}" data-tip="Edit ${label} multipliers"></button>
+        <button class="mEdit icon-pencil ge-edit" data-dim="${dim}" data-tip="编辑 ${label} 乘数"></button>
       </div>`;
 
   const recipes: Record<number, number>[] = editedGood?.recipes || [];
@@ -52,15 +52,15 @@ function open(editedGood?: Good, onUpdate?: () => void) {
   $(dialog!).dialog({
     width: "30em",
     resizable: false,
-    title: editedGood ? "Edit good" : "Add new good",
+    title: editedGood ? "编辑货物" : "添加新货物",
     open: function (this: HTMLElement) {
       if (!editedGood) return; // only edits can recompute the economy
       const pane = this.parentElement?.querySelector(".ui-dialog-buttonpane");
       pane?.insertAdjacentHTML(
         "afterbegin",
-        /*html*/ `<div class="dontAsk" data-tip="Re-place this good and recompute production, trade and taxes. Uncheck to update the good only, without disturbing the current economy.">
+        /*html*/ `<div class="dontAsk" data-tip="重新放置此货物并重新计算生产、贸易和税收。取消勾选可仅更新货物，不影响当前经济。">
           <input id="goodRegenerateEconomy" class="checkbox" type="checkbox" checked />
-          <label for="goodRegenerateEconomy" class="checkbox-label"><i>regenerate economy on apply</i></label>
+          <label for="goodRegenerateEconomy" class="checkbox-label"><i>应用时重新生成经济</i></label>
         </div>`
       );
     },
@@ -68,10 +68,10 @@ function open(editedGood?: Good, onUpdate?: () => void) {
       destroyDialogIfExists("goodEditor");
     },
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      [editedGood ? "Apply" : "Add"]: () => {
+      [editedGood ? "应用" : "添加"]: () => {
         const errors: string[] = [];
 
         const name = ensureEl<HTMLInputElement>("newGoodName").value.trim();
@@ -84,9 +84,9 @@ function open(editedGood?: Good, onUpdate?: () => void) {
         const color = ensureEl<HTMLInputElement>("newGoodColor").value;
         const distribution = ensureEl("newGoodDistribution").textContent?.trim() ?? "";
 
-        if (!name) errors.push("Name is required");
-        if (!Number.isFinite(value) || value < 0) errors.push("Value must be a valid non-negative number");
-        if (!Number.isFinite(chance) || chance < 0 || chance > 100) errors.push("Chance must be between 0 and 100");
+        if (!name) errors.push("名称为必填项");
+        if (!Number.isFinite(value) || value < 0) errors.push("值必须是有效的非负数");
+        if (!Number.isFinite(chance) || chance < 0 || chance > 100) errors.push("概率必须在 0 到 100 之间");
 
         if (distribution) {
           try {
@@ -94,7 +94,7 @@ function open(editedGood?: Good, onUpdate?: () => void) {
             const allMethods = `{${Object.keys(methods).join(", ")}}`;
             new Function(allMethods, `return ${distribution}`)(methods);
           } catch (err) {
-            errors.push(`Distribution function is invalid: ${(err as Error).message || err}`);
+            errors.push(`分布函数无效：${(err as Error).message || err}`);
           }
         }
 
@@ -102,13 +102,13 @@ function open(editedGood?: Good, onUpdate?: () => void) {
           for (const [ingredientId, ingredientAmount] of Object.entries(recipe)) {
             const id = Number(ingredientId);
             const good = Goods.get(id);
-            if (!good) errors.push(`Recipe references unknown good id: ${id}`);
+            if (!good) errors.push(`配方引用了未知的货物 ID：${id}`);
             const amount = Number(ingredientAmount);
             if (Number.isNaN(amount) || !Number.isFinite(amount) || amount <= 0)
-              errors.push(`Invalid recipe amount for good ${good?.name}`);
+              errors.push(`货物 ${good?.name} 的配方数量无效`);
           }
 
-          if (!Object.keys(recipe).length) errors.push("Each recipe must have at least one ingredient");
+          if (!Object.keys(recipe).length) errors.push("每个配方必须至少包含一种原料");
         }
 
         ensureEl("newGoodError").textContent = errors.join(". ");
@@ -174,7 +174,7 @@ function open(editedGood?: Good, onUpdate?: () => void) {
           Goods.sync();
         }
 
-        tip(editedGood ? "Good is updated" : "Good is added", false, "success", 5000);
+        tip(editedGood ? "货物已更新" : "货物已添加", false, "success", 5000);
         onUpdate?.();
         $(dialog).dialog("close");
       }
@@ -215,56 +215,56 @@ function open(editedGood?: Good, onUpdate?: () => void) {
 
     <div class="ge">
       <div>
-        <div class="ge-section-title">General</div>
+        <div class="ge-section-title">常规</div>
         <div class="ge-grid">
-          <label for="newGoodName">Name*</label>
+          <label for="newGoodName">名称*</label>
           <input id="newGoodName" class="ge-field" value="${editedGood?.name || ""}" />
 
-          <label for="newGoodTags">Tags</label>
-          <input id="newGoodTags" class="ge-field" value="${editedGood?.tags.join(", ") || ""}" placeholder="comma separated" />
+          <label for="newGoodTags">标签</label>
+          <input id="newGoodTags" class="ge-field" value="${editedGood?.tags.join(", ") || ""}" placeholder="以逗号分隔" />
 
-          <label for="newGoodValue">Base Price*</label>
+          <label for="newGoodValue">基础价格*</label>
           <span class="ge-inline"><input id="newGoodValue" class="ge-num" type="number" min="0" step="1" value="${editedGood?.value ?? 1}" /> 🟡</span>
 
-          <label for="newGoodChance">Chance</label>
+          <label for="newGoodChance">概率</label>
           <input id="newGoodChance" class="ge-num" type="number" min="0" max="100" step="0.1" value="${editedGood?.chance ?? 1}" />
 
-          <label for="newGoodUnit">Unit</label>
-          <input id="newGoodUnit" class="ge-field" placeholder="e.g. wagon, barrel" value="${editedGood?.unit || ""}" />
+          <label for="newGoodUnit">单位</label>
+          <input id="newGoodUnit" class="ge-field" placeholder="例如：wagon、barrel" value="${editedGood?.unit || ""}" />
 
-          <label for="newGoodIcon">Icon*</label>
+          <label for="newGoodIcon">图标*</label>
           <div class="ge-inline">
             <select id="newGoodIcon" class="ge-icon-select">${icons.map(icon => `<option value="${icon}" ${editedGood?.icon === icon ? "selected" : ""}>${icon}</option>`).join("")}</select>
             <svg class="ge-icon-preview" width="2em" height="2em">
               <circle id="newGoodIconCircle" cx="50%" cy="50%" r="42%" fill="${editedGood?.color || "#ff5959"}" stroke="${Goods.getStroke(editedGood?.color || "#ff5959")}"/>
               <use id="newGoodIconPreview" href="#${editedGood?.icon || "good-unknown"}" x="10%" y="10%" width="80%" height="80%"/>
             </svg>
-            <button id="newGoodUploadIconRaster" class="icon-upload" data-tip="Upload raster icon"></button>
-            <button id="newGoodUploadIconVector" class="icon-upload-cloud" data-tip="Upload vector (SVG) icon"></button>
-            <input id="newGoodColor" class="ge-color" type="color" data-tip="Set a stroke color" value="${editedGood?.color || "#ff5959"}" />
+            <button id="newGoodUploadIconRaster" class="icon-upload" data-tip="上传栅格图标"></button>
+            <button id="newGoodUploadIconVector" class="icon-upload-cloud" data-tip="上传矢量（SVG）图标"></button>
+            <input id="newGoodColor" class="ge-color" type="color" data-tip="设置描边颜色" value="${editedGood?.color || "#ff5959"}" />
           </div>
 
-          <label data-tip="How much of each demand category this good satisfies. Click the pencil icon to edit.">Demand Coverage</label>
+          <label data-tip="此货物满足各需求类别的程度。点击铅笔图标编辑。">需求覆盖</label>
           <div class="ge-edit-row">
             <span id="demandCoverageSummary" >${demandCoverageSummary()}</span>
-            <button class="dcEdit icon-pencil ge-edit" data-tip="Edit demand coverage"></button>
+            <button class="dcEdit icon-pencil ge-edit" data-tip="编辑需求覆盖"></button>
           </div>
         </div>
       </div>
 
       <div>
-        <div class="ge-section-title">Raw Production</div>
+        <div class="ge-section-title">原料生产</div>
         <div class="ge-grid ge-grid--top">
-          <label data-tip="For raw resources: sets the baseline production per biome">Rural production</label>
+          <label data-tip="对于原料资源：设置每个生物群系的基础产能">乡村产能</label>
           <div class="ge-edit-row">
             <span id="biomeProductionSummary">${biomeOutputSummary()}</span>
-            <button class="bpEdit icon-pencil ge-edit" data-tip="Edit biome baseline production"></button>
+            <button class="bpEdit icon-pencil ge-edit" data-tip="编辑生物群系基础产能"></button>
           </div>
 
-          <label data-tip="For raw resources: controls where and how this good is produced directly from the environment (e.g. biome, elevation, temperature)">Bonus distribution</label>
+          <label data-tip="对于原料资源：控制此货物直接从环境（如生物群系、海拔、温度）生产的位置和方式">奖励分布</label>
           <div class="ge-edit-row">
             <div id="newGoodDistribution" class="ge-dist">${editedGood?.distribution || ""}</div>
-            <button id="newGoodDistributionEditor" class="icon-pencil ge-edit" data-tip="Open the Distribution visual editor"></button>
+            <button id="newGoodDistributionEditor" class="icon-pencil ge-edit" data-tip="打开分布可视化编辑器"></button>
           </div>
         </div>
         <div id="newGoodRawNote" class="ge-note"></div>
@@ -272,8 +272,8 @@ function open(editedGood?: Good, onUpdate?: () => void) {
 
       <div>
         <div class="ge-section-title">
-          <span data-tip="For manufactured goods: recipes define which other goods are required to produce this good">Recipes</span>
-          <button id="newGoodAddRecipe" class="icon-plus" data-tip="Add a recipe"></button>
+          <span data-tip="对于制造货物：配方定义了生产此货物所需的其他货物">配方</span>
+          <button id="newGoodAddRecipe" class="icon-plus" data-tip="添加配方"></button>
         </div>
         <div id="newGoodRecipeList" class="ge-recipe-list"></div>
         <div id="newGoodRecipeNote" class="ge-note"></div>
@@ -281,15 +281,15 @@ function open(editedGood?: Good, onUpdate?: () => void) {
 
       <div>
         <div class="ge-section-title">
-          <span data-tip="Per-dimension production multipliers. 1 = no effect, 0 = fully suppressed.">Multipliers</span>
+          <span data-tip="按维度的生产乘数。1 = 无影响，0 = 完全抑制。">乘数</span>
         </div>
         <div class="ge-grid ge-grid--top">
-          ${renderMultiplierRow("cultureType", "Culture Type")}
-          ${renderMultiplierRow("culture", "Culture")}
-          ${renderMultiplierRow("state", "State")}
-          ${renderMultiplierRow("religion", "Religion")}
-          ${renderMultiplierRow("biome", "Biome")}
-          ${renderMultiplierRow("zone", "Zone")}
+          ${renderMultiplierRow("cultureType", "文化类型")}
+          ${renderMultiplierRow("culture", "文化")}
+          ${renderMultiplierRow("state", "国家")}
+          ${renderMultiplierRow("religion", "宗教")}
+          ${renderMultiplierRow("biome", "生物群系")}
+          ${renderMultiplierRow("zone", "区域")}
         </div>
       </div>
 
@@ -314,11 +314,11 @@ function open(editedGood?: Good, onUpdate?: () => void) {
       const recipesEmpty = recipes.length === 0;
 
       const recipeNote = ensureEl("newGoodRecipeNote");
-      recipeNote.textContent = "This good is raw-only: gathered from the environment.";
+      recipeNote.textContent = "此货物为纯原料：从环境中采集。";
       recipeNote.style.display = recipesEmpty && !rawEmpty ? "" : "none";
 
       const rawNote = ensureEl("newGoodRawNote");
-      rawNote.textContent = "This good is manufactured-only: made from recipes in burgs.";
+      rawNote.textContent = "此货物为纯制造：在城镇中由配方制作。";
       rawNote.style.display = rawEmpty && !recipesEmpty ? "" : "none";
     };
 
@@ -328,10 +328,10 @@ function open(editedGood?: Good, onUpdate?: () => void) {
           (recipe, recipeIndex) => /*html*/ `
           <div class="recipeOption ge-recipe" data-recipe-index="${recipeIndex}" >
             <div class="ge-recipe-head">
-              <span>Recipe ${recipeIndex + 1}</span>
+              <span>配方 ${recipeIndex + 1}</span>
               <div class="ge-recipe-actions">
-                <span class="recipeAddIngredient icon-plus pointer" data-recipe-index="${recipeIndex}" data-tip="Add ingredient"></span>
-                <span class="recipeRemoveOption icon-trash-empty pointer" data-recipe-index="${recipeIndex}" data-tip="Remove recipe"></span>
+                <span class="recipeAddIngredient icon-plus pointer" data-recipe-index="${recipeIndex}" data-tip="添加原料"></span>
+                <span class="recipeRemoveOption icon-trash-empty pointer" data-recipe-index="${recipeIndex}" data-tip="移除配方"></span>
               </div>
             </div>
             <div class="recipeIngredients ge-recipe-ings">
@@ -341,7 +341,7 @@ function open(editedGood?: Good, onUpdate?: () => void) {
                     <div class="ge-recipe-ing" data-recipe-index="${recipeIndex}" data-ingredient-index="${ingredientIndex}">
                       <select class="recipeGoodSelect" data-recipe-index="${recipeIndex}" data-ingredient-index="${ingredientIndex}">${sortedGoods.map(good => `<option value="${good.i}" ${good.i === Number(ingredientId) ? "selected" : ""}>${good.name}</option>`).join("")}</select>
                       <input class="recipeAmountInput" data-recipe-index="${recipeIndex}" data-ingredient-index="${ingredientIndex}" type="number" min="1" step="1" value="${amount}" />
-                      <span class="recipeRemoveIngredient icon-trash-empty pointer" data-recipe-index="${recipeIndex}" data-ingredient-index="${ingredientIndex}" data-tip="Remove ingredient" />
+                      <span class="recipeRemoveIngredient icon-trash-empty pointer" data-recipe-index="${recipeIndex}" data-ingredient-index="${ingredientIndex}" data-tip="移除原料" />
                     </div>`
                 )
                 .join("")}
@@ -485,11 +485,11 @@ type MultiplierDimKey = "cultureType" | "culture" | "state" | "religion" | "biom
 
 function getMultiplierEntityName(dim: MultiplierDimKey, id: string): string {
   if (dim === "cultureType") return id;
-  if (dim === "culture") return pack.cultures[+id]?.name ?? `Culture ${id}`;
-  if (dim === "state") return pack.states[+id]?.name ?? `State ${id}`;
-  if (dim === "religion") return pack.religions[+id]?.name ?? `Religion ${id}`;
-  if (dim === "zone") return pack.zones.find(z => z.i === +id)?.name ?? `Zone ${id}`;
-  return biomesData.name[+id] ?? `Biome ${id}`;
+  if (dim === "culture") return pack.cultures[+id]?.name ?? `文化 ${id}`;
+  if (dim === "state") return pack.states[+id]?.name ?? `国家 ${id}`;
+  if (dim === "religion") return pack.religions[+id]?.name ?? `宗教 ${id}`;
+  if (dim === "zone") return pack.zones.find(z => z.i === +id)?.name ?? `区域 ${id}`;
+  return biomesData.name[+id] ?? `生物群系 ${id}`;
 }
 
 function uploadImage(type: "image" | "svg", callback: (type: string, id: string) => void) {
@@ -533,12 +533,7 @@ function uploadImage(type: "image" | "svg", callback: (type: string, id: string)
       if (result.includes("from the Noun Project")) el.querySelectorAll("text").forEach(textEl => void textEl.remove());
 
       const svg = el.querySelector("svg");
-      if (!svg)
-        return void tip(
-          "该文件需经过处理才能加载到 FMG。如果不确定原因，请尝试上传位图图像",
-          false,
-          "error"
-        );
+      if (!svg) return void tip("该文件需经过处理才能加载到 FMG。如果不确定原因，请尝试上传位图图像", false, "error");
 
       const icon = goodIcons.appendChild(svg);
       icon.id = id;
@@ -566,34 +561,34 @@ function openMultiplierPopup(
   switch (dim) {
     case "cultureType":
       entities = CULTURE_TYPES.map(ct => ({ id: ct, name: ct }));
-      label = "Culture Type";
+      label = "文化类型";
       break;
     case "culture":
       entities = pack.cultures
         .filter(c => c.i && !c.removed)
         .map(c => ({ id: String(c.i), name: c.name, color: c.color }));
-      label = "Culture";
+      label = "文化";
       break;
     case "state":
       entities = pack.states
         .filter(s => s.i && !s.removed)
         .map(s => ({ id: String(s.i), name: s.fullName || s.name, color: s.color }));
-      label = "State";
+      label = "国家";
       break;
     case "religion":
       entities = pack.religions
         .filter(r => r.i && !r.removed)
         .map(r => ({ id: String(r.i), name: r.name, color: r.color }));
-      label = "Religion";
+      label = "宗教";
       break;
     case "biome":
       entities = biomesData.i.map(id => ({ id: String(id), name: biomesData.name[id], color: biomesData.color[id] }));
-      label = "Biome";
+      label = "生物群系";
       break;
     case "zone":
       // zone colors are hatch pattern refs (url(#...)); fill-box renders them, a plain dot can't
       entities = pack.zones.map(z => ({ id: String(z.i), name: z.name, color: z.color }));
-      label = "Zone";
+      label = "区域";
       break;
   }
 
@@ -607,18 +602,18 @@ function openMultiplierPopup(
   document.body.appendChild(popupEl);
   const body = rows.length
     ? `<div style="display:grid; grid-template-columns:auto 1fr 5em; gap:.3em .5em; align-items:center;">${rows.join("")}</div>`
-    : `<div style="color:#777; font-style:italic;">No ${label.toLowerCase()}s available</div>`;
+    : `<div style="color:#777; font-style:italic;">无可用${label}</div>`;
   popupEl.innerHTML = `<div style="max-height:320px; overflow-y:auto; padding:.2em;">${body}</div>`;
 
   $(popupEl).dialog({
-    title: `${label} multipliers`,
+    title: `${label}乘数`,
     width: "22em",
     resizable: false,
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      Apply: function () {
+      应用: function () {
         const inputs = Array.from(popupEl.querySelectorAll<HTMLInputElement>(".mPopupInput"));
         const result: Partial<Record<string, number>> = {};
         for (const input of inputs) {
@@ -655,10 +650,10 @@ function openDemandCoveragePopup(
     width: "18em",
     resizable: false,
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      Apply: function () {
+      应用: function () {
         const result: Partial<Record<DemandCategory, number>> = {};
         popupEl.querySelectorAll<HTMLInputElement>(".dcPopupInput").forEach(input => {
           const cat = input.dataset.cat as DemandCategory;
@@ -696,10 +691,10 @@ function openBiomeProductionPopup(
     width: "22em",
     resizable: false,
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      Apply: function () {
+      应用: function () {
         const result: Partial<Record<number, number>> = {};
         popupEl.querySelectorAll<HTMLInputElement>(".bpPopupInput").forEach(input => {
           const id = Number(input.dataset.id!);

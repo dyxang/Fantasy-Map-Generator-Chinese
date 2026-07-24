@@ -51,8 +51,7 @@ function start() {
         element: "#map",
         popover: {
           title: "欢迎使用 Fantasy Map Generator",
-          description:
-            "本快速导览涵盖基本操作。使用下一步/上一步进行导航，或按 Esc 随时退出。",
+          description: "本快速导览涵盖基本操作。使用下一步/上一步进行导航，或按 Esc 随时退出。",
           side: "over",
           align: "center"
         }
@@ -61,8 +60,7 @@ function start() {
         element: "#map",
         popover: {
           title: "浏览地图",
-          description:
-            "滚动鼠标滚轮可放大和缩小。在地图上点击并拖动可平移。双击某个位置可将其居中。",
+          description: "滚动鼠标滚轮可放大和缩小。在地图上点击并拖动可平移。双击某个位置可将其居中。",
           onNextClick: () => {
             document.body.classList.add("tour-free-roam");
             tour.moveNext();
@@ -119,8 +117,7 @@ function start() {
         },
         popover: {
           title: "图层预设",
-          description:
-            "选择预设可立即显示或隐藏常见图层组合：政治、自然、宗教等。",
+          description: "选择预设可立即显示或隐藏常见图层组合：政治、自然、宗教等。",
           side: "bottom"
         }
       },
@@ -131,8 +128,7 @@ function start() {
         },
         popover: {
           title: "切换单个图层",
-          description:
-            "点击任意图层名称可切换其显示/隐藏。可通过拖放重新排列图层。",
+          description: "点击任意图层名称可切换其显示/隐藏。可通过拖放重新排列图层。",
           side: "right"
         }
       },
@@ -145,8 +141,7 @@ function start() {
         },
         popover: {
           title: "样式选项卡",
-          description:
-            "样式选项卡控制地图的视觉外观——配色方案、不透明度、线宽及每个地图元素的其他属性。",
+          description: "样式选项卡控制地图的视觉外观——配色方案、不透明度、线宽及每个地图元素的其他属性。",
           side: "bottom"
         }
       },
@@ -157,8 +152,7 @@ function start() {
         },
         popover: {
           title: "样式预设",
-          description:
-            "为地图选择配色方案预设，包括默认、古典、淡色等。整个地图的调色板会立即更新。",
+          description: "为地图选择配色方案预设，包括默认、古典、淡色等。整个地图的调色板会立即更新。",
           side: "bottom"
         }
       },
@@ -169,8 +163,7 @@ function start() {
         },
         popover: {
           title: "单个样式设置",
-          description:
-            "从此下拉菜单中选择特定地图元素，以调整其颜色、不透明度、描边宽度和其他视觉属性。",
+          description: "从此下拉菜单中选择特定地图元素，以调整其颜色、不透明度、描边宽度和其他视觉属性。",
           side: "bottom"
         }
       },
@@ -183,8 +176,7 @@ function start() {
         },
         popover: {
           title: "选项选项卡",
-          description:
-            "选项选项卡可配置世界生成参数，如国家、文化、宗教的数量，以及其他塑造生成世界的设置。",
+          description: "选项选项卡可配置世界生成参数，如国家、文化、宗教的数量，以及其他塑造生成世界的设置。",
           side: "bottom"
         }
       },
@@ -243,8 +235,7 @@ function start() {
         },
         popover: {
           title: "工具选项卡",
-          description:
-            "工具选项卡可直接访问所有地图编辑器：地形、生物群系、国家、文化、宗教、道路等。",
+          description: "工具选项卡可直接访问所有地图编辑器：地形、生物群系、国家、文化、宗教、道路等。",
           side: "bottom"
         }
       },
@@ -255,8 +246,7 @@ function start() {
         },
         popover: {
           title: "编辑高度图",
-          description:
-            "打开高度图编辑器，通过升高或降低海拔来手动雕刻地形。此处的更改会重塑海岸线、河流和生物群系。",
+          description: "打开高度图编辑器，通过升高或降低海拔来手动雕刻地形。此处的更改会重塑海岸线、河流和生物群系。",
           side: "right",
           onNextClick: () => {
             tour.moveNext();
@@ -291,8 +281,7 @@ function start() {
         },
         popover: {
           title: "关于选项卡",
-          description:
-            "关于选项卡包含文档、视频教程、社区 Discord 链接和版本信息。",
+          description: "关于选项卡包含文档、视频教程、社区 Discord 链接和版本信息。",
           side: "bottom"
         }
       },
@@ -346,8 +335,7 @@ function start() {
         element: "#saveButton",
         popover: {
           title: "保存和加载地图",
-          description:
-            "点击 Save 下载 .map 文件以保存整个世界。点击 Load 打开之前保存的文件并从上次离开处继续。",
+          description: "点击 Save 下载 .map 文件以保存整个世界。点击 Load 打开之前保存的文件并从上次离开处继续。",
           side: "top",
           onNextClick: () => {
             tour.destroy();

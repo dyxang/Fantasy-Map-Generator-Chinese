@@ -141,7 +141,7 @@ interface StreamChunk {
 
 async function handleStream(response: Response, getContent: (json: StreamChunk) => void): Promise<void> {
   if (!response.ok) {
-    let errorMessage = `Failed to generate (${response.status} ${response.statusText})`;
+    let errorMessage = `生成失败（${response.status} ${response.statusText}）`;
     try {
       const json = await response.json();
       errorMessage = json.error?.message || json.error || errorMessage;
@@ -151,7 +151,7 @@ async function handleStream(response: Response, getContent: (json: StreamChunk) 
     throw new Error(errorMessage);
   }
 
-  if (!response.body) throw new Error("Response has no body to stream");
+  if (!response.body) throw new Error("响应没有可流式传输的正文");
   const reader = response.body.getReader();
   const decoder = new TextDecoder("utf-8");
   let buffer = "";
@@ -190,16 +190,16 @@ function open(defaultPrompt: string, onApply: (result: string) => void): void {
     resizable: false,
     close: () => destroyDialogIfExists("aiGenerator"),
     buttons: {
-      Generate: (e: Event) => {
+      生成: (e: Event) => {
         void generate(e.target as HTMLButtonElement);
       },
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         const result = ensureEl<HTMLTextAreaElement>("aiGeneratorResult").value;
         if (!result) return tip("无可应用的结果", true, "error", 4000);
         onApply(result);
         $(this).dialog("close");
       },
-      Close: function (this: HTMLElement) {
+      关闭: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -211,32 +211,32 @@ function renderDialog(): void {
 
   const html = /* html */ `<div id="aiGenerator" class="dialog stable">
     <div style="display: flex; flex-direction: column; gap: 0.3em; width: 100%">
-      <textarea id="aiGeneratorResult" placeholder="Generated text will appear here" cols="30" rows="10"></textarea>
-      <textarea id="aiGeneratorPrompt" placeholder="Type a prompt here" cols="30" rows="5"></textarea>
+      <textarea id="aiGeneratorResult" placeholder="生成的文本将显示在此处" cols="30" rows="10"></textarea>
+      <textarea id="aiGeneratorPrompt" placeholder="在此处输入提示词" cols="30" rows="5"></textarea>
       <div style="display: flex; align-items: center; gap: 1em">
         <label for="aiGeneratorModel"
-          >Model:
+          >模型：
           <select id="aiGeneratorModel"></select>
         </label>
         <label
           for="aiGeneratorTemperature"
-          data-tip="Temperature controls response randomness; higher values mean more creativity, lower values mean more predictability"
+          data-tip="温度控制响应的随机性；数值越高越有创造性，数值越低越具可预测性"
         >
-          Temperature:
+          温度：
           <input id="aiGeneratorTemperature" type="number" min="-1" max="2" step=".1" class="icon-key" />
         </label>
         <label for="aiGeneratorKey"
-          >Key:
+          >密钥：
           <input
             id="aiGeneratorKey"
-            placeholder="Enter API key"
+            placeholder="输入 API 密钥"
             class="icon-key"
-            data-tip="Enter API key. Note: the Generator doesn't store the key or any generated data"
+            data-tip="输入 API 密钥。注意：生成器不会存储密钥或任何生成的数据"
           />
           <button
             id="aiGeneratorKeyHelp"
             class="icon-help-circled"
-            data-tip="Click to see the usage instructions"
+            data-tip="点击查看使用说明"
           ></button>
         </label>
       </div>
@@ -297,7 +297,7 @@ async function generate(button: HTMLButtonElement): Promise<void> {
 
     await PROVIDERS[provider].generate({ key, model, prompt, temperature, onContent });
   } catch (error) {
-    const message = (error instanceof Error && error.message) || String(error) || "Failed to generate text";
+    const message = (error instanceof Error && error.message) || String(error) || "文本生成失败";
     return tip(message, true, "error", 4000);
   } finally {
     button.disabled = false;

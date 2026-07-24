@@ -956,10 +956,10 @@ function configMarkersGeneration() {
     const config = Markers.getConfig();
 
     const headers = /* html */ `<thead style='font-weight:bold'><tr>
-      <td data-tip="Marker type name">Type</td>
-      <td data-tip="Marker icon">Icon</td>
-      <td data-tip="Marker number multiplier">Multiplier</td>
-      <td data-tip="Number of markers of that type on the current map">Number</td>
+      <td data-tip="标记类型名称">类型</td>
+      <td data-tip="标记图标">图标</td>
+      <td data-tip="标记数量乘数">乘数</td>
+      <td data-tip="当前地图上该类型的标记数量">数量</td>
     </tr></thead>`;
 
     const lines = config.map(({ type, icon, multiplier }) => {

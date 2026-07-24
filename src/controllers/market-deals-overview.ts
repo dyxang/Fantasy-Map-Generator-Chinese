@@ -32,26 +32,26 @@ function renderDialog(): void {
       <div>
         <div id="marketDealsHeader" class="header" style="grid-template-columns: 2em 6.8em 4em 10em 4em 4em;">
           <div></div>
-          <div data-tip="Click to sort by good" class="sortable alphabetically" data-sortby="good" style="margin-left:0">Good&nbsp;</div>
-          <div data-tip="Click to sort by deal type" class="sortable alphabetically" data-sortby="direction">Type&nbsp;</div>
-          <div data-tip="Click to sort by counterparty" class="sortable alphabetically" data-sortby="counterparty">Counterparty&nbsp;</div>
-          <div data-tip="Click to sort by units" class="sortable" data-sortby="units">Units&nbsp;</div>
-          <div data-tip="Click to sort by income" class="sortable" data-sortby="income">Income&nbsp;</div>
+          <div data-tip="点击按货物排序" class="sortable alphabetically" data-sortby="good" style="margin-left:0">货物&nbsp;</div>
+          <div data-tip="点击按交易类型排序" class="sortable alphabetically" data-sortby="direction">类型&nbsp;</div>
+          <div data-tip="点击按交易对手排序" class="sortable alphabetically" data-sortby="counterparty">对手&nbsp;</div>
+          <div data-tip="点击按数量排序" class="sortable" data-sortby="units">数量&nbsp;</div>
+          <div data-tip="点击按收入排序" class="sortable" data-sortby="income">收入&nbsp;</div>
         </div>
         <div id="marketDealsBody" class="table" style="max-height:30em"></div>
 
         <div id="marketDealsFooter" class="totalLine">
-          <div style="margin-left: 5px" data-tip="Deals count">Deals: <span id="marketDealsFooterDeals">0</span></div>
-          <div style="margin-left: 12px" data-tip="Net flow for this market">Net Flow: <span id="marketDealsFooterNet">🟡 0</span></div>
+          <div style="margin-left: 5px" data-tip="交易数">交易: <span id="marketDealsFooterDeals">0</span></div>
+          <div style="margin-left: 12px" data-tip="本市场净流量">净流量: <span id="marketDealsFooterNet">🟡 0</span></div>
         </div>
 
         <div id="marketDealsBottom">
-          <button id="marketDealsRefresh" data-tip="Refresh the Deals screen" class="icon-cw"></button>
-          <button id="marketDealsExport" data-tip="Save market deals data as a text file (.csv)" class="icon-download"></button>
-          <select id="marketDealsFilter" data-tip="Filter deals by scope" style="margin-left: 8px">
-            <option value="all">All</option>
-            <option value="local">Local</option>
-            <option value="global">Global</option>
+          <button id="marketDealsRefresh" data-tip="刷新交易界面" class="icon-cw"></button>
+          <button id="marketDealsExport" data-tip="将市场交易数据保存为文本文件 (.csv)" class="icon-download"></button>
+          <select id="marketDealsFilter" data-tip="按范围筛选交易" style="margin-left: 8px">
+            <option value="all">全部</option>
+            <option value="local">本地</option>
+            <option value="global">全局</option>
           </select>
         </div>
       </div>
@@ -102,7 +102,7 @@ function marketDealsAddLines(): void {
     lines += renderDealLine(deal);
   }
 
-  ensureEl("marketDealsBody").innerHTML = lines || "No market deals recorded";
+  ensureEl("marketDealsBody").innerHTML = lines || "无市场交易记录";
   ensureEl("marketDealsFooterDeals").innerHTML = String(deals.length);
   ensureEl("marketDealsFooterNet").innerHTML = formatPrice(netFlow);
 
@@ -141,13 +141,13 @@ function renderDealLine(deal: Deal): string {
   const backColor = dealNet >= 0 ? "#dff0d8" : "#f2dede";
 
   return /* html */ `<div class="states marketDeal" data-id="${deal.i}" data-good="${good.name}" data-direction="${direction}" data-units="${rn(deal.units, 2)}" data-counterparty="${counterparty.type}_${party?.name}" data-income="${dealNet}">
-      <svg data-tip="Good icon" width="1.3em" height="1.3em" class="goodIcon">
+      <svg data-tip="货物图标" width="1.3em" height="1.3em" class="goodIcon">
         <circle cx="50%" cy="50%" r="42%" fill="${good.color}" stroke="${Goods.getStroke(good.color)}"/>
         <use href="#${good.icon}" x="10%" y="10%" width="80%" height="80%"/>
       </svg>
-      <div data-tip="Good name" class="goodName">${good.name}</div>
+      <div data-tip="货物名称" class="goodName">${good.name}</div>
       <div><span class="marketBadge" style="background:${backColor}; color:${incomeColor}">${direction.toUpperCase()}</span></div>
-      <div class="marketDealParty pointer" data-tip="Click to zoom">
+      <div class="marketDealParty pointer" data-tip="点击缩放">
         <div class="${counterparty.type === "burg" ? "icon-dot-circled" : "icon-store"}" style="display:inline-block; width: 0.8em; ${counterparty.type === "market" ? "font-size: 0.85em;" : ""}"></div>
         <div style="display:inline-block; width: 6.8em;">${party?.name}</div>
       </div>

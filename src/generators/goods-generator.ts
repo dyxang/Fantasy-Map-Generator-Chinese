@@ -309,7 +309,7 @@ const GOODS_DATA: GoodData[] = [
     biomeOutput: { 1: 0.05, 2: 0.05 }
   },
   {
-    name: "大麻",
+    name: "火麻",
     tags: ["clothing", "naval"],
     icon: "good-hemp",
     color: "#069a06",
@@ -450,7 +450,7 @@ const GOODS_DATA: GoodData[] = [
     unit: "barrel",
     demandCoverage: { utilities: 0.4, military: 0.1 },
     multipliers: { cultureType: { Hunting: 1.2 } },
-    recipes: [{ Wood: 1 }]
+    recipes: [{ 木材: 1 }]
   },
   {
     name: "硝石",
@@ -585,7 +585,7 @@ const GOODS_DATA: GoodData[] = [
     color: "#e8e69c",
     value: 4,
     chance: 0,
-    recipes: [{ 羊: 1 }, { 大麻: 1 }, { 丝绸: 0.5 }],
+    recipes: [{ 羊: 1 }, { 火麻: 1 }, { 丝绸: 0.5 }],
     unit: "bolt",
     demandCoverage: { utilities: 0.2 }
   },
@@ -597,8 +597,8 @@ const GOODS_DATA: GoodData[] = [
     value: 9,
     chance: 0,
     recipes: [
-      { Cloth: 1, Dyes: 0.5 },
-      { Cloth: 0.5, Furs: 1 }
+      { 布匹: 1, 染料: 0.5 },
+      { 布匹: 0.5, 毛皮: 1 }
     ],
     unit: "set",
     demandCoverage: { utilities: 1 }
@@ -621,7 +621,7 @@ const GOODS_DATA: GoodData[] = [
     color: "#a0c8e8",
     value: 7,
     chance: 0,
-    recipes: [{ "白砂": 1 }],
+    recipes: [{ 白砂: 1 }],
     unit: "wain",
     demandCoverage: { luxury: 1 },
     multipliers: { cultureType: { Nomadic: 0.2 } }
@@ -633,7 +633,7 @@ const GOODS_DATA: GoodData[] = [
     color: "#ba9773",
     value: 4,
     chance: 0,
-    recipes: [{ Hemp: 1 }],
+    recipes: [{ 火麻: 1 }],
     unit: "coil",
     demandCoverage: { utilities: 1 }
   },
@@ -644,7 +644,7 @@ const GOODS_DATA: GoodData[] = [
     color: "#f5f5dc",
     value: 5,
     chance: 0,
-    recipes: [{ Hemp: 1 }],
+    recipes: [{ 火麻: 1 }],
     unit: "ream",
     demandCoverage: {}
   },
@@ -667,8 +667,8 @@ const GOODS_DATA: GoodData[] = [
     value: 13,
     chance: 0,
     recipes: [
-      { Paper: 1, Ink: 0.5 },
-      { Leather: 1, Ink: 0.5 }
+      { 纸张: 1, 墨水: 0.5 },
+      { 皮革: 1, 墨水: 0.5 }
     ],
     unit: "volume",
     demandCoverage: { luxury: 1 },
@@ -716,9 +716,9 @@ const GOODS_DATA: GoodData[] = [
     value: 8,
     chance: 0,
     recipes: [
-      { Leather: 0.5, Iron: 0.25 },
-      { Leather: 0.5, Bronze: 0.25 },
-      { Leather: 0.5, Copper: 0.25 }
+      { 皮革: 0.5, 铁: 0.25 },
+      { 皮革: 0.5, 青铜: 0.25 },
+      { 皮革: 0.5, 铜: 0.25 }
     ],
     unit: "set",
     demandCoverage: { military: 1 },
@@ -731,7 +731,7 @@ const GOODS_DATA: GoodData[] = [
     color: "#b46e3b",
     value: 3,
     chance: 0,
-    recipes: [{ Wood: 1 }],
+    recipes: [{ 木材: 1 }],
     unit: "barrel",
     demandCoverage: { utilities: 1 }
   },
@@ -743,8 +743,8 @@ const GOODS_DATA: GoodData[] = [
     value: 9,
     chance: 0,
     recipes: [
-      { Copper: 0.5, Coal: 1 },
-      { Tin: 0.5, Coal: 1 }
+      { 铜: 0.5, 煤: 1 },
+      { 锡: 0.5, 煤: 1 }
     ],
     unit: "wagon",
     multipliers: { cultureType: { Highland: 1.2 } }
@@ -757,8 +757,8 @@ const GOODS_DATA: GoodData[] = [
     value: 17,
     chance: 0,
     recipes: [
-      { Iron: 0.5, Coal: 1 },
-      { Bronze: 0.5, Coal: 1 }
+      { 铁: 0.5, 煤: 1 },
+      { 青铜: 0.5, 煤: 1 }
     ],
     unit: "set",
     demandCoverage: { utilities: 1 }
@@ -771,8 +771,8 @@ const GOODS_DATA: GoodData[] = [
     value: 25,
     chance: 0,
     recipes: [
-      { Iron: 0.5, Coal: 1, Leather: 0.5 },
-      { Bronze: 0.25, Coal: 1, Leather: 0.5 }
+      { 铁: 0.5, 煤: 1, 皮革: 0.5 },
+      { 青铜: 0.25, 煤: 1, 皮革: 0.5 }
     ],
     unit: "set",
     demandCoverage: { military: 1 }
@@ -796,8 +796,8 @@ const GOODS_DATA: GoodData[] = [
     value: 21,
     chance: 0,
     recipes: [
-      { Iron: 2, Coal: 1 },
-      { Bronze: 1, Coal: 1 }
+      { 铁: 2, 煤: 1 },
+      { 青铜: 1, 煤: 1 }
     ],
     unit: "cannon",
     demandCoverage: { military: 1 }
@@ -810,8 +810,8 @@ const GOODS_DATA: GoodData[] = [
     value: 25,
     chance: 0,
     recipes: [
-      { Gold: 0.5, Coal: 1 },
-      { Silver: 1, Coal: 1 }
+      { 金: 0.5, 煤: 1 },
+      { 银: 1, 煤: 1 }
     ],
     unit: "bag",
     demandCoverage: { luxury: 1 }
@@ -824,12 +824,12 @@ const GOODS_DATA: GoodData[] = [
     value: 34,
     chance: 0,
     recipes: [
-      { Gemstones: 1, Gold: 0.5 },
-      { Pearls: 1, Gold: 0.5 },
-      { Amber: 2, Gold: 0.5 },
-      { Gemstones: 1, Silver: 1 },
-      { Pearls: 1, Silver: 1 },
-      { Amber: 2, Silver: 1 }
+      { 宝石: 1, 金: 0.5 },
+      { 珍珠: 1, 金: 0.5 },
+      { 琥珀: 2, 金: 0.5 },
+      { 宝石: 1, 银: 1 },
+      { 珍珠: 1, 银: 1 },
+      { 琥珀: 2, 银: 1 }
     ],
     unit: "piece",
     demandCoverage: { luxury: 1 }
@@ -842,15 +842,15 @@ const GOODS_DATA: GoodData[] = [
     value: 4,
     chance: 0,
     recipes: [
-      { Fish: 1, Salt: 1 },
-      { Cattle: 1, Salt: 1 },
-      { Game: 1, Salt: 1 },
-      { Sheep: 1, Salt: 1 },
-      { Fish: 1, Vinegar: 0.5 },
-      { Cattle: 1, Vinegar: 0.5 },
-      { Game: 1, Vinegar: 0.5 },
-      { Sheep: 1, Vinegar: 0.5 },
-      { Fish: 1, Wood: 1 }
+      { 鱼: 1, 盐: 1 },
+      { 牛: 1, 盐: 1 },
+      { 猎物: 1, 盐: 1 },
+      { 羊: 1, 盐: 1 },
+      { 鱼: 1, 醋: 0.5 },
+      { 牛: 1, 醋: 0.5 },
+      { 猎物: 1, 醋: 0.5 },
+      { 羊: 1, 醋: 0.5 },
+      { 鱼: 1, 木材: 1 }
     ],
     unit: "wain",
     demandCoverage: { food: 1 }
@@ -874,10 +874,10 @@ const GOODS_DATA: GoodData[] = [
     value: 4,
     chance: 0,
     recipes: [
-      { Cattle: 0.5, Salt: 0.25 },
-      { Sheep: 0.5, Salt: 0.25 },
-      { Sheep: 0.5, Vinegar: 0.25 },
-      { Cattle: 0.5, Vinegar: 0.25 }
+      { 牛: 0.5, 盐: 0.25 },
+      { 羊: 0.5, 盐: 0.25 },
+      { 羊: 0.5, 醋: 0.25 },
+      { 牛: 0.5, 醋: 0.25 }
     ],
     unit: "wain",
     demandCoverage: { food: 1 }
@@ -890,8 +890,8 @@ const GOODS_DATA: GoodData[] = [
     value: 7,
     chance: 0,
     recipes: [
-      { Grain: 1, Barrels: 1 },
-      { Honey: 0.5, Barrels: 1 }
+      { 谷物: 1, 木桶: 1 },
+      { 蜂蜜: 0.5, 木桶: 1 }
     ],
     unit: "barrel",
     demandCoverage: { food: 1 }
@@ -904,12 +904,12 @@ const GOODS_DATA: GoodData[] = [
     value: 9,
     chance: 0,
     recipes: [
-      { Grain: 2, Wood: 1, Barrels: 0.5 },
-      { Wine: 1, Wood: 1, Barrels: 0.5 },
-      { Grain: 2, Wood: 1, Ceramics: 0.25 },
-      { Wine: 1, Wood: 1, Ceramics: 0.25 },
-      { Grain: 2, Wood: 1, Glass: 0.25 },
-      { Wine: 1, Wood: 1, Glass: 0.25 }
+      { 谷物: 2, 木材: 1, 木桶: 0.5 },
+      { 葡萄酒: 1, 木材: 1, 木桶: 0.5 },
+      { 谷物: 2, 木材: 1, 陶瓷: 0.25 },
+      { 葡萄酒: 1, 木材: 1, 陶瓷: 0.25 },
+      { 谷物: 2, 木材: 1, 玻璃: 0.25 },
+      { 葡萄酒: 1, 木材: 1, 玻璃: 0.25 }
     ],
     unit: "vessel",
     demandCoverage: { luxury: 1 }
@@ -944,9 +944,9 @@ const GOODS_DATA: GoodData[] = [
     value: 17,
     chance: 0,
     recipes: [
-      { Olives: 1, Incense: 0.5, Glass: 0.5 },
-      { Olives: 1, Game: 3, Glass: 0.5 },
-      { Liquor: 0.25, Incense: 0.5, Whales: 0.5, Ceramics: 0.5 }
+      { 橄榄: 1, 熏香: 0.5, 玻璃: 0.5 },
+      { 橄榄: 1, 猎物: 3, 玻璃: 0.5 },
+      { 烈酒: 0.25, 熏香: 0.5, 鲸: 0.5, 陶瓷: 0.5 }
     ],
     unit: "bottle",
     demandCoverage: { luxury: 2 }

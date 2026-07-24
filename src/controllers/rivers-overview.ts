@@ -25,28 +25,28 @@ function renderDialog(): void {
 
   const html = /* html */ `<div id="riversOverview" class="dialog stable">
     <div id="riversHeader" class="header" style="grid-template-columns: 9em 4em 7em 5em 5em 9em">
-      <div data-tip="Click to sort by river name" class="sortable alphabetically" data-sortby="name">River&nbsp;</div>
-      <div data-tip="Click to sort by river type name" class="sortable alphabetically" data-sortby="type">Type&nbsp;</div>
-      <div data-tip="Click to sort by discharge (flux in m3/s)" class="sortable icon-sort-number-down" data-sortby="discharge">Discharge&nbsp;</div>
-      <div data-tip="Click to sort by river length" class="sortable" data-sortby="length">Length&nbsp;</div>
-      <div data-tip="Click to sort by river mouth width" class="sortable" data-sortby="width">Width&nbsp;</div>
-      <div data-tip="Click to sort by river basin" class="sortable alphabetically" data-sortby="basin">Basin&nbsp;</div>
+      <div data-tip="点击按河流名称排序" class="sortable alphabetically" data-sortby="name">河流&nbsp;</div>
+      <div data-tip="点击按河流类型名称排序" class="sortable alphabetically" data-sortby="type">类型&nbsp;</div>
+      <div data-tip="点击按流量（m3/s）排序" class="sortable icon-sort-number-down" data-sortby="discharge">流量&nbsp;</div>
+      <div data-tip="点击按河流长度排序" class="sortable" data-sortby="length">长度&nbsp;</div>
+      <div data-tip="点击按河口宽度排序" class="sortable" data-sortby="width">宽度&nbsp;</div>
+      <div data-tip="点击按河流流域排序" class="sortable alphabetically" data-sortby="basin">流域&nbsp;</div>
     </div>
     <div id="riversBody" class="table"></div>
     <div id="riversFooter" class="totalLine">
-      <div data-tip="Rivers number" style="margin-left: 4px">Rivers:&nbsp;<span id="riversFooterNumber">0</span></div>
-      <div data-tip="Average discharge" style="margin-left: 12px">Average discharge:&nbsp;<span id="riversFooterDischarge">0</span></div>
-      <div data-tip="Average length" style="margin-left: 12px">Length:&nbsp;<span id="riversFooterLength">0</span></div>
-      <div data-tip="Average mouth width" style="margin-left: 12px">Width:&nbsp;<span id="riversFooterWidth">0</span></div>
+      <div data-tip="河流数量" style="margin-left: 4px">河流:&nbsp;<span id="riversFooterNumber">0</span></div>
+      <div data-tip="平均流量" style="margin-left: 12px">平均流量:&nbsp;<span id="riversFooterDischarge">0</span></div>
+      <div data-tip="平均长度" style="margin-left: 12px">长度:&nbsp;<span id="riversFooterLength">0</span></div>
+      <div data-tip="平均河口宽度" style="margin-left: 12px">宽度:&nbsp;<span id="riversFooterWidth">0</span></div>
     </div>
     <div id="riversBottom">
-      <button id="riversOverviewRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-      <button id="addNewRiver" data-tip="Automatically add river starting from clicked cell. Hold Shift to add multiple" class="icon-plus"></button>
-      <button id="riverCreateNew" data-tip="Create a new river selecting river cells" class="icon-map-pin"></button>
-      <button id="riversBasinHighlight" data-tip="Toggle basin highlight mode" class="icon-sitemap"></button>
-      <button id="riversExport" data-tip="Save rivers-related data as a text file (.csv)" class="icon-download"></button>
-      <button id="riversRemoveAll" data-tip="Remove all rivers" class="icon-trash"></button>
-      <label for="riversSearch" data-tip="Filter by name, type or basin" style="margin-left: 0.2em">Search: <input id="riversSearch" type="search" /></label>
+      <button id="riversOverviewRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+      <button id="addNewRiver" data-tip="自动从点击的单元格添加河流。按住 Shift 添加多个" class="icon-plus"></button>
+      <button id="riverCreateNew" data-tip="通过选择河流单元格创建新河流" class="icon-map-pin"></button>
+      <button id="riversBasinHighlight" data-tip="切换流域高亮模式" class="icon-sitemap"></button>
+      <button id="riversExport" data-tip="将河流相关数据保存为文本文件 (.csv)" class="icon-download"></button>
+      <button id="riversRemoveAll" data-tip="移除所有河流" class="icon-trash"></button>
+      <label for="riversSearch" data-tip="按名称、类型或流域筛选" style="margin-left: 0.2em">搜索： <input id="riversSearch" type="search" /></label>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -108,15 +108,15 @@ function riversOverviewAddLines(): void {
         data-width="${r.width}"
         data-basin="${basin}"
       >
-        <span data-tip="Locate the river" class="icon-target"></span>
-        <div data-tip="River name" style="margin-left: 0.4em;" class="riverName">${r.name}</div>
-        <div data-tip="River type name" class="riverType">${r.type}</div>
-        <div data-tip="River discharge (flux power)" class="biomeArea">${discharge}</div>
-        <div data-tip="River length from source to mouth" class="biomeArea">${length}</div>
-        <div data-tip="River mouth width" class="biomeArea">${width}</div>
-        <input data-tip="River basin (name of the main stem)" class="stateName" value="${basin}" disabled />
-        <span data-tip="Edit river" class="icon-pencil"></span>
-        <span data-tip="Remove river" class="icon-trash-empty"></span>
+        <span data-tip="定位该河流" class="icon-target"></span>
+        <div data-tip="河流名称" style="margin-left: 0.4em;" class="riverName">${r.name}</div>
+        <div data-tip="河流类型名称" class="riverType">${r.type}</div>
+        <div data-tip="河流流量（水力）" class="biomeArea">${discharge}</div>
+        <div data-tip="河流长度（从源头到入海口）" class="biomeArea">${length}</div>
+        <div data-tip="河流入海口宽度" class="biomeArea">${width}</div>
+        <input data-tip="河流流域（主干的名称）" class="stateName" value="${basin}" disabled />
+        <span data-tip="编辑河流" class="icon-pencil"></span>
+        <span data-tip="移除河流" class="icon-trash-empty"></span>
       </div>`;
   }
   body.insertAdjacentHTML("beforeend", lines);
@@ -212,19 +212,19 @@ function openRiverEditor(this: HTMLElement): void {
 
 function triggerRiverRemove(this: HTMLElement): void {
   const river = +(this.parentNode as HTMLElement).dataset.id!;
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove the river? All tributaries will be auto-removed`;
+  alertMessage.innerHTML = /* html */ `确定要移除该河流吗？所有支流将被自动移除`;
 
   $("#alert").dialog({
     resizable: false,
     width: "22em",
     title: "移除河流",
     buttons: {
-      Remove: function (this: any) {
+      移除: function (this: any) {
         Rivers.remove(river);
         riversOverviewAddLines();
         $(this).dialog("close");
       },
-      Cancel: function (this: any) {
+      取消: function (this: any) {
         $(this).dialog("close");
       }
     }
@@ -232,16 +232,16 @@ function triggerRiverRemove(this: HTMLElement): void {
 }
 
 function triggerAllRiversRemove(): void {
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove all rivers?`;
+  alertMessage.innerHTML = /* html */ `确定要移除所有河流吗？`;
   $("#alert").dialog({
     resizable: false,
     title: "移除所有河流",
     buttons: {
-      Remove: function (this: any) {
+      移除: function (this: any) {
         $(this).dialog("close");
         removeAllRivers();
       },
-      Cancel: function (this: any) {
+      取消: function (this: any) {
         $(this).dialog("close");
       }
     }

@@ -40,38 +40,38 @@ function renderDialog(): void {
   const editorHtml = /* html */ `<div id="marketsOverview" class="dialog stable">
       <div id="marketsOverviewHeader" class="header" style="grid-template-columns: 1.6em 7.2em 8em 3.5em 4.5em 6.5em 6.4em 6em 6em 1.2em;">
         <div></div>
-        <div data-tip="Market center burg name. Click to sort" class="sortable alphabetically" data-sortby="market" style="margin-left:0">Market&nbsp;</div>
-        <div data-tip="Owning state. Click to sort" class="sortable alphabetically" data-sortby="owner">Owner&nbsp;</div>
-        <div data-tip="Number of cells in market territory. Click to sort" class="sortable" data-sortby="cells">Cells&nbsp;</div>
-        <div data-tip="Number of burgs in market territory. Click to sort" class="sortable hide" data-sortby="burgs">Burgs&nbsp;</div>
-        <div data-tip="Total stock of all goods. Click to sort" class="sortable hide" data-sortby="stock">Stock&nbsp;</div>
-        <div data-tip="Total gross sales revenue. Click to sort" class="sortable hide" data-sortby="sales">Sales&nbsp;</div>
-        <div data-tip="Total purchase spending. Click to sort" class="sortable hide" data-sortby="buys">Buys&nbsp;</div>
-        <div data-tip="Market value: net trading flow plus unsold inventory value minus tax. Click to sort" class="sortable hide icon-sort-number-down" data-sortby="value">Value&nbsp;</div>
+        <div data-tip="市场中心城镇名称。点击排序" class="sortable alphabetically" data-sortby="market" style="margin-left:0">市场&nbsp;</div>
+        <div data-tip="所属国家。点击排序" class="sortable alphabetically" data-sortby="owner">所有者&nbsp;</div>
+        <div data-tip="市场领土中的单元格数。点击排序" class="sortable" data-sortby="cells">单元格&nbsp;</div>
+        <div data-tip="市场领土中的城镇数。点击排序" class="sortable hide" data-sortby="burgs">城镇&nbsp;</div>
+        <div data-tip="所有货物总库存。点击排序" class="sortable hide" data-sortby="stock">库存&nbsp;</div>
+        <div data-tip="销售总收入。点击排序" class="sortable hide" data-sortby="sales">销售&nbsp;</div>
+        <div data-tip="采购总支出。点击排序" class="sortable hide" data-sortby="buys">采购&nbsp;</div>
+        <div data-tip="市场价值：净贸易流量加未售库存价值减去税。点击排序" class="sortable hide icon-sort-number-down" data-sortby="value">价值&nbsp;</div>
         <div></div>
       </div>
       <div id="marketsOverviewBody" class="table" data-type="absolute" style="max-height:40em; cursor:pointer"></div>
       <div id="marketsOverviewFooter" class="totalLine">
-        <div data-tip="Total number of markets" style="margin-left:5px">Markets:&nbsp;<span id="marketsOverviewFooterMarkets">0</span></div>
-        <div data-tip="Average gross sales revenue per market" style="margin-left:12px">Avg Sales:&nbsp;<span id="marketsOverviewFooterSales">0</span></div>
-        <div data-tip="Average purchase spending per market" style="margin-left:12px">Avg Buys:&nbsp;<span id="marketsOverviewFooterBuys">0</span></div>
-        <div data-tip="Average market value per market" style="margin-left:12px">Avg Value:&nbsp;<span id="marketsOverviewFooterValue">0</span></div>
+        <div data-tip="市场总数" style="margin-left:5px">市场:&nbsp;<span id="marketsOverviewFooterMarkets">0</span></div>
+        <div data-tip="每个市场平均销售总收入" style="margin-left:12px">平均销售:&nbsp;<span id="marketsOverviewFooterSales">0</span></div>
+        <div data-tip="每个市场平均采购支出" style="margin-left:12px">平均采购:&nbsp;<span id="marketsOverviewFooterBuys">0</span></div>
+        <div data-tip="每个市场平均市场价值" style="margin-left:12px">平均价值:&nbsp;<span id="marketsOverviewFooterValue">0</span></div>
       </div>
       <div id="marketsOverviewBottom">
-        <button id="marketsOverviewRefresh" data-tip="Refresh the overview" class="icon-cw"></button>
-        <button id="marketsOverviewPercentage" data-tip="Toggle percentage / absolute values views" class="icon-percent"></button>
-        <button id="marketsOverviewCompare" data-tip="Compare good stock across markets" class="icon-chart-bar"></button>
-        <button id="marketsOverviewExport" data-tip="Save markets data as a CSV file" class="icon-download"></button>
-        <slider-input id="marketsBrush" min="1" max="100" value="15" data-tip="Change brush size. Shortcuts: + / ] to increase; - / [ to decrease" style="display: none;"></slider-input>
-        <button id="marketsManually" data-tip="Manually re-assign market territories" class="icon-brush"></button>
+        <button id="marketsOverviewRefresh" data-tip="刷新总览" class="icon-cw"></button>
+        <button id="marketsOverviewPercentage" data-tip="切换百分比/绝对值视图" class="icon-percent"></button>
+        <button id="marketsOverviewCompare" data-tip="跨市场对比货物库存" class="icon-chart-bar"></button>
+        <button id="marketsOverviewExport" data-tip="将市场数据保存为 CSV 文件" class="icon-download"></button>
+        <slider-input id="marketsBrush" min="1" max="100" value="15" data-tip="更改笔刷大小。快捷键：+ / ] 增大；- / [ 减小" style="display: none;"></slider-input>
+        <button id="marketsManually" data-tip="手动重新分配市场领土" class="icon-brush"></button>
         <div id="marketsManuallyButtons" style="display: none">
-          <button id="marketsManuallyUndo" data-tip="Undo last brush stroke" class="icon-ccw"></button>
-          <button id="marketsManuallyApply" data-tip="Apply assignment" class="icon-check"></button>
-          <button id="marketsManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
+          <button id="marketsManuallyUndo" data-tip="撤销上次笔刷" class="icon-ccw"></button>
+          <button id="marketsManuallyApply" data-tip="应用分配" class="icon-check"></button>
+          <button id="marketsManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
         </div>
-        <button id="marketsAdd" data-tip="Add a new market. Click on a burg on the map. Hold Shift to add multiple" class="icon-plus"></button>
-        <button id="marketsRegenerate" data-tip="Regenerate markets and their territories" class="icon-arrows-cw"></button>
-        <button id="marketsRegenerateProduction" data-tip="Regenerate production and trade deals" class="icon-retweet"></button>
+        <button id="marketsAdd" data-tip="添加新市场。点击地图上的城镇。按住 Shift 添加多个" class="icon-plus"></button>
+        <button id="marketsRegenerate" data-tip="重新生成市场及其领土" class="icon-arrows-cw"></button>
+        <button id="marketsRegenerateProduction" data-tip="重新生成生产和贸易交易" class="icon-retweet"></button>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);
@@ -138,7 +138,7 @@ function marketsOverviewAddLines(): void {
   }
 
   if (!markets.length) {
-    body.innerHTML = "No markets available";
+    body.innerHTML = "无可用市场";
     updateFooter(0, 0, 0, 0);
     return;
   }
@@ -165,15 +165,15 @@ function marketsOverviewAddLines(): void {
         data-cells="${cells}" data-burgs="${burgs}"
         data-stock="${stock}" data-sales="${sales}" data-buys="${buys}" data-value="${value}">
       <fill-box fill="${market.color}"></fill-box>
-      <div data-tip="Market name. Click to view details" class="marketName" style="width:7em">${centerName}</div>
-      <div data-tip="Owning state" class="marketOwner" style="width:8em">${ownerName}</div>
-      <div data-tip="Number of cells in market territory" data-type="cells" class="marketCells" style="width:3.5em">${cells}</div>
-      <div data-tip="Number of burgs in market territory" data-type="burgs" class="marketBurgs hide" style="width:3.5em">${burgs}</div>
-      <div data-tip="Total stock of all goods in this market" data-type="stock" class="marketStock hide" style="width:5em">${stock}</div>
-      <div data-tip="Total gross sales revenue" data-type="sales" class="marketSales hide" style="width:6em">${formatPrice(rn(sales))}</div>
-      <div data-tip="Total purchase spending" data-type="buys" class="marketBuysCol hide" style="width:6em">${formatPrice(rn(buys))}</div>
-      <div data-tip="Market value: net trading flow plus unsold inventory value minus tax" data-type="value" class="marketValue hide" style="width:6em">${formatPrice(rn(value))}</div>
-      <span data-tip="Remove this market" class="icon-trash-empty hiddenIcon hide" style="visibility:hidden"></span>
+      <div data-tip="市场名称。点击查看详情" class="marketName" style="width:7em">${centerName}</div>
+      <div data-tip="所属国家" class="marketOwner" style="width:8em">${ownerName}</div>
+      <div data-tip="市场领土中的单元格数" data-type="cells" class="marketCells" style="width:3.5em">${cells}</div>
+      <div data-tip="市场领土中的城镇数" data-type="burgs" class="marketBurgs hide" style="width:3.5em">${burgs}</div>
+      <div data-tip="此市场中所有货物的总库存" data-type="stock" class="marketStock hide" style="width:5em">${stock}</div>
+      <div data-tip="销售总收入" data-type="sales" class="marketSales hide" style="width:6em">${formatPrice(rn(sales))}</div>
+      <div data-tip="采购总支出" data-type="buys" class="marketBuysCol hide" style="width:6em">${formatPrice(rn(buys))}</div>
+      <div data-tip="市场价值：净贸易流量加未售库存价值减去税" data-type="value" class="marketValue hide" style="width:6em">${formatPrice(rn(value))}</div>
+      <span data-tip="移除该市场" class="icon-trash-empty hiddenIcon hide" style="visibility:hidden"></span>
     </div>`;
   }
 
@@ -246,12 +246,12 @@ function saveMarketsManualSnapshot(): void {
 function renderNoMarketRow(): string {
   const cells = getMarketCells(0);
   const burgs = getMarketBurgs(0);
-  return /*html*/ `<div class="states market" data-id="0"  data-market="No market" data-owner="" data-cells="${cells}" data-burgs="${burgs}" data-stock="0" data-sales="0" data-buys="0" data-value="0">
-    <fill-box fill="none" data-tip="Cells assigned to no market"></fill-box>
-    <div data-tip="Cells with no market; their burgs are excluded from production" class="marketName" style="width:7em">No market</div>
+  return /*html*/ `<div class="states market" data-id="0"  data-market="无市场" data-owner="" data-cells="${cells}" data-burgs="${burgs}" data-stock="0" data-sales="0" data-buys="0" data-value="0">
+    <fill-box fill="none" data-tip="未分配到市场的单元格"></fill-box>
+    <div data-tip="无市场的单元格；其城镇被排除在生产之外" class="marketName" style="width:7em">无市场</div>
     <div class="marketOwner" style="width:8em">—</div>
-    <div data-tip="Number of cells with no market" data-type="cells" class="marketCells" style="width:3.5em">${cells}</div>
-    <div data-tip="Number of burgs with no market" data-type="burgs" class="marketBurgs hide" style="width:3.5em">${burgs}</div>
+    <div data-tip="无市场的单元格数" data-type="cells" class="marketCells" style="width:3.5em">${cells}</div>
+    <div data-tip="无市场的城镇数" data-type="burgs" class="marketBurgs hide" style="width:3.5em">${burgs}</div>
     <div data-type="stock" class="marketStock hide" style="width:5em">—</div>
     <div data-type="sales" class="marketSales hide" style="width:6em">—</div>
     <div data-type="buys" class="marketBuysCol hide" style="width:6em">—</div>
@@ -451,7 +451,7 @@ function confirmRemoveMarket(marketId: number): void {
   confirmationDialog({
     title: "移除市场",
     message: `确定要移除市场"${name}"吗？<br>此操作无法撤销`,
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => {
       Markets.removeMarket(marketId);
       if (layerIsOn("toggleMarketsLayer")) drawMarketsLayer();
@@ -578,20 +578,20 @@ function updateFooter(count: number, avgSales: number, avgBuys: number, avgValue
 
 function getOwnerStateName(market: Market): string {
   const center = pack.burgs[market.centerBurgId];
-  if (!center) return "Unknown";
-  if (!center.state) return "Independent";
-  return pack.states[center.state]?.name || `State ${center.state}`;
+  if (!center) return "未知";
+  if (!center.state) return "独立";
+  return pack.states[center.state]?.name || `国家 ${center.state}`;
 }
 
 function regenerateMarkets() {
   confirmationDialog({
     title: "重新生成市场",
-    message: /* html */ `Are you sure you want to regenerate markets and their territories?
+    message: /* html */ `确定要重新生成市场及其领土吗？
       <label style="display:flex; align-items:center; gap:.4em; margin-top:.6em;">
         <input id="marketsRegenerateProductionToggle" type="checkbox" class="native" checked />
-        Regenerate production and trade
+        重新生成生产和贸易
       </label>`,
-    confirm: "Regenerate",
+    confirm: "重新生成",
     onConfirm: () => {
       const regenProduction = ensureEl<HTMLInputElement>("marketsRegenerateProductionToggle").checked;
       window.regenerateMarkets();
@@ -603,9 +603,8 @@ function regenerateMarkets() {
 function regenerateProduction() {
   confirmationDialog({
     title: "重新生成生产",
-    message:
-      "确定要为所有货物重新生成生产和贸易吗？生成将基于当前货物设置和奖励货物分布",
-    confirm: "Regenerate",
+    message: "确定要为所有货物重新生成生产和贸易吗？生成将基于当前货物设置和奖励货物分布",
+    confirm: "重新生成",
     onConfirm: window.regenerateProduction
   });
 }

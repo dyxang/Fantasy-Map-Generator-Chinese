@@ -1,0 +1,206 @@
+{
+  "batch": 3,
+  "start_index": 0,
+  "units": [
+    {
+      "id": "sha256:e0283d51f9fa4017",
+      "source": "Click to generate a map with this seed",
+      "file": "public/modules/ui/options.js",
+      "line": 287,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "function showSeedHistoryDialog() {\n  const lines = mapHistory.map((h, i) => {\n    const created = new Date(h.created).toLocaleTimeString();",
+      "context_after": "    return `<li>Seed: ${h.seed} ${button}. Size: ${h.width}x${h.height}. Template: ${h.template}. Created: ${created}</li>`;\n  });\n  alertMessage.innerHTML = /* html */ `<ol style=\"margin: 0; padding-left: 1.5em\">"
+    },
+    {
+      "id": "sha256:008447359f5f07c0",
+      "source": "heightmap preview",
+      "file": "public/modules/ui/style.js",
+      "line": 651,
+      "type": "html_attr",
+      "context_tag": "alt",
+      "context_before": "  // render dialog base structure\n  alertMessage.innerHTML = /* html */ `<div>\n    <i>Define heightmap gradient colors from high to low altitude</i>",
+      "context_after": "    <div id=\"heightmapSchemeStops\" style=\"margin-block: 0.5em; display: flex; flex-wrap: wrap;\"></div>\n    <div id=\"heightmapSchemeGradient\" style=\"height: 1.9em; border: 1px solid #767676;\"></div>\n  </div>`;"
+    },
+    {
+      "id": "sha256:9555a002bb3d81b0",
+      "source": "Click to set the color",
+      "file": "public/modules/ui/style.js",
+      "line": 679,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    const stops = openCreateHeightmapSchemeButton.dataset.stops.split(\",\");\n\n    const colorInput = color =>",
+      "context_after": "    const removeStopButton = index =>\n      `<button class=\"remove\" data-index=\"${index}\" data-tip=\"Remove color stop\" style=\"margin-top: 0.3em; height: max-content;\">x</button>`;\n    const addStopButton = () =>"
+    },
+    {
+      "id": "sha256:064765a5ec3140d9",
+      "source": "Remove color stop",
+      "file": "public/modules/ui/style.js",
+      "line": 681,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    const colorInput = color =>\n      `<input type=\"color\" class=\"stop\" value=\"${color}\" data-tip=\"Click to set the color\" style=\"width: 2.5em; border: none;\" />`;\n    const removeStopButton = index =>",
+      "context_after": "    const addStopButton = () =>\n      `<button class=\"add\" data-tip=\"Add color stop in between\" style=\"margin-top: 0.3em; height: max-content;\">+</button>`;\n"
+    },
+    {
+      "id": "sha256:685c0e2324460d7b",
+      "source": "Add color stop in between",
+      "file": "public/modules/ui/style.js",
+      "line": 683,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    const removeStopButton = index =>\n      `<button class=\"remove\" data-index=\"${index}\" data-tip=\"Remove color stop\" style=\"margin-top: 0.3em; height: max-content;\">x</button>`;\n    const addStopButton = () =>",
+      "context_after": "\n    const container = ensureEl(\"heightmapSchemeStops\");\n    container.innerHTML = stops"
+    }
+  ],
+  "glossary": [
+    {
+      "en": "Map",
+      "zh": "地图",
+      "context": "general",
+      "do_not_translate": false
+    },
+    {
+      "en": "Seed",
+      "zh": "种子",
+      "context": "rng",
+      "do_not_translate": false
+    },
+    {
+      "en": "Heightmap",
+      "zh": "高度图",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Remove",
+      "zh": "移除",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Add",
+      "zh": "添加",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Height",
+      "zh": "高度",
+      "context": "terrain",
+      "do_not_translate": false
+    }
+  ],
+  "tm_hints": [
+    {
+      "source": "Click to fill with the color",
+      "target": "点击以该颜色填充",
+      "score": 1.5
+    },
+    {
+      "source": "No valid burg in this cell. Click on a cell with a burg",
+      "target": "此单元格中没有有效的城镇。请点击包含城镇的单元格",
+      "score": 1.5
+    },
+    {
+      "source": "Heightmap edit mode is active. Click on \"Exit Customization\" to finalize the heightmap",
+      "target": "高度图编辑模式已激活。点击",
+      "score": 1.5
+    },
+    {
+      "source": "Heightmap preview. Click to download a screen-sized image",
+      "target": "高度图预览。点击下载屏幕大小的图像",
+      "score": 1.5
+    },
+    {
+      "source": "Click to add river point, click again to remove",
+      "target": "点击添加河流点，再次点击移除",
+      "score": 1.5
+    },
+    {
+      "source": "Heightmap: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "高度图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "score": 1.5
+    },
+    {
+      "source": "Rulers: click to toggle, drag to move, click on label to delete. Ctrl + click to edit layer style",
+      "target": "标尺：点击切换，拖动以移动，点击标签以删除。按 Ctrl + 点击编辑图层样式",
+      "score": 1.5
+    },
+    {
+      "source": "Click to add a custom heightmap color scheme",
+      "target": "点击添加自定义高度图配色方案",
+      "score": 1.5
+    },
+    {
+      "source": "The Heightmap editor panel lets you paint terrain directly on the map. You can raise or lower land, apply templates, convert an image into a heightmap, or preview the terrain in 3D.",
+      "target": "高度图编辑器面板可直接在地图上绘制地形。可升高或降低陆地、应用模板、将图像转换为高度图，或以 3D 预览地形。",
+      "score": 1.5
+    },
+    {
+      "source": "Are you sure you want to remove all <i>unlocked</i> burgs except for capitals?\n        <br><i>To remove a capital you have to remove its state first</i>",
+      "target": "确定要移除除首都外的所有<i>未锁定</i>城镇吗？\n        <br><i>要移除首都，必须先移除其所属国家</i>",
+      "score": 1.5
+    },
+    {
+      "source": "Drag control points to change the river course. Click on point to remove it. Click on river to add additional control point. For major changes please create a new river instead",
+      "target": "拖动控制点可改变河流走向。点击控制点可移除。点击河流可添加控制点。如需大幅修改请新建一条河流",
+      "score": 1.5
+    },
+    {
+      "source": "Drag control points to change the route. Click on point to remove it. Click on the route to add additional control point. For major changes please create a new route instead",
+      "target": "拖动控制点可改变道路走向。点击控制点可移除。点击道路可添加控制点。如需大幅修改请新建一条道路",
+      "score": 1.5
+    },
+    {
+      "source": "Are you sure you want to remove the entire route group? All routes in this group will be removed.<br>This action can't be reverted",
+      "target": "确定要移除整个道路组吗？该组中的所有道路都将被移除。<br>此操作无法撤销",
+      "score": 1.5
+    },
+    {
+      "source": "Remove all unlocked burgs except for capitals. To remove a capital remove its state first",
+      "target": "移除所有未锁定的非首都城镇。要移除首都，请先移除其国家",
+      "score": 1.5
+    },
+    {
+      "source": "Color value in different color spaces. Edit to change",
+      "target": "不同色彩空间的颜色值。编辑以修改",
+      "score": 1
+    },
+    {
+      "source": "Click to fill with the hatching",
+      "target": "点击以填充阴影线",
+      "score": 1
+    },
+    {
+      "source": "The current map already has this seed",
+      "target": "当前地图已使用该种子",
+      "score": 1
+    },
+    {
+      "source": "Create heightmap color scheme",
+      "target": "创建高度图配色方案",
+      "score": 1
+    },
+    {
+      "source": "Are you sure you want to remove the style preset? This action cannot be undone.",
+      "target": "确定要移除该样式预设吗？此操作无法撤销。",
+      "score": 1
+    },
+    {
+      "source": "Drag to adjust. Hold Ctrl and drag to add a point. Click to remove the point",
+      "target": "拖动调整。按住 Ctrl 拖动添加点。点击移除点",
+      "score": 1
+    }
+  ],
+  "cross_file_duplicates": [],
+  "instructions": [
+    "If a unit's source exactly matches a key in tm_hints, REUSE that target verbatim.",
+    "If a unit's source is in cross_file_duplicates, it appears in other batches too — choose a concise translation that other batches are likely to also pick.",
+    "For similar phrases (e.g. 'Group name should start with a letter' vs 'Name should start with a letter'), prefer consistency with tm_hints over novel phrasing.",
+    "每翻译完一个 unit（用 Edit 修改源文件后），向 i18n/artifacts/batch_3.json 的 artifacts 数组追加一条记录",
+    "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied}",
+    "line_before 用 unit.line；line_after 是翻译后该 unit 在源文件中的实际行号（如果上方有行增减会漂移）",
+    "model 填你实际使用的模型标识；confidence 填 0-1 自评；applied 填 true（已 Edit 应用）"
+  ]
+}

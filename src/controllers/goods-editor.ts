@@ -39,55 +39,55 @@ function renderDialog(): void {
       <div id="goodsHeader" class="header" style="grid-template-columns: 4em 7.4em 6em 5em 6.8em 6em 4.6em 1.6em;">
         <input
           type="checkbox"
-          data-tip="Show or hide all goods on the Goods map"
+          data-tip="在货物地图上显示或隐藏所有货物"
           class="native hide"
           id="goodsDisplayAll"
           style="margin: 0 .3em; vertical-align: middle; width: 1.2em;"
         />
-        <div data-tip="Click to sort by good name" class="sortable alphabetically" data-sortby="name">
-          Name&nbsp;
+        <div data-tip="点击按货物名称排序" class="sortable alphabetically" data-sortby="name">
+          名称&nbsp;
         </div>
-        <div data-tip="Click to sort by type" class="sortable alphabetically" data-sortby="type">
-          Type&nbsp;
+        <div data-tip="点击按类型排序" class="sortable alphabetically" data-sortby="type">
+          类型&nbsp;
         </div>
-        <div data-tip="Unit of production. Click to sort" class="sortable alphabetically hide" data-sortby="unit">
-          Unit&nbsp;
+        <div data-tip="生产单位。点击排序" class="sortable alphabetically hide" data-sortby="unit">
+          单位&nbsp;
         </div>
-        <div data-tip="Total units produced daily in cells (raw) and burgs (manufactured). Click to sort" class="sortable icon-sort-number-down hide" data-sortby="produced">
-          Produced&nbsp;
+        <div data-tip="单元格（原料）和城镇（制造）中日产总量。点击排序" class="sortable icon-sort-number-down hide" data-sortby="produced">
+          产量&nbsp;
         </div>
-        <div data-tip="Total units in stock across all markets and burg inventories. Click to sort" class="sortable hide" data-sortby="stock">
-          Stock&nbsp;
+        <div data-tip="所有市场及城镇库存中的总库存量。点击排序" class="sortable hide" data-sortby="stock">
+          库存&nbsp;
         </div>
-        <div data-tip="Base (initial) price. Click to sort" class="sortable hide" data-sortby="baseprice">
-          Price&nbsp;
+        <div data-tip="基础（初始）价格。点击排序" class="sortable hide" data-sortby="baseprice">
+          价格&nbsp;
         </div>
       </div>
       <div id="goodsBody" class="table" style="max-height: 50vh;" data-type="absolute"></div>
       <div id="goodsFooter" class="totalLine hide">
-        <div data-tip="Number of goods (displayed / total)" style="margin-left: 5px">Goods:&nbsp;<span id="goodsDisplayed">0</span> of <span id="goodsNumber">0</span></div>
-        <div data-tip="Total units produced daily by all cells and burgs" style="margin-left: 12px">Produced:&nbsp;<span id="goodsProduced">0</span></div>
-        <div data-tip="Total units in stock across all markets and burg inventories" style="margin-left: 12px">Stock:&nbsp;<span id="goodsStock">0</span></div>
+        <div data-tip="货物数（显示/总数）" style="margin-left: 5px">货物:&nbsp;<span id="goodsDisplayed">0</span> of <span id="goodsNumber">0</span></div>
+        <div data-tip="所有单元格和城镇的日产总量" style="margin-left: 12px">产量:&nbsp;<span id="goodsProduced">0</span></div>
+        <div data-tip="所有市场及城镇库存中的总库存量" style="margin-left: 12px">库存:&nbsp;<span id="goodsStock">0</span></div>
       </div>
       <div id="goodsBottom">
-        <button id="goodsEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
+        <button id="goodsEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
         <button
           id="goodsPercentage"
-          data-tip="Toggle percentage / absolute values display mode"
+          data-tip="切换百分比/绝对值显示模式"
           class="icon-percent"
         ></button>
-        <button id="goodsTagsFilter" data-tip="Filter visible goods by tags" class="icon-tags"></button>
-        <button id="goodsAssign" data-tip="Manually assign goods to cells" class="icon-brush"></button>
-        <button id="goodsAdd" data-tip="Add a new good" class="icon-plus hide"></button>
-        <button id="goodsRegenerateGoods" data-tip="Regenerate bonus goods placement" class="icon-arrows-cw hide"></button>
-        <button id="goodsRegenerateProduction" data-tip="Regenerate production and trade deals" class="icon-retweet hide"></button>
-        <button id="goodsChains" data-tip="Show production chains graph" class="icon-chart-line hide"></button>
+        <button id="goodsTagsFilter" data-tip="按标签筛选可见货物" class="icon-tags"></button>
+        <button id="goodsAssign" data-tip="手动为单元格分配货物" class="icon-brush"></button>
+        <button id="goodsAdd" data-tip="添加新货物" class="icon-plus hide"></button>
+        <button id="goodsRegenerateGoods" data-tip="重新生成奖励货物放置" class="icon-arrows-cw hide"></button>
+        <button id="goodsRegenerateProduction" data-tip="重新生成生产和贸易交易" class="icon-retweet hide"></button>
+        <button id="goodsChains" data-tip="显示生产链图" class="icon-chart-line hide"></button>
         <button
           id="goodsRestore"
-          data-tip="Restore default list and regenerate goods"
+          data-tip="恢复默认列表并重新生成货物"
           class="icon-history hide"
         ></button>
-        <button id="goodsExport" data-tip="Download goods-related data" class="icon-download hide"></button>
+        <button id="goodsExport" data-tip="下载货物相关数据" class="icon-download hide"></button>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);
@@ -127,38 +127,38 @@ function goodsEditorAddLines() {
     const commonStyles =
       "display:inline-block;border-radius:3px;padding:0 .4em;font-size:0.8em;font-weight:bold;line-height:1.35";
     if (type === "RAW")
-      return `<span style="${commonStyles};background:#d0e7f5;color:#036" data-tip="Raw goods are produced by rural population in cells based on biome availability and in cells and burgs when bonus resource is assigned to cells">RAW</span>`;
-    return `<span style="${commonStyles};background:#f8e7bf;color:#b67a00" data-tip="Manufactured goods are produced in burgs">MFG</span>`;
+      return `<span style="${commonStyles};background:#d0e7f5;color:#036" data-tip="原料货物由单元格中的乡村人口基于生物群系可用性生产，且当单元格分配了奖励资源时在单元格和城镇中生产">RAW</span>`;
+    return `<span style="${commonStyles};background:#f8e7bf;color:#b67a00" data-tip="制造货物在城镇中生产">MFG</span>`;
   };
 
   for (const good of pack.goods) {
     const types = [good.recipes && "MFG", good.distribution && "RAW"].filter(Boolean) as string[];
     const goodProduction = production[good.i] || { burg: 0, cell: 0 };
     const produced = rn(goodProduction.burg + goodProduction.cell);
-    const producedTip = `Good daily production: ${produced}⚒. Cells: ${rn(goodProduction.cell, 2)}⚒. Burgs: ${rn(goodProduction.burg, 2)}⚒`;
+    const producedTip = `货物日产量：${produced}⚒。单元格：${rn(goodProduction.cell, 2)}⚒。城镇：${rn(goodProduction.burg, 2)}⚒`;
     const stock = rn(stockData[good.i]?.total ?? 0);
-    const stockTip = `Total stock in all markets and burg inventories: ${stock} units`;
+    const stockTip = `所有市场及城镇库存中的总库存量：${stock} 单位`;
 
     lines += /*html*/ `<div class="states goods" data-id=${good.i} data-name="${good.name}" data-color="${good.color}" data-baseprice="${good.value}" data-produced="${produced}" data-stock="${stock}" data-type="${types.join(",")}" data-unit="${good.unit ?? ""}" data-tags="${good.tags?.join(",")}">
-        <input type="checkbox" data-tip="Toggle this good on the Goods map" class="native goodDisplayed hide" style="padding: 0; margin: 0; vertical-align: middle; width: 1.2em;" ${good.visible ? "checked" : ""} />
-        <svg data-tip="Good icon" width="2em" height="2em" class="goodIcon">
+        <input type="checkbox" data-tip="在货物地图上切换此货物" class="native goodDisplayed hide" style="padding: 0; margin: 0; vertical-align: middle; width: 1.2em;" ${good.visible ? "checked" : ""} />
+        <svg data-tip="货物图标" width="2em" height="2em" class="goodIcon">
           <circle cx="50%" cy="50%" r="42%" fill="${good.color}" stroke="${Goods.getStroke(good.color)}"/>
           <use href="#${good.icon}" x="10%" y="10%" width="80%" height="80%"/>
         </svg>
-        <div data-tip="Good name" class="goodName">${good.name}</div>
-        <div data-tip="Good types" class="goodType" style="width: 6em;">${types.map(renderTypeBadge).join(" ")}</div>
-        <div data-tip="Unit of production" class="goodUnit hide">${good.unit ?? ""}</div>
-        <div data-tip="${producedTip}. Click to see burgs producing this good" class="goodProduced pointer hide" style="vertical-align: middle;">
+        <div data-tip="货物名称" class="goodName">${good.name}</div>
+        <div data-tip="货物类型" class="goodType" style="width: 6em;">${types.map(renderTypeBadge).join(" ")}</div>
+        <div data-tip="生产单位" class="goodUnit hide">${good.unit ?? ""}</div>
+        <div data-tip="${producedTip}。点击查看生产此货物的城镇" class="goodProduced pointer hide" style="vertical-align: middle;">
           <div style="display: inline-block;">${produced}</div>
           <div style="display: inline-block; width: 0.4em; font-size: 1.5em;">⚒</div>
         </div>
-        <div data-tip="${stockTip}. Click to see breakdown by location" class="goodStock pointer hide" style="vertical-align: middle;">
+        <div data-tip="${stockTip}。点击查看按地点分解的明细" class="goodStock pointer hide" style="vertical-align: middle;">
           <div style="display: inline-block;">${stock}</div>
           <div style="display: inline-block; width: 0.4em; font-size: 1.2em;">⛁</div>
         </div>
-        <div data-tip="Base (initial) price. Click to compare prices across markets" class="goodBasePrice pointer hide">🟡 ${good.value}</div>
-        <span data-tip="Edit good" class="icon-pencil goodEdit hide"></span>
-        <span data-tip="Remove good" class="icon-trash-empty hide goodRemove"></span>
+        <div data-tip="基础（初始）价格。点击对比各市场价格" class="goodBasePrice pointer hide">🟡 ${good.value}</div>
+        <span data-tip="编辑货物" class="icon-pencil goodEdit hide"></span>
+        <span data-tip="移除货物" class="icon-trash-empty hide goodRemove"></span>
       </div>`;
   }
   body.innerHTML = lines;
@@ -217,18 +217,18 @@ function openProducersDialog(goodId: number) {
     .sort((a, b) => b.units - a.units);
 
   if (!producers.length) {
-    alertMessage.innerHTML = `<i style="color:#888">No burgs produced ${good.name}.</i>`;
+    alertMessage.innerHTML = `<i style="color:#888">没有城镇生产 ${good.name}。</i>`;
   } else {
     const header = /*html*/ `
           <div class="header" style="grid-template-columns: 1.6em 7em 4em;">
             <div></div>
-            <div>Burg</div>
-            <div>Units</div>
+            <div>城镇</div>
+            <div>单位</div>
          </div>`;
     const rows = producers
       .map(
         ({ burg, units }) => /*html*/ `
-          <div data-tip="Click to zoom to burg" class="states pointer" data-x="${burg.x} " data-y="${burg.y}" data-id="${burg.i}">
+          <div data-tip="点击缩放至城镇" class="states pointer" data-x="${burg.x} " data-y="${burg.y}" data-id="${burg.i}">
             <div class="icon-dot-circled" style="width:1em"></div>
             <div style="width:7em;">${burg.name}</div>
             <div style="width:4em;">${units}</div>
@@ -245,9 +245,9 @@ function openProducersDialog(goodId: number) {
 
   $("#alert").dialog({
     resizable: false,
-    title: `${good.name} producers`,
+    title: `${good.name} 生产者`,
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }
@@ -329,19 +329,19 @@ function openStockDialog(goodId: number) {
   const sources = data?.sources ?? [];
 
   if (!sources.length) {
-    alertMessage.innerHTML = `<i style="color:#888">No stock of ${good.name} found in any market or burg inventory.</i>`;
+    alertMessage.innerHTML = `<i style="color:#888">未在任何市场或城镇库存中找到 ${good.name} 的库存。</i>`;
   } else {
     const header = /*html*/ `
       <div class="header" style="grid-template-columns: 1.6em 7em 4em;">
         <div></div>
-        <div>Location</div>
-        <div>Units</div>
+        <div>地点</div>
+        <div>单位</div>
       </div>`;
     const rows = [...sources]
       .sort((a, b) => b.stock - a.stock)
       .map(
         source => /*html*/ `
-        <div data-tip="Click to zoom to location" class="states pointer" data-x="${source.x}" data-y="${source.y}" data-id="${source.id}">
+        <div data-tip="点击缩放至地点" class="states pointer" data-x="${source.x}" data-y="${source.y}" data-id="${source.id}">
           <div class="${source.type === "market" ? "icon-store" : "icon-dot-circled"}" style="width:1em"></div>
           <div style="width:7em;">${source.name}</div>
           <div style="width:4em;">${source.stock}</div>
@@ -358,9 +358,9 @@ function openStockDialog(goodId: number) {
 
   $("#alert").dialog({
     resizable: false,
-    title: `${good.name} stock`,
+    title: `${good.name} 库存`,
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }
@@ -399,25 +399,25 @@ function openTagsVisibilityDialog() {
   const tags = unique(pack.goods.flatMap(good => good.tags));
   const renderTag = (tag: string) =>
     `<label style="display: flex; align-items: center;"><input type="checkbox" class="native" value="${tag}" ${visibleTags.has(tag) ? "checked" : ""} /> ${tag}</label>`;
-  const tagsMarkup = tags.length ? tags.map(renderTag).join("") : '<div style="color:#666">No tags available</div>';
+  const tagsMarkup = tags.length ? tags.map(renderTag).join("") : '<div style="color:#666">无可用标签</div>';
 
   alertMessage.innerHTML = `
-    <div data-tip="Only goods with at least one selected tag remain visible in the editor list" style="display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 0.3em;">${tagsMarkup}</div>
+    <div data-tip="仅至少包含一个所选标签的货物在编辑器列表中保持可见" style="display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 0.3em;">${tagsMarkup}</div>
   `;
 
   $("#alert").dialog({
     resizable: false,
     title: "按标签筛选货物",
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      "Clear filter": function () {
+      清除筛选: function () {
         visibleTags.clear();
         applyTagVisibilityFilter();
         $(this).dialog("close");
       },
-      Apply: function () {
+      应用: function () {
         const checks = Array.from(alertMessage.querySelectorAll<HTMLInputElement>("input[type=checkbox]:checked"));
         visibleTags.clear();
         checks.forEach(check => void visibleTags.add(check.value));
@@ -446,7 +446,7 @@ function goodsRestoreDefaults() {
   confirmationDialog({
     title: "恢复默认货物",
     message: "确定要恢复默认货物吗？<br>此操作无法撤销",
-    confirm: "Restore",
+    confirm: "恢复",
     onConfirm: () => {
       Goods.restoreDefaults();
       Goods.generate();
@@ -622,9 +622,8 @@ function updateDisplayAllCheckbox() {
 function requestGoodsRegeneration() {
   confirmationDialog({
     title: "重新生成奖励货物",
-    message:
-      "确定要重新生成奖励货物分布吗？生成将基于当前货物设置，不会影响生产或贸易",
-    confirm: "Regenerate",
+    message: "确定要重新生成奖励货物分布吗？生成将基于当前货物设置，不会影响生产或贸易",
+    confirm: "重新生成",
     onConfirm: window.regenerateGoods
   });
 }
@@ -632,15 +631,14 @@ function requestGoodsRegeneration() {
 function requestProductionRegeneration() {
   confirmationDialog({
     title: "重新生成生产",
-    message:
-      "确定要为所有货物重新生成生产和贸易吗？生成将基于当前货物设置和奖励货物分布",
-    confirm: "Regenerate",
+    message: "确定要为所有货物重新生成生产和贸易吗？生成将基于当前货物设置和奖励货物分布",
+    confirm: "重新生成",
     onConfirm: window.regenerateProduction
   });
 }
 
 function removeGood(good: Good, line: HTMLElement) {
-  const message = "Are you sure you want to remove the resource? <br>This action cannot be reverted";
+  const message = "确定要移除该资源吗？<br>此操作无法撤销";
   const onConfirm = () => {
     for (const i of pack.cells.i) {
       if (pack.cells.good[i] === good.i) {
@@ -656,7 +654,7 @@ function removeGood(good: Good, line: HTMLElement) {
     updateDisplayAllCheckbox();
     drawGoods();
   };
-  confirmationDialog({ title: "移除资源", message, confirm: "Remove", onConfirm });
+  confirmationDialog({ title: "移除资源", message, confirm: "移除", onConfirm });
 }
 
 function closeGoodsEditor() {

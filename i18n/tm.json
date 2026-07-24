@@ -6388,7 +6388,7 @@
     {
       "id": "sha256:ff166063b835b3d8",
       "source": "Hemp",
-      "target": "大麻",
+      "target": "火麻",
       "file": "src/generators/goods-generator.ts",
       "line": 312,
       "type": "ts_string",
@@ -21340,6 +21340,5626 @@
       "context_tag": "label",
       "skipped": false,
       "skip_reason": null
+    },
+    {
+      "id": "sha256:923b13b59420a08e",
+      "source": "Biomes",
+      "target": "生物群系",
+      "file": "src/index.html",
+      "line": 2039,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a85ab26fc7042d1b",
+      "source": "Burgs",
+      "target": "城镇",
+      "file": "src/index.html",
+      "line": 2042,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:62461b1bcd7ae231",
+      "source": "Cultures",
+      "target": "文化",
+      "file": "src/index.html",
+      "line": 2052,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:18b895704a209297",
+      "source": "Emblems",
+      "target": "纹章",
+      "file": "src/index.html",
+      "line": 2062,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6893cfebf6e05879",
+      "source": "Heightmap",
+      "target": "高度图",
+      "file": "src/index.html",
+      "line": 2070,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4e8d1a7260782cb2",
+      "source": "Markers",
+      "target": "标记",
+      "file": "src/index.html",
+      "line": 2073,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:97f5c16fcbfb4d9d",
+      "source": "Markets",
+      "target": "市场",
+      "file": "src/index.html",
+      "line": 2076,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b96da71c6bdcdbdf",
+      "source": "Military",
+      "target": "军事",
+      "file": "src/index.html",
+      "line": 2086,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cf688007f70222ab",
+      "source": "Provinces",
+      "target": "省份",
+      "file": "src/index.html",
+      "line": 2093,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ef1d1c23482f3289",
+      "source": "Religions",
+      "target": "宗教",
+      "file": "src/index.html",
+      "line": 2096,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2e996c751ec86a5c",
+      "source": "Rivers",
+      "target": "河流",
+      "file": "src/index.html",
+      "line": 2099,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2c5b669bcdeb51bf",
+      "source": "Routes",
+      "target": "道路",
+      "file": "src/index.html",
+      "line": 2102,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2f6e9daec8e9b3b3",
+      "source": "States",
+      "target": "国家",
+      "file": "src/index.html",
+      "line": 2105,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9709653fc80ceb83",
+      "source": "Trade",
+      "target": "贸易",
+      "file": "src/index.html",
+      "line": 2108,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a85ab26fc7042d1b",
+      "source": "Burgs",
+      "target": "城镇",
+      "file": "src/index.html",
+      "line": 2119,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4e8d1a7260782cb2",
+      "source": "Markers",
+      "target": "标记",
+      "file": "src/index.html",
+      "line": 2138,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:97f5c16fcbfb4d9d",
+      "source": "Markets",
+      "target": "市场",
+      "file": "src/index.html",
+      "line": 2141,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b96da71c6bdcdbdf",
+      "source": "Military",
+      "target": "军事",
+      "file": "src/index.html",
+      "line": 2147,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5b828861aec15d60",
+      "source": "Population",
+      "target": "人口",
+      "file": "src/index.html",
+      "line": 2150,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cf688007f70222ab",
+      "source": "Provinces",
+      "target": "省份",
+      "file": "src/index.html",
+      "line": 2162,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2e996c751ec86a5c",
+      "source": "Rivers",
+      "target": "河流",
+      "file": "src/index.html",
+      "line": 2172,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2f6e9daec8e9b3b3",
+      "source": "States",
+      "target": "国家",
+      "file": "src/index.html",
+      "line": 2179,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a53aa373c5e23e69",
+      "source": "Zones",
+      "target": "区域",
+      "file": "src/index.html",
+      "line": 2185,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0e66373f45dcf3dd",
+      "source": "Label",
+      "target": "标签",
+      "file": "src/index.html",
+      "line": 2202,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:07f1896758704287",
+      "source": "River",
+      "target": "河流",
+      "file": "src/index.html",
+      "line": 2217,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6e0aea0573b97d40",
+      "source": "Cells",
+      "target": "单元格",
+      "file": "src/index.html",
+      "line": 2224,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4bad6cff07d21781",
+      "source": "Minimap",
+      "target": "小地图",
+      "file": "src/index.html",
+      "line": 2234,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad678f3222aae53c",
+      "source": "Click to open Heightmap customization menu",
+      "target": "点击打开高度图自定义菜单",
+      "file": "src/index.html",
+      "line": 2067,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:36841641b34852ea",
+      "source": "Click on map to place label. Hold Shift to add multiple",
+      "target": "点击地图放置标签。按住 Shift 可添加多个",
+      "file": "src/index.html",
+      "line": 2199,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e47e84b228b662fb",
+      "source": "Skirmish phase. Ranged units excel",
+      "target": "小规模冲突阶段。远程单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 84,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a3efa82bf31795a7",
+      "source": "Melee phase. Melee units excel",
+      "target": "近战阶段。近战单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 88,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eed846eaccfe56a0",
+      "source": "Pursue phase. Mounted units excel",
+      "target": "追击阶段。骑乘单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 90,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c2e8dd09f9190901",
+      "source": "Retreat phase. Units strength reduced",
+      "target": "撤退阶段。单位实力减弱",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 95,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7c1603534cbafbfd",
+      "source": "Shelling phase. Naval artillery bombardment of enemy fleet",
+      "target": "炮击阶段。海军火炮轰击敌方舰队",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 102,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5f60ed39a5e9e89a",
+      "source": "Boarding phase. Melee units go aboard",
+      "target": "接舷阶段。近战单位登船",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 107,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b98d58afcaf49cca",
+      "source": "Сhase phase. Naval units pursue and rarely shell enemy fleet",
+      "target": "追击阶段。海军单位追击并偶尔炮击敌方舰队",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 112,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b21e46c56b0988e4",
+      "source": "Withdrawal phase. Naval units try to escape enemy fleet",
+      "target": "撤退阶段。海军单位试图逃离敌方舰队",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 117,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:86873218d76e0284",
+      "source": "Blockade phase. Prepare or hold the blockade",
+      "target": "封锁阶段。准备或维持封锁",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 124,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:66717bc4430fe34a",
+      "source": "Bombardment phase. Attack enemy with machinery units",
+      "target": "轰击阶段。用器械单位攻击敌方",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 129,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1a499218de65b3c9",
+      "source": "Storming phase. Storm enemy town. Melee units excel",
+      "target": "强攻阶段。强攻敌方城镇。近战单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 134,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3eec661f73fc4d9a",
+      "source": "Looting phase. Plunder the town. Units strength increased",
+      "target": "劫掠阶段。洗劫城镇。单位实力增强",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 139,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:09367a423ec7cd89",
+      "source": "Sheltering phase. Hide behind the walls and wait",
+      "target": "坚守阶段。躲藏在城墙后等待",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 151,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bbe443ea7d8c340a",
+      "source": "Sortie phase. Make a sortie from besieged town. Melee units excel",
+      "target": "突围阶段。从被围城镇出击。近战单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 156,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fb2e4fc515fac543",
+      "source": "Defense phase. Ranged and melee units excel",
+      "target": "防御阶段。远程和近战单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 166,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1bd8ec9b0d57e032",
+      "source": "Surrendering phase. Give up the defense. Units strength reduced",
+      "target": "投降阶段。放弃防御。单位实力减弱",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 171,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:72975130e6723caf",
+      "source": "Shock phase. Units strength reduced",
+      "target": "冲击阶段。单位实力减弱",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 183,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:429c8bf4838bb6bc",
+      "source": "Surprice attack phase. Units strength increased, ranged units excel",
+      "target": "突袭阶段。单位实力增强，远程单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 201,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1e659467bf049660",
+      "source": "Landing phase. Amphibious attack. Units are vulnerable against prepared defense",
+      "target": "登陆阶段。两栖攻击。单位面对有准备的防御时处于劣势",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 219,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dffea2ccf9807c06",
+      "source": "Flee phase. Units strength reduced",
+      "target": "溃逃阶段。单位实力减弱",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 229,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ffaf2160afb818aa",
+      "source": "Shock phase. Units are not prepared for a defense",
+      "target": "冲击阶段。单位未做好防御准备",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 233,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b2c996bb26f78060",
+      "source": "Defense phase. Prepared defense. Units strength increased",
+      "target": "防御阶段。有准备的防御。单位实力增强",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 238,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2e3a4667ff763861",
+      "source": "Waiting phase. Cannot pursue fleeing naval",
+      "target": "等待阶段。无法追击溃逃的海军",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 244,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4ec111956d50eaf3",
+      "source": "Pursue phase. Try to intercept fleeing attackers. Mounted units excel",
+      "target": "追击阶段。试图拦截溃逃的攻击者。骑乘单位占优",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 249,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4ae6bc6b59ffcb30",
+      "source": "Maneuvering phase. Units strength reduced",
+      "target": "机动阶段。单位实力减弱",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 261,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b48571797b380d3f",
+      "source": "Dogfight phase. Units strength increased",
+      "target": "空战阶段。单位实力增强",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 266,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e8e7f397517def72",
+      "source": "Pursue phase. Units strength increased",
+      "target": "追击阶段。单位实力增强",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 271,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3973cf13bd2ee8d2",
+      "source": "Random factor for attackers. Click to re-roll",
+      "target": "攻击方随机因子。点击重新投掷",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 305,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c6dc2a55254d661e",
+      "source": "Random factor for defenders. Click to re-roll",
+      "target": "防守方随机因子。点击重新投掷",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 336,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cb6fa5481f207cd0",
+      "source": "Battle type. Click to change",
+      "target": "战斗类型。点击更改",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 345,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ee673c646a60318c",
+      "source": "Field Battle: a standard type of combat",
+      "target": "野战：标准战斗类型",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 348,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:df4d1def7985e3bb",
+      "source": "Naval Battle: naval units combat",
+      "target": "海战：海军单位战斗",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 352,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dfe8e3830e70b32b",
+      "source": "Siege: burg blockade and storming",
+      "target": "围城：城镇封锁与强攻",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 353,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:629e21d2f52b93d6",
+      "source": "Ambush: surprise attack",
+      "target": "伏击：突袭",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 354,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b4485fdb472d2f28",
+      "source": "Landing: amphibious attack",
+      "target": "登陆：两栖攻击",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 355,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f14d78fd45432a48",
+      "source": "Air Battle: maneuring fight of avia units",
+      "target": "空战：飞行单位的机动战斗",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 357,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5d896a87c23b314e",
+      "source": "Set battle name",
+      "target": "设置战斗名称",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 362,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:85669eccb795ca0b",
+      "source": "Hide the battle name section",
+      "target": "隐藏战斗名称区域",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 364,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d1aee53b465ea00e",
+      "source": "Generate culture-specific name for place and battle",
+      "target": "生成特定文化风格的地名和战斗名",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 369,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:18ac845eecc323ec",
+      "source": "Generate random name for place and battle",
+      "target": "生成随机地名和战斗名",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 374,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:14287e1818318b53",
+      "source": "Add regiment to the battle",
+      "target": "向战斗添加军团",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 378,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9e4c62afd7234326",
+      "source": "Roll dice to update random factor",
+      "target": "投掷骰子更新随机因子",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 379,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:158ccd30235e484d",
+      "source": "Iterate battle",
+      "target": "推进战斗",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 380,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e14de896c8763cd2",
+      "source": "End battle: apply current results and close the screen",
+      "target": "结束战斗：应用当前结果并关闭界面",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 383,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d3e0c71b342b75ab",
+      "source": "Cancel battle: roll back results and close the screen",
+      "target": "取消战斗：回滚结果并关闭界面",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 388,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:98286e3ba415b227",
+      "source": "Open Battle Simulation Tutorial",
+      "target": "打开战斗模拟教程",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 391,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:62bea586427a34bd",
+      "source": "Show the group selection",
+      "target": "显示组选择",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 40,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c3a873d9de178ddf",
+      "source": "Hide the group selection",
+      "target": "隐藏组选择",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 42,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:281f2d601803130d",
+      "source": "Show the edit label text section",
+      "target": "显示标签文本编辑区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 57,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:87c204e66e3ae89c",
+      "source": "Hide the edit label text section",
+      "target": "隐藏标签文本编辑区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 59,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:596a4906d53082f3",
+      "source": "Edit label group style in Style Editor",
+      "target": "在样式编辑器中编辑标签组样式",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 68,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6b9f35612848c1ad",
+      "source": "Show the font size section",
+      "target": "显示字号区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 69,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:81f6ce5f18ea97da",
+      "source": "Hide the font size section",
+      "target": "隐藏字号区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 71,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:18fa315f67ad1761",
+      "source": "Show the label offset section",
+      "target": "显示标签偏移区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 83,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:297aab5a48464191",
+      "source": "Hide the label offset section",
+      "target": "隐藏标签偏移区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 85,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1e60fa55a598d5f0",
+      "source": "Show the letter spacing section",
+      "target": "显示字间距区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 105,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:74d11d72605224aa",
+      "source": "Hide the letter spacing section",
+      "target": "隐藏字间距区域",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 109,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:18a5a9c1f13beb6e",
+      "source": "Turn text path into a straight line",
+      "target": "将文本路径变为直线",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 122,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:394d2b5d63783564",
+      "source": "Edit free text notes (legend) for this label",
+      "target": "编辑此标签的自由文本笔记（图例）",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 123,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:351e4c768afb72f2",
+      "source": "Remove the label",
+      "target": "移除标签",
+      "file": "src/controllers/labels-editor.ts",
+      "line": 126,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:aef9e29e9a8aead5",
+      "source": "Show the group selection",
+      "target": "显示组选择",
+      "file": "src/controllers/coastline-vertex-editor.ts",
+      "line": 30,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a6daf31360892b6e",
+      "source": "Hide the group section",
+      "target": "隐藏组区域",
+      "file": "src/controllers/coastline-vertex-editor.ts",
+      "line": 32,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b9c4bafc75bcf9f0",
+      "source": "Edit coastline group style in Style Editor",
+      "target": "在样式编辑器中编辑海岸线组样式",
+      "file": "src/controllers/coastline-vertex-editor.ts",
+      "line": 38,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:16578974ebb38302",
+      "source": "Landmass area in selected units",
+      "target": "以所选单位显示的陆地面积",
+      "file": "src/controllers/coastline-vertex-editor.ts",
+      "line": 39,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2fa5cae8a5bcb273",
+      "source": "Focus on selected object",
+      "target": "聚焦到所选对象",
+      "file": "src/controllers/notes-editor.ts",
+      "line": 72,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4afa64d93c7d6136",
+      "source": "Generate note with AI",
+      "target": "用 AI 生成笔记",
+      "file": "src/controllers/notes-editor.ts",
+      "line": 73,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c25c83e2c9f31a63",
+      "source": "Toggle notes box display: hide or do not hide the box on mouse move",
+      "target": "切换笔记框显示：鼠标移动时隐藏或不隐藏笔记框",
+      "file": "src/controllers/notes-editor.ts",
+      "line": 74,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3db60013cf37857f",
+      "source": "Download notes to PC",
+      "target": "下载笔记到电脑",
+      "file": "src/controllers/notes-editor.ts",
+      "line": 75,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b2e27ec0d028b6f4",
+      "source": "Upload notes from PC",
+      "target": "从电脑上传笔记",
+      "file": "src/controllers/notes-editor.ts",
+      "line": 76,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a09f8208efe8a034",
+      "source": "Remove this note",
+      "target": "移除此笔记",
+      "file": "src/controllers/notes-editor.ts",
+      "line": 77,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e2a6e3f5ff3632d8",
+      "source": "Click to place a linear measurer (ruler)",
+      "target": "点击放置线性测量器（直尺）",
+      "file": "src/controllers/measurers-editor.ts",
+      "line": 39,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:61480e965c030f6f",
+      "source": "Drag to measure a curve length (opisometer)",
+      "target": "拖动测量曲线长度（曲线计）",
+      "file": "src/controllers/measurers-editor.ts",
+      "line": 40,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:818ebe53f4d9bcdd",
+      "source": "Drag to measure a curve length that sticks to routes (route opisometer)",
+      "target": "拖动测量贴合道路的曲线长度（道路曲线计）",
+      "file": "src/controllers/measurers-editor.ts",
+      "line": 41,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c1a758177a8b3768",
+      "source": "Drag to measure a polygon area (planimeter)",
+      "target": "拖动测量多边形面积（面积仪）",
+      "file": "src/controllers/measurers-editor.ts",
+      "line": 44,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1326953add07d0a4",
+      "source": "Remove all measurers from the map",
+      "target": "从地图移除所有测量器",
+      "file": "src/controllers/measurers-editor.ts",
+      "line": 45,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:325c960e0ae8f844",
+      "source": "Show style edit section",
+      "target": "显示样式编辑区域",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 193,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c420b177c4f9ca58",
+      "source": "Hide style edit section",
+      "target": "隐藏样式编辑区域",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 195,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:70450a12af8fd999",
+      "source": "Edit label style for burg group in Style Editor",
+      "target": "在样式编辑器中编辑城镇组标签样式",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 198,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:26595d465ad60c9c",
+      "source": "Edit icon style for burg group in Style Editor",
+      "target": "在样式编辑器中编辑城镇组图标样式",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 203,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:95c66ef7778b1593",
+      "source": "Edit port icon (anchor) style for burg group in Style Editor",
+      "target": "在样式编辑器中编辑城镇组港口图标（锚）样式",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 208,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f5f0d654467f550a",
+      "source": "Edit emblem",
+      "target": "编辑纹章",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 212,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ee64f030d256b392",
+      "source": "Set custom burg map URL",
+      "target": "设置自定义城镇地图 URL",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 213,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b90cb77eadbf0def",
+      "source": "Zoom map and center view in the burg",
+      "target": "缩放地图并居中视图到城镇",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 214,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b93bb25c33852f03",
+      "source": "Show production overview for this burg",
+      "target": "显示此城镇的产能总览",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 217,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dd37c7346861e6cf",
+      "source": "Relocate burg. Click on map to move the burg",
+      "target": "重新定位城镇。点击地图移动城镇",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 222,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9edfbd9395707c11",
+      "source": "Edit free text notes (legend) for this burg",
+      "target": "编辑此城镇的自由文本笔记（图例）",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 225,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:757aecd756c71c1e",
+      "source": "Remove non-capital burg",
+      "target": "移除非首都城镇",
+      "file": "src/controllers/burg-editor.ts",
+      "line": 229,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d33b794b516d5568",
+      "source": "Add a chart",
+      "target": "添加图表",
+      "file": "src/controllers/charts-overview.ts",
+      "line": 391,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:893667d4b7734fa4",
+      "source": "Download chart data as a text file (.csv)",
+      "target": "下载图表数据为文本文件（.csv）",
+      "file": "src/controllers/charts-overview.ts",
+      "line": 825,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:156d300145339243",
+      "source": "Download the chart as a PNG image",
+      "target": "下载图表为 PNG 图像",
+      "file": "src/controllers/charts-overview.ts",
+      "line": 826,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9eee1f7d7807befa",
+      "source": "Download the chart in SVG format (vector, opens in a browser or Inkscape)",
+      "target": "下载图表为 SVG 格式（矢量，可在浏览器或 Inkscape 中打开）",
+      "file": "src/controllers/charts-overview.ts",
+      "line": 827,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c9b375bbb10b0978",
+      "source": "Remove the chart",
+      "target": "移除图表",
+      "file": "src/controllers/charts-overview.ts",
+      "line": 828,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6ca74bbef55af80a",
+      "source": "Edit ${label} multipliers",
+      "target": "编辑 ${label} 乘数",
+      "file": "src/controllers/good-editor.ts",
+      "line": 44,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f7b7cc4b28794ca1",
+      "source": "Upload raster icon",
+      "target": "上传栅格图标",
+      "file": "src/controllers/good-editor.ts",
+      "line": 242,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7ff046aac51fe713",
+      "source": "Upload vector (SVG) icon",
+      "target": "上传矢量（SVG）图标",
+      "file": "src/controllers/good-editor.ts",
+      "line": 243,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e65ae7023a7b9226",
+      "source": "Edit demand coverage",
+      "target": "编辑需求覆盖",
+      "file": "src/controllers/good-editor.ts",
+      "line": 250,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e4a27a5aea4df3e5",
+      "source": "Edit biome baseline production",
+      "target": "编辑生物群系基础产能",
+      "file": "src/controllers/good-editor.ts",
+      "line": 261,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:79f8b9a643fd51b7",
+      "source": "Open the Distribution visual editor",
+      "target": "打开分布可视化编辑器",
+      "file": "src/controllers/good-editor.ts",
+      "line": 267,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:31dcbd6a7dfcdcf2",
+      "source": "Add a recipe",
+      "target": "添加配方",
+      "file": "src/controllers/good-editor.ts",
+      "line": 276,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f40169444a2ce893",
+      "source": "Find or share custom namesbase on Cartography Assets portal",
+      "target": "在 Cartography Assets 门户查找或分享自定义名称库",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 87,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:696ae5a2e12073b3",
+      "source": "Analyze namesbase to get a validity and quality overview",
+      "target": "分析名称库以获取有效性和质量总览",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 92,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:18e2773fc361fe51",
+      "source": "Speak the examples. You can change voice and language in options",
+      "target": "朗读示例。可在选项中更改语音和语言",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 97,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:57a7d75de6170504",
+      "source": "Save military-related data as a text file (.csv)",
+      "target": "保存军事相关数据为文本文件（.csv）",
+      "file": "src/controllers/regiments-overview.ts",
+      "line": 63,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3ad4d376fb827d75",
+      "source": "Select allowed ${attr}",
+      "target": "选择允许的 ${attr}",
+      "file": "src/controllers/military-overview.ts",
+      "line": 438,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:61d4f0f1815d123e",
+      "source": "Click to select unit icon",
+      "target": "点击选择单位图标",
+      "file": "src/controllers/military-overview.ts",
+      "line": 447,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d2a5409baa6f7f27",
+      "source": "Find or share custom template on Cartography Assets portal",
+      "target": "在 Cartography Assets 门户查找或分享自定义模板",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 112,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4287db0f23985bff",
+      "source": "Open Template Editor Tutorial",
+      "target": "打开模板编辑器教程",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 120,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:562937e23a4d4709",
+      "source": "Load image to convert",
+      "target": "加载图像进行转换",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 186,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9f3e46f26fbae804",
+      "source": "Auto-assign colors based on liminosity (good for monochrome images)",
+      "target": "基于亮度自动分配颜色（适用于单色图像）",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 189,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:24a184d72378c80f",
+      "source": "Auto-assign colors based on hue (good for colored images)",
+      "target": "基于色相自动分配颜色（适用于彩色图像）",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 194,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9e4d4f2a95ffadf3",
+      "source": "Auto-assign colors using generator scheme (for exported colored heightmaps)",
+      "target": "使用生成器配色方案自动分配颜色（用于导出的彩色高度图）",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 199,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a22bc61ae40e0dca",
+      "source": "Set maximum number of colors",
+      "target": "设置最大颜色数",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 202,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b2996be032d78f4c",
+      "source": "Cancel the conversion. Previous heightmap will be restored",
+      "target": "取消转换。将恢复之前的高度图",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 206,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e7a8f47128973d91",
+      "source": "Complete the conversion. All unassigned colors will be considered as ocean",
+      "target": "完成转换。所有未分配的颜色将被视为海洋",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 231,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dda54f71c06ef1e0",
+      "source": "Raise brush: increase height of cells in radius by Power value",
+      "target": "抬升笔刷：按强度值增加半径内单元格的高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 912,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:23e30f5740d38239",
+      "source": "Elevate brush: drag to gradually increase height of cells in radius by Power value",
+      "target": "升高笔刷：拖动按强度值逐渐增加半径内单元格的高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 917,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:69ecb5d51aa7839d",
+      "source": "Lower brush: drag to decrease height of cells in radius by Power value",
+      "target": "降低笔刷：拖动按强度值减少半径内单元格的高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 922,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e28b6a64333ad8cf",
+      "source": "Depress brush: drag to gradually decrease height of cells in radius by Power value",
+      "target": "下沉笔刷：拖动按强度值逐渐减少半径内单元格的高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 927,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e9942007f177e9b1",
+      "source": "Align brush: drag to set height of cells in radius to height of the cell at mousepoint",
+      "target": "对齐笔刷：拖动将半径内单元格高度设为鼠标所在单元格的高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 932,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:63a543889536b766",
+      "source": "Smooth brush: drag to level height of cells in radius to height of adjacent cells",
+      "target": "平滑笔刷：拖动将半径内单元格高度平整为相邻单元格的高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 937,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:395a40537afff843",
+      "source": "Disrupt brush: drag to randomize height of cells in radius based on Power value",
+      "target": "扰动笔刷：拖动按强度值随机化半径内单元格的高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 942,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c050ff418a52f401",
+      "source": "Fill: click enclosed water or same-height land area to create a cone blob",
+      "target": "填充：点击封闭水域或等高陆地以创建锥形隆起",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 947,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7774806d7f9e0e3e",
+      "source": "Line: select two points to change heights along the line",
+      "target": "直线：选择两点以沿直线改变高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 953,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2d00b2cff2b2684e",
+      "source": "Regenerate emblem",
+      "target": "重新生成纹章",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 134,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1726e96da407fe2f",
+      "source": "Edit the emblem in Armoria - dedicated heraldry editor. Download emblem and upload it back map the generator",
+      "target": "在 Armoria（专用纹章编辑器）中编辑纹章。下载纹章并上传回生成器",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 137,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b2d46e09e6156654",
+      "source": "Set size, select file format and download emblem image",
+      "target": "设置尺寸，选择文件格式并下载纹章图像",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 142,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dc198a8fae459148",
+      "source": "Upload png, jpg or svg image from Armoria or other sources as emblem",
+      "target": "上传来自 Armoria 或其他来源的 png、jpg 或 svg 图像作为纹章",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 147,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2aba0dfd3c8e8fc8",
+      "source": "Download emblems gallery as html document (open in browser; downloading takes some time)",
+      "target": "下载纹章库为 HTML 文档（在浏览器中打开；下载需要一些时间）",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 152,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c325d822b62ab59b",
+      "source": "Show emblem associated area or place",
+      "target": "显示纹章关联的区域或地点",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 155,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d8a02a0759ea7c7e",
+      "source": "Upload SVG or PNG image from any source. Make sure background is transparent",
+      "target": "上传来自任意来源的 SVG 或 PNG 图像。确保背景透明",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 160,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7bb700bcf83b8ba5",
+      "source": "Upload prepared SVG image (SVG from Armoria or SVG processed with 'Optimize vector' tool)",
+      "target": "上传已准备的 SVG 图像（来自 Armoria 的 SVG 或经'优化矢量'工具处理的 SVG）",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 166,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:75556681f0664866",
+      "source": "Download as SVG: scalable vector image. Best quality, can be opened in browser or Inkscape",
+      "target": "下载为 SVG：可缩放矢量图像。质量最佳，可在浏览器或 Inkscape 中打开",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 196,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a782040045fdd84a",
+      "source": "Download as PNG: lossless raster image with transparent background",
+      "target": "下载为 PNG：无损栅格图像，透明背景",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 200,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e8684aee8fb86ca1",
+      "source": "Download as JPG: lossy compressed raster image with solid white background",
+      "target": "下载为 JPG：有损压缩栅格图像，纯白背景",
+      "file": "src/controllers/emblems-editor.ts",
+      "line": 205,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2ab15a1d9ce66651",
+      "source": "Download the chart data as a CSV file",
+      "target": "下载图表数据为 CSV 文件",
+      "file": "src/controllers/elevation-profile.ts",
+      "line": 581,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d8f45d8fa7238e9d",
+      "source": "Download the chart as an SVG image",
+      "target": "下载图表为 SVG 图像",
+      "file": "src/controllers/elevation-profile.ts",
+      "line": 583,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:96978a11a8548e65",
+      "source": "Download the chart as a PNG image",
+      "target": "下载图表为 PNG 图像",
+      "file": "src/controllers/elevation-profile.ts",
+      "line": 584,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eea58178c412176b",
+      "source": "Toggle selection of all states. Also supports Ctrl+A.",
+      "target": "切换全选/取消全选国家。也支持 Ctrl+A。",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 326,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6985ae40eb9cc884",
+      "source": "Click to see the usage instructions",
+      "target": "点击查看使用说明",
+      "file": "src/controllers/ai-generator.ts",
+      "line": 239,
+      "type": "html_attr",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a7b2300c051ae17",
+      "source": "Click to sort by state name",
+      "target": "点击按国家名称排序",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 396,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0bb3e553f35419c4",
+      "source": "Click to sort by regiment name",
+      "target": "点击按军团名称排序",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 399,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:651dcb65567ff302",
+      "source": "Click to sort by total military forces",
+      "target": "点击按总军事力量排序",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 402,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b9ea607e0efff9a6",
+      "source": "Total&nbsp;",
+      "target": "总数&nbsp;",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 402,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d1711b4b3801fc72",
+      "source": "Click to sort by distance to the battlefield",
+      "target": "点击按到战场距离排序",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 404,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1f5bc94fccda6735",
+      "source": "Click to sort by biome name",
+      "target": "点击按生物群系名称排序",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8066ca8e72e2aa24",
+      "source": "Click to sort by biome habitability",
+      "target": "点击按生物群系宜居度排序",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 31,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f711e16ef79ebfb6",
+      "source": "Click to sort by biome cells number",
+      "target": "点击按生物群系单元格数排序",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c936a580e694ca5b",
+      "source": "Click to sort by biome area",
+      "target": "点击按生物群系面积排序",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 41,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3200f7c4eddb5c45",
+      "source": "Area&nbsp;",
+      "target": "面积&nbsp;",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 41,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:129162ff44c2ab3a",
+      "source": "Click to sort by biome population",
+      "target": "点击按生物群系人口排序",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 42,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2c913069c4f43f24",
+      "source": "Number of land biomes",
+      "target": "陆地生物群系数",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:11013ff684b05a51",
+      "source": "Total land cells number",
+      "target": "陆地单元格总数",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 51,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:10a396afe0512b8b",
+      "source": "Total land area",
+      "target": "陆地总面积",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 54,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b262285383b7734a",
+      "source": "Total population",
+      "target": "总人口",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 57,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a606a2d847f84977",
+      "source": "Refresh the Editor",
+      "target": "刷新编辑器",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 62,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f821170f13705fd2",
+      "source": "Edit biomes style in Style Editor",
+      "target": "在样式编辑器中编辑生物群系样式",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7d4ee0e0ca49c5a6",
+      "source": "Toggle Legend box",
+      "target": "切换图例框",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:43704941d2dc92b4",
+      "source": "Toggle percentage / absolute values views",
+      "target": "切换百分比/绝对值视图",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 67,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6e619ff65e8d599e",
+      "source": "Manually re-assign biomes to not follow the default moisture/temperature pattern",
+      "target": "手动重新分配生物群系，不遵循默认的湿度/温度模式",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 72,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f8be0ba5c9bedf83",
+      "source": "Apply current assignment",
+      "target": "应用当前分配",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 80,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5041d13de7fe1bec",
+      "source": "Cancel assignment",
+      "target": "取消分配",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 81,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8fcc16ec6f1ad1cc",
+      "source": "Add a custom biome",
+      "target": "添加自定义生物群系",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 83,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ce032ed777fd64b5",
+      "source": "Restore the defaults and re-define biomes based on current moisture and temperature",
+      "target": "恢复默认设置，并基于当前湿度和温度重新定义生物群系",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 86,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b4c27bf200aa4b1f",
+      "source": "Save biomes-related data as a text file (.csv)",
+      "target": "将生物群系相关数据保存为文本文件 (.csv)",
+      "file": "src/controllers/biomes-editor.ts",
+      "line": 91,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c1079d0afa0b3882",
+      "source": "Click to sort by burg name",
+      "target": "点击按城镇名称排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 30,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:094a9345bbc468b1",
+      "source": "Burg",
+      "target": "城镇",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 19,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0cc2f689bf15877d",
+      "source": "Click to sort by province name",
+      "target": "点击按省份名称排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 31,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a3b50c476732c740",
+      "source": "State",
+      "target": "国家",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 34,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0cc7c65b3bbd9a1f",
+      "source": "Click to sort by culture name",
+      "target": "点击按文化名称排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bc62e0812d9c54f3",
+      "source": "Click to sort by culture group",
+      "target": "点击按文化组排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:34ca0e76608842ff",
+      "source": "Group",
+      "target": "组",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:96c15202a8c1bb23",
+      "source": "Click to sort by burg population",
+      "target": "点击按城镇人口排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:62be25ab36796ce5",
+      "source": "Click to sort by burg product",
+      "target": "点击按城镇产值排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1028ce4164880456",
+      "source": "Click to sort by burg wealth (gross product per capita)",
+      "target": "点击按城镇财富（人均产值）排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5d0d322c75d27621",
+      "source": "Click to sort by burg treasury",
+      "target": "点击按城镇国库排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1046c74ec1c8caf7",
+      "source": "Click to sort by burg features",
+      "target": "点击按城镇特征排序",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 55,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:667068e8d6bb40f0",
+      "source": "Burgs displayed",
+      "target": "显示的城镇数",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 78,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f16e7cb8f3b8f9d4",
+      "source": "Average population",
+      "target": "平均人口",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 81,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9a1c275764ce2ca8",
+      "source": "Average gross product",
+      "target": "平均总产值",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 84,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:48b129240b83479e",
+      "source": "Average wealth (product per capita)",
+      "target": "平均财富（人均产值）",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 87,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4f618099aef728a8",
+      "source": "Average treasury",
+      "target": "平均国库",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 90,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0ed03adda2ab7ddb",
+      "source": "Edit burg groups",
+      "target": "编辑城镇组",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 96,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6c23bb555b724547",
+      "source": "Show burgs bubble chart",
+      "target": "显示城镇气泡图",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 97,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7e3079f68fcc6df8",
+      "source": "Regenerate burg names based on assigned culture",
+      "target": "基于已分配文化重新生成城镇名称",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 100,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:44a294464fd057e2",
+      "source": "Add a new burg. Hold Shift to add multiple",
+      "target": "添加新城镇。按住 Shift 添加多个",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 103,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:48c56e9f504d8ff4",
+      "source": "Save burgs-related data as a text file (.csv)",
+      "target": "将城镇相关数据保存为文本文件 (.csv)",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 106,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e59033bbd7288229",
+      "source": "Rename burgs in bulk",
+      "target": "批量重命名城镇",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 109,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cc4d1328564e5278",
+      "source": "Lock or unlock all burgs",
+      "target": "锁定或解锁所有城镇",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 110,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e9da603e92f1c9ed",
+      "source": "Remove all unlocked burgs except for capitals. To remove a capital remove its state first",
+      "target": "移除所有未锁定的非首都城镇。要移除首都，请先移除其国家",
+      "file": "src/controllers/burgs-overview.ts",
+      "line": 113,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e441e8865506d4c9",
+      "source": "Market center burg name. Click to sort",
+      "target": "市场中心城镇名称。点击排序",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cb35153748ceeeae",
+      "source": "Market&nbsp;",
+      "target": "市场&nbsp;",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:14ef746b66591c03",
+      "source": "Good stock in this market. Click to sort",
+      "target": "本市场的货物库存。点击排序",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 29,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e4264b802e7df4b0",
+      "source": "Stock&nbsp;",
+      "target": "库存&nbsp;",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 29,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d63ccfe3d515212d",
+      "source": "Price for this good. Click to sort",
+      "target": "本货物价格。点击排序",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 30,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:03183dd4c9f77aa5",
+      "source": "Price&nbsp;",
+      "target": "价格&nbsp;",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 30,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b59629beb4e21d0c",
+      "source": "Total stock of this good across all markets",
+      "target": "所有市场中本货物总库存",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 34,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ff08c58c0018709e",
+      "source": "Total Stock:&nbsp;",
+      "target": "总库存:&nbsp;",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 34,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b12b0cc39c79f0a7",
+      "source": "Average price of this good across markets",
+      "target": "所有市场中本货物平均价格",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a5e191c85a14b8ad",
+      "source": "Avg Price:&nbsp;",
+      "target": "平均价格:&nbsp;",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0e91610117029a62",
+      "source": "Refresh",
+      "target": "刷新",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:755841bdcb4a4ded",
+      "source": "Save data as a CSV file",
+      "target": "将数据保存为 CSV 文件",
+      "file": "src/controllers/compare-prices.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:856f8ecfd35f7955",
+      "source": "Culture&nbsp;",
+      "target": "文化&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:24560451407bf476",
+      "source": "Click to sort by type",
+      "target": "点击按类型排序",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0ef16782e02a93dd",
+      "source": "Type&nbsp;",
+      "target": "类型&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2683171a9c719798",
+      "source": "Click to sort by culture namesbase",
+      "target": "点击按文化名称库排序",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:948f14477d1e912f",
+      "source": "Namesbase&nbsp;",
+      "target": "名称库&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c6b9a539d6df949d",
+      "source": "Click to sort by culture cells count",
+      "target": "点击按文化单元格数排序",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:72528abb14d8dfb2",
+      "source": "Cells&nbsp;",
+      "target": "单元格&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:67bd5d2e8b1568a1",
+      "source": "Click to sort by expansionism",
+      "target": "点击按扩张度排序",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 50,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6c4e4594ace8e89b",
+      "source": "Expansion&nbsp;",
+      "target": "扩张&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 50,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:feb12ffe863b5d27",
+      "source": "Click to sort by culture area",
+      "target": "点击按文化面积排序",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 51,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ea0a2c6dd2c02856",
+      "source": "Click to sort by culture population",
+      "target": "点击按文化人口排序",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4e510bf4f40f789c",
+      "source": "Population&nbsp;",
+      "target": "人口&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8ca702e295f6e1f0",
+      "source": "Click to sort by culture emblems shape",
+      "target": "点击按文化纹章形状排序",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 53,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b0f06292e6c4cb7c",
+      "source": "Emblems&nbsp;",
+      "target": "纹章&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 53,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:25645533b6dd61a1",
+      "source": "Cultures number",
+      "target": "文化数量",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 58,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:210727e3d7729ce0",
+      "source": "Cultures:&nbsp;",
+      "target": "文化:&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 58,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2bf07a5ab325b2e9",
+      "source": "Cells:&nbsp;",
+      "target": "单元格:&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 59,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9aec326243e4a100",
+      "source": "Land Area:&nbsp;",
+      "target": "陆地面积:&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 60,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e336152aa1d23e5a",
+      "source": "Population:&nbsp;",
+      "target": "人口:&nbsp;",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 61,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0f7d7690c12f92da",
+      "source": "Edit cultures style in Style Editor",
+      "target": "在样式编辑器中编辑文化样式",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3fb66507b5d34461",
+      "source": "Toggle percentage / absolute values display mode",
+      "target": "切换百分比/绝对值显示模式",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 68,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e97c47699c8929e4",
+      "source": "Show cultures hierarchy tree",
+      "target": "显示文化层级树",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:90d71301cc3e0fd9",
+      "source": "Manually re-assign cultures",
+      "target": "手动重新分配文化",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 70,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:73d0de765d35d7c7",
+      "source": "Undo last brush stroke",
+      "target": "撤销上次笔刷",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 75,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:80dada94d0a0ba64",
+      "source": "Apply assignment",
+      "target": "应用分配",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 76,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bceb8a06508928e0",
+      "source": "Edit a database used for names generation",
+      "target": "编辑用于名称生成的数据库",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:76412619d87bc285",
+      "source": "Add a new culture. Hold Shift to add multiple",
+      "target": "添加新文化。按住 Shift 添加多个",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 80,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:652f8e26bc13299e",
+      "source": "Download cultures-related data",
+      "target": "下载文化相关数据",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 81,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:61a4ef35ea4749ee",
+      "source": "Upload cultures-related data",
+      "target": "上传文化相关数据",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 82,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0a9935b32203dd20",
+      "source": "Recalculate cultures based on current values of growth-related attributes",
+      "target": "基于当前增长相关属性值重新计算文化",
+      "file": "src/controllers/cultures-editor.ts",
+      "line": 83,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:79134374b3a4de9f",
+      "source": "Click to sort by diplomatical relations",
+      "target": "点击按外交关系排序",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 89,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:35b7c44e75d47532",
+      "source": "Edit states (including diplomacy view) style in Style Editor",
+      "target": "在样式编辑器中编辑国家（含外交视图）样式",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 102,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b06f20a238ac5276",
+      "source": "Regenerate diplomatical relations",
+      "target": "重新生成外交关系",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 105,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2db8756320946bc2",
+      "source": "Reset diplomatical relations of selected state to Neutral",
+      "target": "将所选国家的外交关系重置为中立",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 108,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:982791c211376fb8",
+      "source": "Show relations history",
+      "target": "显示关系历史",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 111,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e1ca733b87130a97",
+      "source": "Show relations matrix",
+      "target": "显示关系矩阵",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 112,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:89acca65a60d737d",
+      "source": "Save state relations matrix as a text file (.csv)",
+      "target": "将国家关系矩阵保存为文本文件 (.csv)",
+      "file": "src/controllers/diplomacy-editor.ts",
+      "line": 115,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:225d9d13d10a32ed",
+      "source": "Click to sort by good name",
+      "target": "点击按货物名称排序",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c972b70edf5fbe3",
+      "source": "Unit of production. Click to sort",
+      "target": "生产单位。点击排序",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 53,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:44cc9c41225550c4",
+      "source": "Total units produced daily in cells (raw) and burgs (manufactured). Click to sort",
+      "target": "单元格（原料）和城镇（制造）中日产总量。点击排序",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 56,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1bd5b2d173fc3a4f",
+      "source": "Total units in stock across all markets and burg inventories. Click to sort",
+      "target": "所有市场及城镇库存中的总库存量。点击排序",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 59,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4ec44bd1f0b0f7e9",
+      "source": "Base (initial) price. Click to sort",
+      "target": "基础（初始）价格。点击排序",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 62,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e37528f07f611fe3",
+      "source": "Number of goods (displayed / total)",
+      "target": "货物数（显示/总数）",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 68,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:893d0a9bae04647a",
+      "source": "Goods:&nbsp;",
+      "target": "货物:&nbsp;",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 68,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7f0c6270011c6247",
+      "source": "Total units produced daily by all cells and burgs",
+      "target": "所有单元格和城镇的日产总量",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dff770192b4ebe41",
+      "source": "Produced:&nbsp;",
+      "target": "产量:&nbsp;",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:756b0cb5df7f2e03",
+      "source": "Total units in stock across all markets and burg inventories",
+      "target": "所有市场及城镇库存中的总库存量",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 59,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:58d550818cc0eef2",
+      "source": "Stock:&nbsp;",
+      "target": "库存:&nbsp;",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 70,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4a796d8ba18f0026",
+      "source": "Filter visible goods by tags",
+      "target": "按标签筛选可见货物",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:909ed03c5846e69d",
+      "source": "Manually assign goods to cells",
+      "target": "手动为单元格分配货物",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 80,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2e49a0fb97168d1b",
+      "source": "Add a new good",
+      "target": "添加新货物",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 81,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:084c3688f35eba49",
+      "source": "Regenerate bonus goods placement",
+      "target": "重新生成奖励货物放置",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 82,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f384c1efac22e48d",
+      "source": "Regenerate production and trade deals",
+      "target": "重新生成生产和贸易交易",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 83,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ec2c2734d5b9ad37",
+      "source": "Show production chains graph",
+      "target": "显示生产链图",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 84,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:538d19137a800ecd",
+      "source": "Restore default list and regenerate goods",
+      "target": "恢复默认列表并重新生成货物",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 87,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:570a642a6cec6a3d",
+      "source": "Download goods-related data",
+      "target": "下载货物相关数据",
+      "file": "src/controllers/goods-editor.ts",
+      "line": 90,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:11a809004690d366",
+      "source": "Hill: small blob",
+      "target": "丘陵：小块隆起",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 62,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3bf391c0e969671c",
+      "source": "Pit: round depression",
+      "target": "坑：圆形凹陷",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d77402f551bf53e5",
+      "source": "Range: elongated elevation",
+      "target": "山脉：长条形隆起",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5adff930e5076adb",
+      "source": "Trough: elongated depression",
+      "target": "槽：长条形凹陷",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 65,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3fd972b2c47cff67",
+      "source": "Strait: centered vertical or horizontal depression",
+      "target": "海峡：居中的垂直或水平凹陷",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4dadfdced9c8a163",
+      "source": "Mask: lower cells near edges or in map center",
+      "target": "遮罩：降低边缘或地图中心的单元格",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 67,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1ccf77390922f540",
+      "source": "Invert heightmap along the axes",
+      "target": "沿坐标轴反转高度图",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 68,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6d5dd001157e36a8",
+      "source": "Add or subtract value from all heights in range",
+      "target": "对范围内所有高度加或减值",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:553a29d3a7106562",
+      "source": "Multiply all heights in range by factor",
+      "target": "将范围内所有高度乘以系数",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 70,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4cf75e05cc6ea493",
+      "source": "Smooth the map replacing cell heights by an average values of its neighbors",
+      "target": "通过将单元格高度替换为邻居平均值来平滑地图",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 73,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3e451ce47e491f90",
+      "source": "Execute the template",
+      "target": "执行模板",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 105,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5c0514a1962cd85",
+      "source": "Undo the latest action",
+      "target": "撤销最近操作",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 106,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8c2769fa2629ac95",
+      "source": "Redo the action",
+      "target": "重做操作",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 107,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:94c8f60dbc658dfb",
+      "source": "Download the template as a text file",
+      "target": "将模板下载为文本文件",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 108,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:850963a8481ce99e",
+      "source": "Open previously downloaded template",
+      "target": "打开之前下载的模板",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 109,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c8ce20008f436fe7",
+      "source": "Undo the latest action (Ctrl + Z)",
+      "target": "撤销最近操作 (Ctrl + Z)",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 992,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f8f5de4be1aa4c16",
+      "source": "Redo the action (Ctrl + Y)",
+      "target": "重做操作 (Ctrl + Y)",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 993,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7b26c5bef4e33eca",
+      "source": "Show rescaler slider",
+      "target": "显示重缩放滑块",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 994,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:306351121979ce45",
+      "source": "Rescaler: change height if condition is fulfilled",
+      "target": "重缩放器：满足条件时更改高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 995,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a8368364fba98919",
+      "source": "Smooth all heights a bit",
+      "target": "稍微平滑所有高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 996,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0803a5ccf32ffae0",
+      "source": "Disrupt (randomize) heights a bit",
+      "target": "稍微扰乱（随机化）高度",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 997,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:66eaa1fcd53b8a83",
+      "source": "Set height for all cells to 0 (erase the map)",
+      "target": "将所有单元格高度设为 0（擦除地图）",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 998,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4e6c9c4e0ad70023",
+      "source": "Hide rescaler slider",
+      "target": "隐藏重缩放滑块",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 1001,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c8e5846113745d06",
+      "source": "Hide rescaler",
+      "target": "隐藏重缩放器",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 1009,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a94acaf856028425",
+      "source": "Click to perform an operation",
+      "target": "点击执行操作",
+      "file": "src/controllers/heightmap-editor.ts",
+      "line": 1023,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:047ff4ea10ecd67c",
+      "source": "Open Template Editor",
+      "target": "打开模板编辑器",
+      "file": "src/controllers/heightmap-selection.ts",
+      "line": 191,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2bde3312042006a0",
+      "source": "Open Image Converter",
+      "target": "打开图像转换器",
+      "file": "src/controllers/heightmap-selection.ts",
+      "line": 192,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:500cdd5521d4e0e4",
+      "source": "Edit style in Style Editor",
+      "target": "在样式编辑器中编辑样式",
+      "file": "src/controllers/ice-editor.ts",
+      "line": 42,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bbec3513a61c8ee8",
+      "source": "Randomize Iceberg shape",
+      "target": "随机生成冰山形状",
+      "file": "src/controllers/ice-editor.ts",
+      "line": 43,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:202c95af748081f3",
+      "source": "Add an Iceberg (click on map)",
+      "target": "添加冰山（点击地图）",
+      "file": "src/controllers/ice-editor.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ba2b88ba456df475",
+      "source": "Remove the element",
+      "target": "移除该元素",
+      "file": "src/controllers/ice-editor.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1881f9769b2c5067",
+      "source": "Edit free text notes (legend) for the lake",
+      "target": "编辑湖泊的自由文本注释（图例）",
+      "file": "src/controllers/lakes-editor.ts",
+      "line": 87,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2e85bbe061174e08",
+      "source": "Edit place legend (notes)",
+      "target": "编辑地点图例（笔记）",
+      "file": "src/controllers/markers-editor.ts",
+      "line": 86,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bb3c39c31f10bfd5",
+      "source": "Add additional marker of that type",
+      "target": "添加该类型的额外标记",
+      "file": "src/controllers/markers-editor.ts",
+      "line": 88,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7808ac17202ff0c1",
+      "source": "Remove the marker",
+      "target": "移除该标记",
+      "file": "src/controllers/markers-editor.ts",
+      "line": 89,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:811afafbea7e58e7",
+      "source": "Click to sort by marker type",
+      "target": "点击按标记类型排序",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:764e9f158fdefb8d",
+      "source": "Markers number",
+      "target": "标记数量",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:09f64bc9622fe854",
+      "source": "Refresh the Overview screen",
+      "target": "刷新总览界面",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:263c89bd100e7650",
+      "source": "Regenerate unlocked markers",
+      "target": "重新生成未锁定的标记",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 53,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f2bacefd1c6132c4",
+      "source": "Select marker type for newly added markers.",
+      "target": "选择新添加标记的标记类型。",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 55,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:148cab80f454e107",
+      "source": "Add a new marker. Hold Shift to add multiple",
+      "target": "添加新标记。按住 Shift 添加多个",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 60,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6f21bbb775823cf7",
+      "source": "Config markers generation options",
+      "target": "配置标记生成选项",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e4773a55a40b555f",
+      "source": "Remove all unlocked markers",
+      "target": "移除所有未锁定的标记",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:52e041b6bd5f78f4",
+      "source": "Save markers data as a text file (.csv)",
+      "target": "将标记数据保存为文本文件 (.csv)",
+      "file": "src/controllers/markers-overview.ts",
+      "line": 65,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:90a68a07992f77f6",
+      "source": "Click to sort by good",
+      "target": "点击按货物排序",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4949b42ef81e0ed0",
+      "source": "Good&nbsp;",
+      "target": "货物&nbsp;",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eebbfca3fbe6f29b",
+      "source": "Click to sort by deal type",
+      "target": "点击按交易类型排序",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 36,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cba591797a8904b7",
+      "source": "Click to sort by counterparty",
+      "target": "点击按交易对手排序",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 37,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:95b4079b4baa3479",
+      "source": "Counterparty&nbsp;",
+      "target": "对手&nbsp;",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 37,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9fe96eaa7eef2236",
+      "source": "Click to sort by units",
+      "target": "点击按数量排序",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:31543f3c50550874",
+      "source": "Units&nbsp;",
+      "target": "数量&nbsp;",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6cb22089c0501496",
+      "source": "Click to sort by income",
+      "target": "点击按收入排序",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 39,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e89995bf556d2813",
+      "source": "Income&nbsp;",
+      "target": "收入&nbsp;",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 39,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:97e951bd50ae02f6",
+      "source": "Deals count",
+      "target": "交易数",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:61d2d784dfd9a1f7",
+      "source": "Deals: ",
+      "target": "交易: ",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:78f1c2ae02bb41d3",
+      "source": "Net flow for this market",
+      "target": "本市场净流量",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:70e61fde547eeade",
+      "source": "Net Flow: ",
+      "target": "净流量: ",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5ad7b6f6c697c606",
+      "source": "Refresh the Deals screen",
+      "target": "刷新交易界面",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f06d78a3fcb1ad8d",
+      "source": "Save market deals data as a text file (.csv)",
+      "target": "将市场交易数据保存为文本文件 (.csv)",
+      "file": "src/controllers/market-deals-overview.ts",
+      "line": 50,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3a53e6de3466c138",
+      "source": "Click to sort by stock",
+      "target": "点击按库存排序",
+      "file": "src/controllers/market-overview.ts",
+      "line": 55,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bacda4eb33d381de",
+      "source": "Click to sort by price",
+      "target": "点击按价格排序",
+      "file": "src/controllers/market-overview.ts",
+      "line": 56,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:872b43ad53ccce35",
+      "source": "View market deals",
+      "target": "查看市场交易",
+      "file": "src/controllers/market-overview.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7c8347f346ce5918",
+      "source": "Relocate market. Click on a burg on the map to move the market center",
+      "target": "迁移市场。点击地图上的城镇以移动市场中心",
+      "file": "src/controllers/market-overview.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a0a013ab534d82ce",
+      "source": "Owning state. Click to sort",
+      "target": "所属国家。点击排序",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:06877d28068ee3fb",
+      "source": "Owner&nbsp;",
+      "target": "所有者&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:45c83ba0ef8a14c0",
+      "source": "Number of cells in market territory. Click to sort",
+      "target": "市场领土中的单元格数。点击排序",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:728ff426244fc840",
+      "source": "Number of burgs in market territory. Click to sort",
+      "target": "市场领土中的城镇数。点击排序",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:353afb6042bf384a",
+      "source": "Burgs&nbsp;",
+      "target": "城镇&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d4db011c15a7d20b",
+      "source": "Total stock of all goods. Click to sort",
+      "target": "所有货物总库存。点击排序",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b4c9924051ad4db2",
+      "source": "Total gross sales revenue. Click to sort",
+      "target": "销售总收入。点击排序",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9b975352eb314114",
+      "source": "Sales&nbsp;",
+      "target": "销售&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ed0f0201f090811c",
+      "source": "Total purchase spending. Click to sort",
+      "target": "采购总支出。点击排序",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4ca12c160ce4d108",
+      "source": "Buys&nbsp;",
+      "target": "采购&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3f5f735cb30beb8a",
+      "source": "Market value: net trading flow plus unsold inventory value minus tax. Click to sort",
+      "target": "市场价值：净贸易流量加未售库存价值减去税。点击排序",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 50,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7c3cd2f4d87e24a6",
+      "source": "Value&nbsp;",
+      "target": "价值&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 50,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a073252bf336b63",
+      "source": "Total number of markets",
+      "target": "市场总数",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 55,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e73403a6731adbd3",
+      "source": "Markets:&nbsp;",
+      "target": "市场:&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 55,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d5ccfaa72b738aae",
+      "source": "Average gross sales revenue per market",
+      "target": "每个市场平均销售总收入",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 56,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:63376c72fc84d480",
+      "source": "Avg Sales:&nbsp;",
+      "target": "平均销售:&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 56,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6f44945dcc01f3c7",
+      "source": "Average purchase spending per market",
+      "target": "每个市场平均采购支出",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 57,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ef277f3a5d007535",
+      "source": "Avg Buys:&nbsp;",
+      "target": "平均采购:&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 57,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d9d22ecd32d6644b",
+      "source": "Average market value per market",
+      "target": "每个市场平均市场价值",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 58,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f2e1e80a2961d3d2",
+      "source": "Avg Value:&nbsp;",
+      "target": "平均价值:&nbsp;",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 58,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:01d00dc22a529f56",
+      "source": "Refresh the overview",
+      "target": "刷新总览",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 61,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e504864eb5e13255",
+      "source": "Compare good stock across markets",
+      "target": "跨市场对比货物库存",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e28f085dc8894378",
+      "source": "Save markets data as a CSV file",
+      "target": "将市场数据保存为 CSV 文件",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:48983229751a4264",
+      "source": "Manually re-assign market territories",
+      "target": "手动重新分配市场领土",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:849feff6de8e0d54",
+      "source": "Add a new market. Click on a burg on the map. Hold Shift to add multiple",
+      "target": "添加新市场。点击地图上的城镇。按住 Shift 添加多个",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 72,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a4724e3d623a75ac",
+      "source": "Regenerate markets and their territories",
+      "target": "重新生成市场及其领土",
+      "file": "src/controllers/markets-overview.ts",
+      "line": 73,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:efde6704f838d8a9",
+      "source": "State name. Click to sort",
+      "target": "国家名称。点击排序",
+      "file": "src/controllers/military-overview.ts",
+      "line": 29,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3ade21c898546667",
+      "source": "Total military personnel (considering crew). Click to sort",
+      "target": "总军事人员（含船员）。点击排序",
+      "file": "src/controllers/military-overview.ts",
+      "line": 33,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bf669309d505083e",
+      "source": "State population. Click to sort",
+      "target": "国家人口。点击排序",
+      "file": "src/controllers/military-overview.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d6cf9b80ed22ef08",
+      "source": "Military personnel rate (% of state population). Depends on war alert. Click to sort",
+      "target": "军事人员比率（占国家人口百分比）。取决于战争警戒。点击排序",
+      "file": "src/controllers/military-overview.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:056a64708e67d605",
+      "source": "War Alert. Modifier to military forces number, depends of political situation. Click to sort",
+      "target": "战争警戒。军事力量数量的修正值，取决于政治形势。点击排序",
+      "file": "src/controllers/military-overview.ts",
+      "line": 51,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e514bfffd3760b38",
+      "source": "States number",
+      "target": "国家数量",
+      "file": "src/controllers/military-overview.ts",
+      "line": 60,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:abe95a472839291d",
+      "source": "Total military forces",
+      "target": "总军事力量",
+      "file": "src/controllers/military-overview.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a0723102df971772",
+      "source": "Average military forces per state",
+      "target": "每国平均军事力量",
+      "file": "src/controllers/military-overview.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:76dd687be18471b8",
+      "source": "Average forces rate per state",
+      "target": "每国平均力量比率",
+      "file": "src/controllers/military-overview.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:31b0d35ac21c98f4",
+      "source": "Average War Alert",
+      "target": "平均战争警戒",
+      "file": "src/controllers/military-overview.ts",
+      "line": 72,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2ea75848ec6db77d",
+      "source": "Refresh the overview screen",
+      "target": "刷新总览界面",
+      "file": "src/controllers/military-overview.ts",
+      "line": 77,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f4ef3bd5be02edb4",
+      "source": "Edit Military units",
+      "target": "编辑军事单位",
+      "file": "src/controllers/military-overview.ts",
+      "line": 78,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6d9a10e450e9d7cc",
+      "source": "Show regiments list",
+      "target": "显示军团列表",
+      "file": "src/controllers/military-overview.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f1e9bfa65af9bcb9",
+      "source": "Recalculate military forces based on current options",
+      "target": "基于当前选项重新计算军事力量",
+      "file": "src/controllers/military-overview.ts",
+      "line": 87,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6c78f426bcefcd97",
+      "source": "Open Military Forces Tutorial",
+      "target": "打开军事力量教程",
+      "file": "src/controllers/military-overview.ts",
+      "line": 95,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d9877b09850131d1",
+      "source": "Re-generate examples based on provided data",
+      "target": "基于提供的数据重新生成示例",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ea504e80fddef619",
+      "source": "Add new namesbase",
+      "target": "添加新名称库",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 72,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b499e5ec768a92b0",
+      "source": "Restore default namesbase",
+      "target": "恢复默认名称库",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 73,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9a14a91c8210993b",
+      "source": "Download namesbase to PC",
+      "target": "下载名称库到电脑",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 74,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:daeae0bacb9caf18",
+      "source": "Upload a namesbase from PC, replacing the current set",
+      "target": "从电脑上传名称库，替换当前集合",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 77,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:232cff1f8f1d9325",
+      "source": "Upload a namesbase from PC, extending the current set",
+      "target": "从电脑上传名称库，扩展当前集合",
+      "file": "src/controllers/namesbase-editor.ts",
+      "line": 82,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cf66472ab4c3cce0",
+      "source": "Click to sort by province form name",
+      "target": "点击按省份政体名称排序",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 61,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3ee6e8be1195504d",
+      "source": "Click to sort by province capital",
+      "target": "点击按省份首府排序",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7137ebcf0a968d99",
+      "source": "Click to sort by province owner",
+      "target": "点击按省份归属国家排序",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 67,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c957956082f5507",
+      "source": "Click to sort by province burgs count",
+      "target": "点击按省份城镇数排序",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 70,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5be98a7a0e6ab64",
+      "source": "Click to sort by province area",
+      "target": "点击按省份面积排序",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 73,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0e27aa59aa28bfa1",
+      "source": "Click to sort by province population",
+      "target": "点击按省份人口排序",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 74,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8fdb14baa8387a24",
+      "source": "Provinces displayed",
+      "target": "显示的省份数",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 80,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2d94909c9931ddff",
+      "source": "Total burgs number",
+      "target": "城镇总数",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 83,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f861fd122589bab0",
+      "source": "Average area",
+      "target": "平均面积",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 86,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cbe5ab87becafb27",
+      "source": "Edit provinces style in Style Editor",
+      "target": "在样式编辑器中编辑省份样式",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 95,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:52a466232a6776f9",
+      "source": "Recolor listed provinces based on state color",
+      "target": "基于国家颜色重新着色已列出的省份",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 98,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2b6e26b2de53820a",
+      "source": "Show provinces chart",
+      "target": "显示省份图表",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 106,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ab93f5aae76385ae",
+      "source": "Toggle province labels. Change size in Menu ⭢ Style ⭢ Provinces",
+      "target": "切换省份标签。在菜单 ⭢ 样式 ⭢ 省份中更改大小",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 109,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3b6bd920a24f7198",
+      "source": "Save provinces-related data as a text file (.csv)",
+      "target": "将省份相关数据保存为文本文件 (.csv)",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 114,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6fe459013be66bc4",
+      "source": "Manually re-assign provinces",
+      "target": "手动重新分配省份",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 117,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:19e7f1453a6d73a8",
+      "source": "Release all provinces. It will make all provinces with burgs independent",
+      "target": "释放所有省份。将使所有含城镇的省份独立",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 128,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cdc28a89d275193c",
+      "source": "Add a new province. Hold Shift to add multiple",
+      "target": "添加新省份。按住 Shift 添加多个",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 133,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:49ad167499c33197",
+      "source": "Merge several provinces into one",
+      "target": "合并多个省份为一个",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 136,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0a19d427f1ed825e",
+      "source": "Remove all provinces. States will remain as they are",
+      "target": "移除所有省份。国家保持不变",
+      "file": "src/controllers/provinces-editor.ts",
+      "line": 139,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a4e4b0ab881e0640",
+      "source": "Regiment type (land or naval). Click to change",
+      "target": "军团类型（陆上或海上）。点击更改",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c75e3434e84973f6",
+      "source": "Attack foreign regiment",
+      "target": "攻击外国军团",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:14cdc8867d903835",
+      "source": "Create a new regiment or fleet",
+      "target": "创建新军团或舰队",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 65,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0b0fe4eae412af33",
+      "source": "Split regiment into 2 separate ones",
+      "target": "将军团拆分为 2 个独立的军团",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c4dd0f821bbf61e",
+      "source": "Attach regiment to another one (include this regiment to another one)",
+      "target": "将军团附加到另一个军团（将此军团并入另一个军团）",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:56de989d943d0ba4",
+      "source": "Regenerate legend for this regiment",
+      "target": "重新生成本军团的图例",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 72,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dd36cf2455e205f6",
+      "source": "Edit free text notes (legend) for this regiment",
+      "target": "编辑本军团的自由文本注释（图例）",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 73,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6c8af212f57b865e",
+      "source": "Remove regiment",
+      "target": "移除军团",
+      "file": "src/controllers/regiment-editor.ts",
+      "line": 76,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f29198dd0f5b673e",
+      "source": "Regiment emblem and name. Click to sort by name",
+      "target": "军团纹章和名称。点击按名称排序",
+      "file": "src/controllers/regiments-overview.ts",
+      "line": 33,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:363446967d484f13",
+      "source": "Total military personnel (not considering crew). Click to sort",
+      "target": "总军事人员（不含船员）。点击排序",
+      "file": "src/controllers/regiments-overview.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4f00f9334c8774e2",
+      "source": "Add new Regiment",
+      "target": "添加新军团",
+      "file": "src/controllers/regiments-overview.ts",
+      "line": 56,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0839c4a3eb5ce0d3",
+      "source": "Total of all displayed regiments",
+      "target": "所有显示军团的总数",
+      "file": "src/controllers/regiments-overview.ts",
+      "line": 152,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2cdde62253921d92",
+      "source": "Regiments: ${regiments.length}",
+      "target": "军团: ${regiments.length}",
+      "file": "src/controllers/regiments-overview.ts",
+      "line": 153,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e2e82dbef8df9823",
+      "source": "Edit individual selected icon",
+      "target": "编辑单个所选图标",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 34,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad3b1f6acae57922",
+      "source": "Place icons in a bulk",
+      "target": "批量放置图标",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:880db56397f33c26",
+      "source": "Remove icons in a bulk",
+      "target": "批量移除图标",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 36,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:949c23c68f81530d",
+      "source": "Edit Relief Icons style in Style Editor",
+      "target": "在样式编辑器中编辑地形图标样式",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 321,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6ea1aa34f3d88045",
+      "source": "Copy selected relief icon",
+      "target": "复制所选地形图标",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 322,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e3e53aa7d133e48e",
+      "source": "Move selected relief icon to front",
+      "target": "将所选地形图标移至最前",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 323,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e1c6f19aa634d967",
+      "source": "Move selected relief icon back",
+      "target": "将所选地形图标移至最后",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 324,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c7c51011ab27f9f6",
+      "source": "Remove selected relief icon or icon type",
+      "target": "移除所选地形图标或图标类型",
+      "file": "src/controllers/relief-editor.ts",
+      "line": 327,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:098ff4e0f1e5289b",
+      "source": "Click to sort by religion name",
+      "target": "点击按宗教名称排序",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 42,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cdee7e344a1602e7",
+      "source": "Religion&nbsp;",
+      "target": "宗教&nbsp;",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 42,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5195b2939afb22a2",
+      "source": "Click to sort by religion type",
+      "target": "点击按宗教类型排序",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 43,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:92e77ac187f35988",
+      "source": "Click to sort by religion form",
+      "target": "点击按宗教形式排序",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bdad8063170ac636",
+      "source": "Form&nbsp;",
+      "target": "形式&nbsp;",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2b509b4416c0829e",
+      "source": "Click to sort by supreme deity",
+      "target": "点击按最高神祇排序",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:13f1cc80d6b5bcf0",
+      "source": "Supreme Deity&nbsp;",
+      "target": "最高神祇&nbsp;",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0094b8e6019d4607",
+      "source": "Click to sort by religion area",
+      "target": "点击按宗教面积排序",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fbc7c35af21b6c1f",
+      "source": "Click to sort by number of believers (religion area population)",
+      "target": "点击按信徒数（宗教区域人口）排序",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5d232d5f6908d26c",
+      "source": "Believers&nbsp;",
+      "target": "信徒&nbsp;",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:24b43d4a9a321827",
+      "source": "Click to sort by potential extent type",
+      "target": "点击按潜在扩张类型排序",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6d7a7c0eefb93429",
+      "source": "Potential&nbsp;",
+      "target": "潜力&nbsp;",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a12295248d81bbb4",
+      "source": "Total number of organized religions",
+      "target": "有组织宗教总数",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 54,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa2bd02ec63f449b",
+      "source": "Total number of heresies",
+      "target": "异端总数",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 57,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f0b0d26a4b766ca9",
+      "source": "Total number of cults",
+      "target": "邪教总数",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 60,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d8b53a0764715294",
+      "source": "Total number of folk religions",
+      "target": "民间信仰总数",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6a931762b180c464",
+      "source": "Total number of believers (population)",
+      "target": "信徒总数（人口）",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 69,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e056b936dd50c45c",
+      "source": "Edit religions style in Style Editor",
+      "target": "在样式编辑器中编辑宗教样式",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 76,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ff1e8d84c92f2114",
+      "source": "Show religions hierarchy tree",
+      "target": "显示宗教层级树",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:88fa738239696eeb",
+      "source": "Show/hide extinct religions (religions without cells)",
+      "target": "显示/隐藏已消亡宗教（无单元格的宗教）",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 80,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ac3c130f3e1c6774",
+      "source": "Manually re-assign religions",
+      "target": "手动重新分配宗教",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 82,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:da2adefc28d9f4b4",
+      "source": "Add a new religion. Hold Shift to add multiple",
+      "target": "添加新宗教。按住 Shift 添加多个",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 94,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:937d22dc784bedd3",
+      "source": "Download religions-related data",
+      "target": "下载宗教相关数据",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 95,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:455e6762cd17b2cf",
+      "source": "Recalculate religions based on current values of growth-related attributes",
+      "target": "基于当前增长相关属性值重新计算宗教",
+      "file": "src/controllers/religions-editor.ts",
+      "line": 96,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:559ea3a944030232",
+      "source": "Complete river creation",
+      "target": "完成河流创建",
+      "file": "src/controllers/river-creator.ts",
+      "line": 37,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:00e00535546b8ab9",
+      "source": "Cancel the creation",
+      "target": "取消创建",
+      "file": "src/controllers/river-creator.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3f586d0bf370f428",
+      "source": "Create a new river selecting river cells",
+      "target": "通过选择河流单元格创建新河流",
+      "file": "src/controllers/river-editor.ts",
+      "line": 85,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2fd44e4847879293",
+      "source": "Edit style for all rivers in Style Editor",
+      "target": "在样式编辑器中编辑所有河流样式",
+      "file": "src/controllers/river-editor.ts",
+      "line": 86,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fe94ef7c20c4c9fd",
+      "source": "Show the elevation profile for the river",
+      "target": "显示河流的高程剖面",
+      "file": "src/controllers/river-editor.ts",
+      "line": 87,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5be04463a54c445c",
+      "source": "Edit free text notes (legend) for the river",
+      "target": "编辑河流的自由文本注释（图例）",
+      "file": "src/controllers/river-editor.ts",
+      "line": 88,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:886f77c90641ce55",
+      "source": "Remove river",
+      "target": "移除河流",
+      "file": "src/controllers/river-editor.ts",
+      "line": 89,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:deecc6d9925f2b0c",
+      "source": "Click to sort by river name",
+      "target": "点击按河流名称排序",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:38a8ce93453b6226",
+      "source": "River&nbsp;",
+      "target": "河流&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:85e0cc451c18c62d",
+      "source": "Click to sort by river type name",
+      "target": "点击按河流类型名称排序",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 29,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:93a80b67ebd58e1d",
+      "source": "Click to sort by discharge (flux in m3/s)",
+      "target": "点击按流量（m3/s）排序",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 30,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8d025d684fd5e5f1",
+      "source": "Discharge&nbsp;",
+      "target": "流量&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 30,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:333f4a16ba313f07",
+      "source": "Click to sort by river length",
+      "target": "点击按河流长度排序",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 31,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e7122108db1255ff",
+      "source": "Length&nbsp;",
+      "target": "长度&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 31,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:009652249821e69d",
+      "source": "Click to sort by river mouth width",
+      "target": "点击按河口宽度排序",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 32,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ee78870cd8e7cc42",
+      "source": "Width&nbsp;",
+      "target": "宽度&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 32,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:10f5a4709d737721",
+      "source": "Click to sort by river basin",
+      "target": "点击按河流流域排序",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 33,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e1ac57998e8f0ccd",
+      "source": "Basin&nbsp;",
+      "target": "流域&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 33,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9ada0b65ecca82e5",
+      "source": "Rivers number",
+      "target": "河流数量",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 37,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:76f859c3810b1231",
+      "source": "Rivers:&nbsp;",
+      "target": "河流:&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 37,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4007bddeb47c5cf8",
+      "source": "Average discharge",
+      "target": "平均流量",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:59054b2d01e9c28a",
+      "source": "Average discharge:&nbsp;",
+      "target": "平均流量:&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 38,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:05197137bd8f7614",
+      "source": "Average length",
+      "target": "平均长度",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 39,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:330564071ecfbbad",
+      "source": "Length:&nbsp;",
+      "target": "长度:&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 39,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:31df1dee4aef5ca3",
+      "source": "Average mouth width",
+      "target": "平均河口宽度",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:05e7a8e00cc635b3",
+      "source": "Width:&nbsp;",
+      "target": "宽度:&nbsp;",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:69f2b1792169c973",
+      "source": "Automatically add river starting from clicked cell. Hold Shift to add multiple",
+      "target": "自动从点击的单元格添加河流。按住 Shift 添加多个",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 44,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e2cbd8bb355f9b14",
+      "source": "Toggle basin highlight mode",
+      "target": "切换流域高亮模式",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:23a0a1d89f297b45",
+      "source": "Save rivers-related data as a text file (.csv)",
+      "target": "将河流相关数据保存为文本文件 (.csv)",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:401fd3e98b86b8df",
+      "source": "Remove all rivers",
+      "target": "移除所有河流",
+      "file": "src/controllers/rivers-overview.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f7c5291abb6030ee",
+      "source": "Complete route creation",
+      "target": "完成道路创建",
+      "file": "src/controllers/route-creator.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a58e75c190a8b29f",
+      "source": "Create a new route selecting route cells",
+      "target": "通过选择道路单元格创建新道路",
+      "file": "src/controllers/route-editor.ts",
+      "line": 62,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:919542ee00c0a584",
+      "source": "Click to join the route to another route that starts or ends at the same cell",
+      "target": "点击将道路连接到另一条起止于同一单元格的道路",
+      "file": "src/controllers/route-editor.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1e02ddeddeb4d46e",
+      "source": "Click on a control point to split the route there",
+      "target": "点击控制点在此处拆分道路",
+      "file": "src/controllers/route-editor.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:75f9567b0e14061f",
+      "source": "Show the elevation profile for the route",
+      "target": "显示道路的高程剖面",
+      "file": "src/controllers/route-editor.ts",
+      "line": 65,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5e9da7273bb0a1b0",
+      "source": "Edit free text notes (legend) for the route",
+      "target": "编辑道路的自由文本注释（图例）",
+      "file": "src/controllers/route-editor.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:11a79956745b9b36",
+      "source": "Remove route",
+      "target": "移除道路",
+      "file": "src/controllers/route-editor.ts",
+      "line": 68,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6fd10b52146840c3",
+      "source": "Add route group",
+      "target": "添加道路组",
+      "file": "src/controllers/route-groups-editor.ts",
+      "line": 31,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b229394f8ea11ab6",
+      "source": "Click to sort by route name",
+      "target": "点击按道路名称排序",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dc16b76501253938",
+      "source": "Route&nbsp;",
+      "target": "道路&nbsp;",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:82e9d02e81e54417",
+      "source": "Click to sort by route group",
+      "target": "点击按道路组排序",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 29,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6fc2fcd7d6206ef5",
+      "source": "Group&nbsp;",
+      "target": "组&nbsp;",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 29,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b42899d8fdad19b3",
+      "source": "Click to sort by route length",
+      "target": "点击按道路长度排序",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 30,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:12cbd9ff72bc408d",
+      "source": "Routes number",
+      "target": "道路数量",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 34,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0e4fb6bd53811928",
+      "source": "Routes:&nbsp;",
+      "target": "道路:&nbsp;",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 34,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:470338a151be8355",
+      "source": "Average length:&nbsp;",
+      "target": "平均长度:&nbsp;",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 35,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3f58c8367467654c",
+      "source": "Save routes-related data as a text file (.csv)",
+      "target": "将道路相关数据保存为文本文件 (.csv)",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 40,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8587ca0b099e5cb8",
+      "source": "Lock or unlock all routes",
+      "target": "锁定或解锁所有道路",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 41,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:711bf580bbaa9b45",
+      "source": "Remove all unlocked routes (locked routes are kept)",
+      "target": "移除所有未锁定的道路（已锁定的道路保留）",
+      "file": "src/controllers/routes-overview.ts",
+      "line": 42,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0aa7805b0ebaff22",
+      "source": "State&nbsp;",
+      "target": "国家&nbsp;",
+      "file": "src/controllers/states-editor.ts",
+      "line": 50,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:329c8c224b721b1f",
+      "source": "Click to sort by state form name",
+      "target": "点击按政体名称排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 51,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b665499c2821d78",
+      "source": "Click to sort by capital name",
+      "target": "点击按首都名称排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c331ea03b0fd7d95",
+      "source": "Capital&nbsp;",
+      "target": "首都&nbsp;",
+      "file": "src/controllers/states-editor.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6575470c25d3dbd1",
+      "source": "Click to sort by state dominant culture",
+      "target": "点击按国家主导文化排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 53,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3b52026da52b6f23",
+      "source": "Click to sort by state burgs count",
+      "target": "点击按国家城镇数排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 54,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:86f6aaf443f75c11",
+      "source": "Click to sort by state cells count",
+      "target": "点击按国家单元格数排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 55,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1334b8c81e77c625",
+      "source": "Click to sort by state area",
+      "target": "点击按国家面积排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 56,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:91150409361cc3d6",
+      "source": "Click to sort by state population",
+      "target": "点击按国家人口排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 57,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:de85aaaecd287558",
+      "source": "Click to sort by state treasury. Click on a value to view and edit taxes",
+      "target": "点击按国库排序。点击数值查看和编辑税收",
+      "file": "src/controllers/states-editor.ts",
+      "line": 58,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:973a66684c60aa10",
+      "source": "Treasury&nbsp;",
+      "target": "国库&nbsp;",
+      "file": "src/controllers/states-editor.ts",
+      "line": 58,
+      "type": "ts_string",
+      "context_tag": "heading",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2c96e438b5b2f449",
+      "source": "Click to sort by state type",
+      "target": "点击按国家类型排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 59,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:acfdf2abfcc1d4cb",
+      "source": "Click to sort by state expansion value",
+      "target": "点击按国家扩张值排序",
+      "file": "src/controllers/states-editor.ts",
+      "line": 60,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9d8855c05ed5d6cb",
+      "source": "States:&nbsp;",
+      "target": "国家:&nbsp;",
+      "file": "src/controllers/states-editor.ts",
+      "line": 66,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1f40dec09121a525",
+      "source": "Burgs:&nbsp;",
+      "target": "城镇:&nbsp;",
+      "file": "src/controllers/states-editor.ts",
+      "line": 67,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:06546ad09ae146d5",
+      "source": "Edit states style in Style Editor",
+      "target": "在样式编辑器中编辑国家样式",
+      "file": "src/controllers/states-editor.ts",
+      "line": 74,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:db0c6cb5f918f232",
+      "source": "Show states bubble chart",
+      "target": "显示国家气泡图",
+      "file": "src/controllers/states-editor.ts",
+      "line": 77,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:42a7ab6cfef1157d",
+      "source": "Show the regeneration menu and more data",
+      "target": "显示重新生成菜单及更多数据",
+      "file": "src/controllers/states-editor.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:83f560c2ab1a01f4",
+      "source": "Hide the regeneration menu",
+      "target": "隐藏重新生成菜单",
+      "file": "src/controllers/states-editor.ts",
+      "line": 81,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fdaab58d91c9fc27",
+      "source": "Randomize states Expansion value and re-calculate states and provinces",
+      "target": "随机化国家扩张值并重新计算国家和省份",
+      "file": "src/controllers/states-editor.ts",
+      "line": 82,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7d89a635edbb8186",
+      "source": "Recalculate states based on current values of growth-related attributes",
+      "target": "基于当前增长相关属性值重新计算国家",
+      "file": "src/controllers/states-editor.ts",
+      "line": 86,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c2057cf04ddc3d2b",
+      "source": "Manually re-assign states",
+      "target": "手动重新分配国家",
+      "file": "src/controllers/states-editor.ts",
+      "line": 97,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7282c7797fb1b650",
+      "source": "Add a new state. Hold Shift to add multiple",
+      "target": "添加新国家。按住 Shift 添加多个",
+      "file": "src/controllers/states-editor.ts",
+      "line": 111,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c285c3c9c21960c3",
+      "source": "Merge several states into one",
+      "target": "合并多个国家为一个",
+      "file": "src/controllers/states-editor.ts",
+      "line": 112,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cf55d982d711d475",
+      "source": "Save state-related data as a text file (.csv)",
+      "target": "将国家相关数据保存为文本文件 (.csv)",
+      "file": "src/controllers/states-editor.ts",
+      "line": 113,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bc5b45ae7b60692a",
+      "source": "Reset to default",
+      "target": "重置为默认值",
+      "file": "src/controllers/trade-animation-editor.ts",
+      "line": 129,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3e3b0fcb15986bc6",
+      "source": "Click to sort by unit price",
+      "target": "点击按单价排序",
+      "file": "src/controllers/trade-details.ts",
+      "line": 42,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e17bbe02be8f72e9",
+      "source": "Click to sort by value",
+      "target": "点击按总价值排序",
+      "file": "src/controllers/trade-details.ts",
+      "line": 43,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d4f0c98a7ca93368",
+      "source": "Distance: ",
+      "target": "距离: ",
+      "file": "src/controllers/trade-details.ts",
+      "line": 47,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b52fc5a25649329a",
+      "source": "Total traded units",
+      "target": "交易总数量",
+      "file": "src/controllers/trade-details.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:916b2fbcfffd25ad",
+      "source": "Units: ",
+      "target": "数量: ",
+      "file": "src/controllers/trade-details.ts",
+      "line": 48,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b43ad97ca2c9b2d4",
+      "source": "Total deal value",
+      "target": "交易总价值",
+      "file": "src/controllers/trade-details.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:905b8b1136425530",
+      "source": "Value: ",
+      "target": "价值: ",
+      "file": "src/controllers/trade-details.ts",
+      "line": 49,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8f0f435392376923",
+      "source": "Update the scene",
+      "target": "更新场景",
+      "file": "src/controllers/view-3d.ts",
+      "line": 308,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:33ff89ca072376d6",
+      "source": "Configure world and map size and climate settings",
+      "target": "配置世界、地图大小和气候设置",
+      "file": "src/controllers/view-3d.ts",
+      "line": 310,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:47ae1c0a0a8eae23",
+      "source": "Save screenshot of the 3d scene",
+      "target": "保存 3D 场景截图",
+      "file": "src/controllers/view-3d.ts",
+      "line": 314,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8035e7d7a7e94e88",
+      "source": "Save OBJ file of the 3d scene",
+      "target": "保存 3D 场景的 OBJ 文件",
+      "file": "src/controllers/view-3d.ts",
+      "line": 315,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f83853ccecf9302e",
+      "source": "Click to restore default (Earth-based) wind directions",
+      "target": "点击恢复默认（基于地球）风向",
+      "file": "src/controllers/world-configurator.ts",
+      "line": 183,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4713370177aff277",
+      "source": "Click to set map size to cover the whole world",
+      "target": "点击设置地图大小为覆盖整个世界",
+      "file": "src/controllers/world-configurator.ts",
+      "line": 190,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b3adb1e46297095d",
+      "source": "Click to set map size to cover the Northern latitudes",
+      "target": "点击设置地图大小为覆盖北纬地区",
+      "file": "src/controllers/world-configurator.ts",
+      "line": 191,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:565b4d800265e805",
+      "source": "Click to set map size to cover the Tropical latitudes",
+      "target": "点击设置地图大小为覆盖热带地区",
+      "file": "src/controllers/world-configurator.ts",
+      "line": 192,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:883416a1879f075e",
+      "source": "Click to set map size to cover the Southern latitudes",
+      "target": "点击设置地图大小为覆盖南纬地区",
+      "file": "src/controllers/world-configurator.ts",
+      "line": 193,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c991028b0890c05c",
+      "source": "Number of zones",
+      "target": "区域数量",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 39,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4b1f5b89997bd708",
+      "source": "Total cells number",
+      "target": "总单元格数",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 42,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9d9c6c429c1b20e1",
+      "source": "Total map area",
+      "target": "地图总面积",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:408455900eada660",
+      "source": "Area:&nbsp;",
+      "target": "面积:&nbsp;",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 45,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2a3cdf3f00b91ede",
+      "source": "Total map population",
+      "target": "地图总人口",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:246104393f53be0a",
+      "source": "Edit zones style in Style Editor",
+      "target": "在样式编辑器中编辑区域样式",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 52,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6a293a6bffe6589d",
+      "source": "Toggle Legend box (shows all non-hidden zones)",
+      "target": "切换图例框（显示所有未隐藏的区域）",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 55,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:acc39075212b93ef",
+      "source": "Re-assign zones",
+      "target": "重新分配区域",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9f9b9343dd40a1d0",
+      "source": "Click to toggle the removal mode on brush dragging",
+      "target": "点击切换笔刷拖动时的擦除模式",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 78,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:83f24b6c2a45f05f",
+      "source": "Add new zone layer",
+      "target": "添加新区域图层",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 84,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f6bd312509ca536c",
+      "source": "Download zones-related data",
+      "target": "下载区域相关数据",
+      "file": "src/controllers/zones-editor.ts",
+      "line": 85,
+      "type": "ts_string",
+      "context_tag": "tooltip",
+      "skipped": false
     }
   ]
 }

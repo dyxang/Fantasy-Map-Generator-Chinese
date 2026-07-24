@@ -288,8 +288,7 @@ export const initializePrompt = (): void => {
     options: PromptOptions = defaultOptions,
     callback?: (value: number | string) => void
   ) => {
-    if (options.default === undefined)
-      return window.ERROR && console.error("Prompt：选项对象未定义默认值");
+    if (options.default === undefined) return window.ERROR && console.error("Prompt：选项对象未定义默认值");
 
     const input = prompt.querySelector("#promptInput") as HTMLInputElement;
     const promptTextElement = prompt.querySelector("#promptText") as HTMLElement;

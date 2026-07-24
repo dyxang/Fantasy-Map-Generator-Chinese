@@ -151,23 +151,23 @@ function renderOptionsDialog(): void {
   document.getElementById("options3d")?.remove();
   const editorHtml = /* html */ `<div id="options3d" class="dialog stable">
       <div id="options3dMesh" style="display: none">
-        <div data-tip="Set map rotation speed. Set to 0 is you want to toggle off the rotation">
-          <div>Rotation:</div>
+        <div data-tip="设置地图旋转速度。设为 0 可关闭旋转">
+          <div>旋转：</div>
           <input id="options3dMeshRotationRange" type="range" min="0" max="10" step=".1" />
           <input id="options3dMeshRotationNumber" type="number" min="0" max="10" step=".1" style="width: 4em" />
         </div>
-        <div data-tip="Set height scale">
-          <div>Height scale:</div>
+        <div data-tip="设置高度缩放">
+          <div>高度缩放：</div>
           <input id="options3dScaleRange" type="range" min="0" max="100" />
           <input id="options3dScaleNumber" type="number" min="0" max="1000" style="width: 4em" />
         </div>
-        <div data-tip="Set scene lightness">
-          <div>Lightness:</div>
+        <div data-tip="设置场景亮度">
+          <div>亮度：</div>
           <input id="options3dLightnessRange" type="range" min="0" max="100" />
           <input id="options3dLightnessNumber" type="number" min="0" max="500" style="width: 4em" />
         </div>
-        <div data-tip="Set mesh texture resolution">
-          <div>Texture resolution:</div>
+        <div data-tip="设置网格纹理分辨率">
+          <div>纹理分辨率：</div>
           <select id="options3dMeshSkinResolution" style="width: 10em">
             <option value="512">512x512px</option>
             <option value="1024">1024x1024px</option>
@@ -176,83 +176,83 @@ function renderOptionsDialog(): void {
             <option value="8192">8192x8192px</option>
           </select>
         </div>
-        <div data-tip="Quick preset lighting for different times of day" style="margin-top: 0.4em">
-          <label>Time of day:</label>
+        <div data-tip="不同时段的快速预设光照" style="margin-top: 0.4em">
+          <label>时段：</label>
           <select id="options3dTimeOfDay" style="width: 10em; margin-bottom: 0.3em">
-            <option value="custom">Custom</option>
-            <option value="dawn">Dawn</option>
-            <option value="noon" selected>Noon</option>
-            <option value="evening">Evening</option>
-            <option value="night">Night</option>
+            <option value="custom">自定义</option>
+            <option value="dawn">黎明</option>
+            <option value="noon" selected>正午</option>
+            <option value="evening">傍晚</option>
+            <option value="night">夜晚</option>
           </select>
         </div>
-        <div data-tip="Set sun position (x, y) and color" style="margin-top: 0.4em">
-          <label>Sun position and color:</label>
+        <div data-tip="设置太阳位置 (x, y) 和颜色" style="margin-top: 0.4em">
+          <label>太阳位置和颜色：</label>
           <div style="display: flex; gap: 0.2em">
             <input id="options3dSunX" type="number" min="-2500" max="2500" step="100" style="width: 4.7em" />
             <input id="options3dSunY" type="number" min="0" max="5000" step="100" style="width: 4.7em" />
             <input id="options3dSunColor" type="color" style="padding: 0; height: 1.5em; border: none" />
           </div>
         </div>
-        <div data-tip="Toggle 3d labels" style="margin: 0.6em 0 0.3em -0.2em">
+        <div data-tip="切换 3D 标签" style="margin: 0.6em 0 0.3em -0.2em">
           <input id="options3dMeshLabels3d" class="checkbox" type="checkbox" />
-          <label for="options3dMeshLabels3d" class="checkbox-label"><i>Show 3D labels</i></label>
+          <label for="options3dMeshLabels3d" class="checkbox-label"><i>显示 3D 标签</i></label>
         </div>
-        <div data-tip="Toggle sky mode" style="margin: 0.6em 0 0.3em -0.2em">
+        <div data-tip="切换天空模式" style="margin: 0.6em 0 0.3em -0.2em">
           <input id="options3dMeshSkyMode" class="checkbox" type="checkbox" />
-          <label for="options3dMeshSkyMode" class="checkbox-label"><i>Show sky and extend water</i></label>
+          <label for="options3dMeshSkyMode" class="checkbox-label"><i>显示天空并延伸水面</i></label>
         </div>
         <div
-          data-tip="Increases the polygon count to smooth the sharp points. Please note that it can take some time to calculate"
+          data-tip="增加多边形数量以平滑尖锐边缘。请注意计算可能需要一些时间"
           style="margin: 0.6em 0 0.3em -0.2em"
         >
           <input id="options3dSubdivide" class="checkbox" type="checkbox" />
           <label for="options3dSubdivide" class="checkbox-label"
-            ><i>Smooth geometry <small style="color: darkred">[slow]</small></i></label
+            ><i>平滑几何体 <small style="color: darkred">[慢]</small></i></label
           >
         </div>
 
         <div
-          data-tip="Texture the terrain as a satellite image. Replaces the standard map texture"
+          data-tip="将地形纹理化为卫星图像。替换标准地图纹理"
           style="margin: 0.6em 0 0.3em -0.2em"
         >
           <input id="options3dSatellite" class="checkbox" type="checkbox" />
-          <label for="options3dSatellite" class="checkbox-label"><i>Satellite texture</i></label>
+          <label for="options3dSatellite" class="checkbox-label"><i>卫星纹理</i></label>
         </div>
 
         <div
-          data-tip="Bake procedural erosion detail into the 3D terrain. Visual only, the map data is not changed"
+          data-tip="将程序化侵蚀细节烘焙到 3D 地形中。仅视觉效果，地图数据不会改变"
           style="margin: 0.6em 0 0.3em -0.2em"
         >
           <input id="options3dErosion" class="checkbox" type="checkbox" />
-          <label for="options3dErosion" class="checkbox-label"><i>Erode terrain</i></label>
+          <label for="options3dErosion" class="checkbox-label"><i>侵蚀地形</i></label>
         </div>
 
         <div id="options3dErosionSection" style="display: none">
-          <div data-tip="Set eroded mesh detail level (vertices on the long side)">
-            <div>Mesh detail:</div>
+          <div data-tip="设置侵蚀网格细节级别（长边的顶点数）">
+            <div>网格细节：</div>
             <select id="options3dErosionDetail" style="width: 10em">
               <option value="256">256</option>
               <option value="512">512</option>
               <option value="1024" selected>1024</option>
-              <option value="2048">2048 [slow]</option>
+              <option value="2048">2048 [慢]</option>
             </select>
           </div>
 
-          <div data-tip="Set the strength of erosion gullies and ridges">
-            <div>Gully strength:</div>
+          <div data-tip="设置侵蚀沟壑和山脊的强度">
+            <div>沟壑强度：</div>
             <input id="options3dErosionStrengthRange" type="range" min="0" max="100" />
             <input id="options3dErosionStrengthNumber" type="number" min="0" max="100" style="width: 4em" />
           </div>
 
-          <div data-tip="Set how deep the valleys are carved along the rivers">
-            <div>River valleys:</div>
+          <div data-tip="设置沿河流雕刻的山谷深度">
+            <div>河谷：</div>
             <input id="options3dErosionRiverDepthRange" type="range" min="0" max="100" />
             <input id="options3dErosionRiverDepthNumber" type="number" min="0" max="100" style="width: 4em" />
           </div>
 
-          <div data-tip="Set the number of erosion detail layers. More octaves add finer gullies">
-            <div>Detail octaves:</div>
+          <div data-tip="设置侵蚀细节层数。更多层数添加更精细的沟壑">
+            <div>细节层数：</div>
             <select id="options3dErosionOctaves" style="width: 6em">
               <option value="1">1</option>
               <option value="2" selected>2</option>
@@ -262,18 +262,18 @@ function renderOptionsDialog(): void {
           </div>
         </div>
 
-        <div data-tip="Toggle wireframe mode" style="margin: 0.6em 0 0.3em -0.2em">
+        <div data-tip="切换线框模式" style="margin: 0.6em 0 0.3em -0.2em">
           <input id="options3dMeshWireframeMode" class="checkbox" type="checkbox" />
-          <label for="options3dMeshWireframeMode" class="checkbox-label"><i>Show wireframe</i></label>
+          <label for="options3dMeshWireframeMode" class="checkbox-label"><i>显示线框</i></label>
         </div>
-        <div data-tip="Set sky and water color" id="options3dColorSection" style="display: none">
-          <span>Sky:</span
+        <div data-tip="设置天空和水颜色" id="options3dColorSection" style="display: none">
+          <span>天空：</span
           ><input
             id="options3dMeshSky"
             type="color"
             style="width: 4.4em; height: 1em; border: 0; padding: 0; margin: 0 0.2em"
           />
-          <span>Water:</span
+          <span>水：</span
           ><input
             id="options3dMeshWater"
             type="color"
@@ -282,13 +282,13 @@ function renderOptionsDialog(): void {
         </div>
       </div>
       <div id="options3dGlobe" style="display: none">
-        <div data-tip="Set globe rotation speed. Set to 0 is you want to toggle off the rotation">
-          <div>Rotation:</div>
+        <div data-tip="设置地球仪旋转速度。设为 0 可关闭旋转">
+          <div>旋转：</div>
           <input id="options3dGlobeRotationRange" type="range" min="0" max="10" step=".1" />
           <input id="options3dGlobeRotationNumber" type="number" min="0" max="10" step=".1" style="width: 4em" />
         </div>
-        <div data-tip="Set globe texture resolution">
-          <div>Texture resolution:</div>
+        <div data-tip="设置地球仪纹理分辨率">
+          <div>纹理分辨率：</div>
           <select id="options3dGlobeResolution" style="width: 5em">
             <option value="0.5">0.5x</option>
             <option value="1">1x</option>
@@ -298,21 +298,21 @@ function renderOptionsDialog(): void {
           </select>
         </div>
         <div
-          data-tip="Equirectangular projection is used: distortion is maximum on poles. Use map with aspect ratio 2:1 for best result"
+          data-tip="使用等距圆柱投影：极点处失真最大。使用 2:1 宽高比的地图效果最佳"
           style="font-style: italic; margin: 0.2em 0"
         >
-          Equirectangular projection is used
+          使用等距圆柱投影
         </div>
       </div>
       <div id="options3dBottom" style="margin-top: 0.2em">
-        <button id="options3dUpdate" data-tip="Update the scene" class="icon-cw"></button>
+        <button id="options3dUpdate" data-tip="更新场景" class="icon-cw"></button>
         <button
-          data-tip="Configure world and map size and climate settings"
+          data-tip="配置世界、地图大小和气候设置"
           onclick="window.Controllers.WorldConfigurator.open()"
           class="icon-globe"
         ></button>
-        <button id="options3dSave" data-tip="Save screenshot of the 3d scene" class="icon-button-screenshot"></button>
-        <button id="options3dOBJSave" data-tip="Save OBJ file of the 3d scene" class="icon-download"></button>
+        <button id="options3dSave" data-tip="保存 3D 场景截图" class="icon-button-screenshot"></button>
+        <button id="options3dOBJSave" data-tip="保存 3D 场景的 OBJ 文件" class="icon-download"></button>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);

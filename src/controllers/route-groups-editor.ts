@@ -28,7 +28,7 @@ function renderDialog(): void {
   const html = /* html */ `<div id="routeGroupsEditor" class="dialog">
     <div id="routeGroupsEditorBody" class="table" style="padding: 0.3em 0; width: 100%"></div>
     <div id="routeGroupsEditorBottom">
-      <button id="routeGroupsEditorAdd" data-tip="Add route group" class="icon-plus"></button>
+      <button id="routeGroupsEditorAdd" data-tip="添加道路组" class="icon-plus"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -60,8 +60,8 @@ function addLines(): void {
       return /* html */ `<div data-id="${el.id}" class="states" style="display: flex; justify-content: space-between;">
           <span>${el.id} (${count})</span>
           <div style="width: auto; display: flex; gap: 0.4em;">
-            <span data-tip="Edit style" class="editStyle icon-brush pointer" style="font-size: smaller;"></span>
-            <span data-tip="Remove group" class="removeGroup icon-trash pointer"></span>
+            <span data-tip="编辑样式" class="editStyle icon-brush pointer" style="font-size: smaller;"></span>
+            <span data-tip="移除该分组" class="removeGroup icon-trash pointer"></span>
           </div>
         </div>`;
     });
@@ -70,7 +70,7 @@ function addLines(): void {
 }
 
 function addGroup(): void {
-  prompt("Type group name", { default: "route-group-new" }, v => {
+  prompt("输入分组名称", { default: "route-group-new" }, v => {
     let group = v
       .toLowerCase()
       .replace(/ /g, "_")
@@ -78,8 +78,7 @@ function addGroup(): void {
 
     if (!group) return tip("无效组名", false, "error");
     if (!group.startsWith("route-")) group = `route-${group}`;
-    if (document.getElementById(group))
-      return tip("具有此名称的元素已存在。请提供唯一的名称", false, "error");
+    if (document.getElementById(group)) return tip("具有此名称的元素已存在。请提供唯一的名称", false, "error");
     if (Number.isFinite(+group.charAt(0))) return tip("组名应以字母开头", false, "error");
 
     select("#routes")
@@ -99,9 +98,8 @@ function addGroup(): void {
 function removeGroup(group: string): void {
   confirmationDialog({
     title: "移除道路组",
-    message:
-      "确定要移除整个道路组吗？该组中的所有道路都将被移除。<br>此操作无法撤销",
-    confirm: "Remove",
+    message: "确定要移除整个道路组吗？该组中的所有道路都将被移除。<br>此操作无法撤销",
+    confirm: "移除",
     onConfirm: () => {
       pack.routes.filter((r: Route) => r.group === group).forEach(Routes.remove);
       if (!DEFAULT_GROUPS.includes(group)) select("#routes").select(`#${group}`).remove();

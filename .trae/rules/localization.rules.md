@@ -4,9 +4,11 @@
 
 1. 读 `i18n/progress.json` 获取上次进度（`last_processed_id` 之后继续）
 2. 读 `i18n/CONTEXT.md` 了解项目背景、翻译原则、翻译管线分层、上游同步工具链
-3. 读 `i18n/glossary.json` 拿术语表（翻译前查表）
-4. 读 `i18n/tm.json` 的最近 20 条译文作风格锚点
-5. 读 `i18n/divergence.json` 确认哪些片段不可覆盖
+3. 读 `i18n/divergence.json` 确认哪些片段不可覆盖
+
+**注意**：术语表和 TM 会在批次文件中自动注入，无需手动读取 `glossary.json` 和 `tm.json`。每个批次文件包含：
+- `glossary` 字段：筛选后的相关术语（基于批次内容动态筛选）
+- `tm_hints` 字段：过滤后的相关 TM 条目（基于 context_tag 和 file 评分）
 
 ## 状态文件写入所有权（契约）
 

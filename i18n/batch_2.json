@@ -1,0 +1,641 @@
+{
+  "batch": 2,
+  "start_index": 0,
+  "units": [
+    {
+      "id": "sha256:5492928902e044a8",
+      "source": "Generated text will appear here",
+      "file": "src/controllers/ai-generator.ts",
+      "line": 214,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "context_before": "\n  const html = /* html */ `<div id=\"aiGenerator\" class=\"dialog stable\">\n    <div style=\"display: flex; flex-direction: column; gap: 0.3em; width: 100%\">",
+      "context_after": "      <textarea id=\"aiGeneratorPrompt\" placeholder=\"Type a prompt here\" cols=\"30\" rows=\"5\"></textarea>\n      <div style=\"display: flex; align-items: center; gap: 1em\">\n        <label for=\"aiGeneratorModel\""
+    },
+    {
+      "id": "sha256:0a941e3f79a034fe",
+      "source": "Type a prompt here",
+      "file": "src/controllers/ai-generator.ts",
+      "line": 215,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "context_before": "  const html = /* html */ `<div id=\"aiGenerator\" class=\"dialog stable\">\n    <div style=\"display: flex; flex-direction: column; gap: 0.3em; width: 100%\">\n      <textarea id=\"aiGeneratorResult\" placeholder=\"Generated text will appear here\" cols=\"30\" rows=\"10\"></textarea>",
+      "context_after": "      <div style=\"display: flex; align-items: center; gap: 1em\">\n        <label for=\"aiGeneratorModel\"\n          >Model:"
+    },
+    {
+      "id": "sha256:7c1030719ff09331",
+      "source": "Temperature controls response randomness; higher values mean more creativity, lower values mean more predictability",
+      "file": "src/controllers/ai-generator.ts",
+      "line": 223,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "        </label>\n        <label\n          for=\"aiGeneratorTemperature\"",
+      "context_after": "        >\n          Temperature:\n          <input id=\"aiGeneratorTemperature\" type=\"number\" min=\"-1\" max=\"2\" step=\".1\" class=\"icon-key\" />"
+    },
+    {
+      "id": "sha256:4306725073992be0",
+      "source": "Enter API key",
+      "file": "src/controllers/ai-generator.ts",
+      "line": 232,
+      "type": "html_attr",
+      "context_tag": "placeholder",
+      "context_before": "          >Key:\n          <input\n            id=\"aiGeneratorKey\"",
+      "context_after": "            class=\"icon-key\"\n            data-tip=\"Enter API key. Note: the Generator doesn't store the key or any generated data\"\n          />"
+    },
+    {
+      "id": "sha256:2d304137ecc0ab65",
+      "source": "Enter API key. Note: the Generator doesn't store the key or any generated data",
+      "file": "src/controllers/ai-generator.ts",
+      "line": 234,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "            id=\"aiGeneratorKey\"\n            placeholder=\"Enter API key\"\n            class=\"icon-key\"",
+      "context_after": "          />\n          <button\n            id=\"aiGeneratorKeyHelp\""
+    }
+  ],
+  "glossary": [
+    {
+      "en": "Map",
+      "zh": "地图",
+      "context": "general",
+      "do_not_translate": false
+    },
+    {
+      "en": "Cell",
+      "zh": "单元格",
+      "context": "grid",
+      "do_not_translate": false
+    },
+    {
+      "en": "Grid",
+      "zh": "网格",
+      "context": "grid",
+      "do_not_translate": false
+    },
+    {
+      "en": "Pack",
+      "zh": "数据包",
+      "context": "world_state",
+      "do_not_translate": false
+    },
+    {
+      "en": "Layer",
+      "zh": "图层",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Seed",
+      "zh": "种子",
+      "context": "rng",
+      "do_not_translate": false
+    },
+    {
+      "en": "Culture",
+      "zh": "文化",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Burg",
+      "zh": "城镇",
+      "context": "settlement",
+      "do_not_translate": false
+    },
+    {
+      "en": "State",
+      "zh": "国家",
+      "context": "political",
+      "do_not_translate": false
+    },
+    {
+      "en": "Province",
+      "zh": "省份",
+      "context": "administrative",
+      "do_not_translate": false
+    },
+    {
+      "en": "Religion",
+      "zh": "宗教",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Biome",
+      "zh": "生物群系",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Heightmap",
+      "zh": "高度图",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Feature",
+      "zh": "地貌",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "River",
+      "zh": "河流",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Lake",
+      "zh": "湖泊",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Route",
+      "zh": "道路",
+      "context": "transport",
+      "do_not_translate": false
+    },
+    {
+      "en": "Marker",
+      "zh": "标记",
+      "context": "poi",
+      "do_not_translate": false
+    },
+    {
+      "en": "Zone",
+      "zh": "区域",
+      "context": "highlight",
+      "do_not_translate": false
+    },
+    {
+      "en": "Diplomacy",
+      "zh": "外交",
+      "context": "political",
+      "do_not_translate": false
+    },
+    {
+      "en": "Regiment",
+      "zh": "军团",
+      "context": "military",
+      "do_not_translate": false
+    },
+    {
+      "en": "Military",
+      "zh": "军事",
+      "context": "military",
+      "do_not_translate": false
+    },
+    {
+      "en": "Good",
+      "zh": "货物",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Market",
+      "zh": "市场",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Deal",
+      "zh": "交易",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Treasury",
+      "zh": "国库",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Emblem",
+      "zh": "纹章",
+      "context": "heraldry",
+      "do_not_translate": false
+    },
+    {
+      "en": "Note",
+      "zh": "笔记",
+      "context": "annotation",
+      "do_not_translate": false
+    },
+    {
+      "en": "Namesbase",
+      "zh": "名称库",
+      "context": "naming",
+      "do_not_translate": false
+    },
+    {
+      "en": "Overview",
+      "zh": "总览",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Editor",
+      "zh": "编辑器",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Generator",
+      "zh": "生成器",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Renderer",
+      "zh": "渲染器",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Configurator",
+      "zh": "配置器",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Submap",
+      "zh": "子地图",
+      "context": "tool",
+      "do_not_translate": false
+    },
+    {
+      "en": "Azgaar",
+      "zh": "Azgaar",
+      "context": "brand",
+      "do_not_translate": true
+    },
+    {
+      "en": "Picker",
+      "zh": "拾色器",
+      "context": "ui_color",
+      "do_not_translate": false
+    },
+    {
+      "en": "Palette",
+      "zh": "调色板",
+      "context": "ui_color",
+      "do_not_translate": false
+    },
+    {
+      "en": "Hatching",
+      "zh": "阴影线",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Texture",
+      "zh": "纹理",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Preset",
+      "zh": "预设",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Style",
+      "zh": "样式",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Tile",
+      "zh": "瓦片",
+      "context": "export",
+      "do_not_translate": false
+    },
+    {
+      "en": "Relief Icon",
+      "zh": "地形图标",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Label",
+      "zh": "标签",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Measurers",
+      "zh": "测量器",
+      "context": "tool",
+      "do_not_translate": false
+    },
+    {
+      "en": "Population",
+      "zh": "人口",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Group",
+      "zh": "组",
+      "context": "ui_collection",
+      "do_not_translate": false,
+      "note": "use 组 not 分组 (coastline/lakes/labels editors use 'group' for SVG element collections)"
+    },
+    {
+      "en": "Element",
+      "zh": "元素",
+      "context": "ui_general",
+      "do_not_translate": false
+    },
+    {
+      "en": "Invalid",
+      "zh": "无效",
+      "context": "validation",
+      "do_not_translate": false,
+      "note": "use 无效 directly (e.g. 无效市场), avoid 无效的"
+    },
+    {
+      "en": "Selected",
+      "zh": "所选",
+      "context": "ui_state",
+      "do_not_translate": false
+    },
+    {
+      "en": "Provide",
+      "zh": "提供",
+      "context": "form_prompt",
+      "do_not_translate": false
+    },
+    {
+      "en": "Default",
+      "zh": "默认",
+      "context": "ui_state",
+      "do_not_translate": false
+    },
+    {
+      "en": "Unique",
+      "zh": "唯一",
+      "context": "validation",
+      "do_not_translate": false
+    },
+    {
+      "en": "Remove",
+      "zh": "移除",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Add",
+      "zh": "添加",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Edit",
+      "zh": "编辑",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Cancel",
+      "zh": "取消",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Apply",
+      "zh": "应用",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Close",
+      "zh": "关闭",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Save",
+      "zh": "保存",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Load",
+      "zh": "加载",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Select",
+      "zh": "选择",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Clear",
+      "zh": "清除",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Reset",
+      "zh": "重置",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Regenerate",
+      "zh": "重新生成",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Height",
+      "zh": "高度",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Temperature",
+      "zh": "温度",
+      "context": "climate",
+      "do_not_translate": false
+    },
+    {
+      "en": "Precipitation",
+      "zh": "降水量",
+      "context": "climate",
+      "do_not_translate": false
+    },
+    {
+      "en": "Coastline",
+      "zh": "海岸线",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Burgs",
+      "zh": "城镇",
+      "context": "settlement",
+      "do_not_translate": false
+    },
+    {
+      "en": "States",
+      "zh": "国家",
+      "context": "political",
+      "do_not_translate": false
+    },
+    {
+      "en": "Provinces",
+      "zh": "省份",
+      "context": "administrative",
+      "do_not_translate": false
+    },
+    {
+      "en": "Cultures",
+      "zh": "文化",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Religions",
+      "zh": "宗教",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Rivers",
+      "zh": "河流",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Lakes",
+      "zh": "湖泊",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Hemp",
+      "zh": "火麻",
+      "context": "economy",
+      "do_not_translate": false,
+      "note": "use 火麻 (flax/linen), not 大麻 (cannabis/marijuana)"
+    }
+  ],
+  "tm_hints": [
+    {
+      "source": "Set what share of eligible burgs in each state will become province centers. Higher values create more provinces",
+      "target": "设置每个国家中符合条件城镇成为省份中心的比例。值越高，省份越多",
+      "score": 2
+    },
+    {
+      "source": "Click to regenerate all unlocked burgs and routes. States will remain as they are. Note: burgs are only generated in populated areas with culture assigned",
+      "target": "点击重新生成所有未锁定的城镇和道路。国家保持不变。注意：仅在已分配文化的有人居住区域生成城镇",
+      "score": 1.5
+    },
+    {
+      "source": "Click to regenerate non-locked states. Emblems and military forces will be regenerated as well, burgs will remain as they are, but capitals will be different",
+      "target": "点击重新生成未锁定的国家。纹章和军事部队也将重新生成，城镇保持不变，但首都会改变",
+      "score": 1.5
+    },
+    {
+      "source": "AI Text Generator",
+      "target": "AI 文本生成器",
+      "score": 1
+    },
+    {
+      "source": "Annual mean temperature",
+      "target": "年平均温度",
+      "score": 1
+    },
+    {
+      "source": "Note element is not found. Would you like to remove the note?",
+      "target": "未找到笔记元素。是否要移除该笔记？",
+      "score": 1
+    },
+    {
+      "source": "Please enter a prompt",
+      "target": "请输入提示词",
+      "score": 1
+    },
+    {
+      "source": "Amplitude multiplier per recursion level (Hurst exponent). Lower = more jagged finer detail.",
+      "target": "每级递归的振幅乘数（Hurst 指数）。越低 = 更锯齿状的精细细节。",
+      "score": 1
+    },
+    {
+      "source": "Profile values below this receive zero displacement → glassy arc. Controls calm-coast coverage.",
+      "target": "低于此值的轮廓值不产生位移 → 玻璃般弧线。控制平静海岸的覆盖范围。",
+      "score": 1
+    },
+    {
+      "source": "Average ${type} temperature in ${month}: ${temp}",
+      "target": "${month}的${type}平均温度：${temp}",
+      "score": 1
+    },
+    {
+      "source": "Are you sure you want to release all provinces?\n        </br>It will turn all separable provinces into independent states.\n        </br>Capital province and provinces without any burgs will state as they are",
+      "target": "(translated in source)",
+      "score": 1
+    },
+    {
+      "source": "Target number of trade animations visible at once. New ones spawn as old ones finish. Higher = more simultaneous animations, can cause lag on slower devices",
+      "target": "同时可见的贸易动画目标数量。旧的结束后生成新的。越高 = 同时进行的动画越多，可能在较慢的设备上导致卡顿",
+      "score": 1
+    },
+    {
+      "source": "Grid: click to toggle, drag to raise or lower. Ctrl + click to edit layer style and select type",
+      "target": "网格：点击切换，拖动以升高或降低。按 Ctrl + 点击编辑图层样式并选择类型",
+      "score": 1
+    },
+    {
+      "source": "Temperature map: click to toggle, drag to raise or lower the layer. Ctrl + click to edit layer style",
+      "target": "温度地图：点击切换，拖动以升高或降低图层。按 Ctrl + 点击编辑图层样式",
+      "score": 1
+    },
+    {
+      "source": "Set regiment box size. All regiments will be redrawn on change (position will defaulted)",
+      "target": "设置军团方框大小。更改时所有军团将重绘（位置将重置为默认）",
+      "score": 1
+    },
+    {
+      "source": "Define how many organized religions and cults should be generated. Cultures will have their own folk religions in any case",
+      "target": "定义要生成的有组织宗教与教派数量。无论设置如何，文化都会拥有自己的民间信仰",
+      "score": 1
+    },
+    {
+      "source": "Azgaar's Fantasy Map Generator output: azgaar.github.io/Fantasy-map-generator",
+      "target": "Azgaar's Fantasy Map Generator 输出：azgaar.github.io/Fantasy-map-generator",
+      "score": 1
+    },
+    {
+      "source": "Download chart data as a text file (.csv)",
+      "target": "下载图表数据为文本文件（.csv）",
+      "score": 1
+    },
+    {
+      "source": "Save military-related data as a text file (.csv)",
+      "target": "保存军事相关数据为文本文件（.csv）",
+      "score": 1
+    },
+    {
+      "source": "Save biomes-related data as a text file (.csv)",
+      "target": "将生物群系相关数据保存为文本文件 (.csv)",
+      "score": 1
+    }
+  ],
+  "cross_file_duplicates": [],
+  "instructions": [
+    "If a unit's source exactly matches a key in tm_hints, REUSE that target verbatim.",
+    "If a unit's source is in cross_file_duplicates, it appears in other batches too — choose a concise translation that other batches are likely to also pick.",
+    "For similar phrases (e.g. 'Group name should start with a letter' vs 'Name should start with a letter'), prefer consistency with tm_hints over novel phrasing.",
+    "每翻译完一个 unit（用 Edit 修改源文件后），向 i18n/artifacts/batch_2.json 的 artifacts 数组追加一条记录",
+    "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied}",
+    "line_before 用 unit.line；line_after 是翻译后该 unit 在源文件中的实际行号（如果上方有行增减会漂移）",
+    "model 填你实际使用的模型标识；confidence 填 0-1 自评；applied 填 true（已 Edit 应用）"
+  ]
+}

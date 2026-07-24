@@ -37,42 +37,42 @@ function open(tspan: SVGTSpanElement): void {
 function renderDialog(): void {
   destroyDialogIfExists("labelEditor");
   const editorHtml = /* html */ `<div id="labelEditor" class="dialog">
-      <button id="labelGroupShow" data-tip="Show the group selection" class="icon-tags"></button>
+      <button id="labelGroupShow" data-tip="显示组选择" class="icon-tags"></button>
       <div id="labelGroupSection" style="display: none">
-        <button id="labelGroupHide" data-tip="Hide the group selection" class="icon-tags"></button>
-        <select id="labelGroupSelect" data-tip="Select a group for this label" style="width: 10em"></select>
+        <button id="labelGroupHide" data-tip="隐藏组选择" class="icon-tags"></button>
+        <select id="labelGroupSelect" data-tip="为此标签选择分组" style="width: 10em"></select>
         <input
           id="labelGroupInput"
-          placeholder="new group name"
-          data-tip="Provide a name for the new group"
+          placeholder="新分组名称"
+          data-tip="为新分组提供名称"
           style="display: none; width: 10em"
         />
-        <span id="labelGroupNew" data-tip="Create a new group for this label" class="icon-plus pointer"></span>
+        <span id="labelGroupNew" data-tip="为此标签创建新分组" class="icon-plus pointer"></span>
         <span
           id="labelGroupRemove"
-          data-tip="Remove the Group with all labels"
+          data-tip="移除该分组及所有标签"
           class="icon-trash-empty pointer"
         ></span>
       </div>
-      <button id="labelTextShow" data-tip="Show the edit label text section" class="icon-pencil"></button>
+      <button id="labelTextShow" data-tip="显示标签文本编辑区域" class="icon-pencil"></button>
       <div id="labelTextSection" style="display: none">
-        <button id="labelTextHide" data-tip="Hide the edit label text section" class="icon-pencil"></button>
+        <button id="labelTextHide" data-tip="隐藏标签文本编辑区域" class="icon-pencil"></button>
         <input
           id="labelText"
-          data-tip='Type to change the label. Enter "|" to move to a new line'
+          data-tip='输入以更改标签。输入"|"换行'
           style="width: 12em"
         />
-        <span id="labelTextSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
-        <span id="labelTextRandom" data-tip="Generate random name" class="icon-shuffle pointer"></span>
+        <span id="labelTextSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
+        <span id="labelTextRandom" data-tip="生成随机名称" class="icon-shuffle pointer"></span>
       </div>
-      <button id="labelEditStyle" data-tip="Edit label group style in Style Editor" class="icon-brush"></button>
-      <button id="labelSizeShow" data-tip="Show the font size section" class="icon-text-height"></button>
+      <button id="labelEditStyle" data-tip="在样式编辑器中编辑标签组样式" class="icon-brush"></button>
+      <button id="labelSizeShow" data-tip="显示字号区域" class="icon-text-height"></button>
       <div id="labelSizeSection" style="display: none">
-        <button id="labelSizeHide" data-tip="Hide the font size section" class="icon-text-height"></button>
-        <span data-tip="Set relative size for the particular label">Size:</span>
+        <button id="labelSizeHide" data-tip="隐藏字号区域" class="icon-text-height"></button>
+        <span data-tip="设置特定标签的相对大小">大小：</span>
         <input
           id="labelRelativeSize"
-          data-tip="Set relative size for the particular label (% of group default)"
+          data-tip="设置特定标签的相对大小（占组默认值的百分比）"
           type="number"
           min="30"
           max="300"
@@ -80,13 +80,13 @@ function renderDialog(): void {
           style="width: 4.5em"
         />
       </div>
-      <button id="labelOffsetShow" data-tip="Show the label offset section" class="icon-sliders"></button>
+      <button id="labelOffsetShow" data-tip="显示标签偏移区域" class="icon-sliders"></button>
       <div id="labelOffsetSection" style="display: none">
-        <button id="labelOffsetHide" data-tip="Hide the label offset section" class="icon-sliders"></button>
-        <span data-tip="Set starting offset for the particular label">Offset:</span>
+        <button id="labelOffsetHide" data-tip="隐藏标签偏移区域" class="icon-sliders"></button>
+        <span data-tip="设置特定标签的起始偏移">偏移：</span>
         <input
           id="labelStartOffset"
-          data-tip="Set starting offset for the particular label (% along the path)"
+          data-tip="设置特定标签的起始偏移（沿路径的百分比）"
           type="range"
           min="20"
           max="80"
@@ -99,31 +99,31 @@ function renderDialog(): void {
           max="80"
           step="1"
           style="width: 3.5em"
-          data-tip="Set starting offset numerically"
+          data-tip="以数字设置起始偏移"
         />
       </div>
-      <button id="labelLetterSpacingShow" data-tip="Show the letter spacing section" class="icon-text-width"></button>
+      <button id="labelLetterSpacingShow" data-tip="显示字间距区域" class="icon-text-width"></button>
       <div id="labelLetterSpacingSection" style="display: none">
         <button
           id="labelLetterSpacingHide"
-          data-tip="Hide the letter spacing section"
+          data-tip="隐藏字间距区域"
           class="icon-text-width"
         ></button>
         <slider-input
           id="labelLetterSpacingSize"
           style="display: inline-block"
-          data-tip="Set the letter spacing size for this label"
+          data-tip="设置此标签的字母间距大小"
           min="0"
           max="20"
           step=".01"
           value="0"
         ></slider-input>
       </div>
-      <button id="labelAlign" data-tip="Turn text path into a straight line" class="icon-resize-horizontal"></button>
-      <button id="labelLegend" data-tip="Edit free text notes (legend) for this label" class="icon-edit"></button>
+      <button id="labelAlign" data-tip="将文本路径变为直线" class="icon-resize-horizontal"></button>
+      <button id="labelLegend" data-tip="编辑此标签的自由文本笔记（图例）" class="icon-edit"></button>
       <button
         id="labelRemoveSingle"
-        data-tip="Remove the label"
+        data-tip="移除标签"
         data-shortcut="Delete"
         class="icon-trash fastDelete"
       ></button>
@@ -403,15 +403,14 @@ function removeLabelsGroup(): void {
   const group = (elSelected.node()!.parentNode as SVGGElement).id;
   const basic = group === "states" || group === "addedLabels";
   const count = (elSelected.node()!.parentNode as SVGGElement).childElementCount;
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove ${
-    basic ? "all elements in the group" : "the entire label group"
-  }? <br /><br />Labels to be
-    removed: ${count}`;
+  alertMessage.innerHTML = /* html */ `确定要移除${
+    basic ? "组内所有元素" : "整个标签组"
+  }吗？<br /><br />将要移除的标签数：${count}`;
   $("#alert").dialog({
     resizable: false,
     title: "移除道路组",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         $(this).dialog("close");
         $("#labelEditor").dialog("close");
         hideGroupSection();
@@ -424,7 +423,7 @@ function removeLabelsGroup(): void {
           });
         if (!basic) select<SVGGElement, unknown>("#labels").select(`#${group}`).remove();
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -548,12 +547,12 @@ function editLabelLegend(): void {
 }
 
 function removeLabel(): void {
-  alertMessage.innerHTML = "Are you sure you want to remove the label?";
+  alertMessage.innerHTML = "确定要移除该标签吗？";
   $("#alert").dialog({
     resizable: false,
     title: "移除标签",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         $(this).dialog("close");
         select<SVGElement, unknown>("#deftemp")
           .select(`#textPath_${elSelected.attr("id")}`)
@@ -561,7 +560,7 @@ function removeLabel(): void {
         elSelected.remove();
         $("#labelEditor").dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

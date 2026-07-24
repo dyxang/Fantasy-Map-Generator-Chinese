@@ -375,7 +375,7 @@ function open(cells: number[], routeLen: number, isRiver: boolean): void {
         .attr("x", lx)
         .attr("y", ly)
         .attr("text-anchor", "middle")
-        .attr("data-tip", `Focus on ${burg.name}`)
+        .attr("data-tip", `定位到 ${burg.name}`)
         .style("cursor", "pointer")
         .on("click", () => zoomTo(burg.x, burg.y, 8, 2000))
         .text(burg.name ?? "");
@@ -407,7 +407,7 @@ function open(cells: number[], routeLen: number, isRiver: boolean): void {
 
     // Stats line in the controls bar
     ensureEl("epstats").textContent =
-      `Elev: ${chartData.mi}\u2013${chartData.ma} ${heightUnit.value}\u2002\u2191\u202f${totalAscent}\u2002\u2193\u202f${totalDescent} ${heightUnit.value}`;
+      `海拔：${chartData.mi}\u2013${chartData.ma} ${heightUnit.value}\u2002\u2191\u202f${totalAscent}\u2002\u2193\u202f${totalDescent} ${heightUnit.value}`;
 
     // Crosshair + FMG tooltip on hover
     const crosshairG = chart.append("g").attr("id", "epcrosshair").style("pointer-events", "none");
@@ -452,8 +452,8 @@ function open(cells: number[], routeLen: number, isRiver: boolean): void {
         const burgId = chartData.burg[idx];
         tip(
           [
-            `${dist} ${distanceUnitInput.value} from start`,
-            `Elevation: ${chartData.height[idx]} ${heightUnit.value}`,
+            `距起点 ${dist} ${distanceUnitInput.value}`,
+            `海拔：${chartData.height[idx]} ${heightUnit.value}`,
             biomesData.name[chartData.biome[idx]],
             burgId ? ((pack.burgs[burgId] as Burg).name ?? null) : null
           ]
@@ -564,11 +564,11 @@ function open(cells: number[], routeLen: number, isRiver: boolean): void {
 function renderDialog(): void {
   document.getElementById("elevationProfile")?.remove();
   const editorHtml = /* html */ `<div id="elevationProfile" class="dialog" width="100%">
-      <div id="elevationGraph" data-tip="Elevation profile"></div>
+      <div id="elevationGraph" data-tip="海拔剖面图"></div>
       <div style="text-align: center">
         <div id="epControls">
-          <span data-tip="Set curve profile"
-            >Curve:
+          <span data-tip="设置曲线剖面"
+            >曲线：
             <select id="epCurve">
               <option>Linear</option>
               <option>Bundle</option>
@@ -578,10 +578,10 @@ function renderDialog(): void {
             </select>
           </span>
           <span
-            ><button id="epSave" data-tip="Download the chart data as a CSV file" class="icon-download"></button
+            ><button id="epSave" data-tip="下载图表数据为 CSV 文件" class="icon-download"></button
           ></span>
-          <span><button id="epSaveSVG" data-tip="Download the chart as an SVG image">SVG</button></span>
-          <span><button id="epSavePNG" data-tip="Download the chart as a PNG image">PNG</button></span>
+          <span><button id="epSaveSVG" data-tip="下载图表为 SVG 图像">SVG</button></span>
+          <span><button id="epSavePNG" data-tip="下载图表为 PNG 图像">PNG</button></span>
           <span id="epstats" style="margin-left: 1em; color: #555; font-size: 0.85em"></span>
         </div>
       </div>

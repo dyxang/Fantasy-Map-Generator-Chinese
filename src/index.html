@@ -391,7 +391,7 @@
           <button id="layersTab" data-tip="点击更改地图图层" class="options active">图层</button>
           <button id="styleTab" data-tip="点击打开样式编辑器" class="options">样式</button>
           <button id="optionsTab" data-tip="点击更改生成和 UI 选项" class="options">选项</button>
-          <button id="toolsTab" data-tip="点击打开工具菜单" class="options">Tools</button>
+          <button id="toolsTab" data-tip="点击打开工具菜单" class="options">工具</button>
           <button id="aboutTab" data-tip="点击查看生成器信息" class="options">关于</button>
         </div>
         <div id="layersContent" class="tabcontent" style="display: block">
@@ -748,20 +748,20 @@
             <option value="biomes">生物群系</option>
             <option value="borders">边界</option>
             <option value="burgIcons">城镇图标</option>
-            <option value="cells">Cells</option>
+            <option value="cells">单元格</option>
             <option value="coastline">海岸线</option>
             <option value="coordinates">坐标</option>
             <option value="cults">文化</option>
-            <option value="emblems">Emblems</option>
+            <option value="emblems">纹章</option>
             <option value="fogging">雾化</option>
             <option value="goodsCells">货物：产出</option>
             <option value="goodsIcons">货物：资源</option>
             <option value="goodsBurgs">货物：城镇牌</option>
-            <option value="gridOverlay">Grid</option>
-            <option value="terrs">Heightmap</option>
+            <option value="gridOverlay">网格</option>
+            <option value="terrs">高度图</option>
             <option value="ice">冰川</option>
             <option value="labels">标签</option>
-            <option value="lakes">Lakes</option>
+            <option value="lakes">湖泊</option>
             <option value="landmass">陆地</option>
             <option value="legend">图例</option>
             <option value="markers">标记</option>
@@ -775,13 +775,13 @@
             <option value="relig">宗教</option>
             <option value="rivers">河流</option>
             <option value="routes">道路</option>
-            <option value="ruler">Rulers</option>
-            <option value="scaleBar">Scale Bar</option>
+            <option value="ruler">标尺</option>
+            <option value="scaleBar">比例尺</option>
             <option value="regions" selected>国家</option>
             <option value="temperature">温度</option>
             <option value="texture">纹理</option>
             <option value="tradeAnimation">贸易动画</option>
-            <option value="vignette">Vignette</option>
+            <option value="vignette">暗角</option>
             <option value="compass">风向玫瑰</option>
             <option value="zones">区域</option>
           </select>
@@ -1662,7 +1662,7 @@
               <td>
                 <i data-locked="0" id="lock_template" class="icon-lock-open"></i>
               </td>
-              <td>Heightmap</td>
+              <td>高度图</td>
               <td id="templateInputContainer" class="pointer">
                 <select id="templateInput" data-stored="template" style="pointer-events: none"></select>
               </td>
@@ -2036,10 +2036,10 @@
           <div class="separator">编辑</div>
           <div class="grid">
             <button id="editBiomesButton" data-tip="点击打开生物群系编辑器" data-shortcut="Shift + B">
-              Biomes
+              生物群系
             </button>
             <button id="overviewBurgsButton" data-tip="点击打开城镇总览" data-shortcut="Shift + T">
-              Burgs
+              城镇
             </button>
             <button
               id="editCoastlineSettings"
@@ -2049,7 +2049,7 @@
               海岸线
             </button>
             <button id="editCulturesButton" data-tip="点击打开文化编辑器" data-shortcut="Shift + C">
-              Cultures
+              文化
             </button>
             <button
               id="editDiplomacyButton"
@@ -2059,21 +2059,21 @@
               外交
             </button>
             <button id="editEmblemButton" data-tip="点击打开纹章编辑器" data-shortcut="Shift + Y">
-              Emblems
+              纹章
             </button>
             <button id="editGoods" data-tip="点击打开货物编辑器" data-shortcut="Shift + G">货物</button>
             <button
               id="editHeightmapButton"
-              data-tip="Click to open Heightmap customization menu"
+              data-tip="点击打开高度图自定义菜单"
               data-shortcut="Shift + H"
             >
-              Heightmap
+              高度图
             </button>
             <button id="overviewMarkersButton" data-tip="点击打开标记总览" data-shortcut="Shift + K">
-              Markers
+              标记
             </button>
             <button id="overviewMarketsButton" data-tip="点击打开市场总览">
-              Markets
+              市场
             </button>
             <button id="editMeasurersButton" data-tip="点击打开测量器编辑器" data-shortcut="Shift + =">
               测量器
@@ -2083,32 +2083,32 @@
               data-tip="点击打开军事部队总览"
               data-shortcut="Shift + M"
             >
-              Military
+              军事
             </button>
             <button id="editNamesBaseButton" data-tip="点击打开名称库编辑器" data-shortcut="Shift + N">
               名称库
             </button>
             <button id="editNotesButton" data-tip="点击打开笔记编辑器" data-shortcut="Shift + O">笔记</button>
             <button id="editProvincesButton" data-tip="点击打开省份编辑器" data-shortcut="Shift + P">
-              Provinces
+              省份
             </button>
             <button id="editReligions" data-tip="点击打开宗教编辑器" data-shortcut="Shift + R">
-              Religions
+              宗教
             </button>
             <button id="overviewRiversButton" data-tip="点击打开河流总览" data-shortcut="Shift + V">
-              Rivers
+              河流
             </button>
             <button id="overviewRoutesButton" data-tip="点击打开道路总览" data-shortcut="Shift + U">
-              Routes
+              道路
             </button>
             <button id="editStatesButton" data-tip="点击打开国家编辑器" data-shortcut="Shift + S">
-              States
+              国家
             </button>
             <button id="editTradeAnimationButton" data-tip="点击打开贸易动画编辑器">
-              Trade
+              贸易
             </button>
-            <button id="editUnitsButton" data-tip="点击打开单位编辑器" data-shortcut="Shift + Q">Units</button>
-            <button id="editZonesButton" data-tip="点击打开区域编辑器" data-shortcut="Shift + Z">Zones</button>
+            <button id="editUnitsButton" data-tip="点击打开单位编辑器" data-shortcut="Shift + Q">单位</button>
+            <button id="editZonesButton" data-tip="点击打开区域编辑器" data-shortcut="Shift + Z">区域</button>
           </div>
           <div class="separator">重新生成</div>
           <div id="regenerateFeature" class="grid">
@@ -2116,18 +2116,18 @@
               id="regenerateBurgs"
               data-tip="点击重新生成所有未锁定的城镇和道路。国家保持不变。注意：仅在已分配文化的有人居住区域生成城镇"
             >
-              Burgs
+              城镇
             </button>
-            <button id="regenerateCultures" data-tip="点击重新生成未锁定的文化">Cultures</button>
+            <button id="regenerateCultures" data-tip="点击重新生成未锁定的文化">文化</button>
             <button
               id="regenerateEconomy"
               data-tip="基于当前货物和市场重建市场领地、产出、贸易交易和税收"
             >
               经济
             </button>
-            <button id="regenerateEmblems" data-tip="点击重新生成所有纹章">Emblems</button>
+            <button id="regenerateEmblems" data-tip="点击重新生成所有纹章">纹章</button>
             <button id="regenerateGoods" data-tip="点击重新生成奖励货物布局">货物</button>
-            <button id="regenerateIce" data-tip="点击重新生成冰山和冰川">Ice</button>
+            <button id="regenerateIce" data-tip="点击重新生成冰山和冰川">冰</button>
             <button
               id="regenerateStateLabels"
               data-tip="点击根据当前边界更新国家标签位置"
@@ -2135,19 +2135,19 @@
               国家标签
             </button>
             <button id="regenerateMarkers" data-tip="点击重新生成已解锁的标记">
-              Markers <i id="configRegenerateMarkers" class="icon-cog" data-tip="点击设置数量倍率"></i>
+              标记 <i id="configRegenerateMarkers" class="icon-cog" data-tip="点击设置数量倍率"></i>
             </button>
             <button id="regenerateMarkets" data-tip="点击重新生成市场及其领地">
-              Markets
+              市场
             </button>
             <button
               id="regenerateMilitary"
               data-tip="点击根据当前军事选项重新计算军事部队"
             >
-              Military
+              军事
             </button>
             <button id="regeneratePopulation" data-tip="点击重新计算乡村和城市人口">
-              Population
+              人口
             </button>
             <button
               id="regenerateProduction"
@@ -2159,7 +2159,7 @@
               id="regenerateProvinces"
               data-tip="点击重新生成未锁定的省份。国家保持不变"
             >
-              Provinces
+              省份
             </button>
             <button
               id="regenerateReliefIcons"
@@ -2167,22 +2167,22 @@
             >
               地形
             </button>
-            <button id="regenerateReligions" data-tip="点击重新生成未锁定的宗教">Religions</button>
+            <button id="regenerateReligions" data-tip="点击重新生成未锁定的宗教">宗教</button>
             <button id="regenerateRivers" data-tip="点击重新生成所有河流（恢复默认状态）">
-              Rivers
+              河流
             </button>
-            <button id="regenerateRoutes" data-tip="点击重新生成所有未锁定的道路">Routes</button>
+            <button id="regenerateRoutes" data-tip="点击重新生成所有未锁定的道路">道路</button>
             <button
               id="regenerateStates"
               data-tip="点击重新生成未锁定的国家。纹章和军事部队也将重新生成，城镇保持不变，但首都会改变"
             >
-              States
+              国家
             </button>
             <button
               id="regenerateZones"
               data-tip="点击重新生成区域。按住 Ctrl 点击可设置区域数量倍率"
             >
-              Zones
+              区域
             </button>
           </div>
           <div class="separator">添加</div>
@@ -2196,10 +2196,10 @@
             </button>
             <button
               id="addLabel"
-              data-tip="Click on map to place label. Hold Shift to add multiple"
+              data-tip="点击地图放置标签。按住 Shift 可添加多个"
               data-shortcut="Shift + 2"
             >
-              Label
+              标签
             </button>
             <button
               id="addMarker"
@@ -2214,14 +2214,14 @@
               data-tip="点击地图放置河流。按住 Shift 可添加多个"
               data-shortcut="Shift + 3"
             >
-              River
+              河流
             </button>
             <button id="addRoute" data-tip="打开道路创建对话框" data-shortcut="Shift + 4">道路</button>
           </div>
-          <div class="separator">Show</div>
+          <div class="separator">显示</div>
           <div class="grid">
             <button id="overviewCellsButton" data-tip="点击打开单元格详情视图" data-shortcut="Shift + E">
-              Cells
+              单元格
             </button>
             <button
               id="overviewChartsButton"
@@ -2231,7 +2231,7 @@
               图表
             </button>
             <button id="openMinimapButton" data-tip="点击打开小地图总览。点击小地图以居中视图">
-              Minimap
+              小地图
             </button>
           </div>
           <div class="separator">创建</div>
@@ -2243,11 +2243,11 @@
         <div id="customizationMenu" class="tabcontent">
           <p>高度图自定义工具：</p>
           <div id="customizeTools">
-            <button data-tip="显示画笔面板" id="paintBrushes">Paint Brushes</button>
-            <button data-tip="打开模板编辑器" id="applyTemplate" style="display: none">Template Editor</button>
-            <button data-tip="打开图像转换器" id="convertImage" style="display: none">Image Converter</button>
+            <button data-tip="显示画笔面板" id="paintBrushes">画笔</button>
+            <button data-tip="打开模板编辑器" id="applyTemplate" style="display: none">模板编辑器</button>
+            <button data-tip="打开图像转换器" id="convertImage" style="display: none">图像转换器</button>
             <button data-tip="将高度图数据渲染为小型单色图像" id="heightmapPreview">预览</button>
-            <button data-tip="在 3D 场景中预览高度图" id="heightmap3DView">3D scene</button>
+            <button data-tip="在 3D 场景中预览高度图" id="heightmap3DView">3D 场景</button>
           </div>
           <p>选项：</p>
           <div id="customizeOptions">
@@ -2313,7 +2313,7 @@
           <div>
             <span>坐标： </span><span id="heightmapInfoX"></span>/<span id="heightmapInfoY"></span><br />
             <span>单元格： </span><span id="heightmapInfoCell"></span><br />
-            <span>Height: </span><span id="heightmapInfoHeight"></span>
+            <span>高度：</span><span id="heightmapInfoHeight"></span>
           </div>
         </div>
         <div id="aboutContent" class="tabcontent">
@@ -2379,15 +2379,15 @@
             </a>
           </div>
           <p>
-            Special thanks to
-            <a data-tip="Click to see list of supporters" onclick="showSupporters()">all supporters</a> on Patreon!
+            特别感谢
+            <a data-tip="点击查看支持者列表" onclick="showSupporters()">所有支持者</a> 在 Patreon 上！
           </p>
           <div style="display: flex; justify-content: center; padding: 0.8em 0.4em 0.4em; font-family: cursive">
-            <a href="https://u24.gov.ua/" style="width: 80%" data-tip="Support Ukraine" target="_blank">
+            <a href="https://u24.gov.ua/" style="width: 80%" data-tip="支持乌克兰" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350">
                 <rect width="100%" height="100%" fill="#005bbb"></rect>
                 <rect y="50%" width="100%" height="50%" fill="#ffd500"></rect>
-                <text x="50%" text-anchor="middle" font-size="8em" y="32%" fill="#f5f5f5">Support Ukraine</text>
+                <text x="50%" text-anchor="middle" font-size="8em" y="32%" fill="#f5f5f5">支持乌克兰</text>
                 <text x="50%" text-anchor="middle" font-size="4em" y="78%" fill="#005bdd">u24.gov.ua</text>
               </svg>
             </a>
@@ -2819,7 +2819,7 @@
           </p>
           <select id="loadFromDropboxSelect" style="width: 22em"></select>
           <div id="loadFromDropboxButtons" style="margin-bottom: 0.6em">
-            <button onclick="window.Services.Load.loadFromDropbox()" data-tip="从你的 Dropbox 加载地图文件（.map 或 .gz）">Load</button>
+            <button onclick="window.Services.Load.loadFromDropbox()" data-tip="从你的 Dropbox 加载地图文件（.map 或 .gz）">加载</button>
             <button
               onclick="window.Services.Load.createSharableDropboxLink()"
               data-tip="选择文件并创建链接以分享给好友"
@@ -2917,7 +2917,7 @@
       <input type="file" accept=".json" id="styleToLoad" />
       <input type="file" accept=".csv" id="culturesCSVToLoad" />
     </div>
-    <div id="tourPromptButton" style="display: none" data-tip="Take an interactive tour of the map generator">
+    <div id="tourPromptButton" style="display: none" data-tip="体验地图生成器的交互式导览">
       <button type="button" aria-label="启动界面导览">
         <svg preserveAspectRatio="xMidYMid" viewBox="0 0 58 52" height="30px" width="30px">
           <path d="M20 10 L20 42 L42 26 Z" />

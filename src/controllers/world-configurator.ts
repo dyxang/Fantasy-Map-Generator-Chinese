@@ -17,11 +17,11 @@ function open(): void {
     title: "配置世界",
     resizable: false,
     width: "minmax(40em, 85vw)",
-    buttons: { "Update world": updateWorld },
+    buttons: { 更新世界: updateWorld },
     open: function (this: HTMLElement) {
-      const checkbox = /* html */ `<div class="dontAsk" data-tip="Automatically update world on input changes and button clicks">
+      const checkbox = /* html */ `<div class="dontAsk" data-tip="在输入更改和按钮点击时自动更新世界">
         <input id="wcAutoChange" class="checkbox" type="checkbox" checked />
-        <label for="wcAutoChange" class="checkbox-label"><i>auto-apply changes</i></label>
+        <label for="wcAutoChange" class="checkbox-label"><i>自动应用更改</i></label>
       </div>`;
       const pane = this.parentElement?.querySelector(".ui-dialog-buttonpane");
       pane?.insertAdjacentHTML("afterbegin", checkbox);
@@ -53,21 +53,21 @@ function createDialogHtml(): string {
   return /* html */ `<div id="worldConfigurator" class="dialog stable">
     <div style="display: flex">
       <div id="worldControls">
-        ${temperatureControl("temperatureEquator", "Equator", "Set temperature at equator")}
-        ${temperatureControl("temperatureNorthPole", "North Pole", "Set the North Pole average yearly temperature")}
-        ${temperatureControl("temperatureSouthPole", "South Pole", "Set the South Pole average yearly temperature")}
+        ${temperatureControl("temperatureEquator", "赤道", "设置赤道温度")}
+        ${temperatureControl("temperatureNorthPole", "北极", "设置北极平均年温度")}
+        ${temperatureControl("temperatureSouthPole", "南极", "设置南极平均年温度")}
         <div>
           <i data-locked="0" id="lock_mapSize" class="icon-lock-open"></i>
-          <label data-tip="Set map size relative to the world size">
-            <i>Map size:</i>
+          <label data-tip="设置地图相对于世界的大小">
+            <i>地图大小：</i>
             <input id="mapSizeInput" type="number" min="1" max="100" step="0.1" />%
             <input id="mapSizeOutput" type="range" min="1" max="100" step="0.1" />
           </label>
         </div>
         <div>
           <i data-locked="0" id="lock_latitude" class="icon-lock-open"></i>
-          <label data-tip="Set a North-South map shift, set to 50 to make map center lie on Equator">
-            <i>Latitudes:</i>
+          <label data-tip="设置南北地图偏移，设为 50 使地图中心位于赤道">
+            <i>纬度：</i>
             <input id="latitudeInput" type="number" min="0" max="100" step="0.1" />
             <br /><i>N</i
             ><input
@@ -82,8 +82,8 @@ function createDialogHtml(): string {
         </div>
         <div>
           <i data-locked="0" id="lock_longitude" class="icon-lock-open"></i>
-          <label data-tip="Set a West-East map shift, set to 50 to make map center lie on Prime meridian">
-            <i>Longitudes:</i>
+          <label data-tip="设置东西地图偏移，设为 50 使地图中心位于本初子午线">
+            <i>经度：</i>
             <input id="longitudeInput" type="number" min="0" max="100" step="0.1" />
             <br /><i>W</i
             ><input
@@ -98,31 +98,31 @@ function createDialogHtml(): string {
         </div>
         <div>
           <label
-            data-tip="Set precipitation - water amount clouds can bring. Defines rivers and biomes generation. Keep around 100% for default generation"
+            data-tip="设置降水量——云层可带来的水量。决定河流和生物群系生成。默认生成请保持在 100% 左右"
           >
             <i data-locked="0" id="lock_prec" class="icon-lock-open"></i>
-            <i>Precipitation:</i>
+            <i>降水量：</i>
             <input id="precInput" type="number" />%
             <input id="precOutput" type="range" min="0" max="500" />
           </label>
         </div>
-        <div data-tip="Canvas size. Can be changed in general options on new map generation">
-          <i>Canvas size:</i><br />
+        <div data-tip="画布大小。可在新地图生成时的常规选项中更改">
+          <i>画布大小：</i><br />
           <span id="mapSize"></span> px = <span id="mapSizeFriendly"></span>
         </div>
         <div>
-          <i data-tip="Length of Meridian. Almost half of the equator length">Meridian length:</i><br />
-          <span id="meridianLength" data-tip="Length of Meridian in pixels"></span> px =
+          <i data-tip="经线长度。约为赤道长度的一半">经线长度：</i><br />
+          <span id="meridianLength" data-tip="经线长度（像素）"></span> px =
           <span
             id="meridianLengthFriendly"
-            data-tip="Length of Meridian is friendly units (depends on user configuration)"
+            data-tip="经线长度的友好单位（取决于用户配置）"
           ></span>
           <span
             id="meridianLengthEarth"
-            data-tip="Fantasy world Meridian length relative to real-world Earth (20k km)"
+            data-tip="幻想世界经线长度相对于现实地球（2万公里）"
           ></span>
         </div>
-        <div data-tip="Map coordinates on globe"><i>Coords:</i> <span id="mapCoordinates"></span></div>
+        <div data-tip="地球仪上的地图坐标"><i>坐标：</i> <span id="mapCoordinates"></span></div>
       </div>
       <div style="display: flex; flex-direction: column; align-items: flex-end">
         <svg id="globe" width="22em" viewBox="-20 -25 240 240">
@@ -146,7 +146,7 @@ function createDialogHtml(): string {
             <line x1="5" x2="220" y1="187" y2="187" />
             <line x1="5" x2="220" y1="200" y2="200" />
           </g>
-          <g id="globeWindArrows" data-tip="Click to change wind direction" stroke-linejoin="round">
+          <g id="globeWindArrows" data-tip="点击更改风向" stroke-linejoin="round">
             <circle cx="210" cy="6" r="12" />
             <path data-tier="0" d="M210,11 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(225 210 6)" />
             <circle cx="210" cy="30" r="12" />
@@ -161,8 +161,8 @@ function createDialogHtml(): string {
             <path data-tier="5" d="M210,199 v-10 l-3,3 m6,0 l-3,-3" transform="rotate(315 210 194)" />
           </g>
           <g id="globaAxisLabels">
-            <text x="82%" y="-4%">wind</text>
-            <text x="-8%" y="-4%">latitude</text>
+            <text x="82%" y="-4%">风向</text>
+            <text x="-8%" y="-4%">纬度</text>
           </g>
           <g id="globeLatLabels">
             <text x="-15" y="5">90°</text>
@@ -180,17 +180,17 @@ function createDialogHtml(): string {
           <path id="globeGraticule" />
           <path id="globeArea" />
         </svg>
-        <button id="restoreWinds" data-tip="Click to restore default (Earth-based) wind directions">
+        <button id="restoreWinds" data-tip="点击恢复默认（基于地球）风向">
           Restore winds
         </button>
       </div>
     </div>
     <div style="margin-top: 0.3em">
       <i>Presets:</i>
-      <button id="wcWholeWorld" data-tip="Click to set map size to cover the whole world">Whole world</button>
-      <button id="wcNorthern" data-tip="Click to set map size to cover the Northern latitudes">Northern</button>
-      <button id="wcTropical" data-tip="Click to set map size to cover the Tropical latitudes">Tropical</button>
-      <button id="wcSouthern" data-tip="Click to set map size to cover the Southern latitudes">Southern</button>
+      <button id="wcWholeWorld" data-tip="点击设置地图大小为覆盖整个世界">Whole world</button>
+      <button id="wcNorthern" data-tip="点击设置地图大小为覆盖北纬地区">Northern</button>
+      <button id="wcTropical" data-tip="点击设置地图大小为覆盖热带地区">Tropical</button>
+      <button id="wcSouthern" data-tip="点击设置地图大小为覆盖南纬地区">Southern</button>
     </div>
   </div>`;
 }
@@ -231,8 +231,7 @@ function addListeners(): void {
 
       el.on("mouseover", (event: Event) => {
         event.stopPropagation();
-        if (el.className === "icon-lock")
-          tip("点击解锁选项，允许在新地图生成时随机化");
+        if (el.className === "icon-lock") tip("点击解锁选项，允许在新地图生成时随机化");
         else tip("点击锁定选项，新地图生成时始终使用当前值");
       });
       el.on("click", () => {

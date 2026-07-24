@@ -44,7 +44,7 @@ function open(id?: string, name?: string): void {
   } else {
     // if notes array is empty
     notesName.value = "";
-    notesLegend.innerHTML = "No notes added. Click on an element (e.g. label or marker) and add a free text note";
+    notesLegend.innerHTML = "尚未添加笔记。点击某个元素（如标签或标记）以添加自由文本笔记";
   }
 
   $("#notesEditor").dialog({
@@ -61,20 +61,20 @@ function renderDialog(): void {
   destroyDialogIfExists("notesEditor");
   const editorHtml = /* html */ `<div id="notesEditor" class="dialog stable">
     <div style="margin-bottom: 0.3em">
-      <strong>Element: </strong>
-      <select id="notesSelect" data-tip="Select element id" style="width: 12em"></select>
-      <strong>Element name: </strong>
-      <input id="notesName" data-tip="Set element name" autocorrect="off" spellcheck="false" style="width: 16em" />
-      <span id="notesNameSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+      <strong>元素：</strong>
+      <select id="notesSelect" data-tip="选择元素 ID" style="width: 12em"></select>
+      <strong>元素名称：</strong>
+      <input id="notesName" data-tip="设置元素名称" autocorrect="off" spellcheck="false" style="width: 16em" />
+      <span id="notesNameSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
     </div>
     <div id="notesLegend" contenteditable="true"></div>
     <div style="margin-top: 0.3em">
-      <button id="notesFocus" data-tip="Focus on selected object" class="icon-target"></button>
-      <button id="notesGenerateWithAi" data-tip="Generate note with AI" class="icon-robot"></button>
-      <button id="notesPin" data-tip="Toggle notes box display: hide or do not hide the box on mouse move" class="icon-pin"></button>
-      <button id="notesDownload" data-tip="Download notes to PC" class="icon-download"></button>
-      <button id="notesUpload" data-tip="Upload notes from PC" class="icon-upload"></button>
-      <button id="notesRemove" data-tip="Remove this note" class="icon-trash fastDelete"></button>
+      <button id="notesFocus" data-tip="聚焦到所选对象" class="icon-target"></button>
+      <button id="notesGenerateWithAi" data-tip="用 AI 生成笔记" class="icon-robot"></button>
+      <button id="notesPin" data-tip="切换笔记框显示：鼠标移动时隐藏或不隐藏笔记框" class="icon-pin"></button>
+      <button id="notesDownload" data-tip="下载笔记到电脑" class="icon-download"></button>
+      <button id="notesUpload" data-tip="从电脑上传笔记" class="icon-upload"></button>
+      <button id="notesRemove" data-tip="移除此笔记" class="icon-trash fastDelete"></button>
     </div>`;
 
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);
@@ -191,7 +191,7 @@ function validateHighlightElement(): void {
   confirmationDialog({
     title: "未找到元素",
     message: "未找到笔记元素。是否要移除该笔记？",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: removeSelectedNote
   });
 }
@@ -247,7 +247,7 @@ function triggerNotesRemove(): void {
   confirmationDialog({
     title: "移除笔记",
     message: "确定要移除选中的笔记吗？此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: removeSelectedNote
   });
 }

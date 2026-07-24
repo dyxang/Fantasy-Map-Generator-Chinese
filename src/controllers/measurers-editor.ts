@@ -36,13 +36,13 @@ function renderDialog(): void {
   const html = /* html */ `<div id="measurersEditor" class="dialog">
     <div id="measurersBody" class="table" style="margin-bottom: 0.3em"></div>
     <div id="measurersBottom">
-      <button id="addLinearRuler" data-tip="Click to place a linear measurer (ruler)" class="icon-ruler"></button>
-      <button id="addOpisometer" data-tip="Drag to measure a curve length (opisometer)" class="icon-drafting-compass"></button>
-      <button id="addRouteOpisometer" data-tip="Drag to measure a curve length that sticks to routes (route opisometer)">
+      <button id="addLinearRuler" data-tip="点击放置线性测量器（直尺）" class="icon-ruler"></button>
+      <button id="addOpisometer" data-tip="拖动测量曲线长度（曲线计）" class="icon-drafting-compass"></button>
+      <button id="addRouteOpisometer" data-tip="拖动测量贴合道路的曲线长度（道路曲线计）">
         <svg width="0.88em" height="0.88em"><use xlink:href="#icon-route" /></svg>
       </button>
-      <button id="addPlanimeter" data-tip="Drag to measure a polygon area (planimeter)" class="icon-draw-polygon"></button>
-      <button id="removeMeasurers" data-tip="Remove all measurers from the map" class="icon-trash"></button>
+      <button id="addPlanimeter" data-tip="拖动测量多边形面积（面积仪）" class="icon-draw-polygon"></button>
+      <button id="removeMeasurers" data-tip="从地图移除所有测量器" class="icon-trash"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -78,8 +78,8 @@ function redraw(): void {
     return /* html */ `<div class="states" data-index="${index}" style="display: flex; align-items: center; gap: 0.4em; padding: 1px 0.2em">
       <div style="width: 9em">${measurer.type}</div>
       <div style="width: 6em">${value}</div>
-      <span data-tip="Zoom to the measurer" data-zoom class="icon-dot-circled pointer"></span>
-      <span data-tip="Remove the measurer" data-remove class="icon-trash-empty pointer"></span>
+      <span data-tip="缩放至测量工具" data-zoom class="icon-dot-circled pointer"></span>
+      <span data-tip="移除测量工具" data-remove class="icon-trash-empty pointer"></span>
     </div>`;
   });
   ensureEl("measurersBody").innerHTML = rows.join("");
@@ -105,18 +105,18 @@ function onListClick(event: Event): void {
 
 function removeAllMeasurers(): void {
   if (!pack.measurers.length) return;
-  alertMessage.innerHTML = /* html */ ` Are you sure you want to remove all placed measurers?
-    <br />If you just want to hide them, toggle the Rulers layer off in Menu`;
+  alertMessage.innerHTML = /* html */ ` 确定要移除所有已放置的测量工具吗？
+    <br />如果只是想隐藏它们，请在菜单中关闭标尺图层`;
   $("#alert").dialog({
     resizable: false,
     title: "移除所有测量器",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         $(this).dialog("close");
         pack.measurers = [];
         redraw();
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -144,7 +144,7 @@ function addRuler(): void {
 }
 
 function toggleOpisometerMode(this: HTMLElement): void {
-  startDrawingMode(this, "Draw a curve to measure length. Hold Shift to disallow path optimization", (event: any) => {
+  startDrawingMode(this, "绘制曲线以测量长度。按住 Shift 键可禁止路径优化", (event: any) => {
     const opisometer = Measurers.create("Opisometer", [[event.x, event.y]]);
     redraw();
     event.on("drag", (dragEvent: any) =>
@@ -155,7 +155,7 @@ function toggleOpisometerMode(this: HTMLElement): void {
 }
 
 function togglePlanimeterMode(this: HTMLElement): void {
-  startDrawingMode(this, "Draw a curve to measure its area. Hold Shift to disallow path optimization", (event: any) => {
+  startDrawingMode(this, "绘制曲线以测量其面积。按住 Shift 键可禁止路径优化", (event: any) => {
     const planimeter = Measurers.create("Planimeter", [[event.x, event.y]]);
     redraw();
     event.on("drag", (dragEvent: any) =>
@@ -166,7 +166,7 @@ function togglePlanimeterMode(this: HTMLElement): void {
 }
 
 function toggleRouteOpisometerMode(this: HTMLElement): void {
-  const tipText = "Draw a curve along routes to measure length. Hold Shift to measure away from roads.";
+  const tipText = "沿道路绘制曲线以测量长度。按住 Shift 键可测量远离道路的区域。";
   startDrawingMode(this, tipText, (event: any) => {
     const cell = findCell(event.x, event.y)!;
     if (!Routes.isConnected(cell) && !event.sourceEvent.shiftKey) {

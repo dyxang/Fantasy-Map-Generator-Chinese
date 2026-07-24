@@ -85,7 +85,7 @@ function open(props: OpenProps): void {
   svg.attr("viewBox", `0, 0, ${width}, ${height}`);
 
   $("#hierarchyTree").dialog({
-    title: `${capitalize(props.type)} tree`,
+    title: `${capitalize(props.type)}树`,
     position: { my: "left center", at: "left+10 center", of: "svg" },
     width
   });
@@ -195,10 +195,10 @@ function insertHtml(): void {
       <div id='hierarchyTree_infoLine' style="display: block">&#8205;</div>
       <div id='hierarchyTree_selected' style="display: none">
         <span><span id='hierarchyTree_selectedName'></span>. </span>
-        <span data-name="Type short name (abbreviation)">Abbreviation: <input id='hierarchyTree_selectedCode' type='text' maxlength='3' size='3' /></span>
-        <span>Origins: <span id='hierarchyTree_selectedOrigins'></span></span>
-        <button data-tip='Edit this node's origins' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedSelectButton'>Edit</button>
-        <button data-tip='Unselect this node' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedCloseButton'>Unselect</button>
+        <span data-name="Type short name (abbreviation)">缩写：<input id='hierarchyTree_selectedCode' type='text' maxlength='3' size='3' /></span>
+        <span>起源：<span id='hierarchyTree_selectedOrigins'></span></span>
+        <button data-tip='编辑此节点的起源' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedSelectButton'>编辑</button>
+        <button data-tip='取消选择此节点' class="hierarchyTree_selectedButton" id='hierarchyTree_selectedCloseButton'>取消选择</button>
       </div>
     </div>
     <div id="hierarchyTree_originSelector"></div>
@@ -418,8 +418,8 @@ function selectElement(d: any): void {
       .filter(origin => origin)
       .map((origin, index) => {
         const { name, code } = validElements.find(r => r.i === origin) || ({} as Partial<HierarchyElement>);
-        const type = index ? "Secondary" : "Primary";
-        const tipText = `${type} origin: ${name}. Click to remove link to that origin`;
+        const type = index ? "次要" : "主要";
+        const tipText = `${type}起源：${name}。点击移除与该起源的链接`;
         return `<button data-id="${origin}" class="hierarchyTree_selectedButton hierarchyTree_selectedOrigin" data-tip="${tipText}">${code}</button>`;
       })
       .join("");
@@ -450,17 +450,17 @@ function selectElement(d: any): void {
       if (i === 0) {
         return /*html*/ `
         <div ${isChecked}>
-          <input data-tip="Set as primary origin" type="radio" name="primary" value="${i}" ${isPrimary} />
-          Top level
+          <input data-tip="设为主要起源" type="radio" name="primary" value="${i}" ${isPrimary} />
+          顶级
         </div>
       `;
       }
 
       return /*html*/ `
         <div ${isChecked}>
-          <input data-tip="Set as primary origin" type="radio" name="primary" value="${i}" ${isPrimary} />
+          <input data-tip="设为主要起源" type="radio" name="primary" value="${i}" ${isPrimary} />
           <input data-id="${i}" id="selectElementOrigin${i}" class="checkbox" type="checkbox" ${isChecked} />
-          <label data-tip="Check to set as a secondary origin" for="selectElementOrigin${i}" class="checkbox-label">
+          <label data-tip="勾选以设为次要起源" for="selectElementOrigin${i}" class="checkbox-label">
             <fill-box fill="${color}" size=".8em" disabled></fill-box>
             ${code}: ${name}
           </label>
@@ -478,7 +478,7 @@ function selectElement(d: any): void {
       title: "选择起源",
       position: { my: "center", at: "center", of: "svg" },
       buttons: {
-        Select: () => {
+        选择: () => {
           $("#hierarchyTree_originSelector").dialog("close");
           const $selector = ensureEl("hierarchyTree_originSelector");
           const selectedRadio = $selector.querySelector<HTMLInputElement>("input[type='radio']:checked");
@@ -494,7 +494,7 @@ function selectElement(d: any): void {
           updateTree();
           createOriginButtons();
         },
-        Cancel: () => {
+        取消: () => {
           $("#hierarchyTree_originSelector").dialog("close");
         }
       }

@@ -1,0 +1,306 @@
+{
+  "batch": 1,
+  "start_index": 0,
+  "units": [
+    {
+      "id": "sha256:20fc4adfdc7f8204",
+      "source": "Attackers morale:",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 286,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "          <div style=\"float: right; font-size: 0.7em\">\n            <meter\n              id=\"battleMorale_attackers\"",
+      "context_after": "              min=\"0\"\n              max=\"100\"\n              low=\"33\""
+    },
+    {
+      "id": "sha256:d062417c2b94565b",
+      "source": "Attackers strength during this phase. Strength defines dealt damage",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 295,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "            ></meter>\n            <div\n              id=\"battlePower_attackers\"",
+      "context_after": "              style=\"display: inline-block; text-align: center\"\n              class=\"icon-button-power\"\n            ></div>"
+    },
+    {
+      "id": "sha256:dc1ce5692877886d",
+      "source": "Defenders morale:",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 317,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "          <div style=\"float: right; font-size: 0.7em\">\n            <meter\n              id=\"battleMorale_defenders\"",
+      "context_after": "              min=\"0\"\n              max=\"100\"\n              low=\"33\""
+    },
+    {
+      "id": "sha256:332b261262b81edf",
+      "source": "Defenders strength during this phase. Strength defines dealt damage",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 326,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "            ></meter>\n            <div\n              id=\"battlePower_defenders\"",
+      "context_after": "              style=\"display: inline-block; text-align: center\"\n              class=\"icon-button-power\"\n            ></div>"
+    },
+    {
+      "id": "sha256:86aacfaf72bfd041",
+      "source": "Type place name",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 365,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "        <button id=\"battleNameShow\" data-tip=\"设置战斗名称\" class=\"icon-font\"></button>\n        <div id=\"battleNameSection\" style=\"display: none\">\n          <button id=\"battleNameHide\" data-tip=\"隐藏战斗名称区域\" class=\"icon-font\"></button>",
+      "context_after": "          <input id=\"battleNameFull\" data-tip=\"Type full battle name\" style=\"width: 46%\" />\n          <button\n            id=\"battleNameCulture\""
+    },
+    {
+      "id": "sha256:69918d8dcc398874",
+      "source": "Type full battle name",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 366,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "        <div id=\"battleNameSection\" style=\"display: none\">\n          <button id=\"battleNameHide\" data-tip=\"隐藏战斗名称区域\" class=\"icon-font\"></button>\n          <input id=\"battleNamePlace\" data-tip=\"Type place name\" style=\"width: 30%\" />",
+      "context_after": "          <button\n            id=\"battleNameCulture\"\n            data-tip=\"生成特定文化风格的地名和战斗名\""
+    },
+    {
+      "id": "sha256:e982adac06c7d267",
+      "source": "${label}",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 523,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    const label = capitalize(u.name.replace(/_/g, \" \"));\n    const isExternal = u.icon.startsWith(\"http\") || u.icon.startsWith(\"data:image\");\n    const iconHTML = isExternal ? `<img src=\"${u.icon}\" width=\"15\" height=\"15\">` : u.icon;",
+      "context_after": "  }\n\n  headers += '<th data-tip=\"Total military\">Total</th></tr></thead>';"
+    },
+    {
+      "id": "sha256:198a84fcb638f6b6",
+      "source": "Total military",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 526,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    headers += `<th data-tip=\"${label}\">${iconHTML}</th>`;\n  }\n",
+      "context_after": "  ensureEl(\"battleAttackers\").innerHTML = headers;\n  ensureEl(\"battleDefenders\").innerHTML = headers;\n}"
+    },
+    {
+      "id": "sha256:81770febfb48f02e",
+      "source": "${\n    regiment.name\n  }",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 551,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "      <rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"${color}\"></rect>${iconHtml}</svg>`;\n  const body = `<tbody id=\"battle${state.i}-${regiment.i}\">`;\n",
+      "context_after": "    regiment.name\n  }\">${regiment.name.slice(0, 24)}</td>`;\n  let casualtiesRow = `<tr class=\"battleCasualties\"><td></td><td data-tip=\"${state.fullName}\">${state.fullName!.slice("
+    },
+    {
+      "id": "sha256:0b56daf907ebcbc6",
+      "source": "${state.fullName}",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 554,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "  let initial = `<tr class=\"battleInitial\"><td>${icon}</td><td class=\"regiment\" data-tip=\"${\n    regiment.name\n  }\">${regiment.name.slice(0, 24)}</td>`;",
+      "context_after": "    0,\n    26\n  )}</td>`;"
+    },
+    {
+      "id": "sha256:eab38ca1cb378d0d",
+      "source": "Supply line length, affects morale",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 558,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    0,\n    26\n  )}</td>`;",
+      "context_after": "\n  for (const u of options.military) {\n    initial += `<td data-tip=\"Initial forces\" style=\"width: 2.5em; text-align: center\">${regiment.u[u.name] || 0}</td>`;"
+    },
+    {
+      "id": "sha256:4db46782c6fec28f",
+      "source": "Initial forces",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 561,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "  let survivorsRow = `<tr class=\"battleSurvivors\"><td></td><td data-tip=\"Supply line length, affects morale\">Distance to base: ${distance} ${distanceUnitInput.value}</td>`;\n\n  for (const u of options.military) {",
+      "context_after": "    casualtiesRow += `<td data-tip=\"Casualties\" style=\"width: 2.5em; text-align: center; color: red\">0</td>`;\n    survivorsRow += `<td data-tip=\"Survivors\" style=\"width: 2.5em; text-align: center; color: green\">${\n      regiment.u[u.name] || 0"
+    },
+    {
+      "id": "sha256:fe1ebb7c115647fa",
+      "source": "Casualties",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 562,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "\n  for (const u of options.military) {\n    initial += `<td data-tip=\"Initial forces\" style=\"width: 2.5em; text-align: center\">${regiment.u[u.name] || 0}</td>`;",
+      "context_after": "    survivorsRow += `<td data-tip=\"Survivors\" style=\"width: 2.5em; text-align: center; color: green\">${\n      regiment.u[u.name] || 0\n    }</td>`;"
+    },
+    {
+      "id": "sha256:676713fbadc43161",
+      "source": "Survivors",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 563,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "  for (const u of options.military) {\n    initial += `<td data-tip=\"Initial forces\" style=\"width: 2.5em; text-align: center\">${regiment.u[u.name] || 0}</td>`;\n    casualtiesRow += `<td data-tip=\"Casualties\" style=\"width: 2.5em; text-align: center; color: red\">0</td>`;",
+      "context_after": "      regiment.u[u.name] || 0\n    }</td>`;\n  }"
+    },
+    {
+      "id": "sha256:fa9f630f406614c7",
+      "source": "Initial forces",
+      "file": "src/controllers/battle-screen.ts",
+      "line": 568,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    }</td>`;\n  }\n",
+      "context_after": "  casualtiesRow += `<td data-tip=\"Casualties\"  style=\"width: 2.5em; text-align: center; color: red\">0</td></tr>`;\n  survivorsRow += `<td data-tip=\"Survivors\" style=\"width: 2.5em; text-align: center; color: green\">${\n    regiment.a || 0"
+    }
+  ],
+  "glossary": [
+    {
+      "en": "State",
+      "zh": "国家",
+      "context": "political",
+      "do_not_translate": false
+    },
+    {
+      "en": "Regiment",
+      "zh": "军团",
+      "context": "military",
+      "do_not_translate": false
+    },
+    {
+      "en": "Military",
+      "zh": "军事",
+      "context": "military",
+      "do_not_translate": false
+    },
+    {
+      "en": "Deal",
+      "zh": "交易",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Label",
+      "zh": "标签",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "States",
+      "zh": "国家",
+      "context": "political",
+      "do_not_translate": false
+    }
+  ],
+  "tm_hints": [
+    {
+      "source": "${name} ${type} emblem. Click to edit. Hold Shift to show associated area or place",
+      "target": "${name} ${type}纹章。点击编辑。按住 Shift 显示关联区域或地点",
+      "score": 1.5
+    },
+    {
+      "source": "Use States Editor to change an actual state name, not just a label",
+      "target": "请使用国家编辑器更改实际国家名称，而不仅仅是标签",
+      "score": 1.5
+    },
+    {
+      "source": "Element with this name already exists. Provide a unique name",
+      "target": "具有此名称的元素已存在。请提供唯一的名称",
+      "score": 1.5
+    },
+    {
+      "source": "Type scale bar label, leave blank to hide label",
+      "target": "输入比例条标签，留空则隐藏标签",
+      "score": 1.5
+    },
+    {
+      "source": "Click to recalculate military forces based on current military options",
+      "target": "点击根据当前军事选项重新计算军事部队",
+      "score": 1.5
+    },
+    {
+      "source": "Generate culture-specific name for place and battle",
+      "target": "生成特定文化风格的地名和战斗名",
+      "score": 1.5
+    },
+    {
+      "source": "Generate random name for place and battle",
+      "target": "生成随机地名和战斗名",
+      "score": 1.5
+    },
+    {
+      "source": "Click to sort by total military forces",
+      "target": "点击按总军事力量排序",
+      "score": 1.5
+    },
+    {
+      "source": "Total military forces",
+      "target": "总军事力量",
+      "score": 1.5
+    },
+    {
+      "source": "Average military forces per state",
+      "target": "每国平均军事力量",
+      "score": 1.5
+    },
+    {
+      "source": "Attach regiment to another one (include this regiment to another one)",
+      "target": "将军团附加到另一个军团（将此军团并入另一个军团）",
+      "score": 1.5
+    },
+    {
+      "source": "Regiment emblem and name. Click to sort by name",
+      "target": "军团纹章和名称。点击按名称排序",
+      "score": 1.5
+    },
+    {
+      "source": "River ${i} has ${cells.length} cells, but only ${points.length} points defined. Resetting points data",
+      "target": "河流 ${i} 有 ${cells.length} 个单元格，但仅定义了 ${points.length} 个点。重置点数据",
+      "score": 1
+    },
+    {
+      "source": "Click on map to place label. Hold Shift to add multiple",
+      "target": "点击地图放置标签。按住 Shift 可添加多个",
+      "score": 1
+    },
+    {
+      "source": "Click on map to place new river or extend an existing one. Hold Shift to place multiple rivers",
+      "target": "点击地图放置新河流或延伸现有河流。按住 Shift 放置多条河流",
+      "score": 1
+    },
+    {
+      "source": "This burg is already the center of this market",
+      "target": "此城镇已是该市场的中心",
+      "score": 1
+    },
+    {
+      "source": "Apply military units settings. <span style='color:#cb5858'>All forces will be recalculated!</span>",
+      "target": "应用军事单位设置。<span style=",
+      "score": 1
+    },
+    {
+      "source": "Element with this id already exists. Please provide a unique name",
+      "target": "具有此 id 的元素已存在。请提供唯一的名称",
+      "score": 1
+    },
+    {
+      "source": "Label relative size: ${this.value}%",
+      "target": "标签相对大小：${this.value}%",
+      "score": 1
+    },
+    {
+      "source": "Label letter-spacing size: ${this.value}px",
+      "target": "标签字间距大小：${this.value}px",
+      "score": 1
+    }
+  ],
+  "cross_file_duplicates": [],
+  "instructions": [
+    "If a unit's source exactly matches a key in tm_hints, REUSE that target verbatim.",
+    "If a unit's source is in cross_file_duplicates, it appears in other batches too — choose a concise translation that other batches are likely to also pick.",
+    "For similar phrases (e.g. 'Group name should start with a letter' vs 'Name should start with a letter'), prefer consistency with tm_hints over novel phrasing.",
+    "每翻译完一个 unit（用 Edit 修改源文件后），向 i18n/artifacts/batch_1.json 的 artifacts 数组追加一条记录",
+    "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied}",
+    "line_before 用 unit.line；line_after 是翻译后该 unit 在源文件中的实际行号（如果上方有行增减会漂移）",
+    "model 填你实际使用的模型标识；confidence 填 0-1 自评；applied 填 true（已 Edit 应用）"
+  ]
+}

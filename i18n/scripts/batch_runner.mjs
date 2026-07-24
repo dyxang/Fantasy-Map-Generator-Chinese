@@ -32,13 +32,22 @@ function prepare(count) {
   const tm = readJson(join(I18N, "tm.json"));
 
   // Build TM lookup: source -> target (only translated, non-skipped entries)
+  // Also build full TM entries lookup for context_tag and file matching
   const tmBySource = {};
+  const tmEntriesFull = []; // 保存完整的 TM 条目（包含 context_tag 和 file）
   for (const e of tm.entries) {
     if (e.target && !e.skipped) {
       // Keep first occurrence (or longest target for tie-breaking)
       if (!tmBySource[e.source] || e.target.length > tmBySource[e.source].length) {
         tmBySource[e.source] = e.target;
       }
+      // 保存完整条目用于 context_tag 和 file 匹配
+      tmEntriesFull.push({
+        source: e.source,
+        target: e.target,
+        context_tag: e.context_tag,
+        file: e.file
+      });
     }
   }
   console.log(`TM lookup: ${Object.keys(tmBySource).length} unique sources available`);
@@ -125,31 +134,80 @@ function prepare(count) {
     batches[minBatch].push(...units);
   }
 
-  // Build tm_hints for each batch: source→target pairs from TM whose source contains
-  // a word that also appears in any of this batch's units' sources.
-  // This gives subagents context on how similar phrases were translated before.
-  function buildTmHints(batchUnits) {
+  // 优化 1: 选择性术语注入（Selective Glossary Injection）
+  // 根据批次内待翻译单元的源文本，动态筛选相关的术语条目
+  function filterGlossary(batchUnits) {
+    const glossary = readJson(join(I18N, "glossary.json"));
+    
+    // 收集批次内所有单元的源文本
+    const allSourceText = batchUnits.map(u => u.source).join(" ").toLowerCase();
+    
+    // 筛选出文本里用到的术语（支持大小写不敏感、词干匹配）
+    const relevantTerms = glossary.terms.filter(term => {
+      const termLower = term.en.toLowerCase();
+      const termStem = termLower.replace(/s$/, ""); // 去除复数后缀
+      return allSourceText.includes(termLower) || allSourceText.includes(termStem);
+    });
+    
+    // 兜底机制：如果筛选后太少（< 5 条），返回完整术语表
+    if (relevantTerms.length < 5) {
+      console.log(`[Glossary Filter] Only ${relevantTerms.length} terms matched, using full glossary`);
+      return glossary.terms;
+    }
+    
+    console.log(`[Glossary Filter] Filtered ${glossary.terms.length} → ${relevantTerms.length} terms`);
+    return relevantTerms;
+  }
+
+  // 优化 2: TM 启发式过滤（TM Heuristic Filtering）
+  // 基于 context_tag 和 file 对 TM 条目进行评分和排序
+  function filterTmHints(batchUnits) {
+    // 提取批次内所有单元的 context_tag 和 file
+    const batchContextTags = new Set(batchUnits.map(u => u.context_tag));
+    const batchFiles = new Set(batchUnits.map(u => u.file));
+    
+    // 计算单词重叠（保留现有逻辑，权重降低）
     const batchWords = new Set();
     for (const u of batchUnits) {
       for (const w of u.source.toLowerCase().split(/[^a-z]+/)) {
         if (w.length >= 4) batchWords.add(w);
       }
     }
-    // 按 word overlap 总分排序后截断 top-50，避免整桶注入低质量命中
-    // （大部分单 word 命中如 "zone" 是噪声，subagent 不需读）
+    
+    // 对 TM 条目进行评分（使用完整条目）
     const scored = [];
-    for (const [src, tgt] of Object.entries(tmBySource)) {
-      const srcWords = src.toLowerCase().split(/[^a-z]+/).filter(w => w.length >= 4);
+    for (const entry of tmEntriesFull) {
+      let score = 0;
+      
+      // context_tag 匹配得 2 分
+      if (entry.context_tag && batchContextTags.has(entry.context_tag)) {
+        score += 2;
+      }
+      
+      // file 匹配得 1 分
+      if (entry.file && batchFiles.has(entry.file)) {
+        score += 1;
+      }
+      
+      // 单词重叠匹配（权重 0.5）
+      const srcWords = entry.source.toLowerCase().split(/[^a-z]+/).filter(w => w.length >= 4);
       let overlap = 0;
       for (const w of srcWords) {
         if (batchWords.has(w)) overlap++;
       }
-      if (overlap > 0) {
-        scored.push({ source: src, target: tgt, overlap });
+      score += overlap * 0.5;
+      
+      if (score > 0) {
+        scored.push({ source: entry.source, target: entry.target, score });
       }
     }
-    scored.sort((a, b) => b.overlap - a.overlap);
-    return scored.slice(0, 50);
+    
+    // 按评分降序排序，截断到 top-20
+    scored.sort((a, b) => b.score - a.score);
+    const filtered = scored.slice(0, 20);
+    
+    console.log(`[TM Filter] Filtered ${tmEntriesFull.length} → ${filtered.length} entries`);
+    return filtered;
   }
 
   // 确保 artifacts 目录存在（sidecar 文件的存放位置）
@@ -164,12 +222,17 @@ function prepare(count) {
       return a.line - b.line;
     });
 
-    const tmHints = buildTmHints(batchUnits);
+    // 集成优化 1: 选择性术语注入
+    const glossary = filterGlossary(batchUnits);
+
+    // 集成优化 2: TM 启发式过滤
+    const tmHints = filterTmHints(batchUnits);
 
     const batchData = {
       batch: i + 1,
       start_index: startIndex,
       units: batchUnits,
+      glossary: glossary,  // 新增：筛选后的术语表
       tm_hints: tmHints,
       cross_file_duplicates: [...crossFileDuplicates],
       instructions: [

@@ -17,7 +17,7 @@ import {
   stackOrderNone,
   sum
 } from "d3";
-import { capitalize, convertTemperature, ensureEl, formatPrice, isWater, rn, si } from "../utils";
+import { convertTemperature, ensureEl, formatPrice, isWater, rn, si } from "../utils";
 
 interface Dimension {
   label: string;
@@ -171,7 +171,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   cells: {
     label: "单元格",
-    hint: "Number of land cells",
+    hint: "陆地单元格数量",
     quantize: () => 1,
     aggregate: values => sum(values),
     formatTicks: value => value,
@@ -181,7 +181,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   burgs_number: {
     label: "城镇",
-    hint: "Number of burgs",
+    hint: "城镇数量",
     quantize: cellId => (pack.cells.burg[cellId] ? 1 : 0),
     aggregate: values => sum(values),
     formatTicks: value => value,
@@ -227,7 +227,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   max_temperature: {
     label: "年最高温度",
-    hint: "Highest mean temperature of the year",
+    hint: "一年中最高的平均温度",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => max(values)!,
     formatTicks: value => convertTemperature(value),
@@ -237,7 +237,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   min_temperature: {
     label: "年最低温度",
-    hint: "Lowest mean temperature of the year",
+    hint: "一年中最低的平均温度",
     quantize: cellId => grid.cells.temp[pack.cells.g[cellId]],
     aggregate: values => min(values)!,
     formatTicks: value => convertTemperature(value),
@@ -256,7 +256,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   max_precipitation: {
     label: "年最高降水量",
-    hint: "Highest mean precipitation of the year",
+    hint: "一年中最高的平均降水量",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(max(values)!),
     formatTicks: value => getPrecipitation(rn(value)),
@@ -266,7 +266,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   min_precipitation: {
     label: "年最低降水量",
-    hint: "Lowest mean precipitation of the year",
+    hint: "一年中最低的平均降水量",
     quantize: cellId => grid.cells.prec[pack.cells.g[cellId]],
     aggregate: values => rn(min(values)!),
     formatTicks: value => getPrecipitation(rn(value)),
@@ -294,7 +294,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   production_value: {
     label: "生产产值",
-    hint: "Worth of produced goods",
+    hint: "所生产货物的价值",
     provides: ["good"],
     prepare: () => ({ biomeProduction: Goods.getBiomesProduction() }),
     getContributions: (cellId, { biomeProduction }) => {
@@ -314,7 +314,7 @@ const quantizationMap: Record<string, Metric> = {
   },
   production_units: {
     label: "生产量",
-    hint: "Units of goods produced",
+    hint: "所生产货物的单位数",
     provides: ["good"],
     prepare: () => ({ biomeProduction: Goods.getBiomesProduction() }),
     getContributions: (cellId, { biomeProduction }) => {
@@ -325,13 +325,13 @@ const quantizationMap: Record<string, Metric> = {
     },
     aggregate: values => rn(sum(values)),
     formatTicks: value => si(value),
-    stringify: value => `${value.toLocaleString()} units`,
+    stringify: value => `${value.toLocaleString()} 单位`,
     stackable: true,
     landOnly: true
   },
   burgs_profit: {
     label: "城镇利润",
-    hint: "Burgs profit from trade and manufacturing",
+    hint: "城镇从贸易和制造业中获得的利润",
     quantize: cellId => {
       const burgId = pack.cells.burg[cellId];
       return burgId ? pack.burgs[burgId].product || 0 : 0;
@@ -389,48 +389,48 @@ function renderDialog() {
   const html = /* html */ `<div id="chartsOverview" class="dialog stable">
     <form id="chartsOverview__form">
       <div>
-        <button data-tip="Add a chart" type="submit">Plot</button>
+        <button data-tip="添加图表" type="submit">绘制</button>
 
-        <select data-tip="Select entity (y axis)" id="chartsOverview__entitiesSelect">
+        <select data-tip="选择实体（y 轴）" id="chartsOverview__entitiesSelect">
           ${createOptions(entities)}
         </select>
 
-        <label for="chartsOverview__plotBySelect" data-tip="Select metric to plot (x axis)">
-          <span>by</span>
+        <label for="chartsOverview__plotBySelect" data-tip="选择要绘制的指标（x 轴）">
+          <span>按</span>
           <select id="chartsOverview__plotBySelect">
             ${createOptions(plotBy)}
           </select>
           <i id="chartsOverview__plotByInfo" class="icon-info-circled" style="display: none"></i>
         </label>
 
-        <label for="chartsOverview__groupBySelect" data-tip="Select entity to group by. If you don't need grouping, set it the same as the entity">
-          <span>grouped by</span>
+        <label for="chartsOverview__groupBySelect" data-tip="选择分组依据的实体。如不需分组，请将其设为与实体相同">
+          <span>分组依据</span>
           <select id="chartsOverview__groupBySelect">
             ${createOptions(entities)}
           </select>
         </label>
 
-        <label data-tip="Sorting type" for="chartsOverview__sortingSelect">
-          <span>sorted</span>
+        <label data-tip="排序方式" for="chartsOverview__sortingSelect">
+          <span>排序</span>
           <select id="chartsOverview__sortingSelect">
-            <option value="value">by value</option>
-            <option value="name">by name</option>
-            <option value="natural">naturally</option>
+            <option value="value">按数值</option>
+            <option value="name">按名称</option>
+            <option value="natural">自然顺序</option>
           </select>
         </label>
       </div>
 
       <div>
-        <label data-tip="Select chart type" for="chartsOverview__chartType">
-          <span>Type</span>
+        <label data-tip="选择图表类型" for="chartsOverview__chartType">
+          <span>类型</span>
           <select id="chartsOverview__chartType">
-            <option value="stackedBar" selected>Stacked Bar</option>
-            <option value="normalizedStackedBar">Normalized Bar</option>
+            <option value="stackedBar" selected>堆叠条形图</option>
+            <option value="normalizedStackedBar">归一化条形图</option>
           </select>
         </label>
 
-        <label data-tip="Show the charts in 1, 2, 3 or 4 columns" for="chartsOverview__viewColumns">
-          <span>Columns</span>
+        <label data-tip="以 1、2、3 或 4 列显示图表" for="chartsOverview__viewColumns">
+          <span>列数</span>
           <select id="chartsOverview__viewColumns">
             <option value="1" selected>1</option>
             <option value="2">2</option>
@@ -439,9 +439,9 @@ function renderDialog() {
           </select>
         </label>
 
-        <label data-tip="Exclude zero element from the results (id 0, e.g. the neutral state)" for="chartsOverview__excludeNeutral">
+        <label data-tip="从结果中排除零元素（id 0，如中立国家）" for="chartsOverview__excludeNeutral">
           <input id="chartsOverview__excludeNeutral" type="checkbox" class="native" />
-          <span>Exclude neutral</span>
+          <span>排除中立</span>
         </label>
       </div>
     </form>
@@ -557,12 +557,7 @@ function addChart(event?: Event) {
   };
   const incompatible = [entity, groupBy].find(lacksTag);
   if (incompatible) {
-    tip(
-      `${plotByLabel} 无法按 ${entitiesMap[incompatible].label.toLowerCase()} 细分`,
-      false,
-      "error",
-      4000
-    );
+    tip(`${plotByLabel} 无法按 ${entitiesMap[incompatible].label.toLowerCase()} 细分`, false, "error", 4000);
     return;
   }
 
@@ -606,13 +601,13 @@ function renderChart({ id, entity, plotBy, groupBy, sorting, type, excludeNeutra
     ? cellId => getContributions(cellId, ctx!)
     : cellId => [{ value: quantize!(cellId) }];
 
-  const title = `${capitalize(entity)} by ${plotByLabel}${noGrouping ? "" : ` grouped by ${groupLabel}`}`;
+  const title = `${entityLabel} 按 ${plotByLabel}${noGrouping ? "" : `，分组依据 ${groupLabel}`}`;
 
   const tooltip = (entityName: string, group: string, value: number, percentage: number) => {
-    const entityTip = `${entityLabel}: ${entityName}`;
-    const groupTip = noGrouping ? "" : `${groupLabel}: ${group}`;
-    let valueTip = `${plotByLabel}: ${stringify(value)}`;
-    if (!noGrouping) valueTip += ` (${rn(percentage * 100)}%)`;
+    const entityTip = `${entityLabel}：${entityName}`;
+    const groupTip = noGrouping ? "" : `${groupLabel}：${group}`;
+    let valueTip = `${plotByLabel}：${stringify(value)}`;
+    if (!noGrouping) valueTip += `（${rn(percentage * 100)}%）`;
     return [entityTip, groupTip, valueTip].filter(Boolean);
   };
 
@@ -819,13 +814,13 @@ function insertChart(id: number, sortedData: ChartDatum[], $chart: SVGSVGElement
   const figureNo = $chartContainer.childElementCount + 1;
   $caption.innerHTML = /* html */ `
     <div>
-      <strong>Figure ${figureNo}</strong>. ${title}
+      <strong>图 ${figureNo}</strong>. ${title}
     </div>
     <div>
-      <button data-tip="Download chart data as a text file (.csv)" class="icon-download"></button>
-      <button data-tip="Download the chart as a PNG image" class="icon-export"></button>
-      <button data-tip="Download the chart in SVG format (vector, opens in a browser or Inkscape)" class="icon-chart-bar"></button>
-      <button data-tip="Remove the chart" class="icon-trash"></button>
+      <button data-tip="下载图表数据为文本文件（.csv）" class="icon-download"></button>
+      <button data-tip="下载图表为 PNG 图像" class="icon-export"></button>
+      <button data-tip="下载图表为 SVG 格式（矢量，可在浏览器或 Inkscape 中打开）" class="icon-chart-bar"></button>
+      <button data-tip="移除图表" class="icon-trash"></button>
     </div>
   `;
 
@@ -944,7 +939,7 @@ function biomeColorsGetter(): Record<string, string> {
 function marketNameGetter(i: string | number): string {
   const market = Markets.get(+i);
   if (!market) return EMPTY_NAME;
-  return market.name || pack.burgs[market.centerBurgId]?.name || `Market ${market.i}`;
+  return market.name || pack.burgs[market.centerBurgId]?.name || `市场 ${market.i}`;
 }
 
 function marketColorsGetter(): Record<string, string> {

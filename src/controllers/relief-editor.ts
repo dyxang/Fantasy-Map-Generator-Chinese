@@ -29,20 +29,20 @@ function open(element: SVGElement): void {
 function renderDialog(): void {
   destroyDialogIfExists("reliefEditor");
   const html = /* html */ `<div id="reliefEditor" class="dialog">
-    <div id="reliefTools" data-tip="Select mode of operation">
-      <div class="reliefEditorLabel">Mode:</div>
-      <button id="reliefIndividual" data-tip="Edit individual selected icon" class="icon-info pressed"></button>
-      <button id="reliefBulkAdd" data-tip="Place icons in a bulk" class="icon-brush"></button>
-      <button id="reliefBulkRemove" data-tip="Remove icons in a bulk" class="icon-eraser"></button>
-      <div style="margin-left: 4.6em">Set:</div>
+    <div id="reliefTools" data-tip="选择操作模式">
+      <div class="reliefEditorLabel">模式：</div>
+      <button id="reliefIndividual" data-tip="编辑单个所选图标" class="icon-info pressed"></button>
+      <button id="reliefBulkAdd" data-tip="批量放置图标" class="icon-brush"></button>
+      <button id="reliefBulkRemove" data-tip="批量移除图标" class="icon-eraser"></button>
+      <div style="margin-left: 4.6em">图标集：</div>
       <select id="reliefEditorSet">
-        <option value="simple">Simple</option>
-        <option value="colored">Colored</option>
-        <option value="gray">Gray</option>
+        <option value="simple">简单</option>
+        <option value="colored">彩色</option>
+        <option value="gray">灰度</option>
       </select>
     </div>
-    <div id="reliefSizeDiv" data-tip="Set icon size for individual icon or for bulk placement">
-      <div class="reliefEditorLabel">Size:</div>
+    <div id="reliefSizeDiv" data-tip="设置单个图标或批量放置的图标大小">
+      <div class="reliefEditorLabel">大小：</div>
       <input
         id="reliefSize"
         oninput="reliefSizeNumber.value = this.value"
@@ -53,8 +53,8 @@ function renderDialog(): void {
       />
       <input id="reliefSizeNumber" oninput="reliefSize.value = this.value" type="number" min="2" value="5" />
     </div>
-    <div id="reliefRadiusDiv" data-tip="Set brush radius for icons placement on deletion" style="display: none">
-      <div class="reliefEditorLabel">Radius:</div>
+    <div id="reliefRadiusDiv" data-tip="设置删除时图标放置的笔刷半径" style="display: none">
+      <div class="reliefEditorLabel">半径：</div>
       <input
         id="reliefRadius"
         oninput="reliefRadiusNumber.value = this.value"
@@ -65,8 +65,8 @@ function renderDialog(): void {
       />
       <input id="reliefRadiusNumber" oninput="reliefRadius.value = this.value" type="number" min="1" value="15" />
     </div>
-    <div id="reliefSpacingDiv" data-tip="Set spacing between relief icons" style="display: none">
-      <div class="reliefEditorLabel">Spacing:</div>
+    <div id="reliefSpacingDiv" data-tip="设置地形图标之间的间距" style="display: none">
+      <div class="reliefEditorLabel">间距：</div>
       <input
         id="reliefSpacing"
         oninput="reliefSpacingNumber.value = this.value"
@@ -77,254 +77,254 @@ function renderDialog(): void {
       />
       <input id="reliefSpacingNumber" oninput="reliefSpacing.value = this.value" type="number" min="2" value="5" />
     </div>
-    <div id="reliefIconsDiv" data-tip="Select icon">
+    <div id="reliefIconsDiv" data-tip="选择图标">
       <div data-type="simple" style="display: none">
-        <svg data-type="#relief-mount-1" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-1" data-tip="选择山峰图标">
           <use href="#relief-mount-1" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-1" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-1" data-tip="选择丘陵图标">
           <use href="#relief-hill-1" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-deciduous-1" data-tip="Select Deciduous Tree icon">
+        <svg data-type="#relief-deciduous-1" data-tip="选择落叶树图标">
           <use href="#relief-deciduous-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-conifer-1" data-tip="Select Conifer Tree icon">
+        <svg data-type="#relief-conifer-1" data-tip="选择针叶树图标">
           <use href="#relief-conifer-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-palm-1" data-tip="Select Palm icon">
+        <svg data-type="#relief-palm-1" data-tip="选择棕榈图标">
           <use href="#relief-palm-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-acacia-1" data-tip="Select Acacia icon">
+        <svg data-type="#relief-acacia-1" data-tip="选择金合欢图标">
           <use href="#relief-acacia-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-swamp-1" data-tip="Select Swamp icon">
+        <svg data-type="#relief-swamp-1" data-tip="选择沼泽图标">
           <use href="#relief-swamp-1" x="-50%" y="-50%" width="80" height="80"></use>
         </svg>
-        <svg data-type="#relief-grass-1" data-tip="Select Grass icon">
+        <svg data-type="#relief-grass-1" data-tip="选择草地图标">
           <use href="#relief-grass-1" x="-100%" y="-100%" width="120" height="120"></use>
         </svg>
-        <svg data-type="#relief-dune-1" data-tip="Select Dune icon">
+        <svg data-type="#relief-dune-1" data-tip="选择沙丘图标">
           <use href="#relief-dune-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
       </div>
       <div data-type="colored" style="display: none">
-        <svg data-type="#relief-mount-2" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-2" data-tip="选择山峰图标">
           <use href="#relief-mount-2" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-3" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-3" data-tip="选择山峰图标">
           <use href="#relief-mount-3" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-4" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-4" data-tip="选择山峰图标">
           <use href="#relief-mount-4" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-5" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-5" data-tip="选择山峰图标">
           <use href="#relief-mount-5" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-6" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-6" data-tip="选择山峰图标">
           <use href="#relief-mount-6" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-7" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-7" data-tip="选择山峰图标">
           <use href="#relief-mount-7" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-1" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-1" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-1" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-2" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-2" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-2" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-3" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-3" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-3" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-4" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-4" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-4" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-5" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-5" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-5" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-6" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-6" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-6" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-vulcan-1" data-tip="Select Volcano icon">
+        <svg data-type="#relief-vulcan-1" data-tip="选择火山图标">
           <use href="#relief-vulcan-1" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-vulcan-2" data-tip="Select Volcano icon">
+        <svg data-type="#relief-vulcan-2" data-tip="选择火山图标">
           <use href="#relief-vulcan-2" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-vulcan-3" data-tip="Select Volcano icon">
+        <svg data-type="#relief-vulcan-3" data-tip="选择火山图标">
           <use href="#relief-vulcan-3" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-2" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-2" data-tip="选择丘陵图标">
           <use href="#relief-hill-2" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-3" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-3" data-tip="选择丘陵图标">
           <use href="#relief-hill-3" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-4" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-4" data-tip="选择丘陵图标">
           <use href="#relief-hill-4" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-5" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-5" data-tip="选择丘陵图标">
           <use href="#relief-hill-5" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-dune-2" data-tip="Select Dune icon">
+        <svg data-type="#relief-dune-2" data-tip="选择沙丘图标">
           <use href="#relief-dune-2" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-deciduous-2" data-tip="Select Deciduous Tree icon">
+        <svg data-type="#relief-deciduous-2" data-tip="选择落叶树图标">
           <use href="#relief-deciduous-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-deciduous-3" data-tip="Select Deciduous Tree icon">
+        <svg data-type="#relief-deciduous-3" data-tip="选择落叶树图标">
           <use href="#relief-deciduous-3" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-conifer-2" data-tip="Select Conifer Tree icon">
+        <svg data-type="#relief-conifer-2" data-tip="选择针叶树图标">
           <use href="#relief-conifer-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-coniferSnow-1" data-tip="Select Snow Conifer Tree icon">
+        <svg data-type="#relief-coniferSnow-1" data-tip="选择雪松图标">
           <use href="#relief-coniferSnow-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-acacia-2" data-tip="Select Acacia icon">
+        <svg data-type="#relief-acacia-2" data-tip="选择金合欢图标">
           <use href="#relief-acacia-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-palm-2" data-tip="Select Palm icon">
+        <svg data-type="#relief-palm-2" data-tip="选择棕榈图标">
           <use href="#relief-palm-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-grass-2" data-tip="Select Grass icon">
+        <svg data-type="#relief-grass-2" data-tip="选择草地图标">
           <use href="#relief-grass-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-swamp-2" data-tip="Select Swamp icon">
+        <svg data-type="#relief-swamp-2" data-tip="选择沼泽图标">
           <use href="#relief-swamp-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-swamp-3" data-tip="Select Swamp icon">
+        <svg data-type="#relief-swamp-3" data-tip="选择沼泽图标">
           <use href="#relief-swamp-3" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-cactus-1" data-tip="Select Cactus icon">
+        <svg data-type="#relief-cactus-1" data-tip="选择仙人掌图标">
           <use href="#relief-cactus-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-cactus-2" data-tip="Select Cactus icon">
+        <svg data-type="#relief-cactus-2" data-tip="选择仙人掌图标">
           <use href="#relief-cactus-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-cactus-3" data-tip="Select Cactus icon">
+        <svg data-type="#relief-cactus-3" data-tip="选择仙人掌图标">
           <use href="#relief-cactus-3" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-deadTree-1" data-tip="Select Dead Tree icon">
+        <svg data-type="#relief-deadTree-1" data-tip="选择枯树图标">
           <use href="#relief-deadTree-1" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-deadTree-2" data-tip="Select Dead Tree icon">
+        <svg data-type="#relief-deadTree-2" data-tip="选择枯树图标">
           <use href="#relief-deadTree-2" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
       </div>
       <div data-type="gray" style="display: none">
-        <svg data-type="#relief-mount-2-bw" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-2-bw" data-tip="选择山峰图标">
           <use href="#relief-mount-2-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-3-bw" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-3-bw" data-tip="选择山峰图标">
           <use href="#relief-mount-3-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-4-bw" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-4-bw" data-tip="选择山峰图标">
           <use href="#relief-mount-4-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-5-bw" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-5-bw" data-tip="选择山峰图标">
           <use href="#relief-mount-5-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-6-bw" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-6-bw" data-tip="选择山峰图标">
           <use href="#relief-mount-6-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mount-7-bw" data-tip="Select Mountain icon">
+        <svg data-type="#relief-mount-7-bw" data-tip="选择山峰图标">
           <use href="#relief-mount-7-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-1-bw" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-1-bw" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-1-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-2-bw" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-2-bw" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-2-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-3-bw" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-3-bw" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-3-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-4-bw" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-4-bw" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-4-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-5-bw" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-5-bw" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-5-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-mountSnow-6-bw" data-tip="Select Snow Mountain icon">
+        <svg data-type="#relief-mountSnow-6-bw" data-tip="选择雪山图标">
           <use href="#relief-mountSnow-6-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-vulcan-1-bw" data-tip="Select Volcano icon">
+        <svg data-type="#relief-vulcan-1-bw" data-tip="选择火山图标">
           <use href="#relief-vulcan-1-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-vulcan-2-bw" data-tip="Select Volcano icon">
+        <svg data-type="#relief-vulcan-2-bw" data-tip="选择火山图标">
           <use href="#relief-vulcan-2-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-vulcan-3-bw" data-tip="Select Volcano icon">
+        <svg data-type="#relief-vulcan-3-bw" data-tip="选择火山图标">
           <use href="#relief-vulcan-3-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-2-bw" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-2-bw" data-tip="选择丘陵图标">
           <use href="#relief-hill-2-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-3-bw" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-3-bw" data-tip="选择丘陵图标">
           <use href="#relief-hill-3-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-4-bw" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-4-bw" data-tip="选择丘陵图标">
           <use href="#relief-hill-4-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-hill-5-bw" data-tip="Select Hill icon">
+        <svg data-type="#relief-hill-5-bw" data-tip="选择丘陵图标">
           <use href="#relief-hill-5-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-dune-2-bw" data-tip="Select Dune icon">
+        <svg data-type="#relief-dune-2-bw" data-tip="选择沙丘图标">
           <use href="#relief-dune-2-bw" width="40" height="40"></use>
         </svg>
-        <svg data-type="#relief-deciduous-2-bw" data-tip="Select Deciduous Tree icon">
+        <svg data-type="#relief-deciduous-2-bw" data-tip="选择落叶树图标">
           <use href="#relief-deciduous-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-deciduous-3-bw" data-tip="Select Deciduous Tree icon">
+        <svg data-type="#relief-deciduous-3-bw" data-tip="选择落叶树图标">
           <use href="#relief-deciduous-3-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-conifer-2-bw" data-tip="Select Conifer Tree icon">
+        <svg data-type="#relief-conifer-2-bw" data-tip="选择针叶树图标">
           <use href="#relief-conifer-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-coniferSnow-1-bw" data-tip="Select Snow Conifer Tree icon">
+        <svg data-type="#relief-coniferSnow-1-bw" data-tip="选择雪松图标">
           <use href="#relief-coniferSnow-1-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-acacia-2-bw" data-tip="Select Acacia icon">
+        <svg data-type="#relief-acacia-2-bw" data-tip="选择金合欢图标">
           <use href="#relief-acacia-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-palm-2-bw" data-tip="Select Palm icon">
+        <svg data-type="#relief-palm-2-bw" data-tip="选择棕榈图标">
           <use href="#relief-palm-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-grass-2-bw" data-tip="Select Grass icon">
+        <svg data-type="#relief-grass-2-bw" data-tip="选择草地图标">
           <use href="#relief-grass-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-swamp-2-bw" data-tip="Select Swamp icon">
+        <svg data-type="#relief-swamp-2-bw" data-tip="选择沼泽图标">
           <use href="#relief-swamp-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-swamp-3-bw" data-tip="Select Swamp icon">
+        <svg data-type="#relief-swamp-3-bw" data-tip="选择沼泽图标">
           <use href="#relief-swamp-3-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-cactus-1-bw" data-tip="Select Cactus icon">
+        <svg data-type="#relief-cactus-1-bw" data-tip="选择仙人掌图标">
           <use href="#relief-cactus-1-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-cactus-2-bw" data-tip="Select Cactus icon">
+        <svg data-type="#relief-cactus-2-bw" data-tip="选择仙人掌图标">
           <use href="#relief-cactus-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-cactus-3-bw" data-tip="Select Cactus icon">
+        <svg data-type="#relief-cactus-3-bw" data-tip="选择仙人掌图标">
           <use href="#relief-cactus-3-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-deadTree-1-bw" data-tip="Select Dead Tree icon">
+        <svg data-type="#relief-deadTree-1-bw" data-tip="选择枯树图标">
           <use href="#relief-deadTree-1-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
-        <svg data-type="#relief-deadTree-2-bw" data-tip="Select Dead Tree icon">
+        <svg data-type="#relief-deadTree-2-bw" data-tip="选择枯树图标">
           <use href="#relief-deadTree-2-bw" x="-25%" y="-25%" width="60" height="60"></use>
         </svg>
       </div>
-      <svg id="reliefIconsSeletionAny" data-tip="Select any type of icons"><text x="50%" y="50%">Any</text></svg>
+      <svg id="reliefIconsSeletionAny" data-tip="选择任意类型图标"><text x="50%" y="50%">任意</text></svg>
     </div>
     <div id="reliefBottom">
-      <button id="reliefEditStyle" data-tip="Edit Relief Icons style in Style Editor" class="icon-adjust"></button>
-      <button id="reliefCopy" data-tip="Copy selected relief icon" class="icon-clone"></button>
-      <button id="reliefMoveFront" data-tip="Move selected relief icon to front" class="icon-level-up"></button>
-      <button id="reliefMoveBack" data-tip="Move selected relief icon back" class="icon-level-down"></button>
+      <button id="reliefEditStyle" data-tip="在样式编辑器中编辑地形图标样式" class="icon-adjust"></button>
+      <button id="reliefCopy" data-tip="复制所选地形图标" class="icon-clone"></button>
+      <button id="reliefMoveFront" data-tip="将所选地形图标移至最前" class="icon-level-up"></button>
+      <button id="reliefMoveBack" data-tip="将所选地形图标移至最后" class="icon-level-down"></button>
       <button
         id="reliefRemove"
-        data-tip="Remove selected relief icon or icon type"
+        data-tip="移除所选地形图标或图标类型"
         data-shortcut="Delete"
         class="icon-trash fastDelete"
       ></button>
@@ -616,7 +616,7 @@ function removeIcon(): void {
   let selection: typeof elSelected | null = null;
   const pressed = ensureEl("reliefTools").querySelector("button.pressed");
   if (pressed?.id === "reliefIndividual") {
-    alertMessage.innerHTML = "Are you sure you want to remove the icon?";
+    alertMessage.innerHTML = "确定要移除该图标吗？";
     selection = elSelected;
   } else {
     const type = ensureEl("reliefIconsDiv").querySelector<SVGElement>("svg.pressed")?.dataset.type;
@@ -625,21 +625,19 @@ function removeIcon(): void {
       ? terrainLayer.selectAll(`use[href='${type}']`)
       : terrainLayer.selectAll("use")) as unknown as typeof elSelected;
     const size = selection.size();
-    alertMessage.innerHTML = type
-      ? `Are you sure you want to remove all ${type} icons (${size})?`
-      : `Are you sure you want to remove all icons (${size})?`;
+    alertMessage.innerHTML = type ? `确定要移除所有 ${type} 图标（${size}）吗？` : `确定要移除所有图标（${size}）吗？`;
   }
 
   $("#alert").dialog({
     resizable: false,
     title: "移除地形图标",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         if (selection) selection.remove();
         $(this).dialog("close");
         $("#reliefEditor").dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

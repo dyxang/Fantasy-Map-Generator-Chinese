@@ -23,7 +23,7 @@ function open(batch: TradeBatch): void {
   highlight(path.points);
 
   $("#tradeDetails").dialog({
-    title: `Trade: ${pack.burgs[batch.startBurgId]?.name} to ${pack.burgs[batch.endBurgId]?.name}`,
+    title: `贸易：${pack.burgs[batch.startBurgId]?.name} 到 ${pack.burgs[batch.endBurgId]?.name}`,
     resizable: false,
     position: { my: "right top", at: "right-10 top+10", of: "svg" },
     close: closeTradeDetails
@@ -37,16 +37,16 @@ function renderDialog(): void {
         <div id="tradeDetailsSummary" class="totalLine"></div>
         <div id="tradeDetailsHeader" class="header" style="grid-template-columns: 2.5em 10em 5em 5.5em 3.6em;">
           <div></div>
-          <div data-tip="Click to sort by good" class="sortable alphabetically" data-sortby="good" style="margin-left:0">Good&nbsp;</div>
-          <div data-tip="Click to sort by units" class="sortable icon-sort-number-down" data-sortby="units">Units&nbsp;</div>
-          <div data-tip="Click to sort by unit price" class="sortable" data-sortby="price">Price&nbsp;</div>
-          <div data-tip="Click to sort by value" class="sortable" data-sortby="value">Value&nbsp;</div>
+          <div data-tip="点击按货物排序" class="sortable alphabetically" data-sortby="good" style="margin-left:0">货物&nbsp;</div>
+          <div data-tip="点击按数量排序" class="sortable icon-sort-number-down" data-sortby="units">数量&nbsp;</div>
+          <div data-tip="点击按单价排序" class="sortable" data-sortby="price">价格&nbsp;</div>
+          <div data-tip="点击按总价值排序" class="sortable" data-sortby="value">价值&nbsp;</div>
         </div>
         <div id="tradeDetailsBody" class="table" style="max-height:30em"></div>
         <div id="tradeDetailsFooter" class="totalLine">
-          <div style="margin-left: 5px">Distance: <span id="tradeDetailsFooterDistance">0</span></div>
-          <div style="margin-left: 12px" data-tip="Total traded units">Units: <span id="tradeDetailsFooterUnits">0</span></div>
-          <div style="margin-left: 12px" data-tip="Total deal value">Value: <span id="tradeDetailsFooterValue">0</span></div>
+          <div style="margin-left: 5px">距离: <span id="tradeDetailsFooterDistance">0</span></div>
+          <div style="margin-left: 12px" data-tip="交易总数量">数量: <span id="tradeDetailsFooterUnits">0</span></div>
+          <div style="margin-left: 12px" data-tip="交易总价值">价值: <span id="tradeDetailsFooterValue">0</span></div>
         </div>
       </div>
     </div>`;
@@ -72,8 +72,8 @@ function tradeDetailsAddLines(points: Point[]): void {
   const toType = getClientType(activeBatch.deals[0], to, "to");
 
   ensureEl("tradeDetailsSummary").innerHTML = /* html */ `
-    <span><b>Seller</b>: ${from?.name} ${fromType} <span class="icon-dot-circled pointer" data-zoom="start" data-tip="Zoom to start"></span></span>
-    <span style="margin-left:5px"><b>Buyer</b>: ${to?.name} ${toType} <span class="icon-dot-circled pointer" data-zoom="end" data-tip="Zoom to end"></span></span>`;
+    <span><b>卖家</b>：${from?.name} ${fromType} <span class="icon-dot-circled pointer" data-zoom="start" data-tip="缩放到起点"></span></span>
+    <span style="margin-left:5px"><b>买家</b>：${to?.name} ${toType} <span class="icon-dot-circled pointer" data-zoom="end" data-tip="缩放到终点"></span></span>`;
 
   let totalUnits = 0;
   let totalValue = 0;
@@ -93,11 +93,11 @@ function tradeDetailsAddLines(points: Point[]): void {
     const price = units ? value / units : 0;
 
     return /* html */ `<div class="states tradeDeal" data-good="${good.name}" data-units="${rn(units, 2)}" data-price="${price}" data-value="${rn(value, 2)}">
-    <svg data-tip="Good icon" width="2em" height="2em" class="goodIcon">
+    <svg data-tip="货物图标" width="2em" height="2em" class="goodIcon">
       <circle cx="50%" cy="50%" r="42%" fill="${good.color}" stroke="${Goods.getStroke(good.color)}"/>
       <use href="#${good.icon}" x="10%" y="10%" width="80%" height="80%"></use>
     </svg>
-    <div data-tip="Good name" class="goodName">${good.name}</div>
+    <div data-tip="货物名称" class="goodName">${good.name}</div>
     <div class="goodUnits">${rn(units, 2)}</div>
     <div class="goodPrice">${formatPrice(rn(price, 2))}</div>
     <div class="goodValue">${formatPrice(rn(value, 2))}</div>

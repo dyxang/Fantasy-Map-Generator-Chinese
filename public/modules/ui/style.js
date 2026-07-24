@@ -676,11 +676,11 @@ openCreateHeightmapSchemeButton.on("click", function () {
     const stops = openCreateHeightmapSchemeButton.dataset.stops.split(",");
 
     const colorInput = color =>
-      `<input type="color" class="stop" value="${color}" data-tip="Click to set the color" style="width: 2.5em; border: none;" />`;
+      `<input type="color" class="stop" value="${color}" data-tip="点击设置颜色" style="width: 2.5em; border: none;" />`;
     const removeStopButton = index =>
-      `<button class="remove" data-index="${index}" data-tip="Remove color stop" style="margin-top: 0.3em; height: max-content;">x</button>`;
+      `<button class="remove" data-index="${index}" data-tip="移除色标" style="margin-top: 0.3em; height: max-content;">x</button>`;
     const addStopButton = () =>
-      `<button class="add" data-tip="Add color stop in between" style="margin-top: 0.3em; height: max-content;">+</button>`;
+      `<button class="add" data-tip="在中间添加色标" style="margin-top: 0.3em; height: max-content;">+</button>`;
 
     const container = ensureEl("heightmapSchemeStops");
     container.innerHTML = stops

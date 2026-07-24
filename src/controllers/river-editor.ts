@@ -15,10 +15,7 @@ function open(id: string): void {
 
   elSelected = select<SVGElement, unknown>(`#${id}`).on("click", addControlPoint);
 
-  tip(
-    "拖动控制点可改变河流走向。点击控制点可移除。点击河流可添加控制点。如需大幅修改请新建一条河流",
-    true
-  );
+  tip("拖动控制点可改变河流走向。点击控制点可移除。点击河流可添加控制点。如需大幅修改请新建一条河流", true);
   select("#debug").append("g").attr("id", "controlCells");
   select("#debug").append("g").attr("id", "controlPoints");
 
@@ -45,51 +42,51 @@ function renderDialog(): void {
   const html = /* html */ `<div id="riverEditor" class="dialog">
     <div id="riverBody" style="padding-bottom: 0.3em">
       <div>
-        <div class="label" style="width: 4.8em">Name:</div>
-        <span id="riverNameCulture" data-tip="Generate culture-specific name for the river" class="icon-book pointer"></span>
-        <span id="riverNameRandom" data-tip="Generate random name for the river" class="icon-globe pointer"></span>
-        <input id="riverName" data-tip="Type to rename the river" autocorrect="off" spellcheck="false" />
-        <span id="riverNameSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+        <div class="label" style="width: 4.8em">名称：</div>
+        <span id="riverNameCulture" data-tip="生成特定文化的河流名称" class="icon-book pointer"></span>
+        <span id="riverNameRandom" data-tip="生成河流的随机名称" class="icon-globe pointer"></span>
+        <input id="riverName" data-tip="输入以重命名河流" autocorrect="off" spellcheck="false" />
+        <span id="riverNameSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
       </div>
-      <div data-tip="Type to change river type (e.g. fork, creek, river, brook, stream)">
-        <div class="label">Type:</div>
+      <div data-tip="输入以更改河流类型（例如：fork、creek、river、brook、stream）">
+        <div class="label">类型：</div>
         <input id="riverType" autocorrect="off" spellcheck="false" />
       </div>
-      <div data-tip="Select parent river">
-        <div class="label">Mainstem:</div>
+      <div data-tip="选择父级河流">
+        <div class="label">父级河流：</div>
         <select id="riverMainstem"></select>
       </div>
-      <div data-tip="River drainage basin (watershed)">
-        <div class="label">Basin:</div>
+      <div data-tip="河流流域（分水岭）">
+        <div class="label">流域：</div>
         <input id="riverBasin" disabled />
       </div>
-      <div data-tip="River discharge (flux power)">
-        <div class="label">Discharge:</div>
+      <div data-tip="河流流量（水力）">
+        <div class="label">流量：</div>
         <input id="riverDischarge" disabled />
       </div>
-      <div data-tip="River length in selected units">
-        <div class="label">Length:</div>
+      <div data-tip="河流长度（所选单位）">
+        <div class="label">长度：</div>
         <input id="riverLength" disabled />
       </div>
-      <div data-tip="River mouth width in selected units">
-        <div class="label">Mouth width:</div>
+      <div data-tip="河流入海口宽度（所选单位）">
+        <div class="label">入海口宽度：</div>
         <input id="riverWidth" disabled />
       </div>
-      <div data-tip="River source additional width. Default value is 0">
-        <div class="label">Source width:</div>
+      <div data-tip="河流源头附加宽度。默认值为 0">
+        <div class="label">源头宽度：</div>
         <input id="riverSourceWidth" type="number" min="0" max="3" step=".01" />
       </div>
-      <div data-tip="River width multiplier. Default value is 1">
-        <div class="label">Width modifier:</div>
+      <div data-tip="河流宽度倍数。默认值为 1">
+        <div class="label">宽度倍数：</div>
         <input id="riverWidthFactor" type="number" min=".1" max="4" step=".1" />
       </div>
     </div>
     <div id="riverBottom">
-      <button id="riverCreateSelectingCells" data-tip="Create a new river selecting river cells" class="icon-map-pin"></button>
-      <button id="riverEditStyle" data-tip="Edit style for all rivers in Style Editor" class="icon-brush"></button>
-      <button id="riverElevationProfile" data-tip="Show the elevation profile for the river" class="icon-chart-area"></button>
-      <button id="riverLegend" data-tip="Edit free text notes (legend) for the river" class="icon-edit"></button>
-      <button id="riverRemove" data-tip="Remove river" data-shortcut="Delete" class="icon-trash fastDelete"></button>
+      <button id="riverCreateSelectingCells" data-tip="通过选择河流单元格创建新河流" class="icon-map-pin"></button>
+      <button id="riverEditStyle" data-tip="在样式编辑器中编辑所有河流样式" class="icon-brush"></button>
+      <button id="riverElevationProfile" data-tip="显示河流的高程剖面" class="icon-chart-area"></button>
+      <button id="riverLegend" data-tip="编辑河流的自由文本注释（图例）" class="icon-edit"></button>
+      <button id="riverRemove" data-tip="移除河流" data-shortcut="Delete" class="icon-trash fastDelete"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -312,20 +309,20 @@ function editRiverLegend(): void {
 }
 
 function removeRiver(): void {
-  alertMessage.innerHTML = "Are you sure you want to remove the river and all its tributaries";
+  alertMessage.innerHTML = "确定要移除该河流及其所有支流吗？";
   $("#alert").dialog({
     resizable: false,
     width: "22em",
     title: "移除河流及支流",
     buttons: {
-      Remove: function (this: any) {
+      移除: function (this: any) {
         $(this).dialog("close");
         const river = +elSelected.attr("id").slice(5);
         Rivers.remove(river);
         elSelected.remove();
         $("#riverEditor").dialog("close");
       },
-      Cancel: function (this: any) {
+      取消: function (this: any) {
         $(this).dialog("close");
       }
     }

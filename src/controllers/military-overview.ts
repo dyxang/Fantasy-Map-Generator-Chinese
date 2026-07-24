@@ -26,73 +26,73 @@ function renderDialog(): void {
   document.getElementById("militaryOverview")?.remove();
   const editorHtml = /* html */ `<div id="militaryOverview" class="dialog stable">
       <div id="militaryHeader" class="header">
-        <div data-tip="State name. Click to sort" class="sortable alphabetically" data-sortby="state">
-          State&nbsp;
+        <div data-tip="国家名称。点击排序" class="sortable alphabetically" data-sortby="state">
+          国家&nbsp;
         </div>
         <div
-          data-tip="Total military personnel (considering crew). Click to sort"
+          data-tip="总军事人员（含船员）。点击排序"
           id="militaryTotal"
           class="sortable icon-sort-number-down"
           data-sortby="total"
         >
-          Total&nbsp;
+          总数&nbsp;
         </div>
-        <div data-tip="State population. Click to sort" class="sortable" data-sortby="population">
-          Population&nbsp;
+        <div data-tip="国家人口。点击排序" class="sortable" data-sortby="population">
+          人口&nbsp;
         </div>
         <div
-          data-tip="Military personnel rate (% of state population). Depends on war alert. Click to sort"
+          data-tip="军事人员比率（占国家人口百分比）。取决于战争警戒。点击排序"
           class="sortable"
           data-sortby="rate"
         >
-          Rate&nbsp;
+          比率&nbsp;
         </div>
         <div
-          data-tip="War Alert. Modifier to military forces number, depends of political situation. Click to sort"
+          data-tip="战争警戒。军事力量数量的修正值，取决于政治形势。点击排序"
           class="sortable"
           data-sortby="alert"
         >
-          War Alert&nbsp;
+          战争警戒&nbsp;
         </div>
       </div>
       <div id="militaryBody" class="table" data-type="absolute"></div>
       <div id="militaryFooter" class="totalLine">
-        <div data-tip="States number" style="margin-left: 4px">
-          States:&nbsp;<span id="militaryFooterStates">0</span>
+        <div data-tip="国家数量" style="margin-left: 4px">
+          国家:&nbsp;<span id="militaryFooterStates">0</span>
         </div>
-        <div data-tip="Total military forces" style="margin-left: 14px">
-          Total forces:&nbsp;<span id="militaryFooterForcesTotal">0</span>
+        <div data-tip="总军事力量" style="margin-left: 14px">
+          总力量:&nbsp;<span id="militaryFooterForcesTotal">0</span>
         </div>
-        <div data-tip="Average military forces per state" style="margin-left: 14px">
-          Average forces:&nbsp;<span id="militaryFooterForces">0</span>
+        <div data-tip="每国平均军事力量" style="margin-left: 14px">
+          平均力量:&nbsp;<span id="militaryFooterForces">0</span>
         </div>
-        <div data-tip="Average forces rate per state" style="margin-left: 14px">
-          Average rate:&nbsp;<span id="militaryFooterRate">0%</span>
+        <div data-tip="每国平均力量比率" style="margin-left: 14px">
+          平均比率:&nbsp;<span id="militaryFooterRate">0%</span>
         </div>
-        <div data-tip="Average War Alert" style="margin-left: 14px">
-          Average alert:&nbsp;<span id="militaryFooterAlert">0</span>
+        <div data-tip="平均战争警戒" style="margin-left: 14px">
+          平均警戒:&nbsp;<span id="militaryFooterAlert">0</span>
         </div>
       </div>
       <div id="militaryBottom">
-        <button id="militaryOverviewRefresh" data-tip="Refresh the overview screen" class="icon-cw"></button>
-        <button id="militaryOptionsButton" data-tip="Edit Military units" class="icon-cog"></button>
-        <button id="militaryRegimentsList" data-tip="Show regiments list" class="icon-list-bullet"></button>
+        <button id="militaryOverviewRefresh" data-tip="刷新总览界面" class="icon-cw"></button>
+        <button id="militaryOptionsButton" data-tip="编辑军事单位" class="icon-cog"></button>
+        <button id="militaryRegimentsList" data-tip="显示军团列表" class="icon-list-bullet"></button>
         <button
           id="militaryPercentage"
-          data-tip="Toggle percentage / absolute values views"
+          data-tip="切换百分比/绝对值视图"
           class="icon-percent"
         ></button>
         <button
           id="militaryOverviewRecalculate"
-          data-tip="Recalculate military forces based on current options"
+          data-tip="基于当前选项重新计算军事力量"
           class="icon-retweet"
         ></button>
         <button
           id="militaryExport"
-          data-tip="Save military-related data as a text file (.csv)"
+          data-tip="将军事相关数据保存为文本文件 (.csv)"
           class="icon-download"
         ></button>
-        <button id="militaryWiki" data-tip="Open Military Forces Tutorial" class="icon-info"></button>
+        <button id="militaryWiki" data-tip="打开军事力量教程" class="icon-info"></button>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);
@@ -145,9 +145,9 @@ function updateHeaders(): void {
   for (const u of options.military) {
     const label = capitalize(u.name.replace(/_/g, " "));
     insert(
-      `<div data-tip="State ${
+      `<div data-tip="国家 ${
         u.name
-      } units number. Click to sort" class="sortable removable" data-sortby="${u.name.toLowerCase()}">${label}&nbsp;</div>`
+      } 单位数量。点击排序" class="sortable removable" data-sortby="${u.name.toLowerCase()}">${label}&nbsp;</div>`
     );
   }
   header.querySelectorAll<HTMLElement>(".removable").forEach(el => {
@@ -170,7 +170,7 @@ function refreshMilitaryOverview(): void {
 
     const sortData = options.military.map(u => `data-${u.name.toLowerCase()}="${getForces(u)}"`).join(" ");
     const lineData = options.military
-      .map(u => `<div data-type="${u.name}" data-tip="State ${u.name} units number">${getForces(u)}</div>`)
+      .map(u => `<div data-type="${u.name}" data-tip="国家 ${u.name} 单位数量">${getForces(u)}</div>`)
       .join(" ");
 
     lines += /* html */ `<div
@@ -186,23 +186,18 @@ function refreshMilitaryOverview(): void {
         <fill-box data-tip="${s.fullName}" fill="${s.color}" disabled></fill-box>
         <input data-tip="${s.fullName}" style="width:6em" value="${s.name}" readonly />
         ${lineData}
-        <div data-type="total" data-tip="Total state military personnel (considering crew)" style="font-weight: bold">${si(
-          total
-        )}</div>
-        <div data-type="population" data-tip="State population">${si(population)}</div>
-        <div data-type="rate" data-tip="Military personnel rate (% of state population). Depends on war alert">${rn(
-          rate,
-          2
-        )}%</div>
+        <div data-type="total" data-tip="国家军事人员总数（含船员）" style="font-weight: bold">${si(total)}</div>
+        <div data-type="population" data-tip="国家人口">${si(population)}</div>
+        <div data-type="rate" data-tip="军事人员比率（占国家人口百分比）。取决于战争警戒">${rn(rate, 2)}%</div>
         <input
-          data-tip="War Alert. Editable modifier to military forces number, depends of political situation"
+          data-tip="战争警戒。可编辑的军事力量数量修正值，取决于政治形势"
           style="width:4.1em"
           type="number"
           min="0"
           step=".01"
           value="${rn(s.alert ?? 0, 2)}"
         />
-        <span data-tip="Show regiments list" class="icon-list-bullet pointer"></span>
+        <span data-tip="显示军团列表" class="icon-list-bullet pointer"></span>
       </div>`;
   }
   body.insertAdjacentHTML("beforeend", lines);
@@ -350,8 +345,8 @@ function militaryCustomize(): void {
     position: { my: "center", at: "center", of: "svg" },
     close: closeMilitaryOptions,
     buttons: {
-      Apply: applyMilitaryOptions,
-      Add: () =>
+      应用: applyMilitaryOptions,
+      添加: () =>
         addUnitLine({
           icon: "🛡️",
           name: `custom${ensureEl<HTMLTableElement>("militaryOptionsTable").rows.length}`,
@@ -362,8 +357,8 @@ function militaryCustomize(): void {
           type: "melee",
           separate: 0
         }),
-      Restore: restoreDefaultUnits,
-      Cancel: function () {
+      恢复: restoreDefaultUnits,
+      取消: function () {
         $(this).dialog("close");
       }
     },
@@ -420,7 +415,7 @@ function militaryCustomize(): void {
   }
 
   function getLimitText(attr?: number[]): string {
-    return attr?.length ? "some" : "all";
+    return attr?.length ? "部分" : "全部";
   }
 
   function getLimitTip(attr: number[] | undefined, data: { name?: string }[] | undefined): string {
@@ -436,7 +431,7 @@ function militaryCustomize(): void {
     const getLimitButton = (attr: "biomes" | "states" | "cultures" | "religions"): string => {
       const data = attr === "biomes" ? [] : (pack[attr] as { name?: string }[]);
       return `<button
-          data-tip="Select allowed ${attr}"
+          data-tip="选择允许的 ${attr}"
           data-type="${attr}"
           title="${getLimitTip(unit[attr], data)}"
           data-value="${getLimitValue(unit[attr])}">
@@ -445,7 +440,7 @@ function militaryCustomize(): void {
     };
 
     row.innerHTML = /* html */ `<td>
-          <button data-type="icon" data-tip="Click to select unit icon">
+          <button data-type="icon" data-tip="点击选择单位图标">
             ${
               icon.startsWith("http") || icon.startsWith("data:image")
                 ? `<img src="${icon}" style="width:1.2em;height:1.2em;pointer-events:none;">`
@@ -453,26 +448,26 @@ function militaryCustomize(): void {
             }
           </button>
         </td>
-        <td><input data-tip="Type unit name. If name is changed for existing unit, old unit will be replaced" value="${name}" /></td>
+        <td><input data-tip="输入单位名称。若更改现有单位名称，旧单位将被替换" value="${name}" /></td>
         <td>${getLimitButton("biomes")}</td>
         <td>${getLimitButton("states")}</td>
         <td>${getLimitButton("cultures")}</td>
         <td>${getLimitButton("religions")}</td>
-        <td><input data-tip="Enter conscription percentage for rural population" type="number" min="0" max="100" step=".01" value="${rural}" /></td>
-        <td><input data-tip="Enter conscription percentage for urban population" type="number" min="0" max="100" step=".01" value="${urban}" /></td>
-        <td><input data-tip="Enter average number of people in crew (for total personnel calculation)" type="number" min="1" step="1" value="${crew}" /></td>
-        <td><input data-tip="Enter military power (used for battle simulation)" type="number" min="0" step=".1" value="${power}" /></td>
+        <td><input data-tip="输入农村人口的征召百分比" type="number" min="0" max="100" step=".01" value="${rural}" /></td>
+        <td><input data-tip="输入城市人口的征召百分比" type="number" min="0" max="100" step=".01" value="${urban}" /></td>
+        <td><input data-tip="输入船员平均人数（用于总人员计算）" type="number" min="1" step="1" value="${crew}" /></td>
+        <td><input data-tip="输入军事力量（用于战斗模拟）" type="number" min="0" step=".1" value="${power}" /></td>
         <td>
-          <select data-tip="Select unit type to apply special rules on forces recalculation">
+          <select data-tip="选择单位类型以在兵力重算时应用特殊规则">
             ${typeOptions}
           </select>
         </td>
-        <td data-tip="Check if unit is <b>separate</b> and can be stacked only with the same units">
+        <td data-tip="勾选表示单位是<b>独立</b>的，仅能与相同单位堆叠">
           <input id="${name}Separate" type="checkbox" class="checkbox" ${separate ? "checked" : ""} />
           <label for="${name}Separate" class="checkbox-label"></label>
         </td>
-        <td data-tip="Remove the unit">
-          <span data-tip="Remove unit type" class="icon-trash-empty pointer" onclick="this.parentElement.parentElement.remove();"></span>
+        <td data-tip="移除该单位">
+          <span data-tip="移除单位类型" class="icon-trash-empty pointer" onclick="this.parentElement.parentElement.remove();"></span>
         </td>`;
     tableBody.appendChild(row);
   }
@@ -503,7 +498,7 @@ function militaryCustomize(): void {
           </tr>`
     );
 
-    ensureEl("alertMessage").innerHTML = /* html */ `<b>Limit unit by ${type}:</b>
+    ensureEl("alertMessage").innerHTML = /* html */ `<b>按 ${type} 限制单位：</b>
         <table style="margin-top:.3em">
           <tbody>
             ${lines.join("")}
@@ -514,12 +509,12 @@ function militaryCustomize(): void {
       width: fitContent(),
       title: "限制单位",
       buttons: {
-        Invert: () => {
+        反选: () => {
           alertMessage.querySelectorAll<HTMLInputElement>("input").forEach(el => {
             el.checked = !el.checked;
           });
         },
-        Apply: function () {
+        应用: function () {
           const inputs = Array.from(alertMessage.querySelectorAll<HTMLInputElement>("input"));
           const selected = inputs.reduce<string[]>((acc, input) => {
             if (input.checked) acc.push(input.dataset.i!);
@@ -533,11 +528,11 @@ function militaryCustomize(): void {
 
           const allAreSelected = selected.length === inputs.length;
           el.dataset.value = allAreSelected ? "" : selected.join(",");
-          el.innerHTML = allAreSelected ? "all" : "some";
+          el.innerHTML = allAreSelected ? "全部" : "部分";
           el.setAttribute("title", getLimitTip(selected.map(Number), data));
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       }
@@ -615,19 +610,19 @@ function renderOptions(): void {
         <table id="militaryOptionsTable">
           <thead>
             <tr>
-              <th data-tip="Unit icon">Icon</th>
-              <th data-tip="Unit name. If name is changed for existing unit, old unit will be replaced">Unit name</th>
-              <th style="width: 5em" data-tip="Select allowed biomes">Biomes</th>
-              <th style="width: 5em" data-tip="Select allowed states">States</th>
-              <th style="width: 5em" data-tip="Select allowed cultures">Cultures</th>
-              <th style="width: 5em" data-tip="Select allowed religions">Religions</th>
-              <th data-tip="Conscription percentage for rural population">Rural</th>
-              <th data-tip="Conscription percentage for urban population">Urban</th>
-              <th data-tip="Average number of people in crew (used for total personnel calculation)">Crew</th>
-              <th data-tip="Unit military power (used for battle simulation)">Power</th>
-              <th data-tip="Unit type to apply special rules on forces recalculation">Type</th>
-              <th data-tip="Check if unit is separate and can be stacked only with units of the same type">
-                Separate
+              <th data-tip="单位图标">图标</th>
+              <th data-tip="单位名称。若更改现有单位名称，旧单位将被替换">单位名称</th>
+              <th style="width: 5em" data-tip="选择允许的生物群落">生物群落</th>
+              <th style="width: 5em" data-tip="选择允许的国家">国家</th>
+              <th style="width: 5em" data-tip="选择允许的文化">文化</th>
+              <th style="width: 5em" data-tip="选择允许的宗教">宗教</th>
+              <th data-tip="农村人口的征召百分比">农村</th>
+              <th data-tip="城市人口的征召百分比">城市</th>
+              <th data-tip="船员平均人数（用于总人员计算）">船员</th>
+              <th data-tip="单位军事力量（用于战斗模拟）">力量</th>
+              <th data-tip="单位类型，用于在兵力重算时应用特殊规则">类型</th>
+              <th data-tip="勾选表示单位是独立的，仅能与相同类型的单位堆叠">
+                独立
               </th>
             </tr>
           </thead>
@@ -644,18 +639,17 @@ function closeMilitaryOptions(): void {
 }
 
 function militaryRecalculate(): void {
-  ensureEl("alertMessage").innerHTML =
-    "Are you sure you want to recalculate military forces for all states?<br>Regiments for all states will be regenerated";
+  ensureEl("alertMessage").innerHTML = "确定要为所有国家重新计算军事力量吗？<br>所有国家的军团将被重新生成";
   $("#alert").dialog({
     resizable: false,
     title: "重新计算军事",
     buttons: {
-      Recalculate: function () {
+      重新计算: function () {
         $(this).dialog("close");
         Military.generate();
         refreshMilitaryOverview();
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }

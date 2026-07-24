@@ -27,16 +27,16 @@ function renderDialog(): void {
   destroyDialogIfExists("coastlineEditor");
 
   const html = /* html */ `<div id="coastlineEditor" class="dialog">
-    <button id="coastlineGroupsShow" data-tip="Show the group selection" class="icon-tags"></button>
+    <button id="coastlineGroupsShow" data-tip="显示组选择" class="icon-tags"></button>
     <div id="coastlineGroupsSelection" style="display: none">
-      <button id="coastlineGroupsHide" data-tip="Hide the group section" class="icon-tags"></button>
-      <select id="coastlineGroup" data-tip="Select a group for this coastline" style="width: 9em"></select>
-      <input id="coastlineGroupName" placeholder="new group name" data-tip="Provide a name for the new group" style="display: none; width: 9em" />
-      <span id="coastlineGroupAdd" data-tip="Create a new group for this coastline" class="icon-plus pointer"></span>
-      <span id="coastlineGroupRemove" data-tip="Remove the group" class="icon-trash-empty pointer"></span>
+      <button id="coastlineGroupsHide" data-tip="隐藏组区域" class="icon-tags"></button>
+      <select id="coastlineGroup" data-tip="为此海岸线选择分组" style="width: 9em"></select>
+      <input id="coastlineGroupName" placeholder="新分组名称" data-tip="为新分组提供名称" style="display: none; width: 9em" />
+      <span id="coastlineGroupAdd" data-tip="为此海岸线创建新分组" class="icon-plus pointer"></span>
+      <span id="coastlineGroupRemove" data-tip="移除该分组" class="icon-trash-empty pointer"></span>
     </div>
-    <button id="coastlineEditStyle" data-tip="Edit coastline group style in Style Editor" class="icon-brush"></button>
-    <button id="coastlineArea" data-tip="Landmass area in selected units">0</button>
+    <button id="coastlineEditStyle" data-tip="在样式编辑器中编辑海岸线组样式" class="icon-brush"></button>
+    <button id="coastlineArea" data-tip="以所选单位显示的陆地面积">0</button>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
 
@@ -80,9 +80,7 @@ function drawCoastlineVertices(): void {
     .attr("r", 0.4)
     .attr("data-v", (d: number) => d)
     .call(drag<SVGCircleElement, number>().on("drag", handleVertexDrag).on("end", handleVertexDragEnd))
-    .on("mousemove", () =>
-      tip("拖动以移动顶点。请仅用于微调。要更改实际单元格高度请编辑高度图！")
-    );
+    .on("mousemove", () => tip("拖动以移动顶点。请仅用于微调。要更改实际单元格高度请编辑高度图！"));
 
   ensureEl("coastlineArea").innerHTML = `${si(getArea(area))} ${getAreaUnit()}`;
 }
@@ -228,14 +226,14 @@ function removeCoastlineGroup(): void {
   }
 
   const count = (elSelected.node()!.parentNode as SVGGElement).childElementCount;
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove the group? All coastline elements of the group (${count}) will be moved under
-    <i>sea_island</i> group`;
+  alertMessage.innerHTML = /* html */ `确定要移除该分组吗？该分组下的所有海岸线元素（${count} 个）将被移动到
+    <i>sea_island</i> 分组下`;
   $("#alert").dialog({
     resizable: false,
     title: "移除海岸线分组",
     width: "26em",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         $(this).dialog("close");
         const sea = ensureEl("sea_island");
         const groupEl = ensureEl(group);
@@ -246,7 +244,7 @@ function removeCoastlineGroup(): void {
         ensureEl<HTMLSelectElement>("coastlineGroup").selectedOptions[0].remove();
         ensureEl<HTMLSelectElement>("coastlineGroup").value = "sea_island";
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

@@ -1,0 +1,16 @@
+{
+  "units": [
+    {
+      "id": "sha256:490b2222992a9cd9",
+      "source": "Marker icon",
+      "file": "public/modules/ui/tools.js",
+      "line": 960,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "\n    const headers = /* html */ `<thead style='font-weight:bold'><tr>\n      <td data-tip=\"Marker type name\">Type</td>",
+      "context_after": "      <td data-tip=\"Marker number multiplier\">Multiplier</td>\n      <td data-tip=\"Number of markers of that type on the current map\">Number</td>\n    </tr></thead>`;",
+      "target": "标记图标",
+      "applied": true
+    }
+  ]
+}

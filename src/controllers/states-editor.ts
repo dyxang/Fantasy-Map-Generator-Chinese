@@ -47,70 +47,70 @@ function renderDialog(): void {
   destroyDialogIfExists("statesEditor");
   const editorHtml = /* html */ `<div id="statesEditor" class="dialog stable">
     <div id="statesHeader" class="header" style="grid-template-columns: 11em 8em 7em 7em 5em 6em 6em 7em 7em 6em 7em">
-      <div data-tip="Click to sort by state name" class="sortable alphabetically" data-sortby="name">State&nbsp;</div>
-      <div data-tip="Click to sort by state form name" class="sortable alphabetically" data-sortby="form">Form&nbsp;</div>
-      <div data-tip="Click to sort by capital name" class="sortable alphabetically" data-sortby="capital">Capital&nbsp;</div>
-      <div data-tip="Click to sort by state dominant culture" class="sortable alphabetically hide" data-sortby="culture">Culture&nbsp;</div>
-      <div data-tip="Click to sort by state burgs count" class="sortable hide" data-sortby="burgs">Burgs&nbsp;</div>
-      <div data-tip="Click to sort by state cells count" class="sortable hide" data-sortby="cells">Cells&nbsp;</div>
-      <div data-tip="Click to sort by state area" class="sortable hide icon-sort-number-down" data-sortby="area">Area&nbsp;</div>
-      <div data-tip="Click to sort by state population" class="sortable hide" data-sortby="population">Population&nbsp;</div>
-      <div data-tip="Click to sort by state treasury. Click on a value to view and edit taxes" class="sortable hide" data-sortby="treasury">Treasury&nbsp;</div>
-      <div data-tip="Click to sort by state type" class="sortable alphabetically hidden show hide" data-sortby="type">Type&nbsp;</div>
-      <div data-tip="Click to sort by state expansion value" class="sortable hidden show hide" data-sortby="expansionism">Expansion&nbsp;</div>
+      <div data-tip="点击按国家名称排序" class="sortable alphabetically" data-sortby="name">国家&nbsp;</div>
+      <div data-tip="点击按政体名称排序" class="sortable alphabetically" data-sortby="form">政体&nbsp;</div>
+      <div data-tip="点击按首都名称排序" class="sortable alphabetically" data-sortby="capital">首都&nbsp;</div>
+      <div data-tip="点击按国家主导文化排序" class="sortable alphabetically hide" data-sortby="culture">文化&nbsp;</div>
+      <div data-tip="点击按国家城镇数排序" class="sortable hide" data-sortby="burgs">城镇&nbsp;</div>
+      <div data-tip="点击按国家单元格数排序" class="sortable hide" data-sortby="cells">单元格&nbsp;</div>
+      <div data-tip="点击按国家面积排序" class="sortable hide icon-sort-number-down" data-sortby="area">面积&nbsp;</div>
+      <div data-tip="点击按国家人口排序" class="sortable hide" data-sortby="population">人口&nbsp;</div>
+      <div data-tip="点击按国库排序。点击数值查看和编辑税收" class="sortable hide" data-sortby="treasury">国库&nbsp;</div>
+      <div data-tip="点击按国家类型排序" class="sortable alphabetically hidden show hide" data-sortby="type">类型&nbsp;</div>
+      <div data-tip="点击按国家扩张值排序" class="sortable hidden show hide" data-sortby="expansionism">扩张&nbsp;</div>
     </div>
 
     <div id="statesBodySection" class="table" data-type="absolute"></div>
 
     <div id="statesFooter" class="totalLine">
-      <div data-tip="States number" style="margin-left: 5px">States:&nbsp;<span id="statesFooterStates">0</span></div>
-      <div data-tip="Total burgs number" style="margin-left: 12px">Burgs:&nbsp;<span id="statesFooterBurgs">0</span></div>
-      <div data-tip="Total land area" style="margin-left: 12px">Land Area:&nbsp;<span id="statesFooterArea">0</span></div>
-      <div data-tip="Total population" style="margin-left: 12px">Population:&nbsp;<span id="statesFooterPopulation">0</span></div>
+      <div data-tip="国家数量" style="margin-left: 5px">国家:&nbsp;<span id="statesFooterStates">0</span></div>
+      <div data-tip="城镇总数" style="margin-left: 12px">城镇:&nbsp;<span id="statesFooterBurgs">0</span></div>
+      <div data-tip="陆地总面积" style="margin-left: 12px">陆地面积:&nbsp;<span id="statesFooterArea">0</span></div>
+      <div data-tip="总人口" style="margin-left: 12px">人口:&nbsp;<span id="statesFooterPopulation">0</span></div>
     </div>
 
     <div id="statesBottom">
-      <button id="statesEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-      <button id="statesEditStyle" data-tip="Edit states style in Style Editor" class="icon-adjust"></button>
-      <button id="statesLegend" data-tip="Toggle Legend box" class="icon-list-bullet"></button>
-      <button id="statesPercentage" data-tip="Toggle percentage / absolute values views" class="icon-percent"></button>
-      <button id="statesChart" data-tip="Show states bubble chart" class="icon-chart-area"></button>
+      <button id="statesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+      <button id="statesEditStyle" data-tip="在样式编辑器中编辑国家样式" class="icon-adjust"></button>
+      <button id="statesLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
+      <button id="statesPercentage" data-tip="切换百分比/绝对值视图" class="icon-percent"></button>
+      <button id="statesChart" data-tip="显示国家气泡图" class="icon-chart-area"></button>
 
-      <button id="statesRegenerate" data-tip="Show the regeneration menu and more data" class="icon-cog-alt"></button>
+      <button id="statesRegenerate" data-tip="显示重新生成菜单及更多数据" class="icon-cog-alt"></button>
       <div id="statesRegenerateButtons" style="display: none">
-        <button id="statesRegenerateBack" data-tip="Hide the regeneration menu" class="icon-cog-alt"></button>
-        <button id="statesRandomize" data-tip="Randomize states Expansion value and re-calculate states and provinces" class="icon-shuffle"></button>
-        <div data-tip="Additional growth rate. Defines how many land cells remain neutral" style="display: inline-block">
-          <slider-input id="statesGrowthRate" min=".1" max="3" step=".05" value="1">Growth rate:</slider-input>
+        <button id="statesRegenerateBack" data-tip="隐藏重新生成菜单" class="icon-cog-alt"></button>
+        <button id="statesRandomize" data-tip="随机化国家扩张值并重新计算国家和省份" class="icon-shuffle"></button>
+        <div data-tip="额外增长率。定义多少陆地单元格保持中立" style="display: inline-block">
+          <slider-input id="statesGrowthRate" min=".1" max="3" step=".05" value="1">增长率：</slider-input>
         </div>
-        <button id="statesRecalculate" data-tip="Recalculate states based on current values of growth-related attributes" class="icon-retweet"></button>
-        <div data-tip="Allow states neutral distance, expansion and type changes to take an immediate effect" style="display: inline-block">
+        <button id="statesRecalculate" data-tip="基于当前增长相关属性值重新计算国家" class="icon-retweet"></button>
+        <div data-tip="允许国家的中立距离、扩张和类型更改立即生效" style="display: inline-block">
           <input id="statesAutoChange" class="checkbox" type="checkbox" />
-          <label for="statesAutoChange" class="checkbox-label"><i>auto-apply changes</i></label>
+          <label for="statesAutoChange" class="checkbox-label"><i>自动应用更改</i></label>
         </div>
-        <div data-tip="Allow system to change state labels when states data is change" style="display: inline-block">
+        <div data-tip="允许系统在国家数据更改时更改国家标签" style="display: inline-block">
           <input id="adjustLabels" class="checkbox" type="checkbox" />
-          <label for="adjustLabels" class="checkbox-label"><i>auto-change labels</i></label>
+          <label for="adjustLabels" class="checkbox-label"><i>自动更改标签</i></label>
         </div>
       </div>
 
-      <button id="statesManually" data-tip="Manually re-assign states" class="icon-brush"></button>
+      <button id="statesManually" data-tip="手动重新分配国家" class="icon-brush"></button>
       <div id="statesManuallyButtons" style="display: none">
-        <div data-tip="Change brush size. Shortcuts: + / ] to increase; - / [ to decrease" style="margin-block: 0.3em;">
-          <slider-input id="statesBrush" min="1" max="100" value="15">Brush size:</slider-input>
+        <div data-tip="更改笔刷大小。快捷键：+ / ] 增大；- / [ 减小" style="margin-block: 0.3em;">
+          <slider-input id="statesBrush" min="1" max="100" value="15">笔刷大小：</slider-input>
         </div>
-        <button id="statesManuallyUndo" data-tip="Undo last brush stroke" class="icon-ccw"></button>
-        <button id="statesManuallyApply" data-tip="Apply assignment" class="icon-check"></button>
-        <button id="statesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
-        <div data-tip="When enabled, only neutral cells can be painted" style="display: inline-block">
+        <button id="statesManuallyUndo" data-tip="撤销上次笔刷" class="icon-ccw"></button>
+        <button id="statesManuallyApply" data-tip="应用分配" class="icon-check"></button>
+        <button id="statesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
+        <div data-tip="启用时，仅可绘制中立单元格" style="display: inline-block">
           <input id="statesManuallyProtect" class="checkbox" type="checkbox" />
-          <label for="statesManuallyProtect" class="checkbox-label"><i>do not overwrite existing</i></label>
+          <label for="statesManuallyProtect" class="checkbox-label"><i>不覆盖已有内容</i></label>
         </div>
       </div>
 
-      <button id="statesAdd" data-tip="Add a new state. Hold Shift to add multiple" class="icon-plus"></button>
-      <button id="statesMerge" data-tip="Merge several states into one" class="icon-layer-group"></button>
-      <button id="statesExport" data-tip="Save state-related data as a text file (.csv)" class="icon-download"></button>
+      <button id="statesAdd" data-tip="添加新国家。按住 Shift 添加多个" class="icon-plus"></button>
+      <button id="statesMerge" data-tip="合并多个国家为一个" class="icon-layer-group"></button>
+      <button id="statesExport" data-tip="将国家相关数据保存为文本文件 (.csv)" class="icon-download"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);
@@ -202,14 +202,12 @@ function statesEditorAddLines(): void {
     const rural = (s.rural || 0) * populationRate;
     const urban = (s.urban || 0) * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(
-      urban
-    )}. Click to change`;
+    const populationTip = `总人口：${si(population)}；农村人口：${si(rural)}；城镇人口：${si(urban)}。点击更改`;
     totalArea += area;
     totalPopulation += population;
     totalBurgs += s.burgs || 0;
     const focused = select("#deftemp").select(`#fog #focusState${s.i}`).size();
-    const treasuryTip = `Current treasury: 🟡 ${si(s.treasury)}. Sales Tax: ${rn((s.salesTax || 0) * 100, 1)}%. Poll Tax: ${rn((s.pollTax || 0) * 100, 1)}%. Click to view and edit taxes`;
+    const treasuryTip = `当前国库：🟡 ${si(s.treasury)}。销售税：${rn((s.salesTax || 0) * 100, 1)}%。人头税：${rn((s.pollTax || 0) * 100, 1)}%。点击查看和编辑税收`;
 
     if (!s.i) {
       // Neutral line
@@ -230,23 +228,21 @@ function statesEditorAddLines(): void {
         data-expansionism=""
       >
         <svg width="1em" height="1em" class="placeholder"></svg>
-        <input data-tip="Neutral lands name. Click to change" class="stateName name pointer italic" value="${
-          s.name
-        }" readonly />
+        <input data-tip="中立土地名称。点击更改" class="stateName name pointer italic" value="${s.name}" readonly />
         <svg class="coaIcon placeholder"></svg>
         <input class="stateForm placeholder" value="none" />
         <span class="icon-star-empty placeholder"></span>
         <input class="stateCapital placeholder" />
         <select class="stateCulture placeholder hide">${getCultureOptions(0)}</select>
-        <span data-tip="Click to overview neutral burgs" class="icon-dot-circled pointer hide" style="padding-right: 1px"></span>
-        <div data-tip="Burgs count" class="stateBurgs hide">${s.burgs}</div>
-        <span data-tip="Cells count" class="icon-check-empty hide"></span>
-        <div data-tip="Cells count" class="stateCells hide">${s.cells}</div>
-        <span data-tip="Neutral lands area" style="padding-right: 4px" class="icon-map-o hide"></span>
-        <div data-tip="Neutral lands area" class="stateArea hide" style="width: 6em">${si(area)} ${unit}</div>
+        <span data-tip="点击查看中立城镇概览" class="icon-dot-circled pointer hide" style="padding-right: 1px"></span>
+        <div data-tip="城镇数" class="stateBurgs hide">${s.burgs}</div>
+        <span data-tip="单元格数" class="icon-check-empty hide"></span>
+        <div data-tip="单元格数" class="stateCells hide">${s.cells}</div>
+        <span data-tip="中立土地面积" style="padding-right: 4px" class="icon-map-o hide"></span>
+        <div data-tip="中立土地面积" class="stateArea hide" style="width: 6em">${si(area)} ${unit}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="statePopulation pointer hide" style="width: 5em">${si(population)}</div>
-        <div data-tip="Neutrals collect no taxes" class="stateTreasury placeholder hide" style="width: 6em"></div>
+        <div data-tip="中立土地不征税" class="stateTreasury placeholder hide" style="width: 6em"></div>
         <select class="cultureType ${hidden} placeholder show hide">${getTypeOptions(0)}</select>
         <span class="icon-resize-full ${hidden} placeholder show hide"></span>
         <input class="statePower ${hidden} placeholder show hide" type="number" value="0" />
@@ -273,39 +269,33 @@ function statesEditorAddLines(): void {
       data-expansionism=${s.expansionism}
     >
       <fill-box fill="${s.color}"></fill-box>
-      <input data-tip="State name. Click to change" class="stateName name pointer" value="${s.name}" readonly />
-      <svg data-tip="Click to show and edit state emblem" class="coaIcon pointer" viewBox="0 0 200 200"><use href="#stateCOA${
+      <input data-tip="国家名称。点击更改" class="stateName name pointer" value="${s.name}" readonly />
+      <svg data-tip="点击查看和编辑国家纹章" class="coaIcon pointer" viewBox="0 0 200 200"><use href="#stateCOA${
         s.i
       }"></use></svg>
-      <input data-tip="State form name. Click to change" class="stateForm name pointer" value="${
-        s.formName
-      }" readonly />
-      <span data-tip="State capital. Click to zoom into view" class="icon-star-empty pointer"></span>
-      <input data-tip="Capital name. Click and type to rename" class="stateCapital" value="${capital}" autocorrect="off" spellcheck="false" />
-      <select data-tip="Dominant culture. Click to change" class="stateCulture hide">${getCultureOptions(
-        s.culture
-      )}</select>
-      <span data-tip="Click to overview state burgs" style="padding-right: 1px" class="icon-dot-circled pointer hide"></span>
-      <div data-tip="Burgs count" class="stateBurgs hide">${s.burgs}</div>
-      <span data-tip="Cells count" class="icon-check-empty hide"></span>
-      <div data-tip="Cells count" class="stateCells hide">${s.cells}</div>
-      <span data-tip="State area" style="padding-right: 4px" class="icon-map-o hide"></span>
-      <div data-tip="State area" class="stateArea hide" style="width: 6em">${si(area)} ${unit}</div>
+      <input data-tip="国家政体名称。点击更改" class="stateForm name pointer" value="${s.formName}" readonly />
+      <span data-tip="国家首都。点击放大查看" class="icon-star-empty pointer"></span>
+      <input data-tip="首都名称。点击并输入以重命名" class="stateCapital" value="${capital}" autocorrect="off" spellcheck="false" />
+      <select data-tip="主导文化。点击更改" class="stateCulture hide">${getCultureOptions(s.culture)}</select>
+      <span data-tip="点击查看国家城镇概览" style="padding-right: 1px" class="icon-dot-circled pointer hide"></span>
+      <div data-tip="城镇数" class="stateBurgs hide">${s.burgs}</div>
+      <span data-tip="单元格数" class="icon-check-empty hide"></span>
+      <div data-tip="单元格数" class="stateCells hide">${s.cells}</div>
+      <span data-tip="国家面积" style="padding-right: 4px" class="icon-map-o hide"></span>
+      <div data-tip="国家面积" class="stateArea hide" style="width: 6em">${si(area)} ${unit}</div>
       <span data-tip="${populationTip}" class="icon-male hide"></span>
       <div data-tip="${populationTip}" class="statePopulation pointer hide" style="width: 5em">${si(population)}</div>
       <div data-tip="${treasuryTip}" class="stateTreasury pointer hide" style="width: 6em">🟡 ${si(s.treasury)}</div>
-      <select data-tip="State type. Defines growth model. Click to change" class="cultureType ${hidden} show hide">${getTypeOptions(
+      <select data-tip="国家类型。定义增长模型。点击更改" class="cultureType ${hidden} show hide">${getTypeOptions(
         s.type
       )}</select>
-      <span data-tip="State expansionism" class="icon-resize-full ${hidden} show hide"></span>
-      <input data-tip="Expansionism (defines competitive size). Change to re-calculate states based on new value"
+      <span data-tip="国家扩张值" class="icon-resize-full ${hidden} show hide"></span>
+      <input data-tip="扩张值（定义竞争规模）。更改后基于新值重新计算国家"
         class="statePower ${hidden} show hide" type="number" min="0" max="99" step=".1" value=${s.expansionism} />
-      <span data-tip="Locate the state" class="icon-target hide"></span>
-      <span data-tip="Toggle state focus" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
-      <span data-tip="Lock the state to protect it from re-generation" class="icon-lock${
-        s.lock ? "" : "-open"
-      } hide"></span>
-      <span data-tip="Remove the state" class="icon-trash-empty hide"></span>
+      <span data-tip="定位该国家" class="icon-target hide"></span>
+      <span data-tip="切换国家聚焦" class="icon-pin ${focused ? "" : " inactive"} hide"></span>
+      <span data-tip="锁定该国家以防止重新生成" class="icon-lock${s.lock ? "" : "-open"} hide"></span>
+      <span data-tip="移除该国家" class="icon-trash-empty hide"></span>
     </div>`;
   }
   ensureEl("statesBodySection").innerHTML = lines;
@@ -434,11 +424,11 @@ function editStateName(state: number): void {
     resizable: false,
     title: "更改国家名称",
     buttons: {
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         applyNameChange(s);
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     },
@@ -523,26 +513,26 @@ function renderNameEditor(): void {
   destroyDialogIfExists("stateNameEditor");
   const nameEditorHtml = /* html */ `    <div id="stateNameEditor" class="dialog" data-state="0">
       <div>
-        <div data-tip="State short name" class="label">Short name:</div>
+        <div data-tip="国家简称" class="label">简称：</div>
         <input
           id="stateNameEditorShort"
-          data-tip="Type to change the short name"
+          data-tip="输入以更改简称"
           autocorrect="off"
           spellcheck="false"
           style="width: 11em"
         />
-        <span id="stateNameEditorShortSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+        <span id="stateNameEditorShortSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
         <span
           id="stateNameEditorShortCulture"
-          data-tip="Generate culture-specific name"
+          data-tip="生成特定文化的名称"
           class="icon-book pointer"
         ></span>
-        <span id="stateNameEditorShortRandom" data-tip="Generate random name" class="icon-globe pointer"></span>
+        <span id="stateNameEditorShortRandom" data-tip="生成随机名称" class="icon-globe pointer"></span>
       </div>
-      <div data-tip="Select form name">
-        <div data-tip="State form name" class="label">Form name:</div>
+      <div data-tip="选择政体名称">
+        <div data-tip="国家政体名称" class="label">政体名称：</div>
         <select id="stateNameEditorSelectForm" style="width: 11em">
-          <option value="">blank</option>
+          <option value="">留空</option>
           <optgroup label="Monarchy">
             <option value="Beylik">Beylik</option>
             <option value="Despotate">Despotate</option>
@@ -620,36 +610,36 @@ function renderNameEditor(): void {
         </select>
         <input
           id="stateNameEditorCustomForm"
-          placeholder="type form name"
-          data-tip="Enter custom form name"
+          placeholder="输入政体名称"
+          data-tip="输入自定义政体名称"
           style="display: none; width: 11em"
         />
         <span
           id="stateNameEditorAddForm"
-          data-tip="Click to add custom state form name to the list"
+          data-tip="点击将自定义政体名称添加到列表"
           class="icon-plus pointer"
         ></span>
       </div>
       <div>
-        <div data-tip="State full name" class="label">Full name:</div>
+        <div data-tip="国家全称" class="label">全称：</div>
         <input
           id="stateNameEditorFull"
-          data-tip="Type to change the full name"
+          data-tip="输入以更改全称"
           autocorrect="off"
           spellcheck="false"
           style="width: 11em"
         />
-        <span id="stateNameEditorFullSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+        <span id="stateNameEditorFullSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
         <span
           id="stateNameEditorFullRegenerate"
-          data-tip="Click to re-generate full name"
+          data-tip="点击重新生成全称"
           data-tick="0"
           class="icon-arrows-cw pointer"
         ></span>
       </div>
-      <div data-tip="Uncheck to not update state label on name change" style="padding-block: 0.2em">
+      <div data-tip="取消勾选则在名称更改时不更新国家标签" style="padding-block: 0.2em">
         <input id="stateNameEditorUpdateLabel" class="checkbox" type="checkbox" checked />
-        <label for="stateNameEditorUpdateLabel" class="checkbox-label"><i>Update label on Apply</i></label>
+        <label for="stateNameEditorUpdateLabel" class="checkbox-label"><i>应用时更新标签</i></label>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", nameEditorHtml);
@@ -711,11 +701,11 @@ function changePopulation(stateId: number): void {
     title: "更改国家人口",
     width: "24em",
     buttons: {
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         applyPopulationChange();
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     },
@@ -778,12 +768,12 @@ function openTreasuryDialog(stateId: number): void {
     return sellerStateId === stateId ? sum + deal.tax : sum;
   }, 0);
 
-  alertMessage.innerHTML = /* html */ `<div data-tip="Sales tax is applied to deals with a seller from the state. Poll tax is applied to all population of the state. Tax changes take effect on Production regeneration" style="margin: 0.6em 0; display: grid; grid-template-columns: 7em auto auto; row-gap: 0.4em; align-items: center">
-      <label for="stateSalesTaxInput">Sales Tax:</label>
+  alertMessage.innerHTML = /* html */ `<div data-tip="销售税应用于卖方属于该国家的交易。人头税应用于该国家的所有人口。税收更改在重新生成产物时生效" style="margin: 0.6em 0; display: grid; grid-template-columns: 7em auto auto; row-gap: 0.4em; align-items: center">
+      <label for="stateSalesTaxInput">销售税：</label>
       <input id="stateSalesTaxInput" type="number" min="0" max="1" step="0.01" value="${state.salesTax}" style="width: 6em"/> = ${formatPrice(salesTaxRevenue)}
-      <label for="statePollTaxInput">Poll Tax:</label>
+      <label for="statePollTaxInput">人头税：</label>
       <input id="statePollTaxInput" type="number" min="0" max="10" step="0.01" value="${state.pollTax}" style="width: 6em"/> = ${formatPrice(pollTaxRevenue)}
-      <label for="stateTreasuryInput">Treasury:</label>
+      <label for="stateTreasuryInput">国库：</label>
       <input id="stateTreasuryInput" type="number" step="1" value="${state.treasury}" style="width: 6em" />
     </div>`;
 
@@ -792,7 +782,7 @@ function openTreasuryDialog(stateId: number): void {
     title: `税收与国库：${state.name}`,
     width: "26em",
     buttons: {
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         const salesInput = ensureEl<HTMLInputElement>("stateSalesTaxInput");
         const pollInput = ensureEl<HTMLInputElement>("statePollTaxInput");
         const treasuryInput = ensureEl<HTMLInputElement>("stateTreasuryInput");
@@ -805,7 +795,7 @@ function openTreasuryDialog(stateId: number): void {
         refreshStatesEditor();
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     },
@@ -1726,7 +1716,7 @@ function openStateMergeDialog(): void {
           }
         });
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

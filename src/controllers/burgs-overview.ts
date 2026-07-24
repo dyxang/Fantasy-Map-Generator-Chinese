@@ -27,90 +27,90 @@ function renderDialog(): void {
   document.getElementById("burgsOverview")?.remove();
   const HTML = /* html */ `<div id="burgsOverview" class="dialog stable">
       <div id="burgsHeader" class="header" style="grid-template-columns: 9em 7em 7.5em 7.2em 6.5em 8em 6.5em 6.5em 5.5em 6em">
-        <div data-tip="Click to sort by burg name" class="sortable alphabetically" data-sortby="name">Burg</div>
-        <div data-tip="Click to sort by province name" class="sortable alphabetically" data-sortby="province">
-          Province
+        <div data-tip="点击按城镇名称排序" class="sortable alphabetically" data-sortby="name">城镇</div>
+        <div data-tip="点击按省份名称排序" class="sortable alphabetically" data-sortby="province">
+          省份
         </div>
-        <div data-tip="Click to sort by state name" class="sortable alphabetically" data-sortby="state">State</div>
-        <div data-tip="Click to sort by culture name" class="sortable alphabetically" data-sortby="culture">
-          Culture
+        <div data-tip="点击按国家名称排序" class="sortable alphabetically" data-sortby="state">国家</div>
+        <div data-tip="点击按文化名称排序" class="sortable alphabetically" data-sortby="culture">
+          文化
         </div>
-        <div data-tip="Click to sort by culture group" class="sortable alphabetically" data-sortby="group">Group</div>
+        <div data-tip="点击按文化组排序" class="sortable alphabetically" data-sortby="group">组</div>
         <div
-          data-tip="Click to sort by burg population"
+          data-tip="点击按城镇人口排序"
           class="sortable icon-sort-number-down"
           data-sortby="population"
         >
-          Population
+          人口
         </div>
-        <div data-tip="Click to sort by burg product" class="sortable" data-sortby="grossproduct">
-          Product&nbsp;
+        <div data-tip="点击按城镇产值排序" class="sortable" data-sortby="grossproduct">
+          产值&nbsp;
         </div>
-        <div data-tip="Click to sort by burg wealth (gross product per capita)" class="sortable" data-sortby="productpercapita">
-          Wealth&nbsp;
+        <div data-tip="点击按城镇财富（人均产值）排序" class="sortable" data-sortby="productpercapita">
+          财富&nbsp;
         </div>
-        <div data-tip="Click to sort by burg treasury" class="sortable" data-sortby="treasury">
-          Treasury&nbsp;
+        <div data-tip="点击按城镇国库排序" class="sortable" data-sortby="treasury">
+          国库&nbsp;
         </div>
-        <div data-tip="Click to sort by burg features" class="sortable alphabetically" data-sortby="features">
-          Features&nbsp;
+        <div data-tip="点击按城镇特征排序" class="sortable alphabetically" data-sortby="features">
+          特征&nbsp;
         </div>
       </div>
       <div id="burgsBody" class="table"></div>
       <div
         id="burgsFilters"
-        data-tip="Apply a filter"
+        data-tip="应用筛选器"
         style="padding-block: 0.1em; display: flex; gap: 0.5em; width: 100%"
       >
-        <label for="burgsSearch" data-tip="Filter by name, province, state, culture, or group"
-          >Search: <input id="burgsSearch" type="search"
+        <label for="burgsSearch" data-tip="按名称、省份、国家、文化或分组筛选"
+          >搜索：<input id="burgsSearch" type="search"
         /></label>
         <label for="burgsFilterState"
-          >State:
+          >国家：
           <select id="burgsFilterState"></select
         ></label>
         <label for="burgsFilterCulture"
-          >Culture:
+          >文化：
           <select id="burgsFilterCulture"></select
         ></label>
       </div>
       <div id="burgsFooter" class="totalLine">
-        <div data-tip="Burgs displayed" style="margin-left: 5px">
-          Burgs:&nbsp;<span id="burgsFooterBurgs">0 of 0</span>
+        <div data-tip="显示的城镇数" style="margin-left: 5px">
+          城镇:&nbsp;<span id="burgsFooterBurgs">0 / 0</span>
         </div>
-        <div data-tip="Average population" style="margin-left: 12px">
-          Avg population:&nbsp;<span id="burgsFooterPopulation">0</span>
+        <div data-tip="平均人口" style="margin-left: 12px">
+          平均人口:&nbsp;<span id="burgsFooterPopulation">0</span>
         </div>
-        <div data-tip="Average gross product" style="margin-left: 12px">
-          Avg product:&nbsp;<span id="burgsFooterGrossProduct">0</span> 🟡
+        <div data-tip="平均总产值" style="margin-left: 12px">
+          平均产值:&nbsp;<span id="burgsFooterGrossProduct">0</span> 🟡
         </div>
-        <div data-tip="Average wealth (product per capita)" style="margin-left: 12px">
-          Avg wealth:&nbsp;<span id="burgsFooterProductPerCapita">0</span> 🟡
+        <div data-tip="平均财富（人均产值）" style="margin-left: 12px">
+          平均财富:&nbsp;<span id="burgsFooterProductPerCapita">0</span> 🟡
         </div>
-        <div data-tip="Average treasury" style="margin-left: 12px">
-          Avg treasury:&nbsp;<span id="burgsFooterTreasury">0</span> 🟡
+        <div data-tip="平均国库" style="margin-left: 12px">
+          平均国库:&nbsp;<span id="burgsFooterTreasury">0</span> 🟡
         </div>
       </div>
       <div id="burgsBottom">
-        <button id="burgsOverviewRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-        <button id="burgsGroupsEditorButton" data-tip="Edit burg groups" class="icon-cog"></button>
-        <button id="burgsChart" data-tip="Show burgs bubble chart" class="icon-chart-area"></button>
+        <button id="burgsOverviewRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+        <button id="burgsGroupsEditorButton" data-tip="编辑城镇组" class="icon-cog"></button>
+        <button id="burgsChart" data-tip="显示城镇气泡图" class="icon-chart-area"></button>
         <button
           id="regenerateBurgNames"
-          data-tip="Regenerate burg names based on assigned culture"
+          data-tip="基于已分配文化重新生成城镇名称"
           class="icon-retweet"
         ></button>
-        <button id="addNewBurg" data-tip="Add a new burg. Hold Shift to add multiple" class="icon-plus"></button>
+        <button id="addNewBurg" data-tip="添加新城镇。按住 Shift 添加多个" class="icon-plus"></button>
         <button
           id="burgsExport"
-          data-tip="Save burgs-related data as a text file (.csv)"
+          data-tip="将城镇相关数据保存为文本文件 (.csv)"
           class="icon-download"
         ></button>
-        <button id="burgNamesImport" data-tip="Rename burgs in bulk" class="icon-upload"></button>
-        <button id="burgsLockAll" data-tip="Lock or unlock all burgs" class="icon-lock"></button>
+        <button id="burgNamesImport" data-tip="批量重命名城镇" class="icon-upload"></button>
+        <button id="burgsLockAll" data-tip="锁定或解锁所有城镇" class="icon-lock"></button>
         <button
           id="burgsRemoveAll"
-          data-tip="Remove all unlocked burgs except for capitals. To remove a capital remove its state first"
+          data-tip="移除所有未锁定的非首都城镇。要移除首都，请先移除其国家"
           class="icon-trash"
         ></button>
       </div>
@@ -150,7 +150,7 @@ function updateFilter(filters: { stateId?: number | null; cultureId?: number | n
   const stateFilter = ensureEl<HTMLSelectElement>("burgsFilterState");
   const selectedState = filters.stateId != null ? filters.stateId : +stateFilter.value || -1;
   stateFilter.options.length = 0; // remove all options
-  stateFilter.options.add(new Option("all", "-1", false, selectedState === -1));
+  stateFilter.options.add(new Option("全部", "-1", false, selectedState === -1));
   stateFilter.options.add(new Option(pack.states[0].name, "0", false, selectedState === 0));
   const statesSorted = pack.states.filter(s => s.i && !s.removed).sort((a, b) => (a.name > b.name ? 1 : -1));
   statesSorted.forEach(
@@ -160,7 +160,7 @@ function updateFilter(filters: { stateId?: number | null; cultureId?: number | n
   const cultureFilter = ensureEl<HTMLSelectElement>("burgsFilterCulture");
   const selectedCulture = filters.cultureId != null ? filters.cultureId : +cultureFilter.value || -1;
   cultureFilter.options.length = 0; // remove all options
-  cultureFilter.options.add(new Option(`all`, "-1", false, selectedCulture === -1));
+  cultureFilter.options.add(new Option(`全部`, "-1", false, selectedCulture === -1));
   cultureFilter.options.add(new Option(pack.cultures[0].name, "0", false, selectedCulture === 0));
   const culturesSorted = pack.cultures.filter(c => c.i && !c.removed).sort((a, b) => (a.name > b.name ? 1 : -1));
   culturesSorted.forEach(
@@ -234,39 +234,39 @@ function burgsOverviewAddLines(): void {
         data-treasury=${treasury}
         data-features="${features}"
       >
-        <span data-tip="Click to zoom into view" class="icon-dot-circled pointer"></span>
-        <input data-tip="Burg name" class="burgName" value="${b.name}" disabled />
-        <input data-tip="Burg province" value="${province}" disabled />
-        <input data-tip="Burg state" value="${state}" disabled />
-        <input data-tip="Dominant culture" value="${culture}" disabled />
-        <input data-tip="Burg group" value="${b.group}" disabled />
-        <span data-tip="Burg population" class="icon-male"></span>
-        <input data-tip="Burg population" value=${si(population)} style="width: 5em" disabled />
-        <span data-tip="Gross Product: local sale revenue minus purchased ingredient costs during the production.">🟡</span>
-        <input data-tip="Gross Product: local sale revenue minus purchased ingredient costs during the production." value=${grossProduct} style="width: 5em" disabled />
-        <span data-tip="Wealth: gross product divided by population">🟡</span>
-        <input data-tip="Wealth: gross product divided by population" value=${productPerCapita} style="width: 5em" disabled />
-        <span data-tip="Treasury: accumulated cash balance">🟡</span>
-        <input data-tip="Treasury: accumulated cash balance" value=${treasury} style="width: 5em" disabled />
+        <span data-tip="点击缩放查看" class="icon-dot-circled pointer"></span>
+        <input data-tip="城镇名称" class="burgName" value="${b.name}" disabled />
+        <input data-tip="城镇所属省份" value="${province}" disabled />
+        <input data-tip="城镇所属国家" value="${state}" disabled />
+        <input data-tip="主导文化" value="${culture}" disabled />
+        <input data-tip="城镇分组" value="${b.group}" disabled />
+        <span data-tip="城镇人口" class="icon-male"></span>
+        <input data-tip="城镇人口" value=${si(population)} style="width: 5em" disabled />
+        <span data-tip="总产值：生产过程中的本地销售收入减去购买的原料成本。">🟡</span>
+        <input data-tip="总产值：生产过程中的本地销售收入减去购买的原料成本。" value=${grossProduct} style="width: 5em" disabled />
+        <span data-tip="财富：总产值除以人口">🟡</span>
+        <input data-tip="财富：总产值除以人口" value=${productPerCapita} style="width: 5em" disabled />
+        <span data-tip="国库：累计现金余额">🟡</span>
+        <input data-tip="国库：累计现金余额" value=${treasury} style="width: 5em" disabled />
         <div style="width: 3em">
           <span
-            data-tip="${b.capital ? " This burg is a state capital" : "This burg is a NOT state capital"}"
+            data-tip="${b.capital ? " 该城镇是国家首都" : "该城镇不是国家首都"}"
             class="icon-star-empty${b.capital ? "" : " inactive"}" style="padding: 0 1px;"></span>
-          <span data-tip="${b.port ? " This burg is a port" : "This burg is NOT a port"}"
+          <span data-tip="${b.port ? " 该城镇是港口" : "该城镇不是港口"}"
           class="icon-anchor${b.port ? "" : " inactive"}" style="font-size: .9em; padding: 0 1px;"></span>
         </div>
-        <span data-tip="Edit burg" class="icon-pencil"></span>
+        <span data-tip="编辑城镇" class="icon-pencil"></span>
         <span class="locks pointer ${
           b.lock ? "icon-lock" : "icon-lock-open inactive"
         }" onmouseover="showElementLockTip(event)"></span>
-        <span data-tip="Remove burg" class="icon-trash-empty"></span>
+        <span data-tip="移除城镇" class="icon-trash-empty"></span>
       </div>`;
   }
-  if (!filtered.length) body.innerHTML = /* html */ `<div style="padding-block: 0.3em;">No burgs found</div>`;
+  if (!filtered.length) body.innerHTML = /* html */ `<div style="padding-block: 0.3em;">未找到城镇</div>`;
   body.insertAdjacentHTML("beforeend", lines);
 
   // update footer
-  ensureEl("burgsFooterBurgs").innerHTML = `${filtered.length} of ${validBurgs.length}`;
+  ensureEl("burgsFooterBurgs").innerHTML = `${filtered.length} / ${validBurgs.length}`;
   ensureEl("burgsFooterPopulation").innerHTML = filtered.length ? si(totalPopulation / filtered.length) : "0";
   ensureEl("burgsFooterGrossProduct").innerHTML = filtered.length ? String(rn(totalProduct / filtered.length, 2)) : "0";
   ensureEl("burgsFooterProductPerCapita").innerHTML = filtered.length
@@ -337,7 +337,7 @@ function triggerBurgRemove(this: HTMLElement): void {
   confirmationDialog({
     title: "移除城镇",
     message: "确定要移除该城镇吗？<br>此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => {
       Burgs.remove(burgId);
       burgsOverviewAddLines();
@@ -452,10 +452,10 @@ function showBurgsChart(): void {
 
   // prepare svg
   alertMessage.innerHTML = /* html */ `<select id="burgsTreeType" style="display:block; margin-left:13px; font-size:11px">
-      <option value="states" selected>Group by state</option>
-      <option value="cultures">Group by culture</option>
-      <option value="parent">Group by province and state</option>
-      <option value="provinces">Group by province</option>
+      <option value="states" selected>按国家分组</option>
+      <option value="cultures">按文化分组</option>
+      <option value="parent">按省份和国家分组</option>
+      <option value="provinces">按省份分组</option>
     </select>`;
   alertMessage.innerHTML += `<div id='burgsInfo' class='chartInfo'>&#8205;</div>`;
   const svg = select("#alertMessage")
@@ -488,7 +488,7 @@ function showBurgsChart(): void {
     const parent = d.parent.data.name;
     const population = si(d.value * populationRate * urbanization);
 
-    ensureEl("burgsInfo").innerHTML = /* html */ `${name}. ${parent}. Population: ${population}`;
+    ensureEl("burgsInfo").innerHTML = /* html */ `${name}。${parent}。人口：${population}`;
     burgHighlightOn(ev);
     tip("点击以缩放查看");
   }
@@ -628,15 +628,14 @@ function downloadBurgsData(): void {
 }
 
 function renameBurgsInBulk(): void {
-  alertMessage.innerHTML = /* html */ `Download burgs list as a text file, make changes and re-upload the file. Make sure the file is a plain text document with each
-    name on its own line (the dilimiter is CRLF). If you do not want to change the name, just leave it as is`;
+  alertMessage.innerHTML = /* html */ `下载城镇列表为文本文件，进行修改后重新上传。请确保文件为纯文本文档，每个名称单独一行（分隔符为 CRLF）。如果不想更改名称，保持原样即可`;
 
   $("#alert").dialog({
     title: "城镇批量重命名",
     width: "22em",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
-      Download: () => {
+      下载: () => {
         const data = pack.burgs
           .filter(b => b.i && !b.removed)
           .map(b => b.name)
@@ -644,8 +643,8 @@ function renameBurgsInBulk(): void {
         const name = `${getFileName("Burg names")}.txt`;
         downloadFile(data, name);
       },
-      Upload: () => ensureEl("burgsListToLoad").click(),
-      Cancel: function (this: HTMLElement) {
+      上传: () => ensureEl("burgsListToLoad").click(),
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -667,8 +666,8 @@ function importBurgNames(dataLoaded: string): void {
   }
 
   const change: { id: number; name: string }[] = [];
-  let message = `Burgs to be renamed as below:`;
-  message += `<table class="overflow-table"><tr><th>Id</th><th>Current name</th><th>New Name</th></tr>`;
+  let message = `将按以下方式重命名城镇：`;
+  message += `<table class="overflow-table"><tr><th>ID</th><th>当前名称</th><th>新名称</th></tr>`;
 
   const burgs = pack.burgs.filter(b => b.i && !b.removed);
   for (let i = 0; i < data.length && i <= burgs.length; i++) {
@@ -679,7 +678,7 @@ function importBurgNames(dataLoaded: string): void {
   }
   message += `</tr></table>`;
 
-  if (!change.length) message = "No changes found in the file. Please change some names to get a result";
+  if (!change.length) message = "文件中未找到更改。请修改一些名称以获得结果";
   alertMessage.innerHTML = message;
 
   const onConfirm = () => {
@@ -694,7 +693,7 @@ function importBurgNames(dataLoaded: string): void {
   confirmationDialog({
     title: "城镇批量重命名",
     message,
-    confirm: "Rename",
+    confirm: "重命名",
     onConfirm
   });
 }
@@ -702,11 +701,11 @@ function importBurgNames(dataLoaded: string): void {
 function triggerAllBurgsRemove(): void {
   const number = pack.burgs.filter(b => b.i && !b.removed && !b.capital && !b.lock).length;
   confirmationDialog({
-    title: `Remove ${number} burgs`,
+    title: `移除 ${number} 座城镇`,
     message: `
         确定要移除除首都外的所有<i>未锁定</i>城镇吗？
         <br><i>要移除首都，必须先移除其所属国家</i>`,
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => {
       pack.burgs.filter(b => b.i && !(b.capital || b.lock)).forEach(b => void Burgs.remove(b.i));
       burgsOverviewAddLines();

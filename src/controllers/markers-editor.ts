@@ -39,54 +39,54 @@ function renderDialog(): void {
 
   const html = /* html */ `<div id="markerEditor" class="dialog">
     <div id="markerBody" style="padding-bottom: 0.3em">
-      <div data-tip="Marker type. Style changes will apply to all markers of the same type. Leave blank if the marker is unique">
-        <div class="label">Type:</div>
+      <div data-tip="标记类型。样式更改将应用于同类型的所有标记。如标记唯一则留空">
+        <div class="label">类型：</div>
         <input id="markerType" style="width: 10.3em" />
       </div>
-      <div data-tip="Marker icon" style="display: flex; align-items: center">
-        <div class="label">Icon:</div>
+      <div data-tip="标记图标" style="display: flex; align-items: center">
+        <div class="label">图标：</div>
         <div id="markerIcon" style="font-size: 1.5em; width: 3.7em">👑</div>
-        <button id="markerIconSelect" style="width: 5em">select</button>
+        <button id="markerIconSelect" style="width: 5em">选择</button>
       </div>
-      <div data-tip="Marker marker element and icon sizes in pixels">
-        <div class="label">Size:</div>
-        <input data-tip="Marker element size in pixels" id="markerSize" type="number" min="2" max="500" style="width: 5em" />
-        <input data-tip="Marker icon sizes in pixels" id="markerIconSize" type="number" min="2" max="20" step="0.5" style="width: 5em" />
+      <div data-tip="标记元素和图标大小（像素）">
+        <div class="label">大小：</div>
+        <input data-tip="标记元素大小（像素）" id="markerSize" type="number" min="2" max="500" style="width: 5em" />
+        <input data-tip="标记图标大小（像素）" id="markerIconSize" type="number" min="2" max="20" step="0.5" style="width: 5em" />
       </div>
-      <div data-tip="Marker icon shift (by X and by Y axis), percent. Set to 50 to position icon in center">
-        <div class="label">Icon shift:</div>
+      <div data-tip="标记图标偏移（X 和 Y 轴），百分比。设为 50 使图标居中">
+        <div class="label">图标偏移：</div>
         <input id="markerIconShiftX" type="number" min="0" max="100" step="1" style="width: 5em" />
         <input id="markerIconShiftY" type="number" min="0" max="100" step="1" style="width: 5em" />
       </div>
-      <div data-tip="Marker pin shape">
-        <div class="label">Pin shape:</div>
+      <div data-tip="标记针形">
+        <div class="label">针形：</div>
         <select id="markerPin" style="width: 10.3em">
-          <option value="bubble">Bubble</option>
-          <option value="pin">Pin</option>
-          <option value="square">Square</option>
-          <option value="squarish">Squarish</option>
-          <option value="diamond">Diamond</option>
-          <option value="hex">Hex</option>
-          <option value="hexy">Hexy</option>
-          <option value="shieldy">Shieldy</option>
-          <option value="shield">Shield</option>
-          <option value="pentagon">Pentagon</option>
-          <option value="heptagon">Heptagon</option>
-          <option value="circle">Circle</option>
-          <option value="no">No</option>
+          <option value="bubble">气泡</option>
+          <option value="pin">针形</option>
+          <option value="square">方形</option>
+          <option value="squarish">近似方形</option>
+          <option value="diamond">菱形</option>
+          <option value="hex">六边形</option>
+          <option value="hexy">近似六边形</option>
+          <option value="shieldy">近似盾形</option>
+          <option value="shield">盾形</option>
+          <option value="pentagon">五边形</option>
+          <option value="heptagon">七边形</option>
+          <option value="circle">圆形</option>
+          <option value="no">无</option>
         </select>
       </div>
-      <div data-tip="Pin fill and stroke colors">
-        <div class="label">Pin colors:</div>
+      <div data-tip="针形填充和描边颜色">
+        <div class="label">针形颜色：</div>
         <input id="markerFill" type="color" style="width: 5em; height: 1.6em" />
         <input id="markerStroke" type="color" style="width: 5em; height: 1.6em" />
       </div>
     </div>
     <div id="markerBottom">
-      <button id="markerNotes" data-tip="Edit place legend (notes)" class="icon-edit"></button>
+      <button id="markerNotes" data-tip="编辑地点图例（笔记）" class="icon-edit"></button>
       <button id="markerLock" class="icon-lock-open" onmouseover="showElementLockTip(event)"></button>
-      <button id="markerAdd" data-tip="Add additional marker of that type" class="icon-plus"></button>
-      <button id="markerRemove" data-tip="Remove the marker" data-shortcut="Delete" class="icon-trash fastDelete"></button>
+      <button id="markerAdd" data-tip="添加该类型的额外标记" class="icon-plus"></button>
+      <button id="markerRemove" data-tip="移除该标记" data-shortcut="Delete" class="icon-trash fastDelete"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -297,7 +297,7 @@ function confirmMarkerDeletion(): void {
   confirmationDialog({
     title: "移除标记",
     message: "确定要移除该标记吗？此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: deleteMarker
   });
 }

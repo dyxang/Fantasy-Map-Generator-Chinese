@@ -30,20 +30,20 @@ function renderDialog(): void {
 
   const html = /* html */ `<div id="submapTool" class="dialog">
     <p style="font-weight: bold">
-      This operation is destructive and irreversible. It will create a completely new map based on the current one.
-      Don't forget to save the .map file to your machine first!
+      此操作具有破坏性且不可逆。它将基于当前地图创建一个全新的地图。
+      请先务必将 .map 文件保存到本地！
     </p>
     <div style="display: flex; flex-direction: column; gap: 0.5em">
-      <div data-tip="Set points (cells) number of the submap" style="display: flex; gap: 1em">
-        <div>Points number</div>
+      <div data-tip="设置子地图的点（单元格）数" style="display: flex; gap: 1em">
+        <div>点数</div>
         <div>
           <input id="submapPointsInput" type="range" min="1" max="13" value="${pointsValue}" />
           <output id="submapPointsFormatted" style="color: ${getCellsDensityColor(cells)}">${cells / 1000}K</output>
         </div>
       </div>
-      <div data-tip="Check to fit burg styles (icon and label size) to the submap scale">
+      <div data-tip="勾选以使城镇样式（图标和标签大小）适配子地图比例">
         <input type="checkbox" class="checkbox" id="submapRescaleBurgStyles" checked />
-        <label for="submapRescaleBurgStyles" class="checkbox-label">Rescale burg styles</label>
+        <label for="submapRescaleBurgStyles" class="checkbox-label">重新缩放城镇样式</label>
       </div>
     </div>
   </div>`;

@@ -46,21 +46,21 @@ function renderDialog(): void {
           <b id="emblemArmiger"></b>
         </div>
         <hr />
-        <div data-tip="Select state">
-          <div class="label">State:</div>
+        <div data-tip="选择国家">
+          <div class="label">国家：</div>
           <select id="emblemStates"></select>
         </div>
-        <div data-tip="Select province in state">
-          <div class="label">Province:</div>
+        <div data-tip="选择该国家的省份">
+          <div class="label">省份：</div>
           <select id="emblemProvinces"></select>
         </div>
-        <div data-tip="Select burg in province or state">
-          <div class="label">Burg:</div>
+        <div data-tip="选择省份或国家中的城镇">
+          <div class="label">城镇：</div>
           <select id="emblemBurgs"></select>
         </div>
         <hr />
-        <div data-tip="Select shape of the emblem">
-          <div class="label">Shape:</div>
+        <div data-tip="选择纹章形状">
+          <div class="label">形状：</div>
           <select id="emblemShapeSelector">
             <optgroup label="Basic">
               <option value="heater">Heater</option>
@@ -123,68 +123,68 @@ function renderDialog(): void {
           </select>
         </div>
         <div
-          data-tip="Set size of particular Emblem. To hide set to 0. To change the entire category go to Menu ⭢ Style ⭢ Emblems"
+          data-tip="设置单个纹章的尺寸。设为 0 则隐藏。要更改整个类别，请前往菜单 ⭢ 样式 ⭢ 纹章"
         >
-          <div class="label" style="width: 2.8em">Size:</div>
+          <div class="label" style="width: 2.8em">尺寸：</div>
           <input id="emblemSizeSlider" type="range" min="0" max="5" step=".1" style="width: 7em" />
           <input id="emblemSizeNumber" type="number" min="0" max="5" step=".1" />
         </div>
       </div>
       <div id="emblemsBottom">
-        <button id="emblemsRegenerate" data-tip="Regenerate emblem" class="icon-shuffle"></button>
+        <button id="emblemsRegenerate" data-tip="重新生成纹章" class="icon-shuffle"></button>
         <button
           id="emblemsArmoria"
-          data-tip="Edit the emblem in Armoria - dedicated heraldry editor. Download emblem and upload it back map the generator"
+          data-tip="在 Armoria（专用纹章编辑器）中编辑纹章。下载纹章并上传回生成器"
           class="icon-brush"
         ></button>
         <button
           id="emblemsDownload"
-          data-tip="Set size, select file format and download emblem image"
+          data-tip="设置尺寸，选择文件格式并下载纹章图像"
           class="icon-download"
         ></button>
         <button
           id="emblemsUpload"
-          data-tip="Upload png, jpg or svg image from Armoria or other sources as emblem"
+          data-tip="上传来自 Armoria 或其他来源的 png、jpg 或 svg 图像作为纹章"
           class="icon-upload"
         ></button>
         <button
           id="emblemsGallery"
-          data-tip="Download emblems gallery as html document (open in browser; downloading takes some time)"
+          data-tip="下载纹章库为 HTML 文档（在浏览器中打开；下载需要一些时间）"
           class="icon-layer-group"
         ></button>
-        <button id="emblemsFocus" data-tip="Show emblem associated area or place" class="icon-target"></button>
+        <button id="emblemsFocus" data-tip="显示纹章关联的区域或地点" class="icon-target"></button>
       </div>
       <div id="emblemUploadControl" class="hidden">
         <button
           id="emblemsUploadImage"
-          data-tip="Upload SVG or PNG image from any source. Make sure background is transparent"
+          data-tip="上传来自任意来源的 SVG 或 PNG 图像。确保背景透明"
         >
-          Any image
+          任意图像
         </button>
         <button
           id="emblemsUploadSVG"
-          data-tip="Upload prepared SVG image (SVG from Armoria or SVG processed with 'Optimize vector' tool)"
+          data-tip="上传已准备的 SVG 图像（来自 Armoria 的 SVG 或经'优化矢量'工具处理的 SVG）"
         >
-          Prepared SVG
+          已准备的 SVG
         </button>
         <a
           href="https://www.iloveimg.com/compress-image"
           target="_blank"
-          data-tip="Use external tool to compress/resize raster images before upload"
-          >Comperess raster</a
+          data-tip="上传前使用外部工具压缩或调整栅格图像尺寸"
+          >压缩栅格图</a
         >
         <span> | </span>
         <a
           href="https://jakearchibald.github.io/svgomg"
           target="_blank"
-          data-tip="Use external tool to optimize vector images before upload"
-          >Optimize vector</a
+          data-tip="上传前使用外部工具优化矢量图像"
+          >优化矢量图</a
         >
       </div>
       <div id="emblemDownloadControl" class="hidden">
         <input
           id="emblemsDownloadSize"
-          data-tip="Set image size in pixels"
+          data-tip="以像素为单位设置图像尺寸"
           type="number"
           value="500"
           step="100"
@@ -193,16 +193,16 @@ function renderDialog(): void {
         />
         <button
           id="emblemsDownloadSVG"
-          data-tip="Download as SVG: scalable vector image. Best quality, can be opened in browser or Inkscape"
+          data-tip="下载为 SVG：可缩放矢量图像。质量最佳，可在浏览器或 Inkscape 中打开"
         >
           SVG
         </button>
-        <button id="emblemsDownloadPNG" data-tip="Download as PNG: lossless raster image with transparent background">
+        <button id="emblemsDownloadPNG" data-tip="下载为 PNG：无损栅格图像，透明背景">
           PNG
         </button>
         <button
           id="emblemsDownloadJPG"
-          data-tip="Download as JPG: lossy compressed raster image with solid white background"
+          data-tip="下载为 JPG：有损压缩栅格图像，纯白背景"
         >
           JPG
         </button>
@@ -307,7 +307,7 @@ function updateEmblemData(): void {
   if (!el.coa) return;
   ensureEl("emblemImage").setAttribute("href", `#${currentId}`);
   let name = el.fullName || el.name;
-  if (currentType === "burg") name = `Burg of ${name}`;
+  if (currentType === "burg") name = `${name} 城镇`;
   ensureEl("emblemArmiger").innerText = name;
 
   const emblemShapeSelector = ensureEl<HTMLSelectElement>("emblemShapeSelector");
@@ -443,8 +443,7 @@ function upload(type: "image" | "svg"): void {
   input.value = "";
 
   if (file.size > 500000) {
-    const message =
-      "File is too big, please optimize file size up to 500kB and re-upload. Recommended size is 200x200 px and up to 100kB";
+    const message = "文件过大，请将文件大小优化至 500kB 以下后重新上传。推荐尺寸为 200x200 像素，大小不超过 100kB";
     tip(message, true, "error", 5000);
     return;
   }
@@ -563,9 +562,9 @@ async function downloadGallery(): Promise<void> {
   const validBurgs = pack.burgs.filter(b => b.i && !b.removed && b.coa);
   await renderAllEmblems(validStates, validProvinces, validBurgs);
 
-  const back = `<a href="javascript:history.back()">Go Back</a>`;
+  const back = `<a href="javascript:history.back()">返回</a>`;
 
-  const stateSection = `<div><h2>States</h2>${validStates
+  const stateSection = `<div><h2>国家</h2>${validStates
     .map(state => {
       const el = document.getElementById(`stateCOA${state.i}`)!;
       return `<figure id="state_${state.i}"><a href="#provinces_${state.i}"><figcaption>${state.fullName}</figcaption>${getSVG(el, 200)}</a></figure>`;
@@ -582,7 +581,7 @@ async function downloadGallery(): Promise<void> {
         })
         .join("");
       return stateProvinces.length
-        ? `<div id="provinces_${state.i}">${back}<h2>${state.fullName} provinces</h2>${figures}</div>`
+        ? `<div id="provinces_${state.i}">${back}<h2>${state.fullName} 省份</h2>${figures}</div>`
         : "";
     })
     .join("");
@@ -602,7 +601,7 @@ async function downloadGallery(): Promise<void> {
             })
             .join("");
           return provinceBurgs.length
-            ? `<div id="burgs_${province.i}">${back}<h2>${province.fullName} burgs</h2>${provinceBurgFigures}</div>`
+            ? `<div id="burgs_${province.i}">${back}<h2>${province.fullName} 城镇</h2>${provinceBurgFigures}</div>`
             : "";
         })
         .join("");
@@ -616,14 +615,14 @@ async function downloadGallery(): Promise<void> {
         })
         .join("");
       if (stateBurgOutOfProvincesFigures)
-        stateBurgSections += `<div><h2>${state.fullName} burgs under direct control</h2>${stateBurgOutOfProvincesFigures}</div>`;
+        stateBurgSections += `<div><h2>${state.fullName} 直辖城镇</h2>${stateBurgOutOfProvincesFigures}</div>`;
       return stateBurgSections;
     })
     .join("");
 
   const neutralBurgs = validBurgs.filter(b => !b.state);
   const neutralsSection = neutralBurgs.length
-    ? `<div><h2>Independent burgs</h2>${neutralBurgs
+    ? `<div><h2>独立城镇</h2>${neutralBurgs
         .map(burg => {
           const el = document.getElementById(`burgCOA${burg.i}`);
           if (!el) return "";
@@ -633,11 +632,11 @@ async function downloadGallery(): Promise<void> {
     : "";
 
   const FMG = `<a href="https://azgaar.github.io/Fantasy-Map-Generator" target="_blank">Azgaar's Fantasy Map Generator</a>`;
-  const license = `<a target="_blank" href="https://github.com/Azgaar/Armoria#license">the license</a>`;
+  const license = `<a target="_blank" href="https://github.com/Azgaar/Armoria#license">许可证</a>`;
   const html = /* html */ `<!DOCTYPE html>
     <html>
       <head>
-        <title>${mapName.value} Emblems Gallery</title>
+        <title>${mapName.value} 纹章图库</title>
       </head>
       <style type="text/css">
         body { margin: 0; padding: 1em; font-family: serif; }
@@ -653,9 +652,9 @@ async function downloadGallery(): Promise<void> {
       </style>
       <link href="https://fonts.googleapis.com/css2?family=Forum&family=Overlock+SC" rel="stylesheet" />
       <body>
-        <div><h1>${mapName.value} Emblems Gallery</h1></div>
+        <div><h1>${mapName.value} 纹章图库</h1></div>
         ${stateSection} ${provinceSections} ${burgSections} ${neutralsSection}
-        <address>Generated by ${FMG}. The tool is free, but images may be copyrighted, see ${license}</address>
+        <address>由 ${FMG} 生成。本工具免费，但图像可能受版权保护，详见 ${license}</address>
       </body>
     </html>`;
   downloadFile(html, `${name}.html`, "text/plain");

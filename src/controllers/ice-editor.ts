@@ -12,7 +12,7 @@ function open(element: SVGElement): void {
   const id = +elSelected.attr("data-id");
   const iceElement = pack.ice.find(el => el.i === id);
   const isGlacier = elSelected.attr("type") === "glacier";
-  const type = isGlacier ? "Glacier" : "Iceberg";
+  const type = isGlacier ? "冰川" : "冰山";
 
   renderDialog();
 
@@ -28,7 +28,7 @@ function open(element: SVGElement): void {
     .call(drag<SVGElement, unknown>().on("drag", dragElement));
 
   $("#iceEditor").dialog({
-    title: `Edit ${type}`,
+    title: `编辑${type}`,
     resizable: false,
     position: { my: "center top+60", at: "top", of: "svg", collision: "fit" },
     close: closeEditor
@@ -39,11 +39,11 @@ function renderDialog(): void {
   destroyDialogIfExists("iceEditor");
 
   const html = /* html */ `<div id="iceEditor" class="dialog">
-    <button id="iceEditStyle" data-tip="Edit style in Style Editor" class="icon-brush"></button>
-    <button id="iceRandomize" data-tip="Randomize Iceberg shape" class="icon-shuffle"></button>
-    <input id="iceSize" data-tip="Change Iceberg size" type="range" min=".05" max="2" step=".01" />
-    <button id="iceNew" data-tip="Add an Iceberg (click on map)" class="icon-plus"></button>
-    <button id="iceRemove" data-tip="Remove the element" data-shortcut="Delete" class="icon-trash fastDelete"></button>
+    <button id="iceEditStyle" data-tip="在样式编辑器中编辑样式" class="icon-brush"></button>
+    <button id="iceRandomize" data-tip="随机生成冰山形状" class="icon-shuffle"></button>
+    <input id="iceSize" data-tip="更改冰山大小" type="range" min=".05" max="2" step=".01" />
+    <button id="iceNew" data-tip="添加冰山（点击地图）" class="icon-plus"></button>
+    <button id="iceRemove" data-tip="移除该元素" data-shortcut="Delete" class="icon-trash fastDelete"></button>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
 
@@ -91,18 +91,18 @@ function addIcebergOnClick(event: PointerEvent): void {
 }
 
 function removeIce(): void {
-  const type = elSelected.attr("type") === "glacier" ? "Glacier" : "Iceberg";
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove the ${type}?`;
+  const type = elSelected.attr("type") === "glacier" ? "冰川" : "冰山";
+  alertMessage.innerHTML = /* html */ `确定要移除该${type}吗？`;
   $("#alert").dialog({
     resizable: false,
-    title: `Remove ${type}`,
+    title: `移除${type}`,
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         $(this).dialog("close");
         Ice.removeIce(+elSelected.attr("data-id"));
         $("#iceEditor").dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

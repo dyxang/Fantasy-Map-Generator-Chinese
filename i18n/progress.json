@@ -1,10 +1,10 @@
 {
   "task": "initial_translation",
   "phase": "translation",
-  "last_processed_id": "sha256:8bdddb4cb3e40c39",
-  "last_file": "src/utils/commonUtils.ts",
-  "last_line": 292,
-  "completed_units": 1960,
+  "last_processed_id": "sha256:f6bd312509ca536c",
+  "last_file": "src/controllers/zones-editor.ts",
+  "last_line": 85,
+  "completed_units": 2531,
   "total_units": 1960,
   "session_history": [
     {
@@ -114,6 +114,12 @@
       "units": 0,
       "end_id": "sha256:8bdddb4cb3e40c39",
       "notes": "Collected from artifacts: 0 translated, 0 skipped, 0 pre-translated. 4 sidecar files."
+    },
+    {
+      "date": "2026-07-24",
+      "units": 571,
+      "end_id": "sha256:f6bd312509ca536c",
+      "notes": "Collected from artifacts: 562 translated, 9 skipped, 0 pre-translated. 2 sidecar files."
     }
   ]
 }

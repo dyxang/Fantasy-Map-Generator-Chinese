@@ -32,59 +32,59 @@ function renderDialog(): void {
   const html = /* html */ `<div id="lakeEditor" class="dialog">
     <div id="lakeBody" style="padding-bottom: 0.3em">
       <div>
-        <div class="label" style="width: 4.8em">Name:</div>
-        <span id="lakeNameCulture" data-tip="Generate culture-specific name for the lake" class="icon-book pointer"></span>
-        <span id="lakeNameRandom" data-tip="Generate random name for the lake" class="icon-globe pointer"></span>
-        <input id="lakeName" data-tip="Type to rename the lake" autocorrect="off" spellcheck="false" />
-        <span id="lakeNameSpeak" data-tip="Speak the name. You can change voice and language in options" class="speaker">🔊</span>
+        <div class="label" style="width: 4.8em">名称：</div>
+        <span id="lakeNameCulture" data-tip="生成特定文化的湖泊名称" class="icon-book pointer"></span>
+        <span id="lakeNameRandom" data-tip="生成随机湖泊名称" class="icon-globe pointer"></span>
+        <input id="lakeName" data-tip="输入以重命名湖泊" autocorrect="off" spellcheck="false" />
+        <span id="lakeNameSpeak" data-tip="朗读名称。可在选项中更改语音和语言" class="speaker">🔊</span>
       </div>
-      <div data-tip="Type to change lake type (group)">
-        <div class="label" style="width: 4.8em">Type:</div>
-        <span id="lakeGroupRemove" data-tip="Remove the group" class="icon-trash-empty pointer"></span>
-        <span id="lakeGroupAdd" data-tip="Create a new type (group) for the lake" class="icon-plus pointer"></span>
-        <select id="lakeGroup" data-tip="Select lake type (group)"></select>
-        <input id="lakeGroupName" placeholder="type name" data-tip="Provide a name for the new group" style="display: none" />
-        <span id="lakeEditStyle" data-tip="Edit lake group style in Style Editor" class="icon-brush pointer"></span>
+      <div data-tip="输入以更改湖泊类型（分组）">
+        <div class="label" style="width: 4.8em">类型：</div>
+        <span id="lakeGroupRemove" data-tip="移除该分组" class="icon-trash-empty pointer"></span>
+        <span id="lakeGroupAdd" data-tip="为湖泊创建新类型（分组）" class="icon-plus pointer"></span>
+        <select id="lakeGroup" data-tip="选择湖泊类型（分组）"></select>
+        <input id="lakeGroupName" placeholder="输入名称" data-tip="为新分组提供名称" style="display: none" />
+        <span id="lakeEditStyle" data-tip="在样式编辑器中编辑湖泊分组样式" class="icon-brush pointer"></span>
       </div>
-      <div data-tip="Lake area in selected units">
-        <div class="label">Area:</div>
+      <div data-tip="湖泊面积（所选单位）">
+        <div class="label">面积：</div>
         <input id="lakeArea" disabled />
       </div>
-      <div data-tip="Lake shore length in selected units">
-        <div class="label">Shore length:</div>
+      <div data-tip="湖泊岸线长度（所选单位）">
+        <div class="label">岸线长度：</div>
         <input id="lakeShoreLength" disabled />
       </div>
-      <div data-tip="Lake elevation in selected units">
-        <div class="label">Elevation:</div>
+      <div data-tip="湖泊海拔（所选单位）">
+        <div class="label">海拔：</div>
         <input id="lakeElevation" disabled />
       </div>
-      <div data-tip="Lake average depth in selected units">
-        <div class="label">Average depth:</div>
+      <div data-tip="湖泊平均深度（所选单位）">
+        <div class="label">平均深度：</div>
         <input id="lakeAverageDepth" disabled />
       </div>
-      <div data-tip="Lake maximum depth in selected units">
-        <div class="label">Max depth:</div>
+      <div data-tip="湖泊最大深度（所选单位）">
+        <div class="label">最大深度：</div>
         <input id="lakeMaxDepth" disabled />
       </div>
-      <div data-tip="Lake water supply. If supply > evaporation and there is an outlet, the lake water is fresh. If supply is very low, the lake becomes dry">
-        <div class="label">Supply:</div>
+      <div data-tip="湖泊供水量。若供水 > 蒸发且有出湖口，则湖水为淡水。若供水极低，则湖泊干涸">
+        <div class="label">供水：</div>
         <input id="lakeFlux" disabled />
       </div>
-      <div data-tip="Evaporation from lake surface. If evaporation > supply, the lake water is saline. If difference is high, the lake becomes dry">
-        <div class="label">Evaporation:</div>
+      <div data-tip="湖面蒸发量。若蒸发 > 供水，则湖水为咸水。若差值较大，则湖泊干涸">
+        <div class="label">蒸发：</div>
         <input id="lakeEvaporation" disabled />
       </div>
-      <div data-tip="Number of lake inlet rivers">
-        <div class="label">Inlets:</div>
+      <div data-tip="湖泊入湖河流数">
+        <div class="label">入湖河流：</div>
         <input id="lakeInlets" disabled />
       </div>
-      <div data-tip="Lake outlet river">
-        <div class="label">Outlet:</div>
+      <div data-tip="湖泊出湖河流">
+        <div class="label">出湖河流：</div>
         <input id="lakeOutlet" disabled />
       </div>
     </div>
     <div id="lakeBottom">
-      <button id="lakeLegend" data-tip="Edit free text notes (legend) for the lake" class="icon-edit"></button>
+      <button id="lakeLegend" data-tip="编辑湖泊的自由文本注释（图例）" class="icon-edit"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -159,9 +159,7 @@ function drawLakeVertices(): void {
     .attr("r", 0.4)
     .attr("data-v", (d: number) => d)
     .call(drag<SVGCircleElement, number>().on("drag", handleVertexDrag).on("end", handleVertexDragEnd))
-    .on("mousemove", () =>
-      tip("拖动以移动顶点。请仅用于微调！编辑高度图以更改实际单元格高度")
-    );
+    .on("mousemove", () => tip("拖动以移动顶点。请仅用于微调！编辑高度图以更改实际单元格高度"));
 }
 
 function handleVertexDrag(this: SVGCircleElement, event: any, vertexId: number): void {
@@ -295,13 +293,13 @@ function removeLakeGroup(): void {
   }
 
   const count = (elSelected.node()!.parentNode as SVGGElement).childElementCount;
-  alertMessage.innerHTML = /* html */ `Are you sure you want to remove the group? All lakes of the group (${count}) will be turned into Freshwater`;
+  alertMessage.innerHTML = /* html */ `确定要移除该分组吗？该分组的所有湖泊（${count}）都将转为淡水湖`;
   $("#alert").dialog({
     resizable: false,
     title: "移除湖泊组",
     width: "26em",
     buttons: {
-      Remove: function (this: HTMLElement) {
+      移除: function (this: HTMLElement) {
         $(this).dialog("close");
         const freshwater = ensureEl("freshwater");
         const groupEl = ensureEl(group);
@@ -312,7 +310,7 @@ function removeLakeGroup(): void {
         ensureEl<HTMLSelectElement>("lakeGroup").selectedOptions[0].remove();
         ensureEl<HTMLSelectElement>("lakeGroup").value = "freshwater";
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

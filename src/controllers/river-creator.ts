@@ -34,8 +34,8 @@ function renderDialog(): void {
   const html = /* html */ `<div id="riverCreator" class="dialog">
     <div id="riverCreatorBody" class="table"></div>
     <div id="riverCreatorBottom">
-      <button id="riverCreatorComplete" data-tip="Complete river creation" class="icon-check"></button>
-      <button id="riverCreatorCancel" data-tip="Cancel the creation" class="icon-cancel"></button>
+      <button id="riverCreatorComplete" data-tip="完成河流创建" class="icon-check"></button>
+      <button id="riverCreatorCancel" data-tip="取消创建" class="icon-cancel"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -71,10 +71,10 @@ function addCell(cell: number): void {
 
   const flux = pack.cells.fl[cell];
   const line = `<div class="editorLine" data-cell="${cell}">
-      <span>Cell ${cell}</span>
-      <span data-tip="Set flux affects river width" style="margin-left: 0.4em">Flux</span>
+      <span>单元格 ${cell}</span>
+      <span data-tip="设置流量对河流宽度的影响" style="margin-left: 0.4em">流量</span>
       <input type="number" min=0 value="${flux}" class="editFlux" style="width: 5em"/>
-      <span data-tip="Remove the cell" class="icon-trash-empty pointer"></span>
+      <span data-tip="移除该单元格" class="icon-trash-empty pointer"></span>
     </div>`;
   ensureEl("riverCreatorBody").innerHTML += line;
 }

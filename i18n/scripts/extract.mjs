@@ -204,6 +204,9 @@ function extractTsUnits(filePath) {
   // Also match standalone UI strings in template literals: `Average ${x} temperature`
   const templatePattern = /\b(name|title|label|description|tip|placeholder|text|message|heading|caption|summary)\s*:\s*`([^`]*)`/g;
 
+  // HTML attributes in template literals: data-tip="...", aria-label="...", alt="..."
+  const htmlAttrPattern = /\b(data-tip|data-info|aria-label|alt|title|placeholder)\s*=\s*("([^"\\]|\\.)*"|'([^'\\]|\\.)*')/g;
+
   function processMatch(match, defaultContextTag) {
     const fullMatch = match[0];
     const strValue = match[2] || match[3] || match[4] || match[5] || "";
@@ -281,6 +284,41 @@ function extractTsUnits(filePath) {
       line: lineNum,
       type: "ts_string",
       context_tag: "message",
+      context_before: ctxBefore,
+      context_after: ctxAfter,
+    });
+  }
+
+  // Scan for HTML attributes in template literals: data-tip="...", aria-label="..."
+  while ((match = htmlAttrPattern.exec(content)) !== null) {
+    const attrName = match[1];
+    const strValue = match[2] || match[3] || match[4] || match[5] || "";
+    
+    // Extract the actual string content (strip quotes)
+    let value = strValue;
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+      value = value.replace(/\\n/g, "\n").replace(/\\t/g, "\t").replace(/\\"/g, '"').replace(/\\'/g, "'");
+    }
+    
+    const trimmed = value.trim();
+    if (!isTranslatableText(trimmed)) continue;
+    if (looksLikeFilePath(trimmed) || looksLikeUrl(trimmed)) continue;
+    
+    const lineNum = content.slice(0, match.index).split("\n").length;
+    const ctxBefore = lines.slice(Math.max(0, lineNum - 4), Math.max(0, lineNum - 1)).join("\n");
+    const ctxAfter = lines.slice(lineNum, Math.min(lines.length, lineNum + 3)).join("\n");
+    const id = sha256(trimmed + ctxBefore);
+    if (seenIds.has(id + ":" + lineNum)) continue;
+    seenIds.add(id + ":" + lineNum);
+    
+    units.push({
+      id,
+      source: trimmed,
+      file: relative(ROOT, filePath),
+      line: lineNum,
+      type: "html_attr",
+      context_tag: attrName,
       context_before: ctxBefore,
       context_after: ctxAfter,
     });

@@ -39,77 +39,77 @@ function renderTemplateEditor(): void {
   destroyDialogIfExists("templateEditor");
   const html = /* html */ `<div id="templateEditor" class="dialog stable">
       <div id="templateTop">
-        <i>Select template: </i>
-        <select id="templateSelect" style="width: 16em" data-prev="templateCustom" data-tip="Select base template">
-          <option value="custom" selected>Custom</option>
-          <option value="volcano">Volcano</option>
-          <option value="highIsland">High Island</option>
-          <option value="lowIsland">Low Island</option>
-          <option value="continents">Continents</option>
-          <option value="archipelago">Archipelago</option>
-          <option value="atoll">Atoll</option>
-          <option value="mediterranean">Mediterranean</option>
-          <option value="peninsula">Peninsula</option>
-          <option value="pangea">Pangea</option>
-          <option value="isthmus">Isthmus</option>
-          <option value="shattered">Shattered</option>
-          <option value="taklamakan">Taklamakan</option>
-          <option value="oldWorld">Old World</option>
-          <option value="fractious">Fractious</option>
+        <i>选择模板：</i>
+        <select id="templateSelect" style="width: 16em" data-prev="templateCustom" data-tip="选择基础模板">
+          <option value="custom" selected>自定义</option>
+          <option value="volcano">火山</option>
+          <option value="highIsland">高岛</option>
+          <option value="lowIsland">低岛</option>
+          <option value="continents">大陆</option>
+          <option value="archipelago">群岛</option>
+          <option value="atoll">环礁</option>
+          <option value="mediterranean">地中海式</option>
+          <option value="peninsula">半岛</option>
+          <option value="pangea">盘古大陆</option>
+          <option value="isthmus">地峡</option>
+          <option value="shattered">破碎</option>
+          <option value="taklamakan">塔克拉玛干</option>
+          <option value="oldWorld">旧大陆</option>
+          <option value="fractious">纷争</option>
         </select>
       </div>
       <div id="templateTools">
-        <button data-type="Hill" data-tip="Hill: small blob">H</button>
-        <button data-type="Pit" data-tip="Pit: round depression">P</button>
-        <button data-type="Range" data-tip="Range: elongated elevation">R</button>
-        <button data-type="Trough" data-tip="Trough: elongated depression">T</button>
-        <button data-type="Strait" data-tip="Strait: centered vertical or horizontal depression">S</button>
-        <button data-type="Mask" data-tip="Mask: lower cells near edges or in map center">M</button>
-        <button data-type="Invert" data-tip="Invert heightmap along the axes">I</button>
-        <button data-type="Add" data-tip="Add or subtract value from all heights in range">+</button>
-        <button data-type="Multiply" data-tip="Multiply all heights in range by factor">*</button>
+        <button data-type="Hill" data-tip="丘陵：小块隆起">H</button>
+        <button data-type="Pit" data-tip="坑：圆形凹陷">P</button>
+        <button data-type="Range" data-tip="山脉：长条形隆起">R</button>
+        <button data-type="Trough" data-tip="槽：长条形凹陷">T</button>
+        <button data-type="Strait" data-tip="海峡：居中的垂直或水平凹陷">S</button>
+        <button data-type="Mask" data-tip="遮罩：降低边缘或地图中心的单元格">M</button>
+        <button data-type="Invert" data-tip="沿坐标轴反转高度图">I</button>
+        <button data-type="Add" data-tip="对范围内所有高度加或减值">+</button>
+        <button data-type="Multiply" data-tip="将范围内所有高度乘以系数">*</button>
         <button
           data-type="Smooth"
-          data-tip="Smooth the map replacing cell heights by an average values of its neighbors"
+          data-tip="通过将单元格高度替换为邻居平均值来平滑地图"
         >
           ~
         </button>
       </div>
       <div id="templateBody" data-changed="0" class="table" style="padding: 2px 0">
         <div data-type="Hill">
-          <div class="icon-check" data-tip="Click to skip the step"></div>
+          <div class="icon-check" data-tip="点击跳过该步骤"></div>
           <div style="width: 4em">Hill</div>
-          <i class="icon-trash-empty pointer" data-tip="Remove the step"></i>
-          <i class="icon-resize-vertical" data-tip="Drag to reorder"></i>
+          <i class="icon-trash-empty pointer" data-tip="移除该步骤"></i>
+          <i class="icon-resize-vertical" data-tip="拖动以重新排序"></i>
           <span
-            >y:<input class="templateY" data-tip="Y axis position in percentage (minY-maxY or Y)" value="47-53"
+            >y:<input class="templateY" data-tip="Y 轴位置百分比（minY-maxY 或 Y）" value="47-53"
           /></span>
           <span
-            >x:<input class="templateX" data-tip="X axis position in percentage (minX-maxX or X)" value="65-75"
+            >x:<input class="templateX" data-tip="X 轴位置百分比（minX-maxX 或 X）" value="65-75"
           /></span>
           <span
             >h:<input
               class="templateHeight"
-              data-tip="Blob maximum height, use hyphen to get a random number in range"
+              data-tip="凸起块最大高度，使用连字符获取范围内的随机数"
               value="90-100"
           /></span>
           <span
             >n:<input
               class="templateCount"
-              data-tip="Blobs to add, use hyphen to get a random number in range"
+              data-tip="要添加的凸起块数，使用连字符获取范围内的随机数"
               value="1"
           /></span>
         </div>
       </div>
       <div id="templateBottom">
-        <button id="templateRun" data-tip="Execute the template" class="icon-play-circled2"></button>
-        <button id="templateUndo" data-tip="Undo the latest action" class="icon-ccw" disabled></button>
-        <button id="templateRedo" data-tip="Redo the action" class="icon-cw" disabled></button>
-        <button id="templateSave" data-tip="Download the template as a text file" class="icon-download"></button>
-        <button id="templateLoad" data-tip="Open previously downloaded template" class="icon-upload"></button>
+        <button id="templateRun" data-tip="执行模板" class="icon-play-circled2"></button>
+        <button id="templateUndo" data-tip="撤销最近操作" class="icon-ccw" disabled></button>
+        <button id="templateRedo" data-tip="重做操作" class="icon-cw" disabled></button>
+        <button id="templateSave" data-tip="将模板下载为文本文件" class="icon-download"></button>
+        <button id="templateLoad" data-tip="打开之前下载的模板" class="icon-upload"></button>
         <button
           id="templateCA"
-          data-tip="Find or share custom template on Cartography Assets portal"
+          data-tip="在 Cartography Assets 门户查找或分享自定义模板"
           class="icon-drafting-compass"
           onclick="
             openURL('https://cartographyassets.com/asset-category/specific-assets/azgaars-generator/templates')
@@ -117,14 +117,14 @@ function renderTemplateEditor(): void {
         ></button>
         <button
           id="templateTutorial"
-          data-tip="Open Template Editor Tutorial"
+          data-tip="打开模板编辑器教程"
           class="icon-info"
           onclick="wiki('Heightmap-template-editor')"
         ></button>
         <label
-          data-tip="Enter seed for template to generate the same heightmap each time"
+          data-tip="输入模板种子以每次生成相同的高度图"
         >
-          Seed: <input id="templateSeed" value="" type="number" min="1" max="999999999" step="1" style="width: 8em" />
+          种子：<input id="templateSeed" value="" type="number" min="1" max="999999999" step="1" style="width: 8em" />
         </label>
       </div>
     </div>`;
@@ -183,56 +183,56 @@ function renderImageConverter(): void {
   destroyDialogIfExists("imageConverter");
   const editorHtml = /* html */ `<div id="imageConverter" class="dialog stable">
       <div id="convertImageButtons">
-        <button id="convertImageLoad" data-tip="Load image to convert" class="icon-upload"></button>
+        <button id="convertImageLoad" data-tip="加载图像进行转换" class="icon-upload"></button>
         <button
           id="convertAutoLum"
-          data-tip="Auto-assign colors based on liminosity (good for monochrome images)"
+          data-tip="基于亮度自动分配颜色（适用于单色图像）"
           class="icon-adjust"
         ></button>
         <button
           id="convertAutoHue"
-          data-tip="Auto-assign colors based on hue (good for colored images)"
+          data-tip="基于色相自动分配颜色（适用于彩色图像）"
           class="icon-paint-roller"
         ></button>
         <button
           id="convertAutoFMG"
-          data-tip="Auto-assign colors using generator scheme (for exported colored heightmaps)"
+          data-tip="使用生成器配色方案自动分配颜色（用于导出的彩色高度图）"
           class="icon-layer-group"
         ></button>
-        <button id="convertColorsButton" data-tip="Set maximum number of colors" class="icon-signal"></button>
+        <button id="convertColorsButton" data-tip="设置最大颜色数" class="icon-signal"></button>
         <input id="convertColors" value="100" style="display: none" />
         <button
           id="convertCancel"
-          data-tip="Cancel the conversion. Previous heightmap will be restored"
+          data-tip="取消转换。将恢复之前的高度图"
           class="icon-cancel"
         ></button>
       </div>
-      <div data-tip="Set opacity of the loaded image" style="padding-top: 0.4em">
-        <i>Overlay opacity:</i><br />
+      <div data-tip="设置加载图像的不透明度" style="padding-top: 0.4em">
+        <i>覆盖不透明度：</i><br />
         <input id="convertOverlay" type="range" min="0" max="1" step=".01" value="0" style="width: 12.6em" />
         <input id="convertOverlayNumber" type="number" min="0" max="1" step=".01" value="0" style="width: 4.2em" />
       </div>
-      <div data-tip="Select a color below and assign a height value for it" id="colorsSelect" style="display: none">
-        <i>Set height: </i>
+      <div data-tip="在下方选择颜色并为其分配高度值" id="colorsSelect" style="display: none">
+        <i>设置高度：</i>
         <span id="colorsSelectValue"></span>
-        <span>(<span id="colorsSelectFriendly">0</span>)</span><br />
+        <span>（<span id="colorsSelectFriendly">0</span>）</span><br />
         <div id="imageConverterPalette"></div>
       </div>
-      <div data-tip="Select a color to re-assign the height value" id="colorsAssigned" style="display: none">
-        <i>Assigned colors (<span id="colorsAssignedNumber"></span>):</i>
+      <div data-tip="选择颜色以重新分配高度值" id="colorsAssigned" style="display: none">
+        <i>已分配的颜色（<span id="colorsAssignedNumber"></span>）：</i>
         <div id="colorsAssignedContainer" class="colorsContainer"></div>
       </div>
-      <div data-tip="Select a color to assign a height value" id="colorsUnassigned" style="display: none">
-        <i>Unassigned colors (<span id="colorsUnassignedNumber"></span>):</i>
+      <div data-tip="选择颜色以分配高度值" id="colorsUnassigned" style="display: none">
+        <i>未分配的颜色（<span id="colorsUnassignedNumber"></span>）：</i>
         <div id="colorsUnassignedContainer" class="colorsContainer"></div>
       </div>
       <button
         id="convertComplete"
-        data-tip="Complete the conversion. All unassigned colors will be considered as ocean"
+        data-tip="完成转换。所有未分配的颜色将被视为海洋"
         style="margin: 0.4em 0"
         class="glow"
       >
-        Complete the conversion
+        完成转换
       </button>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);
@@ -282,23 +282,23 @@ function addToolbarListeners(): void {
 }
 
 function showModeDialog(tool?: string): void {
-  alertMessage.innerHTML = /* html */ `Heightmap is a core element on which all other data (rivers, burgs, states etc) is based. So the best edit approach is to
-    <i>erase</i> the secondary data and let the system automatically regenerate it on edit completion.
-    <p><i>Erase</i> mode also allows you Convert an Image into a heightmap or use Template Editor.</p>
-    <p>You can <i>keep</i> the data, but you won't be able to change the coastline.</p>
-    <p>Try <i>risk</i> mode to change the coastline and keep the data. The data will be restored as much as possible, but it can cause unpredictable errors.</p>
-    <p>Please <span class="pseudoLink" onclick="window.Services.Save.saveMap('machine')">save the map</span> before editing the heightmap!</p>
-    <p style="margin-bottom: 0">Check out ${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization", "wiki")} for guidance.</p>`;
+  alertMessage.innerHTML = /* html */ `高度图是所有其他数据（河流、城镇、国家等）所依赖的核心元素。因此最佳编辑方式是
+    <i>擦除</i> 次要数据，让系统在编辑完成时自动重新生成。
+    <p><i>擦除</i> 模式还允许将图像转换为高度图或使用模板编辑器。</p>
+    <p>可以 <i>保留</i> 数据，但将无法更改海岸线。</p>
+    <p>尝试 <i>冒险</i> 模式以更改海岸线并保留数据。数据将尽可能恢复，但可能导致不可预测的错误。</p>
+    <p>请在编辑高度图之前 <span class="pseudoLink" onclick="window.Services.Save.saveMap('machine')">保存地图</span>！</p>
+    <p style="margin-bottom: 0">查阅 ${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Heightmap-customization", "wiki")} 获取指南。</p>`;
 
   $("#alert").dialog({
     resizable: false,
     title: "编辑高度图",
     width: "28em",
     buttons: {
-      Erase: () => enterHeightmapEditMode("erase", tool),
-      Keep: () => enterHeightmapEditMode("keep", tool),
-      Risk: () => enterHeightmapEditMode("risk", tool),
-      Cancel: function (this: HTMLElement) {
+      擦除: () => enterHeightmapEditMode("erase", tool),
+      保留: () => enterHeightmapEditMode("keep", tool),
+      冒险: () => enterHeightmapEditMode("risk", tool),
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -909,104 +909,104 @@ function renderBrushesPanel(): void {
 
   const html = /* html */ `<div id="brushesPanel" class="dialog stable">
     <div id="brushesButtons" style="display: inline-block">
-      <button id="brushRaise" data-tip="Raise brush: increase height of cells in radius by Power value">
+      <button id="brushRaise" data-tip="抬升笔刷：按强度值增加半径内单元格的高度">
         <svg viewBox="15 15 70 70" height="1em" width="1.6em">
           <path d="m20,39 h60 M50,85 v-35 l-12,8 m12,-8 l12,8" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushElevate" data-tip="Elevate brush: drag to gradually increase height of cells in radius by Power value">
+      <button id="brushElevate" data-tip="升高笔刷：拖动按强度值逐渐增加半径内单元格的高度">
         <svg viewBox="15 15 70 70" height="1em" width="1.6em">
           <path d="m20,50 q30,-35 60,0 M50,85 v-35 l-12,8 m12,-8 l12,8" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushLower" data-tip="Lower brush: drag to decrease height of cells in radius by Power value">
+      <button id="brushLower" data-tip="降低笔刷：拖动按强度值减少半径内单元格的高度">
         <svg viewBox="15 15 70 70" height="1em" width="1.6em">
           <path d="M50,30 v35 l-12,-8 m12,8 l12,-8 M20,78 h60" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushDepress" data-tip="Depress brush: drag to gradually decrease height of cells in radius by Power value">
+      <button id="brushDepress" data-tip="下沉笔刷：拖动按强度值逐渐减少半径内单元格的高度">
         <svg viewBox="15 15 70 70" height="1em" width="1.6em">
           <path d="M50,30 v35 l-12,-8 m12,8 l12,-8 M20,63 q30,35 60,0" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushAlign" data-tip="Align brush: drag to set height of cells in radius to height of the cell at mousepoint">
+      <button id="brushAlign" data-tip="对齐笔刷：拖动将半径内单元格高度设为鼠标所在单元格的高度">
         <svg viewBox="15 15 70 70" height="1em" width="1.6em">
           <path d="m20,50 h56 m0,20 h-56" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushSmooth" data-tip="Smooth brush: drag to level height of cells in radius to height of adjacent cells">
+      <button id="brushSmooth" data-tip="平滑笔刷：拖动将半径内单元格高度平整为相邻单元格的高度">
         <svg viewBox="15 15 70 70" height="1em" width="1.6em">
           <path d="m15,60 q15,-15 30,0 q15,15 35,0" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushDisrupt" data-tip="Disrupt brush: drag to randomize height of cells in radius based on Power value">
+      <button id="brushDisrupt" data-tip="扰动笔刷：拖动按强度值随机化半径内单元格的高度">
         <svg viewBox="15 15 70 70" height="1em" width="1.6em">
           <path d="m15,63 l15,-13 15,20 15,-20 15,19 15,-14" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushFill" data-tip="Fill: click enclosed water or same-height land area to create a cone blob">
+      <button id="brushFill" data-tip="填充：点击封闭水域或等高陆地以创建锥形隆起">
         <svg viewBox="20 10 60 60" height="1em" width="1.6em">
           <path d="M30,70 h40 M30,70 q0,-20 20,-20 q20,0 20,20" fill="none" stroke="#000" stroke-width="5" />
           <path d="M50,20 v25 M50,20 l-10,8 M50,20 l10,8" fill="none" stroke="#000" stroke-width="5" />
         </svg>
       </button>
-      <button id="brushLine" data-tip="Line: select two points to change heights along the line">
+      <button id="brushLine" data-tip="直线：选择两点以沿直线改变高度">
         <svg viewBox="0 -5 100 100" height="1em" width="1.6em">
           <path d="M0 90 L100 10" fill="none" stroke="#000" stroke-width="7"></path>
         </svg>
       </button>
     </div>
     <div id="brushesSliders" style="display: none">
-      <div data-tip="Change brush size. Shortcut: + to increase; – to decrease">
+      <div data-tip="更改笔刷大小。快捷键：+ 增大；– 减小">
         <slider-input id="heightmapBrushRadius" min="1" max="100" value="25">
-          <div style="width: 3.5em">Radius:</div>
+          <div style="width: 3.5em">半径：</div>
         </slider-input>
       </div>
-      <div data-tip="Change brush power">
+      <div data-tip="更改笔刷强度">
         <slider-input id="heightmapBrushPower" min="1" max="10" value="5">
-          <div style="width: 3.5em">Power:</div>
+          <div style="width: 3.5em">强度：</div>
         </slider-input>
       </div>
     </div>
     <div id="lineSlider" style="display: none">
-      <div data-tip="Change tool power. Shortcut: + to increase; – to decrease">
+      <div data-tip="更改工具强度。快捷键：+ 增大；– 减小">
         <slider-input id="heightmapLinePower" min="-100" max="100" value="30">
-          <div style="width: 5.5em">Power:</div>
+          <div style="width: 5.5em">强度：</div>
         </slider-input>
       </div>
-      <div data-tip="Change line randomness. Zero makes the line as straight as possible">
+      <div data-tip="更改线条随机度。零使线条尽可能笔直">
         <slider-input id="heightmapLineRandomness" min="0" max="100" value="30">
-          <div style="width: 5.5em">Randomness:</div>
+          <div style="width: 5.5em">随机度：</div>
         </slider-input>
       </div>
     </div>
-    <div data-tip="Restrict brush to specific cell types" style="margin-bottom: 0.6em">
-      <label for="cellTypeFilter"><i>Cells to change:</i></label>
+    <div data-tip="将笔刷限制为特定单元格类型" style="margin-bottom: 0.6em">
+      <label for="cellTypeFilter"><i>要更改的单元格：</i></label>
       <select id="cellTypeFilter">
-        <option value="all" ${defaultCellTypeFilter === "all" ? "selected" : ""}>all cells</option>
-        <option value="land" ${defaultCellTypeFilter === "land" ? "selected" : ""}>only land cells</option>
-        <option value="water" ${defaultCellTypeFilter === "water" ? "selected" : ""}>only water cells</option>
+        <option value="all" ${defaultCellTypeFilter === "all" ? "selected" : ""}>所有单元格</option>
+        <option value="land" ${defaultCellTypeFilter === "land" ? "selected" : ""}>仅陆地单元格</option>
+        <option value="water" ${defaultCellTypeFilter === "water" ? "selected" : ""}>仅水域单元格</option>
       </select>
     </div>
     <div id="modifyButtons">
-      <button id="undo" data-tip="Undo the latest action (Ctrl + Z)" class="icon-ccw" disabled></button>
-      <button id="redo" data-tip="Redo the action (Ctrl + Y)" class="icon-cw" disabled></button>
-      <button id="rescaleShow" data-tip="Show rescaler slider" class="icon-exchange"></button>
-      <button id="rescaleCondShow" data-tip="Rescaler: change height if condition is fulfilled" class="icon-if"></button>
-      <button id="smoothHeights" data-tip="Smooth all heights a bit" class="icon-smooth"></button>
-      <button id="disruptHeights" data-tip="Disrupt (randomize) heights a bit" class="icon-disrupt"></button>
-      <button id="brushClear" data-tip="Set height for all cells to 0 (erase the map)" class="icon-eraser"></button>
+      <button id="undo" data-tip="撤销最近操作 (Ctrl + Z)" class="icon-ccw" disabled></button>
+      <button id="redo" data-tip="重做操作 (Ctrl + Y)" class="icon-cw" disabled></button>
+      <button id="rescaleShow" data-tip="显示重缩放滑块" class="icon-exchange"></button>
+      <button id="rescaleCondShow" data-tip="重缩放器：满足条件时更改高度" class="icon-if"></button>
+      <button id="smoothHeights" data-tip="稍微平滑所有高度" class="icon-smooth"></button>
+      <button id="disruptHeights" data-tip="稍微扰乱（随机化）高度" class="icon-disrupt"></button>
+      <button id="brushClear" data-tip="将所有单元格高度设为 0（擦除地图）" class="icon-eraser"></button>
     </div>
     <div id="rescaleSection" style="display: none">
-      <button id="rescaleHide" data-tip="Hide rescaler slider" class="icon-exchange"></button>
-      <input id="rescaler" data-tip="Change height for all cells" type="range" min="-10" max="10" step="1" value="0" />
+      <button id="rescaleHide" data-tip="隐藏重缩放滑块" class="icon-exchange"></button>
+      <input id="rescaler" data-tip="更改所有单元格的高度" type="range" min="-10" max="10" step="1" value="0" />
     </div>
     <div
       id="rescaleCondSection"
-      data-tip="If height is greater or equal to X and less or equal to Y, then perform an operation Z with operand V"
+      data-tip="如果高度大于等于 X 且小于等于 Y，则使用操作数 V 执行操作 Z"
       style="display: none"
     >
-      <button id="rescaleCondHide" data-tip="Hide rescaler" class="icon-if"></button>
+      <button id="rescaleCondHide" data-tip="隐藏重缩放器" class="icon-if"></button>
       <label>h ≥</label>
       <input id="rescaleLower" value="20" type="number" min="0" max="100" />
       <label>≤</label>
@@ -1020,7 +1020,7 @@ function renderBrushesPanel(): void {
         <option value="exponent">^</option>
       </select>
       <input id="rescaleModifier" type="number" value="0.9" min="0" max="1.5" step="0.01" />
-      <button id="rescaleExecute" data-tip="Click to perform an operation" class="icon-play-circled2"></button>
+      <button id="rescaleExecute" data-tip="点击执行操作" class="icon-play-circled2"></button>
     </div>
   </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", html);
@@ -1128,7 +1128,7 @@ function placeLinearFeature(this: SVGElement, event: any): void {
 
   const power = ensureEl<HTMLInputElement>("heightmapLinePower").valueAsNumber;
   if (power === 0) {
-    tip("Power 不能为零", false, "error");
+    tip("强度不能为零", false, "error");
     return;
   }
 
@@ -1470,25 +1470,25 @@ function addStep(type: string, count?: string, dist?: string, arg4?: string, arg
 }
 
 function getStepHTML(type: string, count?: string, arg3?: string, arg4?: string, arg5?: string): string {
-  const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="Click to remove the step"></i>`;
-  const Hide = /* html */ `<div class="icon-check" data-tip="Click to skip the step"></div>`;
-  const Reorder = /* html */ `<i class="icon-resize-vertical" data-tip="Drag to reorder"></i>`;
+  const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="点击移除该步骤"></i>`;
+  const Hide = /* html */ `<div class="icon-check" data-tip="点击跳过该步骤"></div>`;
+  const Reorder = /* html */ `<i class="icon-resize-vertical" data-tip="拖动以重新排序"></i>`;
   const common = /* html */ `<div data-type="${type}">${Hide}<div style="width:4em">${type}</div>${Trash}${Reorder}`;
 
   const TempY = /* html */ `<span>y:
-      <input class="templateY" data-tip="Placement range percentage along Y axis (minY-maxY)" value=${arg5 || "20-80"} />
+      <input class="templateY" data-tip="沿 Y 轴的放置范围百分比（minY-maxY）" value=${arg5 || "20-80"} />
     </span>`;
 
   const TempX = /* html */ `<span>x:
-      <input class="templateX" data-tip="Placement range percentage along X axis (minX-maxX)" value=${arg4 || "15-85"} />
+      <input class="templateX" data-tip="沿 X 轴的放置范围百分比（minX-maxX）" value=${arg4 || "15-85"} />
     </span>`;
 
   const Height = /* html */ `<span>h:
-      <input class="templateHeight" data-tip="Blob maximum height, use hyphen to get a random number in range" value=${arg3 || "40-50"} />
+      <input class="templateHeight" data-tip="凸起块最大高度，使用连字符获取范围内的随机数" value=${arg3 || "40-50"} />
     </span>`;
 
   const Count = /* html */ `<span>n:
-      <input class="templateCount" data-tip="Blobs to add, use hyphen to get a random number in range" value=${count || "1-2"} />
+      <input class="templateCount" data-tip="要添加的凸起块数，使用连字符获取范围内的随机数" value=${count || "1-2"} />
     </span>`;
 
   if (type === "Hill" || type === "Pit" || type === "Range" || type === "Trough")
@@ -1497,27 +1497,27 @@ function getStepHTML(type: string, count?: string, arg3?: string, arg4?: string,
   if (type === "Strait")
     return /* html */ `${common}
       <span>d:
-        <select class="templateDist" data-tip="Strait direction">
-          <option value="vertical" selected>vertical</option>
-          <option value="horizontal">horizontal</option>
+        <select class="templateDist" data-tip="海峡方向">
+          <option value="vertical" selected>垂直</option>
+          <option value="horizontal">水平</option>
         </select>
       </span>
       <span>w:
-        <input class="templateCount" data-tip="Strait width, use hyphen to get a random number in range" value=${count || "2-7"} />
+        <input class="templateCount" data-tip="海峡宽度，使用连字符获取范围内的随机数" value=${count || "2-7"} />
       </span>
     </div>`;
 
   if (type === "Invert")
     return /* html */ `${common}
       <span>by:
-        <select class="templateDist" data-tip="Mirror heightmap along axis" style="width: 7.8em">
+        <select class="templateDist" data-tip="沿坐标轴镜像高度图" style="width: 7.8em">
           <option value="x" selected>x</option>
           <option value="y">y</option>
-          <option value="xy">both</option>
+          <option value="xy">双向</option>
         </select>
       </span>
       <span>n:
-        <input class="templateCount" data-tip="Probability of inversion, range 0-1" value=${count || "0.5"} />
+        <input class="templateCount" data-tip="反转概率，范围 0-1" value=${count || "0.5"} />
       </span>
     </div>`;
 
@@ -1525,7 +1525,7 @@ function getStepHTML(type: string, count?: string, arg3?: string, arg4?: string,
     return /* html */ `${common}
       <span>f:
         <input class="templateCount"
-          data-tip="Set masking fraction. 1 - full insulation (prevent land on map edges), 2 - half-insulation, etc. Negative number to inverse the effect"
+          data-tip="设置遮罩比例。1 - 完全隔离（防止地图边缘出现陆地），2 - 半隔离，以此类推。负数反转效果"
           type="number" min=-10 max=10 value=${count || 1} />
       </span>
     </div>`;
@@ -1533,14 +1533,14 @@ function getStepHTML(type: string, count?: string, arg3?: string, arg4?: string,
   if (type === "Add")
     return /* html */ `${common}
       <span>to:
-        <select class="templateDist" data-tip="Change only land or all cells">
-          <option value="all" selected>all cells</option>
-          <option value="land">land only</option>
-          <option value="interval">interval</option>
+        <select class="templateDist" data-tip="仅更改陆地或所有单元格">
+          <option value="all" selected>所有单元格</option>
+          <option value="land">仅陆地</option>
+          <option value="interval">区间</option>
         </select>
       </span>
       <span>v:
-        <input class="templateCount" data-tip="Add value to height of all cells (negative values are allowed)"
+        <input class="templateCount" data-tip="为所有单元格高度增加值（允许负值）"
         type="number" value=${count || -10} min=-100 max=100 step=1 />
       </span>
     </div>`;
@@ -1548,14 +1548,14 @@ function getStepHTML(type: string, count?: string, arg3?: string, arg4?: string,
   if (type === "Multiply")
     return /* html */ `${common}
       <span>to:
-        <select class="templateDist" data-tip="Change only land or all cells">
-          <option value="all" selected>all cells</option>
-          <option value="land">land only</option>
-          <option value="interval">interval</option>
+        <select class="templateDist" data-tip="仅更改陆地或所有单元格">
+          <option value="all" selected>所有单元格</option>
+          <option value="land">仅陆地</option>
+          <option value="interval">区间</option>
         </select>
       </span>
       <span>v:
-        <input class="templateCount" data-tip="Multiply all cells Height by the value" type="number"
+        <input class="templateCount" data-tip="将所有单元格高度乘以该值" type="number"
           value=${count || 1.1} min=0 max=10 step=.1 />
       </span>
     </div>`;
@@ -1563,7 +1563,7 @@ function getStepHTML(type: string, count?: string, arg3?: string, arg4?: string,
   if (type === "Smooth")
     return /* html */ `${common}
       <span>f:
-        <input class="templateCount" data-tip="Set smooth fraction. 1 - full smooth, 2 - half-smooth, etc."
+        <input class="templateCount" data-tip="设置平滑系数。1 - 完全平滑，2 - 半平滑，以此类推。"
           type="number" min=1 max=10 step=1 value=${count || 2} />
       </span>
     </div>`;
@@ -1575,7 +1575,7 @@ function setRange(event: Event): void {
   const target = event.target as HTMLSelectElement;
   if (target.value !== "interval") return;
 
-  prompt("Set a height interval. Avoid space, use hyphen as a separator", { default: "17-20" }, v => {
+  prompt("设置高度区间。避免空格，使用连字符作为分隔符", { default: "17-20" }, v => {
     const opt = document.createElement("option");
     opt.value = opt.innerHTML = String(v);
     target.add(opt);
@@ -1593,16 +1593,16 @@ function selectTemplate(e: Event): void {
     return;
   }
 
-  alertMessage.innerHTML = "Are you sure you want to select a different template? All changes will be lost.";
+  alertMessage.innerHTML = "确定要选择不同的模板吗？所有更改将丢失。";
   $("#alert").dialog({
     resizable: false,
     title: "更改模板",
     buttons: {
-      Change: function (this: HTMLElement) {
+      更改: function (this: HTMLElement) {
         changeTemplate(template);
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -1957,7 +1957,7 @@ function autoAssing(type: string): void {
 
 function setConvertColorsNumber(): void {
   prompt(
-    `Please set maximum number of colors. <br>An actual number is usually lower and depends on color scheme`,
+    `请设置最大颜色数。<br>实际数量通常较少，取决于配色方案`,
     { default: +ensureEl<HTMLInputElement>("convertColors").value, step: 1, min: 3, max: 255 },
     number => {
       ensureEl<HTMLInputElement>("convertColors").value = String(number);
@@ -2016,21 +2016,20 @@ function restoreImageConverterState(): void {
 function closeImageConverter(event: Event): void {
   event.preventDefault();
   event.stopPropagation();
-  alertMessage.innerHTML = /* html */ `Are you sure you want to close the Image Converter? Click "Cancel" to keep editing. Click "Complete" to apply
-  the conversion and close the tool. Click "Close" to discard the conversion and restore the previous heightmap.`;
+  alertMessage.innerHTML = /* html */ `确定要关闭图像转换器吗？点击"取消"继续编辑。点击"完成"应用转换并关闭工具。点击"关闭"放弃转换并恢复之前的高度图。`;
 
   $("#alert").dialog({
     resizable: false,
     title: "关闭图像转换器",
     buttons: {
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       },
-      Complete: function (this: HTMLElement) {
+      完成: function (this: HTMLElement) {
         $(this).dialog("close");
         applyConversion();
       },
-      Close: function (this: HTMLElement) {
+      关闭: function (this: HTMLElement) {
         $(this).dialog("close");
         restoreImageConverterState();
         select<SVGElement, unknown>("#viewbox").select("#heights").selectAll("polygon").remove();

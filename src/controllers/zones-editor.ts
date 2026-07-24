@@ -28,63 +28,63 @@ function renderDialog(): void {
   destroyDialogIfExists("zonesEditor");
   const editorHtml = /* html */ `<div id="zonesEditor" class="dialog stable">
       <div id="customHeader" class="header" style="grid-template-columns: 13em 7em 6em 5em 9em">
-        <div data-tip="Zone description">Description&nbsp;</div>
-        <div data-tip="Zone type">Type&nbsp;</div>
-        <div data-tip="Zone cells count" class="hide">Cells&nbsp;</div>
-        <div data-tip="Zone area" class="hide">Area&nbsp;</div>
-        <div data-tip="Zone population" class="hide">Population&nbsp;</div>
+        <div data-tip="区域描述">描述&nbsp;</div>
+        <div data-tip="区域类型">类型&nbsp;</div>
+        <div data-tip="区域单元格数" class="hide">单元格&nbsp;</div>
+        <div data-tip="区域面积" class="hide">面积&nbsp;</div>
+        <div data-tip="区域人口" class="hide">人口&nbsp;</div>
       </div>
       <div id="zonesBodySection" class="table" data-type="absolute"></div>
       <div id="zonesFooter" class="totalLine">
-        <div data-tip="Number of zones" style="margin-left: 5px">
-          Zones:&nbsp;<span id="zonesFooterNumber">0</span>
+        <div data-tip="区域数量" style="margin-left: 5px">
+          区域:&nbsp;<span id="zonesFooterNumber">0</span>
         </div>
-        <div data-tip="Total cells number" style="margin-left: 12px">
-          Cells:&nbsp;<span id="zonesFooterCells">0</span>
+        <div data-tip="总单元格数" style="margin-left: 12px">
+          单元格:&nbsp;<span id="zonesFooterCells">0</span>
         </div>
-        <div data-tip="Total map area" style="margin-left: 12px">Area:&nbsp;<span id="zonesFooterArea">0</span></div>
-        <div data-tip="Total map population" style="margin-left: 12px">
-          Population:&nbsp;<span id="zonesFooterPopulation">0</span>
+        <div data-tip="地图总面积" style="margin-left: 12px">面积:&nbsp;<span id="zonesFooterArea">0</span></div>
+        <div data-tip="地图总人口" style="margin-left: 12px">
+          人口:&nbsp;<span id="zonesFooterPopulation">0</span>
         </div>
       </div>
       <div id="zonesBottom">
-        <button id="zonesEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
-        <button id="zonesEditStyle" data-tip="Edit zones style in Style Editor" class="icon-adjust"></button>
+        <button id="zonesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
+        <button id="zonesEditStyle" data-tip="在样式编辑器中编辑区域样式" class="icon-adjust"></button>
         <button
           id="zonesLegend"
-          data-tip="Toggle Legend box (shows all non-hidden zones)"
+          data-tip="切换图例框（显示所有未隐藏的区域）"
           class="icon-list-bullet"
         ></button>
         <button
           id="zonesPercentage"
-          data-tip="Toggle percentage / absolute values views"
+          data-tip="切换百分比/绝对值视图"
           class="icon-percent"
         ></button>
-        <button id="zonesManually" data-tip="Re-assign zones" class="icon-brush"></button>
+        <button id="zonesManually" data-tip="重新分配区域" class="icon-brush"></button>
         <div id="zonesManuallyButtons" style="display: none">
-          <div data-tip="Change brush size. Shortcut: + to increase; – to decrease" style="margin-block: 0.3em">
-            Brush size:
+          <div data-tip="更改笔刷大小。快捷键：+ 增大；– 减小" style="margin-block: 0.3em">
+            笔刷大小：
             <slider-input id="zonesBrush" min="1" max="100" value="8"></slider-input>
           </div>
           <div>
             <input id="zonesBrushLandOnly" class="checkbox" type="checkbox" checked />
-            <label for="zonesBrushLandOnly" class="checkbox-label"><i>Change land only</i></label>
+            <label for="zonesBrushLandOnly" class="checkbox-label"><i>仅更改陆地</i></label>
           </div>
           <div style="margin-top: 0.3em">
-            <button id="zonesManuallyApply" data-tip="Apply assignment" class="icon-check"></button>
-            <button id="zonesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
+            <button id="zonesManuallyApply" data-tip="应用分配" class="icon-check"></button>
+            <button id="zonesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
             <button
               id="zonesRemove"
-              data-tip="Click to toggle the removal mode on brush dragging"
+              data-tip="点击切换笔刷拖动时的擦除模式"
               data-shortcut="Ctrl"
               class="icon-eraser"
             ></button>
           </div>
         </div>
-        <button id="zonesAdd" data-tip="Add new zone layer" class="icon-plus"></button>
-        <button id="zonesExport" data-tip="Download zones-related data" class="icon-download"></button>
-        <div id="zonesFilters" data-tip="Show only zones of selected type" style="display: inline-block">
-          Type:
+        <button id="zonesAdd" data-tip="添加新区域图层" class="icon-plus"></button>
+        <button id="zonesExport" data-tip="下载区域相关数据" class="icon-download"></button>
+        <div id="zonesFilters" data-tip="仅显示所选类型的区域" style="display: inline-block">
+          类型：
           <select id="zonesFilterType"></select>
         </div>
       </div>
@@ -160,7 +160,7 @@ function updateFilters(): void {
   const types = unique(pack.zones.map(zone => zone.type));
   const typeToFilterBy = types.includes(filterSelect.value) ? filterSelect.value : "all";
 
-  filterSelect.innerHTML = `<option value='all'>all</option>${types
+  filterSelect.innerHTML = `<option value='all'>全部</option>${types
     .map(type => `<option value="${type}">${type}</option>`)
     .join("")}`;
   filterSelect.value = typeToFilterBy;
@@ -178,24 +178,24 @@ function zonesEditorAddLines(): void {
     const urban =
       sum(cells.map(c => pack.cells.burg[c]).map(b => pack.burgs[b]?.population ?? 0)) * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(urban)}. Click to change`;
+    const populationTip = `总人口：${si(population)}；农村人口：${si(rural)}；城镇人口：${si(urban)}。点击更改`;
     const focused = select<SVGElement, unknown>("#deftemp").select(`#fog #focusZone${i}`).size();
 
     return /* html */ `<div class="states" data-id="${i}" data-color="${color}" data-description="${name}"
       data-type="${type}" data-cells=${cells.length} data-area=${area} data-population=${population} style="${hidden ? "opacity: 0.5" : ""}">
       <fill-box fill="${color}"></fill-box>
-      <input data-tip="Zone description. Click and type to change" style="width: 11em" class="zoneName" value="${name}" autocorrect="off" spellcheck="false">
-      <input data-tip="Zone type. Click and type to change" class="zoneType" value="${type}">
-      <span data-tip="Cells count" class="icon-check-empty hide"></span>
-      <div data-tip="Cells count" class="stateCells hide">${cells.length}</div>
-      <span data-tip="Zone area" style="padding-right:4px" class="icon-map-o hide"></span>
-      <div data-tip="Zone area" class="biomeArea hide">${`${si(area)} ${getAreaUnit()}`}</div>
+      <input data-tip="区域描述。点击并输入以更改" style="width: 11em" class="zoneName" value="${name}" autocorrect="off" spellcheck="false">
+      <input data-tip="区域类型。点击并输入以更改" class="zoneType" value="${type}">
+      <span data-tip="单元格数" class="icon-check-empty hide"></span>
+      <div data-tip="单元格数" class="stateCells hide">${cells.length}</div>
+      <span data-tip="区域面积" style="padding-right:4px" class="icon-map-o hide"></span>
+      <div data-tip="区域面积" class="biomeArea hide">${`${si(area)} ${getAreaUnit()}`}</div>
       <span data-tip="${populationTip}" class="icon-male hide"></span>
       <div data-tip="${populationTip}" class="zonePopulation hide pointer">${si(population)}</div>
-      <span data-tip="Drag to raise or lower the zone" class="icon-resize-vertical hide"></span>
-      <span data-tip="Toggle zone focus" class="zoneFog icon-pin ${focused ? "" : "inactive"} hide ${cells.length ? "" : "placeholder"}"></span>
-      <span data-tip="Toggle zone visibility" class="zoneHide icon-eye hide ${cells.length ? "" : " placeholder"}"></span>
-      <span data-tip="Remove zone" class="zoneRemove icon-trash-empty hide"></span>
+      <span data-tip="拖动以升高或降低区域" class="icon-resize-vertical hide"></span>
+      <span data-tip="切换区域聚焦" class="zoneFog icon-pin ${focused ? "" : "inactive"} hide ${cells.length ? "" : "placeholder"}"></span>
+      <span data-tip="切换区域可见性" class="zoneHide icon-eye hide ${cells.length ? "" : " placeholder"}"></span>
+      <span data-tip="移除区域" class="zoneRemove icon-trash-empty hide"></span>
     </div>`;
   });
 

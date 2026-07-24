@@ -20,24 +20,24 @@ function renderDialog(): void {
   document.getElementById("marketsGoodCompare")?.remove();
   const editorHtml = /* html */ `<div id="marketsGoodCompare" class="dialog">
       <div style="display:flex; align-items:center; gap:.5em; padding:.2em 0 .4em; font-size:.9em;">
-        <label for="marketsGoodCompareSelect" data-tip="Select good to compare stock across markets">Good:</label>
+        <label for="marketsGoodCompareSelect" data-tip="选择要在各市场对比库存的货物">货物：</label>
         <select id="marketsGoodCompareSelect" style="flex:1; min-width:8em;"></select>
       </div>
       <div id="marketsGoodCompareHeader" class="header" style="grid-template-columns: 1.6em 9em 6em 7em;">
         <div></div>
-        <div data-tip="Market center burg name. Click to sort" class="sortable alphabetically" data-sortby="market" style="margin-left:0">Market&nbsp;</div>
-        <div data-tip="Good stock in this market. Click to sort" class="sortable icon-sort-number-down" data-sortby="stock">Stock&nbsp;</div>
-        <div data-tip="Price for this good. Click to sort" class="sortable" data-sortby="price">Price&nbsp;</div>
+        <div data-tip="市场中心城镇名称。点击排序" class="sortable alphabetically" data-sortby="market" style="margin-left:0">市场&nbsp;</div>
+        <div data-tip="本市场的货物库存。点击排序" class="sortable icon-sort-number-down" data-sortby="stock">库存&nbsp;</div>
+        <div data-tip="本货物价格。点击排序" class="sortable" data-sortby="price">价格&nbsp;</div>
       </div>
       <div id="marketsGoodCompareBody" class="table" data-type="absolute" style="max-height:40em;"></div>
       <div id="marketsGoodCompareFooter" class="totalLine">
-        <div data-tip="Total stock of this good across all markets" style="margin-left:5px">Total Stock:&nbsp;<span id="marketsGoodCompareFooterStock">0</span></div>
-        <div data-tip="Average price of this good across markets" style="margin-left:12px">Avg Price:&nbsp;<span id="marketsGoodCompareFooterPrice">0</span></div>
+        <div data-tip="所有市场中本货物总库存" style="margin-left:5px">总库存:&nbsp;<span id="marketsGoodCompareFooterStock">0</span></div>
+        <div data-tip="所有市场中本货物平均价格" style="margin-left:12px">平均价格:&nbsp;<span id="marketsGoodCompareFooterPrice">0</span></div>
       </div>
       <div id="marketsGoodCompareBottom">
-        <button id="marketsGoodCompareRefresh" data-tip="Refresh" class="icon-cw"></button>
-        <button id="marketsGoodComparePercentage" data-tip="Toggle percentage / absolute values views" class="icon-percent"></button>
-        <button id="marketsGoodCompareExport" data-tip="Save data as a CSV file" class="icon-download"></button>
+        <button id="marketsGoodCompareRefresh" data-tip="刷新" class="icon-cw"></button>
+        <button id="marketsGoodComparePercentage" data-tip="切换百分比/绝对值视图" class="icon-percent"></button>
+        <button id="marketsGoodCompareExport" data-tip="将数据保存为 CSV 文件" class="icon-download"></button>
       </div>
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", editorHtml);
@@ -63,7 +63,7 @@ function addLines(): void {
 
   const good = activeGoodId >= 0 ? Goods.get(activeGoodId) : undefined;
   if (!good) {
-    body.innerHTML = "Select a good";
+    body.innerHTML = "请选择一种货物";
     updateFooter(0, 0);
     return;
   }

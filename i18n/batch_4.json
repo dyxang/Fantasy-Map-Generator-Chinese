@@ -1,0 +1,631 @@
+{
+  "batch": 4,
+  "start_index": 0,
+  "units": [
+    {
+      "id": "sha256:bd6f9a4b7ac60103",
+      "source": "Confirm action",
+      "file": "public/modules/ui/editors.js",
+      "line": 952,
+      "type": "html_attr",
+      "context_tag": "title",
+      "context_before": "\nfunction confirmationDialog(options) {\n  const {",
+      "context_after": "    message = \"Are you sure you want to continue? <br>The action cannot be reverted\",\n    cancel = \"Cancel\",\n    confirm = \"Continue\","
+    },
+    {
+      "id": "sha256:8096b1c0b43ebd2f",
+      "source": "Marker type name",
+      "file": "public/modules/ui/tools.js",
+      "line": 959,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    const config = Markers.getConfig();\n\n    const headers = /* html */ `<thead style='font-weight:bold'><tr>",
+      "context_after": "      <td data-tip=\"Marker icon\">Icon</td>\n      <td data-tip=\"Marker number multiplier\">Multiplier</td>\n      <td data-tip=\"Number of markers of that type on the current map\">Number</td>"
+    },
+    {
+      "id": "sha256:22908656d79d525f",
+      "source": "Marker number multiplier",
+      "file": "public/modules/ui/tools.js",
+      "line": 961,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "    const headers = /* html */ `<thead style='font-weight:bold'><tr>\n      <td data-tip=\"Marker type name\">Type</td>\n      <td data-tip=\"Marker icon\">Icon</td>",
+      "context_after": "      <td data-tip=\"Number of markers of that type on the current map\">Number</td>\n    </tr></thead>`;\n"
+    },
+    {
+      "id": "sha256:24b517e25d62a507",
+      "source": "Number of markers of that type on the current map",
+      "file": "public/modules/ui/tools.js",
+      "line": 962,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "context_before": "      <td data-tip=\"Marker type name\">Type</td>\n      <td data-tip=\"Marker icon\">Icon</td>\n      <td data-tip=\"Marker number multiplier\">Multiplier</td>",
+      "context_after": "    </tr></thead>`;\n\n    const lines = config.map(({ type, icon, multiplier }) => {"
+    }
+  ],
+  "glossary": [
+    {
+      "en": "Map",
+      "zh": "地图",
+      "context": "general",
+      "do_not_translate": false
+    },
+    {
+      "en": "Cell",
+      "zh": "单元格",
+      "context": "grid",
+      "do_not_translate": false
+    },
+    {
+      "en": "Grid",
+      "zh": "网格",
+      "context": "grid",
+      "do_not_translate": false
+    },
+    {
+      "en": "Pack",
+      "zh": "数据包",
+      "context": "world_state",
+      "do_not_translate": false
+    },
+    {
+      "en": "Layer",
+      "zh": "图层",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Seed",
+      "zh": "种子",
+      "context": "rng",
+      "do_not_translate": false
+    },
+    {
+      "en": "Culture",
+      "zh": "文化",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Burg",
+      "zh": "城镇",
+      "context": "settlement",
+      "do_not_translate": false
+    },
+    {
+      "en": "State",
+      "zh": "国家",
+      "context": "political",
+      "do_not_translate": false
+    },
+    {
+      "en": "Province",
+      "zh": "省份",
+      "context": "administrative",
+      "do_not_translate": false
+    },
+    {
+      "en": "Religion",
+      "zh": "宗教",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Biome",
+      "zh": "生物群系",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Heightmap",
+      "zh": "高度图",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Feature",
+      "zh": "地貌",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "River",
+      "zh": "河流",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Lake",
+      "zh": "湖泊",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Route",
+      "zh": "道路",
+      "context": "transport",
+      "do_not_translate": false
+    },
+    {
+      "en": "Marker",
+      "zh": "标记",
+      "context": "poi",
+      "do_not_translate": false
+    },
+    {
+      "en": "Zone",
+      "zh": "区域",
+      "context": "highlight",
+      "do_not_translate": false
+    },
+    {
+      "en": "Diplomacy",
+      "zh": "外交",
+      "context": "political",
+      "do_not_translate": false
+    },
+    {
+      "en": "Regiment",
+      "zh": "军团",
+      "context": "military",
+      "do_not_translate": false
+    },
+    {
+      "en": "Military",
+      "zh": "军事",
+      "context": "military",
+      "do_not_translate": false
+    },
+    {
+      "en": "Good",
+      "zh": "货物",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Market",
+      "zh": "市场",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Deal",
+      "zh": "交易",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Treasury",
+      "zh": "国库",
+      "context": "economy",
+      "do_not_translate": false
+    },
+    {
+      "en": "Emblem",
+      "zh": "纹章",
+      "context": "heraldry",
+      "do_not_translate": false
+    },
+    {
+      "en": "Note",
+      "zh": "笔记",
+      "context": "annotation",
+      "do_not_translate": false
+    },
+    {
+      "en": "Namesbase",
+      "zh": "名称库",
+      "context": "naming",
+      "do_not_translate": false
+    },
+    {
+      "en": "Overview",
+      "zh": "总览",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Editor",
+      "zh": "编辑器",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Generator",
+      "zh": "生成器",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Renderer",
+      "zh": "渲染器",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Configurator",
+      "zh": "配置器",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Submap",
+      "zh": "子地图",
+      "context": "tool",
+      "do_not_translate": false
+    },
+    {
+      "en": "Azgaar",
+      "zh": "Azgaar",
+      "context": "brand",
+      "do_not_translate": true
+    },
+    {
+      "en": "Picker",
+      "zh": "拾色器",
+      "context": "ui_color",
+      "do_not_translate": false
+    },
+    {
+      "en": "Palette",
+      "zh": "调色板",
+      "context": "ui_color",
+      "do_not_translate": false
+    },
+    {
+      "en": "Hatching",
+      "zh": "阴影线",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Texture",
+      "zh": "纹理",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Preset",
+      "zh": "预设",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Style",
+      "zh": "样式",
+      "context": "ui",
+      "do_not_translate": false
+    },
+    {
+      "en": "Tile",
+      "zh": "瓦片",
+      "context": "export",
+      "do_not_translate": false
+    },
+    {
+      "en": "Relief Icon",
+      "zh": "地形图标",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Label",
+      "zh": "标签",
+      "context": "rendering",
+      "do_not_translate": false
+    },
+    {
+      "en": "Measurers",
+      "zh": "测量器",
+      "context": "tool",
+      "do_not_translate": false
+    },
+    {
+      "en": "Population",
+      "zh": "人口",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Group",
+      "zh": "组",
+      "context": "ui_collection",
+      "do_not_translate": false,
+      "note": "use 组 not 分组 (coastline/lakes/labels editors use 'group' for SVG element collections)"
+    },
+    {
+      "en": "Element",
+      "zh": "元素",
+      "context": "ui_general",
+      "do_not_translate": false
+    },
+    {
+      "en": "Invalid",
+      "zh": "无效",
+      "context": "validation",
+      "do_not_translate": false,
+      "note": "use 无效 directly (e.g. 无效市场), avoid 无效的"
+    },
+    {
+      "en": "Selected",
+      "zh": "所选",
+      "context": "ui_state",
+      "do_not_translate": false
+    },
+    {
+      "en": "Provide",
+      "zh": "提供",
+      "context": "form_prompt",
+      "do_not_translate": false
+    },
+    {
+      "en": "Default",
+      "zh": "默认",
+      "context": "ui_state",
+      "do_not_translate": false
+    },
+    {
+      "en": "Unique",
+      "zh": "唯一",
+      "context": "validation",
+      "do_not_translate": false
+    },
+    {
+      "en": "Remove",
+      "zh": "移除",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Add",
+      "zh": "添加",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Edit",
+      "zh": "编辑",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Cancel",
+      "zh": "取消",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Apply",
+      "zh": "应用",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Close",
+      "zh": "关闭",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Save",
+      "zh": "保存",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Load",
+      "zh": "加载",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Select",
+      "zh": "选择",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Clear",
+      "zh": "清除",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Reset",
+      "zh": "重置",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Regenerate",
+      "zh": "重新生成",
+      "context": "action",
+      "do_not_translate": false
+    },
+    {
+      "en": "Height",
+      "zh": "高度",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Temperature",
+      "zh": "温度",
+      "context": "climate",
+      "do_not_translate": false
+    },
+    {
+      "en": "Precipitation",
+      "zh": "降水量",
+      "context": "climate",
+      "do_not_translate": false
+    },
+    {
+      "en": "Coastline",
+      "zh": "海岸线",
+      "context": "terrain",
+      "do_not_translate": false
+    },
+    {
+      "en": "Burgs",
+      "zh": "城镇",
+      "context": "settlement",
+      "do_not_translate": false
+    },
+    {
+      "en": "States",
+      "zh": "国家",
+      "context": "political",
+      "do_not_translate": false
+    },
+    {
+      "en": "Provinces",
+      "zh": "省份",
+      "context": "administrative",
+      "do_not_translate": false
+    },
+    {
+      "en": "Cultures",
+      "zh": "文化",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Religions",
+      "zh": "宗教",
+      "context": "demographic",
+      "do_not_translate": false
+    },
+    {
+      "en": "Rivers",
+      "zh": "河流",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Lakes",
+      "zh": "湖泊",
+      "context": "water",
+      "do_not_translate": false
+    },
+    {
+      "en": "Hemp",
+      "zh": "火麻",
+      "context": "economy",
+      "do_not_translate": false,
+      "note": "use 火麻 (flax/linen), not 大麻 (cannabis/marijuana)"
+    }
+  ],
+  "tm_hints": [
+    {
+      "source": "Add additional marker of that type",
+      "target": "添加该类型的额外标记",
+      "score": 1.5
+    },
+    {
+      "source": "Select marker type for newly added markers.",
+      "target": "选择新添加标记的标记类型。",
+      "score": 1.5
+    },
+    {
+      "source": "Current year should be a number",
+      "target": "当前年份应为数字",
+      "score": 1
+    },
+    {
+      "source": "${name} ${type} emblem. Click to edit. Hold Shift to show associated area or place",
+      "target": "${name} ${type}纹章。点击编辑。按住 Shift 显示关联区域或地点",
+      "score": 1
+    },
+    {
+      "source": "Are you sure you want to remove this marker? The action cannot be reverted",
+      "target": "确定要移除该标记吗？此操作无法撤销",
+      "score": 1
+    },
+    {
+      "source": "Are you sure you want to remove all non-locked markers? The action cannot be reverted",
+      "target": "确定要移除所有未锁定的标记吗？此操作无法撤销",
+      "score": 1
+    },
+    {
+      "source": "Are you sure you want to remove the market \"${name}\"?<br>This action cannot be reverted",
+      "target": "确定要移除市场\"${name}\"吗？<br>此操作无法撤销",
+      "score": 1
+    },
+    {
+      "source": "Element with this name already exists. Provide a unique name",
+      "target": "具有此名称的元素已存在。请提供唯一的名称",
+      "score": 1
+    },
+    {
+      "source": "Name is too short! Random name will be selected",
+      "target": "名称过短！将选择随机名称",
+      "score": 1
+    },
+    {
+      "source": "Define map name (will be used to name downloaded files)",
+      "target": "定义地图名称（将用于命名下载文件）",
+      "score": 1
+    },
+    {
+      "source": "Define current year and era name",
+      "target": "定义当前年份和纪元名称",
+      "score": 1
+    },
+    {
+      "source": "Click to set number multiplier",
+      "target": "点击设置数量倍率",
+      "score": 1
+    },
+    {
+      "source": "Click to regenerate zones. Hold Ctrl and click to set zones number multiplier",
+      "target": "点击重新生成区域。按住 Ctrl 点击可设置区域数量倍率",
+      "score": 1
+    },
+    {
+      "source": "Area unit name, type \"square\" to add ² to the distance unit",
+      "target": "面积单位名称，输入 \"square\" 可在距离单位后添加 ²",
+      "score": 1
+    },
+    {
+      "source": "The Options tab lets you configure world generation parameters like the number of states, cultures, religions, and other settings that shape the generated world.",
+      "target": "选项选项卡可配置世界生成参数，如国家、文化、宗教的数量，以及其他塑造生成世界的设置。",
+      "score": 1
+    },
+    {
+      "source": "Click to sort by marker type",
+      "target": "点击按标记类型排序",
+      "score": 1
+    },
+    {
+      "source": "Markers number",
+      "target": "标记数量",
+      "score": 1
+    },
+    {
+      "source": "Regiment emblem and name. Click to sort by name",
+      "target": "军团纹章和名称。点击按名称排序",
+      "score": 1
+    },
+    {
+      "source": "Click to sort by river type name",
+      "target": "点击按河流类型名称排序",
+      "score": 1
+    },
+    {
+      "source": "The current map already has this seed",
+      "target": "当前地图已使用该种子",
+      "score": 0.5
+    }
+  ],
+  "cross_file_duplicates": [],
+  "instructions": [
+    "If a unit's source exactly matches a key in tm_hints, REUSE that target verbatim.",
+    "If a unit's source is in cross_file_duplicates, it appears in other batches too — choose a concise translation that other batches are likely to also pick.",
+    "For similar phrases (e.g. 'Group name should start with a letter' vs 'Name should start with a letter'), prefer consistency with tm_hints over novel phrasing.",
+    "每翻译完一个 unit（用 Edit 修改源文件后），向 i18n/artifacts/batch_4.json 的 artifacts 数组追加一条记录",
+    "记录格式：{id, source, target, file, line_before, line_after, type, context_tag, model, confidence, applied}",
+    "line_before 用 unit.line；line_after 是翻译后该 unit 在源文件中的实际行号（如果上方有行增减会漂移）",
+    "model 填你实际使用的模型标识；confidence 填 0-1 自评；applied 填 true（已 Edit 应用）"
+  ]
+}

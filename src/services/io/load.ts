@@ -649,8 +649,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         if (!burg.i || burg.removed) return;
 
         if (burg.cell === undefined || burg.x === undefined || burg.y === undefined) {
-          ERROR &&
-            console.error(`[数据完整性] 城镇 ${burg.i} 缺少单元格信息或坐标。移除该城镇`);
+          ERROR && console.error(`[数据完整性] 城镇 ${burg.i} 缺少单元格信息或坐标。移除该城镇`);
           burg.removed = true;
         }
 
@@ -693,10 +692,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         const capitalBurgs = stateBurgs.filter(b => b.capital);
 
         if (!state.i && capitalBurgs.length) {
-          ERROR &&
-            console.error(
-              `[数据完整性] 中立城镇 (${capitalBurgs.map(b => b.i).join(", ")}) 被标记为首都`
-            );
+          ERROR && console.error(`[数据完整性] 中立城镇 (${capitalBurgs.map(b => b.i).join(", ")}) 被标记为首都`);
 
           capitalBurgs.forEach(burg => {
             burg.capital = 0;
@@ -733,10 +729,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         if (!p?.i || p?.removed) return;
         const state = pack.states[p.state];
         if (state && !state.removed) return;
-        ERROR &&
-          console.error(
-            `[数据完整性] 省份 ${p.i} 关联到已移除的国家 ${p.state}。移除该省份`
-          );
+        ERROR && console.error(`[数据完整性] 省份 ${p.i} 关联到已移除的国家 ${p.state}。移除该省份`);
         p.removed = true;
       });
 
@@ -761,8 +754,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
           const routeId = value[+to];
           const route = pack.routes.find(r => r.i === routeId);
           if (!route) {
-            ERROR &&
-              console.error(`[数据完整性] 从 ${from} 到 ${to} 的道路 ${routeId} 缺失。移除该道路`);
+            ERROR && console.error(`[数据完整性] 从 ${from} 到 ${to} 的道路 ${routeId} 缺失。移除该道路`);
             delete pack.cells.routes[+from][+to];
           }
         }
