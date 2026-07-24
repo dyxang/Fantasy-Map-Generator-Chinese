@@ -13814,6 +13814,1191 @@
       "type": "html_attr",
       "context_tag": "data-tip",
       "skipped": false
+    },
+    {
+      "id": "sha256:e7cacf6f2a975f66",
+      "source": "English",
+      "target": "英语",
+      "file": "src/index.html",
+      "line": 1693,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:e99789081cec9f37",
+      "source": "Random",
+      "target": "随机",
+      "file": "src/index.html",
+      "line": 1697,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:f84ba9cd5febbd73",
+      "source": "French",
+      "target": "法语",
+      "file": "src/index.html",
+      "line": 1895,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:182f90fd72a77a2c",
+      "source": "Roman",
+      "target": "罗马",
+      "file": "src/index.html",
+      "line": 1906,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:1910dfb64ed50d61",
+      "source": "Configure World",
+      "target": "配置世界",
+      "file": "src/index.html",
+      "line": 2023,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:39ff8709a7f40d4b",
+      "source": "Cultures set",
+      "target": "文化集",
+      "file": "src/index.html",
+      "line": 1687,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4fe2ce0d4de58971",
+      "source": "All-world",
+      "target": "全世界",
+      "file": "src/index.html",
+      "line": 1690,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9050909d82be8073",
+      "source": "European",
+      "target": "欧洲",
+      "file": "src/index.html",
+      "line": 1691,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5169d82af08607a2",
+      "source": "Oriental",
+      "target": "东方",
+      "file": "src/index.html",
+      "line": 1692,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:35a8241001d754a9",
+      "source": "Antique",
+      "target": "古代",
+      "file": "src/index.html",
+      "line": 1694,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:04a7e6f1ea73a3e1",
+      "source": "High Fantasy",
+      "target": "高魔奇幻",
+      "file": "src/index.html",
+      "line": 1695,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:400002c147115497",
+      "source": "Dark Fantasy",
+      "target": "黑暗奇幻",
+      "file": "src/index.html",
+      "line": 1696,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:17b8cea06655b83a",
+      "source": "Define how many states and capitals should be generated",
+      "target": "定义要生成的国家与首都数量",
+      "file": "src/index.html",
+      "line": 1702,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2f68e13051d6c051",
+      "source": "States number",
+      "target": "国家数量",
+      "file": "src/index.html",
+      "line": 1706,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:236088a8947c02a1",
+      "source": "Set what share of eligible burgs in each state will become province centers. Higher values create more provinces",
+      "target": "设置每个国家中符合条件城镇成为省份中心的比例。值越高，省份越多",
+      "file": "src/index.html",
+      "line": 1711,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:90b8db48152d8b82",
+      "source": "Provinces ratio",
+      "target": "省份比例",
+      "file": "src/index.html",
+      "line": 1717,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:699c30ef5244fcf6",
+      "source": "Define how much states and cultures can vary in size. Defines expansionism value",
+      "target": "定义国家和文化在大小上的差异程度，决定扩张值",
+      "file": "src/index.html",
+      "line": 1722,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:871f302d56ee1715",
+      "source": "Size variety",
+      "target": "大小差异",
+      "file": "src/index.html",
+      "line": 1726,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2994fa766d4846ca",
+      "source": "Set state and cultures growth rate. Defines how many lands will stay neutral",
+      "target": "设置国家和文化的增长率，决定有多少土地保持中立",
+      "file": "src/index.html",
+      "line": 1731,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:59e132cc2adc0da2",
+      "source": "Growth rate",
+      "target": "增长率",
+      "file": "src/index.html",
+      "line": 1735,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ec2d664433cf92f1",
+      "source": "Define a number of non-capital settlements to be placed (if enough suitable land exists)",
+      "target": "定义要放置的非首都定居点数量（需有足够合适土地）",
+      "file": "src/index.html",
+      "line": 1740,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:69b457853f2351e8",
+      "source": "Burgs number",
+      "target": "城镇数量",
+      "file": "src/index.html",
+      "line": 1744,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:37e92e07920a567a",
+      "source": "Define how many organized religions and cults should be generated. Cultures will have their own folk religions in any case",
+      "target": "定义要生成的有组织宗教与教派数量。无论设置如何，文化都会拥有自己的民间信仰",
+      "file": "src/index.html",
+      "line": 1752,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b7260958278f298f",
+      "source": "Religions number",
+      "target": "宗教数量",
+      "file": "src/index.html",
+      "line": 1758,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b28d9aa55f275742",
+      "source": "Select state labels mode: display short or full names",
+      "target": "选择国家标签模式：显示简称或全称",
+      "file": "src/index.html",
+      "line": 1769,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:81d95c60142d575b",
+      "source": "State labels",
+      "target": "国家标签",
+      "file": "src/index.html",
+      "line": 1773,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7713b8896c4c95ed",
+      "source": "Auto",
+      "target": "自动",
+      "file": "src/index.html",
+      "line": 1776,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bf4988e68489ada2",
+      "source": "Short names",
+      "target": "简称",
+      "file": "src/index.html",
+      "line": 1777,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8c9c6afacff5b19d",
+      "source": "Full names",
+      "target": "全称",
+      "file": "src/index.html",
+      "line": 1778,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:44d265df140d2687",
+      "source": "Tool settings that don't affect maps. Changes are getting applied immediately",
+      "target": "工具设置，不影响地图。更改会立即生效",
+      "file": "src/index.html",
+      "line": 1784,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1e8955c30fa06fe6",
+      "source": "Generator settings:",
+      "target": "生成器设置：",
+      "file": "src/index.html",
+      "line": 1785,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:350d20d191689f87",
+      "source": "Set user interface size. Please note browser zoom also affects interface size (Ctrl + or Ctrl - to change)",
+      "target": "设置用户界面大小。请注意浏览器缩放也会影响界面大小（按 Ctrl + 或 Ctrl - 调整）",
+      "file": "src/index.html",
+      "line": 1789,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:81b97e3846994e82",
+      "source": "Interface size",
+      "target": "界面大小",
+      "file": "src/index.html",
+      "line": 1792,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d65627c18a2de1ca",
+      "source": "Set tooltip size",
+      "target": "设置提示框大小",
+      "file": "src/index.html",
+      "line": 1797,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b7a8bf6fa1966e67",
+      "source": "Tooltip size",
+      "target": "提示框大小",
+      "file": "src/index.html",
+      "line": 1799,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c09114fb897cd06",
+      "source": "Set theme hue for dialogs and tool windows",
+      "target": "设置对话框与工具窗口的主题色相",
+      "file": "src/index.html",
+      "line": 1804,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c5a47009e8615152",
+      "source": "Restore default theme color: pale magenta",
+      "target": "恢复默认主题色：淡品红",
+      "file": "src/index.html",
+      "line": 1806,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5cd41cb037f4c56",
+      "source": "Theme color",
+      "target": "主题色",
+      "file": "src/index.html",
+      "line": 1808,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1095b6ea127be249",
+      "source": "Set dialog and tool windows transparency",
+      "target": "设置对话框与工具窗口的透明度",
+      "file": "src/index.html",
+      "line": 1816,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7d1a813a7de51697",
+      "source": "Transparency",
+      "target": "透明度",
+      "file": "src/index.html",
+      "line": 1818,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f11b779a151b1613",
+      "source": "Set autosave interval in minutes. Set 0 to disable autosave. Map is saved to browser memory",
+      "target": "设置自动保存间隔（分钟）。设为 0 可禁用自动保存。地图会保存到浏览器内存",
+      "file": "src/index.html",
+      "line": 1823,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:aa510dc3c76989e1",
+      "source": "Autosave interval",
+      "target": "自动保存间隔",
+      "file": "src/index.html",
+      "line": 1825,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9f18e5949be8d033",
+      "source": "Set what Generator should do on load",
+      "target": "设置生成器在加载时的行为",
+      "file": "src/index.html",
+      "line": 1849,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7dc343b2518ab3ed",
+      "source": "Onload behavior",
+      "target": "加载行为",
+      "file": "src/index.html",
+      "line": 1851,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bb89b3cc761d8022",
+      "source": "Generate random map",
+      "target": "生成随机地图",
+      "file": "src/index.html",
+      "line": 1854,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:57f3e171e29d8f03",
+      "source": "Open last saved map",
+      "target": "打开上次保存的地图",
+      "file": "src/index.html",
+      "line": 1855,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4714633a5cb1cfe4",
+      "source": "Toggle Azgaar Assistant (help bubble on the bottom right corner)",
+      "target": "切换 Azgaar 助手（右下角的帮助气泡）",
+      "file": "src/index.html",
+      "line": 1860,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:60a9c12268703e1f",
+      "source": "Azgaar assistant",
+      "target": "Azgaar 助手",
+      "file": "src/index.html",
+      "line": 1862,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c272b6ffedd3aec5",
+      "source": "Show",
+      "target": "显示",
+      "file": "src/index.html",
+      "line": 1865,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7a221fdec1d3e260",
+      "source": "Hide",
+      "target": "隐藏",
+      "file": "src/index.html",
+      "line": 1866,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a2054410a677fc49",
+      "source": "Select speech synthesis voice to pronounce generated names",
+      "target": "选择语音合成嗓音以朗读生成的名称",
+      "file": "src/index.html",
+      "line": 1870,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2646316cf0895e14",
+      "source": "Speaker voice",
+      "target": "语音嗓音",
+      "file": "src/index.html",
+      "line": 1872,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:de60f2a4463014e4",
+      "source": "Click to test the voice",
+      "target": "点击测试语音",
+      "file": "src/index.html",
+      "line": 1877,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f34714fff0c75ec3",
+      "source": "Select emblem shape. Can be changed indivudually in Emblem editor",
+      "target": "选择纹章形状。可在纹章编辑器中单独修改",
+      "file": "src/index.html",
+      "line": 1880,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b1a7a08cce632e92",
+      "source": "Emblem shape",
+      "target": "纹章形状",
+      "file": "src/index.html",
+      "line": 1884,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:43a8a30ed6dccac4",
+      "source": "Culture-specific",
+      "target": "文化专属",
+      "file": "src/index.html",
+      "line": 1888,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e0add2462a5c870f",
+      "source": "Culture-random",
+      "target": "文化随机",
+      "file": "src/index.html",
+      "line": 1889,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9b8485312c957e81",
+      "source": "State-specific",
+      "target": "国家专属",
+      "file": "src/index.html",
+      "line": 1890,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fb30f4dd347ffc3a",
+      "source": "Heater",
+      "target": "炉壁盾",
+      "file": "src/index.html",
+      "line": 1893,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b2bcef25c4693a6e",
+      "source": "Spanish",
+      "target": "西班牙式",
+      "file": "src/index.html",
+      "line": 1894,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d43ecaabbba3fb0e",
+      "source": "Horsehead",
+      "target": "马头形",
+      "file": "src/index.html",
+      "line": 1898,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e8130f1807161e9a",
+      "source": "Horsehead Edgy",
+      "target": "马头尖角形",
+      "file": "src/index.html",
+      "line": 1899,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eaad87cfc81d02dc",
+      "source": "Polish",
+      "target": "波兰式",
+      "file": "src/index.html",
+      "line": 1900,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8f82344e648d1cf2",
+      "source": "Hessen",
+      "target": "黑森式",
+      "file": "src/index.html",
+      "line": 1901,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0ed3ca044f240c1f",
+      "source": "Swiss",
+      "target": "瑞士式",
+      "file": "src/index.html",
+      "line": 1902,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e153d7bf2f47a350",
+      "source": "Boeotian",
+      "target": "维奥蒂亚式",
+      "file": "src/index.html",
+      "line": 1905,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8a5b6b9f2649b868",
+      "source": "Kite",
+      "target": "鸢盾",
+      "file": "src/index.html",
+      "line": 1907,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad8bef3011ffa2d5",
+      "source": "Old French",
+      "target": "古法语式",
+      "file": "src/index.html",
+      "line": 1908,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1817824d1ac1a116",
+      "source": "Renaissance",
+      "target": "文艺复兴式",
+      "file": "src/index.html",
+      "line": 1909,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e3a76a5d7d75ed6a",
+      "source": "Baroque",
+      "target": "巴洛克式",
+      "file": "src/index.html",
+      "line": 1910,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:db0e419aa0e12361",
+      "source": "Targe",
+      "target": "圆盾",
+      "file": "src/index.html",
+      "line": 1913,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fda4c2368c224e83",
+      "source": "Targe2",
+      "target": "圆盾2",
+      "file": "src/index.html",
+      "line": 1914,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c35495d159a39132",
+      "source": "Pavise",
+      "target": "长盾",
+      "file": "src/index.html",
+      "line": 1915,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f96234cfe5df3c14",
+      "source": "Wedged",
+      "target": "楔形",
+      "file": "src/index.html",
+      "line": 1916,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f94e5aea888e6ce4",
+      "source": "Flag",
+      "target": "旗帜",
+      "file": "src/index.html",
+      "line": 1919,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7421c6ce2aef83bc",
+      "source": "Pennon",
+      "target": "长尖旗",
+      "file": "src/index.html",
+      "line": 1920,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5821ad8c8c9f6749",
+      "source": "Guidon",
+      "target": "骑兵旗",
+      "file": "src/index.html",
+      "line": 1921,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:95aee3079cae04b4",
+      "source": "Banner",
+      "target": "横幅",
+      "file": "src/index.html",
+      "line": 1922,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:02ceb5277a896278",
+      "source": "Dovetail",
+      "target": "燕尾旗",
+      "file": "src/index.html",
+      "line": 1923,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9283dc3e754e6e6d",
+      "source": "Gonfalon",
+      "target": "悬旗",
+      "file": "src/index.html",
+      "line": 1924,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a929b9d5382a3073",
+      "source": "Pennant",
+      "target": "三角旗",
+      "file": "src/index.html",
+      "line": 1925,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:30c52e40ee1e7fb2",
+      "source": "Oval",
+      "target": "椭圆",
+      "file": "src/index.html",
+      "line": 1929,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:50d3c0a0e78cbfdc",
+      "source": "Vesica Piscis",
+      "target": "圣鱼形",
+      "file": "src/index.html",
+      "line": 1930,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5a313e5dc809b4c9",
+      "source": "Diamond",
+      "target": "菱形",
+      "file": "src/index.html",
+      "line": 1932,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:85d3905ba9048bc5",
+      "source": "Fantasy1",
+      "target": "奇幻1",
+      "file": "src/index.html",
+      "line": 1935,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d3f56e564549dead",
+      "source": "Fantasy2",
+      "target": "奇幻2",
+      "file": "src/index.html",
+      "line": 1936,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e9947bd3735ea088",
+      "source": "Fantasy3",
+      "target": "奇幻3",
+      "file": "src/index.html",
+      "line": 1937,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6fa366af8ac69023",
+      "source": "Fantasy4",
+      "target": "奇幻4",
+      "file": "src/index.html",
+      "line": 1938,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:43d52d60ccac4a8b",
+      "source": "Fantasy5",
+      "target": "奇幻5",
+      "file": "src/index.html",
+      "line": 1939,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8876f59fe22e5887",
+      "source": "Noldor",
+      "target": "诺多族",
+      "file": "src/index.html",
+      "line": 1942,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e0bc9ee81a55a522",
+      "source": "Gondor",
+      "target": "刚铎",
+      "file": "src/index.html",
+      "line": 1943,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1877bd0a4fdf83f1",
+      "source": "Easterling",
+      "target": "东方人",
+      "file": "src/index.html",
+      "line": 1944,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:02536b61634f6da0",
+      "source": "Erebor",
+      "target": "伊鲁伯",
+      "file": "src/index.html",
+      "line": 1945,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c4a1ed5f758af5d8",
+      "source": "Iron Hills",
+      "target": "钢铁山",
+      "file": "src/index.html",
+      "line": 1946,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e77fdd6c96fe050a",
+      "source": "UrukHai",
+      "target": "强兽人",
+      "file": "src/index.html",
+      "line": 1947,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0131b853e69bc53d",
+      "source": "Moria Orc",
+      "target": "摩瑞亚半兽人",
+      "file": "src/index.html",
+      "line": 1948,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ca8a463f7756fd18",
+      "source": "Set minimum and maximum possible zoom level",
+      "target": "设置最小和最大可能的缩放级别",
+      "file": "src/index.html",
+      "line": 1956,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:431b5c46ab4504e2",
+      "source": "Restore default zoom extent: [1, 20]",
+      "target": "恢复默认缩放范围：[1, 20]",
+      "file": "src/index.html",
+      "line": 1958,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c5e29e623a2d1cd",
+      "source": "Zoom extent",
+      "target": "缩放范围",
+      "file": "src/index.html",
+      "line": 1960,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cf18395fcd10d4b4",
+      "source": "Mimimal possible zoom level (should be > 0)",
+      "target": "最小可能的缩放级别（应大于 0）",
+      "file": "src/index.html",
+      "line": 1962,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e701e78d778dd975",
+      "source": "min",
+      "target": "最小",
+      "file": "src/index.html",
+      "line": 1962,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f73eb938c5e92b79",
+      "source": "Mimimal possible zoom level (should be > 0)",
+      "target": "最小可能的缩放级别（应大于 0）",
+      "file": "src/index.html",
+      "line": 1963,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5eafc2b7e173e5a7",
+      "source": "Maximal possible zoom level (should be > 1)",
+      "target": "最大可能的缩放级别（应大于 1）",
+      "file": "src/index.html",
+      "line": 1973,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ac5b7e8f3934ac7e",
+      "source": "max",
+      "target": "最大",
+      "file": "src/index.html",
+      "line": 1973,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d1e71f534f217719",
+      "source": "Maximal possible zoom level (should be > 1)",
+      "target": "最大可能的缩放级别（应大于 1）",
+      "file": "src/index.html",
+      "line": 1974,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5d34c109a193a45a",
+      "source": "Allow to drag map beyond canvas borders",
+      "target": "允许将地图拖出画布边界",
+      "file": "src/index.html",
+      "line": 1985,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:72d21ac384850a6f",
+      "source": "Select rendering model. Try to set to 'optimized' if you face performance issues",
+      "target": "选择渲染模式。如遇性能问题，可尝试设为 optimized",
+      "file": "src/index.html",
+      "line": 1993,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2284a876cb8b4424",
+      "source": "Rendering",
+      "target": "渲染",
+      "file": "src/index.html",
+      "line": 1995,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:63c9a32ec97c05b9",
+      "source": "Best quality",
+      "target": "最佳质量",
+      "file": "src/index.html",
+      "line": 1998,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f7b3962e27bec75c",
+      "source": "Best performance",
+      "target": "最佳性能",
+      "file": "src/index.html",
+      "line": 1999,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4eecfefe4c8a90f9",
+      "source": "Load Google Translate and select language. Note that automatic translation can break some page functional. In this case reset the language back to English or refresh the page",
+      "target": "加载 Google 翻译并选择语言。请注意自动翻译可能破坏部分页面功能。此时请将语言重置为英语或刷新页面",
+      "file": "src/index.html",
+      "line": 2004,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9991b20c26683a6d",
+      "source": "Reset language to English",
+      "target": "将语言重置为英语",
+      "file": "src/index.html",
+      "line": 2008,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4d33368b5d5f3c87",
+      "source": "Language",
+      "target": "语言",
+      "file": "src/index.html",
+      "line": 2010,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e2210e2ef1e5db36",
+      "source": "Init Google Translate",
+      "target": "启动 Google 翻译",
+      "file": "src/index.html",
+      "line": 2012,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:89c05ff39cc28f75",
+      "source": "Click to open world configurator to setup map position on Globe and World climate",
+      "target": "点击打开世界配置器，设置地图在地球仪上的位置和世界气候",
+      "file": "src/index.html",
+      "line": 2019,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3d467286ef46064e",
+      "source": "Click to restore default options and reload the page",
+      "target": "点击恢复默认选项并重新加载页面",
+      "file": "src/index.html",
+      "line": 2026,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a951d3fe794df305",
+      "source": "Reset to defaults",
+      "target": "恢复默认",
+      "file": "src/index.html",
+      "line": 2030,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:84729fb5762156ed",
+      "source": "Edit",
+      "target": "编辑",
+      "file": "src/index.html",
+      "line": 2036,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
     }
   ]
 }

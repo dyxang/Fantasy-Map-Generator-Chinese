@@ -1684,64 +1684,64 @@
               <td>
                 <i data-locked="0" id="lock_culturesSet" class="icon-lock-open"></i>
               </td>
-              <td>Cultures set</td>
+              <td>文化集</td>
               <td>
                 <select id="culturesSet" data-stored="culturesSet">
-                  <option value="world" data-max="32" selected>All-world</option>
-                  <option value="european" data-max="15">European</option>
-                  <option value="oriental" data-max="13">Oriental</option>
+                  <option value="world" data-max="32" selected>全世界</option>
+                  <option value="european" data-max="15">欧洲</option>
+                  <option value="oriental" data-max="13">东方</option>
                   <option value="english" data-max="10">English</option>
-                  <option value="antique" data-max="10">Antique</option>
-                  <option value="highFantasy" data-max="17">High Fantasy</option>
-                  <option value="darkFantasy" data-max="18">Dark Fantasy</option>
+                  <option value="antique" data-max="10">古代</option>
+                  <option value="highFantasy" data-max="17">高魔奇幻</option>
+                  <option value="darkFantasy" data-max="18">黑暗奇幻</option>
                   <option value="random" data-max="100">Random</option>
                 </select>
               </td>
               <td></td>
             </tr>
-            <tr data-tip="Define how many states and capitals should be generated">
+            <tr data-tip="定义要生成的国家与首都数量">
               <td>
                 <i data-locked="0" id="lock_statesNumber" class="icon-lock-open"></i>
               </td>
-              <td>States number</td>
+              <td>国家数量</td>
               <td colspan="2">
                 <slider-input id="statesNumber" data-stored="statesNumber" min="0" max="100"></slider-input>
               </td>
             </tr>
             <tr
-              data-tip="Set what share of eligible burgs in each state will become province centers. Higher values create more provinces"
+              data-tip="设置每个国家中符合条件城镇成为省份中心的比例。值越高，省份越多"
             >
               <td>
                 <i data-locked="0" id="lock_provincesRatio" class="icon-lock-open"></i>
               </td>
-              <td>Provinces ratio</td>
+              <td>省份比例</td>
               <td colspan="2">
                 <slider-input id="provincesRatio" data-stored="provincesRatio" min="0" max="100"></slider-input>
               </td>
             </tr>
-            <tr data-tip="Define how much states and cultures can vary in size. Defines expansionism value">
+            <tr data-tip="定义国家和文化在大小上的差异程度，决定扩张值">
               <td>
                 <i data-locked="0" id="lock_sizeVariety" class="icon-lock-open"></i>
               </td>
-              <td>Size variety</td>
+              <td>大小差异</td>
               <td colspan="2">
                 <slider-input id="sizeVariety" data-stored="sizeVariety" min="0" max="10" step=".1"></slider-input>
               </td>
             </tr>
-            <tr data-tip="Set state and cultures growth rate. Defines how many lands will stay neutral">
+            <tr data-tip="设置国家和文化的增长率，决定有多少土地保持中立">
               <td>
                 <i data-locked="0" id="lock_growthRate" class="icon-lock-open"></i>
               </td>
-              <td>Growth rate</td>
+              <td>增长率</td>
               <td colspan="2">
                 <slider-input id="growthRate" data-stored="growthRate" min=".1" max="2" step=".1"></slider-input>
               </td>
             </tr>
-            <tr data-tip="Define a number of non-capital settlements to be placed (if enough suitable land exists)">
+            <tr data-tip="定义要放置的非首都定居点数量（需有足够合适土地）">
               <td>
                 <i data-locked="0" id="lock_manors" class="icon-lock-open"></i>
               </td>
-              <td>Burgs number</td>
+              <td>城镇数量</td>
               <td>
                 <input id="manorsInput" data-stored="manors" type="range" min="0" max="1000" step="1" value="1000" />
               </td>
@@ -1750,12 +1750,12 @@
               </td>
             </tr>
             <tr
-              data-tip="Define how many organized religions and cults should be generated. Cultures will have their own folk religions in any case"
+              data-tip="定义要生成的有组织宗教与教派数量。无论设置如何，文化都会拥有自己的民间信仰"
             >
               <td>
                 <i data-locked="0" id="lock_religionsNumber" class="icon-lock-open"></i>
               </td>
-              <td>Religions number</td>
+              <td>宗教数量</td>
               <td colspan="2">
                 <slider-input
                   id="religionsNumber"
@@ -1766,46 +1766,46 @@
                 ></slider-input>
               </td>
             </tr>
-            <tr data-tip="Select state labels mode: display short or full names">
+            <tr data-tip="选择国家标签模式：显示简称或全称">
               <td>
                 <i data-locked="0" id="lock_stateLabelsMode" class="icon-lock-open"></i>
               </td>
-              <td>State labels</td>
+              <td>国家标签</td>
               <td>
                 <select id="stateLabelsModeInput" data-stored="stateLabelsMode">
-                  <option value="auto">Auto</option>
-                  <option value="short">Short names</option>
-                  <option value="full">Full names</option>
+                  <option value="auto">自动</option>
+                  <option value="short">简称</option>
+                  <option value="full">全称</option>
                 </select>
               </td>
               <td></td>
             </tr>
           </table>
-          <p data-tip="Tool settings that don't affect maps. Changes are getting applied immediately">
-            Generator settings:
+          <p data-tip="工具设置，不影响地图。更改会立即生效">
+            生成器设置：
           </p>
           <table>
             <tr
-              data-tip="Set user interface size. Please note browser zoom also affects interface size (Ctrl + or Ctrl - to change)"
+              data-tip="设置用户界面大小。请注意浏览器缩放也会影响界面大小（按 Ctrl + 或 Ctrl - 调整）"
             >
               <td></td>
-              <td>Interface size</td>
+              <td>界面大小</td>
               <td colspan="2">
                 <slider-input id="uiSize" data-stored="uiSize" min=".6" max="3" step=".1"></slider-input>
               </td>
             </tr>
-            <tr data-tip="Set tooltip size">
+            <tr data-tip="设置提示框大小">
               <td></td>
-              <td>Tooltip size</td>
+              <td>提示框大小</td>
               <td colspan="2">
                 <slider-input id="tooltipSize" data-stored="tooltipSize" min="1" max="32" value="14"></slider-input>
               </td>
             </tr>
-            <tr data-tip="Set theme hue for dialogs and tool windows">
+            <tr data-tip="设置对话框与工具窗口的主题色相">
               <td>
-                <i data-tip="Restore default theme color: pale magenta" id="themeColorRestore" class="icon-ccw"></i>
+                <i data-tip="恢复默认主题色：淡品红" id="themeColorRestore" class="icon-ccw"></i>
               </td>
-              <td>Theme color</td>
+              <td>主题色</td>
               <td>
                 <input id="themeHueInput" type="range" min="0" max="359" />
               </td>
@@ -1813,16 +1813,16 @@
                 <input id="themeColorInput" data-stored="themeColor" type="color" />
               </td>
             </tr>
-            <tr data-tip="Set dialog and tool windows transparency">
+            <tr data-tip="设置对话框与工具窗口的透明度">
               <td></td>
-              <td>Transparency</td>
+              <td>透明度</td>
               <td colspan="2">
                 <slider-input id="transparencyInput" data-stored="transparency" min="0" max="100"></slider-input>
               </td>
             </tr>
-            <tr data-tip="Set autosave interval in minutes. Set 0 to disable autosave. Map is saved to browser memory">
+            <tr data-tip="设置自动保存间隔（分钟）。设为 0 可禁用自动保存。地图会保存到浏览器内存">
               <td></td>
-              <td>Autosave interval</td>
+              <td>自动保存间隔</td>
               <td>
                 <input
                   id="autosaveIntervalInput"
@@ -1846,106 +1846,106 @@
                 />
               </td>
             </tr>
-            <tr data-tip="Set what Generator should do on load">
+            <tr data-tip="设置生成器在加载时的行为">
               <td></td>
-              <td>Onload behavior</td>
+              <td>加载行为</td>
               <td>
                 <select id="onloadBehavior" data-stored="onloadBehavior">
-                  <option value="random" selected>Generate random map</option>
-                  <option value="lastSaved">Open last saved map</option>
+                  <option value="random" selected>生成随机地图</option>
+                  <option value="lastSaved">打开上次保存的地图</option>
                 </select>
               </td>
               <td></td>
             </tr>
-            <tr data-tip="Toggle Azgaar Assistant (help bubble on the bottom right corner)">
+            <tr data-tip="切换 Azgaar 助手（右下角的帮助气泡）">
               <td></td>
-              <td>Azgaar assistant</td>
+              <td>Azgaar 助手</td>
               <td>
                 <select id="azgaarAssistant" data-stored="azgaarAssistant">
-                  <option value="show" selected>Show</option>
-                  <option value="hide">Hide</option>
+                  <option value="show" selected>显示</option>
+                  <option value="hide">隐藏</option>
                 </select>
               </td>
             </tr>
-            <tr data-tip="Select speech synthesis voice to pronounce generated names">
+            <tr data-tip="选择语音合成嗓音以朗读生成的名称">
               <td></td>
-              <td>Speaker voice</td>
+              <td>语音嗓音</td>
               <td>
                 <select id="speakerVoice" data-stored="speakerVoice"></select>
               </td>
               <td>
-                <span id="speakerTest" data-tip="Click to test the voice" style="cursor: pointer">🔊</span>
+                <span id="speakerTest" data-tip="点击测试语音" style="cursor: pointer">🔊</span>
               </td>
             </tr>
-            <tr data-tip="Select emblem shape. Can be changed indivudually in Emblem editor">
+            <tr data-tip="选择纹章形状。可在纹章编辑器中单独修改">
               <td>
                 <i data-locked="0" id="lock_emblemShape" class="icon-lock"></i>
               </td>
-              <td>Emblem shape</td>
+              <td>纹章形状</td>
               <td>
                 <select id="emblemShape" data-stored="emblemShape">
                   <optgroup label="Diversiform">
-                    <option value="culture" selected>Culture-specific</option>
-                    <option value="random">Culture-random</option>
-                    <option value="state">State-specific</option>
+                    <option value="culture" selected>文化专属</option>
+                    <option value="random">文化随机</option>
+                    <option value="state">国家专属</option>
                   </optgroup>
                   <optgroup label="Basic">
-                    <option value="heater">Heater</option>
-                    <option value="spanish">Spanish</option>
+                    <option value="heater">炉壁盾</option>
+                    <option value="spanish">西班牙式</option>
                     <option value="french">French</option>
                   </optgroup>
                   <optgroup label="Regional">
-                    <option value="horsehead">Horsehead</option>
-                    <option value="horsehead2">Horsehead Edgy</option>
-                    <option value="polish">Polish</option>
-                    <option value="hessen">Hessen</option>
-                    <option value="swiss">Swiss</option>
+                    <option value="horsehead">马头形</option>
+                    <option value="horsehead2">马头尖角形</option>
+                    <option value="polish">波兰式</option>
+                    <option value="hessen">黑森式</option>
+                    <option value="swiss">瑞士式</option>
                   </optgroup>
                   <optgroup label="Historical">
-                    <option value="boeotian">Boeotian</option>
+                    <option value="boeotian">维奥蒂亚式</option>
                     <option value="roman">Roman</option>
-                    <option value="kite">Kite</option>
-                    <option value="oldFrench">Old French</option>
-                    <option value="renaissance">Renaissance</option>
-                    <option value="baroque">Baroque</option>
+                    <option value="kite">鸢盾</option>
+                    <option value="oldFrench">古法语式</option>
+                    <option value="renaissance">文艺复兴式</option>
+                    <option value="baroque">巴洛克式</option>
                   </optgroup>
                   <optgroup label="Specific">
-                    <option value="targe">Targe</option>
-                    <option value="targe2">Targe2</option>
-                    <option value="pavise">Pavise</option>
-                    <option value="wedged">Wedged</option>
+                    <option value="targe">圆盾</option>
+                    <option value="targe2">圆盾2</option>
+                    <option value="pavise">长盾</option>
+                    <option value="wedged">楔形</option>
                   </optgroup>
                   <optgroup label="Banner">
-                    <option value="flag">Flag</option>
-                    <option value="pennon">Pennon</option>
-                    <option value="guidon">Guidon</option>
-                    <option value="banner">Banner</option>
-                    <option value="dovetail">Dovetail</option>
-                    <option value="gonfalon">Gonfalon</option>
-                    <option value="pennant">Pennant</option>
+                    <option value="flag">旗帜</option>
+                    <option value="pennon">长尖旗</option>
+                    <option value="guidon">骑兵旗</option>
+                    <option value="banner">横幅</option>
+                    <option value="dovetail">燕尾旗</option>
+                    <option value="gonfalon">悬旗</option>
+                    <option value="pennant">三角旗</option>
                   </optgroup>
                   <optgroup label="Simple">
                     <option value="round">圆角</option>
-                    <option value="oval">Oval</option>
-                    <option value="vesicaPiscis">Vesica Piscis</option>
+                    <option value="oval">椭圆</option>
+                    <option value="vesicaPiscis">圣鱼形</option>
                     <option value="square">方角</option>
-                    <option value="diamond">Diamond</option>
+                    <option value="diamond">菱形</option>
                   </optgroup>
                   <optgroup label="Fantasy">
-                    <option value="fantasy1">Fantasy1</option>
-                    <option value="fantasy2">Fantasy2</option>
-                    <option value="fantasy3">Fantasy3</option>
-                    <option value="fantasy4">Fantasy4</option>
-                    <option value="fantasy5">Fantasy5</option>
+                    <option value="fantasy1">奇幻1</option>
+                    <option value="fantasy2">奇幻2</option>
+                    <option value="fantasy3">奇幻3</option>
+                    <option value="fantasy4">奇幻4</option>
+                    <option value="fantasy5">奇幻5</option>
                   </optgroup>
                   <optgroup label="Middle Earth">
-                    <option value="noldor">Noldor</option>
-                    <option value="gondor">Gondor</option>
-                    <option value="easterling">Easterling</option>
-                    <option value="erebor">Erebor</option>
-                    <option value="ironHills">Iron Hills</option>
-                    <option value="urukHai">UrukHai</option>
-                    <option value="moriaOrc">Moria Orc</option>
+                    <option value="noldor">诺多族</option>
+                    <option value="gondor">刚铎</option>
+                    <option value="easterling">东方人</option>
+                    <option value="erebor">伊鲁伯</option>
+                    <option value="ironHills">钢铁山</option>
+                    <option value="urukHai">强兽人</option>
+                    <option value="moriaOrc">摩瑞亚半兽人</option>
                   </optgroup>
                 </select>
               </td>
@@ -1953,15 +1953,15 @@
                 <svg class="emblemShapePreview" viewBox="0 0 200 210"><path id="emblemShapeImage" /></svg>
               </td>
             </tr>
-            <tr data-tip="Set minimum and maximum possible zoom level">
+            <tr data-tip="设置最小和最大可能的缩放级别">
               <td>
-                <i data-tip="Restore default zoom extent: [1, 20]" id="zoomExtentDefault" class="icon-ccw"></i>
+                <i data-tip="恢复默认缩放范围：[1, 20]" id="zoomExtentDefault" class="icon-ccw"></i>
               </td>
-              <td>Zoom extent</td>
+              <td>缩放范围</td>
               <td>
-                <span data-tip="Mimimal possible zoom level (should be > 0)">min</span>
+                <span data-tip="最小可能的缩放级别（应大于 0）">最小</span>
                 <input
-                  data-tip="Mimimal possible zoom level (should be > 0)"
+                  data-tip="最小可能的缩放级别（应大于 0）"
                   id="zoomExtentMin"
                   class="paired"
                   type="number"
@@ -1970,9 +1970,9 @@
                   max="20"
                   value="1"
                 />
-                <span data-tip="Maximal possible zoom level (should be > 1)">max</span>
+                <span data-tip="最大可能的缩放级别（应大于 1）">最大</span>
                 <input
-                  data-tip="Maximal possible zoom level (should be > 1)"
+                  data-tip="最大可能的缩放级别（应大于 1）"
                   id="zoomExtentMax"
                   class="paired"
                   type="number"
@@ -1983,33 +1983,33 @@
               </td>
               <td>
                 <i
-                  data-tip="Allow to drag map beyond canvas borders"
+                  data-tip="允许将地图拖出画布边界"
                   id="translateExtent"
                   data-on="0"
                   class="icon-hand-paper-o"
                 ></i>
               </td>
             </tr>
-            <tr data-tip="Select rendering model. Try to set to 'optimized' if you face performance issues">
+            <tr data-tip="选择渲染模式。如遇性能问题，可尝试设为 optimized">
               <td></td>
-              <td>Rendering</td>
+              <td>渲染</td>
               <td>
                 <select id="shapeRendering" data-stored="shapeRendering">
-                  <option value="geometricPrecision">Best quality</option>
-                  <option value="optimizeSpeed" selected>Best performance</option>
+                  <option value="geometricPrecision">最佳质量</option>
+                  <option value="optimizeSpeed" selected>最佳性能</option>
                 </select>
               </td>
               <td></td>
             </tr>
             <tr
-              data-tip="Load Google Translate and select language. Note that automatic translation can break some page functional. In this case reset the language back to English or refresh the page"
+              data-tip="加载 Google 翻译并选择语言。请注意自动翻译可能破坏部分页面功能。此时请将语言重置为英语或刷新页面"
             >
               <td>
-                <i data-tip="Reset language to English" id="resetLanguage" class="icon-ccw"></i>
+                <i data-tip="将语言重置为英语" id="resetLanguage" class="icon-ccw"></i>
               </td>
-              <td>Language</td>
+              <td>语言</td>
               <td>
-                <button id="loadGoogleTranslateButton">Init Google Translate</button>
+                <button id="loadGoogleTranslateButton">启动 Google 翻译</button>
                 <div id="google_translate_element"></div>
               </td>
               <td></td>
@@ -2018,22 +2018,22 @@
           <div>
             <button
               id="configureWorld"
-              data-tip="Click to open world configurator to setup map position on Globe and World climate"
+              data-tip="点击打开世界配置器，设置地图在地球仪上的位置和世界气候"
               onclick="window.Controllers.WorldConfigurator.open()"
             >
               Configure World
             </button>
             <button
               id="optionsReset"
-              data-tip="Click to restore default options and reload the page"
+              data-tip="点击恢复默认选项并重新加载页面"
               onclick="cleanupData()"
             >
-              Reset to defaults
+              恢复默认
             </button>
           </div>
         </div>
         <div id="toolsContent" class="tabcontent">
-          <div class="separator">Edit</div>
+          <div class="separator">编辑</div>
           <div class="grid">
             <button id="editBiomesButton" data-tip="Click to open Biomes Editor" data-shortcut="Shift + B">
               Biomes
