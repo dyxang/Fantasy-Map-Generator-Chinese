@@ -2644,44 +2644,44 @@
       </div>
       <div id="cellInfo" style="display: none" class="dialog stable">
         <p>
-          <b>Cell:</b> <span id="infoCell"></span> <b>X：</b> <span id="infoX"></span> <b>Y:</b> <span id="infoY"></span>
+          <b>Cell:</b> <span id="infoCell"></span> <b>X：</b> <span id="infoX"></span> <b>Y：</b> <span id="infoY"></span>
         </p>
-        <p><b>Latitude:</b> <span id="infoLat"></span></p>
-        <p><b>Longitude:</b> <span id="infoLon"></span></p>
-        <p><b>Geozone:</b> <span id="infoGeozone"></span></p>
-        <p><b>Area:</b> <span id="infoArea">0</span></p>
-        <p><b>Type:</b> <span id="infoFeature">n/a</span></p>
-        <p><b>Precipitation:</b> <span id="infoPrec">0</span></p>
-        <p><b>River:</b> <span id="infoRiver">no</span></p>
+        <p><b>纬度：</b> <span id="infoLat"></span></p>
+        <p><b>经度：</b> <span id="infoLon"></span></p>
+        <p><b>地理带：</b> <span id="infoGeozone"></span></p>
+        <p><b>面积：</b> <span id="infoArea">0</span></p>
+        <p><b>类型：</b> <span id="infoFeature">无</span></p>
+        <p><b>降水量：</b> <span id="infoPrec">0</span></p>
+        <p><b>河流：</b> <span id="infoRiver">否</span></p>
         <p><b>Population:</b> <span id="infoPopulation">0</span></p>
-        <p><b>Elevation:</b> <span id="infoElevation">0</span></p>
-        <p><b>Depth:</b> <span id="infoDepth">0</span></p>
+        <p><b>海拔：</b> <span id="infoElevation">0</span></p>
+        <p><b>深度：</b> <span id="infoDepth">0</span></p>
         <p><b>Temperature:</b> <span id="infoTemp">0</span></p>
-        <p><b>Biome:</b> <span id="infoBiome">n/a</span></p>
-        <p><b>State:</b> <span id="infoState">n/a</span></p>
-        <p><b>Province:</b> <span id="infoProvince">n/a</span></p>
-        <p><b>Culture:</b> <span id="infoCulture">n/a</span></p>
-        <p><b>Religion:</b> <span id="infoReligion">n/a</span></p>
-        <p><b>Burg:</b> <span id="infoBurg">n/a</span></p>
-        <p><b>Good:</b> <span id="infoGood">n/a</span></p>
-        <p><b>Market:</b> <span id="infoMarket">n/a</span></p>
-        <p><b>Cell Production:</b> <span id="infoCellProduction">n/a</span></p>
-        <p><b>Burg Production:</b> <span id="infoBurgProduction">n/a</span></p>
+        <p><b>Biome:</b> <span id="infoBiome">无</span></p>
+        <p><b>国家：</b> <span id="infoState">无</span></p>
+        <p><b>省份：</b> <span id="infoProvince">无</span></p>
+        <p><b>Culture:</b> <span id="infoCulture">无</span></p>
+        <p><b>宗教：</b> <span id="infoReligion">无</span></p>
+        <p><b>城镇：</b> <span id="infoBurg">无</span></p>
+        <p><b>货物：</b> <span id="infoGood">无</span></p>
+        <p><b>市场：</b> <span id="infoMarket">无</span></p>
+        <p><b>单元格产出：</b> <span id="infoCellProduction">无</span></p>
+        <p><b>城镇产出：</b> <span id="infoBurgProduction">无</span></p>
       </div>
       <div id="iconSelector" style="display: none" class="dialog">
         <div>
-          <b>Unicode emojis</b>
+          <b>Unicode 表情符号</b>
           <div style="font-style: italic">
-            <span>Select from the list or paste a Unicode character here: </span>
+            <span>从列表选择或在此粘贴 Unicode 字符： </span>
             <input id="iconInput" style="width: 2.5em" />
-            <span>. See <a href="https://emojidb.org" target="_blank">EmojiDB</a> to search for emojis</span>
+            <span>。参见 <a href="https://emojidb.org" target="_blank">EmojiDB</a> 搜索表情符号</span>
           </div>
           <table id="iconTable" class="table pointer" style="font-size: 2em; text-align: center; width: 100%"></table>
         </div>
         <div style="margin-top: 0.5em">
-          <b>External images</b>
+          <b>外部图片</b>
           <div style="font-style: italic">
-            <span>Paste link to the image here: </span>
+            <span>在此粘贴图片链接： </span>
             <input id="imageInput" style="width: 20em" />
             <button id="addImage" type="button">Add</button>
           </div>
@@ -2689,30 +2689,30 @@
         </div>
       </div>
       <div id="exportMapData" style="display: none" class="dialog">
-        <div style="margin-bottom: 0.3em; font-weight: bold">Download image</div>
+        <div style="margin-bottom: 0.3em; font-weight: bold">下载图片</div>
         <div>
           <button
             onclick="window.Services.ExportMap.exportToSvg()"
-            data-tip="Download the map as vector image (open directly in browser or Inkscape)"
+            data-tip="以矢量图片下载地图（直接在浏览器或 Inkscape 中打开）"
           >
             .svg
           </button>
-          <button onclick="window.Services.ExportMap.exportToPng()" data-tip="Download visible part of the map as .png (lossless compressed)">
+          <button onclick="window.Services.ExportMap.exportToPng()" data-tip="以 .png 下载地图可见部分（无损压缩）">
             .png
           </button>
           <button
             onclick="window.Services.ExportMap.exportToJpeg()"
-            data-tip="Download visible part of the map as .jpeg (lossy compressed) image"
+            data-tip="以 .jpeg 下载地图可见部分（有损压缩）"
           >
             .jpeg
           </button>
           <button
             onclick="openExportToPngTiles()"
-            data-tip="Split map into smaller png tiles and download as zip archive"
+            data-tip="将地图分割为较小的 png 瓦片并下载为 zip 压缩包"
           >
             tiles
           </button>
-          <span data-tip="Check to not allow system to automatically hide labels">
+          <span data-tip="勾选以禁止系统自动隐藏标签">
             <input
               id="showLabels"
               class="checkbox"
@@ -2723,14 +2723,14 @@
               "
               checked=""
             />
-            <label for="showLabels" class="checkbox-label">Show all labels</label>
+            <label for="showLabels" class="checkbox-label">显示所有标签</label>
           </span>
         </div>
         <div
-          data-tip="Define scale of a saved png/jpeg image (e.g. 5x). Saving big images is slow and may cause a browser crash!"
+          data-tip="定义保存的 png/jpeg 图片比例（如 5x）。保存大图片速度缓慢且可能导致浏览器崩溃！"
           style="margin-bottom: 0.3em"
         >
-          PNG / JPEG scale:
+          PNG / JPEG 比例：
           <input
             id="pngResolutionInput"
             data-stored="pngResolution"
@@ -2742,32 +2742,32 @@
           />
           <input id="pngResolutionOutput" data-stored="pngResolution" type="number" min="1" max="8" value="1" />
         </div>
-        <p>Generator uses pop-up window to download files. Please ensure your browser does not block popups.</p>
-        <div style="margin: 1em 0 0.3em; font-weight: bold">Export to GeoJSON</div>
+        <p>生成器使用弹出窗口下载文件。请确保浏览器未拦截弹出窗口。</p>
+        <div style="margin: 1em 0 0.3em; font-weight: bold">导出为 GeoJSON</div>
         <div>
-          <button onclick="window.Services.ExportMap.saveGeoJsonCells()" data-tip="Download cells data in GeoJSON format">cells</button>
-          <button onclick="window.Services.ExportMap.saveGeoJsonRoutes()" data-tip="Download routes data in GeoJSON format">routes</button>
-          <button onclick="window.Services.ExportMap.saveGeoJsonRivers()" data-tip="Download rivers data in GeoJSON format">rivers</button>
-          <button onclick="window.Services.ExportMap.saveGeoJsonMarkers()" data-tip="Download markers data in GeoJSON format">markers</button>
-          <button onclick="window.Services.ExportMap.saveGeoJsonZones()" data-tip="Download zones data in GeoJSON format">zones</button>
+          <button onclick="window.Services.ExportMap.saveGeoJsonCells()" data-tip="以 GeoJSON 格式下载单元格数据">单元格</button>
+          <button onclick="window.Services.ExportMap.saveGeoJsonRoutes()" data-tip="以 GeoJSON 格式下载道路数据">道路</button>
+          <button onclick="window.Services.ExportMap.saveGeoJsonRivers()" data-tip="以 GeoJSON 格式下载河流数据">河流</button>
+          <button onclick="window.Services.ExportMap.saveGeoJsonMarkers()" data-tip="以 GeoJSON 格式下载标记数据">标记</button>
+          <button onclick="window.Services.ExportMap.saveGeoJsonZones()" data-tip="以 GeoJSON 格式下载区域数据">区域</button>
         </div>
         <p>
-          GeoJSON format is used in GIS tools such as QGIS. Check out
+          GeoJSON 格式用于 QGIS 等 GIS 工具。请参阅
           <a href="https://github.com/Azgaar/Fantasy-Map-Generator/wiki/GIS-data-export" target="_blank">wiki-page</a>
-          for guidance.
+          获取指南。
         </p>
-        <div style="margin: 1em 0 0.3em; font-weight: bold">Export To JSON</div>
+        <div style="margin: 1em 0 0.3em; font-weight: bold">导出为 JSON</div>
         <div>
-          <button onclick="exportToJson('Full')" data-tip="Download full data in JSON">full</button>
-          <button onclick="exportToJson('Minimal')" data-tip="Download minimal data in JSON">minimal</button>
-          <button onclick="exportToJson('PackCells')" data-tip="Download map metadata and pack cells data in JSON">
-            pack cells
+          <button onclick="exportToJson('Full')" data-tip="以 JSON 格式下载完整数据">完整</button>
+          <button onclick="exportToJson('Minimal')" data-tip="以 JSON 格式下载精简数据">精简</button>
+          <button onclick="exportToJson('PackCells')" data-tip="以 JSON 格式下载地图元数据和打包单元格数据">
+            打包单元格
           </button>
-          <button onclick="exportToJson('GridCells')" data-tip="Download map metadata and grid cells data in JSON">
-            grid cells
+          <button onclick="exportToJson('GridCells')" data-tip="以 JSON 格式下载地图元数据和网格单元格数据">
+            网格单元格
           </button>
         </div>
-        <p>Export in JSON format can be used as an API replacement.</p>
+        <p>以 JSON 格式导出可用作 API 替代方案。</p>
       </div>
       <div id="saveMapData" style="display: none" class="dialog">
         <div style="margin-top: 0.3em">

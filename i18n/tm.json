@@ -17482,6 +17482,767 @@
       "type": "html_text",
       "context_tag": "section",
       "skipped": false
+    },
+    {
+      "id": "sha256:6c61c70e45bf11a0",
+      "source": "Add",
+      "target": "添加",
+      "file": "src/index.html",
+      "line": 2691,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:f0b6d46355123a63",
+      "source": "Y:",
+      "target": "Y：",
+      "file": "src/index.html",
+      "line": 2647,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e91e7fcdd573c92f",
+      "source": "Latitude:",
+      "target": "纬度：",
+      "file": "src/index.html",
+      "line": 2649,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:178988db5eea8cb6",
+      "source": "Longitude:",
+      "target": "经度：",
+      "file": "src/index.html",
+      "line": 2650,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8d0861a09bd2d223",
+      "source": "Geozone:",
+      "target": "地理带：",
+      "file": "src/index.html",
+      "line": 2651,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:76785912c48f59dc",
+      "source": "Area:",
+      "target": "面积：",
+      "file": "src/index.html",
+      "line": 2652,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b4f882fc7d1a6888",
+      "source": "Type:",
+      "target": "类型：",
+      "file": "src/index.html",
+      "line": 2653,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:af33d8829888965f",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2653,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ab38c42ffb145fc3",
+      "source": "Precipitation:",
+      "target": "降水量：",
+      "file": "src/index.html",
+      "line": 2654,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a4e7a21783f2cf1e",
+      "source": "River:",
+      "target": "河流：",
+      "file": "src/index.html",
+      "line": 2655,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:72433b1e0e251efc",
+      "source": "no",
+      "target": "否",
+      "file": "src/index.html",
+      "line": 2655,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:079ac31e7e0d96f3",
+      "source": "Elevation:",
+      "target": "海拔：",
+      "file": "src/index.html",
+      "line": 2657,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:33e3052bd1fd7d17",
+      "source": "Depth:",
+      "target": "深度：",
+      "file": "src/index.html",
+      "line": 2658,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6fc3cb174e29310b",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2660,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2463f12742fed147",
+      "source": "State:",
+      "target": "国家：",
+      "file": "src/index.html",
+      "line": 2661,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c3f278fb2ce4a080",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2661,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4755e17cbfa6bd5f",
+      "source": "Province:",
+      "target": "省份：",
+      "file": "src/index.html",
+      "line": 2662,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cc9868b2f771f09b",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2662,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:016329ec9e418894",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2663,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7dc324ce5f4d14dd",
+      "source": "Religion:",
+      "target": "宗教：",
+      "file": "src/index.html",
+      "line": 2664,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:776897fd4cf32282",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2664,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4b28002e28b4b99e",
+      "source": "Burg:",
+      "target": "城镇：",
+      "file": "src/index.html",
+      "line": 2665,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:933cc170052031ec",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2665,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dd221ac409b1cf0f",
+      "source": "Good:",
+      "target": "货物：",
+      "file": "src/index.html",
+      "line": 2666,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bc62b280508c5e7f",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2666,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:51277b4c2f1681e0",
+      "source": "Market:",
+      "target": "市场：",
+      "file": "src/index.html",
+      "line": 2667,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:15b23c7550c554ae",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2667,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:51c64b78b05d86c8",
+      "source": "Cell Production:",
+      "target": "单元格产出：",
+      "file": "src/index.html",
+      "line": 2668,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:09fbc0d7aab552f0",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2668,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3b715078615adfa5",
+      "source": "Burg Production:",
+      "target": "城镇产出：",
+      "file": "src/index.html",
+      "line": 2669,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f2fbed5e91f94713",
+      "source": "n/a",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 2669,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bf05720ce47343f8",
+      "source": "Unicode emojis",
+      "target": "Unicode 表情符号",
+      "file": "src/index.html",
+      "line": 2673,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d19b804ade796550",
+      "source": "Select from the list or paste a Unicode character here:",
+      "target": "从列表选择或在此粘贴 Unicode 字符：",
+      "file": "src/index.html",
+      "line": 2675,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa2960de1a3413ee",
+      "source": ". See",
+      "target": "。参见",
+      "file": "src/index.html",
+      "line": 2677,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f4026f66291148a5",
+      "source": "EmojiDB",
+      "target": "EmojiDB",
+      "file": "src/index.html",
+      "line": 2677,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7a65a096d5261865",
+      "source": "to search for emojis",
+      "target": "搜索表情符号",
+      "file": "src/index.html",
+      "line": 2677,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:80a30b457c95c7b3",
+      "source": "External images",
+      "target": "外部图片",
+      "file": "src/index.html",
+      "line": 2682,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:893020816bf69772",
+      "source": "Paste link to the image here:",
+      "target": "在此粘贴图片链接：",
+      "file": "src/index.html",
+      "line": 2684,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:883c1761d1a56804",
+      "source": "Download image",
+      "target": "下载图片",
+      "file": "src/index.html",
+      "line": 2692,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e6fc6f8ff08245d0",
+      "source": "Download the map as vector image (open directly in browser or Inkscape)",
+      "target": "以矢量图片下载地图（直接在浏览器或 Inkscape 中打开）",
+      "file": "src/index.html",
+      "line": 2696,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:01962bc8d001c39a",
+      "source": ".svg",
+      "target": ".svg",
+      "file": "src/index.html",
+      "line": 2698,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dcc6e65abe0bdc15",
+      "source": "Download visible part of the map as .png (lossless compressed)",
+      "target": "以 .png 下载地图可见部分（无损压缩）",
+      "file": "src/index.html",
+      "line": 2700,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ae9fbedaa92963cb",
+      "source": ".png",
+      "target": ".png",
+      "file": "src/index.html",
+      "line": 2701,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d5b57799091b5e3d",
+      "source": "Download visible part of the map as .jpeg (lossy compressed) image",
+      "target": "以 .jpeg 下载地图可见部分（有损压缩）",
+      "file": "src/index.html",
+      "line": 2705,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:86cbbccd48e655e1",
+      "source": ".jpeg",
+      "target": ".jpeg",
+      "file": "src/index.html",
+      "line": 2707,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f0086788ef3bc0b7",
+      "source": "Split map into smaller png tiles and download as zip archive",
+      "target": "将地图分割为较小的 png 瓦片并下载为 zip 压缩包",
+      "file": "src/index.html",
+      "line": 2711,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:19f0ae16374c1c96",
+      "source": "tiles",
+      "target": "tiles",
+      "file": "src/index.html",
+      "line": 2713,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1fe95d390c65468c",
+      "source": "Check to not allow system to automatically hide labels",
+      "target": "勾选以禁止系统自动隐藏标签",
+      "file": "src/index.html",
+      "line": 2715,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:59626c221bfd3c9c",
+      "source": "Show all labels",
+      "target": "显示所有标签",
+      "file": "src/index.html",
+      "line": 2726,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5831cce17f3374bd",
+      "source": "Define scale of a saved png/jpeg image (e.g. 5x). Saving big images is slow and may cause a browser crash!",
+      "target": "定义保存的 png/jpeg 图片比例（如 5x）。保存大图片速度缓慢且可能导致浏览器崩溃！",
+      "file": "src/index.html",
+      "line": 2730,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8a40ccabfe03968d",
+      "source": "PNG / JPEG scale:",
+      "target": "PNG / JPEG 比例：",
+      "file": "src/index.html",
+      "line": 2733,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b055860a62e9496a",
+      "source": "Generator uses pop-up window to download files. Please ensure your browser does not block popups.",
+      "target": "生成器使用弹出窗口下载文件。请确保浏览器未拦截弹出窗口。",
+      "file": "src/index.html",
+      "line": 2745,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:633b9a5dd2ef3e8b",
+      "source": "Export to GeoJSON",
+      "target": "导出为 GeoJSON",
+      "file": "src/index.html",
+      "line": 2746,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f42c0f0f7a461deb",
+      "source": "Download cells data in GeoJSON format",
+      "target": "以 GeoJSON 格式下载单元格数据",
+      "file": "src/index.html",
+      "line": 2748,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b9adf980867ff77d",
+      "source": "cells",
+      "target": "单元格",
+      "file": "src/index.html",
+      "line": 2748,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:42a6cb5323b27162",
+      "source": "Download routes data in GeoJSON format",
+      "target": "以 GeoJSON 格式下载道路数据",
+      "file": "src/index.html",
+      "line": 2749,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ae9bed096bec0022",
+      "source": "routes",
+      "target": "道路",
+      "file": "src/index.html",
+      "line": 2749,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dbd753c8f48f8b77",
+      "source": "Download rivers data in GeoJSON format",
+      "target": "以 GeoJSON 格式下载河流数据",
+      "file": "src/index.html",
+      "line": 2750,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5b91f9e070b106a8",
+      "source": "rivers",
+      "target": "河流",
+      "file": "src/index.html",
+      "line": 2750,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:05f67169952a695d",
+      "source": "Download markers data in GeoJSON format",
+      "target": "以 GeoJSON 格式下载标记数据",
+      "file": "src/index.html",
+      "line": 2751,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ea34eb40bcd09461",
+      "source": "markers",
+      "target": "标记",
+      "file": "src/index.html",
+      "line": 2751,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:47e632295d40addc",
+      "source": "Download zones data in GeoJSON format",
+      "target": "以 GeoJSON 格式下载区域数据",
+      "file": "src/index.html",
+      "line": 2752,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0886df5bee4e1365",
+      "source": "zones",
+      "target": "区域",
+      "file": "src/index.html",
+      "line": 2752,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1dde472ec4d4c4e1",
+      "source": "GeoJSON format is used in GIS tools such as QGIS. Check out",
+      "target": "GeoJSON 格式用于 QGIS 等 GIS 工具。请参阅",
+      "file": "src/index.html",
+      "line": 2755,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ec044999249366b3",
+      "source": "wiki-page",
+      "target": "wiki-page",
+      "file": "src/index.html",
+      "line": 2756,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cb71d19689996b49",
+      "source": "for guidance.",
+      "target": "获取指南。",
+      "file": "src/index.html",
+      "line": 2757,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:121fae41f642e67a",
+      "source": "Export To JSON",
+      "target": "导出为 JSON",
+      "file": "src/index.html",
+      "line": 2759,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4fe1576eb6ebe752",
+      "source": "Download full data in JSON",
+      "target": "以 JSON 格式下载完整数据",
+      "file": "src/index.html",
+      "line": 2761,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3c390fd3072d532f",
+      "source": "full",
+      "target": "完整",
+      "file": "src/index.html",
+      "line": 2761,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:85864585b7eb6946",
+      "source": "Download minimal data in JSON",
+      "target": "以 JSON 格式下载精简数据",
+      "file": "src/index.html",
+      "line": 2762,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dcd936361c544ea0",
+      "source": "minimal",
+      "target": "精简",
+      "file": "src/index.html",
+      "line": 2762,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:de09dcf79e40c798",
+      "source": "Download map metadata and pack cells data in JSON",
+      "target": "以 JSON 格式下载地图元数据和打包单元格数据",
+      "file": "src/index.html",
+      "line": 2763,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:94b24e8c0f644da2",
+      "source": "pack cells",
+      "target": "打包单元格",
+      "file": "src/index.html",
+      "line": 2764,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9b542ccdc66f1cb6",
+      "source": "Download map metadata and grid cells data in JSON",
+      "target": "以 JSON 格式下载地图元数据和网格单元格数据",
+      "file": "src/index.html",
+      "line": 2766,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:521231585bc40701",
+      "source": "grid cells",
+      "target": "网格单元格",
+      "file": "src/index.html",
+      "line": 2767,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:62e42d1782ff9b34",
+      "source": "Export in JSON format can be used as an API replacement.",
+      "target": "以 JSON 格式导出可用作 API 替代方案。",
+      "file": "src/index.html",
+      "line": 2770,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
     }
   ]
 }
