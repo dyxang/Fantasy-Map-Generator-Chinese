@@ -10598,6 +10598,810 @@
       "type": "html_text",
       "context_tag": "option",
       "skipped": false
+    },
+    {
+      "id": "sha256:b0bc38dfbfede671",
+      "source": "Rulers",
+      "target": "标尺",
+      "file": "src/index.html",
+      "line": 778,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:0e1eab0932ef044a",
+      "source": "Scale Bar",
+      "target": "比例尺",
+      "file": "src/index.html",
+      "line": 779,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:c0b97870bf4b6ed0",
+      "source": "Vignette",
+      "target": "暗角",
+      "file": "src/index.html",
+      "line": 784,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:a2caec95cf5b5956",
+      "source": "Ocean",
+      "target": "海洋",
+      "file": "src/index.html",
+      "line": 920,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:6a2e4199bf010331",
+      "source": "States",
+      "target": "国家",
+      "file": "src/index.html",
+      "line": 780,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:957dd7caac305f95",
+      "source": "Temperature",
+      "target": "温度",
+      "file": "src/index.html",
+      "line": 781,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:34a73ffaad697b21",
+      "source": "Texture",
+      "target": "纹理",
+      "file": "src/index.html",
+      "line": 782,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8d629b4acc00567b",
+      "source": "Trade Animation",
+      "target": "贸易动画",
+      "file": "src/index.html",
+      "line": 783,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9a3ef5d54873a7d5",
+      "source": "Wind Rose",
+      "target": "风向玫瑰",
+      "file": "src/index.html",
+      "line": 785,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d2286c4e7377afc4",
+      "source": "Zones",
+      "target": "区域",
+      "file": "src/index.html",
+      "line": 786,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1c5b487af1df6eaa",
+      "source": "The selected layer is not visible. Toogle it on to see style changes effect",
+      "target": "所选图层不可见。请开启它以查看样式更改效果",
+      "file": "src/index.html",
+      "line": 791,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:190c9845c9f7ee2e",
+      "source": "Ensure the element visibility is toggled on!",
+      "target": "请确保元素可见性已开启！",
+      "file": "src/index.html",
+      "line": 793,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e608f5909b60c690",
+      "source": "Select element group",
+      "target": "选择元素组",
+      "file": "src/index.html",
+      "line": 796,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:28fa4c61bb749c6b",
+      "source": "Group",
+      "target": "组",
+      "file": "src/index.html",
+      "line": 797,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:19c4d9841e037bf9",
+      "source": "Check to render ocean heights",
+      "target": "勾选以渲染海洋高度",
+      "file": "src/index.html",
+      "line": 804,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4731b5cfba78e351",
+      "source": "Render ocean heights",
+      "target": "渲染海洋高度",
+      "file": "src/index.html",
+      "line": 807,
+      "type": "html_text",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:26eeb4bb81d75cdb",
+      "source": "Terracing power. Set to 0 to toggle off",
+      "target": "阶地强度。设为 0 以关闭",
+      "file": "src/index.html",
+      "line": 810,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:44d03d6af4f27d52",
+      "source": "Terracing",
+      "target": "阶地",
+      "file": "src/index.html",
+      "line": 811,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5aff1572f44777d0",
+      "source": "Layers reduction rate. Increase to improve performance",
+      "target": "图层缩减率。提高以改善性能",
+      "file": "src/index.html",
+      "line": 816,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:38401e20d0fb161d",
+      "source": "Reduce layers",
+      "target": "缩减图层",
+      "file": "src/index.html",
+      "line": 817,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:87ee4f4f91c67ed4",
+      "source": "Line simplification rate. Increase to slightly improve performance",
+      "target": "线条简化率。提高以略微改善性能",
+      "file": "src/index.html",
+      "line": 822,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bff252333013549c",
+      "source": "Simplify line",
+      "target": "简化线条",
+      "file": "src/index.html",
+      "line": 823,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2117794f013f20c4",
+      "source": "Select line interpolation type",
+      "target": "选择线条插值类型",
+      "file": "src/index.html",
+      "line": 828,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:11d9fdad8f835d22",
+      "source": "Line style",
+      "target": "线条样式",
+      "file": "src/index.html",
+      "line": 829,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:29b068fdb6ec762f",
+      "source": "Curved",
+      "target": "曲线",
+      "file": "src/index.html",
+      "line": 832,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5798918aeaf49bcf",
+      "source": "Linear",
+      "target": "直线",
+      "file": "src/index.html",
+      "line": 833,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:99a1ad4464f917e5",
+      "source": "Rectangular",
+      "target": "矩形",
+      "file": "src/index.html",
+      "line": 834,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:85efe7bb3c78ab15",
+      "source": "Select color scheme for the element",
+      "target": "选择元素的配色方案",
+      "file": "src/index.html",
+      "line": 838,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:624a0f983033921b",
+      "source": "Color scheme",
+      "target": "配色方案",
+      "file": "src/index.html",
+      "line": 839,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:086aaf57b40c4d95",
+      "source": "Click to add a custom heightmap color scheme",
+      "target": "点击添加自定义高度图配色方案",
+      "file": "src/index.html",
+      "line": 844,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b0be9487c7af03a",
+      "source": "Set element display: Default keeps CSS/inherited rendering, Block forces visible, None hides the element",
+      "target": "设置元素显示：默认保留 CSS/继承渲染，块级强制可见，无则隐藏元素",
+      "file": "src/index.html",
+      "line": 852,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f081ca44d255d171",
+      "source": "Display",
+      "target": "显示",
+      "file": "src/index.html",
+      "line": 853,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6fab66be02f1b561",
+      "source": "default",
+      "target": "默认",
+      "file": "src/index.html",
+      "line": 856,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9f3b02cf35f6e541",
+      "source": "block",
+      "target": "块级",
+      "file": "src/index.html",
+      "line": 857,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:88b5000d60e8a138",
+      "source": "none",
+      "target": "无",
+      "file": "src/index.html",
+      "line": 858,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:936c4d112b451bc3",
+      "source": "Set opacity. 0: transparent, 1: solid",
+      "target": "设置不透明度。0：透明，1：不透明",
+      "file": "src/index.html",
+      "line": 864,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:197d9af407760e27",
+      "source": "Opacity",
+      "target": "不透明度",
+      "file": "src/index.html",
+      "line": 865,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0a919ed729d18a71",
+      "source": "Set maximum number of items in one column",
+      "target": "设置单列最大项数",
+      "file": "src/index.html",
+      "line": 872,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:db868a2eaa24559d",
+      "source": "Column items",
+      "target": "列项数",
+      "file": "src/index.html",
+      "line": 873,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:575a6fc7d644e4ed",
+      "source": "Set background color",
+      "target": "设置背景颜色",
+      "file": "src/index.html",
+      "line": 878,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e8931cb8d43bf5d5",
+      "source": "Background",
+      "target": "背景",
+      "file": "src/index.html",
+      "line": 879,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7f42039fe84ba6b2",
+      "source": "#ffffff",
+      "target": "#ffffff",
+      "file": "src/index.html",
+      "line": 882,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ee0da4d77b929fd2",
+      "source": "Set background opacity",
+      "target": "设置背景不透明度",
+      "file": "src/index.html",
+      "line": 885,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c6acf51c43b9f7b7",
+      "source": "Opacity",
+      "target": "不透明度",
+      "file": "src/index.html",
+      "line": 886,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:24c94f8cc3ca03f6",
+      "source": "Set bar color for rural population",
+      "target": "设置乡村人口条形颜色",
+      "file": "src/index.html",
+      "line": 893,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:76792e86e8c27ee3",
+      "source": "Rural color",
+      "target": "乡村颜色",
+      "file": "src/index.html",
+      "line": 894,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5fef6f65d1572fe4",
+      "source": "#0000ff",
+      "target": "#0000ff",
+      "file": "src/index.html",
+      "line": 897,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:78bf964b15f042d3",
+      "source": "Set bar color for urban population",
+      "target": "设置城市人口条形颜色",
+      "file": "src/index.html",
+      "line": 900,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:37898f86ea71ae01",
+      "source": "Urban color",
+      "target": "城市颜色",
+      "file": "src/index.html",
+      "line": 901,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e5bb82da5cadb4ca",
+      "source": "#ff0000",
+      "target": "#ff0000",
+      "file": "src/index.html",
+      "line": 904,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c26b09bdca140657",
+      "source": "Select texture image. Big textures can highly affect performance",
+      "target": "选择纹理图像。过大的纹理会严重影响性能",
+      "file": "src/index.html",
+      "line": 909,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0df0c1cf3d37e88e",
+      "source": "Image",
+      "target": "图像",
+      "file": "src/index.html",
+      "line": 910,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d77736ecbea3e6aa",
+      "source": "No texture",
+      "target": "无纹理",
+      "file": "src/index.html",
+      "line": 913,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7223c61eb7c9d7cf",
+      "source": "Folded paper big",
+      "target": "折叠纸（大）",
+      "file": "src/index.html",
+      "line": 914,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5d6503eb65405d9d",
+      "source": "Folded paper small",
+      "target": "折叠纸（小）",
+      "file": "src/index.html",
+      "line": 915,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:54e7b15d5ac6d08d",
+      "source": "Gray paper",
+      "target": "灰纸",
+      "file": "src/index.html",
+      "line": 916,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:11b7b5b4135c508a",
+      "source": "Soiled paper horizontal",
+      "target": "污渍纸（横向）",
+      "file": "src/index.html",
+      "line": 917,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:51af349b7932dad0",
+      "source": "Soided paper vertical",
+      "target": "污渍纸（纵向）",
+      "file": "src/index.html",
+      "line": 918,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:28f93dd61cb268e3",
+      "source": "Plaster",
+      "target": "灰泥",
+      "file": "src/index.html",
+      "line": 919,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f70a1d11bf7d37e9",
+      "source": "Antique small",
+      "target": "古典（小）",
+      "file": "src/index.html",
+      "line": 921,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1850520f61571869",
+      "source": "Antique big",
+      "target": "古典（大）",
+      "file": "src/index.html",
+      "line": 922,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e3373064fdf76c8f",
+      "source": "Pergamena small",
+      "target": "羊皮纸（小）",
+      "file": "src/index.html",
+      "line": 923,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:78dd77fbfe60d4cb",
+      "source": "Marble big",
+      "target": "大理石（大）",
+      "file": "src/index.html",
+      "line": 924,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dd258257201dc6f2",
+      "source": "Marble small",
+      "target": "大理石（小）",
+      "file": "src/index.html",
+      "line": 925,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e620183b73be4afb",
+      "source": "Marble Blue",
+      "target": "蓝色大理石",
+      "file": "src/index.html",
+      "line": 926,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:06837f6a973b1a81",
+      "source": "Marble Blue big",
+      "target": "蓝色大理石（大）",
+      "file": "src/index.html",
+      "line": 927,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3e434888cf180cc3",
+      "source": "Stone small",
+      "target": "石材（小）",
+      "file": "src/index.html",
+      "line": 928,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:46b092e0e1aff94c",
+      "source": "Stone big",
+      "target": "石材（大）",
+      "file": "src/index.html",
+      "line": 929,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:43df222d6a36086b",
+      "source": "Timber Cut small",
+      "target": "木材（小）",
+      "file": "src/index.html",
+      "line": 930,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0bd2049a66d0d797",
+      "source": "Timber Cut big",
+      "target": "木材（大）",
+      "file": "src/index.html",
+      "line": 931,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c2a8203ebf01424b",
+      "source": "Mars small",
+      "target": "火星（小）",
+      "file": "src/index.html",
+      "line": 932,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c95b606a7df17c48",
+      "source": "Mars big",
+      "target": "火星（大）",
+      "file": "src/index.html",
+      "line": 933,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:54eaadbc32da9bd1",
+      "source": "Mercury small",
+      "target": "水星（小）",
+      "file": "src/index.html",
+      "line": 934,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a9e54f2aca17f2ab",
+      "source": "Mercury big",
+      "target": "水星（大）",
+      "file": "src/index.html",
+      "line": 935,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f5e014717cfd90b5",
+      "source": "Mauritania small",
+      "target": "毛里塔尼亚（小）",
+      "file": "src/index.html",
+      "line": 936,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:914b1363c3221005",
+      "source": "Iran small",
+      "target": "伊朗（小）",
+      "file": "src/index.html",
+      "line": 937,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e34c62b9c7ef23f2",
+      "source": "Spain small",
+      "target": "西班牙（小）",
+      "file": "src/index.html",
+      "line": 938,
+      "type": "html_text",
+      "context_tag": "option",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4ace38da525d2066",
+      "source": "Click and provide a URL to image to be set as a texture",
+      "target": "点击并提供图像 URL 以设置为纹理",
+      "file": "src/index.html",
+      "line": 941,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:66aa0303358365d7",
+      "source": "Shift the texture by axes",
+      "target": "按轴向偏移纹理",
+      "file": "src/index.html",
+      "line": 947,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa5c85d5a011282a",
+      "source": "Shift by axes",
+      "target": "轴向偏移",
+      "file": "src/index.html",
+      "line": 948,
+      "type": "html_text",
+      "context_tag": "table_cell",
+      "skipped": false
     }
   ]
 }

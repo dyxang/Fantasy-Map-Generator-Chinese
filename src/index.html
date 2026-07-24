@@ -777,71 +777,71 @@
             <option value="routes">道路</option>
             <option value="ruler">Rulers</option>
             <option value="scaleBar">Scale Bar</option>
-            <option value="regions" selected>States</option>
-            <option value="temperature">Temperature</option>
-            <option value="texture">Texture</option>
-            <option value="tradeAnimation">Trade Animation</option>
+            <option value="regions" selected>国家</option>
+            <option value="temperature">温度</option>
+            <option value="texture">纹理</option>
+            <option value="tradeAnimation">贸易动画</option>
             <option value="vignette">Vignette</option>
-            <option value="compass">Wind Rose</option>
-            <option value="zones">Zones</option>
+            <option value="compass">风向玫瑰</option>
+            <option value="zones">区域</option>
           </select>
           <table id="styleElements">
             <caption
               id="styleIsOff"
-              data-tip="The selected layer is not visible. Toogle it on to see style changes effect"
+              data-tip="所选图层不可见。请开启它以查看样式更改效果"
             >
-              Ensure the element visibility is toggled on!
+              请确保元素可见性已开启！
             </caption>
             <tbody id="styleGroup">
-              <tr data-tip="Select element group">
-                <td><b>Group</b></td>
+              <tr data-tip="选择元素组">
+                <td><b>组</b></td>
                 <td>
                   <select id="styleGroupSelect"></select>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleHeightmap">
-              <tr id="styleHeightmapRenderOceanOption" data-tip="Check to render ocean heights">
+              <tr id="styleHeightmapRenderOceanOption" data-tip="勾选以渲染海洋高度">
                 <td colspan="2">
                   <input id="styleHeightmapRenderOcean" class="checkbox" type="checkbox" />
-                  <label for="styleHeightmapRenderOcean" class="checkbox-label">Render ocean heights</label>
+                  <label for="styleHeightmapRenderOcean" class="checkbox-label">渲染海洋高度</label>
                 </td>
               </tr>
-              <tr data-tip="Terracing power. Set to 0 to toggle off">
-                <td>Terracing</td>
+              <tr data-tip="阶地强度。设为 0 以关闭">
+                <td>阶地</td>
                 <td>
                   <slider-input id="styleHeightmapTerracing" min="0" max="20" step="1"></slider-input>
                 </td>
               </tr>
-              <tr data-tip="Layers reduction rate. Increase to improve performance">
-                <td>Reduce layers</td>
+              <tr data-tip="图层缩减率。提高以改善性能">
+                <td>缩减图层</td>
                 <td>
                   <slider-input id="styleHeightmapSkip" min="0" max="10" step="1"></slider-input>
                 </td>
               </tr>
-              <tr data-tip="Line simplification rate. Increase to slightly improve performance">
-                <td>Simplify line</td>
+              <tr data-tip="线条简化率。提高以略微改善性能">
+                <td>简化线条</td>
                 <td>
                   <slider-input id="styleHeightmapSimplification" min="0" max="10" step="1"></slider-input>
                 </td>
               </tr>
-              <tr data-tip="Select line interpolation type">
-                <td>Line style</td>
+              <tr data-tip="选择线条插值类型">
+                <td>线条样式</td>
                 <td>
                   <select id="styleHeightmapCurve">
-                    <option value="curveBasisClosed" selected>Curved</option>
-                    <option value="curveLinear">Linear</option>
-                    <option value="curveStep">Rectangular</option>
+                    <option value="curveBasisClosed" selected>曲线</option>
+                    <option value="curveLinear">直线</option>
+                    <option value="curveStep">矩形</option>
                   </select>
                 </td>
               </tr>
-              <tr data-tip="Select color scheme for the element">
-                <td>Color scheme</td>
+              <tr data-tip="选择元素的配色方案">
+                <td>配色方案</td>
                 <td>
                   <select id="styleHeightmapScheme" style="width: 86%"></select>
                   <button
                     id="openCreateHeightmapSchemeButton"
-                    data-tip="Click to add a custom heightmap color scheme"
+                    data-tip="点击添加自定义高度图配色方案"
                     data-stops="#ffffff,#EEEECC,#D2B48C,#008000,#008080"
                     class="icon-plus sideButton"
                   ></button>
@@ -849,56 +849,56 @@
               </tr>
             </tbody>
             <tbody id="styleDisplay" style="display: none">
-              <tr data-tip="Set element display: Default keeps CSS/inherited rendering, Block forces visible, None hides the element">
-                <td>Display</td>
+              <tr data-tip="设置元素显示：默认保留 CSS/继承渲染，块级强制可见，无则隐藏元素">
+                <td>显示</td>
                 <td>
                   <select id="styleDisplayInput">
-                    <option value="">default</option>
-                    <option value="block">block</option>
-                    <option value="none">none</option>
+                    <option value="">默认</option>
+                    <option value="block">块级</option>
+                    <option value="none">无</option>
                   </select>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleOpacity" style="display: none">
-              <tr data-tip="Set opacity. 0: transparent, 1: solid">
-                <td>Opacity</td>
+              <tr data-tip="设置不透明度。0：透明，1：不透明">
+                <td>不透明度</td>
                 <td>
                   <slider-input id="styleOpacityInput" min="0" max="1" step="0.01"></slider-input>
                 </td>
               </tr>
             </tbody>
             <tbody id="styleLegend">
-              <tr data-tip="Set maximum number of items in one column">
-                <td>Column items</td>
+              <tr data-tip="设置单列最大项数">
+                <td>列项数</td>
                 <td>
                   <slider-input id="styleLegendColItems" min="1" max="30" step="1" value="8"></slider-input>
                 </td>
               </tr>
-              <tr data-tip="Set background color">
-                <td>Background</td>
+              <tr data-tip="设置背景颜色">
+                <td>背景</td>
                 <td>
                   <input id="styleLegendBack" type="color" value="#ffffff" />
                   <output id="styleLegendBackOutput">#ffffff</output>
                 </td>
               </tr>
-              <tr data-tip="Set background opacity">
-                <td>Opacity</td>
+              <tr data-tip="设置背景不透明度">
+                <td>不透明度</td>
                 <td>
                   <slider-input id="styleLegendOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
             </tbody>
             <tbody id="stylePopulation">
-              <tr data-tip="Set bar color for rural population">
-                <td>Rural color</td>
+              <tr data-tip="设置乡村人口条形颜色">
+                <td>乡村颜色</td>
                 <td>
                   <input id="stylePopulationRuralStrokeInput" type="color" value="#0000ff" />
                   <output id="stylePopulationRuralStrokeOutput">#0000ff</output>
                 </td>
               </tr>
-              <tr data-tip="Set bar color for urban population">
-                <td>Urban color</td>
+              <tr data-tip="设置城市人口条形颜色">
+                <td>城市颜色</td>
                 <td>
                   <input id="stylePopulationUrbanStrokeInput" type="color" value="#ff0000" />
                   <output id="stylePopulationUrbanStrokeOutput">#ff0000</output>
@@ -906,46 +906,46 @@
               </tr>
             </tbody>
             <tbody id="styleTexture">
-              <tr data-tip="Select texture image. Big textures can highly affect performance">
-                <td>Image</td>
+              <tr data-tip="选择纹理图像。过大的纹理会严重影响性能">
+                <td>图像</td>
                 <td>
                   <select id="styleTextureInput" style="width: 86%">
-                    <option value="">No texture</option>
-                    <option value="./images/textures/folded-paper-big.jpg">Folded paper big</option>
-                    <option value="./images/textures/folded-paper-small.jpg">Folded paper small</option>
-                    <option value="./images/textures/gray-paper.jpg">Gray paper</option>
-                    <option value="./images/textures/soiled-paper.jpg">Soiled paper horizontal</option>
-                    <option value="./images/textures/soiled-paper-vertical.jpg">Soided paper vertical</option>
-                    <option value="./images/textures/plaster.jpg">Plaster</option>
+                    <option value="">无纹理</option>
+                    <option value="./images/textures/folded-paper-big.jpg">折叠纸（大）</option>
+                    <option value="./images/textures/folded-paper-small.jpg">折叠纸（小）</option>
+                    <option value="./images/textures/gray-paper.jpg">灰纸</option>
+                    <option value="./images/textures/soiled-paper.jpg">污渍纸（横向）</option>
+                    <option value="./images/textures/soiled-paper-vertical.jpg">污渍纸（纵向）</option>
+                    <option value="./images/textures/plaster.jpg">灰泥</option>
                     <option value="./images/textures/ocean.jpg">Ocean</option>
-                    <option value="./images/textures/antique-small.jpg">Antique small</option>
-                    <option value="./images/textures/antique-big.jpg">Antique big</option>
-                    <option value="./images/textures/pergamena-small.jpg">Pergamena small</option>
-                    <option value="./images/textures/marble-big.jpg" selected>Marble big</option>
-                    <option value="./images/textures/marble-small.jpg">Marble small</option>
-                    <option value="./images/textures/marble-blue-small.jpg">Marble Blue</option>
-                    <option value="./images/textures/marble-blue-big.jpg">Marble Blue big</option>
-                    <option value="./images/textures/stone-small.jpg">Stone small</option>
-                    <option value="./images/textures/stone-big.jpg">Stone big</option>
-                    <option value="./images/textures/timbercut-small.jpg">Timber Cut small</option>
-                    <option value="./images/textures/timbercut-big.jpg">Timber Cut big</option>
-                    <option value="./images/textures/mars-small.jpg">Mars small</option>
-                    <option value="./images/textures/mars-big.jpg">Mars big</option>
-                    <option value="./images/textures/mercury-small.jpg">Mercury small</option>
-                    <option value="./images/textures/mercury-big.jpg">Mercury big</option>
-                    <option value="./images/textures/mauritania-small.jpg">Mauritania small</option>
-                    <option value="./images/textures/iran-small.jpg">Iran small</option>
-                    <option value="./images/textures/spain-small.jpg">Spain small</option>
+                    <option value="./images/textures/antique-small.jpg">古典（小）</option>
+                    <option value="./images/textures/antique-big.jpg">古典（大）</option>
+                    <option value="./images/textures/pergamena-small.jpg">羊皮纸（小）</option>
+                    <option value="./images/textures/marble-big.jpg" selected>大理石（大）</option>
+                    <option value="./images/textures/marble-small.jpg">大理石（小）</option>
+                    <option value="./images/textures/marble-blue-small.jpg">蓝色大理石</option>
+                    <option value="./images/textures/marble-blue-big.jpg">蓝色大理石（大）</option>
+                    <option value="./images/textures/stone-small.jpg">石材（小）</option>
+                    <option value="./images/textures/stone-big.jpg">石材（大）</option>
+                    <option value="./images/textures/timbercut-small.jpg">木材（小）</option>
+                    <option value="./images/textures/timbercut-big.jpg">木材（大）</option>
+                    <option value="./images/textures/mars-small.jpg">火星（小）</option>
+                    <option value="./images/textures/mars-big.jpg">火星（大）</option>
+                    <option value="./images/textures/mercury-small.jpg">水星（小）</option>
+                    <option value="./images/textures/mercury-big.jpg">水星（大）</option>
+                    <option value="./images/textures/mauritania-small.jpg">毛里塔尼亚（小）</option>
+                    <option value="./images/textures/iran-small.jpg">伊朗（小）</option>
+                    <option value="./images/textures/spain-small.jpg">西班牙（小）</option>
                   </select>
                   <button
-                    data-tip="Click and provide a URL to image to be set as a texture"
+                    data-tip="点击并提供图像 URL 以设置为纹理"
                     class="icon-plus sideButton"
                     onclick="textureProvideURL()"
                   ></button>
                 </td>
               </tr>
-              <tr data-tip="Shift the texture by axes">
-                <td>Shift by axes</td>
+              <tr data-tip="按轴向偏移纹理">
+                <td>轴向偏移</td>
                 <td>
                   <input id="styleTextureShiftX" type="number" value="0" data-tip="Shift texture by x axis in pixels" />
                   <input id="styleTextureShiftY" type="number" value="0" data-tip="Shift texture by y axis in pixels" />
