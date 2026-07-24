@@ -19035,6 +19035,809 @@
       "type": "ts_string",
       "context_tag": "message",
       "skipped": false
+    },
+    {
+      "id": "sha256:770a7f2990df05e9",
+      "source": "No religion",
+      "target": "无宗教",
+      "file": "src/services/io/load.ts",
+      "line": 420,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:145c85a0ac25f5f5",
+      "source": "Click to open Units Editor",
+      "target": "点击打开单位编辑器",
+      "file": "src/services/io/load.ts",
+      "line": 526,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:6fb36e8ef0640c0e",
+      "source": "Configure World",
+      "target": "配置世界",
+      "file": "src/services/ui-tour.ts",
+      "line": 210,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:26157a78785cb600",
+      "source": "Welcome to Fantasy Map Generator",
+      "target": "欢迎使用 Fantasy Map Generator",
+      "file": "src/services/ui-tour.ts",
+      "line": 53,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7b12b25796215a7a",
+      "source": "This quick tour covers the essential controls. Use Next/Previous to navigate, or press Esc to exit at any time.",
+      "target": "本快速导览涵盖基本操作。使用下一步/上一步进行导航，或按 Esc 随时退出。",
+      "file": "src/services/ui-tour.ts",
+      "line": 54,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:baa9e4f61914e90d",
+      "source": "Navigate the Map",
+      "target": "浏览地图",
+      "file": "src/services/ui-tour.ts",
+      "line": 63,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c761f5f85f16099c",
+      "source": "Scroll the mouse wheel to zoom in and out. Click and drag on the map to pan. Double-click a location to center on it.",
+      "target": "滚动鼠标滚轮可放大和缩小。在地图上点击并拖动可平移。双击某个位置可将其居中。",
+      "file": "src/services/ui-tour.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c065454c2d849c57",
+      "source": "Hover Tooltips",
+      "target": "悬停提示",
+      "file": "src/services/ui-tour.ts",
+      "line": 78,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ba62c19acd51828c",
+      "source": "Move your mouse over the map (when the tour is over), the tooltip bar at the bottom updates with information about cells, burgs, states, and more. Click Next when you're ready to continue.",
+      "target": "将鼠标移到地图上（导览结束后），底部的提示栏会更新显示单元格、城镇、国家等信息。准备好后点击下一步继续。",
+      "file": "src/services/ui-tour.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b2be4c90b0abfeb0",
+      "source": "Open the Options Menu",
+      "target": "打开选项菜单",
+      "file": "src/services/ui-tour.ts",
+      "line": 92,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fc708723a0f5a64b",
+      "source": "Click this arrow button to open the main options panel where all configuration tabs live.",
+      "target": "点击此箭头按钮以打开主选项面板，所有配置选项卡都位于此处。",
+      "file": "src/services/ui-tour.ts",
+      "line": 93,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3d1577bf760c689c",
+      "source": "Layers Tab",
+      "target": "图层选项卡",
+      "file": "src/services/ui-tour.ts",
+      "line": 110,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:af88bd59d5fe1283",
+      "source": "The Layers tab controls which map elements are visible on the map.",
+      "target": "图层选项卡控制哪些地图元素在地图上可见。",
+      "file": "src/services/ui-tour.ts",
+      "line": 111,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:052767684a908bdb",
+      "source": "Layer Presets",
+      "target": "图层预设",
+      "file": "src/services/ui-tour.ts",
+      "line": 121,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a1905d5374cc91ca",
+      "source": "Choose a preset to instantly show or hide common layer combinations: Political, Physical, Religions, and more.",
+      "target": "选择预设可立即显示或隐藏常见图层组合：政治、自然、宗教等。",
+      "file": "src/services/ui-tour.ts",
+      "line": 122,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a31b5f34b0f1b018",
+      "source": "Toggle Individual Layers",
+      "target": "切换单个图层",
+      "file": "src/services/ui-tour.ts",
+      "line": 133,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5462aee0600f9994",
+      "source": "Click any layer name to toggle it on or off. Layers can be reordered by dragging and dropping them.",
+      "target": "点击任意图层名称可切换其显示/隐藏。可通过拖放重新排列图层。",
+      "file": "src/services/ui-tour.ts",
+      "line": 134,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e893c762d623e2e4",
+      "source": "Style Tab",
+      "target": "样式选项卡",
+      "file": "src/services/ui-tour.ts",
+      "line": 147,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f949fd641bfaad1f",
+      "source": "The Style tab controls the visual appearance of the map — color schemes, opacity, line weights, and other properties for each map element.",
+      "target": "样式选项卡控制地图的视觉外观——配色方案、不透明度、线宽及每个地图元素的其他属性。",
+      "file": "src/services/ui-tour.ts",
+      "line": 148,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e89cba858f77ada2",
+      "source": "Style Presets",
+      "target": "样式预设",
+      "file": "src/services/ui-tour.ts",
+      "line": 159,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4649dacb42f584a4",
+      "source": "Pick a color scheme preset for the map including Default, Ancient, Pale, and others. The entire map's color palette updates instantly.",
+      "target": "为地图选择配色方案预设，包括默认、古典、淡色等。整个地图的调色板会立即更新。",
+      "file": "src/services/ui-tour.ts",
+      "line": 160,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6f7e85b077dcfd4e",
+      "source": "Individual Style Settings",
+      "target": "单个样式设置",
+      "file": "src/services/ui-tour.ts",
+      "line": 171,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:55b251b348e0744f",
+      "source": "Select a specific map element from this dropdown to adjust its colors, opacity, stroke width, and other visual properties.",
+      "target": "从此下拉菜单中选择特定地图元素，以调整其颜色、不透明度、描边宽度和其他视觉属性。",
+      "file": "src/services/ui-tour.ts",
+      "line": 172,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:806f938333baea37",
+      "source": "Options Tab",
+      "target": "选项选项卡",
+      "file": "src/services/ui-tour.ts",
+      "line": 185,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3e552fe905377bcd",
+      "source": "The Options tab lets you configure world generation parameters like the number of states, cultures, religions, and other settings that shape the generated world.",
+      "target": "选项选项卡可配置世界生成参数，如国家、文化、宗教的数量，以及其他塑造生成世界的设置。",
+      "file": "src/services/ui-tour.ts",
+      "line": 186,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6cce5bd37b248d6a",
+      "source": "Generation Options",
+      "target": "生成选项",
+      "file": "src/services/ui-tour.ts",
+      "line": 197,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c46ff2c20f1bb0e3",
+      "source": "Set world parameters like the number of cultures, states, and religions before generating a new map. UI preferences like tooltips and autosave are also here.",
+      "target": "在生成新地图前设置世界参数，如文化、国家和宗教的数量。UI 偏好设置（如提示和自动保存）也在此处。",
+      "file": "src/services/ui-tour.ts",
+      "line": 198,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:156232f5610a5fd9",
+      "source": "This button opens the World Configurator where you can set the map's position on the globe, adjust equatorial and polar temperatures, and configure precipitation to shape the world's climate.",
+      "target": "此按钮可打开世界配置器，可在其中设置地图在地球仪上的位置，调整赤道和极地温度，并配置降水量以塑造世界气候。",
+      "file": "src/services/ui-tour.ts",
+      "line": 211,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5efa80c9054fb7a5",
+      "source": "World Configurator",
+      "target": "世界配置器",
+      "file": "src/services/ui-tour.ts",
+      "line": 226,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:09ca28aa7200e3bc",
+      "source": "Here you can set temperatures at the equator and poles, control wind direction and precipitation, and position the map on the globe. Changes affect biome and climate generation.",
+      "target": "在此可设置赤道和极地的温度，控制风向和降水量，并定位地图在地球仪上的位置。更改会影响生物群系和气候生成。",
+      "file": "src/services/ui-tour.ts",
+      "line": 227,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:23a51f79ce2a8c71",
+      "source": "Tools Tab",
+      "target": "工具选项卡",
+      "file": "src/services/ui-tour.ts",
+      "line": 245,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:146ad70e13b86e6a",
+      "source": "The Tools tab gives you direct access to all of the map's editors: terrain, biomes, states, cultures, religions, routes, and more.",
+      "target": "工具选项卡可直接访问所有地图编辑器：地形、生物群系、国家、文化、宗教、道路等。",
+      "file": "src/services/ui-tour.ts",
+      "line": 246,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:598e630e37c5e1d8",
+      "source": "Edit the Heightmap",
+      "target": "编辑高度图",
+      "file": "src/services/ui-tour.ts",
+      "line": 257,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d376accf0e1f9d99",
+      "source": "Open the Heightmap editor to manually sculpt terrain by raising or lowering elevation. Changes here reshape coastlines, rivers, and biomes.",
+      "target": "打开高度图编辑器，通过升高或降低海拔来手动雕刻地形。此处的更改会重塑海岸线、河流和生物群系。",
+      "file": "src/services/ui-tour.ts",
+      "line": 258,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa7aa94aad50a2f8",
+      "source": "Heightmap Editor",
+      "target": "高度图编辑器",
+      "file": "src/services/ui-tour.ts",
+      "line": 279,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fb67294aaf97ad5f",
+      "source": "The Heightmap editor panel lets you paint terrain directly on the map. You can raise or lower land, apply templates, convert an image into a heightmap, or preview the terrain in 3D.",
+      "target": "高度图编辑器面板可直接在地图上绘制地形。可升高或降低陆地、应用模板、将图像转换为高度图，或以 3D 预览地形。",
+      "file": "src/services/ui-tour.ts",
+      "line": 280,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:71dd6f7831a71a2d",
+      "source": "No map stored. Save map to browser storage first",
+      "target": "无已存地图。请先保存地图到浏览器存储",
+      "file": "src/services/io/load.ts",
+      "line": 11,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:95d22440a5146021",
+      "source": "No map stored",
+      "target": "无已存地图",
+      "file": "src/services/io/load.ts",
+      "line": 12,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b5ab01f0de3dd951",
+      "source": "Loading map from Dropbox:",
+      "target": "正在从 Dropbox 加载地图：",
+      "file": "src/services/io/load.ts",
+      "line": 19,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f30769561c886302",
+      "source": "Dropbox API error. Can not create link.",
+      "target": "Dropbox API 错误。无法创建链接。",
+      "file": "src/services/io/load.ts",
+      "line": 39,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1602b902cfbc4ed3",
+      "source": "Load saved map",
+      "target": "加载已存地图",
+      "file": "src/services/io/load.ts",
+      "line": 54,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4bddc07e18ab7609",
+      "source": "Cannot load last saved map",
+      "target": "无法加载上次保存的地图",
+      "file": "src/services/io/load.ts",
+      "line": 72,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f4408e550d8ebc69",
+      "source": "Loading error",
+      "target": "加载错误",
+      "file": "src/services/io/load.ts",
+      "line": 108,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c8616e4d6dc95b06",
+      "source": "Loading map. Auto-updating from ${mapVersion} to ${VERSION}",
+      "target": "正在加载地图。自动从 ${mapVersion} 更新到 ${VERSION}",
+      "file": "src/services/io/load.ts",
+      "line": 217,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c692b9de01b7a29",
+      "source": "Drag to change the position. Click to hide the legend",
+      "target": "拖动以更改位置。点击隐藏图例",
+      "file": "src/services/io/load.ts",
+      "line": 529,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4c442575af672580",
+      "source": "[Data integrity] Invalid state",
+      "target": "[数据完整性] 无效国家",
+      "file": "src/services/io/load.ts",
+      "line": 572,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8490b2561f5a20c8",
+      "source": "[Data integrity] Invalid province",
+      "target": "[数据完整性] 无效省份",
+      "file": "src/services/io/load.ts",
+      "line": 583,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7e4bda642883f6f3",
+      "source": "[Data integrity] Invalid culture",
+      "target": "[数据完整性] 无效文化",
+      "file": "src/services/io/load.ts",
+      "line": 592,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:92269039be184dce",
+      "source": "[Data integrity] Invalid religion",
+      "target": "[数据完整性] 无效宗教",
+      "file": "src/services/io/load.ts",
+      "line": 603,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dd4b1a2d78101f05",
+      "source": "[Data integrity] Invalid feature",
+      "target": "[数据完整性] 无效地貌",
+      "file": "src/services/io/load.ts",
+      "line": 610,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:23fb6f1786e39f77",
+      "source": "[Data integrity] Invalid burg",
+      "target": "[数据完整性] 无效城镇",
+      "file": "src/services/io/load.ts",
+      "line": 621,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9906f31da372865b",
+      "source": "[Data integrity] Invalid river",
+      "target": "[数据完整性] 无效河流",
+      "file": "src/services/io/load.ts",
+      "line": 631,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8bffaef06618e664",
+      "source": "[Data integrity] Burg 0 is marked as locked, removing the status",
+      "target": "[数据完整性] 城镇 0 被标记为锁定，移除该状态",
+      "file": "src/services/io/load.ts",
+      "line": 638,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:36cc57b807368573",
+      "source": "[Data integrity] Removed burg ${burg.i} is marked as locked. Unlocking the burg",
+      "target": "[数据完整性] 已移除的城镇 ${burg.i} 被标记为锁定。解锁该城镇",
+      "file": "src/services/io/load.ts",
+      "line": 644,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f4c009ac72991367",
+      "source": "[Data integrity] Burg ${burg.i} is missing cell info or coordinates. Removing the burg",
+      "target": "[数据完整性] 城镇 ${burg.i} 缺少单元格信息或坐标。移除该城镇",
+      "file": "src/services/io/load.ts",
+      "line": 653,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:30d45975dae1d36c",
+      "source": "[Data integrity] Burg",
+      "target": "[数据完整性] 城镇",
+      "file": "src/services/io/load.ts",
+      "line": 658,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9105f6e87c05d0a5",
+      "source": "[Data integrity] Burg",
+      "target": "[数据完整性] 城镇",
+      "file": "src/services/io/load.ts",
+      "line": 663,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b3c16459c874a98",
+      "source": "[Data integrity] Burg",
+      "target": "[数据完整性] 城镇",
+      "file": "src/services/io/load.ts",
+      "line": 674,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a7b1396f241e6686",
+      "source": "[Data integrity] Burg",
+      "target": "[数据完整性] 城镇",
+      "file": "src/services/io/load.ts",
+      "line": 679,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:98d156f453246bab",
+      "source": "[Data integrity] Burg",
+      "target": "[数据完整性] 城镇",
+      "file": "src/services/io/load.ts",
+      "line": 684,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6c578cdedee7a51e",
+      "source": "[Data integrity] Neutral burgs (${capitalBurgs.map(b => b.i).join(\", \")}) marked as capitals",
+      "target": "[数据完整性] 中立城镇 (${capitalBurgs.map(b => b.i).join(\", \")}) 被标记为首都",
+      "file": "src/services/io/load.ts",
+      "line": 697,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bf032c7b74fec169",
+      "source": "[Data integrity] State ${state.i} has no capital. Making the first burg capital",
+      "target": "[数据完整性] 国家 ${state.i} 没有首都。将首个城镇设为首都",
+      "file": "src/services/io/load.ts",
+      "line": 725,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:48ccb3e504896de3",
+      "source": "[Data integrity] Province ${p.i} is linked to removed state ${p.state}. Removing the province",
+      "target": "[数据完整性] 省份 ${p.i} 关联到已移除的国家 ${p.state}。移除该省份",
+      "file": "src/services/io/load.ts",
+      "line": 737,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2fd3b460c1f78c89",
+      "source": "[Data integrity] Route ${route.i} has less than 2 points. Removing the route",
+      "target": "[数据完整性] 道路 ${route.i} 少于 2 个点。移除该道路",
+      "file": "src/services/io/load.ts",
+      "line": 745,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6dac21f3fdb61dc0",
+      "source": "[Data integrity] Route ${routeId} from ${from} to ${to} is missing. Removing the route",
+      "target": "[数据完整性] 从 ${from} 到 ${to} 的道路 ${routeId} 缺失。移除该道路",
+      "file": "src/services/io/load.ts",
+      "line": 765,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fde397255b6dd15e",
+      "source": "[Data integrity] Marker",
+      "target": "[数据完整性] 标记",
+      "file": "src/services/io/load.ts",
+      "line": 777,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1c2c20bde13bded1",
+      "source": "Map is successfully loaded",
+      "target": "地图加载成功",
+      "file": "src/services/io/load.ts",
+      "line": 809,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:357c90d8afb7f038",
+      "source": "Loading error",
+      "target": "加载错误",
+      "file": "src/services/io/load.ts",
+      "line": 819,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e4ed55b04f34f6ef",
+      "source": "${link.download} is saved. Open \"Downloads\" screen (CTRL + J) to check",
+      "target": "${link.download} 已保存。打开\"下载\"页面（CTRL + J）查看",
+      "file": "src/services/io/export-json.ts",
+      "line": 27,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:329a560c646d8487",
+      "source": "Azgaar's Fantasy Map Generator output: azgaar.github.io/Fantasy-map-generator",
+      "target": "Azgaar's Fantasy Map Generator 输出：azgaar.github.io/Fantasy-map-generator",
+      "file": "src/services/io/export-json.ts",
+      "line": 87,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa5e9ef75cb761ae",
+      "source": "SVG export failed: ${(error as Error)?.message || \"Unknown error\"}",
+      "target": "SVG 导出失败：${(error as Error)?.message || \"未知错误\"}",
+      "file": "src/services/io/export.ts",
+      "line": 34,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:919e8131bdd58b42",
+      "source": "PNG export failed: ${(error as Error)?.message || \"Unknown error\"}",
+      "target": "PNG 导出失败：${(error as Error)?.message || \"未知错误\"}",
+      "file": "src/services/io/export.ts",
+      "line": 76,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c8530d1f6d45bf9c",
+      "source": "${link.download} is saved. Open \"Downloads\" screen (CTRL + J) to check",
+      "target": "${link.download} 已保存。打开\"下载\"页面（CTRL + J）查看",
+      "file": "src/services/io/export.ts",
+      "line": 114,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:290e7c68c0785a8b",
+      "source": "JPEG export failed: ${(error as Error)?.message || \"Unknown error\"}",
+      "target": "JPEG 导出失败：${(error as Error)?.message || \"未知错误\"}",
+      "file": "src/services/io/export.ts",
+      "line": 118,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:353f5aa1401be801",
+      "source": "PNG tiles export failed: ${error?.message || \"Unknown error\"}",
+      "target": "PNG 瓦片导出失败：${error?.message || \"未知错误\"}",
+      "file": "src/services/io/export.ts",
+      "line": 202,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d4358ac0a37dd112",
+      "source": "Map cannot be saved in EDIT mode, please complete the edit and retry",
+      "target": "地图在编辑模式下无法保存，请完成编辑后重试",
+      "file": "src/services/io/save.ts",
+      "line": 9,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:10eaff2ce9a9be8e",
+      "source": "Saving error",
+      "target": "保存错误",
+      "file": "src/services/io/save.ts",
+      "line": 28,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:56582b21e40a130b",
+      "source": "Map is saved to the browser storage",
+      "target": "地图已保存到浏览器存储",
+      "file": "src/services/io/save.ts",
+      "line": 193,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:16e247c25bbf5425",
+      "source": "Map is saved to the \"Downloads\" folder (CTRL + J to open)",
+      "target": "地图已保存到\"下载\"文件夹（CTRL + J 打开）",
+      "file": "src/services/io/save.ts",
+      "line": 206,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6b5dc70e284bac83",
+      "source": "Map is saved to your Dropbox",
+      "target": "地图已保存到您的 Dropbox",
+      "file": "src/services/io/save.ts",
+      "line": 212,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
     }
   ]
 }

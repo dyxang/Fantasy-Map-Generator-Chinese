@@ -6,7 +6,7 @@ import { ensureEl, link, parseError, rn } from "@/utils";
 type SaveMethod = "storage" | "machine" | "dropbox";
 
 async function saveMap(method: SaveMethod): Promise<void> {
-  if (customization) return tip("Map cannot be saved in EDIT mode, please complete the edit and retry", false, "error");
+  if (customization) return tip("地图在编辑模式下无法保存，请完成编辑后重试", false, "error");
   closeDialogs("#alert");
 
   try {
@@ -25,7 +25,7 @@ async function saveMap(method: SaveMethod): Promise<void> {
 
     $("#alert").dialog({
       resizable: false,
-      title: "Saving error",
+      title: "保存错误",
       width: "28em",
       buttons: {
         Retry: function (this: HTMLElement) {
@@ -190,7 +190,7 @@ function prepareMapData(): string {
 async function saveToStorage(mapData: string, showTip = false): Promise<void> {
   const blob = new Blob([mapData], { type: "text/plain" });
   await ldb.set("lastMap", blob);
-  showTip && tip("Map is saved to the browser storage", false, "success");
+  showTip && tip("地图已保存到浏览器存储", false, "success");
 }
 
 // download map file
@@ -203,13 +203,13 @@ function saveToMachine(mapData: string, filename: string): void {
   link.href = URL;
   link.click();
 
-  tip('Map is saved to the "Downloads" folder (CTRL + J to open)', true, "success", 8000);
+  tip('地图已保存到"下载"文件夹（CTRL + J 打开）', true, "success", 8000);
   setTimeout(() => window.URL.revokeObjectURL(URL), 5000);
 }
 
 async function saveToDropbox(mapData: string, filename: string): Promise<void> {
   await Services.Cloud.save(filename, mapData);
-  tip("Map is saved to your Dropbox", true, "success", 8000);
+  tip("地图已保存到您的 Dropbox", true, "success", 8000);
 }
 
 export const Save = { saveMap, prepareMapData, saveToStorage };

@@ -24,7 +24,7 @@ function exportToJson(type: ExportJsonType): void {
   link.download = `${getFileName(type)}.json`;
   link.href = URL;
   link.click();
-  tip(`${link.download} is saved. Open "Downloads" screen (CTRL + J) to check`, true, "success", 7000);
+  tip(`${link.download} 已保存。打开"下载"页面（CTRL + J）查看`, true, "success", 7000);
   window.URL.revokeObjectURL(URL);
   TIME && console.timeEnd("exportToJson");
 }
@@ -84,7 +84,7 @@ function getGridDataJson(): string {
 function getMapInfo() {
   return {
     version: VERSION,
-    description: "Azgaar's Fantasy Map Generator output: azgaar.github.io/Fantasy-map-generator",
+    description: "Azgaar's Fantasy Map Generator 输出：azgaar.github.io/Fantasy-map-generator",
     exportedAt: new Date().toISOString(),
     mapName: mapName.value,
     width: graphWidth,

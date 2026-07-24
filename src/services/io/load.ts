@@ -8,15 +8,15 @@ async function quickLoad(): Promise<void> {
   const blob = await ldb.get("lastMap");
   if (blob) loadMapPrompt(blob);
   else {
-    tip("No map stored. Save map to browser storage first", true, "error", 2000);
-    ERROR && console.error("No map stored");
+    tip("无已存地图。请先保存地图到浏览器存储", true, "error", 2000);
+    ERROR && console.error("无已存地图");
   }
 }
 
 async function loadFromDropbox(): Promise<void> {
   const mapPath = ensureEl<HTMLInputElement>("loadFromDropboxSelect").value;
 
-  console.info("Loading map from Dropbox:", mapPath);
+  console.info("正在从 Dropbox 加载地图：", mapPath);
   const blob = await Services.Cloud.load(mapPath);
   uploadMap(blob);
 }
@@ -36,7 +36,7 @@ async function createSharableDropboxLink(): Promise<void> {
     sharableLinkContainer.style.display = "block";
   } catch (error) {
     ERROR && console.error(error);
-    return tip("Dropbox API error. Can not create link.", true, "error", 2000);
+    return tip("Dropbox API 错误。无法创建链接。", true, "error", 2000);
   }
 }
 
@@ -51,7 +51,7 @@ function loadMapPrompt(blob: Blob): void {
     All unsaved changes made to the current map will be lost`;
   $("#alert").dialog({
     resizable: false,
-    title: "Load saved map",
+    title: "加载已存地图",
     buttons: {
       Cancel: function (this: HTMLElement) {
         $(this).dialog("close");
@@ -69,7 +69,7 @@ function loadMapPrompt(blob: Blob): void {
       uploadMap(blob);
     } catch (error) {
       ERROR && console.error(error);
-      tip("Cannot load last saved map", true, "error", 2000);
+      tip("无法加载上次保存的地图", true, "error", 2000);
     }
   }
 }
@@ -105,7 +105,7 @@ function showUploadErrorMessage(error: string, maplink: string, random?: boolean
   } Please ensure the
   linked file is reachable and CORS is allowed on server side`;
   $("#alert").dialog({
-    title: "Loading error",
+    title: "加载错误",
     width: "32em",
     buttons: {
       "Clear cache": () => cleanupData(),
@@ -214,7 +214,7 @@ function showUploadMessage(type: string, mapData: string[] | null, mapVersion: s
     message = `The map version you are trying to load (${mapVersion}) is newer than the current version.<br>Please load the file in the appropriate version`;
     title = "Newer file";
   } else if (type === "outdated") {
-    INFO && console.info(`Loading map. Auto-updating from ${mapVersion} to ${VERSION}`);
+    INFO && console.info(`正在加载地图。自动从 ${mapVersion} 更新到 ${VERSION}`);
     parseLoadedData(mapData!, mapVersion);
     return;
   }
@@ -417,7 +417,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
     pack.cultures = JSON.parse(data[13]);
     pack.states = JSON.parse(data[14]);
     pack.burgs = JSON.parse(data[15]);
-    pack.religions = data[29] ? JSON.parse(data[29]) : ([{ i: 0, name: "No religion" }] as typeof pack.religions);
+    pack.religions = data[29] ? JSON.parse(data[29]) : ([{ i: 0, name: "无宗教" }] as typeof pack.religions);
     pack.provinces = data[30] ? JSON.parse(data[30]) : ([0] as unknown as typeof pack.provinces);
     pack.rivers = data[32] ? JSON.parse(data[32]) : [];
     pack.markers = data[35] ? JSON.parse(data[35]) : [];
@@ -523,10 +523,10 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
       TradeAnimation.sync();
     }
     select("#scaleBar")
-      .on("mousemove", () => tip("Click to open Units Editor"))
+      .on("mousemove", () => tip("点击打开单位编辑器"))
       .on("click", () => window.Controllers.UnitsEditor.open());
     select("#legend")
-      .on("mousemove", () => tip("Drag to change the position. Click to hide the legend"))
+      .on("mousemove", () => tip("拖动以更改位置。点击隐藏图例"))
       .on("click", () => clearLegend());
 
     {
@@ -569,7 +569,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         invalidCells.forEach(i => {
           cells.state[i] = 0;
         });
-        ERROR && console.error("[Data integrity] Invalid state", s, "is assigned to cells", invalidCells);
+        ERROR && console.error("[数据完整性] 无效国家", s, "is assigned to cells", invalidCells);
       });
 
       const invalidProvinces = [...new Set(cells.province)].filter(
@@ -580,7 +580,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         invalidCells.forEach(i => {
           cells.province[i] = 0;
         });
-        ERROR && console.error("[Data integrity] Invalid province", p, "is assigned to cells", invalidCells);
+        ERROR && console.error("[数据完整性] 无效省份", p, "is assigned to cells", invalidCells);
       });
 
       const invalidCultures = [...new Set(cells.culture)].filter(c => !pack.cultures[c] || pack.cultures[c].removed);
@@ -589,7 +589,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         invalidCells.forEach(i => {
           cells.province[i] = 0;
         });
-        ERROR && console.error("[Data integrity] Invalid culture", c, "is assigned to cells", invalidCells);
+        ERROR && console.error("[数据完整性] 无效文化", c, "is assigned to cells", invalidCells);
       });
 
       const invalidReligions = [...new Set(cells.religion)].filter(
@@ -600,14 +600,14 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         invalidCells.forEach(i => {
           cells.religion[i] = 0;
         });
-        ERROR && console.error("[Data integrity] Invalid religion", r, "is assigned to cells", invalidCells);
+        ERROR && console.error("[数据完整性] 无效宗教", r, "is assigned to cells", invalidCells);
       });
 
       const invalidFeatures = [...new Set(cells.f)].filter(f => f && !pack.features[f]);
       invalidFeatures.forEach(f => {
         const invalidCells = cells.i.filter(i => cells.f[i] === f);
         // No fix as for now
-        ERROR && console.error("[Data integrity] Invalid feature", f, "is assigned to cells", invalidCells);
+        ERROR && console.error("[数据完整性] 无效地貌", f, "is assigned to cells", invalidCells);
       });
 
       const invalidBurgs = [...new Set(cells.burg)].filter(
@@ -618,7 +618,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         invalidCells.forEach(i => {
           cells.burg[i] = 0;
         });
-        ERROR && console.error("[Data integrity] Invalid burg", burgId, "is assigned to cells", invalidCells);
+        ERROR && console.error("[数据完整性] 无效城镇", burgId, "is assigned to cells", invalidCells);
       });
 
       const invalidRivers = [...new Set(cells.r)].filter(r => r && !pack.rivers.find(river => river.i === r));
@@ -628,20 +628,20 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
           cells.r[i] = 0;
         });
         select("#rivers").select(`river${r}`).remove();
-        ERROR && console.error("[Data integrity] Invalid river", r, "is assigned to cells", invalidCells);
+        ERROR && console.error("[数据完整性] 无效河流", r, "is assigned to cells", invalidCells);
       });
 
       pack.burgs.forEach(burg => {
         if (typeof burg.capital === "boolean") burg.capital = Number(burg.capital);
 
         if (!burg.i && burg.lock) {
-          ERROR && console.error(`[Data integrity] Burg 0 is marked as locked, removing the status`);
+          ERROR && console.error(`[数据完整性] 城镇 0 被标记为锁定，移除该状态`);
           delete burg.lock;
           return;
         }
 
         if (burg.removed && burg.lock) {
-          ERROR && console.error(`[Data integrity] Removed burg ${burg.i} is marked as locked. Unlocking the burg`);
+          ERROR && console.error(`[数据完整性] 已移除的城镇 ${burg.i} 被标记为锁定。解锁该城镇`);
           delete burg.lock;
           return;
         }
@@ -650,17 +650,17 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
 
         if (burg.cell === undefined || burg.x === undefined || burg.y === undefined) {
           ERROR &&
-            console.error(`[Data integrity] Burg ${burg.i} is missing cell info or coordinates. Removing the burg`);
+            console.error(`[数据完整性] 城镇 ${burg.i} 缺少单元格信息或坐标。移除该城镇`);
           burg.removed = true;
         }
 
         if ((burg.port ?? 0) < 0) {
-          ERROR && console.error("[Data integrity] Burg", burg.i, "has invalid port value", burg.port);
+          ERROR && console.error("[数据完整性] 城镇", burg.i, "has invalid port value", burg.port);
           burg.port = 0;
         }
 
         if (burg.cell >= cells.i.length) {
-          ERROR && console.error("[Data integrity] Burg", burg.i, "is linked to invalid cell", burg.cell);
+          ERROR && console.error("[数据完整性] 城镇", burg.i, "is linked to invalid cell", burg.cell);
           burg.cell = findCell(burg.x, burg.y)!;
           cells.i
             .filter(i => cells.burg[i] === burg.i)
@@ -671,17 +671,17 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         }
 
         if (burg.state && !pack.states[burg.state]) {
-          ERROR && console.error("[Data integrity] Burg", burg.i, "is linked to invalid state", burg.state);
+          ERROR && console.error("[数据完整性] 城镇", burg.i, "is linked to invalid state", burg.state);
           burg.state = 0;
         }
 
         if (burg.state && pack.states[burg.state].removed) {
-          ERROR && console.error("[Data integrity] Burg", burg.i, "is linked to removed state", burg.state);
+          ERROR && console.error("[数据完整性] 城镇", burg.i, "is linked to removed state", burg.state);
           burg.state = 0;
         }
 
         if (burg.state === undefined) {
-          ERROR && console.error("[Data integrity] Burg", burg.i, "has no state data");
+          ERROR && console.error("[数据完整性] 城镇", burg.i, "has no state data");
           burg.state = 0;
         }
       });
@@ -695,7 +695,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         if (!state.i && capitalBurgs.length) {
           ERROR &&
             console.error(
-              `[Data integrity] Neutral burgs (${capitalBurgs.map(b => b.i).join(", ")}) marked as capitals`
+              `[数据完整性] 中立城镇 (${capitalBurgs.map(b => b.i).join(", ")}) 被标记为首都`
             );
 
           capitalBurgs.forEach(burg => {
@@ -722,7 +722,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         }
 
         if (state.i && stateBurgs.length && !capitalBurgs.length) {
-          ERROR && console.error(`[Data integrity] State ${state.i} has no capital. Making the first burg capital`);
+          ERROR && console.error(`[数据完整性] 国家 ${state.i} 没有首都。将首个城镇设为首都`);
           const capital = stateBurgs[0];
           capital.capital = 1;
           Burgs.changeGroup(capital, null);
@@ -735,14 +735,14 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
         if (state && !state.removed) return;
         ERROR &&
           console.error(
-            `[Data integrity] Province ${p.i} is linked to removed state ${p.state}. Removing the province`
+            `[数据完整性] 省份 ${p.i} 关联到已移除的国家 ${p.state}。移除该省份`
           );
         p.removed = true;
       });
 
       pack.routes.forEach(route => {
         if (!route.points || route.points.length < 2) {
-          ERROR && console.error(`[Data integrity] Route ${route.i} has less than 2 points. Removing the route`);
+          ERROR && console.error(`[数据完整性] 道路 ${route.i} 少于 2 个点。移除该道路`);
           Routes.remove(route);
         }
       });
@@ -762,7 +762,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
           const route = pack.routes.find(r => r.i === routeId);
           if (!route) {
             ERROR &&
-              console.error(`[Data integrity] Route ${routeId} from ${from} to ${to} is missing. Removing the route`);
+              console.error(`[数据完整性] 从 ${from} 到 ${to} 的道路 ${routeId} 缺失。移除该道路`);
             delete pack.cells.routes[+from][+to];
           }
         }
@@ -774,7 +774,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
 
         pack.markers.forEach(marker => {
           if (markerIds[marker.i]) {
-            ERROR && console.error("[Data integrity] Marker", marker.i, "has non-unique id. Changing to", nextId);
+            ERROR && console.error("[数据完整性] 标记", marker.i, "has non-unique id. Changing to", nextId);
 
             const domElements = document.querySelectorAll<HTMLElement>(`#marker${marker.i}`);
             if (domElements[1]) domElements[1].id = `marker${nextId}`; // rename 2nd dom element
@@ -806,7 +806,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
     WARN && console.warn(`TOTAL: ${rn((performance.now() - uploadTimeStart) / 1000, 2)}s`);
     showStatistics();
     INFO && console.groupEnd();
-    tip("Map is successfully loaded", true, "success", 7000);
+    tip("地图加载成功", true, "success", 7000);
   } catch (error) {
     ERROR && console.error(error);
     clearMainTip();
@@ -816,7 +816,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
 
     $("#alert").dialog({
       resizable: false,
-      title: "Loading error",
+      title: "加载错误",
       maxWidth: "40em",
       buttons: {
         "Clear cache": () => cleanupData(),
