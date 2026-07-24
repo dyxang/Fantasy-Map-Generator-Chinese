@@ -7915,6 +7915,1199 @@
       "type": "ts_string",
       "context_tag": "label",
       "skipped": false
+    },
+    {
+      "id": "sha256:6eacc30664aec45c",
+      "source": "Roman",
+      "target": "罗马",
+      "file": "src/generators/names-generator.ts",
+      "line": 374,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:49c62ada9a26d104",
+      "source": "Celtic",
+      "target": "凯尔特",
+      "file": "src/generators/names-generator.ts",
+      "line": 500,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:073c9dd3ddc40247",
+      "source": "Mesopotamian",
+      "target": "美索不达米亚",
+      "file": "src/generators/names-generator.ts",
+      "line": 509,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:d4d806736dc5792e",
+      "source": "Please define a base",
+      "target": "请定义名称库",
+      "file": "src/generators/names-generator.ts",
+      "line": 79,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a1e725b17e2a6d66",
+      "source": "Namebase ${base} is not found",
+      "target": "名称库 ${base} 未找到",
+      "file": "src/generators/names-generator.ts",
+      "line": 88,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3579176b95552d56",
+      "source": "Namesbase ${base} is incorrect. Please check in namesbase editor",
+      "target": "名称库 ${base} 不正确。请在名称库编辑器中检查",
+      "file": "src/generators/names-generator.ts",
+      "line": 97,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:54e240c98d9550b7",
+      "source": "Namebase ${base} is incorrect!",
+      "target": "名称库 ${base} 不正确！",
+      "file": "src/generators/names-generator.ts",
+      "line": 98,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:98040fc791894fc7",
+      "source": "Name is too short! Random name will be selected",
+      "target": "名称过短！将选择随机名称",
+      "file": "src/generators/names-generator.ts",
+      "line": 152,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f2ab2930f7677e49",
+      "source": "Please define a culture",
+      "target": "请定义文化",
+      "file": "src/generators/names-generator.ts",
+      "line": 162,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:55bd3cd4e47c59d1",
+      "source": "Please define a culture",
+      "target": "请定义文化",
+      "file": "src/generators/names-generator.ts",
+      "line": 172,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:09fc5b22bb8784c0",
+      "source": "Please define a base name",
+      "target": "请定义基础名称",
+      "file": "src/generators/names-generator.ts",
+      "line": 205,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:103d5a1e846eee08",
+      "source": "Please define a culture",
+      "target": "请定义文化",
+      "file": "src/generators/names-generator.ts",
+      "line": 209,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6746e76a91375cb2",
+      "source": "Namebase is not found",
+      "target": "名称库未找到",
+      "file": "src/generators/names-generator.ts",
+      "line": 286,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:74d4a3f378b14fff",
+      "source": "German",
+      "target": "德语",
+      "file": "src/generators/names-generator.ts",
+      "line": 302,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:39488f14bf7f75d6",
+      "source": "English",
+      "target": "英语",
+      "file": "src/generators/names-generator.ts",
+      "line": 311,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:64c89493cd977943",
+      "source": "French",
+      "target": "法语",
+      "file": "src/generators/names-generator.ts",
+      "line": 320,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5015494dbefef23f",
+      "source": "Italian",
+      "target": "意大利语",
+      "file": "src/generators/names-generator.ts",
+      "line": 329,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1db5182a5a258933",
+      "source": "Castillian",
+      "target": "卡斯蒂利亚语",
+      "file": "src/generators/names-generator.ts",
+      "line": 338,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c377f1f7cfa3fd83",
+      "source": "Ruthenian",
+      "target": "罗塞尼亚语",
+      "file": "src/generators/names-generator.ts",
+      "line": 347,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d97eed24a3c0cdc8",
+      "source": "Nordic",
+      "target": "北欧语",
+      "file": "src/generators/names-generator.ts",
+      "line": 356,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:419c362c4199259c",
+      "source": "Greek",
+      "target": "希腊语",
+      "file": "src/generators/names-generator.ts",
+      "line": 365,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:731da22568963a72",
+      "source": "Finnic",
+      "target": "芬兰语",
+      "file": "src/generators/names-generator.ts",
+      "line": 383,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8aa61ae0669956b0",
+      "source": "Korean",
+      "target": "韩语",
+      "file": "src/generators/names-generator.ts",
+      "line": 392,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f637f608b81bc4db",
+      "source": "Chinese",
+      "target": "汉语",
+      "file": "src/generators/names-generator.ts",
+      "line": 401,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a2f003ab84e7f733",
+      "source": "Japanese",
+      "target": "日语",
+      "file": "src/generators/names-generator.ts",
+      "line": 410,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2231e72dc617ae2e",
+      "source": "Portuguese",
+      "target": "葡萄牙语",
+      "file": "src/generators/names-generator.ts",
+      "line": 419,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8c86755f9fd548e9",
+      "source": "Nahuatl",
+      "target": "纳瓦特尔语",
+      "file": "src/generators/names-generator.ts",
+      "line": 428,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:db106a20a3cc3a5e",
+      "source": "Hungarian",
+      "target": "匈牙利语",
+      "file": "src/generators/names-generator.ts",
+      "line": 437,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d42023ce98c83849",
+      "source": "Turkish",
+      "target": "土耳其语",
+      "file": "src/generators/names-generator.ts",
+      "line": 446,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:acd137cbe7c3ce0a",
+      "source": "Berber",
+      "target": "柏柏尔语",
+      "file": "src/generators/names-generator.ts",
+      "line": 455,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1086ab3db6e3aee8",
+      "source": "Arabic",
+      "target": "阿拉伯语",
+      "file": "src/generators/names-generator.ts",
+      "line": 464,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e086fc9de9c60312",
+      "source": "Inuit",
+      "target": "因纽特语",
+      "file": "src/generators/names-generator.ts",
+      "line": 473,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:afae004808552aac",
+      "source": "Basque",
+      "target": "巴斯克语",
+      "file": "src/generators/names-generator.ts",
+      "line": 482,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a3d80cbbe39bca82",
+      "source": "Nigerian",
+      "target": "尼日利亚语",
+      "file": "src/generators/names-generator.ts",
+      "line": 491,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5fe6492f06e0af6a",
+      "source": "Iranian",
+      "target": "伊朗语",
+      "file": "src/generators/names-generator.ts",
+      "line": 518,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:393caa37e019ecd2",
+      "source": "Hawaiian",
+      "target": "夏威夷语",
+      "file": "src/generators/names-generator.ts",
+      "line": 527,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:836c51a088d97331",
+      "source": "Karnataka",
+      "target": "卡纳塔克语",
+      "file": "src/generators/names-generator.ts",
+      "line": 536,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dd9aea77a97a34fd",
+      "source": "Quechua",
+      "target": "克丘亚语",
+      "file": "src/generators/names-generator.ts",
+      "line": 545,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9eff991bb8fb828f",
+      "source": "Swahili",
+      "target": "斯瓦希里语",
+      "file": "src/generators/names-generator.ts",
+      "line": 554,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d5cea03d0a4690c5",
+      "source": "Vietnamese",
+      "target": "越南语",
+      "file": "src/generators/names-generator.ts",
+      "line": 563,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:125c961628ef60ff",
+      "source": "Cantonese",
+      "target": "粤语",
+      "file": "src/generators/names-generator.ts",
+      "line": 572,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2f37026d9831fe40",
+      "source": "Mongolian",
+      "target": "蒙古语",
+      "file": "src/generators/names-generator.ts",
+      "line": 581,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:981b329e42426ba5",
+      "source": "Human Generic",
+      "target": "人类通用",
+      "file": "src/generators/names-generator.ts",
+      "line": 591,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:964263288daff00f",
+      "source": "Elven",
+      "target": "精灵语",
+      "file": "src/generators/names-generator.ts",
+      "line": 600,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7867560c18a6e9f8",
+      "source": "Dark Elven",
+      "target": "黑精灵语",
+      "file": "src/generators/names-generator.ts",
+      "line": 609,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d62bb8f7f75c473e",
+      "source": "Dwarven",
+      "target": "矮人语",
+      "file": "src/generators/names-generator.ts",
+      "line": 618,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eab1ef4b900d623f",
+      "source": "Goblin",
+      "target": "哥布林语",
+      "file": "src/generators/names-generator.ts",
+      "line": 627,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b1abc2119ba020a4",
+      "source": "Orc",
+      "target": "兽人语",
+      "file": "src/generators/names-generator.ts",
+      "line": 636,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9e54d7bcce8bcb7b",
+      "source": "Giant",
+      "target": "巨人语",
+      "file": "src/generators/names-generator.ts",
+      "line": 645,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6e71326c8b4f7e40",
+      "source": "Draconic",
+      "target": "龙语",
+      "file": "src/generators/names-generator.ts",
+      "line": 654,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c41cfa0cecf4f3e6",
+      "source": "Arachnid",
+      "target": "蛛族语",
+      "file": "src/generators/names-generator.ts",
+      "line": 663,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b48f7091de9e7235",
+      "source": "Serpents",
+      "target": "蛇族语",
+      "file": "src/generators/names-generator.ts",
+      "line": 672,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7dd9e0ec7060db9a",
+      "source": "Levantine",
+      "target": "黎凡特语",
+      "file": "src/generators/names-generator.ts",
+      "line": 682,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fb716f3eb18f7880",
+      "source": "Tar",
+      "target": "焦油",
+      "file": "src/generators/goods-generator.ts",
+      "line": 444,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:38ccbe354462cc87",
+      "source": "Saltpeter",
+      "target": "硝石",
+      "file": "src/generators/goods-generator.ts",
+      "line": 456,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:53747171e404c26c",
+      "source": "Coal",
+      "target": "煤",
+      "file": "src/generators/goods-generator.ts",
+      "line": 467,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:35209eccc86aebde",
+      "source": "Oil",
+      "target": "油",
+      "file": "src/generators/goods-generator.ts",
+      "line": 479,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c4ed3ae2e7f5a881",
+      "source": "Mahogany",
+      "target": "桃花心木",
+      "file": "src/generators/goods-generator.ts",
+      "line": 491,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ae9684f9e9c1ab33",
+      "source": "Whales",
+      "target": "鲸",
+      "file": "src/generators/goods-generator.ts",
+      "line": 502,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1eee045853433b89",
+      "source": "Sugarcane",
+      "target": "甘蔗",
+      "file": "src/generators/goods-generator.ts",
+      "line": 514,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6a078ea5208e06cf",
+      "source": "Tea",
+      "target": "茶",
+      "file": "src/generators/goods-generator.ts",
+      "line": 525,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2055a8e21dae116e",
+      "source": "Tobacco",
+      "target": "烟草",
+      "file": "src/generators/goods-generator.ts",
+      "line": 537,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9191d6117ac75702",
+      "source": "Clay",
+      "target": "黏土",
+      "file": "src/generators/goods-generator.ts",
+      "line": 548,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c2f3fc6d74f78ee0",
+      "source": "White sand",
+      "target": "白砂",
+      "file": "src/generators/goods-generator.ts",
+      "line": 560,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:75e707f3e93b3c38",
+      "source": "Leather",
+      "target": "皮革",
+      "file": "src/generators/goods-generator.ts",
+      "line": 571,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b402a8d6bf1d446",
+      "source": "Cloth",
+      "target": "布匹",
+      "file": "src/generators/goods-generator.ts",
+      "line": 582,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3f56f09d8baf6a32",
+      "source": "Garments",
+      "target": "服装",
+      "file": "src/generators/goods-generator.ts",
+      "line": 593,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b805c0856ec08c2d",
+      "source": "Ceramics",
+      "target": "陶瓷",
+      "file": "src/generators/goods-generator.ts",
+      "line": 607,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e52d5804f0146388",
+      "source": "Glass",
+      "target": "玻璃",
+      "file": "src/generators/goods-generator.ts",
+      "line": 618,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2310cd2ed7cbb2f6",
+      "source": "Ropes",
+      "target": "绳索",
+      "file": "src/generators/goods-generator.ts",
+      "line": 630,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:db75dc5516ff4d46",
+      "source": "Paper",
+      "target": "纸张",
+      "file": "src/generators/goods-generator.ts",
+      "line": 641,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:187f02a9cb1bfe19",
+      "source": "Ink",
+      "target": "墨水",
+      "file": "src/generators/goods-generator.ts",
+      "line": 652,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8a00a3498f9337ad",
+      "source": "Books",
+      "target": "书籍",
+      "file": "src/generators/goods-generator.ts",
+      "line": 663,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:998755cd593fe916",
+      "source": "Sails",
+      "target": "船帆",
+      "file": "src/generators/goods-generator.ts",
+      "line": 678,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:133aba78af8cb967",
+      "source": "Ships",
+      "target": "船只",
+      "file": "src/generators/goods-generator.ts",
+      "line": 689,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9f2173c69782d52f",
+      "source": "Boots",
+      "target": "靴子",
+      "file": "src/generators/goods-generator.ts",
+      "line": 701,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:21433f69bf336240",
+      "source": "Harnesses",
+      "target": "马具",
+      "file": "src/generators/goods-generator.ts",
+      "line": 712,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6d889bb027ca3a51",
+      "source": "Barrels",
+      "target": "木桶",
+      "file": "src/generators/goods-generator.ts",
+      "line": 728,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:090fed95baa9e8d4",
+      "source": "Bronze",
+      "target": "青铜",
+      "file": "src/generators/goods-generator.ts",
+      "line": 739,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1e87a5f022779a49",
+      "source": "Tools",
+      "target": "工具",
+      "file": "src/generators/goods-generator.ts",
+      "line": 753,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b80a0106215ab73",
+      "source": "Arms",
+      "target": "兵器",
+      "file": "src/generators/goods-generator.ts",
+      "line": 767,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d9bbbc73ab252441",
+      "source": "Gunpowder",
+      "target": "火药",
+      "file": "src/generators/goods-generator.ts",
+      "line": 781,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:118c34db6b6f87e6",
+      "source": "Artillery",
+      "target": "火炮",
+      "file": "src/generators/goods-generator.ts",
+      "line": 792,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ed2be2d16b012b0f",
+      "source": "Coins",
+      "target": "钱币",
+      "file": "src/generators/goods-generator.ts",
+      "line": 806,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e80ff94b0e7ea958",
+      "source": "Jewelry",
+      "target": "珠宝",
+      "file": "src/generators/goods-generator.ts",
+      "line": 820,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:98c49d4d08070e1a",
+      "source": "Preserved food",
+      "target": "腌制食品",
+      "file": "src/generators/goods-generator.ts",
+      "line": 838,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2d3169679a3653c1",
+      "source": "Vinegar",
+      "target": "醋",
+      "file": "src/generators/goods-generator.ts",
+      "line": 859,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1b012a780193beab",
+      "source": "Cheese",
+      "target": "奶酪",
+      "file": "src/generators/goods-generator.ts",
+      "line": 870,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:400349df72abf4e9",
+      "source": "Beer",
+      "target": "啤酒",
+      "file": "src/generators/goods-generator.ts",
+      "line": 886,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e66a34e1dbc9e610",
+      "source": "Liquor",
+      "target": "烈酒",
+      "file": "src/generators/goods-generator.ts",
+      "line": 900,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3317f06244849f0e",
+      "source": "Candles",
+      "target": "蜡烛",
+      "file": "src/generators/goods-generator.ts",
+      "line": 918,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9faa84a2f609d725",
+      "source": "Soap",
+      "target": "肥皂",
+      "file": "src/generators/goods-generator.ts",
+      "line": 929,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4d88d01f759a4be6",
+      "source": "Perfume",
+      "target": "香水",
+      "file": "src/generators/goods-generator.ts",
+      "line": 940,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ffc0f511942e6040",
+      "source": "Azgaar's Fantasy Map Generator",
+      "target": "Azgaar 奇幻地图生成器",
+      "file": "src/index.html",
+      "line": 6,
+      "type": "html_text",
+      "context_tag": "text",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f0ea79d7e9dee7a6",
+      "source": "Azgaar's",
+      "target": "Azgaar's",
+      "file": "src/index.html",
+      "line": 351,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:263573537b7778dc",
+      "source": "Fantasy Map Generator",
+      "target": "奇幻地图生成器",
+      "file": "src/index.html",
+      "line": 352,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5f10ae4410b07cf6",
+      "source": "LOADING",
+      "target": "加载中",
+      "file": "src/index.html",
+      "line": 354,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f3cf7cebf6812d0e",
+      "source": "Click to show the Menu",
+      "target": "点击显示菜单",
+      "file": "src/index.html",
+      "line": 361,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3a5e16521bcade2f",
+      "source": "Click to generate a new map",
+      "target": "点击生成新地图",
+      "file": "src/index.html",
+      "line": 370,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:682404f9884f7a4e",
+      "source": "New Map!",
+      "target": "新地图！",
+      "file": "src/index.html",
+      "line": 376,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:54f5b8c2465af73a",
+      "source": "Drag to move the Menu",
+      "target": "拖动以移动菜单",
+      "file": "src/index.html",
+      "line": 380,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7996736730b498b3",
+      "source": "Click to hide the Menu",
+      "target": "点击隐藏菜单",
+      "file": "src/index.html",
+      "line": 384,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2b31f519bb552333",
+      "source": "Click to change map layers",
+      "target": "点击更改地图图层",
+      "file": "src/index.html",
+      "line": 391,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f897d1943bfd31bd",
+      "source": "Layers",
+      "target": "图层",
+      "file": "src/index.html",
+      "line": 391,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8093d2ff9afa1956",
+      "source": "Click to open style editor",
+      "target": "点击打开样式编辑器",
+      "file": "src/index.html",
+      "line": 392,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:52c8fa25cc84fdcc",
+      "source": "Style",
+      "target": "样式",
+      "file": "src/index.html",
+      "line": 392,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa8c961877942ead",
+      "source": "Range should be a string",
+      "target": "范围应为字符串",
+      "file": "src/generators/heightmap-generator.ts",
+      "line": 64,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0fc7caae37b9b6b5",
+      "source": "${icon} ${type}: each ${each} of ${candidates.length}, min ${min} candidates. Got ${quantity}",
+      "target": "${icon} ${type}: 每 ${each} 个共 ${candidates.length} 个，最少 ${min} 个候选。实际 ${quantity}",
+      "file": "src/generators/markers-generator.ts",
+      "line": 472,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c099b774c2c23198",
+      "source": "Wheat",
+      "target": "小麦",
+      "file": "src/generators/markets-generator.test.ts",
+      "line": 27,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3c4ac0d3f4650e9d",
+      "source": "Riverton",
+      "target": "Riverton",
+      "file": "src/generators/markets-generator.test.ts",
+      "line": 236,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8809926eeaa15f37",
+      "source": "Grand Bazaar",
+      "target": "Grand Bazaar",
+      "file": "src/generators/markets-generator.test.ts",
+      "line": 238,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a01e35093a9998c6",
+      "source": "This burg is already a market center",
+      "target": "此城镇已是一个市场中心",
+      "file": "src/generators/markets-generator.ts",
+      "line": 259,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fa761395475103e5",
+      "source": "No religion",
+      "target": "无宗教",
+      "file": "src/generators/religions-generator.ts",
+      "line": 754,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b2ab3d6dc08469f7",
+      "source": "Removed religion",
+      "target": "已移除宗教",
+      "file": "src/generators/religions-generator.ts",
+      "line": 797,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:fd8e0870b80afcf6",
+      "source": "Please define a culture",
+      "target": "请定义文化",
+      "file": "src/generators/religions-generator.ts",
+      "line": 1066,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f676c0e13bff4d19",
+      "source": "Unknown generation approach",
+      "target": "未知的生成方式",
+      "file": "src/generators/religions-generator.ts",
+      "line": 1126,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:eeac5f49692a97d0",
+      "source": "Neutrals",
+      "target": "中立",
+      "file": "src/generators/states-generator.test.ts",
+      "line": 46,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:09d3126d930b2c62",
+      "source": "Neutrals",
+      "target": "中立",
+      "file": "src/generators/states-generator.test.ts",
+      "line": 133,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e744c8cdeadaa833",
+      "source": "Neutrals",
+      "target": "中立",
+      "file": "src/generators/states-generator.ts",
+      "line": 78,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
     }
   ]
 }
