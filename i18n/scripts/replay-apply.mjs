@@ -69,7 +69,7 @@ function replayTsFile(content, filePath) {
         replacements.push({
           start: node.getStart(sourceFile) + 1, // 跳过开引号
           end: node.getEnd() - 1,                 // 跳过闭引号
-          text: escapeForStringLiteral(target, node),
+          text: escapeForStringLiteral(target, node, sourceFile),
         });
       } else if (allowGlobalFallback && bySource.has(node.text)) {
         const candidates = bySource.get(node.text);
@@ -79,7 +79,7 @@ function replayTsFile(content, filePath) {
           replacements.push({
             start: node.getStart(sourceFile) + 1,
             end: node.getEnd() - 1,
-            text: escapeForStringLiteral(candidates[0].target, node),
+            text: escapeForStringLiteral(candidates[0].target, node, sourceFile),
           });
         } else {
           // 多候选，加入 AMBIGUOUS
@@ -152,15 +152,19 @@ function replayTsFile(content, filePath) {
   return { content: result, stats };
 }
 
-function escapeForStringLiteral(text, node) {
-  // 根据原字面量是双引号还是单引号决定转义
-  const fullText = node.getFullText ? node.getFullText() : "";
-  const quoteChar = fullText[0];
+function escapeForStringLiteral(text, node, sourceFile) {
+  // 用 getText(sourceFile) 取字面量原文（不含 leading trivia）。
+  // ⚠️ 不能用 node.getFullText()——它会包含前导空白/注释（leading trivia），
+  //    导致 'name: "foo"' 的 fullText[0] 是空格而非引号，escape 静默失效。
+  //    getText(sourceFile) 等价于 sourceFile.text.slice(getStart, getEnd)，只含字面量本身。
+  const literalText = node.getText(sourceFile);
+  const quoteChar = literalText[0];
   if (quoteChar === '"') {
     return text.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n");
   } else if (quoteChar === "'") {
     return text.replace(/\\/g, "\\\\").replace(/'/g, "\\'").replace(/\n/g, "\\n");
   }
+  // 模板字面量（`...`）或边界情况：不转义双引号
   return text;
 }
 

@@ -4,7 +4,7 @@
 
 import { readFileSync, writeFileSync } from "fs";
 import { execSync } from "child_process";
-import { join } from "path";
+import { join, extname } from "path";
 
 const I18N = join(import.meta.dirname, "..");
 const ROOT = join(I18N, "..");
@@ -19,8 +19,9 @@ const IGNORED_EXTENSIONS = new Set([
   ".pdf", ".zip", ".gz", ".tar",
 ]);
 
-// 仅分析这些目录下的源码文件
-const TRACKED_DIRS = ["src/", "ui/", "main.js"];
+// 仅分析这些路径下的源码文件（目录前缀 + 根级 main.js）
+// 注意：列表混合目录前缀和文件名，startsWith 检查两者都适用
+const TRACKED_PREFIXES = ["src/", "ui/", "main.js"];
 
 const LANE_THRESHOLD = parseInt(process.argv.find((_, i, a) => a[i - 1] === "--threshold") || "80", 10);
 
@@ -37,12 +38,14 @@ function getBaseCommit() {
 }
 
 function isTracked(file) {
-  return TRACKED_DIRS.some((d) => file.startsWith(d));
+  return TRACKED_PREFIXES.some((p) => file.startsWith(p));
 }
 
 function isIgnored(file) {
   // 通过扩展名过滤（不翻译的文件类型）
-  if (IGNORED_EXTENSIONS.has(file.slice(file.lastIndexOf(".")).toLowerCase())) {
+  // 用 extname 而非 lastIndexOf('.')，避免无扩展名文件 slice(-1) 取末字符的怪异行为
+  const ext = extname(file).toLowerCase();
+  if (ext && IGNORED_EXTENSIONS.has(ext)) {
     return true;
   }
   // i18n 目录本身不算

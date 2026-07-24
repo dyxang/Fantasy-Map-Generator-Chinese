@@ -74,6 +74,9 @@ function main() {
       }
     } else {
       // 新增条目
+      // 注意：id 算法与 extract.mjs 的 sha256(source + ctxBefore) 不一致（这里用 source + file）。
+      // 影响：仅 id 命名空间不一致；tm.json 去重按 (file, source) 二元组，不依赖 id。
+      // 当 a.id 存在时（artifact 来自 prepare 阶段）优先用 a.id，此 fallback 罕见触发。
       const entry = {
         id: a.id || sha256(a.source + a.file),
         source: a.source,
