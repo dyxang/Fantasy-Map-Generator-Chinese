@@ -4,7 +4,7 @@ For deeper knowledge, consult the `docs/` directory, especially `docs/domain/glo
 
 ## 翻译工作流（zh-CN 汉化）
 
-本项目维护一个独立的 zh-CN 翻译分支，不 PR 不 merge 出去。开始任何翻译或上游同步任务前，**必须先读**以下文档：
+zh-CN 是独立翻译分支，不 PR 不 merge 出去。开始任何翻译或上游同步任务前，**必须先读**以下文档：
 
 - `i18n/CONTEXT.md` — 项目背景、翻译原则、翻译管线分层架构、上游同步工具链总览
 - `i18n/README.md` — 工具脚本快速开始、目录结构、验证检查项

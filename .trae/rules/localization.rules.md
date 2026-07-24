@@ -1,7 +1,5 @@
 # Fantasy Map Generator 汉化规则
 
-> 本文件是 Trae IDE 常驻记忆，每次会话自动加载。仅保留基础约束与硬性规则。详细流程、字段定义、同步步骤见 `i18n/CONTEXT.md` 和 `i18n/README.md`（参考根 `AGENTS.md` 的「翻译工作流」章节）。
-
 ## 会话开始时（必做）
 
 1. 读 `i18n/progress.json` 获取上次进度（`last_processed_id` 之后继续）
@@ -47,4 +45,7 @@
 
 ## 上游同步
 
-zh-CN 是独立翻译分支，不 PR 不 merge 出去。上游更新时走 reset+replay 流程，**AI 为主、脚本为辅**。完整工作流、工具职责、manual-marks/pending 机制详见 `i18n/CONTEXT.md` 的「上游同步工具链」章节，设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`。
+- zh-CN 是独立翻译分支，不 PR 不 merge 出去
+- 上游更新时走 reset+replay 流程，**AI 为主、脚本为辅**
+- 执行同步任务前，读 `i18n/CONTEXT.md` 的「上游同步工具链」章节
+- 完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`
