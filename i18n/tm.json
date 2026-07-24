@@ -278,17 +278,6 @@
       "skip_reason": "CSS variable name"
     },
     {
-      "id": "sha256:beac8571703ab0db",
-      "source": "Patreon Supporters",
-      "target": "Patreon 支持者",
-      "file": "public/modules/ui/options.js",
-      "line": 92,
-      "type": "ts_string",
-      "context_tag": "label",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
       "id": "sha256:6eb9db6584a5b62b",
       "source": "The current map already has this seed",
       "target": "当前地图已使用该种子",
