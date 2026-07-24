@@ -14999,6 +14999,927 @@
       "type": "html_text",
       "context_tag": "section",
       "skipped": false
+    },
+    {
+      "id": "sha256:d70005571a84b3ef",
+      "source": "Heightmap",
+      "target": "高度图",
+      "file": "src/index.html",
+      "line": 2069,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:9aa396fd4252e2a2",
+      "source": "Military",
+      "target": "军事",
+      "file": "src/index.html",
+      "line": 2085,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:526c6d7ea7f7954c",
+      "source": "Burgs",
+      "target": "城镇",
+      "file": "src/index.html",
+      "line": 2118,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:b5d16a10378c7193",
+      "source": "Military",
+      "target": "军事",
+      "file": "src/index.html",
+      "line": 2146,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:d6a29fe4cde7bb5a",
+      "source": "Provinces",
+      "target": "省份",
+      "file": "src/index.html",
+      "line": 2161,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:048375367dff1b4a",
+      "source": "States",
+      "target": "国家",
+      "file": "src/index.html",
+      "line": 2178,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:0a824812834ce781",
+      "source": "Zones",
+      "target": "区域",
+      "file": "src/index.html",
+      "line": 2184,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:3594c7e245c6c4d6",
+      "source": "Click on map to place label. Hold Shift to add multiple",
+      "target": "点击地图放置标签。按住 Shift 添加多个",
+      "file": "src/index.html",
+      "line": 2197,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:06e0a2b93f3e0516",
+      "source": "Label",
+      "target": "标签",
+      "file": "src/index.html",
+      "line": 2201,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:637c062b205ad198",
+      "source": "River",
+      "target": "河流",
+      "file": "src/index.html",
+      "line": 2216,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:e8810599da4bc200",
+      "source": "Show",
+      "target": "显示",
+      "file": "src/index.html",
+      "line": 2221,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:e5337bf488ffafcd",
+      "source": "Click to open Biomes Editor",
+      "target": "点击打开生物群系编辑器",
+      "file": "src/index.html",
+      "line": 2038,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6f13b17fdd9503f4",
+      "source": "Click to open Burgs Overview",
+      "target": "点击打开城镇总览",
+      "file": "src/index.html",
+      "line": 2041,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b6bdc5c2234a709f",
+      "source": "Click to open Coastline Settings Editor",
+      "target": "点击打开海岸线设置编辑器",
+      "file": "src/index.html",
+      "line": 2044,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d52e31762eb0e328",
+      "source": "Coastlines",
+      "target": "海岸线",
+      "file": "src/index.html",
+      "line": 2048,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:dbacd839aa03a3da",
+      "source": "Click to open Cultures Editor",
+      "target": "点击打开文化编辑器",
+      "file": "src/index.html",
+      "line": 2051,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8cf3614e4b556a08",
+      "source": "Click to open Diplomatical relationships Editor",
+      "target": "点击打开外交关系编辑器",
+      "file": "src/index.html",
+      "line": 2054,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a5ab6ca01e83c588",
+      "source": "Diplomacy",
+      "target": "外交",
+      "file": "src/index.html",
+      "line": 2058,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6a1afa764e0a21ab",
+      "source": "Click to open Emblem Editor",
+      "target": "点击打开纹章编辑器",
+      "file": "src/index.html",
+      "line": 2061,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7a3714dfa26a1f7a",
+      "source": "Click to open Goods Editor",
+      "target": "点击打开货物编辑器",
+      "file": "src/index.html",
+      "line": 2064,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:885e2985bcbe8600",
+      "source": "Goods",
+      "target": "货物",
+      "file": "src/index.html",
+      "line": 2064,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8534a93a8e09bd97",
+      "source": "Click to open Heightmap customization menu",
+      "target": "点击打开高度图自定义菜单",
+      "file": "src/index.html",
+      "line": 2065,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3904cb652fe80f6c",
+      "source": "Click to open Markers Overview",
+      "target": "点击打开标记总览",
+      "file": "src/index.html",
+      "line": 2072,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0a1dd4a991f3e26f",
+      "source": "Click to open Markets Overview",
+      "target": "点击打开市场总览",
+      "file": "src/index.html",
+      "line": 2075,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:56e25a0f91c8f6a9",
+      "source": "Click to open Measurers Editor",
+      "target": "点击打开测量器编辑器",
+      "file": "src/index.html",
+      "line": 2078,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:502d1486f925d001",
+      "source": "Measurers",
+      "target": "测量器",
+      "file": "src/index.html",
+      "line": 2078,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3c89f00458751af5",
+      "source": "Click to open Military Forces Overview",
+      "target": "点击打开军事部队总览",
+      "file": "src/index.html",
+      "line": 2081,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:04ab46a4c8f77096",
+      "source": "Click to open Namesbase Editor",
+      "target": "点击打开名称库编辑器",
+      "file": "src/index.html",
+      "line": 2088,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1afc527e31307ee8",
+      "source": "Namesbase",
+      "target": "名称库",
+      "file": "src/index.html",
+      "line": 2088,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:030de243629e44de",
+      "source": "Click to open Notes Editor",
+      "target": "点击打开笔记编辑器",
+      "file": "src/index.html",
+      "line": 2091,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c770e6d7bf21ea3e",
+      "source": "Notes",
+      "target": "笔记",
+      "file": "src/index.html",
+      "line": 2091,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e8734b7c9178ffab",
+      "source": "Click to open Provinces Editor",
+      "target": "点击打开省份编辑器",
+      "file": "src/index.html",
+      "line": 2092,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5ae0fe43fb3bb0d2",
+      "source": "Click to open Religions Editor",
+      "target": "点击打开宗教编辑器",
+      "file": "src/index.html",
+      "line": 2095,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f791b1118fb0adf5",
+      "source": "Click to open Rivers Overview",
+      "target": "点击打开河流总览",
+      "file": "src/index.html",
+      "line": 2098,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:47c7d259e2882705",
+      "source": "Click to open Routes Overview",
+      "target": "点击打开道路总览",
+      "file": "src/index.html",
+      "line": 2101,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:395169f49b19ed08",
+      "source": "Click to open States Editor",
+      "target": "点击打开国家编辑器",
+      "file": "src/index.html",
+      "line": 2104,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:95303cf569a61b50",
+      "source": "Click to open Trade Animation Editor",
+      "target": "点击打开贸易动画编辑器",
+      "file": "src/index.html",
+      "line": 2107,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:c2711ce2645acd4e",
+      "source": "Click to open Units Editor",
+      "target": "点击打开单位编辑器",
+      "file": "src/index.html",
+      "line": 2110,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2897bc114c08ed93",
+      "source": "Click to open Zones Editor",
+      "target": "点击打开区域编辑器",
+      "file": "src/index.html",
+      "line": 2111,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:32820d8729319edf",
+      "source": "Regenerate",
+      "target": "重新生成",
+      "file": "src/index.html",
+      "line": 2113,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:94a9a66d8877444f",
+      "source": "Click to regenerate all unlocked burgs and routes. States will remain as they are. Note: burgs are only generated in populated areas with culture assigned",
+      "target": "点击重新生成所有未锁定的城镇和道路。国家保持不变。注意：仅在已分配文化的有人居住区域生成城镇",
+      "file": "src/index.html",
+      "line": 2115,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:263e9a5725835b92",
+      "source": "Click to regenerate non-locked cultures",
+      "target": "点击重新生成未锁定的文化",
+      "file": "src/index.html",
+      "line": 2121,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:0eadef92e04f2f3b",
+      "source": "Rebuild market territories, production, trade deals, and taxes from the current goods and markets",
+      "target": "基于当前货物和市场重建市场领地、产出、贸易交易和税收",
+      "file": "src/index.html",
+      "line": 2122,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:62d72fd107fd2da5",
+      "source": "Economy",
+      "target": "经济",
+      "file": "src/index.html",
+      "line": 2125,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:15ce7a23c5897e1e",
+      "source": "Click to regenerate all emblems",
+      "target": "点击重新生成所有纹章",
+      "file": "src/index.html",
+      "line": 2128,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2b97321b223598bb",
+      "source": "Click to regenerate bonus goods placement",
+      "target": "点击重新生成奖励货物布局",
+      "file": "src/index.html",
+      "line": 2129,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a1542403666600e6",
+      "source": "Goods",
+      "target": "货物",
+      "file": "src/index.html",
+      "line": 2129,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:aa8de9e78c6e6ebf",
+      "source": "Click to regenerate icebergs and glaciers",
+      "target": "点击重新生成冰山和冰川",
+      "file": "src/index.html",
+      "line": 2130,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f51156dc63953aef",
+      "source": "Click to update state labels placement based on current borders",
+      "target": "点击根据当前边界更新国家标签位置",
+      "file": "src/index.html",
+      "line": 2131,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:30e4935a9942a0b6",
+      "source": "State Labels",
+      "target": "国家标签",
+      "file": "src/index.html",
+      "line": 2134,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:43162111177aa564",
+      "source": "Click to regenerate unlocked markers",
+      "target": "点击重新生成已解锁的标记",
+      "file": "src/index.html",
+      "line": 2137,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9e4647326447dfa9",
+      "source": "Click to set number multiplier",
+      "target": "点击设置数量倍率",
+      "file": "src/index.html",
+      "line": 2138,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5af457b25f2fbed8",
+      "source": "Click to regenerate markets and their territories",
+      "target": "点击重新生成市场及其领地",
+      "file": "src/index.html",
+      "line": 2140,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:092599ddc2cb5b1f",
+      "source": "Click to recalculate military forces based on current military options",
+      "target": "点击根据当前军事选项重新计算军事部队",
+      "file": "src/index.html",
+      "line": 2143,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5c35920284cccb9e",
+      "source": "Click to recalculate rural and urban population",
+      "target": "点击重新计算乡村和城市人口",
+      "file": "src/index.html",
+      "line": 2149,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1e55fd623bba7b23",
+      "source": "Click to regenerate production and trade deals",
+      "target": "点击重新生成产出和贸易交易",
+      "file": "src/index.html",
+      "line": 2152,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6ab7bbefbebf8e2c",
+      "source": "Production",
+      "target": "产出",
+      "file": "src/index.html",
+      "line": 2155,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b8f1800400736c47",
+      "source": "Click to regenerate non-locked provinces. States will remain as they are",
+      "target": "点击重新生成未锁定的省份。国家保持不变",
+      "file": "src/index.html",
+      "line": 2158,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b859b407e6210146",
+      "source": "Click to regenerate all relief icons based on current cell biome and elevation",
+      "target": "点击根据当前单元格生物群系和高度重新生成所有地形图标",
+      "file": "src/index.html",
+      "line": 2164,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5e903ca512cb5ef0",
+      "source": "Relief",
+      "target": "地形",
+      "file": "src/index.html",
+      "line": 2167,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:06a0605b280a1c6b",
+      "source": "Click to regenerate non-locked religions",
+      "target": "点击重新生成未锁定的宗教",
+      "file": "src/index.html",
+      "line": 2170,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:49cba7432f1efdab",
+      "source": "Click to regenerate all rivers (restore default state)",
+      "target": "点击重新生成所有河流（恢复默认状态）",
+      "file": "src/index.html",
+      "line": 2171,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:62e9ac479c5d52e5",
+      "source": "Click to regenerate all unlocked routes",
+      "target": "点击重新生成所有未锁定的道路",
+      "file": "src/index.html",
+      "line": 2174,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:32c45cfbd6ce0228",
+      "source": "Click to regenerate non-locked states. Emblems and military forces will be regenerated as well, burgs will remain as they are, but capitals will be different",
+      "target": "点击重新生成未锁定的国家。纹章和军事部队也将重新生成，城镇保持不变，但首都会改变",
+      "file": "src/index.html",
+      "line": 2175,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:24aa4a572e4638fe",
+      "source": "Click to regenerate zones. Hold Ctrl and click to set zones number multiplier",
+      "target": "点击重新生成区域。按住 Ctrl 点击可设置区域数量倍率",
+      "file": "src/index.html",
+      "line": 2181,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:6ba8dc489d23e42c",
+      "source": "Add",
+      "target": "添加",
+      "file": "src/index.html",
+      "line": 2188,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:de9067fb1d2cbfca",
+      "source": "Click on map to place a burg. Hold Shift to add multiple",
+      "target": "点击地图放置城镇。按住 Shift 可添加多个",
+      "file": "src/index.html",
+      "line": 2190,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d75354f5455e9ee1",
+      "source": "Burg",
+      "target": "城镇",
+      "file": "src/index.html",
+      "line": 2194,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f682f96ddde81383",
+      "source": "Click on map to place a marker. Hold Shift to add multiple",
+      "target": "点击地图放置标记。按住 Shift 可添加多个",
+      "file": "src/index.html",
+      "line": 2204,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7643d206c86416d0",
+      "source": "Marker",
+      "target": "标记",
+      "file": "src/index.html",
+      "line": 2208,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad899e9971a51638",
+      "source": "Click on map to place a river. Hold Shift to add multiple",
+      "target": "点击地图放置河流。按住 Shift 可添加多个",
+      "file": "src/index.html",
+      "line": 2212,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:35dc58d2cdf3a43a",
+      "source": "Open route creation dialog",
+      "target": "打开道路创建对话框",
+      "file": "src/index.html",
+      "line": 2219,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4ecd9226d19c94f0",
+      "source": "Route",
+      "target": "道路",
+      "file": "src/index.html",
+      "line": 2219,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:a4b62cf01bd2401b",
+      "source": "Click to open Cell details view",
+      "target": "点击打开单元格详情视图",
+      "file": "src/index.html",
+      "line": 2223,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:50db34a59564271e",
+      "source": "Click to open Charts to overview cells data",
+      "target": "点击打开图表以总览单元格数据",
+      "file": "src/index.html",
+      "line": 2226,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e3274a1633b5048d",
+      "source": "Charts",
+      "target": "图表",
+      "file": "src/index.html",
+      "line": 2230,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b3b91dc846f2c37a",
+      "source": "Click to open minimap overview. Click minimap to center view",
+      "target": "点击打开小地图总览。点击小地图以居中视图",
+      "file": "src/index.html",
+      "line": 2233,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:1ef35ccb44457ce3",
+      "source": "Create",
+      "target": "创建",
+      "file": "src/index.html",
+      "line": 2237,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:7e7ca21f2a752f6a",
+      "source": "Click to generate a submap from the current viewport",
+      "target": "点击从当前视口生成子地图",
+      "file": "src/index.html",
+      "line": 2239,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:21531ff71327c615",
+      "source": "Submap",
+      "target": "子地图",
+      "file": "src/index.html",
+      "line": 2239,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:591857f576235f2d",
+      "source": "Click to transform the map",
+      "target": "点击变换地图",
+      "file": "src/index.html",
+      "line": 2240,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:9debb9a13b49ef7a",
+      "source": "Transform",
+      "target": "变换",
+      "file": "src/index.html",
+      "line": 2240,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:12e89b78f3c19c47",
+      "source": "Heightmap customization tools:",
+      "target": "高度图自定义工具：",
+      "file": "src/index.html",
+      "line": 2244,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:380b83295e2b2c80",
+      "source": "Display brushes panel",
+      "target": "显示画笔面板",
+      "file": "src/index.html",
+      "line": 2246,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5cacabfd20b9aee2",
+      "source": "Open template editor",
+      "target": "打开模板编辑器",
+      "file": "src/index.html",
+      "line": 2247,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4275ff31e4fcc0b7",
+      "source": "Open Image Converter",
+      "target": "打开图像转换器",
+      "file": "src/index.html",
+      "line": 2248,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:44c8688ed289337d",
+      "source": "Render heightmap data as a small monochrome image",
+      "target": "将高度图数据渲染为小型单色图像",
+      "file": "src/index.html",
+      "line": 2249,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ac4931ed8594f044",
+      "source": "Preview",
+      "target": "预览",
+      "file": "src/index.html",
+      "line": 2249,
+      "type": "html_text",
+      "context_tag": "button",
+      "skipped": false
+    },
+    {
+      "id": "sha256:3db211e2ce4ae23c",
+      "source": "Preview heightmap in 3D scene",
+      "target": "在 3D 场景中预览高度图",
+      "file": "src/index.html",
+      "line": 2250,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
+    },
+    {
+      "id": "sha256:841238c3ba0dc10e",
+      "source": "Options:",
+      "target": "选项：",
+      "file": "src/index.html",
+      "line": 2252,
+      "type": "html_text",
+      "context_tag": "section",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f7293f1fbccac964",
+      "source": "Heightmap edit mode",
+      "target": "高度图编辑模式",
+      "file": "src/index.html",
+      "line": 2254,
+      "type": "html_attr",
+      "context_tag": "data-tip",
+      "skipped": false
     }
   ]
 }
