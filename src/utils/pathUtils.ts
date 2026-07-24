@@ -291,17 +291,17 @@ export const connectVertices = ({
     else if (v3 !== previous && c1 !== c3) next = v3;
 
     if (next >= vertices.c.length) {
-      window.ERROR && console.error("ConnectVertices: next vertex is out of bounds");
+      window.ERROR && console.error("ConnectVertices：下一个顶点越界");
       break;
     }
 
     if (next === current) {
-      window.ERROR && console.error("ConnectVertices: next vertex is not found");
+      window.ERROR && console.error("ConnectVertices：未找到下一个顶点");
       break;
     }
 
     if (i === MAX_ITERATIONS) {
-      window.ERROR && console.error("ConnectVertices: max iterations reached", MAX_ITERATIONS);
+      window.ERROR && console.error("ConnectVertices：达到最大迭代次数", MAX_ITERATIONS);
       break;
     }
   }

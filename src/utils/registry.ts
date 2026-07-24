@@ -4,7 +4,7 @@ type DispatchFn = (...args: unknown[]) => unknown;
 let pendingLoads = 0;
 function trackLoad<T>(promise: Promise<T>): Promise<T> {
   pendingLoads++;
-  tip("Loading…", false, "info");
+  tip("加载中…", false, "info");
   return promise.finally(() => {
     if (--pendingLoads <= 0) {
       pendingLoads = 0;

@@ -16,7 +16,7 @@ import { rand } from "./probabilityUtils";
 export const clipPoly = (points: [number, number][], graphWidth: number, graphHeight: number, secure?: number) => {
   if (points.length < 2) return points;
   if (points.some(point => point === undefined)) {
-    window.ERROR && console.error("Undefined point in clipPoly", points);
+    window.ERROR && console.error("clipPoly 中存在未定义的点", points);
     return points;
   }
 
@@ -289,7 +289,7 @@ export const initializePrompt = (): void => {
     callback?: (value: number | string) => void
   ) => {
     if (options.default === undefined)
-      return window.ERROR && console.error("Prompt: options object does not have default value defined");
+      return window.ERROR && console.error("Prompt：选项对象未定义默认值");
 
     const input = prompt.querySelector("#promptInput") as HTMLInputElement;
     const promptTextElement = prompt.querySelector("#promptText") as HTMLElement;

@@ -290,9 +290,9 @@ function start() {
           ensureEl("aboutTab")?.click();
         },
         popover: {
-          title: "About Tab",
+          title: "关于选项卡",
           description:
-            "The About tab has links to documentation, video tutorials, the community Discord, and version information.",
+            "关于选项卡包含文档、视频教程、社区 Discord 链接和版本信息。",
           side: "bottom"
         }
       },
@@ -302,9 +302,9 @@ function start() {
           ensureEl("aboutTab")?.click();
         },
         popover: {
-          title: "About & Resources",
+          title: "关于与资源",
           description:
-            "Find the Quick Start guide, video tutorials, hotkey reference, Discord community, and changelog here. The project is open source and actively maintained.",
+            "此处可查找快速入门指南、视频教程、快捷键参考、Discord 社区和更新日志。本项目为开源项目并积极维护中。",
           side: "right"
         }
       },
@@ -316,9 +316,9 @@ function start() {
           closeDialogs();
         },
         popover: {
-          title: "Export",
+          title: "导出",
           description:
-            "Click Export to open the export dialog where you can download the map as an SVG, PNG, or JPEG image, split it into tiles, or export the world data as JSON.",
+            "点击 Export 打开导出对话框，可将地图下载为 SVG、PNG 或 JPEG 图片，分割为瓦片，或以 JSON 导出世界数据。",
           side: "top",
           onNextClick: () => {
             tour.moveNext();
@@ -332,9 +332,9 @@ function start() {
           showExportPane();
         },
         popover: {
-          title: "Export Options",
+          title: "导出选项",
           description:
-            "Download the map as a vector SVG, raster PNG or JPEG, or tiled PNG set. You can also export the full world data as JSON for use in other tools.",
+            "下载地图为矢量 SVG、光栅 PNG 或 JPEG，或 PNG 瓦片集。也可将完整世界数据导出为 JSON 以供其他工具使用。",
           side: "top",
           onNextClick: () => {
             closeDialogs();
@@ -345,9 +345,9 @@ function start() {
       {
         element: "#saveButton",
         popover: {
-          title: "Save and Load Maps",
+          title: "保存和加载地图",
           description:
-            "Click Save to download a .map file preserving your entire world. Click Load to open a previously saved file and continue where you left off.",
+            "点击 Save 下载 .map 文件以保存整个世界。点击 Load 打开之前保存的文件并从上次离开处继续。",
           side: "top",
           onNextClick: () => {
             tour.destroy();

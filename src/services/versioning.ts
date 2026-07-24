@@ -113,7 +113,7 @@ function showUpdateWindow(storedVersion: string | null): void {
 
   $("#alert").dialog({
     resizable: false,
-    title: "Fantasy Map Generator update",
+    title: "Fantasy Map Generator 更新",
     width: "28em",
     position: { my: "center center-4em", at: "center", of: "svg" },
     buttons: {
@@ -127,7 +127,7 @@ function showUpdateWindow(storedVersion: string | null): void {
 }
 
 function announceVersion(): void {
-  if (parseMapVersion(VERSION) !== VERSION) alert("versioning: Invalid format or parsing function");
+  if (parseMapVersion(VERSION) !== VERSION) alert("versioning：格式或解析函数无效");
 
   document.title += ` v${VERSION}`;
   const loadingScreenVersion = document.getElementById("versionText");

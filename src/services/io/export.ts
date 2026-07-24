@@ -31,7 +31,7 @@ async function exportToSvg(): Promise<void> {
     tip(message, true, "success", 5000);
   } catch (error) {
     ERROR && console.error(error);
-    tip(`SVG 导出失败：${(error as Error)?.message || "未知错误"}`, true, "error", 5000);
+    tip(`SVG 导出失败：${(error as Error)?.message || "Unknown error"}`, true, "error", 5000);
   } finally {
     TIME && console.timeEnd("exportToSvg");
   }
@@ -73,7 +73,7 @@ async function exportToPng(): Promise<void> {
     tip(message, true, "success", 5000);
   } catch (error) {
     ERROR && console.error(error);
-    tip(`PNG 导出失败：${(error as Error)?.message || "未知错误"}`, true, "error", 5000);
+    tip(`PNG 导出失败：${(error as Error)?.message || "Unknown error"}`, true, "error", 5000);
   } finally {
     TIME && console.timeEnd("exportToPng");
   }
@@ -115,7 +115,7 @@ async function exportToJpeg(): Promise<void> {
     window.setTimeout(() => window.URL.revokeObjectURL(link.href), 5000);
   } catch (error) {
     ERROR && console.error(error);
-    tip(`JPEG 导出失败：${(error as Error)?.message || "未知错误"}`, true, "error", 5000);
+    tip(`JPEG 导出失败：${(error as Error)?.message || "Unknown error"}`, true, "error", 5000);
   } finally {
     TIME && console.timeEnd("exportToJpeg");
   }
@@ -199,7 +199,7 @@ async function exportToPngTiles(): Promise<void> {
     .catch((error: Error) => {
       ERROR && console.error(error);
       status.innerHTML = "Tiles export failed";
-      tip(`PNG 瓦片导出失败：${error?.message || "未知错误"}`, true, "error", 5000);
+      tip(`PNG 瓦片导出失败：${error?.message || "Unknown error"}`, true, "error", 5000);
     });
 
   // promisified img.onload

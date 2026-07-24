@@ -19838,6 +19838,227 @@
       "type": "ts_string",
       "context_tag": "message",
       "skipped": false
+    },
+    {
+      "id": "sha256:ac6879321d1c227b",
+      "source": "Export",
+      "target": "导出",
+      "file": "src/services/ui-tour.ts",
+      "line": 319,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false,
+      "reuse_from_tm": true
+    },
+    {
+      "id": "sha256:2b5f47aefed8e19b",
+      "source": "About Tab",
+      "target": "关于选项卡",
+      "file": "src/services/ui-tour.ts",
+      "line": 293,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:d55bb8780cc2bef3",
+      "source": "The About tab has links to documentation, video tutorials, the community Discord, and version information.",
+      "target": "关于选项卡包含文档、视频教程、社区 Discord 链接和版本信息。",
+      "file": "src/services/ui-tour.ts",
+      "line": 294,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:b0dfd3b47b0568e7",
+      "source": "About & Resources",
+      "target": "关于与资源",
+      "file": "src/services/ui-tour.ts",
+      "line": 305,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:e96f7ca782b12a8f",
+      "source": "Find the Quick Start guide, video tutorials, hotkey reference, Discord community, and changelog here. The project is open source and actively maintained.",
+      "target": "此处可查找快速入门指南、视频教程、快捷键参考、Discord 社区和更新日志。本项目为开源项目并积极维护中。",
+      "file": "src/services/ui-tour.ts",
+      "line": 306,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:31bed387b0e925a7",
+      "source": "Click Export to open the export dialog where you can download the map as an SVG, PNG, or JPEG image, split it into tiles, or export the world data as JSON.",
+      "target": "点击 Export 打开导出对话框，可将地图下载为 SVG、PNG 或 JPEG 图片，分割为瓦片，或以 JSON 导出世界数据。",
+      "file": "src/services/ui-tour.ts",
+      "line": 320,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:f821f149126faf86",
+      "source": "Export Options",
+      "target": "导出选项",
+      "file": "src/services/ui-tour.ts",
+      "line": 335,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:801443467ca68979",
+      "source": "Download the map as a vector SVG, raster PNG or JPEG, or tiled PNG set. You can also export the full world data as JSON for use in other tools.",
+      "target": "下载地图为矢量 SVG、光栅 PNG 或 JPEG，或 PNG 瓦片集。也可将完整世界数据导出为 JSON 以供其他工具使用。",
+      "file": "src/services/ui-tour.ts",
+      "line": 336,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:5504fed59c837934",
+      "source": "Save and Load Maps",
+      "target": "保存和加载地图",
+      "file": "src/services/ui-tour.ts",
+      "line": 348,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:bfa0113d29bffcb3",
+      "source": "Click Save to download a .map file preserving your entire world. Click Load to open a previously saved file and continue where you left off.",
+      "target": "点击 Save 下载 .map 文件以保存整个世界。点击 Load 打开之前保存的文件并从上次离开处继续。",
+      "file": "src/services/ui-tour.ts",
+      "line": 349,
+      "type": "ts_string",
+      "context_tag": "description",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ad3b7d811bbb401f",
+      "source": "Element with id \"${id}\" not found.",
+      "target": "未找到 id 为 \"${id}\" 的元素。",
+      "file": "src/utils/nodeUtils.ts",
+      "line": 12,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2121e9581ecb8c0f",
+      "source": "ConnectVertices: next vertex is out of bounds",
+      "target": "ConnectVertices：下一个顶点越界",
+      "file": "src/utils/pathUtils.ts",
+      "line": 294,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:beee2cf3ea75cd93",
+      "source": "ConnectVertices: next vertex is not found",
+      "target": "ConnectVertices：未找到下一个顶点",
+      "file": "src/utils/pathUtils.ts",
+      "line": 299,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:2d1e0e41f3cf9264",
+      "source": "ConnectVertices: max iterations reached",
+      "target": "ConnectVertices：达到最大迭代次数",
+      "file": "src/utils/pathUtils.ts",
+      "line": 304,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:589479eda29e0f01",
+      "source": "Range value should be a string",
+      "target": "Range 值应为字符串",
+      "file": "src/utils/probabilityUtils.ts",
+      "line": 110,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:cac17b765b60aab5",
+      "source": "Cannot parse the number. Check the format",
+      "target": "无法解析数字。请检查格式",
+      "file": "src/utils/probabilityUtils.ts",
+      "line": 118,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:55ecff48e9ebc74b",
+      "source": "Cannot parse number. Check the format",
+      "target": "无法解析数字。请检查格式",
+      "file": "src/utils/probabilityUtils.ts",
+      "line": 123,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:ab49aa036d41cdc0",
+      "source": "Loading…",
+      "target": "加载中…",
+      "file": "src/utils/registry.ts",
+      "line": 7,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:983fa0e6c1ebbc1e",
+      "source": "Fantasy Map Generator update",
+      "target": "Fantasy Map Generator 更新",
+      "file": "src/services/versioning.ts",
+      "line": 116,
+      "type": "ts_string",
+      "context_tag": "label",
+      "skipped": false
+    },
+    {
+      "id": "sha256:36d5df55625cf57b",
+      "source": "versioning: Invalid format or parsing function",
+      "target": "versioning：格式或解析函数无效",
+      "file": "src/services/versioning.ts",
+      "line": 130,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:4c188303b831708a",
+      "source": "Undefined point in clipPoly",
+      "target": "clipPoly 中存在未定义的点",
+      "file": "src/utils/commonUtils.ts",
+      "line": 19,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
+    },
+    {
+      "id": "sha256:8bdddb4cb3e40c39",
+      "source": "Prompt: options object does not have default value defined",
+      "target": "Prompt：选项对象未定义默认值",
+      "file": "src/utils/commonUtils.ts",
+      "line": 292,
+      "type": "ts_string",
+      "context_tag": "message",
+      "skipped": false
     }
   ]
 }

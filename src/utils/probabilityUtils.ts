@@ -107,7 +107,7 @@ const ERROR = false;
  */
 export const getNumberInRange = (r: string): number => {
   if (typeof r !== "string") {
-    ERROR && console.error("Range value should be a string", r);
+    ERROR && console.error("Range 值应为字符串", r);
     return 0;
   }
   if (!Number.isNaN(+r)) return ~~r + +P(+r - ~~r);
@@ -115,12 +115,12 @@ export const getNumberInRange = (r: string): number => {
   if (Number.isNaN(+r[0])) r = r.slice(1);
   const range = r.includes("-") ? r.split("-") : null;
   if (!range) {
-    ERROR && console.error("Cannot parse the number. Check the format", r);
+    ERROR && console.error("无法解析数字。请检查格式", r);
     return 0;
   }
   const count = rand(parseFloat(range[0]) * sign, +parseFloat(range[1]));
   if (Number.isNaN(count) || count < 0) {
-    ERROR && console.error("Cannot parse number. Check the format", r);
+    ERROR && console.error("无法解析数字。请检查格式", r);
     return 0;
   }
   return count;
