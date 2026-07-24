@@ -24,7 +24,7 @@
 - 真实指标是「上游字符串变化率」——上游不改则 100% 复用，上游改了字符串则按比例未命中（符合方案 D 设计）
 - 字符串提取器的作用是发现新增字符串，归兜底 subagent 处理
 
-## 完整工作流
+## 完整工作流（AST 一步到位）
 
 ```
 阶段 0：准备
@@ -185,7 +185,8 @@
   }
   ```
 
-**匹配逻辑**:
+**匹配逻辑**（AST 精确替换，一步到位）:
+
 1. 严格匹配：`byFile.get(file + '::' + source)`
 2. 严格未命中 → 全局降级：`bySource.get(source)`
 3. 全局命中 → 检查 candidate_targets 是否唯一
@@ -193,10 +194,133 @@
    - 多个 → 加入 ambiguous 警告
 4. 仍未命中 → 进 unmatched
 
-**替换安全性**:
-- 用 `String.replace(source, target)` 仅替换第一个匹配（防止误伤）
-- 若同一 source 在文件中出现多次且都需要翻译，需要遍历所有出现位置（按 line 精确定位）
-- 后续优化：用 AST 解析做精确替换（v2）
+**替换策略**（按文件类型）:
+
+| 文件类型 | 解析器 | 替换方式 | 理由 |
+|---|---|---|---|
+| `.ts` / `.js` | TypeScript AST（`typescript` 包） | 遍历 StringLiteral 节点，按位置精确替换 | 正则会漏字符串（extract.mjs 现状），AST 完整覆盖 |
+| `.html` | `parse5`（已有依赖） | 遍历 text 节点 + 属性节点，按 sourceCodeLocation 精确替换 | parse5 已在 extract.mjs 验证可用 |
+| 其他 | 不处理 | - | 图片/字体等已在 sync-analyze 过滤 |
+
+**TS/JS AST 替换实现**:
+
+```javascript
+import ts from "typescript";
+
+function replayTsFile(content, tm_index, file) {
+  const sourceFile = ts.createSourceFile(file, content, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
+  const replacements = []; // { start, end, text }
+
+  function visit(node) {
+    // 双引号/单引号字符串字面量
+    if (ts.isStringLiteral(node)) {
+      const key = file + "::" + node.text;
+      if (tm_index.has(key)) {
+        const target = tm_index.get(key);
+        // 注意：node.text 是去引号的内容，替换时要保留原引号
+        replacements.push({
+          start: node.getStart(sourceFile) + 1,  // +1 跳过开引号
+          end: node.getEnd() - 1,                  // -1 跳过闭引号
+          text: escapeForStringLiteral(target, node),
+        });
+      }
+    }
+    // 模板字符串（无占位符的纯文本部分）
+    if (ts.isNoSubstitutionTemplateLiteral(node)) {
+      const key = file + "::" + node.text;
+      if (tm_index.has(key)) {
+        const target = tm_index.get(key);
+        replacements.push({
+          start: node.getStart(sourceFile) + 1,
+          end: node.getEnd() - 1,
+          text: target,
+        });
+      }
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(sourceFile);
+
+  // 按位置倒序替换（避免位置漂移）
+  replacements.sort((a, b) => b.start - a.start);
+  let result = content;
+  for (const r of replacements) {
+    result = result.slice(0, r.start) + r.text + result.slice(r.end);
+  }
+  return result;
+}
+```
+
+**HTML 替换实现**（基于 parse5）:
+
+```javascript
+import { parse } from "parse5";
+
+function replayHtmlFile(content, tm_index, file) {
+  const document = parse(content, { sourceCodeLocationInfo: true });
+  const replacements = []; // { startOffset, endOffset, text }
+  const TRANSLATABLE_ATTRS = new Set(["title", "placeholder", "aria-label", "alt", "data-tip", "data-info"]);
+
+  function walk(node) {
+    if (node.nodeName === "#text") {
+      const trimmed = node.value.trim();
+      if (trimmed.length >= 2) {
+        const key = file + "::" + trimmed;
+        if (tm_index.has(key)) {
+          const target = tm_index.get(key);
+          const loc = node.sourceCodeLocation;
+          // 注意：保留前后空白，只替换 trim 后的内容
+          // parse5 的 startOffset/endOffset 包含空白，需要精细处理
+          replacements.push({
+            startOffset: loc.startOffset,
+            endOffset: loc.endOffset,
+            text: preserveWhitespace(node.value, target),
+          });
+        }
+      }
+    }
+    if (node.attrs) {
+      for (const attr of node.attrs) {
+        if (TRANSLATABLE_ATTRS.has(attr.name)) {
+          const val = (attr.value || "").trim();
+          if (val.length >= 2) {
+            const key = file + "::" + val;
+            if (tm_index.has(key)) {
+              const target = tm_index.get(key);
+              const loc = attr.sourceCodeLocation;
+              // 属性值的 sourceCodeLocation 需要跳过引号
+              replacements.push({
+                startOffset: loc.value.startOffset + 1,  // 跳过开引号
+                endOffset: loc.value.endOffset - 1,        // 跳过闭引号
+                text: target,
+              });
+            }
+          }
+        }
+      }
+    }
+    if (node.childNodes) {
+      for (const child of node.childNodes) walk(child);
+    }
+  }
+  walk(document);
+
+  replacements.sort((a, b) => b.startOffset - a.startOffset);
+  let result = content;
+  for (const r of replacements) {
+    result = result.slice(0, r.startOffset) + r.text + result.slice(r.endOffset);
+  }
+  return result;
+}
+```
+
+**fallback 机制**:
+- AST 解析失败 → 报错并跳过该文件（不降级到字符串替换，避免误伤）
+- 输出到 `sync-replay-report.json` 的 `parse_errors[]`
+
+**依赖变更**:
+- 新增 `typescript` 到 `i18n/scripts/package.json`（主项目已有，但 i18n/scripts 独立）
+- 复用已有 `parse5`
 
 ### sync-collect.mjs
 
