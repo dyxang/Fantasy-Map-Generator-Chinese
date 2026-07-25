@@ -47,8 +47,8 @@ function loadMapPrompt(blob: Blob): void {
     return;
   }
 
-  alertMessage.innerHTML = /* html */ `Are you sure you want to load saved map?<br />
-    All unsaved changes made to the current map will be lost`;
+  alertMessage.innerHTML = /* html */ `确定要加载已保存的地图吗？<br />
+    当前地图所有未保存的更改都将丢失`;
   $("#alert").dialog({
     resizable: false,
     title: "加载已存地图",
@@ -100,10 +100,9 @@ async function loadMapFromURL(maplink: string, random?: boolean): Promise<void> 
 
 function showUploadErrorMessage(error: string, maplink: string, random?: boolean): void {
   ERROR && console.error(error);
-  alertMessage.innerHTML = /* html */ `Cannot load map from the ${link(maplink, "link provided")}. ${
-    random ? `A new random map is generated. ` : ""
-  } Please ensure the
-  linked file is reachable and CORS is allowed on server side`;
+  alertMessage.innerHTML = /* html */ `无法从${link(maplink, "提供的链接")}加载地图。${
+    random ? `已生成新的随机地图。` : ""
+  }请确保链接文件可访问且服务器端已允许 CORS`;
   $("#alert").dialog({
     title: "加载错误",
     width: "32em",
@@ -803,7 +802,7 @@ async function parseLoadedData(data: string[], mapVersion: string | null): Promi
     ERROR && console.error(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `An error occurred while loading the map. Select a different file to load, <br>generate a new random map or cancel the loading.<br>Map version: ${mapVersion}. Generator version: ${VERSION}.
+    alertMessage.innerHTML = /* html */ `加载地图时发生错误。请选择其他文件加载、<br>生成新的随机地图或取消加载。<br>地图版本：${mapVersion}。生成器版本：${VERSION}。
       <p id="errorBox">${parseError(error as Error)}</p>`;
 
     $("#alert").dialog({

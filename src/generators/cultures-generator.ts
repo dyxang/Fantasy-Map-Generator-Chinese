@@ -1039,9 +1039,9 @@ class CulturesModule {
         ];
         this.cells.culture = cultureIds;
 
-        alertMessage.innerHTML = /* html */ `The climate is harsh and people cannot live in this world.<br />
-          No cultures, states and burgs will be created.<br />
-          Please consider changing climate settings in the World Configurator`;
+        alertMessage.innerHTML = /* html */ `气候恶劣，人类无法在此世界生存。<br />
+          不会创建任何文化、国家和城镇。<br />
+          请考虑在世界配置器中更改气候设置`;
 
         $("#alert").dialog({
           resizable: false,
@@ -1055,9 +1055,9 @@ class CulturesModule {
         return;
       } else {
         WARN && console.warn(`Not enough populated cells (${populated.length}). Will generate only ${count} cultures`);
-        alertMessage.innerHTML = /* html */ ` There are only ${populated.length} populated cells and it's insufficient livable area.<br />
-          Only ${count} out of ${culturesInput.value} requested cultures will be generated.<br />
-          Please consider changing climate settings in the World Configurator`;
+        alertMessage.innerHTML = /* html */ `仅有 ${populated.length} 个宜居单元格，宜居面积不足。<br />
+          将只生成 ${count} 个文化（共请求 ${culturesInput.value} 个）。<br />
+          请考虑在世界配置器中更改气候设置`;
         $("#alert").dialog({
           resizable: false,
           title: "极端气候警告",

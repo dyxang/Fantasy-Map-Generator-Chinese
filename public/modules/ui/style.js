@@ -1055,7 +1055,7 @@ styleMarketsIcon.on("click", function () {
 
 // request a URL to image to be used as a texture
 function textureProvideURL() {
-  alertMessage.innerHTML = /* html */ `Provide a texture image URL:
+  alertMessage.innerHTML = /* html */ `提供纹理图片 URL：
     <input id="textureURL" type="url" style="width: 100%" placeholder="http://www.example.com/image.jpg" oninput="fetchTextureURL(this.value)" />
     <canvas id="texturePreview" width="256px" height="144px"></canvas>`;
 

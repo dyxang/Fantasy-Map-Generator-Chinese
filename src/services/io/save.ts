@@ -18,10 +18,10 @@ async function saveMap(method: SaveMethod): Promise<void> {
     if (method === "dropbox") await saveToDropbox(mapData, filename);
   } catch (error) {
     ERROR && console.error(error);
-    alertMessage.innerHTML = /* html */ `An error occurred while saving the map. If the issue persists, please copy the message below and report it on ${link(
+    alertMessage.innerHTML = /* html */ `保存地图时发生错误。如果问题持续出现，请复制以下信息并在${link(
       "https://github.com/Azgaar/Fantasy-Map-Generator/issues",
       "GitHub"
-    )}. <p id="errorBox">${parseError(error as Error)}</p>`;
+    )}上反馈。<p id="errorBox">${parseError(error as Error)}</p>`;
 
     $("#alert").dialog({
       resizable: false,

@@ -287,7 +287,7 @@ oceanLayers
 document.addEventListener("DOMContentLoaded", async () => {
   if (!location.hostname) {
     const wiki = "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Run-FMG-locally";
-    alertMessage.innerHTML = /* html */ `Fantasy Map Generator cannot run serverless. Follow the <a href="${wiki}" target="_blank">instructions</a> on how you can easily run a local web-server`;
+    alertMessage.innerHTML = /* html */ `Fantasy Map Generator 无法在无服务器环境下运行。请按照<a href="${wiki}" target="_blank">说明</a>了解如何轻松运行本地 Web 服务器`;
 
     $("#alert").dialog({
       resizable: false,
@@ -622,7 +622,7 @@ void (function addDragToUpload() {
 
     if (!file.name.endsWith(".map") && !file.name.endsWith(".gz")) {
       alertMessage.innerHTML =
-        "Please upload a map file (<i>.map</i> or <i>.gz</i> formats) you have previously downloaded";
+        "请上传您之前下载的地图文件（<i>.map</i> 或 <i>.gz</i> 格式）";
       $("#alert").dialog({
         resizable: false,
         title: "Invalid file format",
@@ -724,7 +724,7 @@ async function generate(options) {
     const parsedError = parseError(error);
     clearMainTip();
 
-    alertMessage.innerHTML = /* html */ `An error has occurred on map generation. Please retry. <br />If error is critical, clear the stored data and try again.
+    alertMessage.innerHTML = /* html */ `地图生成时发生错误。请重试。<br />如果错误严重，请清除存储数据后重试。
       <p id="errorBox">${parsedError}</p>`;
     $("#alert").dialog({
       resizable: false,

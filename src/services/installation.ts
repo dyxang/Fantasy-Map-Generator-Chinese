@@ -32,8 +32,8 @@ function createButton(): HTMLButtonElement {
 }
 
 function openDialog(): void {
-  alertMessage.innerHTML = /* html */ `You can install the tool so that it will look and feel like desktop application:
-    have its own icon on your home screen and work offline with some limitations
+  alertMessage.innerHTML = /* html */ `你可以安装此工具，让其拥有桌面应用般的外观和体验：
+    拥有独立的主屏幕图标，并可在一定限制下离线工作。
   `;
   $("#alert").dialog({
     resizable: false,
@@ -50,7 +50,7 @@ function openDialog(): void {
     },
     open: function (this: HTMLElement) {
       const checkbox =
-        '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>do not ask again</i></label></span>';
+        '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>不再询问</i></label></span>';
       const pane = this.parentElement!.querySelector(".ui-dialog-buttonpane")!;
       pane.insertAdjacentHTML("afterbegin", checkbox);
     },
