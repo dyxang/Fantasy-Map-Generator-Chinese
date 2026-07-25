@@ -1,5 +1,5 @@
 import { color as d3Color, interpolateString, select } from "d3";
-import { destroyDialogIfExists, ensureEl, findEl, getAdjective, getPointer } from "../utils";
+import { destroyDialogIfExists, ensureEl, findEl, getPointer } from "../utils";
 
 interface Relation {
   inText: string;

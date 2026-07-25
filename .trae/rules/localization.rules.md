@@ -1,6 +1,6 @@
 ---
 alwaysApply: false
-description: 翻译或进行翻译工作流
+description: 翻译相关或进行翻译工作流时触发
 ---
 # Fantasy Map Generator 汉化规则
 
