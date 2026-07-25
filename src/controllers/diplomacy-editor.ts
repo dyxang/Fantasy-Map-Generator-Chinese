@@ -402,10 +402,7 @@ function changeRelation(subjectId: number, objectId: number, oldRelation: string
   const vassal = (): string[] => [`臣属`, `${subjectName} 成为 ${objectName} 的藩属国`];
   const suzerain = (): string[] => [`臣属`, `${subjectName} 将 ${objectName} 收为藩属`];
   const rival = (): string[] => [`竞争对手`, `${subjectName} 与 ${objectName} 成为竞争对手`];
-  const unknown = (): string[] => [
-    `关系断绝`,
-    `${subjectName} 召回了大使并销毁了所有关于 ${objectName} 的记录`
-  ];
+  const unknown = (): string[] => [`关系断绝`, `${subjectName} 召回了大使并销毁了所有关于 ${objectName} 的记录`];
   const war = (): string[] => [`宣战`, `${subjectName} 向其敌人 ${objectName} 宣战`];
   const peace = (): string[] => {
     const treaty = `${subjectName} 与 ${objectName} 同意停火并签署了和平条约`;

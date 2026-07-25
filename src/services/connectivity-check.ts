@@ -10,14 +10,14 @@
 const CHECK_TIMEOUT_MS = 5000;
 
 const TARGETS = [
-  { name: "Google Fonts CSS",       url: "https://fonts.googleapis.com/css2?family=Noto+Sans+SC" },
-  { name: "Google Fonts 字体",      url: "https://fonts.gstatic.com/s/notosanssc/v36/k3kXo84MvpQhSxt5u1K2J4bFfQl4.woff2" },
-  { name: "jsdelivr 镜像",          url: "https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/" },
-  { name: "unpkg",                  url: "https://unpkg.com/three@0.184.0/build/three.module.js" },
-  { name: "Google Cloud Storage",   url: "https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js" },
-  { name: "watabou.github.io",      url: "https://watabou.github.io/" },
-  { name: "Deorum 遭遇战",          url: "https://deorum.8desk.top/encounter/1" },
-  { name: "OpenAI / Anthropic API", url: "https://api.openai.com/" },
+  { name: "Google Fonts CSS", url: "https://fonts.googleapis.com/css2?family=Noto+Sans+SC" },
+  { name: "Google Fonts 字体", url: "https://fonts.gstatic.com/s/notosanssc/v36/k3kXo84MvpQhSxt5u1K2J4bFfQl4.woff2" },
+  { name: "jsdelivr 镜像", url: "https://gcore.jsdelivr.net/gh/dyxang/zh_font@main/" },
+  { name: "unpkg", url: "https://unpkg.com/three@0.184.0/build/three.module.js" },
+  { name: "Google Cloud Storage", url: "https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js" },
+  { name: "watabou.github.io", url: "https://watabou.github.io/" },
+  { name: "Deorum 遭遇战", url: "https://deorum.8desk.top/encounter/1" },
+  { name: "OpenAI / Anthropic API", url: "https://api.openai.com/" }
 ];
 
 export function showConnectivityDialog(): void {
@@ -60,12 +60,14 @@ export function showConnectivityDialog(): void {
         <th style="text-align:left;padding:2px 8px;">URL</th>
         <th style="text-align:left;padding:2px 8px;">状态</th>
       </tr></thead>
-      <tbody>${TARGETS.map((t, i) => `
+      <tbody>${TARGETS.map(
+        (t, i) => `
         <tr>
           <td style="text-align:left;padding:2px 8px;">${t.name}</td>
           <td style="text-align:left;padding:2px 8px;color:#888;font-size:0.9em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${t.url}">${t.url}</td>
           <td data-row="${i}" style="padding:2px 8px;color:#666;white-space:nowrap;">检测中…</td>
-        </tr>`).join("")}
+        </tr>`
+      ).join("")}
       </tbody>
     </table>
     <p id="connectivity-summary" style="margin-top:8px;font-size:0.9em;color:#666;">0 / ${total}</p>`;
@@ -78,7 +80,7 @@ export function showConnectivityDialog(): void {
     position: { my: "center center", at: "center center", of: window },
     buttons: {},
     closeOnEscape: false,
-    open: () => $(".ui-dialog-titlebar-close").hide(),
+    open: () => $(".ui-dialog-titlebar-close").hide()
   });
 
   Promise.all(TARGETS.map((_, i) => probe(i))).then(results => {
@@ -87,6 +89,10 @@ export function showConnectivityDialog(): void {
       ? `<p style="color:#c0392b;margin-top:8px;"><strong>检测到 ${unreachable} 项访问困难</strong>，请切换能访问全球网络的工具。</p>`
       : `<p style="color:#2e8b57;margin-top:8px;">所有依赖资源均可达。</p>`;
     alertMessage.insertAdjacentHTML("beforeend", warning);
-    $dialog.dialog("option", "buttons", { 知道了(this: HTMLElement) { $(this).dialog("close"); } });
+    $dialog.dialog("option", "buttons", {
+      知道了(this: HTMLElement) {
+        $(this).dialog("close");
+      }
+    });
   });
 }
