@@ -1,5 +1,50 @@
 {
   "version": 1,
-  "marks": [],
+  "marks": [
+    {
+      "id": "manual:main.js:139",
+      "file": "public/main.js",
+      "source": "Click to open Units Editor",
+      "target": "点击打开单位编辑器",
+      "category": "code-like",
+      "location_hint": "line 139, scaleBar.on('mousemove')",
+      "note": "extract.mjs 不扫 public/main.js，这里是 JS 字符串 tooltip；翻译复用 tm.json 中 src/index.html 已有译文",
+      "base_commit": "manual",
+      "added_at": "2026-07-25"
+    },
+    {
+      "id": "manual:main.js:142",
+      "file": "public/main.js",
+      "source": "Drag to change the position. Click to hide the legend",
+      "target": "拖动以更改位置。点击隐藏图例",
+      "category": "code-like",
+      "location_hint": "line 142, legend.on('mousemove')",
+      "note": "extract.mjs 不扫 public/main.js，JS 字符串 tooltip；翻译复用 tm.json 中 src/index.html 已有译文",
+      "base_commit": "manual",
+      "added_at": "2026-07-25"
+    },
+    {
+      "id": "manual:main.js:439",
+      "file": "public/main.js",
+      "source": "Click to open the Assistant",
+      "target": "点击打开助手",
+      "category": "code-like",
+      "location_hint": "line 439, bubble.dataset.tip 赋值（toggleAssistant 内）",
+      "note": "extract.mjs 不扫 public/main.js，JS 字符串 data-tip；新译（tm.json 中无对应源）",
+      "base_commit": "manual",
+      "added_at": "2026-07-25"
+    },
+    {
+      "id": "manual:main.js:530",
+      "file": "public/main.js",
+      "source": "Here stands the glorious city of ",
+      "target": "这座辉煌的城市名为 ",
+      "category": "dynamic-concat",
+      "location_hint": "line 530, tip('Here stands the glorious city of ' + b.name)",
+      "note": "extract.mjs 不扫 public/main.js；b.name 为动态地名不译，仅译英文前缀部分；新译",
+      "base_commit": "manual",
+      "added_at": "2026-07-25"
+    }
+  ],
   "archived": []
 }

@@ -176,7 +176,7 @@ function handleLayersPresetChange(preset) {
 }
 
 function savePreset() {
-  prompt("Please provide a preset name", { default: "" }, preset => {
+  prompt("请提供预设名称", { default: "" }, preset => {
     presets[preset] = Array.from(ensureEl("mapLayers").querySelectorAll("li:not(.buttonoff)"))
       .map(node => node.id)
       .sort();

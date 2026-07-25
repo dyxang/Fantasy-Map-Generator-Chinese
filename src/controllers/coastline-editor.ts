@@ -254,7 +254,7 @@ function buildDialogHTML(): string {
         #coastlineSettingsDialog slider-input input[type=range] { width:100%; }
       </style>
       <div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #ddd">
-        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none" data-tip="Enable or disable coastline fractalization. When disabled, coastlines are simple arcs between feature vertices. Enabling adds naturalistic roughness but can increase rendering time, especially at high detail levels.">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none" data-tip="启用或禁用海岸线分形化。禁用时，海岸线是要素顶点之间的简单弧线。启用后会增添自然粗糙感，但可能增加渲染时间，在高细节级别下尤为明显。">
           <input id="coastEnabled" type="checkbox" ${defaultCoastSettings.enabled ? "checked" : ""}
             style="position:absolute;opacity:0;pointer-events:none;width:0;height:0"/>
           <span id="coastEnabledTrack" style="position:relative;display:inline-block;width:36px;height:20px;border-radius:10px;background:${defaultCoastSettings.enabled ? "#33bb88" : "#bbb"};cursor:pointer;flex-shrink:0">
@@ -262,7 +262,7 @@ function buildDialogHTML(): string {
           </span>
         </label>
         <div style="display:flex;align-items:center;gap:4px">
-          <span style="color:#999;font-size:.85em">Preset</span>
+          <span style="color:#999;font-size:.85em">预设</span>
           ${presetButtons}
         </div>
       </div>
@@ -278,11 +278,11 @@ function buildDialogHTML(): string {
       </div>
       <div style="display:flex;gap:6px;margin-top:10px;align-items:flex-start">
         <div style="flex:1;min-width:0">
-          <div style="color:#999;font-size:.85em;margin-bottom:3px">Roughness profile</div>
+          <div style="color:#999;font-size:.85em;margin-bottom:3px">粗糙度剖面</div>
           <canvas id="coastRoughnessGraph" width="auto" height="100" style="display:block"></canvas>
         </div>
         <div>
-          <div style="color:#999;font-size:.85em;margin-bottom:3px">Shape preview</div>
+          <div style="color:#999;font-size:.85em;margin-bottom:3px">形状预览</div>
           <canvas id="coastShapePreview" width="100" height="100" style="display:block"></canvas>
         </div>
       </div>

@@ -752,16 +752,16 @@ function regeneratePrompt(options) {
   const workingTime = (Date.now() - last(mapHistory).created) / 60000; // minutes
   if (workingTime < 1) return regenerateMap(options);
 
-  alertMessage.innerHTML = /* html */ `Are you sure you want to generate a new map?<br />
-    All unsaved changes made to the current map will be lost`;
+  alertMessage.innerHTML = /* html */ `确定要生成新地图吗？<br />
+    当前地图所有未保存的更改都将丢失`;
   $("#alert").dialog({
     resizable: false,
     title: "生成新地图",
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      Generate: function () {
+      生成: function () {
         closeDialogs();
         regenerateMap(options);
       }
@@ -779,7 +779,7 @@ function showSavePane() {
     width: "25em",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }
@@ -801,7 +801,7 @@ function showExportPane() {
     width: "26em",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }
@@ -819,7 +819,7 @@ async function showLoadPane() {
     width: "auto",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     }
@@ -831,13 +831,13 @@ async function showLoadPane() {
     ensureEl("loadFromDropboxSelect").style.display = "block";
     const loadFromDropboxButtons = ensureEl("loadFromDropboxButtons");
     const fileSelect = ensureEl("loadFromDropboxSelect");
-    fileSelect.innerHTML = /* html */ `<option value="" disabled selected>Loading...</option>`;
+    fileSelect.innerHTML = /* html */ `<option value="" disabled selected>加载中...</option>`;
 
     const files = await window.Services.Cloud.list();
 
     if (!files) {
       loadFromDropboxButtons.style.display = "none";
-      fileSelect.innerHTML = /* html */ `<option value="" disabled selected>Save files to Dropbox first</option>`;
+      fileSelect.innerHTML = /* html */ `<option value="" disabled selected>请先将文件保存到 Dropbox</option>`;
       return;
     }
 
@@ -867,16 +867,16 @@ async function connectToDropbox() {
 
 function loadURL() {
   const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-  const inner = `Provide URL to map file:
+  const inner = `请提供地图文件的 URL：
     <input id="mapURL" type="url" style="width: 24em" placeholder="https://e-cloud.com/test.map">
-    <br><i>Please note server should allow CORS for file to be loaded. If CORS is not allowed, save file to Dropbox and provide a direct link</i>`;
+    <br><i>请注意服务器必须允许 CORS 才能加载文件。如果不允许 CORS，请将文件保存到 Dropbox 并提供直接链接</i>`;
   alertMessage.innerHTML = inner;
   $("#alert").dialog({
     resizable: false,
     title: "从 URL 加载地图",
     width: "27em",
     buttons: {
-      Load: function () {
+      加载: function () {
         const value = mapURL.value;
         if (!pattern.test(value)) {
           tip("请提供有效的 URL", false, "error");
@@ -885,7 +885,7 @@ function loadURL() {
         window.Services.Load.loadMapFromURL(value);
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }
@@ -913,8 +913,8 @@ function openExportToPngTiles() {
     title: "下载瓦片",
     width: "23em",
     buttons: {
-      Download: () => window.Services.ExportMap.exportToPngTiles(),
-      Cancel: function () {
+      下载: () => window.Services.ExportMap.exportToPngTiles(),
+      取消: function () {
         $(this).dialog("close");
       }
     },

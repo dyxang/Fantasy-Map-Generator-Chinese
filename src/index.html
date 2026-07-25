@@ -914,7 +914,7 @@
                     <option value="./images/textures/soiled-paper.jpg">污渍纸（横向）</option>
                     <option value="./images/textures/soiled-paper-vertical.jpg">污渍纸（纵向）</option>
                     <option value="./images/textures/plaster.jpg">灰泥</option>
-                    <option value="./images/textures/ocean.jpg">Ocean</option>
+                    <option value="./images/textures/ocean.jpg">海洋</option>
                     <option value="./images/textures/antique-small.jpg">古典（小）</option>
                     <option value="./images/textures/antique-big.jpg">古典（大）</option>
                     <option value="./images/textures/pergamena-small.jpg">羊皮纸（小）</option>
@@ -1122,7 +1122,7 @@
                 </td>
               </tr>
               <tr data-tip="按轴向偏移元素">
-                <td>Shift by axes</td>
+                <td>按轴向偏移</td>
                 <td>
                   <input id="styleGridShiftX" type="number" data-tip="按 x 轴偏移（像素）" />
                   <input id="styleGridShiftY" type="number" data-tip="按 y 轴偏移（像素）" />
@@ -1137,7 +1137,7 @@
                 </td>
               </tr>
               <tr data-tip="按轴向偏移风向玫瑰">
-                <td>Shift by axes</td>
+                <td>按轴向偏移</td>
                 <td>
                   <input id="styleCompassShiftX" type="number" value="80" data-tip="按 x 轴偏移（像素）" />
                   <input id="styleCompassShiftY" type="number" value="80" data-tip="按 y 轴偏移（像素）" />
@@ -1146,7 +1146,7 @@
             </tbody>
             <tbody id="styleRelief">
               <tr data-tip="选择地形图标集。所有地形图标将被重新生成">
-                <td>Style</td>
+                <td>样式</td>
                 <td>
                   <select id="styleReliefSet">
                     <option value="simple" selected>简洁</option>
@@ -1278,7 +1278,7 @@
             </tbody>
             <tbody id="styleTemperature">
               <tr data-tip="定义温度层透明度。设为 0 使其完全透明">
-                <td>Fill opacity</td>
+                <td>填充透明度</td>
                 <td>
                   <slider-input id="styleTemperatureFillOpacityInput" min="0" max="1" step=".01"></slider-input>
                 </td>
@@ -1334,7 +1334,7 @@
             </tbody>
             <tbody id="styleArmies">
               <tr data-tip="设置填充透明度。设为 0 使其完全透明">
-                <td>Fill opacity</td>
+                <td>填充透明度</td>
                 <td>
                   <slider-input id="styleArmiesFillOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
@@ -1374,7 +1374,7 @@
             </tbody>
             <tbody id="styleGoods" style="display: none">
               <tr data-tip="设置货物标记（图标和圆圈）大小（像素）">
-                <td>Marker size</td>
+                <td>标记大小</td>
                 <td>
                   <slider-input id="styleGoodsSize" min="1" max="20" step=".5"></slider-input>
                 </td>
@@ -1396,19 +1396,19 @@
             </tbody>
             <tbody id="styleMarketsLayer" style="display: none">
               <tr data-tip="设置市场领土区域填充透明度。默认为透明">
-                <td>Fill opacity</td>
+                <td>填充透明度</td>
                 <td>
                   <slider-input id="styleMarketsLayerFillOpacity" min="0" max="1" step=".01"></slider-input>
                 </td>
               </tr>
               <tr data-tip="设置市场标记（圆圈）大小（像素）">
-                <td>Marker size</td>
+                <td>标记大小</td>
                 <td>
                   <slider-input id="styleMarketsSize" min="1" max="12" step=".5"></slider-input>
                 </td>
               </tr>
               <tr data-tip="设置市场标记 emoji 图标大小（像素）">
-                <td>Icon size</td>
+                <td>图标大小</td>
                 <td>
                   <slider-input id="styleMarketsIconSize" min="1" max="20" step=".5"></slider-input>
                 </td>
@@ -1469,7 +1469,7 @@
             </tbody>
             <tbody id="styleScaleBar">
               <tr data-tip="设置比例条和字体大小">
-                <td>Size</td>
+                <td>大小</td>
                 <td>
                   <span>比例条 </span>
                   <input id="styleScaleBarSize" type="number" min=".5" max="5" step=".1" />
@@ -1478,7 +1478,7 @@
                 </td>
               </tr>
               <tr data-tip="设置比例条右下角位置（百分比）">
-                <td>Position</td>
+                <td>位置</td>
                 <td>
                   <span>x </span>
                   <input id="styleScaleBarPositionX" type="number" min="0" max="100" step="0.1" style="width: 5em" />
@@ -1687,11 +1687,11 @@
                   <option value="world" data-max="32" selected>全世界</option>
                   <option value="european" data-max="15">欧洲</option>
                   <option value="oriental" data-max="13">东方</option>
-                  <option value="english" data-max="10">English</option>
+                  <option value="english" data-max="10">英语</option>
                   <option value="antique" data-max="10">古代</option>
                   <option value="highFantasy" data-max="17">高魔奇幻</option>
                   <option value="darkFantasy" data-max="18">黑暗奇幻</option>
-                  <option value="random" data-max="100">Random</option>
+                  <option value="random" data-max="100">随机</option>
                 </select>
               </td>
               <td></td>
@@ -1881,7 +1881,7 @@
               <td>纹章形状</td>
               <td>
                 <select id="emblemShape" data-stored="emblemShape">
-                  <optgroup label="Diversiform">
+                  <optgroup label="多样">
                     <option value="culture" selected>文化专属</option>
                     <option value="random">文化随机</option>
                     <option value="state">国家专属</option>
@@ -1889,7 +1889,7 @@
                   <optgroup label="Basic">
                     <option value="heater">炉壁盾</option>
                     <option value="spanish">西班牙式</option>
-                    <option value="french">French</option>
+                    <option value="french">法式</option>
                   </optgroup>
                   <optgroup label="Regional">
                     <option value="horsehead">马头形</option>
@@ -1898,9 +1898,9 @@
                     <option value="hessen">黑森式</option>
                     <option value="swiss">瑞士式</option>
                   </optgroup>
-                  <optgroup label="Historical">
+                  <optgroup label="历史">
                     <option value="boeotian">维奥蒂亚式</option>
-                    <option value="roman">Roman</option>
+                    <option value="roman">罗马式</option>
                     <option value="kite">鸢盾</option>
                     <option value="oldFrench">古法语式</option>
                     <option value="renaissance">文艺复兴式</option>
@@ -1912,7 +1912,7 @@
                     <option value="pavise">长盾</option>
                     <option value="wedged">楔形</option>
                   </optgroup>
-                  <optgroup label="Banner">
+                  <optgroup label="旗帜">
                     <option value="flag">旗帜</option>
                     <option value="pennon">长尖旗</option>
                     <option value="guidon">骑兵旗</option>
@@ -1921,21 +1921,21 @@
                     <option value="gonfalon">悬旗</option>
                     <option value="pennant">三角旗</option>
                   </optgroup>
-                  <optgroup label="Simple">
+                  <optgroup label="简约">
                     <option value="round">圆角</option>
                     <option value="oval">椭圆</option>
                     <option value="vesicaPiscis">圣鱼形</option>
                     <option value="square">方角</option>
                     <option value="diamond">菱形</option>
                   </optgroup>
-                  <optgroup label="Fantasy">
+                  <optgroup label="奇幻">
                     <option value="fantasy1">奇幻1</option>
                     <option value="fantasy2">奇幻2</option>
                     <option value="fantasy3">奇幻3</option>
                     <option value="fantasy4">奇幻4</option>
                     <option value="fantasy5">奇幻5</option>
                   </optgroup>
-                  <optgroup label="Middle Earth">
+                  <optgroup label="中土">
                     <option value="noldor">诺多族</option>
                     <option value="gondor">刚铎</option>
                     <option value="easterling">东方人</option>
@@ -2018,7 +2018,7 @@
               data-tip="点击打开世界配置器，设置地图在地球仪上的位置和世界气候"
               onclick="window.Controllers.WorldConfigurator.open()"
             >
-              Configure World
+              配置世界
             </button>
             <button
               id="optionsReset"
@@ -2505,7 +2505,7 @@
           </div>
           <div class="unitsHeader" data-tip="选择温标">
             <span class="icon-temperature-high"></span>
-            <label>Temperature:</label>
+            <label>温度：</label>
           </div>
           <div>
             <label>温标：</label>
@@ -2637,7 +2637,7 @@
       </div>
       <div id="cellInfo" style="display: none" class="dialog stable">
         <p>
-          <b>Cell:</b> <span id="infoCell"></span> <b>X：</b> <span id="infoX"></span> <b>Y：</b> <span id="infoY"></span>
+          <b>单元格：</b> <span id="infoCell"></span> <b>X：</b> <span id="infoX"></span> <b>Y：</b> <span id="infoY"></span>
         </p>
         <p><b>纬度：</b> <span id="infoLat"></span></p>
         <p><b>经度：</b> <span id="infoLon"></span></p>
@@ -2646,14 +2646,14 @@
         <p><b>类型：</b> <span id="infoFeature">无</span></p>
         <p><b>降水量：</b> <span id="infoPrec">0</span></p>
         <p><b>河流：</b> <span id="infoRiver">否</span></p>
-        <p><b>Population:</b> <span id="infoPopulation">0</span></p>
+        <p><b>人口：</b> <span id="infoPopulation">0</span></p>
         <p><b>海拔：</b> <span id="infoElevation">0</span></p>
         <p><b>深度：</b> <span id="infoDepth">0</span></p>
-        <p><b>Temperature:</b> <span id="infoTemp">0</span></p>
-        <p><b>Biome:</b> <span id="infoBiome">无</span></p>
+        <p><b>温度：</b> <span id="infoTemp">0</span></p>
+        <p><b>生物群系：</b> <span id="infoBiome">无</span></p>
         <p><b>国家：</b> <span id="infoState">无</span></p>
         <p><b>省份：</b> <span id="infoProvince">无</span></p>
-        <p><b>Culture:</b> <span id="infoCulture">无</span></p>
+        <p><b>文化：</b> <span id="infoCulture">无</span></p>
         <p><b>宗教：</b> <span id="infoReligion">无</span></p>
         <p><b>城镇：</b> <span id="infoBurg">无</span></p>
         <p><b>货物：</b> <span id="infoGood">无</span></p>
@@ -2676,7 +2676,7 @@
           <div style="font-style: italic">
             <span>在此粘贴图片链接： </span>
             <input id="imageInput" style="width: 20em" />
-            <button id="addImage" type="button">Add</button>
+            <button id="addImage" type="button">添加</button>
           </div>
           <div id="addedIcons" class="pointer" style="display: flex; flex-wrap: wrap; max-width: 420px"></div>
         </div>
@@ -2781,7 +2781,7 @@
           </button>
         </div>
         <p>
-          地图保存为 <i>.map</i> 格式，可通过菜单中的 <i>Load</i> 重新加载。若文件丢失则无法恢复进度。请将旧存档文件保留在本地或云存储中作为备份。
+          地图保存为 <i>.map</i> 格式，可通过菜单中的 <i>加载</i> 重新加载。若文件丢失则无法恢复进度。请将旧存档文件保留在本地或云存储中作为备份。
         </p>
       </div>
       <div id="loadMapData" style="display: none" class="dialog">

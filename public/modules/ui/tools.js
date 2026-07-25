@@ -39,22 +39,22 @@ toolsContent.addEventListener("click", function (event) {
     const dontAsk = sessionStorage.getItem("regenerateFeatureDontAsk");
     if (dontAsk) return processFeatureRegeneration(event, button);
 
-    alertMessage.innerHTML = /* html */ `Regeneration will remove all the custom changes for the element.<br /><br />Are you sure you want to proceed?`;
+    alertMessage.innerHTML = /* html */ `重新生成会移除该元素的所有自定义改动。<br /><br />确定要继续吗？`;
     $("#alert").dialog({
       resizable: false,
       title: "重新生成元素",
       buttons: {
-        Proceed: function () {
+        继续: function () {
           processFeatureRegeneration(event, button);
           $(this).dialog("close");
         },
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         }
       },
       open: function () {
         const checkbox =
-          '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>do not ask again</i></label><span>';
+          '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>不再询问</i></label><span>';
         const pane = this.parentElement.querySelector(".ui-dialog-buttonpane");
         pane.insertAdjacentHTML("afterbegin", checkbox);
       },
@@ -200,7 +200,7 @@ function recreateStates() {
 
   const statesCount = +ensureEl("statesNumber").value;
   if (!statesCount) {
-    tip(`<i>States Number</i> 选项值为零。未生成任何国家`, false, "error");
+    tip(`<i>国家数量</i> 选项值为零。未生成任何国家`, false, "error");
     return null;
   }
 
@@ -211,7 +211,7 @@ function recreateStates() {
   }
 
   if (validBurgs.length < statesCount) {
-    const message = `Not enough burgs to generate ${statesCount} states. Will generate only ${validBurgs.length} states`;
+    const message = `城镇数量不足以生成 ${statesCount} 个国家。将仅生成 ${validBurgs.length} 个国家`;
     tip(message, false, "warn");
   }
 
@@ -640,7 +640,7 @@ function regenerateMarkers() {
 
 function regenerateZones(event) {
   if (isCtrlClick(event))
-    prompt("Please provide zones number multiplier", { default: 1, step: 0.01, min: 0, max: 100 }, v =>
+    prompt("请提供区域数量倍数", { default: 1, step: 0.01, min: 0, max: 100 }, v =>
       addNumberOfZones(v)
     );
   else addNumberOfZones(gauss(1, 0.5, 0.6, 5, 2));
@@ -1025,12 +1025,12 @@ function configMarkersGeneration() {
     title: "标记生成设置",
     position: { my: "left top", at: "left+10 top+10", of: "svg", collision: "fit" },
     buttons: {
-      Regenerate: () => {
+      重新生成: () => {
         applyChanges();
         regenerateMarkers();
         drawConfigTable();
       },
-      Close: function () {
+      关闭: function () {
         $(this).dialog("close");
       }
     },

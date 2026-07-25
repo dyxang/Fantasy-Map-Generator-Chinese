@@ -288,7 +288,7 @@ function analyzeNamesbase(): void {
     width: "auto",
     position: { my: "left top-30", at: "right+10 top", of: "#namesbaseEditor" },
     buttons: {
-      OK: function () {
+      确定: function () {
         $(this).dialog("close");
       }
     }

@@ -11,11 +11,11 @@ function open(): void {
     position: { my: "center", at: "center", of: "svg" },
     close: cleanup,
     buttons: {
-      Submap: function (this: HTMLElement) {
+      生成子图: function (this: HTMLElement) {
         generateSubmap();
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }

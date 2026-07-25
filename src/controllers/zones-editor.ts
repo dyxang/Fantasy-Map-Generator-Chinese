@@ -480,8 +480,8 @@ function togglePercentageMode(): void {
 
 function addZonesLayer(): void {
   const zoneId = pack.zones.length ? Math.max(...pack.zones.map(z => z.i)) + 1 : 0;
-  const name = "Unknown zone";
-  const type = "Unknown";
+  const name = "未知区域";
+  const type = "未知";
   const color = `url(#hatch${zoneId % 42})`;
   pack.zones.push({ i: zoneId, name, type, color, cells: [] });
 
@@ -491,7 +491,7 @@ function addZonesLayer(): void {
 
 function downloadZonesData(): void {
   const unit = areaUnit.value === "square" ? `${distanceUnitInput.value}2` : areaUnit.value;
-  let data = `Id,Color,Description,Type,Cells,Area ${unit},Population\n`; // headers
+  let data = `ID,颜色,描述,类型,单元格数,面积 ${unit},人口\n`; // headers
 
   ensureEl("zonesBodySection")
     .querySelectorAll<HTMLElement>(":scope > div")
@@ -534,9 +534,9 @@ function changePopulation(zone: Zone): void {
   const total = rural + urban;
   const l = (n: number): string => Number(n).toLocaleString();
 
-  alertMessage.innerHTML = /* html */ `Rural: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> Urban:
+  alertMessage.innerHTML = /* html */ `农村：<input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" /> 城市：
     <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" ${burgs.length ? "" : "disabled"} />
-    <p>Total population: ${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
+    <p>总人口：${l(total)} ⇒ <span id="totalPop">${l(total)}</span> (<span id="totalPopPerc">100</span>%)</p>`;
 
   const ruralPop = ensureEl<HTMLInputElement>("ruralPop");
   const urbanPop = ensureEl<HTMLInputElement>("urbanPop");
@@ -556,11 +556,11 @@ function changePopulation(zone: Zone): void {
     title: "更改区域人口",
     width: "24em",
     buttons: {
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         applyPopulationChange();
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     },
@@ -605,7 +605,7 @@ function zoneRemove(zone: Zone): void {
   confirmationDialog({
     title: "移除区域",
     message: "确定要移除该区域吗？<br>此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => {
       pack.zones = pack.zones.filter(z => z.i !== zone.i);
       select<SVGGElement, unknown>("#zones").select(`#zone${zone.i}`).remove();

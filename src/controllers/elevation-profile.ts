@@ -570,11 +570,11 @@ function renderDialog(): void {
           <span data-tip="设置曲线剖面"
             >曲线：
             <select id="epCurve">
-              <option>Linear</option>
-              <option>Bundle</option>
-              <option>Cubic Catmull-Rom</option>
-              <option selected>Monotone X</option>
-              <option>Natural</option>
+              <option>线性</option>
+              <option>捆绑</option>
+              <option>三次 Catmull-Rom</option>
+              <option selected>单调 X</option>
+              <option>自然</option>
             </select>
           </span>
           <span

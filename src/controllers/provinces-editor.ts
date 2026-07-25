@@ -732,7 +732,7 @@ function renderNameEditor(): void {
           <option value="Mandate">Mandate</option>
           <option value="Margrave">Margrave</option>
           <option value="Municipality">Municipality</option>
-          <option value="Occupation zone">Occupation zone</option>
+          <option value="Occupation zone">占领区</option>
           <option value="Parish">Parish</option>
           <option value="Prefecture">Prefecture</option>
           <option value="Province">Province</option>

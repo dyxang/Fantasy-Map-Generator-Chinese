@@ -377,7 +377,7 @@ function addBurgOnClick(this: SVGGElement, event: any): void {
   const cell = findCell(point[0], point[1])!;
 
   if (pack.cells.h[cell] < 20) {
-    tip("无法将国家放入水中。请点击陆地单元格", false, "error");
+    tip("无法将城镇放入水中。请点击陆地单元格", false, "error");
     return;
   }
   if (pack.cells.burg[cell]) {

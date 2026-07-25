@@ -926,10 +926,10 @@ function selectIcon(initial, callback) {
     width: fitContent(),
     title: "选择图标",
     buttons: {
-      Apply: function () {
+      应用: function () {
         $(this).dialog("close");
       },
-      Close: function () {
+      关闭: function () {
         callback(initial);
         $(this).dialog("close");
       }
@@ -949,10 +949,10 @@ function getArea(rawArea) {
 
 function confirmationDialog(options) {
   const {
-    title = "Confirm action",
-    message = "Are you sure you want to continue? <br>The action cannot be reverted",
-    cancel = "Cancel",
-    confirm = "Continue",
+    title = "确认操作",
+    message = "确定要继续吗？<br>此操作无法撤销",
+    cancel = "取消",
+    confirm = "继续",
     onCancel,
     onConfirm
   } = options;

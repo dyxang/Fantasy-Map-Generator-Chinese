@@ -136,10 +136,10 @@ fogging
 
 // assign events separately as not a viewbox child
 scaleBar
-  .on("mousemove", () => tip("Click to open Units Editor"))
+  .on("mousemove", () => tip("点击打开单位编辑器"))
   .on("click", () => window.Controllers.UnitsEditor.open());
 legend
-  .on("mousemove", () => tip("Drag to change the position. Click to hide the legend"))
+  .on("mousemove", () => tip("拖动以更改位置。点击隐藏图例"))
   .on("click", () => clearLegend());
 
 // main data variables
@@ -436,7 +436,7 @@ function toggleAssistant() {
         setTimeout(() => {
           const bubble = document.getElementById("chat-widget-minimized");
           if (bubble) {
-            bubble.dataset.tip = "Click to open the Assistant";
+            bubble.dataset.tip = "点击打开助手";
             bubble.on("mouseover", showDataTip);
           }
         }, 5000);
@@ -527,7 +527,7 @@ function findBurgForMFCG(params) {
 
   zoomTo(b.x, b.y, 8, 1600);
   invokeActiveZooming();
-  tip("Here stands the glorious city of " + b.name, true, "success", 15000);
+  tip("这座辉煌的城市名为 " + b.name, true, "success", 15000);
 }
 
 // Zoom to a specific point

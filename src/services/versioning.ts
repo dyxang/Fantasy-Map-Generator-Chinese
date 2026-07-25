@@ -14,6 +14,7 @@
  *
  * For the changes that may be interesting to end users, update the `latestPublicChanges` array below (new changes on top).
  */
+import { showConnectivityDialog } from "./connectivity-check";
 
 export const VERSION = "1.138.0";
 
@@ -141,6 +142,11 @@ function announceVersion(): void {
   const storedVersion = localStorage.getItem("version");
   if (compareVersions(storedVersion, VERSION, { major: true, minor: true, patch: false }).isOlder) {
     setTimeout(() => showUpdateWindow(storedVersion), 6000);
+  }
+
+  // 汉化版定制：首次访问时弹网络可达性检测（延迟 10s）
+  if (storedVersion === null) {
+    setTimeout(showConnectivityDialog, 10000);
   }
 }
 

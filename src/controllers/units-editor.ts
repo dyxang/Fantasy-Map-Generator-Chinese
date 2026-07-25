@@ -44,7 +44,7 @@ function renderScaleBar(): void {
 
 function changeDistanceUnit(this: HTMLSelectElement): void {
   if (this.value === "custom_name") {
-    prompt("Provide a custom name for a distance unit", { default: "" }, custom => {
+    prompt("请提供距离单位的自定义名称", { default: "" }, custom => {
       this.options.add(new Option(String(custom), String(custom), false, true));
       lock("distanceUnit");
       renderScaleBar();
@@ -66,7 +66,7 @@ function changeDistanceScale(this: HTMLInputElement): void {
 function changeHeightUnit(this: HTMLSelectElement): void {
   if (this.value !== "custom_name") return;
 
-  prompt("Provide a custom name for a height unit", { default: "" }, custom => {
+  prompt("请提供高度单位的自定义名称", { default: "" }, custom => {
     this.options.add(new Option(String(custom), String(custom), false, true));
     lock("heightUnit");
   });

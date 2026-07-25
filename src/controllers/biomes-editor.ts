@@ -364,8 +364,8 @@ function addCustomBiome(): void {
     <div data-tip="单元格数" class="biomeCells hide">${b.cells![i]}</div>
     <span data-tip="生物群系面积" style="padding-right: 4px" class="icon-map-o hide"></span>
     <div data-tip="生物群系面积" class="biomeArea hide">0 ${unit}</div>
-    <span data-tip="Total population: 0" class="icon-male hide"></span>
-    <div data-tip="Total population: 0" class="biomePopulation hide">0</div>
+    <span data-tip="总人口：0" class="icon-male hide"></span>
+    <div data-tip="总人口：0" class="biomePopulation hide">0</div>
     <span data-tip="移除自定义生物群系" class="icon-trash-empty hide"></span>
   </div>`;
 

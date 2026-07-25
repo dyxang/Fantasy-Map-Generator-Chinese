@@ -76,13 +76,13 @@ function renderDialog(): void {
             <div data-tip="选择城镇类型。类型对纹章生成有轻微影响">
               <div class="label">类型：</div>
               <select id="burgType" style="width: 9em">
-                <option value="Generic">Generic</option>
-                <option value="River">River</option>
-                <option value="Lake">Lake</option>
-                <option value="Naval">Naval</option>
-                <option value="Nomadic">Nomadic</option>
-                <option value="Hunting">Hunting</option>
-                <option value="Highland">Highland</option>
+                <option value="Generic">通用</option>
+                <option value="River">河流</option>
+                <option value="Lake">湖泊</option>
+                <option value="Naval">沿海</option>
+                <option value="Nomadic">游牧</option>
+                <option value="Hunting">狩猎</option>
+                <option value="Highland">高地</option>
               </select>
             </div>
             <div data-tip="选择主导文化">

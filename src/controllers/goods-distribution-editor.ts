@@ -32,44 +32,44 @@ const FN_DEFS: FnDef[] = [
     id: "minHeight",
     label: "最小高度",
     paramType: "number",
-    paramLabel: "Height (0–100)",
+    paramLabel: "高度 (0–100)",
     defaultVal: "40",
     description: "高度大于等于指定值的单元格",
-    note: "20: sea level, 50: highlands, 70: mountains."
+    note: "20：海平面，50：高地，70：山脉。"
   },
   {
     id: "maxHeight",
     label: "最大高度",
     paramType: "number",
-    paramLabel: "Height (0–100)",
+    paramLabel: "高度 (0–100)",
     defaultVal: "40",
     description: "高度小于等于指定值的单元格",
-    note: "20: sea level, 50: highlands, 70: mountains."
+    note: "20：海平面，50：高地，70：山脉。"
   },
   {
     id: "minTemp",
     label: "最低温度",
     paramType: "number",
-    paramLabel: "Temp (°C)",
+    paramLabel: "温度 (°C)",
     defaultVal: "10",
     description: "平均温度大于等于指定值的单元格",
-    note: "-18°C: polar, 18°C: tropical."
+    note: "-18°C：极地，18°C：热带。"
   },
   {
     id: "maxTemp",
     label: "最高温度",
     paramType: "number",
-    paramLabel: "Temp (°C)",
+    paramLabel: "温度 (°C)",
     defaultVal: "5",
     description: "平均温度小于等于指定值的单元格",
-    note: "-18°C: polar, 18°C: tropical."
+    note: "-18°C：极地，18°C：热带。"
   },
   {
     id: "shore",
     label: "海岸邻近度",
     paramType: "shore",
     description: "按与水域的邻近度划分的单元格",
-    note: "-1: shallow ocean, -2: deep ocean, 1: coastal land, 2: near coast land."
+    note: "-1：浅海，-2：深海，1：沿海陆地，2：近海陆地。"
   },
   {
     id: "type",
@@ -87,7 +87,7 @@ const FN_DEFS: FnDef[] = [
     id: "minHabitability",
     label: "最低宜居性",
     paramType: "number",
-    paramLabel: "Habitability (0–100)",
+    paramLabel: "宜居性 (0–100)",
     defaultVal: "20",
     description: "生物群系宜居性大于等于指定值的单元格"
   },
@@ -96,23 +96,23 @@ const FN_DEFS: FnDef[] = [
     label: "宜居性",
     paramType: "none",
     description: "偏向更宜居的单元格",
-    note: "Higher chance in habitable biomes."
+    note: "在宜居生物群系中概率更高。"
   },
   {
     id: "elevation",
     label: "海拔",
     paramType: "none",
     description: "偏向海拔更高的单元格",
-    note: "Higher chance at higher altitudes."
+    note: "在更高海拔处概率更高。"
   },
   {
     id: "random",
     label: "随机概率",
     paramType: "number",
-    paramLabel: "Chance (%)",
+    paramLabel: "概率 (%)",
     defaultVal: "50",
     description: "获得该货物的概率",
-    note: "random(50): 50% chance per cell."
+    note: "random(50)：每个单元格 50% 概率。"
   },
   {
     id: "nth",
@@ -121,7 +121,7 @@ const FN_DEFS: FnDef[] = [
     paramLabel: "N",
     defaultVal: "5",
     description: "规则分布模式",
-    note: "nth(5): 1 in 5 eligible cells."
+    note: "nth(5)：每 5 个符合条件的单元格取 1 个。"
   }
 ];
 
@@ -234,10 +234,10 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       width: "34em",
       resizable: false,
       buttons: {
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         },
-        Apply: function () {
+        应用: function () {
           cond.biomeIds = entries.filter(e => e.cb.checked).map(e => e.id);
           onApplied();
           $(this).dialog("close");
@@ -277,10 +277,10 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       width: "18em",
       resizable: false,
       buttons: {
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         },
-        Apply: function () {
+        应用: function () {
           cond.typeValues = entries.filter(e => e.cb.checked).map(e => e.value);
           onApplied();
           $(this).dialog("close");
@@ -320,10 +320,10 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       width: "18em",
       resizable: false,
       buttons: {
-        Cancel: function () {
+        取消: function () {
           $(this).dialog("close");
         },
-        Apply: function () {
+        应用: function () {
           cond.shoreValues = entries.filter(e => e.cb.checked).map(e => e.value);
           onApplied();
           $(this).dialog("close");
@@ -344,7 +344,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
     if (def.paramType === "none") {
       const span = document.createElement("span");
       span.className = "ded-no-params";
-      span.textContent = "no parameters";
+      span.textContent = "无参数";
       container.appendChild(span);
     } else if (def.paramType === "number") {
       const wrap = document.createElement("div");
@@ -369,13 +369,13 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       summary.className = "ded-picker-summary";
       const refreshBiomeSummary = () => {
         summary.textContent = cond.biomeIds.length
-          ? cond.biomeIds.map(id => biomesData.name[id] || `Biome ${id}`).join(", ")
-          : "none";
+          ? cond.biomeIds.map(id => biomesData.name[id] || `生物群系 ${id}`).join(", ")
+          : "无";
       };
       refreshBiomeSummary();
       const editBtn = document.createElement("button");
       editBtn.className = "icon-pencil ded-row-edit-btn";
-      editBtn.title = "Select biomes";
+      editBtn.title = "选择生物群系";
       editBtn.addEventListener("click", () =>
         openBiomePicker(cond, () => {
           refreshBiomeSummary();
@@ -392,13 +392,13 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       summary.className = "ded-picker-summary";
       const refreshShoreSummary = () => {
         if (!cond.shoreValues.length) {
-          summary.textContent = "none";
+          summary.textContent = "无";
         } else {
           const LABELS: Record<string, string> = {
-            "-2": "Deep Ocean",
-            "-1": "Shallow Ocean",
-            "1": "Coastal Land",
-            "2": "Near Coast"
+            "-2": "深海",
+            "-1": "浅海",
+            "1": "沿海陆地",
+            "2": "近海岸"
           };
           summary.textContent = cond.shoreValues.map(v => LABELS[v] ?? v).join(", ");
         }
@@ -406,7 +406,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       refreshShoreSummary();
       const editBtn = document.createElement("button");
       editBtn.className = "icon-pencil ded-row-edit-btn";
-      editBtn.title = "Select shore proximity";
+      editBtn.title = "选择海岸邻近度";
       editBtn.addEventListener("click", () =>
         openShorePicker(cond, () => {
           refreshShoreSummary();
@@ -422,12 +422,12 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       const summary = document.createElement("span");
       summary.className = "ded-picker-summary";
       const refreshTypeSummary = () => {
-        summary.textContent = cond.typeValues.length ? cond.typeValues.join(", ") : "none";
+        summary.textContent = cond.typeValues.length ? cond.typeValues.join(", ") : "无";
       };
       refreshTypeSummary();
       const editBtn = document.createElement("button");
       editBtn.className = "icon-pencil ded-row-edit-btn";
-      editBtn.title = "Select feature types";
+      editBtn.title = "选择特征类型";
       editBtn.addEventListener("click", () =>
         openFeatureTypePicker(cond, () => {
           refreshTypeSummary();
@@ -492,7 +492,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
 
     const removeBtn = document.createElement("button");
     removeBtn.className = "icon-trash-empty ded-remove-btn";
-    removeBtn.title = "Remove this condition";
+    removeBtn.title = "移除该条件";
     removeBtn.addEventListener("click", () => {
       groups[groupIdx].splice(condIdx, 1);
       if (!groups[groupIdx].length) {
@@ -515,7 +515,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       if (groupIdx > 0) {
         const orSep = document.createElement("div");
         orSep.className = "ded-or-sep";
-        orSep.textContent = "— OR —";
+        orSep.textContent = "— 或 —";
         groupList.appendChild(orSep);
       }
 
@@ -526,7 +526,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
         if (condIdx > 0) {
           const andLabel = document.createElement("div");
           andLabel.className = "ded-and-label";
-          andLabel.textContent = "AND";
+          andLabel.textContent = "且";
           groupBox.appendChild(andLabel);
         }
         groupBox.appendChild(buildConditionRow(cond, groupIdx, condIdx));
@@ -536,7 +536,7 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
       footer.className = "ded-group-footer";
 
       const addCondBtn = document.createElement("button");
-      addCondBtn.textContent = "+ Add condition";
+      addCondBtn.textContent = "+ 添加条件";
       addCondBtn.addEventListener("click", () => {
         group.push(createDefaultCondition());
         renderGroupList();
@@ -627,23 +627,23 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
 
     <div class="ded-wrap">
       <div class="ded-info">
-        Distribution controls where this raw good spawns. Leave empty for manufactured-only goods.
+        分布控制该原生产物的生成位置。对于纯制造产物则留空。
       </div>
       <div class="ded-body">
         <div class="ded-builder">
           <div id="distGroupList" class="ded-group-list"></div>
-          <button id="distAddGroup" class="ded-add-or-btn">+ Add OR group</button>
+          <button id="distAddGroup" class="ded-add-or-btn">+ 添加 OR 组</button>
           <div class="ded-output">
-            <div class="ded-output-label">Distribution</div>
+            <div class="ded-output-label">分布</div>
             <div class="ded-output-row">
               <input id="distExprOutput" class="ded-expr-input" readonly value="" />
-              <span id="distCellCount" class="ded-cell-count">0 cells (0%)</span>
+              <span id="distCellCount" class="ded-cell-count">0 个单元格 (0%)</span>
             </div>
           </div>
           <div id="distHumanPreview" class="ded-human-preview"></div>
         </div>
         <div class="ded-ref">
-          <div class="ded-ref-title">Function Reference</div>
+          <div class="ded-ref-title">函数参考</div>
           ${refHtml}
         </div>
       </div>
@@ -664,10 +664,10 @@ function open(onApply: (distribution: string) => void, initialExpression = "") {
     width: "60em",
     resizable: true,
     buttons: {
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       },
-      Apply: function () {
+      应用: function () {
         const expr = generateExpression();
         onApply(expr);
         $(this).dialog("close");

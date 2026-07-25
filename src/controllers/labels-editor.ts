@@ -408,7 +408,7 @@ function removeLabelsGroup(): void {
   }吗？<br /><br />将要移除的标签数：${count}`;
   $("#alert").dialog({
     resizable: false,
-    title: "移除道路组",
+    title: "移除标签组",
     buttons: {
       移除: function (this: HTMLElement) {
         $(this).dialog("close");

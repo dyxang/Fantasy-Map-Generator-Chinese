@@ -62,63 +62,63 @@ function renderDialog(): void {
         <div data-tip="选择纹章形状">
           <div class="label">形状：</div>
           <select id="emblemShapeSelector">
-            <optgroup label="Basic">
-              <option value="heater">Heater</option>
-              <option value="spanish">Spanish</option>
-              <option value="french">French</option>
+            <optgroup label="基础">
+              <option value="heater">炉壁盾</option>
+              <option value="spanish">西班牙式</option>
+              <option value="french">法式</option>
             </optgroup>
-            <optgroup label="Regional">
-              <option value="horsehead">Horsehead</option>
-              <option value="horsehead2">Horsehead Edgy</option>
-              <option value="polish">Polish</option>
-              <option value="hessen">Hessen</option>
-              <option value="swiss">Swiss</option>
+            <optgroup label="地域">
+              <option value="horsehead">马头形</option>
+              <option value="horsehead2">马头尖角形</option>
+              <option value="polish">波兰式</option>
+              <option value="hessen">黑森式</option>
+              <option value="swiss">瑞士式</option>
             </optgroup>
-            <optgroup label="Historical">
-              <option value="boeotian">Boeotian</option>
-              <option value="roman">Roman</option>
-              <option value="kite">Kite</option>
-              <option value="oldFrench">Old French</option>
-              <option value="renaissance">Renaissance</option>
-              <option value="baroque">Baroque</option>
+            <optgroup label="历史">
+              <option value="boeotian">维奥蒂亚式</option>
+              <option value="roman">罗马式</option>
+              <option value="kite">鸢盾</option>
+              <option value="oldFrench">古法语式</option>
+              <option value="renaissance">文艺复兴式</option>
+              <option value="baroque">巴洛克式</option>
             </optgroup>
-            <optgroup label="Specific">
-              <option value="targe">Targe</option>
-              <option value="targe2">Targe2</option>
-              <option value="pavise">Pavise</option>
-              <option value="wedged">Wedged</option>
+            <optgroup label="特定">
+              <option value="targe">圆盾</option>
+              <option value="targe2">圆盾2</option>
+              <option value="pavise">长盾</option>
+              <option value="wedged">楔形</option>
             </optgroup>
-            <optgroup label="Banner">
-              <option value="flag">Flag</option>
-              <option value="pennon">Pennon</option>
-              <option value="guidon">Guidon</option>
-              <option value="banner">Banner</option>
-              <option value="dovetail">Dovetail</option>
-              <option value="gonfalon">Gonfalon</option>
-              <option value="pennant">Pennant</option>
+            <optgroup label="旗帜">
+              <option value="flag">旗帜</option>
+              <option value="pennon">长尖旗</option>
+              <option value="guidon">骑兵旗</option>
+              <option value="banner">横幅</option>
+              <option value="dovetail">燕尾旗</option>
+              <option value="gonfalon">悬旗</option>
+              <option value="pennant">三角旗</option>
             </optgroup>
-            <optgroup label="Simple">
-              <option value="round">Round</option>
-              <option value="oval">Oval</option>
-              <option value="vesicaPiscis">Vesica Piscis</option>
-              <option value="square">Square</option>
-              <option value="diamond">Diamond</option>
+            <optgroup label="简约">
+              <option value="round">圆角</option>
+              <option value="oval">椭圆</option>
+              <option value="vesicaPiscis">圣鱼形</option>
+              <option value="square">方角</option>
+              <option value="diamond">菱形</option>
             </optgroup>
-            <optgroup label="Fantasy">
-              <option value="fantasy1">Fantasy1</option>
-              <option value="fantasy2">Fantasy2</option>
-              <option value="fantasy3">Fantasy3</option>
-              <option value="fantasy4">Fantasy4</option>
-              <option value="fantasy5">Fantasy5</option>
+            <optgroup label="奇幻">
+              <option value="fantasy1">奇幻1</option>
+              <option value="fantasy2">奇幻2</option>
+              <option value="fantasy3">奇幻3</option>
+              <option value="fantasy4">奇幻4</option>
+              <option value="fantasy5">奇幻5</option>
             </optgroup>
-            <optgroup label="Middle Earth">
-              <option value="noldor">Noldor</option>
-              <option value="gondor">Gondor</option>
-              <option value="easterling">Easterling</option>
-              <option value="erebor">Erebor</option>
-              <option value="ironHills">Iron Hills</option>
-              <option value="urukHai">UrukHai</option>
-              <option value="moriaOrc">Moria Orc</option>
+            <optgroup label="中土">
+              <option value="noldor">诺多族</option>
+              <option value="gondor">刚铎</option>
+              <option value="easterling">东方人</option>
+              <option value="erebor">伊鲁伯</option>
+              <option value="ironHills">钢铁山</option>
+              <option value="urukHai">强兽人</option>
+              <option value="moriaOrc">摩瑞亚半兽人</option>
             </optgroup>
           </select>
         </div>

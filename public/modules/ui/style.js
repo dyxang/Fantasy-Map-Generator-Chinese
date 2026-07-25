@@ -647,7 +647,7 @@ openCreateHeightmapSchemeButton.on("click", function () {
 
   // render dialog base structure
   alertMessage.innerHTML = /* html */ `<div>
-    <i>Define heightmap gradient colors from high to low altitude</i>
+    <i>从高海拔到低海拔定义高度图渐变颜色</i>
     <img id="heightmapSchemePreview" alt="heightmap preview" style="margin-top: 0.5em; width: 100%;" />
     <div id="heightmapSchemeStops" style="margin-block: 0.5em; display: flex; flex-wrap: wrap;"></div>
     <div id="heightmapSchemeGradient" style="height: 1.9em; border: 1px solid #767676;"></div>
@@ -750,8 +750,8 @@ openCreateHeightmapSchemeButton.on("click", function () {
     title: "创建高度图配色方案",
     width: "28em",
     buttons: {
-      Create: handleCreate,
-      Cancel: handleClose
+      创建: handleCreate,
+      取消: handleClose
     },
     position: { my: "center top+150", at: "center top", of: "svg" }
   });
@@ -884,7 +884,7 @@ styleFontAdd.on("click", function () {
     width: "26em",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
-      Add: function () {
+      添加: function () {
         const family = addFontNameInput.value;
         const src = addFontURLInput.value;
         const method = addFontMethod.value;
@@ -905,7 +905,7 @@ styleFontAdd.on("click", function () {
         addFontURLInput.value = "";
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }
@@ -1064,13 +1064,13 @@ function textureProvideURL() {
     title: "加载自定义纹理",
     width: "28em",
     buttons: {
-      Apply: function () {
+      应用: function () {
         if (!textureURL.value) return tip("请提供有效的 URL", false, "error");
         changeTexture(textureURL.value);
         updateTextureSelectValue(textureURL.value);
         $(this).dialog("close");
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     }

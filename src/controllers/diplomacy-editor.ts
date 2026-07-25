@@ -9,39 +9,39 @@ interface Relation {
 
 const relations: Record<string, Relation> = {
   Ally: {
-    inText: "is an ally of",
+    inText: "结盟",
     color: "#00b300",
     tip: "盟国达成防御协定，在第三方进犯时互相保护"
   },
   Friendly: {
-    inText: "is friendly to",
+    inText: "友好",
     color: "#d4f8aa",
     tip: "当两个国家存在某些共同利益时即为友好关系"
   },
   Neutral: {
-    inText: "is neutral to",
+    inText: "中立",
     color: "#edeee8",
     tip: "中立表示两国关系既非正面也非负面"
   },
   Suspicion: {
-    inText: "is suspicious of",
+    inText: "怀疑",
     color: "#eeafaa",
     tip: "怀疑表示国家对另一国持有谨慎的不信任态度"
   },
-  Enemy: { inText: "is at war with", color: "#e64b40", tip: "敌对即处于战争状态的国家" },
+  Enemy: { inText: "交战", color: "#e64b40", tip: "敌对即处于战争状态的国家" },
   Unknown: {
-    inText: "does not know about",
+    inText: "未知",
     color: "#a9a9a9",
     tip: "当两国彼此情报不足时关系即为未知"
   },
   Rival: {
-    inText: "is a rival of",
+    inText: "竞争",
     color: "#ad5a1f",
     tip: "对手关系即两国争夺该地区的主导权"
   },
-  Vassal: { inText: "is a vassal of", color: "#87CEFA", tip: "藩属国是对其宗主国负有义务的国家" },
+  Vassal: { inText: "臣属于", color: "#87CEFA", tip: "藩属国是对其宗主国负有义务的国家" },
   Suzerain: {
-    inText: "is suzerain to",
+    inText: "宗主",
     color: "#00008B",
     tip: "宗主国是对其藩属国拥有一定控制权的国家"
   }
@@ -94,7 +94,7 @@ function renderDialog(): void {
         </div>
       </div>
       <div id="diplomacyBodySection" class="table"></div>
-      <div class="info-line">Click on state name to see relations.<br />Click on relations name to change it</div>
+      <div class="info-line">点击国家名称查看关系。<br />点击关系名称可修改</div>
       <div id="diplomacyBottom" style="margin-top: 0.1em">
         <button id="diplomacyEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
         <button
@@ -163,7 +163,7 @@ function diplomacyEditorAddLines(): void {
   const selectedName = states[selectedId].name;
 
   COArenderer.trigger(`stateCOA${selectedId}`, states[selectedId].coa);
-  let lines = /* html */ `<div class="states Self" data-id=${selectedId} data-tip="List below shows relations to ${selectedName}">
+  let lines = /* html */ `<div class="states Self" data-id=${selectedId} data-tip="下方列表显示与 ${selectedName} 的关系">
     <div style="width: max-content">${states[selectedId].fullName}</div>
     <svg class="coaIcon" viewBox="0 0 200 200"><use href="#stateCOA${selectedId}"></use></svg>
   </div>`;
@@ -174,8 +174,8 @@ function diplomacyEditorAddLines(): void {
     const { color, inText } = relations[relation];
 
     const tipText = `${state.name} ${inText} ${selectedName}`;
-    const tipSelect = `${tipText}. Click to see relations to ${state.name}`;
-    const tipChange = `Click to change relations. ${tipText}`;
+    const tipSelect = `${tipText}。点击查看与 ${state.name} 的关系`;
+    const tipChange = `点击更改关系。${tipText}`;
 
     const name = state.fullName!.length < 23 ? state.fullName : state.name;
     COArenderer.trigger(`stateCOA${state.i}`, state.coa);
@@ -322,8 +322,8 @@ function selectRelation(subjectId: number, objectId: number, currentRelation: st
         <section style="display: flex; flex-direction: column; gap: .3em;">${relationsSelector}</section>
         <section style="display: flex; flex-direction: column; gap: .3em;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3em;">
-            <label style="font-weight: 500; font-size: 0.95em;">States:</label>
-            <button id="selectAllNoneBtn" type="button" style="padding: 0.3em 0.8em; cursor: pointer; font-size: 0.9em;" data-tip="切换全选/取消全选国家。也支持 Ctrl+A。">Select All / None</button>
+            <label style="font-weight: 500; font-size: 0.95em;">国家：</label>
+            <button id="selectAllNoneBtn" type="button" style="padding: 0.3em 0.8em; cursor: pointer; font-size: 0.9em;" data-tip="切换全选/取消全选国家。也支持 Ctrl+A。">全选 / 取消</button>
           </div>
           <div id="stateSelectionContainer" style="display: flex; flex-direction: column; gap: .3em;">${objectsSelector}</div>
         </section>
@@ -335,7 +335,7 @@ function selectRelation(subjectId: number, objectId: number, currentRelation: st
     width: fitContent(),
     title: `更改关系`,
     buttons: {
-      Apply: function (this: HTMLElement) {
+      应用: function (this: HTMLElement) {
         const formData = new FormData(ensureEl<HTMLFormElement>("relationsForm"));
         const newRelation = formData.get("relationSelect") as string;
         const objectIds = [...formData.getAll("objectSelect")].map(Number);
@@ -345,7 +345,7 @@ function selectRelation(subjectId: number, objectId: number, currentRelation: st
         }
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -395,20 +395,20 @@ function changeRelation(subjectId: number, objectId: number, oldRelation: string
 
   // update relation history
   const change = (): string[] => [
-    `Relations change`,
-    `${subjectName}-${getAdjective(objectName)} relations changed to ${newRelation.toLowerCase()}`
+    `关系变化`,
+    `${subjectName} 与 ${objectName} 的关系变为 ${newRelation.toLowerCase()}`
   ];
-  const ally = (): string[] => [`Defence pact`, `${subjectName} entered into defensive pact with ${objectName}`];
-  const vassal = (): string[] => [`Vassalization`, `${subjectName} became a vassal of ${objectName}`];
-  const suzerain = (): string[] => [`Vassalization`, `${subjectName} vassalized ${objectName}`];
-  const rival = (): string[] => [`Rivalization`, `${subjectName} and ${objectName} became rivals`];
+  const ally = (): string[] => [`防御协定`, `${subjectName} 与 ${objectName} 缔结了防御协定`];
+  const vassal = (): string[] => [`臣属`, `${subjectName} 成为 ${objectName} 的藩属国`];
+  const suzerain = (): string[] => [`臣属`, `${subjectName} 将 ${objectName} 收为藩属`];
+  const rival = (): string[] => [`竞争对手`, `${subjectName} 与 ${objectName} 成为竞争对手`];
   const unknown = (): string[] => [
-    `Relations severance`,
-    `${subjectName} recalled their ambassadors and wiped all the records about ${objectName}`
+    `关系断绝`,
+    `${subjectName} 召回了大使并销毁了所有关于 ${objectName} 的记录`
   ];
-  const war = (): string[] => [`War declaration`, `${subjectName} declared a war on its enemy ${objectName}`];
+  const war = (): string[] => [`宣战`, `${subjectName} 向其敌人 ${objectName} 宣战`];
   const peace = (): string[] => {
-    const treaty = `${subjectName} and ${objectName} agreed to cease fire and signed a peace treaty`;
+    const treaty = `${subjectName} 与 ${objectName} 同意停火并签署了和平条约`;
     const changed =
       newRelation === "Ally"
         ? ally()
@@ -419,7 +419,7 @@ function changeRelation(subjectId: number, objectId: number, oldRelation: string
             : newRelation === "Unknown"
               ? unknown()
               : change();
-    return [`War termination`, treaty, changed[1]];
+    return [`战争终止`, treaty, changed[1]];
   };
 
   if (oldRelation === "Enemy") chronicle.push(peace());
@@ -470,10 +470,10 @@ function showRelationsHistory(): void {
 
   if (!chronicle.length) {
     pack.states[0].diplomacy = [[]] as unknown as string[];
-    message += /* html */ `<div><div contenteditable="true" data-id="0-0">No historical records</div>&#8205;</div>`;
+    message += /* html */ `<div><div contenteditable="true" data-id="0-0">无历史记录</div>&#8205;</div>`;
   }
 
-  alertMessage.innerHTML = `${message}</div><div class="info-line">Type to edit. Press Enter to add a new line, empty the element to remove it</div>`;
+  alertMessage.innerHTML = `${message}</div><div class="info-line">输入以编辑。按 Enter 添加新行，清空内容以移除</div>`;
   alertMessage.querySelectorAll("div[contenteditable='true']").forEach(el => {
     el.addEventListener("input", changeReliationsHistory);
   });
@@ -482,16 +482,16 @@ function showRelationsHistory(): void {
     title: "关系历史",
     position: { my: "center", at: "center", of: "svg" },
     buttons: {
-      Save: function (this: HTMLElement) {
+      保存: function (this: HTMLElement) {
         const data = this.querySelector("div")!.innerText.split("\n").join("\r\n");
-        const name = `${getFileName("Relations history")}.txt`;
+        const name = `${getFileName("关系历史")}.txt`;
         downloadFile(data, name);
       },
-      Clear: function (this: HTMLElement) {
+      清空: function (this: HTMLElement) {
         pack.states[0].diplomacy = [] as unknown as string[];
         $(this).dialog("close");
       },
-      Close: function (this: HTMLElement) {
+      关闭: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -514,11 +514,11 @@ function showRelationsMatrix(): void {
   const diplomacyMatrixBody = ensureEl("diplomacyMatrixBody");
 
   let table = `<table><thead><tr><th data-tip='&#8205;'></th>`;
-  table += `${states.map(state => `<th data-tip='Relations to ${state.fullName}'>${state.name}</th>`).join("")}</tr>`;
+  table += `${states.map(state => `<th data-tip='与 ${state.fullName} 的关系'>${state.name}</th>`).join("")}</tr>`;
   table += `<tbody>`;
 
   states.forEach(state => {
-    table += `<tr data-id=${state.i}><th data-tip='Relations of ${state.fullName}'>${state.name}</th>${state
+    table += `<tr data-id=${state.i}><th data-tip='${state.fullName} 的关系'>${state.name}</th>${state
       .diplomacy!.filter((_v, i) => valid.includes(i))
       .map((relation, index) => {
         const relationObj = relations[relation];
@@ -579,7 +579,7 @@ function downloadDiplomacyData(): void {
     data += `${s.name},${rels.join(",")}\n`;
   });
 
-  const name = `${getFileName("Relations")}.csv`;
+  const name = `${getFileName("关系")}.csv`;
   downloadFile(data, name);
 }
 

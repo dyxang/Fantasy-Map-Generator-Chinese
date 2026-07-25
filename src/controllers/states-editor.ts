@@ -671,12 +671,12 @@ function changePopulation(stateId: number): void {
   const format = (n: number) => Number(n).toLocaleString();
 
   alertMessage.innerHTML = /* html */ `<div>
-    <i>Change population of all cells assigned to the state</i>
+    <i>更改分配给该国家的所有单元格人口</i>
     <div style="margin: 0.5em 0">
-      Rural: <input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" />
-      Urban: <input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" />
+      农村：<input type="number" min="0" step="1" id="ruralPop" value=${rural} style="width:6em" />
+      城市：<input type="number" min="0" step="1" id="urbanPop" value=${urban} style="width:6em" />
     </div>
-    <div>Total population: ${format(total)} ⇒ <span id="totalPop">${format(total)}</span>
+    <div>总人口：${format(total)} ⇒ <span id="totalPop">${format(total)}</span>
       (<span id="totalPopPerc">100</span>%)
     </div>
   </div>`;
@@ -842,7 +842,7 @@ function stateRemovePrompt(state: number): void {
   confirmationDialog({
     title: "移除国家",
     message: "确定要移除该国家吗？<br>此操作无法撤销",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: () => stateRemove(state)
   });
 }
@@ -974,11 +974,11 @@ function showStatesChart(): void {
 
   // prepare svg
   alertMessage.innerHTML = /* html */ `<select id="statesTreeType" style="display:block; margin-left:13px; font-size:11px">
-    <option value="area" selected>Area</option>
-    <option value="population">Total population</option>
-    <option value="rural">Rural population</option>
-    <option value="urban">Urban population</option>
-    <option value="burgs">Burgs number</option>
+    <option value="area" selected>面积</option>
+    <option value="population">总人口</option>
+    <option value="rural">农村人口</option>
+    <option value="urban">城市人口</option>
+    <option value="burgs">城镇数量</option>
   </select>`;
   alertMessage.innerHTML += `<div id='statesInfo' class='chartInfo'>&#8205;</div>`;
 
@@ -1683,7 +1683,7 @@ function openStateMergeDialog(): void {
     title: `合并国家`,
     close: stateHighlightOff,
     buttons: {
-      Merge: function (this: HTMLElement) {
+      合并: function (this: HTMLElement) {
         const formData = new FormData(ensureEl<HTMLFormElement>("mergeStatesForm"));
 
         const rulingStateId = Number(formData.get("rulingState"));
@@ -1706,10 +1706,10 @@ function openStateMergeDialog(): void {
           title: "合并国家",
           // prettier-ignore
           message: /* html */ `
-            <p>The following states will be <strong>removed</strong>: ${statesToMerge.map(stateId => `${emblem(stateId)}${(pack.states)[stateId].name}`).join(", ")}.</p>
-            <p>Removed states data (burgs, provinces, regiments) will be assigned to ${emblem(rullingState.i)}${rullingState.name}.</p>
-            <p>Are you sure you want to merge states? This action cannot be reverted.</p>`,
-          confirm: "Merge",
+            <p>以下国家将被<strong>移除</strong>：${statesToMerge.map(stateId => `${emblem(stateId)}${(pack.states)[stateId].name}`).join(", ")}。</p>
+            <p>被移除国家的数据（城镇、省份、军团）将分配给 ${emblem(rullingState.i)}${rullingState.name}。</p>
+            <p>确定要合并国家吗？此操作无法撤销。</p>`,
+          confirm: "合并",
           onConfirm: () => {
             mergeStates(statesToMerge, rulingStateId);
             $(this).dialog("close");

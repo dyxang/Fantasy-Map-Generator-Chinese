@@ -125,7 +125,7 @@ function requestStylePresetChange(preset) {
   confirmationDialog({
     title: "更改样式预设",
     message: "确定要更改样式预设吗？所有未保存的样式更改都将丢失",
-    confirm: "Change",
+    confirm: "更改",
     onConfirm: () => {
       sessionStorage.setItem("styleChangeConfirmed", true);
       changeStyle(preset);
@@ -459,7 +459,7 @@ function requestRemoveStylePreset() {
   confirmationDialog({
     title: "移除样式预设",
     message: "确定要移除该样式预设吗？此操作无法撤销。",
-    confirm: "Remove",
+    confirm: "移除",
     onConfirm: removeStylePreset
   });
 }

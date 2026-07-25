@@ -78,7 +78,7 @@ function renderTemplateEditor(): void {
       <div id="templateBody" data-changed="0" class="table" style="padding: 2px 0">
         <div data-type="Hill">
           <div class="icon-check" data-tip="点击跳过该步骤"></div>
-          <div style="width: 4em">Hill</div>
+          <div style="width: 4em">丘陵</div>
           <i class="icon-trash-empty pointer" data-tip="移除该步骤"></i>
           <i class="icon-resize-vertical" data-tip="拖动以重新排序"></i>
           <span
@@ -1470,10 +1470,23 @@ function addStep(type: string, count?: string, dist?: string, arg4?: string, arg
 }
 
 function getStepHTML(type: string, count?: string, arg3?: string, arg4?: string, arg5?: string): string {
+  const TYPE_LABELS: Record<string, string> = {
+    Hill: "丘陵",
+    Pit: "坑",
+    Range: "山脉",
+    Trough: "槽",
+    Strait: "海峡",
+    Mask: "遮罩",
+    Invert: "反转",
+    Add: "加值",
+    Multiply: "乘值",
+    Smooth: "平滑"
+  };
   const Trash = /* html */ `<i class="icon-trash-empty pointer" data-tip="点击移除该步骤"></i>`;
   const Hide = /* html */ `<div class="icon-check" data-tip="点击跳过该步骤"></div>`;
   const Reorder = /* html */ `<i class="icon-resize-vertical" data-tip="拖动以重新排序"></i>`;
-  const common = /* html */ `<div data-type="${type}">${Hide}<div style="width:4em">${type}</div>${Trash}${Reorder}`;
+  const label = TYPE_LABELS[type] || type;
+  const common = /* html */ `<div data-type="${type}">${Hide}<div style="width:4em">${label}</div>${Trash}${Reorder}`;
 
   const TempY = /* html */ `<span>y:
       <input class="templateY" data-tip="沿 Y 轴的放置范围百分比（minY-maxY）" value=${arg5 || "20-80"} />

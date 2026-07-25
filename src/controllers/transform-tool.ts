@@ -15,11 +15,11 @@ function open(): void {
     position: { my: "center", at: "center", of: "svg" },
     close: cleanup,
     buttons: {
-      Transform: function (this: HTMLElement) {
+      转换: function (this: HTMLElement) {
         transformMap();
         $(this).dialog("close");
       },
-      Cancel: function (this: HTMLElement) {
+      取消: function (this: HTMLElement) {
         $(this).dialog("close");
       }
     }
@@ -34,8 +34,8 @@ function renderDialog(): void {
 
   const html = /* html */ `<div id="transformTool" class="dialog">
     <div style="padding-top: 0.5em; width: 40em; font-weight: bold">
-      This operation is destructive and irreversible. It will create a completely new map based on the current one.
-      Don't forget to save the .map file to your machine first!
+      此操作具有破坏性且不可逆。它将基于当前地图创建一个全新的地图。
+      请务必先将 .map 文件保存到本地！
     </div>
     <div
       id="transformToolBody"
@@ -48,32 +48,32 @@ function renderDialog(): void {
         align-items: center;
       "
     >
-      <div>Points number</div>
+      <div>点数</div>
       <div>
         <input id="transformPointsInput" type="range" min="1" max="13" value="${pointsValue}" />
         <output id="transformPointsFormatted" style="color: ${getCellsDensityColor(cells)}">${cells / 1000}K</output>
       </div>
-      <div>Shift</div>
+      <div>平移</div>
       <div>
         <label>X: <input id="transformShiftX" type="number" size="4" value="0" /></label>
         <label>Y: <input id="transformShiftY" type="number" size="4" value="0" /></label>
       </div>
-      <div>Rotate</div>
+      <div>旋转</div>
       <div>
         <input id="transformAngleInput" type="range" min="0" max="359" value="0" />
         <output id="transformAngleOutput">0</output>°
       </div>
-      <div>Scale</div>
+      <div>缩放</div>
       <div>
         <input id="transformScaleInput" type="range" min="-25" max="25" value="0" />
         <output id="transformScaleResult">1</output>x
       </div>
-      <div>Mirror</div>
+      <div>镜像</div>
       <div style="display: flex; gap: 0.5em">
         <input type="checkbox" class="checkbox" id="transformMirrorH" />
-        <label for="transformMirrorH" class="checkbox-label">horizontally</label>
+        <label for="transformMirrorH" class="checkbox-label">水平</label>
         <input type="checkbox" class="checkbox" id="transformMirrorV" />
-        <label for="transformMirrorV" class="checkbox-label">vertically</label>
+        <label for="transformMirrorV" class="checkbox-label">垂直</label>
       </div>
     </div>
     <div id="transformPreview" style="position: relative; overflow: hidden; outline: 1px solid #666">

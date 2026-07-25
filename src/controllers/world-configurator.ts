@@ -186,11 +186,11 @@ function createDialogHtml(): string {
       </div>
     </div>
     <div style="margin-top: 0.3em">
-      <i>Presets:</i>
-      <button id="wcWholeWorld" data-tip="点击设置地图大小为覆盖整个世界">Whole world</button>
-      <button id="wcNorthern" data-tip="点击设置地图大小为覆盖北纬地区">Northern</button>
-      <button id="wcTropical" data-tip="点击设置地图大小为覆盖热带地区">Tropical</button>
-      <button id="wcSouthern" data-tip="点击设置地图大小为覆盖南纬地区">Southern</button>
+      <i>预设：</i>
+      <button id="wcWholeWorld" data-tip="点击设置地图大小为覆盖整个世界">整个世界</button>
+      <button id="wcNorthern" data-tip="点击设置地图大小为覆盖北纬地区">北纬</button>
+      <button id="wcTropical" data-tip="点击设置地图大小为覆盖热带地区">热带</button>
+      <button id="wcSouthern" data-tip="点击设置地图大小为覆盖南纬地区">南纬</button>
     </div>
   </div>`;
 }

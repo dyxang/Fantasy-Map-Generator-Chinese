@@ -134,7 +134,7 @@ function showMapTooltip(point, e, i, g) {
   const land = pack.cells.h[i] >= 20;
 
   // specific elements
-  if (group === "armies") return tip(e.target.parentNode.dataset.name + ". Click to edit");
+  if (group === "armies") return tip(e.target.parentNode.dataset.name + ". 点击编辑");
 
   if (group === "emblems" && e.target.tagName === "use") {
     const parent = e.target.parentNode;
@@ -159,7 +159,7 @@ function showMapTooltip(point, e, i, g) {
     const river = +e.target.id.slice(5);
     const r = pack.rivers.find(r => r.i === river);
     const name = r ? r.name + " " + r.type : "";
-    tip(name + ". Click to edit");
+    tip(name + ". 点击编辑");
     const riversOverviewEl = findEl("riversOverview");
     if (riversOverviewEl) highlightEditorLine(riversOverviewEl, river, 5000);
     return;
@@ -296,8 +296,14 @@ function showMapTooltip(point, e, i, g) {
   } else if (layerIsOn("toggleReligions") && pack.cells.religion[i]) {
     const religion = pack.cells.religion[i];
     const r = pack.religions[religion];
-    const type = r.type === "Cult" || r.type == "Heresy" ? r.type : r.type + " religion";
-    tip(type + ": " + r.name);
+    const TYPE_LABELS = {
+      Folk: "民间信仰",
+      Organized: "有组织宗教",
+      Cult: "邪教",
+      Heresy: "异端"
+    };
+    const type = TYPE_LABELS[r.type] || r.type;
+    tip(type + "：" + r.name);
     const religionsEditorEl = findEl("religionsEditor");
     if (religionsEditorEl) highlightEditorLine(religionsEditorEl, religion);
   } else if (pack.cells.state[i] && (layerIsOn("toggleProvinces") || layerIsOn("toggleStates"))) {
@@ -399,15 +405,15 @@ function updateCellInfo(point, i, g) {
 }
 
 function getGeozone(latitude) {
-  if (latitude > 66.5) return "Arctic";
-  if (latitude > 35) return "Temperate North";
-  if (latitude > 23.5) return "Subtropical North";
-  if (latitude > 1) return "Tropical North";
-  if (latitude > -1) return "Equatorial";
-  if (latitude > -23.5) return "Tropical South";
-  if (latitude > -35) return "Subtropical South";
-  if (latitude > -66.5) return "Temperate South";
-  return "Antarctic";
+  if (latitude > 66.5) return "北极";
+  if (latitude > 35) return "北温带";
+  if (latitude > 23.5) return "北亚热带";
+  if (latitude > 1) return "北热带";
+  if (latitude > -1) return "赤道";
+  if (latitude > -23.5) return "南热带";
+  if (latitude > -35) return "南亚热带";
+  if (latitude > -66.5) return "南温带";
+  return "南极";
 }
 
 // convert coordinate to DMS format
@@ -607,48 +613,46 @@ function showInfo() {
 
   const QuickStart = link(
     "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Quick-Start-Tutorial",
-    "Quick start tutorial"
+    "快速入门教程"
   );
-  const QAA = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A", "Q&A page");
-  const VideoTutorial = link("https://youtube.com/playlist?list=PLtgiuDC8iVR2gIG8zMTRn7T_L0arl9h1C", "Video tutorial");
+  const QAA = link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Q&A", "问答页");
+  const VideoTutorial = link("https://youtube.com/playlist?list=PLtgiuDC8iVR2gIG8zMTRn7T_L0arl9h1C", "视频教程");
 
-  alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b> (FMG) is a free open-source application. It means that you own all created maps and can use them as
-    you wish.
+  alertMessage.innerHTML = /* html */ `<b>Fantasy Map Generator</b>（FMG，奇幻地图生成器）是一款免费的开源应用程序。这意味着您拥有所有创建的地图，并可以随意使用。
 
     <p>
-      The development is community-backed, you can donate on ${Patreon}. You can also help creating overviews, tutorials and spreding the word about the
-      Generator.
+      本项目的开发由社区支持，您可以在 ${Patreon} 上捐赠。您还可以通过编写概览、教程和宣传本生成器来帮助我们。
     </p>
 
     <p>
-      The best way to get help is to contact the community on ${Discord} and ${Reddit}. Before asking questions, please check out the ${QuickStart}, the ${QAA},
-      and ${VideoTutorial}.
+      获取帮助的最佳方式是在 ${Discord} 和 ${Reddit} 上联系社区。提问前，请先查看 ${QuickStart}、${QAA}
+      和 ${VideoTutorial}。
     </p>
 
     <ul style="columns:2">
-      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator", "GitHub repository")}</li>
-      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/blob/master/LICENSE", "License")}</li>
-      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog", "Changelog")}</li>
-      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys", "Hotkeys")}</li>
-      <li>${link("https://trello.com/b/7x832DG4/fantasy-map-generator", "Devboard")}</li>
-      <li><a href="mailto:azgaar.fmg@yandex.by" target="_blank">Contact Azgaar</a></li>
+      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator", "GitHub 仓库")}</li>
+      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/blob/master/LICENSE", "许可证")}</li>
+      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog", "更新日志")}</li>
+      <li>${link("https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Hotkeys", "快捷键")}</li>
+      <li>${link("https://trello.com/b/7x832DG4/fantasy-map-generator", "开发看板")}</li>
+      <li><a href="mailto:azgaar.fmg@yandex.by" target="_blank">联系 Azgaar</a></li>
     </ul>
     
-    <p>Check out our other projects:
+    <p>看看我们的其他项目：
       <ul>
-        <li>${Armoria}: a tool for creating heraldic coats of arms</li>
-        <li>${Deorum}: a vast gallery of customizable fantasy characters</li>
+        <li>${Armoria}：纹章盾徽创作工具</li>
+        <li>${Deorum}：可定制的奇幻角色画廊</li>
       </ul>
     </p>
     
-    <p>Chinese localization: <a href="https://www.8desk.top" target="_blank">8desk.top</a></p>`;
+    <p>中文汉化：<a href="https://www.8desk.top" target="_blank">8desk.top</a></p>`;
 
   $("#alert").dialog({
     resizable: false,
     title: document.title,
     width: "28em",
     buttons: {
-      OK: function () {
+      确定: function () {
         $(this).dialog("close");
       }
     },

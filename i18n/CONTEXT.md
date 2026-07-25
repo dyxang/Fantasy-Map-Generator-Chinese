@@ -147,6 +147,39 @@ subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i
 - 自适应层（subagent / 手工 AI 流）只写 `artifacts/batch_<N>.json`
 - 禁止在 subagent 指令中要求「直接追加 tm.json」或「直接更新 progress.json」
 
+### Token 优化机制（filterGlossary + filterTmHints）
+
+`batch_runner.mjs` 的 `prepare()` 函数在生成 `batch_<N>.json` 时执行两项注入优化，目标是把单批注入开销从 ~14K token 压到 ~2K token（节省 60–75%）。完整 spec 见 `.trae/specs/selective-glossary-injection/spec.md`。
+
+#### filterGlossary（选择性术语注入）
+
+按批次内单元的源文本筛选 glossary，只注入相关术语：
+
+- 收集批次内所有单元的 source，转小写后按 `[^a-z0-9]+` 分词，丢掉长度 <2 的碎片
+- 对每个 glossary term 做单词级匹配（避免子串误匹配：`iron` 裸 `includes` 会匹配 `environment`）
+- 词干兜底：去除复数后缀 `s` 再匹配一次（如 `Burgs` → 命中 `Burg`）
+- **回退机制**：筛选后不足 5 条时返回完整 glossary（防止短批次漏掉关键术语）
+
+#### filterTmHints（TM 启发式过滤）
+
+按 `context_tag` + `file` + 单词重叠对 TM 条目评分，注入 top-20：
+
+- `context_tag` 匹配：+2 分（保证 UI 风格一致：button/button、tooltip/tooltip）
+- `file` 匹配：+1 分（保证同文件内术语一致）
+- 单词重叠（长度 ≥4 的英文词）：每词 +0.5 分
+- 评分 >0 的条目按分降序，截断到 top-20
+- 注入 batch 文件的 `tm_hints` 字段，subagent 拿到时已是按相关性排好的 top-20
+
+#### 批次文件结构
+
+`batch_<N>.json` 在原 `units` 字段之外新增：
+
+- `glossary`：filterGlossary 筛选后的术语数组（每条包含 `en` / `zh` / `context` / `do_not_translate`）
+- `tm_hints`：filterTmHints 评分后的 top-20 TM 条目数组（每条含 `source` / `target` / `score`）
+- `cross_file_duplicates`：跨文件重复 source 清单（提示 subagent 选简洁译法以便其他批次复用）
+
+subagent 读批次文件即可，**无需再读 `glossary.json` 或 `tm.json`**。
+
 ## 翻译单元处理流程
 
 ### 批量大小
@@ -156,8 +189,8 @@ subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i
 ### 上下文注入（每个单元）
 - source 文本
 - 前后各 3 个翻译单元（提供上下文连贯性）
-- TM 中相似条目 top-5（source 相似度匹配）
-- glossary.json 中相关术语
+- TM 启发式过滤后的 top-20 条目（由 `filterTmHints()` 评分：`context_tag` 匹配 +2、`file` 匹配 +1、单词重叠 +0.5/词）
+- 选择性术语注入的相关术语（由 `filterGlossary()` 基于单词级匹配 + 去复数后缀词干匹配筛选；不足 5 条时回退到完整术语表）
 
 ### 输出格式
 - 直接用 Edit 工具修改原文件（文本节点 / 属性值）
@@ -174,9 +207,10 @@ subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i
 ### 上下文窗口策略
 
 - 单元平均 ~50 tokens × 30 = 1500 tokens
-- 加注入（上下文 + glossary + TM）约 5K tokens
+- 加注入（上下文 + 选择性 glossary + 过滤后 TM hints）约 1.5–2.5K tokens（选择性注入后相比全量加载节省 60–75%）
 - 若上下文接近上限，主动结束会话前 flush progress
 - 不要一次读取整个 index.html，按 section 切片
+- Prompt Caching 由 Trae IDE 自动管理，无需在文本中加任何"请缓存"指令
 
 ### 会话结束前（必做）
 
@@ -203,7 +237,7 @@ subagent 每翻译完一个 unit（用 Edit 修改源文件后），必须向 `i
 
 ## 上游同步工具链（Sync Pipeline）
 
-zh_CN 是独立翻译分支，不 PR 不 merge 出去。上游（master）更新时，通过 **AI 为主、脚本为辅** 的流程吸收上游变化。完整设计与决策记录见 `.claude/artifacts/designs/sync-tools-design.md`。
+zh_CN 是独立翻译分支，不 PR 不 merge 出去。上游（master）更新时，通过 **AI 为主、脚本为辅** 的流程吸收上游变化。本节即同步工具链的完整设计与决策记录（原始 `.claude/artifacts/designs/sync-tools-design.md` 已合并到此处）。
 
 ### 核心策略：Reset + Replay
 
