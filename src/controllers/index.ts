@@ -1,7 +1,8 @@
 import { createRegistry } from "@/utils/registry";
 
 export const Controllers = createRegistry({
-  AiGenerator: () => import("@/controllers/ai-generator").then(m => m.AiGenerator),
+  // fmg-enhancer: AiGenerator 重指向增强版（支持自定义 OpenAI 兼容端点），原模块 @/controllers/ai-generator 未改动
+  AiGenerator: () => import("@/controllers/ai-generator-plus").then(m => m.AiGenerator),
   BattleScreen: () => import("@/controllers/battle-screen").then(m => m.BattleScreen),
   BiomesEditor: () => import("@/controllers/biomes-editor").then(m => m.BiomesEditor),
   BurgEditor: () => import("@/controllers/burg-editor").then(m => m.BurgEditor),
