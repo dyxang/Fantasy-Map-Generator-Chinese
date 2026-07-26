@@ -1,0 +1,116 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/charges/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=31536000" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=31536000" }
+      ]
+    },
+    {
+      "source": "/heightmaps/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=31536000" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=31536000" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=31536000" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=31536000" }
+      ]
+    },
+    {
+      "source": "/libs/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=31536000, immutable" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=31536000, immutable" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=31536000, immutable" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/styles/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=86400" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=86400" }
+      ]
+    },
+    {
+      "source": "/modules/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=604800" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=604800" }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=300, stale-while-revalidate=600" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=300, stale-while-revalidate=600" }
+      ]
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        { "key": "Content-Type", "value": "application/manifest+json" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=86400" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=86400" }
+      ]
+    },
+    {
+      "source": "/(index|icons).css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=604800" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=604800" }
+      ]
+    },
+    {
+      "source": "/main.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=604800" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=604800" }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "CDN-Cache-Control", "value": "public, s-maxage=0, must-revalidate" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, s-maxage=0, must-revalidate" },
+        { "key": "Service-Worker-Allowed", "value": "/" }
+      ]
+    }
+  ]
+}
