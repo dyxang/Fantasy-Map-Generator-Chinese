@@ -1,6 +1,6 @@
 import { interpolateString, select, sum } from "d3";
 import { Controllers } from "@/controllers";
-import { capitalize, ensureEl, rn, sanitizeId, si, wiki } from "../utils";
+import { capitalize, destroyDialogIfExists, ensureEl, rn, sanitizeId, si, wiki } from "../utils";
 
 function open(): void {
   if (customization) return;
@@ -23,7 +23,7 @@ function open(): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("militaryOverview")?.remove();
+  destroyDialogIfExists("militaryOverview");
   const editorHtml = /* html */ `<div id="militaryOverview" class="dialog stable">
       <div id="militaryHeader" class="header">
         <div data-tip="国家名称。点击排序" class="sortable alphabetically" data-sortby="state">
@@ -604,7 +604,7 @@ function militaryCustomize(): void {
 }
 
 function renderOptions(): void {
-  document.getElementById("militaryOptions")?.remove();
+  destroyDialogIfExists("militaryOptions");
   const optionsHtml = /* html */ `<div id="militaryOptions" class="dialog stable">
       <div class="table">
         <table id="militaryOptionsTable">

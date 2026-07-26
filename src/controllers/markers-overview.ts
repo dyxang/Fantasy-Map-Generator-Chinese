@@ -1,6 +1,6 @@
 import { Controllers } from "@/controllers";
 import type { Marker } from "@/generators/markers-generator";
-import { ensureEl } from "../utils";
+import { destroyDialogIfExists, ensureEl } from "../utils";
 
 function open(): void {
   if (customization) return;
@@ -20,7 +20,7 @@ function open(): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("markersOverview")?.remove();
+  destroyDialogIfExists("markersOverview");
 
   const html = /* html */ `
     <div id="markersOverview" class="dialog stable">
