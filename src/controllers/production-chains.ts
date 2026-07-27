@@ -1,6 +1,6 @@
 import { type Selection, select, zoom, zoomIdentity } from "d3";
 import type { Good } from "../generators/goods-generator";
-import { ensureEl } from "../utils";
+import { destroyDialogIfExists, ensureEl } from "../utils";
 import { C_12 } from "../utils/colorUtils";
 
 const CARD_WIDTH = 98;
@@ -149,7 +149,7 @@ function open() {
 }
 
 function renderDialog(): void {
-  document.getElementById("productionChainsDialog")?.remove();
+  destroyDialogIfExists("productionChainsDialog");
   const editorHtml = /* html */ `<div id="productionChainsDialog" class="dialog" style="padding:0">
       <div id="productionChainsContent" style="overflow:auto"></div>
     </div>`;

@@ -1,7 +1,7 @@
 import { mean, select, sum } from "d3";
 import type { Marker } from "../generators/markers-generator";
 import type { Regiment } from "../generators/military-generator";
-import { capitalize, ensureEl, getAdjective, last, list, minmax, P, Pint, rand, rn, wiki } from "../utils";
+import { capitalize, destroyDialogIfExists, ensureEl, getAdjective, last, list, minmax, P, Pint, rand, rn, wiki } from "../utils";
 
 type Side = "attackers" | "defenders";
 
@@ -75,8 +75,8 @@ function open(attacker: Regiment, defender: Regiment): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("battleScreen")?.remove();
-  document.getElementById("regimentSelectorScreen")?.remove();
+  destroyDialogIfExists("battleScreen");
+  destroyDialogIfExists("regimentSelectorScreen");
   const editorHtml = /* html */ `<div id="battleScreen" class="dialog stable">
       <div id="battleBody">
         <template id="battlePhases_field">

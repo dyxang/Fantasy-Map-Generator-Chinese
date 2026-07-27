@@ -2,7 +2,7 @@ import { select } from "d3";
 import { Controllers } from "@/controllers";
 import type { Burg } from "../generators/burgs-generator";
 import type { Market } from "../generators/markets-generator";
-import { ensureEl, formatPrice, getPointer, rn } from "../utils";
+import { destroyDialogIfExists, ensureEl, formatPrice, getPointer, rn } from "../utils";
 
 let activeMarketId = 0;
 
@@ -31,7 +31,7 @@ function open(marketId: number): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("marketOverview")?.remove();
+  destroyDialogIfExists("marketOverview");
   const html = /* html */ `<div id="marketOverview" class="dialog stable">
       <div id="marketOverviewNameLine" style="display: flex; align-items: center; margin-bottom: 0.4em">
         <div class="label">名称：</div>

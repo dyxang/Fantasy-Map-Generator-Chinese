@@ -3,7 +3,7 @@ import type { Deal } from "../generators/markets-generator";
 import type { Point } from "../generators/voronoi";
 import { clearHighlight, highlight } from "../renderers/draw-trade-animation";
 import type { TradeBatch } from "../renderers/trade-animation";
-import { ensureEl, formatPrice, rn } from "../utils";
+import { destroyDialogIfExists, ensureEl, formatPrice, rn } from "../utils";
 
 let activeBatch: TradeBatch;
 
@@ -31,7 +31,7 @@ function open(batch: TradeBatch): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("tradeDetails")?.remove();
+  destroyDialogIfExists("tradeDetails");
   const editorHtml = /* html */ `<div id="tradeDetails" class="dialog stable">
       <div>
         <div id="tradeDetailsSummary" class="totalLine"></div>

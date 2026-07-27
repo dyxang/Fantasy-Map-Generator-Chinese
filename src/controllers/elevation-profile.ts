@@ -17,7 +17,7 @@ import type { Burg } from "../generators/burgs-generator";
 import type { Feature } from "../generators/features";
 import type { Province } from "../generators/provinces-generator";
 import type { State } from "../generators/states-generator";
-import { ensureEl, getPointer, rn } from "../utils";
+import { destroyDialogIfExists, ensureEl, getPointer, rn } from "../utils";
 
 function open(cells: number[], routeLen: number, isRiver: boolean): void {
   closeDialogs("#elevationProfile, .stable");
@@ -562,7 +562,7 @@ function open(cells: number[], routeLen: number, isRiver: boolean): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("elevationProfile")?.remove();
+  destroyDialogIfExists("elevationProfile");
   const editorHtml = /* html */ `<div id="elevationProfile" class="dialog" width="100%">
       <div id="elevationGraph" data-tip="海拔剖面图"></div>
       <div style="text-align: center">

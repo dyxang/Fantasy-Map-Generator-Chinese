@@ -17,7 +17,7 @@ import {
   stackOrderNone,
   sum
 } from "d3";
-import { convertTemperature, ensureEl, formatPrice, isWater, rn, si } from "../utils";
+import { convertTemperature, destroyDialogIfExists, ensureEl, formatPrice, isWater, rn, si } from "../utils";
 
 interface Dimension {
   label: string;
@@ -379,7 +379,7 @@ function open() {
 }
 
 function renderDialog() {
-  document.getElementById("chartsOverview")?.remove();
+  destroyDialogIfExists("chartsOverview");
   const entities = Object.entries(entitiesMap).map(([entity, { label }]): [string, string] => [entity, label]);
   const plotBy = Object.entries(quantizationMap).map(([plotBy, { label }]): [string, string] => [plotBy, label]);
 

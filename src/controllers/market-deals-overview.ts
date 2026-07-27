@@ -1,6 +1,6 @@
 import type { Burg } from "../generators/burgs-generator";
 import type { Deal } from "../generators/markets-generator";
-import { ensureEl, formatPrice, rn } from "../utils";
+import { destroyDialogIfExists, ensureEl, formatPrice, rn } from "../utils";
 
 let activeMarketId = 0;
 let activeFilter: "all" | "local" | "global" = "all";
@@ -27,7 +27,7 @@ function open(marketId: number): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("marketDeals")?.remove();
+  destroyDialogIfExists("marketDeals");
   const editorHtml = /* html */ `<div id="marketDeals" class="dialog stable">
       <div>
         <div id="marketDealsHeader" class="header" style="grid-template-columns: 2em 6.8em 4em 10em 4em 4em;">

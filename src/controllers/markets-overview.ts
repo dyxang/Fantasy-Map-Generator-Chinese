@@ -4,6 +4,7 @@ import type { Burg } from "../generators/burgs-generator";
 import type { Deal, Market } from "../generators/markets-generator";
 import { highlightMarketOff, highlightMarketOn } from "../renderers/draw-markets";
 import {
+  destroyDialogIfExists,
   ensureEl,
   findAllCellsInRadius,
   findClosestCell,
@@ -36,7 +37,7 @@ function open(): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("marketsOverview")?.remove();
+  destroyDialogIfExists("marketsOverview");
   const editorHtml = /* html */ `<div id="marketsOverview" class="dialog stable">
       <div id="marketsOverviewHeader" class="header" style="grid-template-columns: 1.6em 7.2em 8em 3.5em 4.5em 6.5em 6.4em 6em 6em 1.2em;">
         <div></div>

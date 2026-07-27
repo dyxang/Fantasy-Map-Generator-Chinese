@@ -1,7 +1,7 @@
 import { select, sum } from "d3";
 import { Controllers } from "@/controllers";
 import type { Regiment } from "../generators/military-generator";
-import { capitalize, ensureEl, findEl, getPointer, last, si } from "../utils";
+import { capitalize, destroyDialogIfExists, ensureEl, findEl, getPointer, last, si } from "../utils";
 
 function open(state = -1): void {
   if (customization) return;
@@ -23,7 +23,7 @@ function open(state = -1): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("regimentsOverview")?.remove();
+  destroyDialogIfExists("regimentsOverview");
   const editorHtml = /* html */ `<div id="regimentsOverview" class="dialog stable">
       <div id="regimentsHeader" class="header">
         <div data-tip="国家名称。点击排序" class="sortable alphabetically" data-sortby="state">

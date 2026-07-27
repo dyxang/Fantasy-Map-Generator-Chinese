@@ -1,4 +1,4 @@
-import { ensureEl, formatPrice, rn } from "../utils";
+import { destroyDialogIfExists, ensureEl, formatPrice, rn } from "../utils";
 
 let activeGoodId = -1;
 
@@ -17,7 +17,7 @@ function open(goodId?: number, anchor = "#marketsOverview"): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("marketsGoodCompare")?.remove();
+  destroyDialogIfExists("marketsGoodCompare");
   const editorHtml = /* html */ `<div id="marketsGoodCompare" class="dialog">
       <div style="display:flex; align-items:center; gap:.5em; padding:.2em 0 .4em; font-size:.9em;">
         <label for="marketsGoodCompareSelect" data-tip="选择要在各市场对比库存的货物">货物：</label>

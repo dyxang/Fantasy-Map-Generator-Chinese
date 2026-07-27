@@ -1,6 +1,14 @@
 import { pack as packLayout, select, stratify } from "d3";
 import { Controllers } from "@/controllers";
-import { convertTemperature, ensureEl, getPointer, getTemperatureLikeness, rn, si } from "../utils";
+import {
+  convertTemperature,
+  destroyDialogIfExists,
+  ensureEl,
+  getPointer,
+  getTemperatureLikeness,
+  rn,
+  si
+} from "../utils";
 
 type Filters = { stateId?: number | null; cultureId?: number | null };
 
@@ -24,7 +32,7 @@ function open(filters: Filters = { stateId: null, cultureId: null }): void {
 }
 
 function renderDialog(): void {
-  document.getElementById("burgsOverview")?.remove();
+  destroyDialogIfExists("burgsOverview");
   const HTML = /* html */ `<div id="burgsOverview" class="dialog stable">
       <div id="burgsHeader" class="header" style="grid-template-columns: 9em 7em 7.5em 7.2em 6.5em 8em 6.5em 6.5em 5.5em 6em">
         <div data-tip="点击按城镇名称排序" class="sortable alphabetically" data-sortby="name">城镇</div>
