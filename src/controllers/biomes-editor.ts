@@ -1,4 +1,19 @@
 import { drag, easeSinIn, select, sum, transition } from "d3";
+import { closeDialogs } from "@/components/dialog/dialog-helpers";
+import { applyLineHighlighting } from "@/components/dialog/highlighting";
+import { applySorting, applySortingByHeader } from "@/components/dialog/sorting";
+import type { FillBoxElement } from "@/components/fill-box";
+import { clearMainTip, showMainTip, tip } from "@/components/tooltips";
+import { applyDefaultViewboxEvents } from "@/components/viewbox-events";
+import { Controllers } from "@/controllers";
+import type { Biome } from "@/generators/biomes-generator";
+import { Population } from "@/generators/population-generator";
+import { drawBiomes } from "@/renderers/draw-biomes";
+import { drawGoods } from "@/renderers/draw-goods";
+import { clearLegend, drawLegend } from "@/renderers/draw-legend";
+import { moveCircle, removeCircle } from "@/renderers/overlays/brush-circle";
+import type { PackedGraph } from "@/types/PackedGraph";
+import { downloadFile, findAllCellsInRadius, getArea, getAreaUnit, getFileName, openURL } from "@/utils";
 import { destroyDialogIfExists, ensureEl, getPackPolygon, getPointer, getRandomColor, isLand, rn, si } from "../utils";
 
 function open(): void {
@@ -14,7 +29,7 @@ function open(): void {
   refreshBiomesEditor();
 
   $("#biomesEditor").dialog({
-    title: "生物群系编辑器",
+    title: "Biomes Editor",
     resizable: false,
     close: closeBiomesEditor,
     position: { my: "right top", at: "right-10 top+10", of: "svg" }
@@ -25,70 +40,70 @@ function renderDialog(): void {
   destroyDialogIfExists("biomesEditor");
   const html = /* html */ `<div id="biomesEditor" class="dialog stable">
       <div id="biomesHeader" class="header" style="grid-template-columns: 12em 10em 5em 6em 7em">
-        <div data-tip="点击按生物群系名称排序" class="sortable alphabetically" data-sortby="name">
-          生物群系&nbsp;
+        <div data-tip="Click to sort by biome name" class="sortable alphabetically" data-sortby="name">
+          Biome&nbsp;
         </div>
-        <div data-tip="点击按生物群系宜居度排序" class="sortable hide" data-sortby="habitability">
-          宜居度&nbsp;
+        <div data-tip="Click to sort by biome habitability" class="sortable hide" data-sortby="habitability">
+          Habitability&nbsp;
         </div>
         <div
-          data-tip="点击按生物群系单元格数排序"
+          data-tip="Click to sort by biome cells number"
           class="sortable hide icon-sort-number-down"
           data-sortby="cells"
         >
-          单元格&nbsp;
+          Cells&nbsp;
         </div>
-        <div data-tip="点击按生物群系面积排序" class="sortable hide" data-sortby="area">面积&nbsp;</div>
-        <div data-tip="点击按生物群系人口排序" class="sortable hide" data-sortby="population">
-          人口&nbsp;
+        <div data-tip="Click to sort by biome area" class="sortable hide" data-sortby="area">Area&nbsp;</div>
+        <div data-tip="Click to sort by biome population" class="sortable hide" data-sortby="population">
+          Population&nbsp;
         </div>
       </div>
       <div id="biomesBody" class="table" data-type="absolute"></div>
       <div id="biomesFooter" class="totalLine">
-        <div data-tip="陆地生物群系数" style="margin-left: 12px">
-          生物群系:&nbsp;<span id="biomesFooterBiomes">0</span>
+        <div data-tip="Number of land biomes" style="margin-left: 12px">
+          Biomes:&nbsp;<span id="biomesFooterBiomes">0</span>
         </div>
-        <div data-tip="陆地单元格总数" style="margin-left: 12px">
-          单元格:&nbsp;<span id="biomesFooterCells">0</span>
+        <div data-tip="Total land cells number" style="margin-left: 12px">
+          Cells:&nbsp;<span id="biomesFooterCells">0</span>
         </div>
-        <div data-tip="陆地总面积" style="margin-left: 12px">
-          陆地面积:&nbsp;<span id="biomesFooterArea">0</span>
+        <div data-tip="Total land area" style="margin-left: 12px">
+          Land Area:&nbsp;<span id="biomesFooterArea">0</span>
         </div>
-        <div data-tip="总人口" style="margin-left: 12px">
-          人口:&nbsp;<span id="biomesFooterPopulation">0</span>
+        <div data-tip="Total population" style="margin-left: 12px">
+          Population:&nbsp;<span id="biomesFooterPopulation">0</span>
         </div>
       </div>
       <div id="biomesBottom">
-        <button id="biomesEditorRefresh" data-tip="刷新编辑器" class="icon-cw"></button>
-        <button id="biomesEditStyle" data-tip="在样式编辑器中编辑生物群系样式" class="icon-adjust"></button>
-        <button id="biomesLegend" data-tip="切换图例框" class="icon-list-bullet"></button>
+        <button id="biomesEditorRefresh" data-tip="Refresh the Editor" class="icon-cw"></button>
+        <button id="biomesEditStyle" data-tip="Edit biomes style in Style Editor" class="icon-adjust"></button>
+        <button id="biomesLegend" data-tip="Toggle Legend box" class="icon-list-bullet"></button>
         <button
           id="biomesPercentage"
-          data-tip="切换百分比/绝对值视图"
+          data-tip="Toggle percentage / absolute values views"
           class="icon-percent"
         ></button>
         <button
           id="biomesManually"
-          data-tip="手动重新分配生物群系，不遵循默认的湿度/温度模式"
+          data-tip="Manually re-assign biomes to not follow the default moisture/temperature pattern"
           class="icon-brush"
         ></button>
         <div id="biomesManuallyButtons" style="display: none">
-          <div data-tip="更改笔刷大小。快捷键：+ 增大；– 减小" style="margin-block: 0.3em">
-            笔刷大小：
+          <div data-tip="Change brush size. Shortcut: + to increase; – to decrease" style="margin-block: 0.3em">
+            Brush size:
             <slider-input id="biomesBrush" min="1" max="100" value="15"></slider-input>
           </div>
-          <button id="biomesManuallyApply" data-tip="应用当前分配" class="icon-check"></button>
-          <button id="biomesManuallyCancel" data-tip="取消分配" class="icon-cancel"></button>
+          <button id="biomesManuallyApply" data-tip="Apply current assignment" class="icon-check"></button>
+          <button id="biomesManuallyCancel" data-tip="Cancel assignment" class="icon-cancel"></button>
         </div>
-        <button id="biomesAdd" data-tip="添加自定义生物群系" class="icon-plus"></button>
+        <button id="biomesAdd" data-tip="Add a custom biome" class="icon-plus"></button>
         <button
           id="biomesRestore"
-          data-tip="恢复默认设置，并基于当前湿度和温度重新定义生物群系"
+          data-tip="Restore the defaults and re-define biomes based on current moisture and temperature"
           class="icon-history"
         ></button>
         <button
           id="biomesExport"
-          data-tip="将生物群系相关数据保存为文本文件 (.csv)"
+          data-tip="Save biomes-related data as a text file (.csv)"
           class="icon-download"
         ></button>
       </div>
@@ -107,13 +122,14 @@ function renderDialog(): void {
   ensureEl("biomesExport").on("click", downloadBiomesData);
 
   applySortingByHeader("biomesHeader");
+  applyLineHighlighting("biomesEditor", ({ cellId }) => cellId && pack.cells.biome[cellId]);
 
   ensureEl("biomesBody").addEventListener("click", ev => {
     const el = ev.target as HTMLElement;
     const cl = el.classList;
-    if (el.tagName === "FILL-BOX") biomeChangeColor(el);
+    if (el.tagName === "FILL-BOX") biomeChangeColor(el as FillBoxElement);
     else if (cl.contains("icon-info-circled")) openWiki(el);
-    else if (cl.contains("icon-trash-empty")) removeCustomBiome(el);
+    else if (cl.contains("icon-trash-empty")) removeCustomBiomeLine(el);
     if (customization === 6) selectBiomeOnLineClick(el);
   });
 
@@ -126,43 +142,53 @@ function renderDialog(): void {
 }
 
 function refreshBiomesEditor(): void {
-  biomesCollectStatistics();
-  biomesEditorAddLines();
+  biomesEditorAddLines(biomesCollectStatistics());
 }
 
-function biomesCollectStatistics(): void {
-  const cells = pack.cells;
-  const array = new Uint8Array(biomesData.i.length);
-  biomesData.cells = Array.from(array);
-  biomesData.area = Array.from(array);
-  biomesData.rural = Array.from(array);
-  biomesData.urban = Array.from(array);
+export type BiomeStatistics = { cells: number; area: number; rural: number; urban: number };
+
+type BiomeStatisticsSource = {
+  biomes: Biome[];
+  cells: Pick<PackedGraph["cells"], "i" | "h" | "biome" | "area" | "pop" | "burg">;
+  burgs: Array<{ population?: number }>;
+};
+
+export function collectBiomeStatistics(source: BiomeStatisticsSource = pack): BiomeStatistics[] {
+  const { cells } = source;
+  const statistics = source.biomes.map(() => ({ cells: 0, area: 0, rural: 0, urban: 0 }));
 
   for (const i of cells.i) {
     if (cells.h[i] < 20) continue;
-    const b = cells.biome[i];
-    biomesData.cells[b] += 1;
-    biomesData.area[b] += cells.area[i];
-    biomesData.rural[b] += cells.pop[i];
-    const burg = cells.burg[i] ? pack.burgs[cells.burg[i]] : null;
-    if (burg) biomesData.urban[b] += burg.population ?? 0;
+    const biomeStatistics = statistics[cells.biome[i]];
+    biomeStatistics.cells++;
+    biomeStatistics.area += cells.area[i];
+    biomeStatistics.rural += cells.pop[i];
+    const burg = cells.burg[i] ? source.burgs[cells.burg[i]] : null;
+    if (burg) biomeStatistics.urban += burg.population ?? 0;
   }
+
+  return statistics;
 }
 
-function biomesEditorAddLines(): void {
+function biomesCollectStatistics(): BiomeStatistics[] {
+  return collectBiomeStatistics(pack);
+}
+
+function biomesEditorAddLines(statistics = collectBiomeStatistics(pack)): void {
   const unit = ` ${getAreaUnit()}`;
-  const b = biomesData;
   let lines = "";
   let totalArea = 0;
   let totalPopulation = 0;
 
-  for (const i of b.i) {
-    if (!i || b.name[i] === "removed") continue; // ignore water and removed biomes
-    const area = getArea(b.area![i]);
-    const rural = b.rural![i] * populationRate;
-    const urban = b.urban![i] * populationRate * urbanization;
+  for (const biome of pack.biomes) {
+    const { i, name, color, habitability } = biome;
+    if (!i || biome.removed) continue; // ignore water and removed biomes
+    const { cells, area: rawArea, rural: rawRural, urban: rawUrban } = statistics[i];
+    const area = getArea(rawArea);
+    const rural = rawRural * populationRate;
+    const urban = rawUrban * populationRate * urbanization;
     const population = rn(rural + urban);
-    const populationTip = `总人口：${si(population)}；农村人口：${si(rural)}；城镇人口：${si(urban)}`;
+    const populationTip = `Total population: ${si(population)}; Rural population: ${si(rural)}; Urban population: ${si(urban)}`;
     totalArea += area;
     totalPopulation += population;
 
@@ -170,25 +196,25 @@ function biomesEditorAddLines(): void {
       <div
         class="states biomes"
         data-id="${i}"
-        data-name="${b.name[i]}"
-        data-habitability="${b.habitability[i]}"
-        data-cells=${b.cells![i]}
+        data-name="${name}"
+        data-habitability="${habitability}"
+        data-cells=${cells}
         data-area=${area}
         data-population=${population}
-        data-color=${b.color[i]}
+        data-color=${color}
       >
-        <fill-box fill="${b.color[i]}"></fill-box>
-        <input data-tip="生物群系名称。点击并输入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false" />
-        <span data-tip="生物群系宜居百分比" class="hide">%</span>
-        <input data-tip="生物群系宜居百分比。点击并设置新值以更改" type="number" min="0" max="9999" class="biomeHabitability hide" value=${b.habitability[i]} />
-        <span data-tip="单元格数" class="icon-check-empty hide"></span>
-        <div data-tip="单元格数" class="biomeCells hide">${b.cells![i]}</div>
-        <span data-tip="生物群系面积" style="padding-right: 4px" class="icon-map-o hide"></span>
-        <div data-tip="生物群系面积" class="biomeArea hide">${si(area) + unit}</div>
+        <fill-box fill="${color}"></fill-box>
+        <input data-tip="Biome name. Click and type to change" class="biomeName" value="${name}" autocorrect="off" spellcheck="false" />
+        <span data-tip="Biome habitability percent" class="hide">%</span>
+        <input data-tip="Biome habitability percent. Click and set new value to change" type="number" min="0" max="9999" class="biomeHabitability hide" value=${habitability} />
+        <span data-tip="Cells count" class="icon-check-empty hide"></span>
+        <div data-tip="Cells count" class="biomeCells hide">${cells}</div>
+        <span data-tip="Biome area" style="padding-right: 4px" class="icon-map-o hide"></span>
+        <div data-tip="Biome area" class="biomeArea hide">${si(area) + unit}</div>
         <span data-tip="${populationTip}" class="icon-male hide"></span>
         <div data-tip="${populationTip}" class="biomePopulation hide">${si(population)}</div>
-        <span data-tip="打开关于该生物群系的维基百科文章" class="icon-info-circled pointer hide"></span>
-        ${i > 12 && !b.cells![i] ? '<span data-tip="移除自定义生物群系" class="icon-trash-empty hide"></span>' : ""}
+        <span data-tip="Open Wikipedia article about the biome" class="icon-info-circled pointer hide"></span>
+        ${i > 12 && !cells ? '<span data-tip="Remove the custom biome" class="icon-trash-empty hide"></span>' : ""}
       </div>
     `;
   }
@@ -219,7 +245,7 @@ function biomesEditorAddLines(): void {
     togglePercentageMode();
   }
   applySorting(ensureEl("biomesHeader"));
-  $("#biomesEditor").dialog({ width: fitContent() });
+  $("#biomesEditor").dialog({ width: "fit-content" });
 }
 
 function biomeHighlightOn(event: Event): void {
@@ -232,47 +258,47 @@ function biomeHighlightOn(event: Event): void {
 function biomeHighlightOff(event: Event): void {
   if (customization === 6) return;
   const biome = +(event.target as HTMLElement).dataset.id!;
-  const color = biomesData.color[biome];
+  const color = pack.biomes[biome].color;
   select(`#biomes > #biome${biome}`).transition().attr("stroke-width", 0.7).attr("stroke", color);
 }
 
-function biomeChangeColor(el: HTMLElement): void {
-  const currentFill = el.getAttribute("fill")!;
-  const biome = +(el.parentNode as HTMLElement).dataset.id!;
+function biomeChangeColor(fillBox: FillBoxElement): void {
+  const currentFill = fillBox.getAttribute("fill")!;
+  const biomeId = +(fillBox.parentNode as HTMLElement).dataset.id!;
 
   const callback = (newFill: string): void => {
-    el.setAttribute("fill", newFill);
-    biomesData.color[biome] = newFill;
-    select(`#biomes > #biome${biome}`).attr("fill", newFill).attr("stroke", newFill);
+    (fillBox as any).fill = newFill;
+    pack.biomes[biomeId].color = newFill;
+    drawBiomes();
   };
 
-  openPicker(currentFill, callback);
+  void Controllers.ColorPicker.open(currentFill, callback);
 }
 
 function biomeChangeName(el: HTMLInputElement): void {
   const biome = +(el.parentNode as HTMLElement).dataset.id!;
   (el.parentNode as HTMLElement).dataset.name = el.value;
-  biomesData.name[biome] = el.value;
+  pack.biomes[biome].name = el.value;
 }
 
 function biomeChangeHabitability(el: HTMLInputElement): void {
   const biome = +(el.parentNode as HTMLElement).dataset.id!;
   const failed = Number.isNaN(+el.value) || +el.value < 0 || +el.value > 9999;
   if (failed) {
-    el.value = String(biomesData.habitability[biome]);
-    tip("请提供 0-9999 范围内的有效数字", false, "error");
+    el.value = String(pack.biomes[biome].habitability);
+    tip("Please provide a valid number in range 0-9999", false, "error");
     return;
   }
-  biomesData.habitability[biome] = +el.value;
+  pack.biomes[biome].habitability = +el.value;
   (el.parentNode as HTMLElement).dataset.habitability = el.value;
-  recalculatePopulation();
+  regeneratePopulation();
   refreshBiomesEditor();
 }
 
 function openWiki(el: HTMLElement): void {
   const biomeName = (el.parentNode as HTMLElement).dataset.name;
   if (biomeName === "Custom" || !biomeName) {
-    tip("请填写生物群系名称", false, "error");
+    tip("Please fill in the biome name", false, "error");
     return;
   }
 
@@ -301,11 +327,11 @@ function toggleLegend(): void {
     clearLegend();
     return;
   } // hide legend
-  const d = biomesData;
-  const data = Array.from(d.i)
-    .filter(i => d.cells![i])
-    .sort((a, b) => d.area![b] - d.area![a])
-    .map(i => [i, d.color[i], d.name[i]]);
+  const statistics = biomesCollectStatistics();
+  const data = pack.biomes
+    .filter(({ i }) => statistics[i].cells)
+    .sort((a, b) => statistics[b.i].area - statistics[a.i].area)
+    .map(({ i, color, name }) => [i, color, name]);
   drawLegend("Biomes", data);
 }
 
@@ -333,52 +359,68 @@ function togglePercentageMode(): void {
   }
 }
 
+export function createCustomBiome(biomes: Biome[], color: string): Biome | null {
+  const i = biomes.length;
+  if (i > 254) return null;
+
+  const biome = {
+    i,
+    name: "Custom",
+    color,
+    habitability: 50,
+    iconsDensity: 0,
+    icons: [],
+    cost: 50
+  };
+  biomes.push(biome);
+  return biome;
+}
+
+export function removeCustomBiome(biomes: Biome[], cellBiomes: ArrayLike<number>, biomeId: number): boolean {
+  const biome = biomes[biomeId];
+  if (biomeId <= 12 || !biome || biome.removed) return false;
+
+  for (let cellId = 0; cellId < cellBiomes.length; cellId++) {
+    if (cellBiomes[cellId] === biomeId) return false;
+  }
+
+  biome.removed = true;
+  return true;
+}
+
 function addCustomBiome(): void {
-  const b = biomesData;
-  const i = biomesData.i.length;
-  if (i > 254) {
-    tip("生物群系数量已达上限 (255)，需要进行数据清理", false, "error");
+  const biome = createCustomBiome(pack.biomes, getRandomColor());
+  if (!biome) {
+    tip("Maximum number of biomes reached (255), data cleansing is required", false, "error");
     return;
   }
 
-  b.i.push(i);
-  b.color.push(getRandomColor());
-  b.habitability.push(50);
-  b.name.push("Custom");
-  b.iconsDensity.push(0);
-  b.icons.push([]);
-  b.cost.push(50);
-
-  b.rural!.push(0);
-  b.urban!.push(0);
-  b.cells!.push(0);
-  b.area!.push(0);
-
+  const { i } = biome;
   const unit = getAreaUnit();
-  const line = /* html */ `<div class="states biomes" data-id="${i}" data-name="${b.name[i]}" data-habitability=${b.habitability[i]} data-cells=0 data-area=0 data-population=0 data-color=${b.color[i]}>
-    <fill-box fill="${b.color[i]}"></fill-box>
-    <input data-tip="生物群系名称。点击并输入以更改" class="biomeName" value="${b.name[i]}" autocorrect="off" spellcheck="false">
-    <span data-tip="生物群系宜居百分比" class="hide">%</span>
-    <input data-tip="生物群系宜居百分比。点击并设置新值以更改" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${b.habitability[i]}>
-    <span data-tip="单元格数" class="icon-check-empty hide"></span>
-    <div data-tip="单元格数" class="biomeCells hide">${b.cells![i]}</div>
-    <span data-tip="生物群系面积" style="padding-right: 4px" class="icon-map-o hide"></span>
-    <div data-tip="生物群系面积" class="biomeArea hide">0 ${unit}</div>
-    <span data-tip="总人口：0" class="icon-male hide"></span>
-    <div data-tip="总人口：0" class="biomePopulation hide">0</div>
-    <span data-tip="移除自定义生物群系" class="icon-trash-empty hide"></span>
+  const line = /* html */ `<div class="states biomes" data-id="${i}" data-name="${biome.name}" data-habitability=${biome.habitability} data-cells=0 data-area=0 data-population=0 data-color=${biome.color}>
+    <fill-box fill="${biome.color}"></fill-box>
+    <input data-tip="Biome name. Click and type to change" class="biomeName" value="${biome.name}" autocorrect="off" spellcheck="false">
+    <span data-tip="Biome habitability percent" class="hide">%</span>
+    <input data-tip="Biome habitability percent. Click and set new value to change" type="number" min=0 max=9999 step=1 class="biomeHabitability hide" value=${biome.habitability}>
+    <span data-tip="Cells count" class="icon-check-empty hide"></span>
+    <div data-tip="Cells count" class="biomeCells hide">0</div>
+    <span data-tip="Biome area" style="padding-right: 4px" class="icon-map-o hide"></span>
+    <div data-tip="Biome area" class="biomeArea hide">0 ${unit}</div>
+    <span data-tip="Total population: 0" class="icon-male hide"></span>
+    <div data-tip="Total population: 0" class="biomePopulation hide">0</div>
+    <span data-tip="Remove the custom biome" class="icon-trash-empty hide"></span>
   </div>`;
 
   const body = ensureEl("biomesBody");
   body.insertAdjacentHTML("beforeend", line);
   ensureEl("biomesFooterBiomes").innerHTML = String(body.querySelectorAll(":scope > div").length);
-  $("#biomesEditor").dialog({ width: fitContent() });
+  $("#biomesEditor").dialog({ width: "fit-content" });
 }
 
-function removeCustomBiome(el: HTMLElement): void {
+function removeCustomBiomeLine(el: HTMLElement): void {
   const biome = +(el.parentNode as HTMLElement).dataset.id!;
+  if (!removeCustomBiome(pack.biomes, pack.cells.biome, biome)) return;
   (el.parentNode as HTMLElement).remove();
-  biomesData.name[biome] = "removed";
   ensureEl("biomesFooterBiomes").innerHTML = String(+ensureEl("biomesFooterBiomes").innerHTML - 1);
 }
 
@@ -428,7 +470,7 @@ function enterBiomesCustomizationMode(): void {
   ensureEl("biomesFooter").style.display = "none";
   $("#biomesEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg" } });
 
-  tip("点击生物群系以选中，拖动圆圈以更改生物群系", true);
+  tip("Click on biome to select, drag the circle to change biome", true);
   select<SVGElement, unknown>("#viewbox")
     .style("cursor", "crosshair")
     .on("click", selectBiomeOnMapClick)
@@ -446,7 +488,7 @@ function selectBiomeOnMapClick(this: SVGElement, event: any): void {
   const point = getPointer(event, this);
   const i = findCell(point[0], point[1])!;
   if (pack.cells.h[i] < 20) {
-    tip("无法通过生物群系重新分配水域。请编辑高度图以更改水域", false, "error");
+    tip("You cannot reassign water via biomes. Please edit the Heightmap to change water", false, "error");
     return;
   }
 
@@ -465,7 +507,7 @@ function dragBiomeBrush(this: SVGElement, event: any): void {
     const p = getPointer(dragEvent, this);
     moveCircle(p[0], p[1], r);
 
-    const found = r > 5 ? findAll(p[0], p[1], r) : [findCell(p[0], p[1])!];
+    const found = r > 5 ? findAllCellsInRadius(p[0], p[1], r, pack) : [findCell(p[0], p[1])!];
     const selection = found.filter(i => isLand(i, pack));
     if (selection) changeBiomeForSelection(selection);
   });
@@ -477,7 +519,7 @@ function changeBiomeForSelection(selection: number[]): void {
   const selected = ensureEl("biomesBody").querySelector<HTMLElement>("div.selected")!;
 
   const biomeNew = selected.dataset.id!;
-  const color = biomesData.color[+biomeNew];
+  const color = pack.biomes[+biomeNew].color;
 
   selection.forEach(i => {
     const exists = temp.select(`polygon[data-cell='${i}']`);
@@ -534,7 +576,7 @@ function exitBiomesCustomizationMode(close?: boolean): void {
   ensureEl("biomesBody")
     .querySelectorAll<HTMLElement>("div > input, select, span, svg")
     .forEach(e => {
-      e.style.pointerEvents = "all";
+      e.style.removeProperty("pointer-events");
     });
   ensureEl("biomesEditor")
     .querySelectorAll(".hide")
@@ -544,17 +586,17 @@ function exitBiomesCustomizationMode(close?: boolean): void {
   ensureEl("biomesFooter").style.display = "block";
   if (!close) $("#biomesEditor").dialog({ position: { my: "right top", at: "right-10 top+10", of: "svg" } });
 
-  restoreDefaultEvents();
+  applyDefaultViewboxEvents();
   clearMainTip();
   const selected = document.querySelector("#biomesBody > div.selected");
   if (selected) selected.classList.remove("selected");
 }
 
 function restoreInitialBiomes(): void {
-  biomesData = Biomes.getDefault();
+  pack.biomes = Biomes.getDefault();
   Biomes.define();
   drawBiomes();
-  recalculatePopulation();
+  regeneratePopulation();
   refreshBiomesEditor();
 }
 
@@ -562,6 +604,12 @@ function closeBiomesEditor(): void {
   exitBiomesCustomizationMode(true);
   $("#biomesEditor").dialog("destroy");
   ensureEl("biomesEditor").remove();
+}
+
+function regeneratePopulation(): void {
+  Population.regenerate();
+  if (layerIsOn("togglePopulation")) drawPopulation();
+  if (layerIsOn("toggleGoods")) drawGoods();
 }
 
 export const BiomesEditor = { open };
