@@ -16,7 +16,7 @@
  */
 import { showConnectivityDialog } from "./connectivity-check";
 
-export const VERSION = "1.138.0";
+export const VERSION = "1.139.2";
 
 const latestPublicChanges = [
   "经济模拟",

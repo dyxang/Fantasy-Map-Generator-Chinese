@@ -1,3 +1,4 @@
+import { tip } from "@/components/tooltips";
 import { destroyDialogIfExists, ensureEl } from "@/utils";
 
 /**

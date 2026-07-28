@@ -1,14 +1,11 @@
 import { pack as packLayout, select, stratify } from "d3";
+import { closeDialogs, confirmationDialog } from "@/components/dialog/dialog-helpers";
+import { applyLineHighlighting } from "@/components/dialog/highlighting";
+import { applySorting, applySortingByHeader } from "@/components/dialog/sorting";
+import { tip } from "@/components/tooltips";
 import { Controllers } from "@/controllers";
-import {
-  convertTemperature,
-  destroyDialogIfExists,
-  ensureEl,
-  getPointer,
-  getTemperatureLikeness,
-  rn,
-  si
-} from "../utils";
+import { downloadFile, getFileName, getHeight, getLatitude, getLongitude, uploadFile } from "@/utils";
+import { convertTemperature, destroyDialogIfExists, ensureEl, getTemperatureLikeness, rn, si } from "../utils";
 
 type Filters = { stateId?: number | null; cultureId?: number | null };
 
@@ -125,6 +122,12 @@ function renderDialog(): void {
     </div>`;
   ensureEl("dialogs").insertAdjacentHTML("beforeend", HTML);
   applySortingByHeader("burgsHeader");
+  applyLineHighlighting("burgsOverview", ({ target, cellId }) => {
+    const burgId = pack.cells.burg[cellId];
+    if (burgId) return burgId;
+    const burg = target.closest<SVGElement>("#burgLabels [data-id], #burgIcons [data-id]");
+    return burg ? Number(burg.dataset.id) : undefined;
+  });
 
   ensureEl("burgsOverviewRefresh").addEventListener("click", refreshBurgsEditor);
   ensureEl("burgsGroupsEditorButton").addEventListener("click", () => Controllers.BurgGroupEditor.open());
@@ -133,7 +136,7 @@ function renderDialog(): void {
   ensureEl("burgsFilterCulture").addEventListener("change", burgsOverviewAddLines);
   ensureEl("burgsSearch").addEventListener("input", burgsOverviewAddLines);
   ensureEl("regenerateBurgNames").addEventListener("click", regenerateNames);
-  ensureEl("addNewBurg").addEventListener("click", enterAddBurgMode);
+  ensureEl("addNewBurg").addEventListener("click", () => void Controllers.BurgCreator.toggle());
   ensureEl("burgsExport").addEventListener("click", downloadBurgsData);
   ensureEl("burgNamesImport").addEventListener("click", renameBurgsInBulk);
   ensureEl("burgsListToLoad").addEventListener("change", function (this: HTMLInputElement) {
@@ -144,7 +147,7 @@ function renderDialog(): void {
 }
 
 function closeBurgsOverview(): void {
-  exitAddBurgMode();
+  if (document.getElementById("addBurgTool")?.classList.contains("pressed")) void Controllers.BurgCreator.stop();
   $("#burgsOverview").dialog("destroy");
   ensureEl("burgsOverview").remove();
 }
@@ -365,48 +368,7 @@ function regenerateNames(): void {
 
       el.querySelector<HTMLInputElement>(".burgName")!.value = name;
       pack.burgs[burg].name = el.dataset.name = name;
-      select("#burgLabels").select(`[data-id='${burg}']`).text(name);
     });
-}
-
-function enterAddBurgMode(this: HTMLElement): void {
-  if (this.classList.contains("pressed")) {
-    exitAddBurgMode();
-    return;
-  }
-  customization = 3;
-  this.classList.add("pressed");
-  tip("在地图上点击以创建新城镇。按住 Shift 可添加多个", true, "warn");
-  select<SVGGElement, unknown>("#viewbox").style("cursor", "crosshair").on("click", addBurgOnClick);
-}
-
-function addBurgOnClick(this: SVGGElement, event: any): void {
-  const point = getPointer(event, this);
-  const cell = findCell(point[0], point[1])!;
-
-  if (pack.cells.h[cell] < 20) {
-    tip("无法将城镇放入水中。请点击陆地单元格", false, "error");
-    return;
-  }
-  if (pack.cells.burg[cell]) {
-    tip("此单元格中已存在城镇。请选择空闲单元格", false, "error");
-    return;
-  }
-
-  Burgs.add(point as [number, number]); // add new burg
-
-  if (event.shiftKey === false) {
-    exitAddBurgMode();
-    burgsOverviewAddLines();
-  }
-}
-
-function exitAddBurgMode(): void {
-  customization = 0;
-  restoreDefaultEvents();
-  clearMainTip();
-  ensureEl("addBurgTool").classList.remove("pressed");
-  ensureEl("addNewBurg").classList.remove("pressed");
 }
 
 function showBurgsChart(): void {
@@ -583,7 +545,7 @@ function showBurgsChart(): void {
 
   $("#alert").dialog({
     title: "城镇气泡图",
-    width: fitContent(),
+    width: "fit-content",
     position: { my: "left bottom", at: "left+10 bottom-10", of: "svg" },
     buttons: {},
     close: () => (alertMessage.innerHTML = "")
@@ -610,8 +572,8 @@ function downloadBurgsData(): void {
     // add geography data
     data += `${b.x},`;
     data += `${b.y},`;
-    data += `${getLatitude(b.y, 2)},`;
-    data += `${getLongitude(b.x, 2)},`;
+    data += `${getLatitude(b.y, mapCoordinates, graphHeight, 2)},`;
+    data += `${getLongitude(b.x, mapCoordinates, graphWidth, 2)},`;
     data += `${parseInt(getHeight(pack.cells.h[b.cell]), 10)},`;
     const temperature = grid.cells.temp[pack.cells.g[b.cell]];
     data += `${convertTemperature(temperature)},`;

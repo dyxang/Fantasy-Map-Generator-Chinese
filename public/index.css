@@ -2417,6 +2417,7 @@ svg.button {
 
 #chat-widget-container {
   user-select: none;
+  z-index: 99 !important;
 }
 
 #chat-widget-minimized {

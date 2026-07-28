@@ -1,17 +1,23 @@
-import { drag, select } from "d3";
+import { drag, type Selection, select } from "d3";
+import { closeDialogs } from "@/components/dialog/dialog-helpers";
+import { clearMainTip, tip } from "@/components/tooltips";
+import { applyDefaultViewboxEvents } from "@/components/viewbox-events";
+import { redrawIceberg } from "@/renderers/draw-ice";
 import { destroyDialogIfExists, ensureEl, findGridCell, getPointer, parseTransform } from "../utils";
+
+let selectedIce: Selection<SVGElement, unknown, HTMLElement, unknown>;
 
 function open(element: SVGElement): void {
   if (customization) return;
-  if (elSelected && element === elSelected.node()) return;
+  if (document.getElementById("iceEditor") && element === selectedIce.node()) return;
 
   closeDialogs(".stable");
   if (!layerIsOn("toggleIce")) toggleIce();
 
-  elSelected = select<SVGElement, unknown>(element) as unknown as typeof elSelected;
-  const id = +elSelected.attr("data-id");
+  selectedIce = select<SVGElement, unknown>(element) as unknown as typeof selectedIce;
+  const id = +selectedIce.attr("data-id");
   const iceElement = pack.ice.find(el => el.i === id);
-  const isGlacier = elSelected.attr("type") === "glacier";
+  const isGlacier = selectedIce.attr("type") === "glacier";
   const type = isGlacier ? "冰川" : "冰山";
 
   renderDialog();
@@ -56,14 +62,14 @@ function renderDialog(): void {
 }
 
 function randomizeShape(): void {
-  const selectedId = +elSelected.attr("data-id");
+  const selectedId = +selectedIce.attr("data-id");
   Ice.randomizeIcebergShape(selectedId);
   redrawIceberg(selectedId);
 }
 
 function changeSize(this: HTMLInputElement): void {
   const newSize = +this.value;
-  const selectedId = +elSelected.attr("data-id");
+  const selectedId = +selectedIce.attr("data-id");
   Ice.changeIcebergSize(selectedId, newSize);
   redrawIceberg(selectedId);
 }
@@ -76,7 +82,7 @@ function toggleAdd(): void {
     tip("点击地图以创建冰山。按住 Shift 可添加多个", true);
   } else {
     clearMainTip();
-    select<SVGElement, unknown>("#viewbox").on("click", clicked).style("cursor", "default");
+    applyDefaultViewboxEvents();
   }
 }
 
@@ -91,7 +97,7 @@ function addIcebergOnClick(event: PointerEvent): void {
 }
 
 function removeIce(): void {
-  const type = elSelected.attr("type") === "glacier" ? "冰川" : "冰山";
+  const type = selectedIce.attr("type") === "glacier" ? "冰川" : "冰山";
   alertMessage.innerHTML = /* html */ `确定要移除该${type}吗？`;
   $("#alert").dialog({
     resizable: false,
@@ -99,7 +105,7 @@ function removeIce(): void {
     buttons: {
       移除: function (this: HTMLElement) {
         $(this).dialog("close");
-        Ice.removeIce(+elSelected.attr("data-id"));
+        Ice.removeIce(+selectedIce.attr("data-id"));
         $("#iceEditor").dialog("close");
       },
       取消: function (this: HTMLElement) {
@@ -110,7 +116,7 @@ function removeIce(): void {
 }
 
 function dragElement(this: SVGElement, event: any): void {
-  const selectedId = +elSelected.attr("data-id");
+  const selectedId = +selectedIce.attr("data-id");
   const initialTransform = parseTransform(this.getAttribute("transform") ?? "");
   const dx = +initialTransform[0] - event.x;
   const dy = +initialTransform[1] - event.y;
@@ -127,13 +133,14 @@ function dragElement(this: SVGElement, event: any): void {
 }
 
 function closeEditor(): void {
+  const wasAdding = ensureEl("iceNew").classList.contains("pressed");
   select<SVGGElement, unknown>("#ice")
     .selectAll<SVGElement, unknown>("*")
     .classed("draggable", false)
-    .call(drag<SVGElement, unknown>().on("drag", null));
+    .on(".drag", null);
   clearMainTip();
   ensureEl("iceNew").classList.remove("pressed");
-  unselect();
+  if (wasAdding) applyDefaultViewboxEvents();
   destroyDialogIfExists("iceEditor");
 }
 

@@ -2201,7 +2201,7 @@
             <button
               id="addMarker"
               data-tip="点击地图放置标记。按住 Shift 可添加多个"
-              data-shortcut="Shift + 5"
+              data-shortcut="Shift + 3"
             >
               标记
             </button>
@@ -2209,11 +2209,11 @@
             <button
               id="addRiver"
               data-tip="点击地图放置河流。按住 Shift 可添加多个"
-              data-shortcut="Shift + 3"
+              data-shortcut="Shift + 4"
             >
               河流
             </button>
-            <button id="addRoute" data-tip="打开道路创建对话框" data-shortcut="Shift + 4">道路</button>
+            <button id="addRoute" data-tip="打开道路创建对话框" data-shortcut="Shift + 5">道路</button>
           </div>
           <div class="separator">显示</div>
           <div class="grid">
@@ -2375,7 +2375,7 @@
                     <rect data-fill="2" height="545.799988" id="Rectangle" width="100" x="0" y="0" />
                   </svg>
                 </div>
-                SUPPORT ON PATREON
+                在 Patreon 上支持
               </div>
             </a>
           </div>
@@ -2635,52 +2635,7 @@
           </div>
         </div>
       </div>
-      <div id="cellInfo" style="display: none" class="dialog stable">
-        <p>
-          <b>单元格：</b> <span id="infoCell"></span> <b>X：</b> <span id="infoX"></span> <b>Y：</b> <span id="infoY"></span>
-        </p>
-        <p><b>纬度：</b> <span id="infoLat"></span></p>
-        <p><b>经度：</b> <span id="infoLon"></span></p>
-        <p><b>地理带：</b> <span id="infoGeozone"></span></p>
-        <p><b>面积：</b> <span id="infoArea">0</span></p>
-        <p><b>类型：</b> <span id="infoFeature">无</span></p>
-        <p><b>降水量：</b> <span id="infoPrec">0</span></p>
-        <p><b>河流：</b> <span id="infoRiver">否</span></p>
-        <p><b>人口：</b> <span id="infoPopulation">0</span></p>
-        <p><b>海拔：</b> <span id="infoElevation">0</span></p>
-        <p><b>深度：</b> <span id="infoDepth">0</span></p>
-        <p><b>温度：</b> <span id="infoTemp">0</span></p>
-        <p><b>生物群系：</b> <span id="infoBiome">无</span></p>
-        <p><b>国家：</b> <span id="infoState">无</span></p>
-        <p><b>省份：</b> <span id="infoProvince">无</span></p>
-        <p><b>文化：</b> <span id="infoCulture">无</span></p>
-        <p><b>宗教：</b> <span id="infoReligion">无</span></p>
-        <p><b>城镇：</b> <span id="infoBurg">无</span></p>
-        <p><b>货物：</b> <span id="infoGood">无</span></p>
-        <p><b>市场：</b> <span id="infoMarket">无</span></p>
-        <p><b>单元格产出：</b> <span id="infoCellProduction">无</span></p>
-        <p><b>城镇产出：</b> <span id="infoBurgProduction">无</span></p>
-      </div>
-      <div id="iconSelector" style="display: none" class="dialog">
-        <div>
-          <b>Unicode 表情符号</b>
-          <div style="font-style: italic">
-            <span>从列表选择或在此粘贴 Unicode 字符： </span>
-            <input id="iconInput" style="width: 2.5em" />
-            <span>。参见 <a href="https://emojidb.org" target="_blank">EmojiDB</a> 搜索表情符号</span>
-          </div>
-          <table id="iconTable" class="table pointer" style="font-size: 2em; text-align: center; width: 100%"></table>
-        </div>
-        <div style="margin-top: 0.5em">
-          <b>外部图片</b>
-          <div style="font-style: italic">
-            <span>在此粘贴图片链接： </span>
-            <input id="imageInput" style="width: 20em" />
-            <button id="addImage" type="button">添加</button>
-          </div>
-          <div id="addedIcons" class="pointer" style="display: flex; flex-wrap: wrap; max-width: 420px"></div>
-        </div>
-      </div>
+
       <div id="exportMapData" style="display: none" class="dialog">
         <div style="margin-bottom: 0.3em; font-weight: bold">下载图片</div>
         <div>
@@ -5494,15 +5449,11 @@
     <script defer src="libs/alea.min.js?v1.105.0"></script>
     <script defer src="libs/polylabel.min.js?v1.105.0"></script>
     <script defer src="libs/simplify.js?v1.105.6"></script>
-    <script defer src="modules/ui/layers.js?v=1.138.0"></script>
+    <script defer src="modules/ui/layers.js?v=1.139.0"></script>
     <script defer src="modules/ui/style-presets.js?v=1.138.0"></script>
-    <script defer src="modules/ui/general.js?v=1.138.0"></script>
-    <script defer src="modules/ui/options.js?v=1.137.6"></script>
-    <script defer src="main.js?v=1.138.0"></script>
-    <script defer src="modules/ui/style.js?v=1.138.0"></script>
-    <script defer src="modules/ui/editors.js?v=1.138.0"></script>
-    <script defer src="modules/ui/tools.js?v=1.138.0"></script>
-    <script defer src="modules/ui/hotkeys.js?v=1.138.0"></script>
+    <script defer src="modules/ui/options.js?v=1.139.0"></script>
+    <script defer src="main.js?v=1.139.0"></script>
+    <script defer src="modules/ui/style.js?v=1.139.0"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
   </body>

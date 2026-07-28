@@ -1,5 +1,11 @@
 import { select } from "d3";
+import { closeDialogs } from "@/components/dialog/dialog-helpers";
+import { applySorting, applySortingByHeader } from "@/components/dialog/sorting";
+import { clearMainTip, tip } from "@/components/tooltips";
+import { applyDefaultViewboxEvents } from "@/components/viewbox-events";
 import { Controllers } from "@/controllers";
+import { drawMarkets } from "@/renderers/draw-markets";
+import { downloadFile, getFileName } from "@/utils";
 import type { Burg } from "../generators/burgs-generator";
 import type { Market } from "../generators/markets-generator";
 import { destroyDialogIfExists, ensureEl, formatPrice, getPointer, rn } from "../utils";
@@ -153,7 +159,7 @@ function marketOverviewAddLines() {
     <div style="margin-left:12px">库存：${rn(totalUnits, 2)}</div>`;
 
   applySorting(ensureEl("marketOverviewHeader"));
-  $("#marketOverview").dialog({ width: fitContent() });
+  $("#marketOverview").dialog({ width: "fit-content" });
 }
 
 function toggleRelocateMarket(): void {
@@ -164,7 +170,7 @@ function toggleRelocateMarket(): void {
     tip("点击地图上的城镇以重新定位市场中心", true);
   } else {
     clearMainTip();
-    restoreDefaultEvents();
+    applyDefaultViewboxEvents();
   }
 }
 
@@ -196,7 +202,7 @@ function relocateMarketOnClick(this: SVGGElement, event: MouseEvent): void {
   if (!Markets.relocateMarket(activeMarketId, burgId)) return;
 
   toggleRelocateMarket();
-  if (layerIsOn("toggleMarketsLayer")) drawMarketsLayer();
+  if (layerIsOn("toggleMarketsLayer")) drawMarkets();
 
   refreshNameInput(market);
   $("#marketOverview").dialog("option", "title", `市场库存：${Markets.getName(market)}`);

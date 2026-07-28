@@ -1,5 +1,12 @@
 import { select } from "d3";
+import { closeDialogs, confirmationDialog, refreshEditors } from "@/components/dialog/dialog-helpers";
+import { applySorting, applySortingByHeader } from "@/components/dialog/sorting";
+import { clearMainTip, tip } from "@/components/tooltips";
+import { applyDefaultViewboxEvents } from "@/components/viewbox-events";
 import { Controllers } from "@/controllers";
+import { drawMarkets } from "@/renderers/draw-markets";
+import { tradeAnimation } from "@/renderers/trade-animation";
+import { downloadFile, getFileName, rn } from "@/utils";
 import type { Good } from "../generators/goods-generator";
 import { isDealRecord, isMfgRecord } from "../generators/production-generator";
 import { drawGoods, toggleGoods } from "../renderers/draw-goods";
@@ -203,7 +210,7 @@ function goodsEditorAddLines() {
   updateDisplayAllCheckbox();
   applySorting(ensureEl("goodsHeader")!);
   applyTagVisibilityFilter();
-  $("#goodsEditor").dialog({ width: fitContent() });
+  $("#goodsEditor").dialog({ width: "fit-content" });
 }
 
 function openProducersDialog(goodId: number) {
@@ -450,7 +457,11 @@ function goodsRestoreDefaults() {
     onConfirm: () => {
       Goods.restoreDefaults();
       Goods.generate();
-      regenerateEconomy();
+      Production.regenerateEconomy();
+      if (layerIsOn("toggleMarketsLayer")) drawMarkets();
+      if (layerIsOn("toggleGoods")) drawGoods();
+      if (layerIsOn("toggleTrade")) tradeAnimation.restart();
+      refreshEditors();
     }
   });
 }
@@ -555,7 +566,7 @@ function exitResourceAssignMode(close?: string) {
 
   if (!close) goodsEditorAddLines();
 
-  restoreDefaultEvents();
+  applyDefaultViewboxEvents();
   clearMainTip();
   const selected = body.querySelector("div.selected");
   if (selected) selected.classList.remove("selected");
@@ -624,7 +635,11 @@ function requestGoodsRegeneration() {
     title: "重新生成奖励货物",
     message: "确定要重新生成奖励货物分布吗？生成将基于当前货物设置，不会影响生产或贸易",
     confirm: "重新生成",
-    onConfirm: window.regenerateGoods
+    onConfirm: () => {
+      Goods.regenerate();
+      if (layerIsOn("toggleGoods")) drawGoods();
+      refreshEditors();
+    }
   });
 }
 
@@ -633,7 +648,12 @@ function requestProductionRegeneration() {
     title: "重新生成生产",
     message: "确定要为所有货物重新生成生产和贸易吗？生成将基于当前货物设置和奖励货物分布",
     confirm: "重新生成",
-    onConfirm: window.regenerateProduction
+    onConfirm: () => {
+      Production.regenerate();
+      if (layerIsOn("toggleGoods")) drawGoods();
+      if (layerIsOn("toggleTrade")) tradeAnimation.restart();
+      refreshEditors();
+    }
   });
 }
 

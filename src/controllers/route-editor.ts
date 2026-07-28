@@ -1,18 +1,23 @@
-import { drag, select } from "d3";
+import { drag, type Selection, select } from "d3";
+import { closeDialogs, confirmationDialog } from "@/components/dialog/dialog-helpers";
+import { clearMainTip, tip } from "@/components/tooltips";
 import { Controllers } from "@/controllers";
 import type { Route } from "@/generators/routes-generator";
+import { speak } from "@/utils";
 import { destroyDialogIfExists, ensureEl, findEl, getPackPolygon, getPointer, getSegmentId, rn } from "../utils";
+
+let selectedRoute: Selection<SVGElement, unknown, HTMLElement, unknown>;
 
 function open(id: string): void {
   if (customization) return;
-  if (elSelected && id === elSelected.attr("id")) return;
+  if (findEl("routeEditor") && id === selectedRoute.attr("id")) return;
   closeDialogs(".stable");
 
   if (!layerIsOn("toggleRoutes")) toggleRoutes();
   ensureEl("toggleCells").dataset.forced = String(+!layerIsOn("toggleCells"));
   if (!layerIsOn("toggleCells")) toggleCells();
 
-  elSelected = select<SVGElement, unknown>(`#${id}`).on("click", addControlPoint);
+  selectedRoute = select<SVGElement, unknown>(`#${id}`).on("click", addControlPoint);
 
   tip("拖动控制点可改变道路走向。点击控制点可移除。点击道路可添加控制点。如需大幅修改请新建一条道路", true);
   select("#debug").append("g").attr("id", "controlCells");
@@ -91,7 +96,7 @@ function openRouteGroupsEditor(): void {
 }
 
 function getRoute(): Route {
-  const routeId = +elSelected.attr("id").slice(5);
+  const routeId = +selectedRoute.attr("id").slice(5);
   return pack.routes.find((route: Route) => route.i === routeId) as Route;
 }
 
@@ -176,7 +181,7 @@ function dragControlPoint(event: any): void {
 }
 
 function redrawRoute(route: Route): void {
-  elSelected.attr("d", Routes.getPath(route));
+  selectedRoute.attr("d", Routes.getPath(route));
   updateRouteLength(route);
   if (findEl("elevationProfile")) showRouteElevationProfile();
 }
@@ -305,7 +310,7 @@ function openJoinRoutesDialog(): void {
 
     $("#alert").dialog({
       title: "合并道路",
-      width: fitContent(),
+      width: "fit-content",
       position: { my: "left top", at: "left+10 top+150", of: "#map" },
       buttons: {
         取消: () => {
@@ -326,19 +331,9 @@ function openJoinRoutesDialog(): void {
 }
 
 function joinRoutes(route: Route, joinedRoute: Route): void {
-  if (route.points.at(-1)![2] === joinedRoute.points.at(0)![2]) {
-    // joinedRoute starts at the end of current route
-    route.points = [...route.points, ...joinedRoute.points.slice(1)];
-  } else if (route.points.at(0)![2] === joinedRoute.points.at(-1)![2]) {
-    // joinedRoute ends at the start of current route
-    route.points = [...joinedRoute.points, ...route.points.slice(1)];
-  } else if (route.points.at(0)![2] === joinedRoute.points.at(0)![2]) {
-    // joinedRoute and current route both start at the same cell
-    route.points = [...route.points.reverse(), ...joinedRoute.points.slice(1)];
-  } else if (route.points.at(-1)![2] === joinedRoute.points.at(-1)![2]) {
-    // joinedRoute and current route both end at the same cell
-    route.points = [...route.points, ...joinedRoute.points.reverse().slice(1)];
-  }
+  const mergedPoints = mergeRoutePoints(route.points, joinedRoute.points);
+  if (!mergedPoints) return;
+  route.points = mergedPoints;
 
   for (let i = 0; i < route.points.length; i++) {
     const point = route.points[i];
@@ -350,6 +345,21 @@ function joinRoutes(route: Route, joinedRoute: Route): void {
   drawControlPoints(route.points);
   redrawRoute(route);
   drawCells(route.points);
+}
+
+export function mergeRoutePoints(routePoints: number[][], joinedPoints: number[][]): number[][] | null {
+  if (!routePoints.length || !joinedPoints.length) return null;
+
+  const routeStart = routePoints.at(0)?.[2];
+  const routeEnd = routePoints.at(-1)?.[2];
+  const joinedStart = joinedPoints.at(0)?.[2];
+  const joinedEnd = joinedPoints.at(-1)?.[2];
+
+  if (routeEnd === joinedStart) return [...routePoints, ...joinedPoints.slice(1)];
+  if (routeStart === joinedEnd) return [...joinedPoints, ...routePoints.slice(1)];
+  if (routeStart === joinedStart) return [...[...routePoints].reverse(), ...joinedPoints.slice(1)];
+  if (routeEnd === joinedEnd) return [...routePoints, ...[...joinedPoints].reverse().slice(1)];
+  return null;
 }
 
 function showCreationDialog(): void {
@@ -383,7 +393,7 @@ function changeName(this: HTMLInputElement): void {
 
 function changeGroup(this: HTMLInputElement): void {
   const group = this.value;
-  ensureEl(group).appendChild(elSelected.node()!);
+  ensureEl(group).appendChild(selectedRoute.node()!);
   getRoute().group = group;
 }
 
@@ -403,7 +413,7 @@ function showRouteElevationProfile(): void {
 }
 
 function editRouteLegend(): void {
-  const id = elSelected.attr("id");
+  const id = selectedRoute.attr("id");
   const route = getRoute();
   void Controllers.NotesEditor.open(id, route.name!);
 }
@@ -446,8 +456,7 @@ function closeRouteEditor(): void {
   select("#controlPoints").remove();
   select("#controlCells").remove();
 
-  elSelected.on("click", null);
-  unselect();
+  selectedRoute.on("click", null);
   clearMainTip();
 
   const forced = +ensureEl("toggleCells").dataset.forced!;

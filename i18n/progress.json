@@ -120,6 +120,14 @@
       "units": 571,
       "end_id": "sha256:f6bd312509ca536c",
       "notes": "Collected from artifacts: 562 translated, 9 skipped, 0 pre-translated. 2 sidecar files."
+    },
+    {
+      "date": "2026-07-28",
+      "type": "sync",
+      "new_entries": 0,
+      "updated_targets": 0,
+      "ambiguous_resolved": 0,
+      "notes": "Sync collect: +0 new, 0 updated, 0 ambiguous resolved."
     }
   ]
 }

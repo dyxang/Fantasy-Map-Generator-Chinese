@@ -8,17 +8,8 @@ describe("GoodsModule", () => {
     globalThis.seed = "seed";
     globalThis.window = globalThis.window || ({} as any);
     globalThis.grid = { cells: { temp: [20, 20, 20, 20] } } as any;
-    globalThis.biomesData = {
-      habitability: Array(20).fill(50),
-      i: [],
-      name: [],
-      color: [],
-      biomesMatrix: [],
-      iconsDensity: [],
-      icons: [],
-      cost: []
-    } as any;
     globalThis.pack = {
+      biomes: Array.from({ length: 20 }, (_, i) => ({ i, habitability: 50 })),
       cells: {
         i: [0, 1, 2, 3],
         biome: Uint8Array.from([0, 0, 0, 0]),
@@ -33,7 +24,7 @@ describe("GoodsModule", () => {
       goods: [
         {
           i: 1,
-          name: "自定义 A",
+          name: "Custom A",
           tags: [],
           value: 1,
           unit: "unit",
@@ -44,7 +35,7 @@ describe("GoodsModule", () => {
         },
         {
           i: 2,
-          name: "自定义 B",
+          name: "Custom B",
           tags: [],
           value: 1,
           unit: "unit",

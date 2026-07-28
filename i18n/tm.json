@@ -3,149 +3,6 @@
   "locale": "zh-CN",
   "entries": [
     {
-      "id": "sha256:bb5629f316844ac4",
-      "source": "Drag to change the picker position",
-      "target": "拖动以改变拾色器位置",
-      "file": "public/modules/ui/editors.js",
-      "line": 249,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:d46eb7528b77ca90",
-      "source": "Click to close the picker",
-      "target": "点击关闭拾色器",
-      "file": "public/modules/ui/editors.js",
-      "line": 250,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:3d36cdb64218e8d2",
-      "source": "Set palette hue",
-      "target": "设置调色板色相",
-      "file": "public/modules/ui/editors.js",
-      "line": 283,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:b415167f61b18c61",
-      "source": "Set palette saturation",
-      "target": "设置调色板饱和度",
-      "file": "public/modules/ui/editors.js",
-      "line": 289,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:ad8a03ebd88872db",
-      "source": "Set palette lightness",
-      "target": "设置调色板亮度",
-      "file": "public/modules/ui/editors.js",
-      "line": 295,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:26af47d42cdd5433",
-      "source": "Color value in different color spaces. Edit to change",
-      "target": "不同色彩空间的颜色值。编辑以修改",
-      "file": "public/modules/ui/editors.js",
-      "line": 307,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:39cbbcea5648a63c",
-      "source": "Click to fill with the color",
-      "target": "点击以该颜色填充",
-      "file": "public/modules/ui/editors.js",
-      "line": 354,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:e8786a79038b84ef",
-      "source": "Click to fill with the hatching",
-      "target": "点击以填充阴影线",
-      "file": "public/modules/ui/editors.js",
-      "line": 359,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:432572a6515ce4a8",
-      "source": "You must provide a correct value",
-      "target": "请输入正确的值",
-      "file": "public/modules/ui/editors.js",
-      "line": 538,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:5aa3c565fed9f369",
-      "source": "Click to select ${e.target.textContent} icon",
-      "target": "点击以选择 ${e.target.textContent} 图标",
-      "file": "public/modules/ui/editors.js",
-      "line": 898,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:3b87bc0c5846e41d",
-      "source": "Enter image URL to add",
-      "target": "请输入要添加的图片 URL",
-      "file": "public/modules/ui/editors.js",
-      "line": 912,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:5ad2a22a7d9d302e",
-      "source": "Enter valid URL",
-      "target": "请输入有效的 URL",
-      "file": "public/modules/ui/editors.js",
-      "line": 913,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:a4eb45d043b72fd9",
-      "source": "Select Icon",
-      "target": "选择图标",
-      "file": "public/modules/ui/editors.js",
-      "line": 927,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
       "id": "sha256:4fa994781f8c8e12",
       "source": "You cannot turn off the layer when heightmap is in edit mode",
       "target": "高度图处于编辑模式时无法关闭该图层",
@@ -718,182 +575,6 @@
       "skip_reason": null
     },
     {
-      "id": "sha256:8cd1077a0ab63bd8",
-      "source": "Please exit the customization mode first",
-      "target": "请先退出自定义模式",
-      "file": "public/modules/ui/tools.js",
-      "line": 6,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:1827d651c9c45f89",
-      "source": "Regenerate element",
-      "target": "重新生成元素",
-      "file": "public/modules/ui/tools.js",
-      "line": 45,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:75affbc2f5b26cf7",
-      "source": "No emblems to edit, please generate states and burgs first",
-      "target": "没有可编辑的纹章，请先生成国家和城镇",
-      "file": "public/modules/ui/tools.js",
-      "line": 126,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:fed9a3c0057da197",
-      "source": "<i>States Number</i> option value is zero. No counties are generated",
-      "target": "<i>States Number</i> 选项值为零。未生成任何国家",
-      "file": "public/modules/ui/tools.js",
-      "line": 203,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:a207f60320156b7f",
-      "source": "There are no any burgs to generate states. Please create burgs first",
-      "target": "没有可用来生成国家的城镇。请先创建城镇",
-      "file": "public/modules/ui/tools.js",
-      "line": 209,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:aed397df98848641",
-      "source": "Unable to regenerate as all states are locked",
-      "target": "所有国家已锁定，无法重新生成",
-      "file": "public/modules/ui/tools.js",
-      "line": 224,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:258b0c313add6a24",
-      "source": "Click on map to place label. Hold Shift to add multiple",
-      "target": "点击地图放置标签。按住 Shift 添加多个",
-      "file": "public/modules/ui/tools.js",
-      "line": 672,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:f4aa583104129ba0",
-      "source": "Click on map to place new river or extend an existing one. Hold Shift to place multiple rivers",
-      "target": "点击地图放置新河流或延伸现有河流。按住 Shift 放置多条河流",
-      "file": "public/modules/ui/tools.js",
-      "line": 752,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:43e174505518d317",
-      "source": "There is already a river here",
-      "target": "此处已有河流",
-      "file": "public/modules/ui/tools.js",
-      "line": 760,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:b4f96d59dffa5460",
-      "source": "Cannot create river in water cell",
-      "target": "无法在水域单元格中创建河流",
-      "file": "public/modules/ui/tools.js",
-      "line": 761,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:2b83d3b3e800664b",
-      "source": "Cell ${i} is depressed, river cannot flow further",
-      "target": "单元格 ${i} 处于洼地，河流无法继续流动",
-      "file": "public/modules/ui/tools.js",
-      "line": 779,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:79d87666b9fba1eb",
-      "source": "Click on map to add a marker. Hold Shift to add multiple",
-      "target": "点击地图添加标记。按住 Shift 添加多个",
-      "file": "public/modules/ui/tools.js",
-      "line": 914,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:df11cfe5a43cd5b4",
-      "source": "Markers generation settings",
-      "target": "标记生成设置",
-      "file": "public/modules/ui/tools.js",
-      "line": 1025,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:d8b40c1934828583",
-      "source": "Apply changes and regenerate markers",
-      "target": "应用更改并重新生成标记",
-      "file": "public/modules/ui/tools.js",
-      "line": 1039,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:44fb914e4bd079b3",
-      "source": "Close the window",
-      "target": "关闭窗口",
-      "file": "public/modules/ui/tools.js",
-      "line": 1040,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:ce8ded46920cd73e",
-      "source": "Cell Details",
-      "target": "单元格详情",
-      "file": "public/modules/ui/tools.js",
-      "line": 1052,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
       "id": "sha256:ee36fc7d7138c8ac",
       "source": "Failed to parse AI provider error response",
       "target": "解析 AI 提供商错误响应失败",
@@ -921,369 +602,6 @@
       "target": "AI 文本生成器",
       "file": "src/controllers/ai-generator.ts",
       "line": 188,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:d1a32f7e71843c19",
-      "source": "Locked. Click to unlock the element and allow it to be changed by regeneration tools",
-      "target": "已锁定。点击解锁元素，允许重新生成工具修改它",
-      "file": "public/modules/ui/general.js",
-      "line": 82,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:a8594d4f3b805653",
-      "source": "Unlocked. Click to lock the element and prevent changes to it by regeneration tools",
-      "target": "已解锁。点击锁定元素，防止重新生成工具修改它",
-      "file": "public/modules/ui/general.js",
-      "line": 84,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:f9a4fca7656ffa47",
-      "source": "${name} ${type} emblem. Click to edit. Hold Shift to show associated area or place",
-      "target": "${name} ${type}纹章。点击编辑。按住 Shift 显示关联区域或地点",
-      "file": "public/modules/ui/general.js",
-      "line": 154,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:533669a0996497ff",
-      "source": "${route.name}. Click to edit the Route",
-      "target": "${route.name}。点击编辑道路",
-      "file": "public/modules/ui/general.js",
-      "line": 172,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:5c19e1483099c238",
-      "source": "Click to edit the Route",
-      "target": "点击编辑道路",
-      "file": "public/modules/ui/general.js",
-      "line": 173,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:fde0803e42c0a70f",
-      "source": "Click to edit the Relief Icon",
-      "target": "点击编辑地形图标",
-      "file": "public/modules/ui/general.js",
-      "line": 177,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:19310a6125f22ea6",
-      "source": "${burg.name} ${burg.group}. Population: ${population}. Click to edit",
-      "target": "${burg.name} ${burg.group}。人口：${population}。点击编辑",
-      "file": "public/modules/ui/general.js",
-      "line": 184,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:a080036f1c2374ad",
-      "source": "Click to edit the Label",
-      "target": "点击编辑标签",
-      "file": "public/modules/ui/general.js",
-      "line": 191,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:7f4b409fc1686b46",
-      "source": "Click to edit the Marker. Hold Shift to not close the assosiated note",
-      "target": "点击编辑标记。按住 Shift 不关闭关联笔记",
-      "file": "public/modules/ui/general.js",
-      "line": 193,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:b209919d5493160f",
-      "source": "Drag the measurer or its points to edit",
-      "target": "拖动测量器或其控制点进行编辑",
-      "file": "public/modules/ui/general.js",
-      "line": 196,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:39078c6533de8ced",
-      "source": "Click to open the Measurers Editor",
-      "target": "点击打开测量器编辑器",
-      "file": "public/modules/ui/general.js",
-      "line": 197,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:9e218137f6f782f0",
-      "source": "${centerBurg.name} market. Click to view",
-      "target": "${centerBurg.name}市场。点击查看",
-      "file": "public/modules/ui/general.js",
-      "line": 206,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:704c2f2804bd73a5",
-      "source": "${good?.name} bonus resource. Click to open Goods Editor and select displayed goods",
-      "target": "${good?.name}奖励资源。点击打开货物编辑器并选择显示的货物",
-      "file": "public/modules/ui/general.js",
-      "line": 223,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:e76dc4fd74662472",
-      "source": "Cell rural production: ${formatProduct(produced).join(\", \")}. Click to select displayed goods in Goods Editor",
-      "target": "(see source file line 231)",
-      "file": "public/modules/ui/general.js",
-      "line": 231,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:ed498db7120527e9",
-      "source": "${burg.name} urban production: ${formatProduct(produced).join(\", \")}. Click to view",
-      "target": "${burg.name}城市产出：${formatProduct(produced).join(",
-      "file": "public/modules/ui/general.js",
-      "line": 243,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:3e279ad99c4fe459",
-      "source": "Drag to adjust. Hold Ctrl and drag to add a point. Click to remove the point",
-      "target": "拖动调整。按住 Ctrl 拖动添加点。点击移除点",
-      "file": "public/modules/ui/general.js",
-      "line": 253,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:d453dfbd52607fb3",
-      "source": "Drag to adjust. Hold Shift and drag to keep axial direction. Click to remove the point",
-      "target": "拖动调整。按住 Shift 拖动保持轴向。点击移除点",
-      "file": "public/modules/ui/general.js",
-      "line": 255,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:efa2d2a6712b3b7d",
-      "source": "Drag to adjust the measurer",
-      "target": "拖动调整测量器",
-      "file": "public/modules/ui/general.js",
-      "line": 256,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:2e979eeeffeb6017",
-      "source": "Click on drag to add a control point",
-      "target": "点击拖动添加控制点",
-      "file": "public/modules/ui/general.js",
-      "line": 257,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:b392b8dfb2459fb1",
-      "source": "Drag to move the measurer",
-      "target": "拖动移动测量器",
-      "file": "public/modules/ui/general.js",
-      "line": 258,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:2f1d6641f6b9f1b6",
-      "source": "Drag to move, click to remove the measurer",
-      "target": "拖动移动，点击移除测量器",
-      "file": "public/modules/ui/general.js",
-      "line": 259,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:76ee1a7e26f4d773",
-      "source": "Click to edit the Burg",
-      "target": "点击编辑城镇",
-      "file": "public/modules/ui/general.js",
-      "line": 262,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:751e0e15351dc519",
-      "source": "Click to edit the Burg",
-      "target": "点击编辑城镇",
-      "file": "public/modules/ui/general.js",
-      "line": 264,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:46872b2cad98dd74",
-      "source": "${fullName} lake. Click to edit",
-      "target": "${fullName}湖泊。点击编辑",
-      "file": "public/modules/ui/general.js",
-      "line": 270,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:294cf9ce8a7586a0",
-      "source": "Click to edit the coastline",
-      "target": "点击编辑海岸线",
-      "file": "public/modules/ui/general.js",
-      "line": 273,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:d95fc482ff4c5c5e",
-      "source": "Click to edit the Ice",
-      "target": "点击编辑冰",
-      "file": "public/modules/ui/general.js",
-      "line": 285,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:eb90c182033e2800",
-      "source": "Annual Precipitation:",
-      "target": "年降水量：",
-      "file": "public/modules/ui/general.js",
-      "line": 288,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:1bc3fe69e5ddd1db",
-      "source": "Temperature:",
-      "target": "温度：",
-      "file": "public/modules/ui/general.js",
-      "line": 290,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:fa95eb87f8689d20",
-      "source": "Biome:",
-      "target": "生物群系：",
-      "file": "public/modules/ui/general.js",
-      "line": 293,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:f9e80cb80eafeba7",
-      "source": "Culture:",
-      "target": "文化：",
-      "file": "public/modules/ui/general.js",
-      "line": 321,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:503cde4f74880697",
-      "source": "Height:",
-      "target": "高度：",
-      "file": "public/modules/ui/general.js",
-      "line": 324,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:019af741122ec06b",
-      "source": "Click to unlock the option and allow it to be randomized on new map generation",
-      "target": "点击解锁选项，允许在新地图生成时随机化",
-      "file": "public/modules/ui/general.js",
-      "line": 545,
-      "type": "ts_string",
-      "context_tag": "message",
-      "skipped": false,
-      "skip_reason": null
-    },
-    {
-      "id": "sha256:75beebc4822b59ca",
-      "source": "Click to lock the option and always use the current value on new map generation",
-      "target": "点击锁定选项，新地图生成时始终使用当前值",
-      "file": "public/modules/ui/general.js",
-      "line": 546,
       "type": "ts_string",
       "context_tag": "message",
       "skipped": false,
@@ -9250,7 +8568,7 @@
       "line": 509,
       "type": "html_text",
       "context_tag": "list_item",
-      "skipped": false
+      "skipped": true
     },
     {
       "id": "sha256:c737bcd0ea255498",
@@ -9330,7 +8648,7 @@
       "line": 565,
       "type": "html_text",
       "context_tag": "list_item",
-      "skipped": false
+      "skipped": true
     },
     {
       "id": "sha256:303ec2845294f55b",
@@ -15924,7 +15242,7 @@
     {
       "id": "sha256:placeholder_patreon_supporters_1",
       "source": "SUPPORT ON PATREON",
-      "target": "SUPPORT ON PATREON",
+      "target": "在 Patreon 上支持",
       "file": "src/index.html",
       "line": 2380,
       "type": "html_text",
@@ -15934,7 +15252,7 @@
     {
       "id": "sha256:placeholder_patreon_supporters_2",
       "source": "Special thanks to",
-      "target": "Special thanks to",
+      "target": "特别感谢",
       "file": "src/index.html",
       "line": 2385,
       "type": "html_text",
@@ -15944,7 +15262,7 @@
     {
       "id": "sha256:placeholder_patreon_supporters_3",
       "source": "Click to see list of supporters",
-      "target": "Click to see list of supporters",
+      "target": "点击查看支持者列表",
       "file": "src/index.html",
       "line": 2387,
       "type": "html_attr",
@@ -15954,7 +15272,7 @@
     {
       "id": "sha256:placeholder_patreon_supporters_4",
       "source": "all supporters",
-      "target": "all supporters",
+      "target": "所有支持者",
       "file": "src/index.html",
       "line": 2387,
       "type": "html_text",
@@ -15964,7 +15282,7 @@
     {
       "id": "sha256:placeholder_patreon_supporters_5",
       "source": "on Patreon!",
-      "target": "on Patreon!",
+      "target": "在 Patreon 上！",
       "file": "src/index.html",
       "line": 2387,
       "type": "html_text",
@@ -15979,7 +15297,7 @@
       "line": 2390,
       "type": "html_attr",
       "context_tag": "data-tip",
-      "skipped": false
+      "skipped": true
     },
     {
       "id": "sha256:placeholder_ukraine_2",
@@ -15989,7 +15307,7 @@
       "line": 2394,
       "type": "html_text",
       "context_tag": "button",
-      "skipped": false
+      "skipped": true
     },
     {
       "id": "sha256:placeholder_ukraine_3",
@@ -15999,7 +15317,7 @@
       "line": 2395,
       "type": "html_text",
       "context_tag": "button",
-      "skipped": false
+      "skipped": true
     },
     {
       "id": "sha256:9afa91ea21205ec6",
@@ -17947,7 +17265,7 @@
     {
       "id": "sha256:19f0ae16374c1c96",
       "source": "tiles",
-      "target": "tiles",
+      "target": "瓦片",
       "file": "src/index.html",
       "line": 2713,
       "type": "html_text",
@@ -18127,7 +17445,7 @@
     {
       "id": "sha256:ec044999249366b3",
       "source": "wiki-page",
-      "target": "wiki-page",
+      "target": "wiki 页面",
       "file": "src/index.html",
       "line": 2756,
       "type": "html_text",
@@ -20061,188 +19379,6 @@
       "skipped": false
     },
     {
-      "id": "sha256:d87f2f1d56477578",
-      "source": "点击以选择 ${e.target.textContent} 图标",
-      "file": "public/modules/ui/editors.js",
-      "line": 898,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  };\n\n  table.onmouseover = e => {",
-      "context_after": "  };\n\n  function addExternalImage(url) {",
-      "target": "点击以选择 ${e.target.textContent} 图标",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:690ed4b153ae6d7f",
-      "source": "请输入要添加的图片 URL",
-      "file": "public/modules/ui/editors.js",
-      "line": 912,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  ensureEl(\"addImage\").onclick = function () {\n    const input = this.previousElementSibling;\n    const ulr = input.value;",
-      "context_after": "    if (!ulr.match(/^((http|https):\\/\\/)|data\\:image\\//)) return tip(\"请输入有效的 URL\", false, \"error\", 4000);\n    addExternalImage(ulr);\n    callback(ulr);",
-      "target": "请输入要添加的图片 URL",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:d1baf9791f1a2bab",
-      "source": "请输入有效的 URL",
-      "file": "public/modules/ui/editors.js",
-      "line": 913,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    const input = this.previousElementSibling;\n    const ulr = input.value;\n    if (!ulr) return tip(\"请输入要添加的图片 URL\", false, \"error\", 4000);",
-      "context_after": "    addExternalImage(ulr);\n    callback(ulr);\n    input.value = \"\";",
-      "target": "请输入有效的 URL",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:0f15d54919ffb83d",
-      "source": "${name} ${type}纹章。点击编辑。按住 Shift 显示关联区域或地点",
-      "file": "public/modules/ui/general.js",
-      "line": 154,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    d3.select(parent).raise();\n\n    const name = g[i].fullName || g[i].name;",
-      "context_after": "    return;\n  }\n",
-      "target": "${name} ${type}纹章。点击编辑。按住 Shift 显示关联区域或地点",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:7fa601170f451c62",
-      "source": "${route.name}。点击编辑道路",
-      "file": "public/modules/ui/general.js",
-      "line": 172,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    const routeId = +e.target.id.slice(5);\n    const route = pack.routes.find(route => route.i === routeId);\n    if (route) {",
-      "context_after": "      return tip(\"点击编辑道路\");\n    }\n  }",
-      "target": "${route.name}。点击编辑道路",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:6929e0fd163fc9fb",
-      "source": "${burg.name} ${burg.group}。人口：${population}。点击编辑",
-      "file": "public/modules/ui/general.js",
-      "line": 184,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    if (burgId) {\n      const burg = pack.burgs[burgId];\n      const population = si(burg.population * populationRate * urbanization);",
-      "context_after": "      const burgsOverviewEl = findEl(\"burgsOverview\");\n      if (burgsOverviewEl) highlightEditorLine(burgsOverviewEl, burgId, 5000);\n      return;",
-      "target": "${burg.name} ${burg.group}。人口：${population}。点击编辑",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:25461fcfd079060b",
-      "source": "点击编辑标记。按住 Shift 不关闭关联笔记",
-      "file": "public/modules/ui/general.js",
-      "line": 193,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n  if (group === \"labels\") return tip(\"点击编辑标签\");\n",
-      "context_after": "\n  if (group === \"ruler\") {\n    if (findEl(\"measurersEditor\")) return tip(\"拖动测量器或其控制点进行编辑\");",
-      "target": "点击编辑标记。按住 Shift 不关闭关联笔记",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:eac29fb15a550ecd",
-      "source": "${centerBurg.name}市场。点击查看",
-      "file": "public/modules/ui/general.js",
-      "line": 206,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "      const market = Markets.marketById[+marketEl.dataset.id];\n      const centerBurg = market && pack.burgs[market.centerBurgId];\n      if (!centerBurg) return;",
-      "context_after": "    }\n  }\n",
-      "target": "${centerBurg.name}市场。点击查看",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:2b51f62f8db677f2",
-      "source": "${good?.name}奖励资源。点击打开货物编辑器并选择显示的货物",
-      "file": "public/modules/ui/general.js",
-      "line": 223,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n    if (el.closest(\"#goodsIcons\")) {\n      const good = Goods.get(+el.closest(\"[data-i]\")?.dataset.i);",
-      "context_after": "    }\n\n    if (el.closest(\"#goodsCells\")) {",
-      "target": "${good?.name}奖励资源。点击打开货物编辑器并选择显示的货物",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:88d1a34c47039a23",
-      "source": "单元格乡村产出：${formatProduct(produced).join(\", \")}。点击在货物编辑器中选择显示的货物",
-      "file": "public/modules/ui/general.js",
-      "line": 231,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "      const biomeId = pack.cells.biome[i];\n      const cultureType = pack.cultures[pack.cells.culture[i]]?.type || \"Generic\";\n      const produced = Production.getCellProduction(i, Goods.getBiomesProduction());",
-      "context_after": "        `单元格乡村产出：${formatProduct(produced).join(\", \")}。点击在货物编辑器中选择显示的货物`\n      );\n    }",
-      "target": "单元格乡村产出：${formatProduct(produced).join(\", \")}。点击在货物编辑器中选择显示的货物",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:e10afcd41520f135",
-      "source": "${burg.name}城市产出：${formatProduct(produced).join(\", \")}。点击查看",
-      "file": "public/modules/ui/general.js",
-      "line": 243,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "      if (!burg || burg.removed) return;\n      d3.select(burgEl).raise();\n      const produced = Production.getBurgProduction(burg);",
-      "context_after": "    }\n\n    return;",
-      "target": "${burg.name}城市产出：${formatProduct(produced).join(\", \")}。点击查看",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:6a314b0bd49684bb",
-      "source": "拖动调整。按住 Ctrl 拖动添加点。点击移除点",
-      "file": "public/modules/ui/general.js",
-      "line": 253,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    const tag = e.target.tagName;\n    const className = e.target.getAttribute(\"class\");\n    if (tag === \"circle\" && className === \"edge\")",
-      "context_after": "    if (tag === \"circle\" && className === \"control\")\n      return tip(\"拖动调整。按住 Shift 拖动保持轴向。点击移除点\");\n    if (tag === \"circle\") return tip(\"拖动调整测量器\");",
-      "target": "拖动调整。按住 Ctrl 拖动添加点。点击移除点",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:f29c09ec91fe185d",
-      "source": "拖动调整。按住 Shift 拖动保持轴向。点击移除点",
-      "file": "public/modules/ui/general.js",
-      "line": 255,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    if (tag === \"circle\" && className === \"edge\")\n      return tip(\"拖动调整。按住 Ctrl 拖动添加点。点击移除点\");\n    if (tag === \"circle\" && className === \"control\")",
-      "context_after": "    if (tag === \"circle\") return tip(\"拖动调整测量器\");\n    if (tag === \"polyline\") return tip(\"点击拖动添加控制点\");\n    if (tag === \"path\") return tip(\"拖动移动测量器\");",
-      "target": "拖动调整。按住 Shift 拖动保持轴向。点击移除点",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:35994bd78df27d1e",
-      "source": "${fullName}湖泊。点击编辑",
-      "file": "public/modules/ui/general.js",
-      "line": 270,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    const lakeId = +e.target.dataset.f;\n    const name = pack.features[lakeId]?.name;\n    const fullName = subgroup === \"freshwater\" ? name : name + \" \" + subgroup;",
-      "context_after": "    return;\n  }\n  if (group === \"coastline\") return tip(\"点击编辑海岸线\");",
-      "target": "${fullName}湖泊。点击编辑",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
       "id": "sha256:91cf2ebf46561dd3",
       "source": "河流 ${i} 有 ${cells.length} 个单元格，但仅定义了 ${points.length} 个点。重置点数据",
       "file": "public/modules/ui/layers.js",
@@ -20438,71 +19574,6 @@
       "skip_reason": "pre-translated legacy (source already Chinese)"
     },
     {
-      "id": "sha256:8af3477d044cb18a",
-      "source": "<i>States Number</i> 选项值为零。未生成任何国家",
-      "file": "public/modules/ui/tools.js",
-      "line": 203,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "\n  const statesCount = +ensureEl(\"statesNumber\").value;\n  if (!statesCount) {",
-      "context_after": "    return null;\n  }\n",
-      "target": "<i>States Number</i> 选项值为零。未生成任何国家",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:dff00535057517b6",
-      "source": "点击地图放置标签。按住 Shift 添加多个",
-      "file": "public/modules/ui/tools.js",
-      "line": 672,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  addLabel.classList.add(\"pressed\");\n  closeDialogs(\".stable\");\n  viewbox.style(\"cursor\", \"crosshair\").on(\"click\", addLabelOnClick);",
-      "context_after": "  if (!layerIsOn(\"toggleLabels\")) toggleLabels();\n}\n",
-      "target": "点击地图放置标签。按住 Shift 添加多个",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:03d3be270ec0968c",
-      "source": "点击地图放置新河流或延伸现有河流。按住 Shift 放置多条河流",
-      "file": "public/modules/ui/tools.js",
-      "line": 752,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  findEl(\"addNewRiver\")?.classList.add(\"pressed\");\n  closeDialogs(\".stable\");\n  viewbox.style(\"cursor\", \"crosshair\").on(\"click\", addRiverOnClick);",
-      "context_after": "  if (!layerIsOn(\"toggleRivers\")) toggleRivers();\n}\n",
-      "target": "点击地图放置新河流或延伸现有河流。按住 Shift 放置多条河流",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:239fbd580a40eeee",
-      "source": "单元格 ${i} 处于洼地，河流无法继续流动",
-      "file": "public/modules/ui/tools.js",
-      "line": 779,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "    riverCells.push(i);\n\n    const min = cells.c[i].sort((a, b) => h[a] - h[b])[0]; // downhill cell",
-      "context_after": "\n    // pour to water body\n    if (h[min] < 20) {",
-      "target": "单元格 ${i} 处于洼地，河流无法继续流动",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
-      "id": "sha256:daa19acc609b8bd1",
-      "source": "点击地图添加标记。按住 Shift 添加多个",
-      "file": "public/modules/ui/tools.js",
-      "line": 914,
-      "type": "ts_string",
-      "context_tag": "message",
-      "context_before": "  document.getElementById(\"markersAddFromOverview\")?.classList.add(\"pressed\");\n\n  viewbox.style(\"cursor\", \"crosshair\").on(\"click\", addMarkerOnClick);",
-      "context_after": "  if (!layerIsOn(\"toggleMarkers\")) toggleMarkers();\n}\n",
-      "target": "点击地图添加标记。按住 Shift 添加多个",
-      "skipped": true,
-      "skip_reason": "pre-translated legacy (source already Chinese)"
-    },
-    {
       "id": "sha256:4c198c10ce75f72b",
       "source": "解析 AI 提供商错误响应失败",
       "file": "src/controllers/ai-generator.ts",
@@ -20563,7 +19634,7 @@
       "context_tag": "option",
       "context_before": "                    <option value=\"pennant\">Pennant</option>\n                  </optgroup>\n                  <optgroup label=\"Simple\">",
       "context_after": "                    <option value=\"oval\">Oval</option>\n                    <option value=\"vesicaPiscis\">Vesica Piscis</option>\n                    <option value=\"square\">Square</option>",
-      "target": "Round",
+      "target": "圆角",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20576,7 +19647,7 @@
       "context_tag": "option",
       "context_before": "                    <option value=\"round\">Round</option>\n                    <option value=\"oval\">Oval</option>\n                    <option value=\"vesicaPiscis\">Vesica Piscis</option>",
       "context_after": "                    <option value=\"diamond\">Diamond</option>\n                  </optgroup>\n                  <optgroup label=\"Fantasy\">",
-      "target": "Square",
+      "target": "方形",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20589,7 +19660,7 @@
       "context_tag": "button",
       "context_before": "        <div id=\"toolsContent\" class=\"tabcontent\">\n          <div class=\"separator\">Edit</div>\n          <div class=\"grid\">",
       "context_after": "              Biomes\n            </button>\n            <button id=\"overviewBurgsButton\" data-tip=\"Click to open Burgs Overview\" data-shortcut=\"Shift + T\">",
-      "target": "Biomes",
+      "target": "生物群系",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20602,7 +19673,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"editBiomesButton\" data-tip=\"Click to open Biomes Editor\" data-shortcut=\"Shift + B\">\n              Biomes\n            </button>",
       "context_after": "              Burgs\n            </button>\n            <button",
-      "target": "Burgs",
+      "target": "城镇",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20615,7 +19686,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Coastlines\n            </button>",
       "context_after": "              Cultures\n            </button>\n            <button",
-      "target": "Cultures",
+      "target": "文化",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20628,7 +19699,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Diplomacy\n            </button>",
       "context_after": "              Emblems\n            </button>\n            <button id=\"editGoods\" data-tip=\"Click to open Goods Editor\" data-shortcut=\"Shift + G\">Goods</button>",
-      "target": "Emblems",
+      "target": "纹章",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20641,7 +19712,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Heightmap\n            </button>",
       "context_after": "              Markers\n            </button>\n            <button id=\"overviewMarketsButton\" data-tip=\"Click to open Markets Overview\">",
-      "target": "Markers",
+      "target": "标记",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20654,7 +19725,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"overviewMarkersButton\" data-tip=\"Click to open Markers Overview\" data-shortcut=\"Shift + K\">\n              Markers\n            </button>",
       "context_after": "              Markets\n            </button>\n            <button id=\"editMeasurersButton\" data-tip=\"Click to open Measurers Editor\" data-shortcut=\"Shift + =\">",
-      "target": "Markets",
+      "target": "市场",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20667,7 +19738,7 @@
       "context_tag": "button",
       "context_before": "              Namesbase\n            </button>\n            <button id=\"editNotesButton\" data-tip=\"Click to open Notes Editor\" data-shortcut=\"Shift + O\">Notes</button>",
       "context_after": "              Provinces\n            </button>\n            <button id=\"editReligions\" data-tip=\"Click to open Religions Editor\" data-shortcut=\"Shift + R\">",
-      "target": "Provinces",
+      "target": "省份",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20680,7 +19751,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"editProvincesButton\" data-tip=\"Click to open Provinces Editor\" data-shortcut=\"Shift + P\">\n              Provinces\n            </button>",
       "context_after": "              Religions\n            </button>\n            <button id=\"overviewRiversButton\" data-tip=\"Click to open Rivers Overview\" data-shortcut=\"Shift + V\">",
-      "target": "Religions",
+      "target": "宗教",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20693,7 +19764,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"editReligions\" data-tip=\"Click to open Religions Editor\" data-shortcut=\"Shift + R\">\n              Religions\n            </button>",
       "context_after": "              Rivers\n            </button>\n            <button id=\"overviewRoutesButton\" data-tip=\"Click to open Routes Overview\" data-shortcut=\"Shift + U\">",
-      "target": "Rivers",
+      "target": "河流",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20706,7 +19777,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"overviewRiversButton\" data-tip=\"Click to open Rivers Overview\" data-shortcut=\"Shift + V\">\n              Rivers\n            </button>",
       "context_after": "              Routes\n            </button>\n            <button id=\"editStatesButton\" data-tip=\"Click to open States Editor\" data-shortcut=\"Shift + S\">",
-      "target": "Routes",
+      "target": "道路",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20719,7 +19790,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"overviewRoutesButton\" data-tip=\"Click to open Routes Overview\" data-shortcut=\"Shift + U\">\n              Routes\n            </button>",
       "context_after": "              States\n            </button>\n            <button id=\"editTradeAnimationButton\" data-tip=\"Click to open Trade Animation Editor\">",
-      "target": "States",
+      "target": "国家",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20732,7 +19803,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"editStatesButton\" data-tip=\"Click to open States Editor\" data-shortcut=\"Shift + S\">\n              States\n            </button>",
       "context_after": "              Trade\n            </button>\n            <button id=\"editUnitsButton\" data-tip=\"Click to open Units Editor\" data-shortcut=\"Shift + Q\">Units</button>",
-      "target": "Trade",
+      "target": "贸易",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20758,7 +19829,7 @@
       "context_tag": "button",
       "context_before": "              Trade\n            </button>\n            <button id=\"editUnitsButton\" data-tip=\"Click to open Units Editor\" data-shortcut=\"Shift + Q\">Units</button>",
       "context_after": "          </div>\n          <div class=\"separator\">Regenerate</div>\n          <div id=\"regenerateFeature\" class=\"grid\">",
-      "target": "Zones",
+      "target": "区域",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20771,7 +19842,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Burgs\n            </button>",
       "context_after": "            <button\n              id=\"regenerateEconomy\"\n              data-tip=\"Rebuild market territories, production, trade deals, and taxes from the current goods and markets\"",
-      "target": "Cultures",
+      "target": "文化",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20784,7 +19855,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Economy\n            </button>",
       "context_after": "            <button id=\"regenerateGoods\" data-tip=\"Click to regenerate bonus goods placement\">Goods</button>\n            <button id=\"regenerateIce\" data-tip=\"Click to regenerate icebergs and glaciers\">Ice</button>\n            <button",
-      "target": "Emblems",
+      "target": "纹章",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20810,7 +19881,7 @@
       "context_tag": "button",
       "context_before": "            >\n              State Labels\n            </button>",
       "context_after": "              Markers <i id=\"configRegenerateMarkers\" class=\"icon-cog\" data-tip=\"Click to set number multiplier\"></i>\n            </button>\n            <button id=\"regenerateMarkets\" data-tip=\"Click to regenerate markets and their territories\">",
-      "target": "Markers",
+      "target": "标记",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20823,7 +19894,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"regenerateMarkers\" data-tip=\"Click to regenerate unlocked markers\">\n              Markers <i id=\"configRegenerateMarkers\" class=\"icon-cog\" data-tip=\"Click to set number multiplier\"></i>\n            </button>",
       "context_after": "              Markets\n            </button>\n            <button",
-      "target": "Markets",
+      "target": "市场",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20836,7 +19907,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Military\n            </button>",
       "context_after": "              Population\n            </button>\n            <button",
-      "target": "Population",
+      "target": "人口",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20849,7 +19920,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Relief\n            </button>",
       "context_after": "            <button id=\"regenerateRivers\" data-tip=\"Click to regenerate all rivers (restore default state)\">\n              Rivers\n            </button>",
-      "target": "Religions",
+      "target": "宗教",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20862,7 +19933,7 @@
       "context_tag": "button",
       "context_before": "              Relief\n            </button>\n            <button id=\"regenerateReligions\" data-tip=\"Click to regenerate non-locked religions\">Religions</button>",
       "context_after": "              Rivers\n            </button>\n            <button id=\"regenerateRoutes\" data-tip=\"Click to regenerate all unlocked routes\">Routes</button>",
-      "target": "Rivers",
+      "target": "河流",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20875,7 +19946,7 @@
       "context_tag": "button",
       "context_before": "            <button id=\"regenerateRivers\" data-tip=\"Click to regenerate all rivers (restore default state)\">\n              Rivers\n            </button>",
       "context_after": "            <button\n              id=\"regenerateStates\"\n              data-tip=\"Click to regenerate non-locked states. Emblems and military forces will be regenerated as well, burgs will remain as they are, but capitals will be different\"",
-      "target": "Routes",
+      "target": "道路",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20888,7 +19959,7 @@
       "context_tag": "button",
       "context_before": "          </div>\n          <div class=\"separator\">Show</div>\n          <div class=\"grid\">",
       "context_after": "              Cells\n            </button>\n            <button",
-      "target": "Cells",
+      "target": "单元格",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20901,7 +19972,7 @@
       "context_tag": "button",
       "context_before": "            >\n              Charts\n            </button>",
       "context_after": "              Minimap\n            </button>\n          </div>",
-      "target": "Minimap",
+      "target": "小地图",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20953,7 +20024,7 @@
       "context_tag": "button",
       "context_before": "            <button data-tip=\"Open template editor\" id=\"applyTemplate\" style=\"display: none\">Template Editor</button>\n            <button data-tip=\"Open Image Converter\" id=\"convertImage\" style=\"display: none\">Image Converter</button>\n            <button data-tip=\"Render heightmap data as a small monochrome image\" id=\"heightmapPreview\">Preview</button>",
       "context_after": "          </div>\n          <p>Options:</p>\n          <div id=\"customizeOptions\">",
-      "target": "3D scene",
+      "target": "3D 场景",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -20971,19 +20042,6 @@
       "skip_reason": "pre-translated (TM id mismatch)"
     },
     {
-      "id": "sha256:e341993f4e8c0bd7",
-      "source": "SUPPORT ON PATREON",
-      "file": "src/index.html",
-      "line": 2380,
-      "type": "html_text",
-      "context_tag": "section",
-      "context_before": "                    <circle cx=\"362.589996\" cy=\"204.589996\" data-fill=\"1\" id=\"Oval\" r=\"204.589996\" />\n                    <rect data-fill=\"2\" height=\"545.799988\" id=\"Rectangle\" width=\"100\" x=\"0\" y=\"0\" />\n                  </svg>",
-      "context_after": "                SUPPORT ON PATREON\n              </div>\n            </a>",
-      "target": "SUPPORT ON PATREON",
-      "skipped": true,
-      "skip_reason": "user request: not translated"
-    },
-    {
       "id": "sha256:ce7a4f411c1521b0",
       "source": "Special thanks to",
       "file": "src/index.html",
@@ -20992,7 +20050,7 @@
       "context_tag": "section",
       "context_before": "              </div>\n            </a>\n          </div>",
       "context_after": "            Special thanks to\n            <a data-tip=\"Click to see list of supporters\" onclick=\"showSupporters()\">all supporters</a> on Patreon!\n          </p>",
-      "target": "Special thanks to",
+      "target": "特别感谢",
       "skipped": true,
       "skip_reason": "user request: not translated"
     },
@@ -21005,7 +20063,7 @@
       "context_tag": "data-tip",
       "context_before": "          </div>\n          <p>\n            Special thanks to",
       "context_after": "          </p>\n          <div style=\"display: flex; justify-content: center; padding: 0.8em 0.4em 0.4em; font-family: cursive\">\n            <a href=\"https://u24.gov.ua/\" style=\"width: 80%\" data-tip=\"Support Ukraine\" target=\"_blank\">",
-      "target": "Click to see list of supporters",
+      "target": "点击查看支持者列表",
       "skipped": true,
       "skip_reason": "user request: not translated"
     },
@@ -21018,7 +20076,7 @@
       "context_tag": "button",
       "context_before": "          </div>\n          <p>\n            Special thanks to",
       "context_after": "          </p>\n          <div style=\"display: flex; justify-content: center; padding: 0.8em 0.4em 0.4em; font-family: cursive\">\n            <a href=\"https://u24.gov.ua/\" style=\"width: 80%\" data-tip=\"Support Ukraine\" target=\"_blank\">",
-      "target": "all supporters",
+      "target": "所有支持者",
       "skipped": true,
       "skip_reason": "user request: not translated"
     },
@@ -21031,7 +20089,7 @@
       "context_tag": "section",
       "context_before": "          </div>\n          <p>\n            Special thanks to",
       "context_after": "          </p>\n          <div style=\"display: flex; justify-content: center; padding: 0.8em 0.4em 0.4em; font-family: cursive\">\n            <a href=\"https://u24.gov.ua/\" style=\"width: 80%\" data-tip=\"Support Ukraine\" target=\"_blank\">",
-      "target": "on Patreon!",
+      "target": "在 Patreon 上！",
       "skipped": true,
       "skip_reason": "user request: not translated"
     },
@@ -21083,7 +20141,7 @@
       "context_tag": "section",
       "context_before": "            >installed on your computer</a\n          >, just provide the font name. Make sure the browser is reloaded after the installation. The font won't work\n          on machines not having it installed. Good source of fonts are",
       "context_after": "          <a href=\"https://www.dafont.com\" target=\"_blank\">DaFont</a>.\n        </p>\n        <p>",
-      "target": "and",
+      "target": "和",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },
@@ -21096,7 +20154,7 @@
       "context_tag": "section",
       "context_before": "        </p>\n        <p>\n          <strong>Font URL</strong>. Provide font name and link to the font file hosted online. The best free font",
       "context_after": "          <a target=\"_blank\" href=\"https://www.cdnfonts.com\">CDN Fonts</a>. To get font file open the link to css\n          provided by these services and manually copy the link to <code>woff2</code> of desired variant. To add another\n          variant (e.g. Cyrillic), add the font one more time under the same name, but with another URL",
-      "target": "and",
+      "target": "和",
       "skipped": true,
       "skip_reason": "pre-translated (TM id mismatch)"
     },

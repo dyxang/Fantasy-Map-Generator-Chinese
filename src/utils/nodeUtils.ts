@@ -9,7 +9,7 @@ export const ensureEl = <T extends HTMLElement>(id: string): T => {
   const el = document.getElementById(id);
   if (!el) {
     // TODO: throw an error instead of logging it, and handle it properly in the caller
-    ERROR && console.error(`未找到 id 为 "${id}" 的元素。`);
+    console.error(`未找到 id 为 "${id}" 的元素。`);
     // TOBE: throw new Error(`Element with id "${id}" not found.`);
   }
   return el as T;
@@ -75,12 +75,23 @@ export const getNextId = (core: string, i: number = 1): string => {
   return core + i;
 };
 
+/**
+ * Select a drop-down option by value, adding the option if it is not there yet
+ * @param {HTMLSelectElement} select - The select element
+ * @param {string} value - The value to select
+ * @param {string} name - The label to use if the option has to be added
+ */
+export const applyOption = (element: HTMLElement, value: string, name = value): void => {
+  const select = element as HTMLSelectElement;
+  const isExisting = Array.from(select.options).some(option => option.value === value);
+  if (!isExisting) select.options.add(new Option(name, value));
+  select.value = value;
+};
+
 declare global {
   interface Window {
-    getComposedPath: typeof getComposedPath;
     getNextId: typeof getNextId;
     ensureEl: typeof ensureEl;
     findEl: typeof findEl;
-    destroyDialogIfExists: typeof destroyDialogIfExists;
   }
 }

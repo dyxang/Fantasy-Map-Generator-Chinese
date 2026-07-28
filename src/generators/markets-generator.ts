@@ -1,5 +1,7 @@
 import Alea from "alea";
 import { quadtree } from "d3-quadtree";
+import { tip } from "@/components/tooltips";
+import { rn } from "@/utils";
 import { minmax } from "../utils";
 import { getColors, getRandomColor } from "../utils/colorUtils";
 import type { Burg } from "./burgs-generator";
@@ -34,6 +36,10 @@ export type Deal = {
 
 export class MarketsModule {
   private marketById: Market[] = [];
+
+  regenerate(): Market[] {
+    return this.generate(true);
+  }
 
   generate(regenerate: boolean = false): Market[] {
     TIME && console.time("generateMarkets");
