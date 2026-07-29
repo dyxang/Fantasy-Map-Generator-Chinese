@@ -1,0 +1,25 @@
+[package]
+name = "fmg-desktop"
+version = "0.1.0"
+description = "Azgaar's Fantasy Map Generator - lightweight desktop edition"
+authors = ["FMG Chinese Localization"]
+edition = "2021"
+rust-version = "1.77"
+
+[lib]
+name = "fmg_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+
+# Release profile tuned for minimal binary size
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+opt-level = "s"
+panic = "abort"

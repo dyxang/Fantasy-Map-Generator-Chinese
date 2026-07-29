@@ -15,12 +15,15 @@
   "main": "main.js",
   "scripts": {
     "dev": "vite",
+    "dev:desktop": "tauri dev",
     "build": "tsc && vite build",
+    "build:desktop": "tauri build",
     "preview": "vite preview",
     "test": "vitest",
     "test:e2e": "playwright test",
     "lint": "biome check --write",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "tauri": "tauri"
   },
   "simple-git-hooks": {
     "pre-commit": "npm run lint"
@@ -28,6 +31,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.6",
     "@playwright/test": "^1.57.0",
+    "@tauri-apps/cli": "^2",
     "@types/d3": "^7.4.3",
     "@types/delaunator": "^5.0.3",
     "@types/lineclip": "^2.0.0",

@@ -13,7 +13,7 @@ const ERROR = true;
 // detect device
 const MOBILE = window.innerWidth < 600 || navigator.userAgentData?.mobile;
 
-if (PRODUCTION && "serviceWorker" in navigator) {
+if (PRODUCTION && !IS_TAURI && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./sw.js").catch(err => {
       console.error("ServiceWorker registration failed: ", err);

@@ -12,3 +12,8 @@
 /memory
 .github/agents/bmad-*
 .github/prompts/bmad-*
+
+# Tauri desktop shell build artifacts
+src-tauri/target/
+src-tauri/gen/
+src-tauri/WixTools/

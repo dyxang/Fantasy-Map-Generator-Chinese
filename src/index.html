@@ -26,15 +26,39 @@
       content="Free web app that helps fantasy writers, game masters, and cartographers create and edit fantasy maps"
     />
     <meta name="twitter:image" content="images/preview.png" />
-    <script defer src="https://sakura.1inn.top/script.js" data-website-id="279a18ba-42d8-487c-84ee-162e139e209b"></script>
+    <script>
+      // Set early so all subsequent scripts (including public/main.js) can
+      // branch on the Tauri desktop runtime before they execute. The Tauri
+      // custom protocol is "tauri:" on desktop builds, and the asset origin
+      // is "tauri://localhost".
+      window.IS_TAURI = location.protocol === "tauri:" || (location.protocol === "https:" && location.host.endsWith(".tauri.localhost"));
+    </script>
+    <script>
+      // Skip external analytics on the desktop build so the packaged app
+      // does not phone home and stays fully usable offline.
+      if (!window.IS_TAURI) {
+        document.write(
+          '<script defer src="https://sakura.1inn.top/script.js" data-website-id="279a18ba-42d8-487c-84ee-162e139e209b"><\/script>'
+        );
+      }
+    </script>
     <link rel="icon" type="image/png" href="images/icons/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="images/icons/favicon-16x16.png" sizes="16x16" />
     <link rel="apple-touch-icon" href="images/icons/maskable_icon_x192.png" />
     <link rel="canonical" href="https://8desk.top/" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!--使用中文字体美化尝试-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <script>
+      // Google Fonts are not bundled in the desktop build. The Tauri
+      // WebView (WebView2 / WebKitGTK / WKWebView) renders CJK with the
+      // system fallback font, which is good enough for offline use.
+      if (!window.IS_TAURI) {
+        document.write(
+          '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+          '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">'
+        );
+      }
+    </script>
     <!--结束-->
     <!-- inline css for loading screen -->
     <style type="text/css">
