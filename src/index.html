@@ -2315,7 +2315,7 @@
         </div>
         <div id="aboutContent" class="tabcontent">
           <p><b>关于个人汉化板的特别说明：</b>
-          <p>原版作者:Azgaar
+          <p><b style="font-size:125%;">手搓时代已经过去，官方现已经支持简体中文，请移步官方网站，我们有缘再会——2023年7月11日2026年11月23日</b>
           <p>1.该版本为个人汉化，作者：B站 人类制作，QQ交流群873020847
           <p>2.汉化问题群内提出，官方问题找作者
           <p>3.主站为<a href="https://www.8desk.top" target="_blank">www.8desk.top</a>
@@ -5458,16 +5458,63 @@
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
     <script>
   (function () {
-    var d = new Date();
-    var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-    try {
-      if (localStorage.getItem('migration_popup_date') !== today) {
-        alert(
-          "手搓时代已经过去，官方现已支持简体中文，请移步官方网站，我们有缘再会——2023年7月11日2026年11月23日\n\n汉化版暂停更新，纯交流群：873020847\n\n官方链接：https://github.com/Azgaar/Fantasy-Map-Generator"
-        );
+    function showFarewellDialog() {
+      try {
+        if (localStorage.getItem('migration_popup_disabled') === '1') return;
+        var d = new Date();
+        var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+        if (localStorage.getItem('migration_popup_date') === today) return;
+        var dialogHtml =
+          '<p><b style="font-size:125%;">手搓时代已经过去，官方现已经支持简体中文，请移步官方网站，我们有缘再会——2023年7月11日2026年11月23日</b></p>' +
+          '<p>① <a href="https://azgaar.github.io/Fantasy-Map-Generator" target="_blank">官方网站</a>' +
+          '　② <a href="https://zan.8desk.top" target="_blank">信息站（存档）</a>' +
+          '　③ 交流群：873020847</p>';
+        var countdownTimer = 0;
+        var $dialog = $('<div id="migration-dialog"></div>')
+          .html(dialogHtml)
+          .appendTo('body')
+          .dialog({
+            resizable: false,
+            title: '⚠ 汉化版停止更新公告',
+            width: '28em',
+            position: { my: 'center', at: 'center', of: window },
+            buttons: {
+              知道了: function () { $(this).dialog('close'); },
+              不再显示: function () {
+                localStorage.setItem('migration_popup_disabled', '1');
+                $(this).dialog('close');
+              }
+            },
+            close: function () {
+              clearInterval(countdownTimer);
+              $(this).dialog('destroy').remove();
+            }
+          });
+        // “不再显示”延迟 15 秒才可点击，防止用户下意识误点后永久错过提醒
+        var $btnNever = $dialog
+          .dialog('widget')
+          .find('button')
+          .filter(function () { return $(this).text().indexOf('不再显示') !== -1; })
+          .text('不再显示（15s）')
+          .prop('disabled', true)
+          .addClass('ui-state-disabled');
+        var remain = 15;
+        countdownTimer = setInterval(function () {
+          remain--;
+          $btnNever.text(remain > 0 ? '不再显示（' + remain + 's）' : '不再显示');
+          if (remain <= 0) {
+            clearInterval(countdownTimer);
+            $btnNever.prop('disabled', false).removeClass('ui-state-disabled');
+          }
+        }, 1000);
         localStorage.setItem('migration_popup_date', today);
-      }
-    } catch (e) {}
+      } catch (e) {}
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(showFarewellDialog, 12000); });
+    } else {
+      setTimeout(showFarewellDialog, 12000);
+    }
   })();
     </script>
   </body>
