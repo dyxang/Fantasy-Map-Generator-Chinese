@@ -5469,7 +5469,8 @@
           '<p>① <a href="https://azgaar.github.io/Fantasy-Map-Generator" target="_blank">官方网站</a>' +
           '　② <a href="https://zan.8desk.top" target="_blank">信息站（存档）</a>' +
           '　③ 交流群：873020847</p>';
-        $('<div id="migration-dialog"></div>')
+        var countdownTimer = 0;
+        var $dialog = $('<div id="migration-dialog"></div>')
           .html(dialogHtml)
           .appendTo('body')
           .dialog({
@@ -5484,8 +5485,28 @@
                 $(this).dialog('close');
               }
             },
-            close: function () { $(this).dialog('destroy').remove(); }
+            close: function () {
+              clearInterval(countdownTimer);
+              $(this).dialog('destroy').remove();
+            }
           });
+        // “不再显示”延迟 15 秒才可点击，防止用户下意识误点后永久错过提醒
+        var $btnNever = $dialog
+          .dialog('widget')
+          .find('button')
+          .filter(function () { return $(this).text().indexOf('不再显示') !== -1; })
+          .text('不再显示（15s）')
+          .prop('disabled', true)
+          .addClass('ui-state-disabled');
+        var remain = 15;
+        countdownTimer = setInterval(function () {
+          remain--;
+          $btnNever.text(remain > 0 ? '不再显示（' + remain + 's）' : '不再显示');
+          if (remain <= 0) {
+            clearInterval(countdownTimer);
+            $btnNever.prop('disabled', false).removeClass('ui-state-disabled');
+          }
+        }, 1000);
         localStorage.setItem('migration_popup_date', today);
       } catch (e) {}
     }
