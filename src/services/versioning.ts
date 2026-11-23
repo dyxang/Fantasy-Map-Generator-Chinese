@@ -16,7 +16,7 @@
  */
 import { showConnectivityDialog } from "./connectivity-check";
 
-export const VERSION = "1.139.2";
+export const VERSION = "1.139.3";
 
 const latestPublicChanges = [
   "经济模拟",
@@ -103,12 +103,9 @@ function showUpdateWindow(storedVersion: string | null): void {
 
   alertMessage.innerHTML = /* html */ `幻想地图生成器更新到版本<strong>${VERSION}</strong>，此版本兼容<a href="${changelog}" target="_blank">这些版本</a>，地图文件将自动更新
     ${storedVersion ? "<span><strong>⚠一定要点击</strong>重新加载页面以获取新的代码。</span>" : ""}
-<p><strong>⚠请必须仔细阅读以下内容！</strong></p>
-<p>❗因代码底层逻辑，推荐电脑访问达到最好体验❗<p>
-<p>①<a href="https://www.8desk.top" target="_blank">主站链接</a>②<a href="https://zan.8desk.top" target="_blank">信息站</a></p>
-<p>应要求，建了个汉化版交流的群：873020847</p>汉化版完全免费，支持译者:
-<p><a href="https://afdian.com/a/freeguy" target="_blank" style="color: #946ce6;">爱发电</a></p>
-<p><a href="https://zan.8desk.top/#/./SU" target="_blank" style="color: #42b983;">微信赞赏码</a><p>
+<p><h1>手搓时代已经过去，现在官方已经支持简体中文，请移步官方网站/仓库，我们有缘再会——2023年7月11日2026年11月23日</h1></p>    
+<p>①<a href="https://azgaar.github.io/Fantasy-Map-Generator" target="_blank">官方网站</a>②<a href="https://zan.8desk.top" target="_blank">信息站（存档）</a></p>
+<p>应要求，建了个交流的群：873020847</p>
     <ul>
       <strong>最近更新:</strong>
       ${latestPublicChanges.map(change => `<li>${change}</li>`).join("")}
