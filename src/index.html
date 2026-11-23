@@ -5456,5 +5456,19 @@
     <script defer src="modules/ui/style.js?v=1.139.0"></script>
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
+    <script>
+  (function () {
+    var d = new Date();
+    var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    try {
+      if (localStorage.getItem('migration_popup_date') !== today) {
+        alert(
+          "手搓时代已经过去，官方现已支持简体中文，请移步官方网站，我们有缘再会——2023年7月11日2026年11月23日\n\n汉化版暂停更新，纯交流群：873020847\n\n官方链接：https://github.com/Azgaar/Fantasy-Map-Generator"
+        );
+        localStorage.setItem('migration_popup_date', today);
+      }
+    } catch (e) {}
+  })();
+    </script>
   </body>
 </html>
